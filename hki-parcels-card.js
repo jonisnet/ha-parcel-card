@@ -1263,6 +1263,23 @@ class HkiParcelsCard extends HTMLElement {
         return { image: placeholderImage, showText: false };
     }
 
+    // Splits items into rows of at most maxPerRow, distributing the count across rows
+    // as evenly as possible (e.g. 5 -> [3,2], not [4,1]) rather than filling each row
+    // to the cap before starting the next.
+    _splitIntoBalancedRows(items, maxPerRow = 4) {
+        const rows = Math.max(1, Math.ceil(items.length / maxPerRow));
+        const base = Math.floor(items.length / rows);
+        const extra = items.length % rows;
+        const result = [];
+        let i = 0;
+        for (let r = 0; r < rows; r++) {
+            const count = base + (r < extra ? 1 : 0);
+            result.push(items.slice(i, i + count));
+            i += count;
+        }
+        return result;
+    }
+
     _openLetterPopup(src, name, dateLabel) {
         let popup = this.shadowRoot.querySelector('.letter-popup-overlay');
         if (!popup) {
@@ -1760,14 +1777,15 @@ class HkiParcelsCard extends HTMLElement {
             const bg = this._getNoSelectionBackground();
             if (bg.comboLogos) {
                 animationEl.classList.add('combo-placeholder');
-                animationEl.innerHTML = `<div class="combo-logo-row">${bg.comboLogos.map(c => `
+                const rows = this._splitIntoBalancedRows(bg.comboLogos, 4);
+                animationEl.innerHTML = rows.map(row => `<div class="combo-logo-row">${row.map(c => `
                     <div class="combo-panel" data-carrier="${c.carrier_name || ''}" style="--panel-color:${c.carrier_color || DEFAULT_CARRIER_COLOR};" title="${c.carrier_name || ''}">
                         <div class="combo-panel-bg"></div>
                         ${c.carrier_logo
                             ? `<img class="combo-logo" src="${c.carrier_logo}" alt="${c.carrier_name || ''}" />`
                             : `<div class="combo-logo-chip" style="background:${c.carrier_color || DEFAULT_CARRIER_COLOR};"><ha-icon icon="${c.carrier_icon || DEFAULT_CARRIER_ICON}"></ha-icon></div>`}
                     </div>`
-                ).join('')}</div>`;
+                ).join('')}</div>`).join('');
                 animationEl.querySelectorAll('.combo-panel').forEach(el =>
                     el.addEventListener('click', () => this._openCarrierPopup(el.dataset.carrier))
                 );
@@ -1921,7 +1939,7 @@ class HkiParcelsCard extends HTMLElement {
             .tab.active::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--accent); }
             .header-animation { background-size: cover; background-position: center; background-repeat: no-repeat; padding: 16px; border-bottom: 1px solid var(--divider-color); height: 150px; box-sizing: border-box; }
             .header-animation.animation-active { background-image: none !important; background-color: var(--card-background-color); }
-            .header-animation.combo-placeholder { background-image: none !important; background-color: var(--card-background-color); display: flex; padding: 0 !important; }
+            .header-animation.combo-placeholder { background-image: none !important; background-color: var(--card-background-color); display: flex; flex-direction: column; padding: 0 !important; height: auto; min-height: 150px; }
             .header-animation.status-tracker-active { height: auto; min-height: 150px; padding-top: 14px; padding-bottom: 12px; }
             .status-tracker { display: flex; flex-direction: column; align-items: center; gap: 14px; }
             .status-steps { display: flex; align-items: flex-start; width: 100%; }
@@ -1945,7 +1963,8 @@ class HkiParcelsCard extends HTMLElement {
             .status-hero-info { flex: 0 1 42%; text-align: left; display: flex; flex-direction: column; gap: 10px; }
             .status-hero-info-label { font-size: 14px; line-height: 1.35; color: var(--secondary-text-color); }
             .status-hero-info-time { font-size: 16px; line-height: 1.35; font-weight: 700; color: var(--primary-text-color); margin-top: 2px; }
-            .combo-logo-row { display: flex; width: 100%; height: 100%; }
+            .combo-logo-row { display: flex; width: 100%; flex: 1 1 0; min-height: 90px; }
+            .combo-logo-row:not(:last-child) { border-bottom: 1px solid var(--divider-color); }
             .combo-panel { flex: 1 1 0; min-width: 0; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
             .combo-panel:not(:last-child)::after { content: ''; position: absolute; right: 0; top: 24%; bottom: 24%; width: 1px; background: var(--divider-color); opacity: 0.7; }
             .combo-panel-bg { position: absolute; inset: 0; background: var(--panel-color); opacity: 0.09; }
@@ -1969,7 +1988,7 @@ class HkiParcelsCard extends HTMLElement {
             .carrier-section-header { display: flex; align-items: center; gap: 8px; padding: 10px 16px; background: var(--secondary-background-color); font-size: 0.8em; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: var(--carrier-color, var(--accent)); border-top: 1px solid var(--divider-color); }
             .carrier-section-header ha-icon { color: var(--carrier-color, var(--accent)); }
             .carrier-section-count { margin-left: auto; background: var(--carrier-color, var(--accent)); color: white; border-radius: 10px; padding: 1px 8px; font-size: 0.85em; }
-            .post-section + .post-section { margin-top: 4px; }
+            .post-section + .post-section { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--divider-color); }
             .post-section-title { padding: 12px 16px 4px; font-size: 0.95em; font-weight: 700; color: var(--primary-text-color); background: var(--card-background-color); }
             .parcel-header { padding: 16px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: background 0.2s; user-select: none; }
             .parcel-header:hover { background: var(--secondary-background-color); }
