@@ -1,6 +1,6 @@
 # Tips & Tricks
 
-## Choosing the Right PostNL Type
+## Choosing the right PostNL type
 
 The card supports three PostNL variants. Use the table below to pick the right one.
 
@@ -11,13 +11,13 @@ The card supports three PostNL variants. Use the table below to pick the right o
 | Using arjenbos/ha-postnl | `postnl_legacy` |
 
 !!! tip
-    If you upgrade from peternijssen/ha-postnl v3.x to v4.x, change `type: postnl` to `type: postnl_v4` in the card configuration. Your sensor entity IDs stay the same — only the card type needs to change.
+    If you upgrade from ha-postnl v3.x to v4.x, change `type: postnl` to `type: postnl_v4` in the card configuration. Your sensor entity IDs stay the same — only the card type needs to change.
 
 ---
 
-## Sensors Without a Username Prefix
+## Sensors without a username prefix
 
-Some PostNL setups create sensors without a username prefix, for example `sensor.postnl_incoming_parcels` instead of `sensor.john_postnl_incoming_parcels`. In this case, leave the `user` field empty:
+Some setups create sensors without a username prefix, for example `sensor.postnl_incoming_parcels` instead of `sensor.john_postnl_incoming_parcels`. In this case, leave the `user` field empty:
 
 ```yaml
 carriers:
@@ -29,7 +29,13 @@ The editor's auto-detection also handles this case automatically.
 
 ---
 
-## Limiting the History Period
+## Registering a parcel without opening the integration
+
+For GLS, Dragonfly, Trunkrs and Cainiao, use the "+ Add parcel" control at the bottom of the card instead of switching to the integration's own Configure dialog — it calls the same `track_parcel` service directly, so the parcel shows up in the card immediately. See [Add parcel support](overview.md#add-parcel-support) for why this isn't available for PostNL/DHL/DPD.
+
+---
+
+## Limiting the history period
 
 Use `days_back` to control how far back delivered parcels are shown. A shorter period keeps the Delivered tab manageable.
 
@@ -39,9 +45,9 @@ days_back: 7   # Show only the last 7 days
 
 ---
 
-## Hiding Unused Tabs
+## Hiding unused tabs
 
-If you do not use DHL or DPD, or do not send parcels, you can hide the tabs you don't need:
+If you don't send parcels, or don't use PostNL, you can hide the tabs you don't need:
 
 ```yaml
 show_sent: false
@@ -50,13 +56,19 @@ show_letters: false
 
 ---
 
-## Using PHU Carrier Icons
+## Using the carrier overview popup
 
-If you have [custom-brand-icons](https://github.com/elax46/custom-brand-icons) installed via HACS, the card automatically uses branded carrier icons (`phu:postnl`, `phu:dhl`, `phu:dpd`). No configuration is needed — icons are resolved at render time.
+With two or more carriers configured, click any logo in the combo banner to see everything for that carrier — In Transit, Delivered, Sent and Letters — in one popup, without switching tabs. It's a quick way to check "has anything from GLS shown up yet?" without hunting across every tab.
 
 ---
 
-## Multiple Cards for Different Purposes
+## Using PHU carrier icons
+
+If you have [custom-brand-icons](https://github.com/elax46/custom-brand-icons) installed via HACS, the card automatically uses branded carrier icons where available. No configuration is needed — icons are resolved at render time. Coverage currently varies by carrier; see [Installation](../installation.md#optional-phu-carrier-icons) for the full breakdown.
+
+---
+
+## Multiple cards for different purposes
 
 Consider using two separate cards: one focused on active deliveries and one showing history.
 
@@ -86,7 +98,7 @@ carriers:
 
 ---
 
-## Colour Theming
+## Colour theming
 
 Use CSS variables for colours that automatically adapt to your Home Assistant theme:
 
@@ -104,7 +116,7 @@ header_text_color: "#e0e0e0"
 
 ---
 
-## Reordering Card Sections
+## Reordering card sections
 
 Change the visual order of the header, animation, tabs and list sections:
 

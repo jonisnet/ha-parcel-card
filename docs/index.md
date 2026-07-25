@@ -1,10 +1,10 @@
 # HKI Parcels Card
 
-**Track parcels from PostNL, DHL and DPD in a single Home Assistant card.**
+**Track parcels from PostNL, DHL, DPD, GLS, Dragonfly, Trunkrs and Cainiao in a single Home Assistant card.**
 
-Automatic sensor detection, animated banners, letterbox mail with scan images, and a complete visual editor — no YAML required.
+Automatic sensor detection, animated banners, a 4-step delivery tracker, letterbox mail with scan images, a carrier overview popup, and a complete visual editor — no YAML required.
 
-![Dashboard screenshot](https://raw.githubusercontent.com/jonisnet/hki-parcels-card/main/images/screenshot-dashboard.png)
+![Dashboard screenshot](images/screenshot-dashboard.png)
 
 <div class="grid cards" markdown>
 
@@ -12,13 +12,25 @@ Automatic sensor detection, animated banners, letterbox mail with scan images, a
 
     ---
 
-    PostNL, DHL and DPD side by side. Add the same carrier multiple times for multiple accounts.
+    PostNL, DHL, DPD, GLS, Dragonfly, Trunkrs and Cainiao side by side. Add the same carrier multiple times for multiple accounts or hubs.
 
 -   :magic_wand:{ .lg .middle } **Auto sensor detection**
 
     ---
 
-    Enter your account name — the card finds your sensors and fills in all entity IDs automatically.
+    Enter your account name — the card finds your sensors and fills in all entity IDs automatically, for both known naming schemes.
+
+-   :bell:{ .lg .middle } **Carrier overview popup**
+
+    ---
+
+    Click a carrier's logo in the combo banner to see every parcel and letter for that carrier across all tabs, expandable in place.
+
+-   :heavy_plus_sign:{ .lg .middle } **Add a parcel from the card**
+
+    ---
+
+    Account-less carriers (GLS, Dragonfly, Trunkrs, Cainiao) get a "+ Add parcel" control that registers a tracking number directly.
 
 -   :frame_with_picture:{ .lg .middle } **Media browser**
 
@@ -51,7 +63,7 @@ Automatic sensor detection, animated banners, letterbox mail with scan images, a
     !!! tip "Which PostNL type?"
         Use `postnl_v4` for ha-postnl ≥ 4.0.0 (recommended), `postnl` for version 3.x, or `postnl_legacy` for arjenbos/ha-postnl.
 
-=== "DHL"
+=== "DHL / DPD / GLS"
 
     ```yaml
     type: custom:hki-parcels-card
@@ -59,19 +71,30 @@ Automatic sensor detection, animated banners, letterbox mail with scan images, a
     carriers:
       - type: dhl
         user: my_account
+      - type: dpd
+        user: my_account
+      - type: gls
+        user: "1234ab"
     ```
 
-=== "DPD"
+    !!! note "GLS has no account"
+        GLS tracks parcels by tracking number and postal code rather than a login — `user` maps to the hub's postal code.
+
+=== "Dragonfly / Trunkrs / Cainiao"
 
     ```yaml
     type: custom:hki-parcels-card
     title: Parcels
     carriers:
-      - type: dpd
-        user: my_account
+      - type: dragonfly
+      - type: trunkrs
+        user: "1234ab"
+      - type: cainiao
     ```
 
-=== "All carriers"
+    These three (plus GLS) are the account-less carriers — register a parcel with the "+ Add parcel" control on the card itself instead of logging into an account. See [Add parcel support](card/overview.md#add-parcel-support).
+
+=== "Every carrier"
 
     ```yaml
     type: custom:hki-parcels-card
@@ -83,7 +106,15 @@ Automatic sensor detection, animated banners, letterbox mail with scan images, a
         user: my_account
       - type: dpd
         user: my_account
+      - type: gls
+        user: "1234ab"
+      - type: dragonfly
+      - type: trunkrs
+        user: "1234ab"
+      - type: cainiao
     ```
+
+Or skip the YAML entirely — add the card via the dashboard UI and it auto-detects every installed carrier integration, pre-filling a fully configured entry for each one it finds.
 
 [Installation :material-arrow-right:](installation.md){ .md-button .md-button--primary }
 [Configuration :material-arrow-right:](card/configuration.md){ .md-button }
@@ -92,17 +123,24 @@ Automatic sensor detection, animated banners, letterbox mail with scan images, a
 
 ## Supported carriers
 
-| Carrier | Integration | Card type |
-| ------- | ----------- | --------- |
-| **PostNL** (recommended) | [peternijssen/ha-postnl](https://github.com/peternijssen/ha-postnl) ≥ 4.0.0 | `postnl_v4` |
-| **PostNL** (v3.x) | [peternijssen/ha-postnl](https://github.com/peternijssen/ha-postnl) ≤ 3.x | `postnl` |
-| **PostNL** (arjenbos) | [arjenbos/ha-postnl](https://github.com/arjenbos/ha-postnl) | `postnl_legacy` |
-| **DHL** | [peternijssen/ha-dhl-nl](https://github.com/peternijssen/ha-dhl-nl) | `dhl` |
-| **DPD** | [peternijssen/ha-dpd](https://github.com/peternijssen/ha-dpd) | `dpd` |
-| **GLS** | [peternijssen/ha-gls](https://github.com/peternijssen/ha-gls) | `gls` |
-| **Dragonfly** | [HummelsTech/ha-dragonfly](https://github.com/HummelsTech/ha-dragonfly) | `dragonfly` |
+All carriers below are part of the [ha-parcel-integrations](https://github.com/ha-parcel-integrations) family — Home Assistant integrations that publish a shared canonical parcel format, which is what lets one card support all of them with the same logic.
+
+| Carrier | Integration | Card type | Account type |
+| ------- | ----------- | --------- | ------------ |
+| **PostNL** (recommended) | [ha-postnl](https://github.com/ha-parcel-integrations/ha-postnl) ≥ 4.0.0 | `postnl_v4` | Account login |
+| **PostNL** (v3.x) | [ha-postnl](https://github.com/ha-parcel-integrations/ha-postnl) ≤ 3.x | `postnl` | Account login |
+| **PostNL** (arjenbos) | [arjenbos/ha-postnl](https://github.com/arjenbos/ha-postnl) | `postnl_legacy` | Account login |
+| **DHL** | [ha-dhl-nl](https://github.com/ha-parcel-integrations/ha-dhl-nl) | `dhl` | Account login |
+| **DPD** | [ha-dpd](https://github.com/ha-parcel-integrations/ha-dpd) | `dpd` | Account login |
+| **GLS** | [ha-gls](https://github.com/ha-parcel-integrations/ha-gls) | `gls` | Tracking number + postal code |
+| **Dragonfly** | [ha-dragonfly](https://github.com/ha-parcel-integrations/ha-dragonfly) | `dragonfly` | Tracking number only |
+| **Trunkrs** | [ha-trunkrs](https://github.com/ha-parcel-integrations/ha-trunkrs) | `trunkrs` | Tracking number + postal code |
+| **Cainiao** | [ha-cainiao](https://github.com/ha-parcel-integrations/ha-cainiao) | `cainiao` | Tracking number only |
+
+!!! note "Add parcel support"
+    Only the account-less carriers (GLS, Dragonfly, Trunkrs, Cainiao) get the card's "+ Add parcel" control — PostNL, DHL and DPD auto-sync every parcel tied to the logged-in account and don't expose a service to register one manually. Full explanation on the [Overview page](card/overview.md#add-parcel-support).
 
 ---
 
 !!! note "Part of HKI Elements"
-    This card is based on [jimz011/hki-elements](https://github.com/jimz011/hki-elements) — the original PostNL card from the HKI project, extended with multi-carrier support and letterbox mail.
+    This card is based on [jimz011/hki-elements](https://github.com/jimz011/hki-elements) — the original PostNL card from the HKI project, extended with multi-carrier support, a carrier overview popup and letterbox mail.

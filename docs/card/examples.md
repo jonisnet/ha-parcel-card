@@ -1,6 +1,6 @@
 # Examples
 
-## PostNL Only — Minimal
+## PostNL only — minimal
 
 ```yaml
 type: custom:hki-parcels-card
@@ -12,7 +12,7 @@ carriers:
 
 ---
 
-## PostNL with Letters Tab
+## PostNL with letters tab
 
 ```yaml
 type: custom:hki-parcels-card
@@ -25,11 +25,11 @@ carriers:
 
 ---
 
-## PostNL + DHL + DPD
+## Every carrier at once
 
 ```yaml
 type: custom:hki-parcels-card
-title: Mijn Pakketjes
+title: Alle pakketten
 carriers:
   - type: postnl_v4
     user: my_account
@@ -37,6 +37,31 @@ carriers:
     user: my_account
   - type: dpd
     user: my_account
+  - type: gls
+    user: "1234ab"
+  - type: dragonfly
+  - type: trunkrs
+    user: "1234ab"
+  - type: cainiao
+```
+
+With this many carriers, the combo banner (and the carrier overview popup when you click a logo in it) becomes the fastest way to check on a specific carrier without paging through every tab.
+
+---
+
+## Account-less carriers with add-parcel enabled
+
+```yaml
+type: custom:hki-parcels-card
+title: Losse pakketten
+show_add_parcel: true
+carriers:
+  - type: gls
+    user: "1234ab"
+  - type: dragonfly
+  - type: trunkrs
+    user: "1234ab"
+  - type: cainiao
 ```
 
 ---
@@ -54,7 +79,7 @@ carriers:
 
 ---
 
-## Active Deliveries Only (no history)
+## Active deliveries only (no history)
 
 ```yaml
 type: custom:hki-parcels-card
@@ -71,7 +96,7 @@ carriers:
 
 ---
 
-## History Card (no animation, compact)
+## History card (no animation, compact)
 
 ```yaml
 type: custom:hki-parcels-card
@@ -87,7 +112,7 @@ carriers:
 
 ---
 
-## Custom Appearance
+## Custom appearance
 
 ```yaml
 type: custom:hki-parcels-card
@@ -105,7 +130,7 @@ carriers:
 
 ---
 
-## Sensors Without a Username Prefix
+## Sensors without a username prefix
 
 For setups where sensors are named `sensor.postnl_incoming_parcels` (no `<user>_` prefix):
 
@@ -119,7 +144,7 @@ carriers:
 
 ---
 
-## Manual Sensor Override
+## Manual sensor override
 
 When sensor entity IDs differ from the automatic pattern:
 

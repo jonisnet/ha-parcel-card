@@ -6,14 +6,15 @@ The card cannot find one or more sensor entities.
 
 **Causes and solutions:**
 
-1. The parcel integration is not installed — install the integration for your carrier and configure your account credentials.
+1. The parcel integration is not installed — install the integration for your carrier (see [Installation](../installation.md)) and configure your account or tracking number.
 2. The `user` field does not match your sensor prefix — check the actual sensor name in **Developer Tools → States** and adjust `user` accordingly.
 3. The sensors have no username prefix — leave `user` empty (`user: ""`).
 4. You selected the wrong PostNL type — if your sensor names include `postnl`, use `postnl_v4` (for ha-postnl ≥ 4.x) or `postnl` (for ha-postnl ≤ 3.x), not `postnl_legacy`.
+5. The editor's "integration not found" link points at the wrong repo — this was fixed to point at the [ha-parcel-integrations](https://github.com/ha-parcel-integrations) org; update the card if you still see links to `peternijssen/*` or `HummelsTech/*`.
 
 ---
 
-## No Parcels Shown
+## No parcels shown
 
 The card loads but the parcel list is empty.
 
@@ -21,13 +22,14 @@ The card loads but the parcel list is empty.
 
 1. `days_back` is too short — increase the value to show older delivered parcels.
 2. The integration has not yet received data from the carrier — wait for the next update cycle or trigger a manual refresh.
-3. The sensor exists but has no attributes — verify the integration is authenticated and the account has active parcels.
+3. The sensor exists but has no attributes — verify the integration is authenticated (or, for account-less carriers, that at least one parcel has been registered).
+4. For account-less carriers (GLS, Dragonfly, Trunkrs, Cainiao) — nothing has been tracked yet. Use the "+ Add parcel" control, or the integration's own Configure dialog, to register a tracking number.
 
 ---
 
-## Delivered Parcels Not Visible
+## Delivered parcels not visible
 
-Delivered parcels do not appear in the Bezorgd tab.
+Delivered parcels do not appear in the Delivered tab.
 
 **Causes and solutions:**
 
@@ -37,19 +39,20 @@ Delivered parcels do not appear in the Bezorgd tab.
 
 ---
 
-## Sent Parcels Not Visible
+## Sent parcels not visible
 
-The Verzonden tab is empty.
+The Sent tab is empty, or missing entirely.
 
 **Causes and solutions:**
 
 1. `show_sent` is set to `false` — enable it.
-2. The `entity_outgoing` sensor is not configured and cannot be derived automatically — verify the sensor exists in Developer Tools and add a manual override if needed.
-3. For `postnl_legacy` — configure `distribution_entity` alongside `entity`.
+2. The carrier is GLS, Dragonfly, Trunkrs or Cainiao — these carriers have no Sent tab at all, since there's no sender/account concept for account-less tracking. This is expected, not a bug.
+3. The `entity_outgoing` sensor is not configured and cannot be derived automatically — verify the sensor exists in Developer Tools and add a manual override if needed.
+4. For `postnl_legacy` — configure `distribution_entity` alongside `entity`.
 
 ---
 
-## Letters Tab Not Visible or Empty
+## Letters tab not visible or empty
 
 The Post tab does not appear or shows no letters.
 
@@ -61,7 +64,7 @@ The Post tab does not appear or shows no letters.
 
 ---
 
-## Letter Images Not Showing
+## Letter images not showing
 
 Letters appear but no scan images are displayed.
 
@@ -73,7 +76,27 @@ Letters appear but no scan images are displayed.
 
 ---
 
-## Animation Not Showing
+## "+ Add parcel" is missing or fails
+
+**Causes and solutions:**
+
+1. The control doesn't appear at all — it only shows when at least one configured carrier is account-less (GLS, Dragonfly, Trunkrs, Cainiao). PostNL, DHL and DPD don't support it; see [Add parcel support](overview.md#add-parcel-support) for why.
+2. `show_add_parcel: false` is set — remove it or set to `true`.
+3. Submitting a tracking number does nothing / errors — the control calls the integration's own `track_parcel` service directly. Check **Developer Tools → Actions** to confirm that service exists for your carrier's integration (e.g. `gls.track_parcel`), and check the integration's own logs for the actual failure reason (invalid tracking number, carrier API error, etc.) — the card only relays the call, it doesn't validate tracking numbers itself.
+4. For GLS/Trunkrs specifically — the parcel may land on the wrong hub if `user` (the postal code) isn't set correctly on that carrier entry, since it's passed along automatically with the service call.
+
+---
+
+## Carrier overview popup shows the wrong icon or colour
+
+**Causes and solutions:**
+
+1. If a carrier currently has zero parcels in every tab, the popup previously fell back to a generic icon and colour instead of the carrier's configured branding — fixed in v1.5.0b3. Update to the latest version.
+2. The icon shown is a plain generic shape or a text mark instead of a proper logo — this isn't a bug in the card. [custom-brand-icons](https://github.com/elax46/custom-brand-icons) coverage varies per carrier; some (DPD, GLS) currently only have placeholder-style artwork upstream, and Trunkrs/Cainiao have no PHU icon at all yet. See [PHU carrier icons](../installation.md#optional-phu-carrier-icons).
+
+---
+
+## Animation not showing
 
 The van animation does not appear when a parcel is selected.
 
@@ -84,15 +107,7 @@ The van animation does not appear when a parcel is selected.
 
 ---
 
-## Wrong Carrier Colour
-
-All carriers show the same colour (orange).
-
-This was a bug fixed in v1.0.5. Update to the latest version of the card.
-
----
-
-## Card Shows Blank / White Screen
+## Card shows blank / white screen
 
 **Causes and solutions:**
 

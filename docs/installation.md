@@ -2,10 +2,10 @@
 
 ## Via HACS (recommended)
 
-1. In Home Assistant go to **HACS → Dashboard → Custom repositories**
+1. In Home Assistant go to **HACS → Dashboard → ⋮ → Custom repositories**
 2. Add `https://github.com/jonisnet/hki-parcels-card` as category **Dashboard**
 3. Search for **HKI Parcels Card** and install
-4. Restart Home Assistant or clear your browser cache
+4. Restart Home Assistant or do a hard refresh (Ctrl+Shift+R)
 
 ---
 
@@ -25,37 +25,82 @@ Select type: **JavaScript module**
 
 ---
 
-## Required Integrations
+## Required integrations
 
-Install the integrations for the carriers you want to track **before** adding the card.
+Install the integration for each carrier you use **before** adding the card. All of them are part of the [ha-parcel-integrations](https://github.com/ha-parcel-integrations) family, publishing the same canonical parcel format — which is what lets one card support all of them.
+
+!!! note "About the links below"
+    Several of these integrations started as personal repos (`peternijssen/ha-*`, `HummelsTech/ha-dragonfly`) and were later moved into the `ha-parcel-integrations` org to be maintained together. The org repos are the actively maintained ones and are generally ahead in version — this documentation and the card's own "integration not found" links point there instead of the old personal forks.
 
 ### PostNL
 
-| Integration | When to use |
-| ----------- | ------------ |
-| [peternijssen/ha-postnl](https://github.com/peternijssen/ha-postnl) ≥ 4.0.0 | New installs — use card type `postnl_v4` |
-| [peternijssen/ha-postnl](https://github.com/peternijssen/ha-postnl) ≤ 3.x | Older installs — use card type `postnl` |
-| [arjenbos/ha-postnl](https://github.com/arjenbos/ha-postnl) | Legacy single-entity — use card type `postnl_legacy` |
+The card supports three PostNL variants.
 
-### DHL and DPD
+| Card type | Integration | When to use |
+| --------- | ----------- | ----------- |
+| `postnl_v4` | [ha-parcel-integrations/ha-postnl](https://github.com/ha-parcel-integrations/ha-postnl) ≥ 4.0.0 | **Recommended** — new installs and upgrades |
+| `postnl` | [ha-parcel-integrations/ha-postnl](https://github.com/ha-parcel-integrations/ha-postnl) ≤ 3.x | Still on version 3.x |
+| `postnl_legacy` | [arjenbos/ha-postnl](https://github.com/arjenbos/ha-postnl) | Single-entity legacy mode |
+
+!!! tip "Upgrading from ha-postnl v3 to v4?"
+    Change the card type from `postnl` to `postnl_v4`. Your sensor entity IDs stay the same.
+
+### DHL, DPD and GLS
 
 | Carrier | Integration |
 | ------- | ----------- |
-| DHL | [peternijssen/ha-dhl-nl](https://github.com/peternijssen/ha-dhl-nl) |
-| DPD | [peternijssen/ha-dpd](https://github.com/peternijssen/ha-dpd) |
+| **DHL** | [ha-parcel-integrations/ha-dhl-nl](https://github.com/ha-parcel-integrations/ha-dhl-nl) |
+| **DPD** | [ha-parcel-integrations/ha-dpd](https://github.com/ha-parcel-integrations/ha-dpd) |
+| **GLS** | [ha-parcel-integrations/ha-gls](https://github.com/ha-parcel-integrations/ha-gls) |
+
+!!! note "GLS has no sender/account"
+    You track parcels by tracking number and postal code, not a login. The card's `user` field maps to the hub's postal code (e.g. `1234ab`), and the Sent tab is not available for this carrier.
+
+### Dragonfly, Trunkrs and Cainiao
+
+These three, together with GLS above, are the "account-less" carriers in the family: instead of logging into an account, you register individual parcels by tracking number (plus a postal code for GLS and Trunkrs). None of them have a Sent tab, since there's no sender/account concept to distinguish outgoing parcels.
+
+| Carrier | Integration | Identified by |
+| ------- | ----------- | ------------- |
+| **Dragonfly** | [ha-parcel-integrations/ha-dragonfly](https://github.com/ha-parcel-integrations/ha-dragonfly) | Track & Trace code only — no account, no postal code |
+| **Trunkrs** | [ha-parcel-integrations/ha-trunkrs](https://github.com/ha-parcel-integrations/ha-trunkrs) | Trunkrs number + postal code (one hub per postal code) |
+| **Cainiao** | [ha-parcel-integrations/ha-cainiao](https://github.com/ha-parcel-integrations/ha-cainiao) | Tracking number only — cross-border parcels (AliExpress, Temu, Shein, ...) that haven't reached a local carrier yet |
+
+!!! warning "Trunkrs is an early release"
+    The integration only recognises the `SHIPMENT_DELIVERED` status so far; every other state currently shows as `unknown` rather than guessing. It will improve as more statuses get mapped upstream.
+
+For all four of these, the card's "+ Add parcel" control can register a new parcel directly from the dashboard by calling the integration's own `track_parcel` service — no need to open the integration's own Configure dialog. See [Add parcel support](card/overview.md#add-parcel-support) for why PostNL/DHL/DPD don't have this control.
 
 ---
 
-## Optional: PHU Carrier Icons
+## Optional: PHU carrier icons
 
-Install [custom-brand-icons](https://github.com/elax46/custom-brand-icons) via HACS to get branded carrier icons (`phu:postnl`, `phu:dhl`, `phu:dpd`). The card detects the integration automatically — no configuration needed.
+Install [custom-brand-icons](https://github.com/elax46/custom-brand-icons) via HACS to get branded `phu:` carrier icons. The card detects this automatically — no configuration needed.
+
+Coverage varies by carrier:
+
+| Carrier | PHU icon |
+| ------- | :------: |
+| PostNL | ✅ real logo |
+| DHL | ✅ real logo |
+| DPD | ✅ (basic placeholder-style artwork, not the official red DPD logo) |
+| GLS | ✅ (plain "GLS" text mark, not the official logo) |
+| Dragonfly | ✅ real logo |
+| Trunkrs | ❌ not available yet |
+| Cainiao | ❌ not available yet |
+
+Carriers without a proper branded icon yet fall back to a generic `mdi:package-variant-closed` icon.
 
 ---
 
-## Tested Versions
+## Tested versions
 
 | Integration | Tested version |
-| ----------- | --------------- |
-| peternijssen/ha-postnl | 4.1.0 |
-| peternijssen/ha-dhl-nl | 2.2.0 |
-| peternijssen/ha-dpd | 2.2.0 |
+| ----------- | -------------- |
+| ha-parcel-integrations/ha-postnl | 4.6.0 |
+| ha-parcel-integrations/ha-dhl-nl | 2.6.0 |
+| ha-parcel-integrations/ha-dpd | 2.7.0 |
+| ha-parcel-integrations/ha-gls | 1.2.0 |
+| ha-parcel-integrations/ha-dragonfly | — |
+| ha-parcel-integrations/ha-trunkrs | — (early release) |
+| ha-parcel-integrations/ha-cainiao | 0.9.0 (early release) |
