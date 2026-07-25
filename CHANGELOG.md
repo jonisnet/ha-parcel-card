@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.5.0b4] — 2026-07-25
+
+### Changed
+
+- **Carrier popup sections now have a visible divider** — consecutive sections in the carrier
+  overview popup (and the main Post tab's upcoming/delivered split, which shares the same markup)
+  get a `border-top` line between them instead of just a small margin, making it easier to see at
+  a glance where one section ends and the next begins.
+- **Combo banner now wraps at 4 logos per row** — with more than 4 carriers configured, the combo
+  banner previously squeezed every logo into a single row. It now wraps into multiple rows, capped
+  at 4 per row and distributed as evenly as possible (5 → 3+2, 7 → 4+3, etc.) instead of leaving a
+  near-empty last row.
+
 ## [1.5.0b3] — 2026-07-23
 
 ### Fixed
