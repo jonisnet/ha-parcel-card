@@ -66,6 +66,9 @@ These three, together with GLS above, are the "account-less" carriers in the fam
 | **Trunkrs** | [ha-parcel-integrations/ha-trunkrs](https://github.com/ha-parcel-integrations/ha-trunkrs) | Trunkrs number + postal code (one hub per postal code) |
 | **Cainiao** | [ha-parcel-integrations/ha-cainiao](https://github.com/ha-parcel-integrations/ha-cainiao) | Tracking number only — cross-border parcels (AliExpress, Temu, Shein, ...) that haven't reached a local carrier yet |
 
+!!! info "Dragonfly's original integration"
+    Dragonfly support was created by [Alwin Hummels (@HummelsTech)](https://github.com/HummelsTech), who maintains it standalone at [HummelsTech/ha-dragonfly](https://github.com/HummelsTech/ha-dragonfly) as well as the mirror in ha-parcel-integrations linked above — either one works with this card. These docs default to the ha-parcel-integrations link to keep every integration under one roof, but the original repo is just as valid a choice, and updates may land there first.
+
 !!! warning "Trunkrs is an early release"
     The integration only recognises the `SHIPMENT_DELIVERED` status so far; every other state currently shows as `unknown` rather than guessing. It will improve as more statuses get mapped upstream.
 

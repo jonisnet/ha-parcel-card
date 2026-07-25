@@ -59,7 +59,7 @@ Install the integration for each carrier you use **before** adding the card. All
 | **DHL** | [ha-parcel-integrations/ha-dhl-nl](https://github.com/ha-parcel-integrations/ha-dhl-nl) | Account login |
 | **DPD** | [ha-parcel-integrations/ha-dpd](https://github.com/ha-parcel-integrations/ha-dpd) | Account login |
 | **GLS** | [ha-parcel-integrations/ha-gls](https://github.com/ha-parcel-integrations/ha-gls) | Tracking number + postal code |
-| **Dragonfly** | [ha-parcel-integrations/ha-dragonfly](https://github.com/ha-parcel-integrations/ha-dragonfly) | Tracking number only |
+| **Dragonfly** | [ha-parcel-integrations/ha-dragonfly](https://github.com/ha-parcel-integrations/ha-dragonfly) — created by [Alwin Hummels](https://github.com/HummelsTech), also maintained standalone at [HummelsTech/ha-dragonfly](https://github.com/HummelsTech/ha-dragonfly); either works with this card | Tracking number only |
 | **Trunkrs** | [ha-parcel-integrations/ha-trunkrs](https://github.com/ha-parcel-integrations/ha-trunkrs) | Tracking number + postal code |
 | **Cainiao** | [ha-parcel-integrations/ha-cainiao](https://github.com/ha-parcel-integrations/ha-cainiao) | Tracking number only |
 
@@ -143,6 +143,7 @@ This card is free and maintained in my spare time. If it's useful to you, a smal
 
 - [jimz011/hki-elements](https://github.com/jimz011/hki-elements) — original PostNL card and visual design
 - [ha-parcel-integrations](https://github.com/ha-parcel-integrations) — PostNL, DHL, DPD, GLS, Dragonfly, Trunkrs and Cainiao integrations, all sharing one canonical parcel format
+- [Alwin Hummels (@HummelsTech)](https://github.com/HummelsTech) — created the Dragonfly integration ([HummelsTech/ha-dragonfly](https://github.com/HummelsTech/ha-dragonfly)), also mirrored into ha-parcel-integrations above
 - [arjenbos/ha-postnl](https://github.com/arjenbos/ha-postnl) — legacy PostNL integration
 
 ---
