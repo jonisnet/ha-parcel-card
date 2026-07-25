@@ -68,7 +68,7 @@ window.HKI.getSelectValue = window.HKI.getSelectValue || ((ev, options = null) =
 
 (() => {
 const { LitElement, html, css } = window.HKI.getLit();
-const CARD_VERSION = 'v1.5.0b4';
+const CARD_VERSION = 'v1.5.0b5';
 console.info(`%c HKI-PARCELS-CARD %c ${CARD_VERSION} `, 'color: white; background: #ed8c00; font-weight: bold;', 'color: #ed8c00; background: white; font-weight: bold;');
 
 const DEFAULT_CARRIER_ICON = 'mdi:package-variant-closed';
@@ -148,7 +148,7 @@ const TRANSLATIONS = {
         // editor
         editor_title:           '📦 Multi-carrier pakketten kaart',
         editor_intro1:          'Voeg hieronder één of meer carriers toe (PostNL, DHL, DPD, ...). Elke carrier kan tot 4 sensoren hebben.',
-        editor_intro2:          'Kies het juiste PostNL-type: v4.x (peternijssen ≥4.0), v3.x (peternijssen ≤3.x) of arjenbos voor de oude single-entity integratie.',
+        editor_intro2:          'Kies het juiste PostNL-type: PostNL (huidige ≥4.x integratie), PostNL (<v4.x, wordt uitgefaseerd) of PostNL (ArjenBos, wordt uitgefaseerd).',
         section_basic:          'Basis Instellingen',
         label_card_title:       'Kaartnaam',
         label_days_back:        'Aantal dagen geschiedenis (bezorgd)',
@@ -283,7 +283,7 @@ const TRANSLATIONS = {
         // editor
         editor_title:           '📦 Multi-carrier parcel card',
         editor_intro1:          'Add one or more carriers below (PostNL, DHL, DPD, ...). Each carrier can have up to 4 sensors.',
-        editor_intro2:          'Pick the right PostNL type: v4.x (peternijssen ≥4.0), v3.x (peternijssen ≤3.x), or arjenbos for the legacy single-entity integration.',
+        editor_intro2:          'Pick the right PostNL type: PostNL (current ≥4.x integration), PostNL (<v4.x, being phased out), or PostNL (ArjenBos, being phased out).',
         section_basic:          'Basic Settings',
         label_card_title:       'Card title',
         label_days_back:        'Days to show delivery history',
@@ -521,7 +521,7 @@ const STATUS_STEP_ORDER = ['registered', 'in_transit', 'out_for_delivery', 'deli
 
 const CARRIER_PRESETS = {
     postnl_v4:    { label: 'PostNL',                    icon: 'mdi:package-variant-closed', color: '#ed8c00', schema: 'canonical',     supports_letters: true,  sensor_slug: 'postnl' },
-    postnl:       { label: 'PostNL (peternijssen v3.x)', icon: 'mdi:package-variant-closed', color: '#ed8c00', schema: 'legacy',        supports_letters: true,  sensor_slug: 'postnl' },
+    postnl:       { label: 'PostNL (<v4.x)',             icon: 'mdi:package-variant-closed', color: '#ed8c00', schema: 'legacy',        supports_letters: true,  sensor_slug: 'postnl' },
     dhl:          { label: 'DHL',                        icon: 'mdi:package-variant-closed', color: '#ffcc00', schema: 'canonical',     supports_letters: false, sensor_slug: 'dhl'    },
     dpd:          { label: 'DPD',                        icon: 'mdi:package-variant-closed', color: '#dc0032', schema: 'canonical',     supports_letters: false, sensor_slug: 'dpd',
                     // outgoing_delivered intentionally has no override here (unlike the
@@ -558,7 +558,7 @@ const CARRIER_PRESETS = {
     // "Brandeis Blue" value from https://www.schemecolor.com/cainiao-logo-color.php exactly.
     cainiao:      { label: 'Cainiao',                    icon: 'mdi:package-variant-closed', color: '#0066ff', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'cainiao',
                     track_parcel_service: { domain: 'cainiao', field: 'tracking_code', supports_postal_code: false } },
-    postnl_legacy:{ label: 'PostNL (arjenbos)',          icon: 'mdi:package-variant-closed', color: '#ed8c00', schema: 'single_entity', supports_letters: false, sensor_slug: null     },
+    postnl_legacy:{ label: 'PostNL (ArjenBos)',          icon: 'mdi:package-variant-closed', color: '#ed8c00', schema: 'single_entity', supports_letters: false, sensor_slug: null     },
     custom:       { label: 'Custom',                     icon: 'mdi:package-variant-closed', color: '#ed8c00', schema: 'canonical',     supports_letters: false, sensor_slug: null     }
 };
 

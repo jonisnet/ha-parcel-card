@@ -1,5 +1,28 @@
 # Changelog
 
+## [1.5.0b5] — 2026-07-25
+
+### Changed
+
+- **Consistent PostNL labelling** — the `postnl` and `postnl_legacy` carrier presets now use the
+  same "PostNL (<v4.x)" / "PostNL (ArjenBos)" labels the editor's carrier-type dropdown already
+  showed, instead of the older "PostNL (peternijssen v3.x)" / "PostNL (arjenbos)" text. Since this
+  label is also the default carrier name shown on the card itself, the two were previously
+  inconsistent depending on where you looked.
+- **Updated screenshots throughout README and docs** — refreshed to the current branding
+  (Trunkrs/Cainiao/Dragonfly) and added new ones for the carrier overview popup, the 4-per-row
+  combo banner wrap, and the 4-step delivery tracker with an expanded parcel detail panel — none
+  of these had a screenshot before. Example data in the new screenshots (company names, tracking
+  numbers) has been anonymised.
+
+### Deprecation notice
+
+- **PostNL (<v4.x)** (`type: postnl`) will no longer be supported starting from HKI Parcels Card
+  v2.0 — migrate to `postnl_v4` ("PostNL") before then.
+- **PostNL (ArjenBos)** (`type: postnl_legacy`) will also be removed starting from v2.0, unless
+  [arjenbos/ha-postnl](https://github.com/arjenbos/ha-postnl) receives an update of its own before
+  that point.
+
 ## [1.5.0b4] — 2026-07-25
 
 ### Changed

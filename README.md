@@ -1,6 +1,6 @@
 # HKI Parcels Card
 
-[![Version](https://img.shields.io/badge/version-v1.5.0b4-blue?style=flat-square)](https://github.com/jonisnet/hki-parcels-card/releases/latest)
+[![Version](https://img.shields.io/badge/version-v1.5.0b5-blue?style=flat-square)](https://github.com/jonisnet/hki-parcels-card/releases/latest)
 [![HACS](https://img.shields.io/badge/HACS-Custom-orange?style=flat-square)](https://hacs.xyz)
 [![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](https://github.com/jonisnet/hki-parcels-card/blob/main/LICENSE)
 [![HA](https://img.shields.io/badge/Home%20Assistant-2026.7%2B-41bdf5?style=flat-square)](https://www.home-assistant.io)
@@ -30,7 +30,7 @@
 - **Full visual editor** — no YAML required, with auto sensor detection, a media browser for custom images, a colour picker and live preview
 - **Automatic combo banner** — with two or more carriers configured, the card builds a combo banner from just the carriers you've actually added
 
-![Editor screenshot](https://raw.githubusercontent.com/jonisnet/hki-parcels-card/main/images/screenshot-editor-preview.png)
+![Editor screenshot](https://raw.githubusercontent.com/jonisnet/hki-parcels-card/main/images/screenshot-editor-carriers.png)
 
 *Visual editor with live preview*
 
@@ -55,7 +55,7 @@ Install the integration for each carrier you use **before** adding the card. All
 
 | Carrier | Integration | Account type |
 | ------- | ----------- | ------------ |
-| **PostNL** | [ha-parcel-integrations/ha-postnl](https://github.com/ha-parcel-integrations/ha-postnl) (or [arjenbos/ha-postnl](https://github.com/arjenbos/ha-postnl) for legacy `postnl_legacy`) | Account login |
+| **PostNL** | [ha-parcel-integrations/ha-postnl](https://github.com/ha-parcel-integrations/ha-postnl) ≥ 4.0.0 (older `postnl` / `postnl_legacy` variants are being phased out, see [Installation](https://jonisnet.github.io/hki-parcels-card/installation/#postnl)) | Account login |
 | **DHL** | [ha-parcel-integrations/ha-dhl-nl](https://github.com/ha-parcel-integrations/ha-dhl-nl) | Account login |
 | **DPD** | [ha-parcel-integrations/ha-dpd](https://github.com/ha-parcel-integrations/ha-dpd) | Account login |
 | **GLS** | [ha-parcel-integrations/ha-gls](https://github.com/ha-parcel-integrations/ha-gls) | Tracking number + postal code |

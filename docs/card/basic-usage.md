@@ -70,7 +70,7 @@ show_letters: true
 
 ---
 
-## PostNL (arjenbos / legacy single-entity mode)
+## PostNL (ArjenBos) / legacy single-entity mode
 
 ```yaml
 type: custom:hki-parcels-card

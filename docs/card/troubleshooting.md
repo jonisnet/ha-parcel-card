@@ -9,7 +9,7 @@ The card cannot find one or more sensor entities.
 1. The parcel integration is not installed — install the integration for your carrier (see [Installation](../installation.md)) and configure your account or tracking number.
 2. The `user` field does not match your sensor prefix — check the actual sensor name in **Developer Tools → States** and adjust `user` accordingly.
 3. The sensors have no username prefix — leave `user` empty (`user: ""`).
-4. You selected the wrong PostNL type — if your sensor names include `postnl`, use `postnl_v4` (for ha-postnl ≥ 4.x) or `postnl` (for ha-postnl ≤ 3.x), not `postnl_legacy`.
+4. You selected the wrong PostNL type — if your sensor names include `postnl`, use `postnl_v4` ("PostNL", for ha-postnl ≥ 4.x) or `postnl` ("PostNL (<v4.x)", for ha-postnl ≤ 3.x), not `postnl_legacy` ("PostNL (ArjenBos)").
 5. The editor's "integration not found" link points at the wrong repo — this was fixed to point at the [ha-parcel-integrations](https://github.com/ha-parcel-integrations) org; update the card if you still see links to `peternijssen/*` or `HummelsTech/*`.
 
 ---

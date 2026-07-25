@@ -61,7 +61,7 @@ Automatic sensor detection, animated banners, a 4-step delivery tracker, letterb
     ```
 
     !!! tip "Which PostNL type?"
-        Use `postnl_v4` for ha-postnl ≥ 4.0.0 (recommended), `postnl` for version 3.x, or `postnl_legacy` for arjenbos/ha-postnl.
+        Use `postnl_v4` ("PostNL") for ha-postnl ≥ 4.0.0 (recommended). `postnl` ("PostNL (<v4.x)") and `postnl_legacy` ("PostNL (ArjenBos)") are being phased out — see [Installation](installation.md#postnl).
 
 === "DHL / DPD / GLS"
 
@@ -128,8 +128,8 @@ All carriers below are part of the [ha-parcel-integrations](https://github.com/h
 | Carrier | Integration | Card type | Account type |
 | ------- | ----------- | --------- | ------------ |
 | **PostNL** (recommended) | [ha-postnl](https://github.com/ha-parcel-integrations/ha-postnl) ≥ 4.0.0 | `postnl_v4` | Account login |
-| **PostNL** (v3.x) | [ha-postnl](https://github.com/ha-parcel-integrations/ha-postnl) ≤ 3.x | `postnl` | Account login |
-| **PostNL** (arjenbos) | [arjenbos/ha-postnl](https://github.com/arjenbos/ha-postnl) | `postnl_legacy` | Account login |
+| **PostNL (<v4.x)**² | [ha-postnl](https://github.com/ha-parcel-integrations/ha-postnl) ≤ 3.x | `postnl` | Account login |
+| **PostNL (ArjenBos)**² | [arjenbos/ha-postnl](https://github.com/arjenbos/ha-postnl) | `postnl_legacy` | Account login |
 | **DHL** | [ha-dhl-nl](https://github.com/ha-parcel-integrations/ha-dhl-nl) | `dhl` | Account login |
 | **DPD** | [ha-dpd](https://github.com/ha-parcel-integrations/ha-dpd) | `dpd` | Account login |
 | **GLS** | [ha-gls](https://github.com/ha-parcel-integrations/ha-gls) | `gls` | Tracking number + postal code |
@@ -138,6 +138,8 @@ All carriers below are part of the [ha-parcel-integrations](https://github.com/h
 | **Cainiao** | [ha-cainiao](https://github.com/ha-parcel-integrations/ha-cainiao) | `cainiao` | Tracking number only |
 
 ¹ Created by [Alwin Hummels (@HummelsTech)](https://github.com/HummelsTech), who also maintains it standalone at [HummelsTech/ha-dragonfly](https://github.com/HummelsTech/ha-dragonfly) — see [Installation](installation.md#dragonfly-trunkrs-and-cainiao) for details.
+
+² Being phased out — see the [deprecation notice](installation.md#postnl).
 
 !!! note "Add parcel support"
     Only the account-less carriers (GLS, Dragonfly, Trunkrs, Cainiao) get the card's "+ Add parcel" control — PostNL, DHL and DPD auto-sync every parcel tied to the logged-in account and don't expose a service to register one manually. Full explanation on the [Overview page](card/overview.md#add-parcel-support).

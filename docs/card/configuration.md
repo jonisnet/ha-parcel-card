@@ -55,7 +55,7 @@ Normally the card generates sensor entity IDs automatically from `type` and `use
 | `entity_outgoing_delivered` | string | Sensor for delivered outgoing parcels (not applicable for GLS, Dragonfly, Trunkrs, Cainiao) |
 | `entity_letters` | string | Sensor for PostNL letterbox mail (PostNL only) |
 
-### PostNL Legacy (arjenbos) options
+### PostNL (ArjenBos) options
 
 When `type: postnl_legacy` these options apply instead.
 
@@ -71,20 +71,23 @@ When `type: postnl_legacy` these options apply instead.
 | Type | Label in editor | Integration | Schema | Letters | Add parcel from card |
 | ---- | ---------------- | ----------- | ------ | :-----: | :-------------------: |
 | `postnl_v4` | PostNL | ha-parcel-integrations/ha-postnl ≥ 4.0.0 | canonical | ✅ | — |
-| `postnl` | PostNL (peternijssen v3.x) | ha-parcel-integrations/ha-postnl ≤ 3.x | legacy | ✅ | — |
+| `postnl` | PostNL (<v4.x) | ha-parcel-integrations/ha-postnl ≤ 3.x | legacy | ✅ | — |
 | `dhl` | DHL | ha-parcel-integrations/ha-dhl-nl | canonical | — | — |
 | `dpd` | DPD | ha-parcel-integrations/ha-dpd | canonical | — | — |
 | `gls` | GLS | ha-parcel-integrations/ha-gls | canonical | — | ✅ |
 | `dragonfly` | Dragonfly | ha-parcel-integrations/ha-dragonfly | canonical | — | ✅ |
 | `trunkrs` | Trunkrs | ha-parcel-integrations/ha-trunkrs | canonical | — | ✅ |
 | `cainiao` | Cainiao | ha-parcel-integrations/ha-cainiao | canonical | — | ✅ |
-| `postnl_legacy` | PostNL (arjenbos) | arjenbos/ha-postnl | single_entity | — | — |
+| `postnl_legacy` | PostNL (ArjenBos) | arjenbos/ha-postnl | single_entity | — | — |
 | `custom` | Custom | any | canonical | — | — |
 
 !!! tip "Which PostNL type should I use?"
-    Use `postnl_v4` for new installations or if you have updated to ha-postnl 4.0.0 or later.
-    Use `postnl` if you are still on version 3.x.
-    Use `postnl_legacy` only for the arjenbos/ha-postnl integration.
+    Use `postnl_v4` ("PostNL") for new installations or if you have updated to ha-postnl 4.0.0 or later.
+    Use `postnl` ("PostNL (<v4.x)") if you are still on version 3.x.
+    Use `postnl_legacy` ("PostNL (ArjenBos)") only for the arjenbos/ha-postnl integration.
+
+!!! warning "Deprecation notice"
+    **PostNL (<v4.x)** will no longer be supported starting from HKI Parcels Card v2.0. **PostNL (ArjenBos)** will also be removed from v2.0, unless arjenbos updates that integration before then. See [Installation](../installation.md#postnl) for details.
 
 !!! note
     `gls`, `dragonfly`, `trunkrs` and `cainiao` have no Sent tab — these carriers track parcels by number (plus postal code for GLS/Trunkrs) with no sender/account concept, so `entity_outgoing` and `entity_outgoing_delivered` are not applicable. See [Add parcel support](overview.md#add-parcel-support) for why only these four carriers get the "+ Add parcel" control.

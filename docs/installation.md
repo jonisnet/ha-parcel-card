@@ -36,14 +36,19 @@ Install the integration for each carrier you use **before** adding the card. All
 
 The card supports three PostNL variants.
 
-| Card type | Integration | When to use |
-| --------- | ----------- | ----------- |
-| `postnl_v4` | [ha-parcel-integrations/ha-postnl](https://github.com/ha-parcel-integrations/ha-postnl) ≥ 4.0.0 | **Recommended** — new installs and upgrades |
-| `postnl` | [ha-parcel-integrations/ha-postnl](https://github.com/ha-parcel-integrations/ha-postnl) ≤ 3.x | Still on version 3.x |
-| `postnl_legacy` | [arjenbos/ha-postnl](https://github.com/arjenbos/ha-postnl) | Single-entity legacy mode |
+| Label | Card type | Integration | When to use |
+| ----- | --------- | ----------- | ----------- |
+| **PostNL** | `postnl_v4` | [ha-parcel-integrations/ha-postnl](https://github.com/ha-parcel-integrations/ha-postnl) ≥ 4.0.0 | **Recommended** — new installs and upgrades |
+| **PostNL (<v4.x)** | `postnl` | [ha-parcel-integrations/ha-postnl](https://github.com/ha-parcel-integrations/ha-postnl) ≤ 3.x | Still on version 3.x |
+| **PostNL (ArjenBos)** | `postnl_legacy` | [arjenbos/ha-postnl](https://github.com/arjenbos/ha-postnl) | Single-entity legacy mode |
 
 !!! tip "Upgrading from ha-postnl v3 to v4?"
     Change the card type from `postnl` to `postnl_v4`. Your sensor entity IDs stay the same.
+
+!!! warning "Deprecation notice"
+    **PostNL (<v4.x)** will no longer be supported starting from HKI Parcels Card v2.0 — upgrade to `ha-postnl` ≥ 4.0.0 and switch the card type to `postnl_v4` before then.
+
+    **PostNL (ArjenBos)** will also be removed starting from v2.0, unless [arjenbos/ha-postnl](https://github.com/arjenbos/ha-postnl) receives an update of its own before that point.
 
 ### DHL, DPD and GLS
 

@@ -66,7 +66,7 @@ carriers:
 
 ---
 
-## PostNL (arjenbos legacy mode)
+## PostNL (ArjenBos) legacy mode
 
 ```yaml
 type: custom:hki-parcels-card
