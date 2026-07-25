@@ -9,7 +9,7 @@ edit_uri: edit/main/docs/
 # instead of at the repo root, so the default docs_dir ("docs", relative to this file's
 # own directory) would wrongly look for docs/docs/. Point it at the current directory.
 docs_dir: .
-site_dir: site
+site_dir: ../site
 
 theme:
   name: material
