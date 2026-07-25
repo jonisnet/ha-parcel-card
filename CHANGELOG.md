@@ -1,107 +1,73 @@
 # Changelog
 
-## [1.5.0b5] — 2026-07-25
+## [1.5.0] — 2026-07-25
+
+Five new carriers, a carrier overview popup, an in-card "+ Add parcel" control, and a round of
+branding/UX fixes accumulated across the v1.5.0 beta cycle (b1–b5), promoted here to a stable
+release.
+
+### Added
+
+- **Trunkrs, Cainiao, Dragonfly and Hermes carrier support** — four new carrier types
+  (`trunkrs`, `cainiao`, `dragonfly`, `hermes`), all account-less (tracking number only, plus a
+  postal code for Trunkrs) and using the same canonical schema as every other carrier — account
+  detection, entity templating and the editor's carrier-type dropdown all support them like any
+  other carrier out of the box.
+  - **Trunkrs** — [ha-parcel-integrations/ha-trunkrs](https://github.com/ha-parcel-integrations/ha-trunkrs).
+    Early-release integration upstream; currently only maps the `SHIPMENT_DELIVERED` status,
+    everything else reports `unknown`.
+  - **Cainiao** — [ha-parcel-integrations/ha-cainiao](https://github.com/ha-parcel-integrations/ha-cainiao),
+    for cross-border parcels (AliExpress, Temu, Shein, ...) before they reach a local carrier.
+  - **Dragonfly** — [ha-parcel-integrations/ha-dragonfly](https://github.com/ha-parcel-integrations/ha-dragonfly),
+    created by [Alwin Hummels (@HummelsTech)](https://github.com/HummelsTech), who also maintains
+    it standalone at [HummelsTech/ha-dragonfly](https://github.com/HummelsTech/ha-dragonfly).
+  - **Hermes** — [ha-parcel-integrations/ha-hermes](https://github.com/ha-parcel-integrations/ha-hermes),
+    tracking Hermes Germany ("Hermes Paket" / myhermes.de) parcels by 14-digit tracking code.
+  - All four have full custom branding to match every other carrier: the real official logo
+    (extracted as vector where possible, e.g. Hermes's from myhermes.de's own SVG), an animated
+    van and step icons produced by hue-shifting the same shared master illustration every other
+    carrier's art is drawn from, with the real logo (or its mark, on the smaller badges)
+    composited onto the building sign, the transit van icon and the animated van. Accent colours
+    were confirmed by pixel-sampling each official logo directly: Trunkrs `#2ce27e`, Cainiao
+    `#0066ff`, Dragonfly `#00a78f`, Hermes `#008cc3`.
+- **"+ Add parcel" control on the card itself** — for the account-less carriers (GLS, Dragonfly,
+  Trunkrs, Cainiao, Hermes), the card now shows a small "+ Add parcel" row. Typing a Track & Trace
+  number and submitting calls the integration's own `<domain>.track_parcel` service directly, so
+  the parcel is genuinely registered with the integration — not just added to the card's own view.
+  For GLS and Trunkrs, which can have multiple hubs (one per postal code), the carrier's
+  configured `user` value (the postal code) is passed along automatically so the parcel lands on
+  the right hub. New `show_add_parcel` option (default `true`) hides it if you'd rather add
+  parcels through each integration's own Configure dialog. Not available for PostNL, DHL or DPD —
+  those integrations are account-based (they auto-sync every parcel tied to the logged-in account)
+  and don't expose a service for registering an individual parcel by tracking number.
+- **Carrier overview popup** — clicking a carrier's logo in the multi-carrier combo banner opens a
+  popup listing every item for that carrier across all four tabs (In Transit / Delivered / Sent /
+  Letters) in one place, grouped by section with a visible divider between sections. Clicking an
+  item expands its details (tracking number, status, delivery type, tracking link) in place, the
+  same accordion behaviour as the main list — the popup stays open so you can keep browsing.
 
 ### Changed
 
+- **Combo banner now wraps at 4 logos per row** — with more than 4 carriers configured, the combo
+  banner previously squeezed every logo into a single row. It now wraps into multiple rows, capped
+  at 4 per row and distributed as evenly as possible (5 → 3+2, 7 → 4+3, etc.) instead of leaving a
+  near-empty last row.
+- **`CARRIER_REPO_URLS` now points at the `ha-parcel-integrations` org instead of the original
+  maintainers' personal repos** (`peternijssen/ha-postnl`, `-ha-dhl-nl`, `-ha-dpd`, `-ha-gls`,
+  `HummelsTech/ha-dragonfly`). Those integrations were moved into the org to be maintained
+  together and are now ahead in version there — `peternijssen/ha-gls` in particular has had no
+  release since the move. This only affects the "integration not found" link shown in the editor
+  when no sensors are detected yet; already-working sensor auto-detection is unaffected. README
+  and docs links updated to match.
 - **Consistent PostNL labelling** — the `postnl` and `postnl_legacy` carrier presets now use the
   same "PostNL (<v4.x)" / "PostNL (ArjenBos)" labels the editor's carrier-type dropdown already
   showed, instead of the older "PostNL (peternijssen v3.x)" / "PostNL (arjenbos)" text. Since this
   label is also the default carrier name shown on the card itself, the two were previously
   inconsistent depending on where you looked.
-- **Updated screenshots throughout README and docs** — refreshed to the current branding
-  (Trunkrs/Cainiao/Dragonfly) and added new ones for the carrier overview popup, the 4-per-row
-  combo banner wrap, and the 4-step delivery tracker with an expanded parcel detail panel — none
-  of these had a screenshot before. Example data in the new screenshots (company names, tracking
-  numbers) has been anonymised.
-
-### Deprecation notice
-
-- **PostNL (<v4.x)** (`type: postnl`) will no longer be supported starting from HKI Parcels Card
-  v2.0 — migrate to `postnl_v4` ("PostNL") before then.
-- **PostNL (ArjenBos)** (`type: postnl_legacy`) will also be removed starting from v2.0, unless
-  [arjenbos/ha-postnl](https://github.com/arjenbos/ha-postnl) receives an update of its own before
-  that point.
-
-## [1.5.0b4] — 2026-07-25
-
-### Changed
-
-- **Carrier popup sections now have a visible divider** — consecutive sections in the carrier
-  overview popup (and the main Post tab's upcoming/delivered split, which shares the same markup)
-  get a `border-top` line between them instead of just a small margin, making it easier to see at
-  a glance where one section ends and the next begins.
-- **Combo banner now wraps at 4 logos per row** — with more than 4 carriers configured, the combo
-  banner previously squeezed every logo into a single row. It now wraps into multiple rows, capped
-  at 4 per row and distributed as evenly as possible (5 → 3+2, 7 → 4+3, etc.) instead of leaving a
-  near-empty last row.
-
-## [1.5.0b3] — 2026-07-23
-
-### Fixed
-
-- **Carrier popup showed the wrong icon/colour for carriers with zero current parcels** — the
-  popup header derived its brand icon and accent colour from the first matching parcel item, so a
-  carrier with nothing currently in transit/delivered/sent (e.g. "0 pakketten") had no item to read
-  from and silently fell back to the generic default icon and colour instead of the carrier's own
-  configured branding. The header now reads the icon/colour from the carrier's own config first,
-  falling back to an item only if no matching carrier config is found.
-- **Dragonfly was missing from the PHU icon map** — `custom-brand-icons` now ships a `phu:dragonfly`
-  icon alongside the existing `phu:dpd` and `phu:gls-group` ones, but it had never been added to
-  this card's own carrier→PHU lookup table, so it always fell back to the generic mdi icon even
-  when custom-brand-icons was installed. Added.
-
-## [1.5.0b2] — 2026-07-22
-
-### Added
-
-- **Trunkrs and Cainiao carrier support** — two new carrier types, `trunkrs` and `cainiao`, for
-  [ha-parcel-integrations/ha-trunkrs](https://github.com/ha-parcel-integrations/ha-trunkrs) and
-  [ha-parcel-integrations/ha-cainiao](https://github.com/ha-parcel-integrations/ha-cainiao).
-  Same canonical schema as DHL/DPD/GLS; account detection, entity templating and the editor's
-  carrier-type dropdown all support them like any other carrier. Both now have full custom
-  branding — see below. Note that Trunkrs is an early-release integration upstream and currently
-  only maps the `SHIPMENT_DELIVERED` status; everything else reports `unknown`.
-- **Dragonfly carrier support brought into this checkout** — `dragonfly` (account-less, Track &
-  Trace code only) was already merged on `main` via PR #6; this release folds it into the same
-  working copy as the Trunkrs/Cainiao additions above so all three ship together, now fully
-  restyled to match every other carrier (see Branding below). Credit for the Dragonfly integration
-  itself goes to [Alwin Hummels (@HummelsTech)](https://github.com/HummelsTech), who built it from
-  scratch and transferred it into the ha-parcel-integrations org — see that repo's
-  [Credits](https://github.com/ha-parcel-integrations/ha-dragonfly#credits) section.
-- **"+ Add parcel" control on the card itself** — for the account-less carriers (GLS, Dragonfly,
-  Trunkrs, Cainiao), the card now shows a small "+ Add parcel" row. Typing a Track & Trace number
-  and submitting calls the integration's own `<domain>.track_parcel` service directly (`gls`,
-  `dragonfly`, `trunkrs` or `cainiao`), so the parcel is genuinely registered with the integration —
-  not just added to the card's own view. For GLS and Trunkrs, which can have multiple hubs (one per
-  postal code), the carrier's configured `user` value (the postal code) is passed along
-  automatically so the parcel lands on the right hub. New `show_add_parcel` option (default `true`)
-  hides it if you'd rather add parcels through each integration's own Configure dialog. Not
-  available for PostNL, DHL or DPD — those integrations are account-based (they auto-sync every
-  parcel tied to the logged-in account) and don't expose a service for registering an individual
-  parcel by tracking number.
-- **Carrier overview popup** — clicking a carrier's logo in the multi-carrier combo banner now
-  opens a popup listing every item for that carrier across all four tabs (In Transit / Delivered /
-  Sent / Letters) in one place, grouped by section. Clicking an item expands its details
-  (tracking number, status, delivery type, tracking link) in place, the same accordion behaviour
-  as the main list — the popup stays open so you can keep browsing.
-- **Trunkrs and Cainiao branding** — logo, van, step icons and banner added under
-  `images/trunkrs/` and `images/cainiao/`, matching the existing DHL/DPD/GLS folder convention.
-  The logo files are each carrier's real official artwork (trimmed and scaled from the source
-  logos); the step icons and animated van are the shared master illustration recoloured to match
-  (the same technique the whole `images/` set already uses for every other carrier) **with the
-  real logo composited onto the building sign, the small transit van icon and the animated van**,
-  replacing the placeholder text those three used at first. The banner is that real logo centred
-  on a plain background, since no official banner artwork exists. Accent colours were confirmed by
-  pixel-sampling the official logos directly: Trunkrs `#2ce27e` (previously an unverified guess of
-  `#39b54a`), Cainiao `#0066ff` (unchanged — matches the earlier best-effort value exactly).
-- **Dragonfly branding overhauled to match every other carrier** — previously used its own,
-  differently-styled artwork carried over from the original PR (flat parcel/box scenes with no
-  shared building/signboard concept). Regenerated from the same shared master illustration as
-  every other carrier, recoloured to the confirmed brand teal `#00a78f` (corrected from `#13a58f`
-  while we had the source logo in hand), with the real logo mark composited onto the building
-  sign, the small transit van icon and the animated van — the same treatment Trunkrs/Cainiao got
-  above. The banner is that same logo centred on a plain background.
+- **Updated screenshots throughout README and docs** — refreshed to the current branding and
+  added new ones for the carrier overview popup, the 4-per-row combo banner wrap, and the 4-step
+  delivery tracker with an expanded parcel detail panel — none of these had a screenshot before.
+  Example data in the new screenshots (company names, tracking numbers) has been anonymised.
 
 ### Fixed
 
@@ -114,16 +80,27 @@
   rebuilt from scratch on every hass update tick regardless, resetting `:hover` state mid-hover.
   The rebuild is now skipped once the banner is already showing correctly; a config change still
   triggers a full rebuild as normal.
+- **Carrier popup showed the wrong icon/colour for carriers with zero current parcels** — the
+  popup header derived its brand icon and accent colour from the first matching parcel item, so a
+  carrier with nothing currently in transit/delivered/sent (e.g. "0 pakketten") had no item to read
+  from and silently fell back to the generic default icon and colour instead of the carrier's own
+  configured branding. The header now reads the icon/colour from the carrier's own config first,
+  falling back to an item only if no matching carrier config is found.
+- **Dragonfly was missing from the PHU icon map** — `custom-brand-icons` now ships a `phu:dragonfly`
+  icon alongside the existing `phu:dpd` and `phu:gls-group` ones, but it had never been added to
+  this card's own carrier→PHU lookup table, so it always fell back to the generic mdi icon even
+  when custom-brand-icons was installed. Added.
 
-### Changed
+### Deprecation notice
 
-- **`CARRIER_REPO_URLS` now points at the `ha-parcel-integrations` org instead of the original
-  maintainers' personal repos** (`peternijssen/ha-postnl`, `-ha-dhl-nl`, `-ha-dpd`, `-ha-gls`,
-  `HummelsTech/ha-dragonfly`). Those integrations were moved into the org to be maintained
-  together and are now ahead in version there — `peternijssen/ha-gls` in particular has had no
-  release since the move. This only affects the "integration not found" link shown in the editor
-  when no sensors are detected yet; already-working sensor auto-detection is unaffected. README
-  links and credits updated to match.
+- **PostNL (<v4.x)** (`type: postnl`) will no longer be supported starting from HKI Parcels Card
+  v2.0 — migrate to `postnl_v4` ("PostNL") before then.
+- **PostNL (ArjenBos)** (`type: postnl_legacy`) will also be removed starting from v2.0, unless
+  [arjenbos/ha-postnl](https://github.com/arjenbos/ha-postnl) receives an update of its own before
+  that point.
+- v2.0 is also planned to bring broader internationalisation (more languages, more carriers
+  selectable by country) — the PostNL/ArjenBos removals above will ship together with that work,
+  not before.
 
 ## [1.4.1] — 2026-07-09
 

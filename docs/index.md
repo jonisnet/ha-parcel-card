@@ -1,6 +1,6 @@
 # HKI Parcels Card
 
-**Track parcels from PostNL, DHL, DPD, GLS, Dragonfly, Trunkrs and Cainiao in a single Home Assistant card.**
+**Track parcels from PostNL, DHL, DPD, GLS, Dragonfly, Trunkrs, Cainiao and Hermes in a single Home Assistant card.**
 
 Automatic sensor detection, animated banners, a 4-step delivery tracker, letterbox mail with scan images, a carrier overview popup, and a complete visual editor — no YAML required.
 
@@ -12,7 +12,7 @@ Automatic sensor detection, animated banners, a 4-step delivery tracker, letterb
 
     ---
 
-    PostNL, DHL, DPD, GLS, Dragonfly, Trunkrs and Cainiao side by side. Add the same carrier multiple times for multiple accounts or hubs.
+    PostNL, DHL, DPD, GLS, Dragonfly, Trunkrs, Cainiao and Hermes side by side. Add the same carrier multiple times for multiple accounts or hubs.
 
 -   :magic_wand:{ .lg .middle } **Auto sensor detection**
 
@@ -30,7 +30,7 @@ Automatic sensor detection, animated banners, a 4-step delivery tracker, letterb
 
     ---
 
-    Account-less carriers (GLS, Dragonfly, Trunkrs, Cainiao) get a "+ Add parcel" control that registers a tracking number directly.
+    Account-less carriers (GLS, Dragonfly, Trunkrs, Cainiao, Hermes) get a "+ Add parcel" control that registers a tracking number directly.
 
 -   :frame_with_picture:{ .lg .middle } **Media browser**
 
@@ -80,7 +80,7 @@ Automatic sensor detection, animated banners, a 4-step delivery tracker, letterb
     !!! note "GLS has no account"
         GLS tracks parcels by tracking number and postal code rather than a login — `user` maps to the hub's postal code.
 
-=== "Dragonfly / Trunkrs / Cainiao"
+=== "Dragonfly / Trunkrs / Cainiao / Hermes"
 
     ```yaml
     type: custom:hki-parcels-card
@@ -90,9 +90,10 @@ Automatic sensor detection, animated banners, a 4-step delivery tracker, letterb
       - type: trunkrs
         user: "1234ab"
       - type: cainiao
+      - type: hermes
     ```
 
-    These three (plus GLS) are the account-less carriers — register a parcel with the "+ Add parcel" control on the card itself instead of logging into an account. See [Add parcel support](card/overview.md#add-parcel-support).
+    These four (plus GLS) are the account-less carriers — register a parcel with the "+ Add parcel" control on the card itself instead of logging into an account. See [Add parcel support](card/overview.md#add-parcel-support).
 
 === "Every carrier"
 
@@ -112,6 +113,7 @@ Automatic sensor detection, animated banners, a 4-step delivery tracker, letterb
       - type: trunkrs
         user: "1234ab"
       - type: cainiao
+      - type: hermes
     ```
 
 Or skip the YAML entirely — add the card via the dashboard UI and it auto-detects every installed carrier integration, pre-filling a fully configured entry for each one it finds.
@@ -136,13 +138,14 @@ All carriers below are part of the [ha-parcel-integrations](https://github.com/h
 | **Dragonfly**¹ | [ha-dragonfly](https://github.com/ha-parcel-integrations/ha-dragonfly) | `dragonfly` | Tracking number only |
 | **Trunkrs** | [ha-trunkrs](https://github.com/ha-parcel-integrations/ha-trunkrs) | `trunkrs` | Tracking number + postal code |
 | **Cainiao** | [ha-cainiao](https://github.com/ha-parcel-integrations/ha-cainiao) | `cainiao` | Tracking number only |
+| **Hermes** | [ha-hermes](https://github.com/ha-parcel-integrations/ha-hermes) | `hermes` | Tracking number only |
 
-¹ Created by [Alwin Hummels (@HummelsTech)](https://github.com/HummelsTech), who also maintains it standalone at [HummelsTech/ha-dragonfly](https://github.com/HummelsTech/ha-dragonfly) — see [Installation](installation.md#dragonfly-trunkrs-and-cainiao) for details.
+¹ Created by [Alwin Hummels (@HummelsTech)](https://github.com/HummelsTech), who also maintains it standalone at [HummelsTech/ha-dragonfly](https://github.com/HummelsTech/ha-dragonfly) — see [Installation](installation.md#dragonfly-trunkrs-cainiao-and-hermes) for details.
 
 ² Being phased out — see the [deprecation notice](installation.md#postnl).
 
 !!! note "Add parcel support"
-    Only the account-less carriers (GLS, Dragonfly, Trunkrs, Cainiao) get the card's "+ Add parcel" control — PostNL, DHL and DPD auto-sync every parcel tied to the logged-in account and don't expose a service to register one manually. Full explanation on the [Overview page](card/overview.md#add-parcel-support).
+    Only the account-less carriers (GLS, Dragonfly, Trunkrs, Cainiao, Hermes) get the card's "+ Add parcel" control — PostNL, DHL and DPD auto-sync every parcel tied to the logged-in account and don't expose a service to register one manually. Full explanation on the [Overview page](card/overview.md#add-parcel-support).
 
 ---
 

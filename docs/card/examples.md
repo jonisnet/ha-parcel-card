@@ -43,6 +43,7 @@ carriers:
   - type: trunkrs
     user: "1234ab"
   - type: cainiao
+  - type: hermes
 ```
 
 With this many carriers, the combo banner (and the carrier overview popup when you click a logo in it) becomes the fastest way to check on a specific carrier without paging through every tab.
@@ -62,6 +63,7 @@ carriers:
   - type: trunkrs
     user: "1234ab"
   - type: cainiao
+  - type: hermes
 ```
 
 ---

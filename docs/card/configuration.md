@@ -17,7 +17,7 @@ These options apply to the card as a whole.
 | `header_color` | string | _(theme)_ | Header background colour |
 | `header_text_color` | string | _(theme)_ | Header text colour |
 | `placeholder_image` | string | _(built-in)_ | URL to a custom background image. Overrides the automatic combo banner — set to a fixed picture if you'd rather always show the same image |
-| `show_add_parcel` | boolean | `true` | Show the "+ Add parcel" control at the bottom of the card (only appears when at least one configured carrier supports it — GLS, Dragonfly, Trunkrs, Cainiao) |
+| `show_add_parcel` | boolean | `true` | Show the "+ Add parcel" control at the bottom of the card (only appears when at least one configured carrier supports it — GLS, Dragonfly, Trunkrs, Cainiao, Hermes) |
 | `layout_order` | list | `[header, animation, tabs, list]` | Order of card sections |
 | `carriers` | list | — | **Required.** List of carrier configurations (see below) |
 
@@ -51,8 +51,8 @@ Normally the card generates sensor entity IDs automatically from `type` and `use
 | ------ | ---- | ----------- |
 | `entity_incoming` | string | Sensor for incoming parcels in transit |
 | `entity_delivered` | string | Sensor for delivered incoming parcels |
-| `entity_outgoing` | string | Sensor for outgoing parcels in transit (not applicable for GLS, Dragonfly, Trunkrs, Cainiao) |
-| `entity_outgoing_delivered` | string | Sensor for delivered outgoing parcels (not applicable for GLS, Dragonfly, Trunkrs, Cainiao) |
+| `entity_outgoing` | string | Sensor for outgoing parcels in transit (not applicable for GLS, Dragonfly, Trunkrs, Cainiao, Hermes) |
+| `entity_outgoing_delivered` | string | Sensor for delivered outgoing parcels (not applicable for GLS, Dragonfly, Trunkrs, Cainiao, Hermes) |
 | `entity_letters` | string | Sensor for PostNL letterbox mail (PostNL only) |
 
 ### PostNL (ArjenBos) options
@@ -78,6 +78,7 @@ When `type: postnl_legacy` these options apply instead.
 | `dragonfly` | Dragonfly | ha-parcel-integrations/ha-dragonfly | canonical | — | ✅ |
 | `trunkrs` | Trunkrs | ha-parcel-integrations/ha-trunkrs | canonical | — | ✅ |
 | `cainiao` | Cainiao | ha-parcel-integrations/ha-cainiao | canonical | — | ✅ |
+| `hermes` | Hermes | ha-parcel-integrations/ha-hermes | canonical | — | ✅ |
 | `postnl_legacy` | PostNL (ArjenBos) | arjenbos/ha-postnl | single_entity | — | — |
 | `custom` | Custom | any | canonical | — | — |
 
@@ -90,7 +91,7 @@ When `type: postnl_legacy` these options apply instead.
     **PostNL (<v4.x)** will no longer be supported starting from HKI Parcels Card v2.0. **PostNL (ArjenBos)** will also be removed from v2.0, unless arjenbos updates that integration before then. See [Installation](../installation.md#postnl) for details.
 
 !!! note
-    `gls`, `dragonfly`, `trunkrs` and `cainiao` have no Sent tab — these carriers track parcels by number (plus postal code for GLS/Trunkrs) with no sender/account concept, so `entity_outgoing` and `entity_outgoing_delivered` are not applicable. See [Add parcel support](overview.md#add-parcel-support) for why only these four carriers get the "+ Add parcel" control.
+    `gls`, `dragonfly`, `trunkrs`, `cainiao` and `hermes` have no Sent tab — these carriers track parcels by number (plus postal code for GLS/Trunkrs) with no sender/account concept, so `entity_outgoing` and `entity_outgoing_delivered` are not applicable. See [Add parcel support](overview.md#add-parcel-support) for why only these five carriers get the "+ Add parcel" control.
 
 ---
 
@@ -102,9 +103,9 @@ The `user` field is the account part of the sensor name. The card builds all ent
 | ------ | ------- |
 | `sensor.<user>_<carrier>_*` | PostNL, DHL — `sensor.my_account_postnl_incoming_parcels` |
 | `sensor.<carrier>_<user>_*` | DPD, GLS, Trunkrs — `sensor.dpd_my_account_binnenkomende_pakketten`, `sensor.gls_1234ab_incoming_parcels`, `sensor.trunkrs_1234ab_incoming_parcels` |
-| `sensor.<carrier>_*` (no prefix) | Dragonfly, Cainiao — `sensor.dragonfly_incoming_parcels`, `sensor.cainiao_incoming_parcels` |
+| `sensor.<carrier>_*` (no prefix) | Dragonfly, Cainiao, Hermes — `sensor.dragonfly_incoming_parcels`, `sensor.cainiao_incoming_parcels`, `sensor.hermes_incoming_parcels` |
 
-The correct scheme is detected automatically. Leave `user` empty if your sensors have no account prefix, or for any Dragonfly/Cainiao sensor — those two have no account or postal code at all.
+The correct scheme is detected automatically. Leave `user` empty if your sensors have no account prefix, or for any Dragonfly/Cainiao/Hermes sensor — those three have no account or postal code at all.
 
 ---
 
@@ -155,4 +156,5 @@ carriers:
   - type: trunkrs
     user: "1234ab"
   - type: cainiao
+  - type: hermes
 ```

@@ -68,7 +68,7 @@ window.HKI.getSelectValue = window.HKI.getSelectValue || ((ev, options = null) =
 
 (() => {
 const { LitElement, html, css } = window.HKI.getLit();
-const CARD_VERSION = 'v1.5.0b5';
+const CARD_VERSION = 'v1.5.0';
 console.info(`%c HKI-PARCELS-CARD %c ${CARD_VERSION} `, 'color: white; background: #ed8c00; font-weight: bold;', 'color: #ed8c00; background: white; font-weight: bold;');
 
 const DEFAULT_CARRIER_ICON = 'mdi:package-variant-closed';
@@ -183,6 +183,7 @@ const TRANSLATIONS = {
         dragonfly_account_help: 'Dragonfly heeft geen account of postcode — laat dit veld leeg; de sensoren heten sensor.dragonfly_*.',
         trunkrs_account_help:   'Trunkrs heeft geen account — vul de postcode van je Trunkrs-hub in (bv. 1234AB, zoals ingesteld bij het toevoegen van de integratie).',
         cainiao_account_help:   'Cainiao heeft geen account of postcode — laat dit veld leeg; de sensoren heten sensor.cainiao_*.',
+        hermes_account_help:    'Hermes heeft geen account of postcode — laat dit veld leeg; de sensoren heten sensor.hermes_*.',
         show_add_parcel:        'Toon "Pakket toevoegen" op de kaart',
         add_parcel_toggle:      '+ Pakket toevoegen',
         add_parcel_carrier:     'Dienst',
@@ -318,6 +319,7 @@ const TRANSLATIONS = {
         dragonfly_account_help: 'Dragonfly has no account or postal code — leave this field empty; the sensors are named sensor.dragonfly_*.',
         trunkrs_account_help:   'Trunkrs has no account — enter the postal code of your Trunkrs hub (e.g. 1234AB, as set when adding the integration).',
         cainiao_account_help:   'Cainiao has no account or postal code — leave this field empty; the sensors are named sensor.cainiao_*.',
+        hermes_account_help:    'Hermes has no account or postal code — leave this field empty; the sensors are named sensor.hermes_*.',
         show_add_parcel:        'Show "Add parcel" on the card',
         add_parcel_toggle:      '+ Add parcel',
         add_parcel_carrier:     'Carrier',
@@ -383,6 +385,7 @@ const IMG = {
     dragonfly: `${REPO_BASE}/dragonfly`,
     trunkrs:   `${REPO_BASE}/trunkrs`,
     cainiao:   `${REPO_BASE}/cainiao`,
+    hermes:    `${REPO_BASE}/hermes`,
 };
 
 // Points at the ha-parcel-integrations org, not the individual maintainers' personal repos
@@ -399,6 +402,7 @@ const CARRIER_REPO_URLS = {
     dragonfly: 'https://github.com/ha-parcel-integrations/ha-dragonfly',
     trunkrs:   'https://github.com/ha-parcel-integrations/ha-trunkrs',
     cainiao:   'https://github.com/ha-parcel-integrations/ha-cainiao',
+    hermes:    'https://github.com/ha-parcel-integrations/ha-hermes',
 };
 
 const CARRIER_ASSETS = {
@@ -506,6 +510,23 @@ const CARRIER_ASSETS = {
             delivered_mini:  `${IMG.cainiao}/CAINIAO_step_delivered_mini.png?raw=true`
         }
     },
+    // Hermes art: step icons and the animated van are the shared GLS master illustration
+    // hue-shifted to the confirmed brand blue (#008CC3, pixel-sampled from the official logo),
+    // with that same real logo (or just its arrow mark, on the smaller badges) composited on.
+    // The logo is the real official Hermes wordmark (vector, extracted from myhermes.de).
+    hermes: {
+        logo:   `${IMG.hermes}/hermes-logo.svg?raw=true`,
+        van:    `${IMG.hermes}/hermes-van.gif?raw=true`,
+        banner: `${IMG.hermes}/hermes-banner.png?raw=true`,
+        steps: {
+            registered:      `${IMG.hermes}/hermes_step_registered.png?raw=true`,
+            registered_mini: `${IMG.hermes}/hermes_step_registered_mini.png?raw=true`,
+            sorting:         `${IMG.hermes}/hermes_step_sorting.png?raw=true`,
+            transit:         `${IMG.hermes}/hermes_step_transit.png?raw=true`,
+            delivered:       `${IMG.hermes}/hermes_step_delivered.png?raw=true`,
+            delivered_mini:  `${IMG.hermes}/hermes_step_delivered_mini.png?raw=true`
+        }
+    },
     postnl_legacy: {
         logo:   `${IMG.postnl}/postnl-logo.png?raw=true`,
         van:    `${IMG.postnl}/postnl-van.gif?raw=true`,
@@ -532,7 +553,7 @@ const CARRIER_PRESETS = {
                     // not hardcode it back to `null` ("unsupported"), that was only ever
                     // true historically.
                     slug_first_suffixes: { incoming: 'binnenkomende_pakketten', delivered: 'bezorgde_pakketten', outgoing: 'uitgaande_pakketten', letters: null } },
-    // gls / dragonfly / trunkrs / cainiao are all account-less carriers from the same
+    // gls / dragonfly / trunkrs / cainiao / hermes are all account-less carriers from the same
     // ha-parcel-integrations family: one "hub" (global, or per postal code for gls/trunkrs)
     // holds a dynamically managed list of tracked parcels, added either through the
     // integration's own Options dialog or by calling its `<domain>.track_parcel` service —
@@ -558,6 +579,9 @@ const CARRIER_PRESETS = {
     // "Brandeis Blue" value from https://www.schemecolor.com/cainiao-logo-color.php exactly.
     cainiao:      { label: 'Cainiao',                    icon: 'mdi:package-variant-closed', color: '#0066ff', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'cainiao',
                     track_parcel_service: { domain: 'cainiao', field: 'tracking_code', supports_postal_code: false } },
+    // Brand colour confirmed by pixel-sampling the official Hermes (Germany) logo (#008CC3).
+    hermes:       { label: 'Hermes',                     icon: 'mdi:package-variant-closed', color: '#008cc3', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'hermes',
+                    track_parcel_service: { domain: 'hermes', field: 'tracking_code', supports_postal_code: false } },
     postnl_legacy:{ label: 'PostNL (ArjenBos)',          icon: 'mdi:package-variant-closed', color: '#ed8c00', schema: 'single_entity', supports_letters: false, sensor_slug: null     },
     custom:       { label: 'Custom',                     icon: 'mdi:package-variant-closed', color: '#ed8c00', schema: 'canonical',     supports_letters: false, sensor_slug: null     }
 };
@@ -688,7 +712,7 @@ function detectCarrierUsers(hass, carrierType) {
 // recommended default and the user can switch the type manually if they're
 // still on v3.x) and postnl_legacy / custom (sensor_slug is null — no
 // entity-based detection is possible for those).
-const AUTO_DETECT_CARRIER_TYPES = ['postnl_v4', 'dhl', 'dpd', 'gls', 'dragonfly', 'trunkrs', 'cainiao'];
+const AUTO_DETECT_CARRIER_TYPES = ['postnl_v4', 'dhl', 'dpd', 'gls', 'dragonfly', 'trunkrs', 'cainiao', 'hermes'];
 
 // Infers a sensible days_back for a freshly auto-populated card: the number
 // of days since the oldest currently-visible delivered parcel, across every
@@ -1384,7 +1408,7 @@ class HkiParcelsCard extends HTMLElement {
     // "+ Add parcel" — calls the carrier integration's own `<domain>.track_parcel`
     // service so a Track & Trace number entered on the live card actually starts being
     // tracked by the integration, not just displayed. Only offered for carriers whose
-    // preset declares `track_parcel_service` (gls/dragonfly/trunkrs/cainiao — the
+    // preset declares `track_parcel_service` (gls/dragonfly/trunkrs/cainiao/hermes — the
     // account-less "hub + dynamically added parcels" family, see CARRIER_PRESETS).
     // ------------------------------------------------------------------
 
@@ -2785,6 +2809,7 @@ class HkiParcelsCardEditor extends LitElement {
             trunkrs: 'trunkrs_account_help',
             dragonfly: 'dragonfly_account_help',
             cainiao: 'cainiao_account_help',
+            hermes: 'hermes_account_help',
         }[carrierType];
         if (key) return this._t(key);
         return html`"_${preset.sensor_slug}${this._t('account_help_suffix')}`;
@@ -2941,6 +2966,7 @@ class HkiParcelsCardEditor extends LitElement {
                             { value: 'dragonfly',     label: 'Dragonfly' },
                             { value: 'trunkrs',       label: 'Trunkrs' },
                             { value: 'cainiao',       label: 'Cainiao' },
+                            { value: 'hermes',        label: 'Hermes' },
                             { value: 'postnl',        label: 'PostNL (<v4.x)' },
                             { value: 'postnl_legacy', label: 'PostNL (ArjenBos)' },
                             { value: 'custom',        label: 'Custom' }
