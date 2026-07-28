@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.5.1] — 2026-07-25
+
+### Added
+
+- **`show_raw_status` option** — off by default, the card shows a generic translated status label
+  ("In transit", "Delivered", ...) that reads the same across every carrier. Turning this on shows
+  each carrier's own raw status text instead (e.g. GLS's "Onderweg - geladen voor aflevering") when
+  the integration provides one, falling back to the generic label for any parcel without it.
+  Requested via a GitHub Discussion by a GLS user (raw_status was already part of the canonical
+  parcel schema and already shown as a secondary detail line — this makes it usable as the primary
+  one too, without needing any integration-side change).
+
 ## [1.5.0] — 2026-07-25
 
 Five new carriers, a carrier overview popup, an in-card "+ Add parcel" control, and a round of

@@ -68,7 +68,7 @@ window.HKI.getSelectValue = window.HKI.getSelectValue || ((ev, options = null) =
 
 (() => {
 const { LitElement, html, css } = window.HKI.getLit();
-const CARD_VERSION = 'v1.5.0';
+const CARD_VERSION = 'v1.5.1';
 console.info(`%c HKI-PARCELS-CARD %c ${CARD_VERSION} `, 'color: white; background: #ed8c00; font-weight: bold;', 'color: #ed8c00; background: white; font-weight: bold;');
 
 const DEFAULT_CARRIER_ICON = 'mdi:package-variant-closed';
@@ -168,6 +168,7 @@ const TRANSLATIONS = {
         show_animation:         'Toon animatie/detailweergave',
         show_placeholder:       'Toon placeholder',
         show_tracking_link:     'Toon "Track & Trace" knop',
+        show_raw_status:        'Toon carrier\'s eigen statustekst i.p.v. de vertaalde melding',
         section_appearance:     'Uiterlijk',
         label_header_color:     'Header Kleur',
         label_header_text:      'Header Tekst Kleur',
@@ -304,6 +305,7 @@ const TRANSLATIONS = {
         show_animation:         'Show animation / detail view',
         show_placeholder:       'Show placeholder image',
         show_tracking_link:     'Show tracking link button (disable for kiosk / touch-only)',
+        show_raw_status:        "Show the carrier's own status text instead of the translated label",
         section_appearance:     'Appearance',
         label_header_color:     'Header color',
         label_header_text:      'Header text color',
@@ -958,7 +960,11 @@ class HkiParcelsCard extends HTMLElement {
             ...item,
             key: item.barcode || item.key || item.id,
             name: item.sender ? `${this._t('parcel_from')} ${item.sender}` : (item.name || this._t('unknown')),
-            status_message: this._canonicalStatusLabel(statusEnum, item.pickup),
+            // Off by default: the generic translated label ("Onderweg", "Bezorgd", ...) reads the
+            // same across every carrier. Turning this on shows the carrier's own raw_status text
+            // instead (e.g. GLS's "Onderweg - geladen voor aflevering") when the integration
+            // provides one, falling back to the generic label for statuses/carriers without it.
+            status_message: (this.config.show_raw_status && item.raw_status) || this._canonicalStatusLabel(statusEnum, item.pickup),
             delivered,
             delivery_date: item.delivered_at || item.planned_from || item.delivery_date,
             planned_date: item.planned_from,
@@ -2168,7 +2174,7 @@ class HkiParcelsCardEditor extends LitElement {
         if (!field || !this._config) return;
         let value = this._val(ev);
         if (new Set(['days_back']).has(field)) value = parseInt(value, 10);
-        if (new Set(['show_delivered','show_sent','show_letters','show_animation','show_header','show_placeholder','show_tracking_link','show_add_parcel']).has(field))
+        if (new Set(['show_delivered','show_sent','show_letters','show_animation','show_header','show_placeholder','show_tracking_link','show_add_parcel','show_raw_status']).has(field))
             value = !!(ev.target?.checked ?? value);
         this._config = { ...this._config, [field]: value };
         this._emit();
@@ -3082,6 +3088,7 @@ class HkiParcelsCardEditor extends LitElement {
                     <div class="switch-row"><ha-switch .checked=${this._config.show_placeholder !== false} data-field="show_placeholder" @change=${this._changed}></ha-switch><span>${this._t('show_placeholder')}</span></div>
                     <div class="switch-row"><ha-switch .checked=${this._config.show_tracking_link !== false} data-field="show_tracking_link" @change=${this._changed}></ha-switch><span>${this._t('show_tracking_link')}</span></div>
                     <div class="switch-row"><ha-switch .checked=${this._config.show_add_parcel !== false} data-field="show_add_parcel" @change=${this._changed}></ha-switch><span>${this._t('show_add_parcel')}</span></div>
+                    <div class="switch-row"><ha-switch .checked=${this._config.show_raw_status === true} data-field="show_raw_status" @change=${this._changed}></ha-switch><span>${this._t('show_raw_status')}</span></div>
                 </details>
 
                 <details class="section-details">

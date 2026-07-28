@@ -18,6 +18,7 @@ These options apply to the card as a whole.
 | `header_text_color` | string | _(theme)_ | Header text colour |
 | `placeholder_image` | string | _(built-in)_ | URL to a custom background image. Overrides the automatic combo banner — set to a fixed picture if you'd rather always show the same image |
 | `show_add_parcel` | boolean | `true` | Show the "+ Add parcel" control at the bottom of the card (only appears when at least one configured carrier supports it — GLS, Dragonfly, Trunkrs, Cainiao, Hermes) |
+| `show_raw_status` | boolean | `false` | Show the carrier's own raw status text (e.g. GLS's "Onderweg - geladen voor aflevering") as the main status message instead of the card's generic translated label ("In transit"). Falls back to the generic label when a parcel has no raw status |
 | `layout_order` | list | `[header, animation, tabs, list]` | Order of card sections |
 | `carriers` | list | — | **Required.** List of carrier configurations (see below) |
 
@@ -122,6 +123,7 @@ show_animation: true
 show_header: true
 show_placeholder: true
 show_add_parcel: true
+show_raw_status: false
 header_color: ""
 header_text_color: ""
 placeholder_image: ""
