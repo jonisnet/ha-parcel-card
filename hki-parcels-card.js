@@ -68,7 +68,7 @@ window.HKI.getSelectValue = window.HKI.getSelectValue || ((ev, options = null) =
 
 (() => {
 const { LitElement, html, css } = window.HKI.getLit();
-const CARD_VERSION = 'v1.5.1';
+const CARD_VERSION = 'v1.5.2';
 console.info(`%c HKI-PARCELS-CARD %c ${CARD_VERSION} `, 'color: white; background: #ed8c00; font-weight: bold;', 'color: #ed8c00; background: white; font-weight: bold;');
 
 const DEFAULT_CARRIER_ICON = 'mdi:package-variant-closed';
@@ -185,6 +185,8 @@ const TRANSLATIONS = {
         trunkrs_account_help:   'Trunkrs heeft geen account — vul de postcode van je Trunkrs-hub in (bv. 1234AB, zoals ingesteld bij het toevoegen van de integratie).',
         cainiao_account_help:   'Cainiao heeft geen account of postcode — laat dit veld leeg; de sensoren heten sensor.cainiao_*.',
         hermes_account_help:    'Hermes heeft geen account of postcode — laat dit veld leeg; de sensoren heten sensor.hermes_*.',
+        packeta_account_help:   'Packeta heeft geen account of postcode — laat dit veld leeg; de sensoren heten sensor.packeta_*.',
+        correos_account_help:   'Correos heeft geen account of postcode — laat dit veld leeg; de sensoren heten sensor.correos_*.',
         show_add_parcel:        'Toon "Pakket toevoegen" op de kaart',
         add_parcel_toggle:      '+ Pakket toevoegen',
         add_parcel_carrier:     'Dienst',
@@ -322,6 +324,8 @@ const TRANSLATIONS = {
         trunkrs_account_help:   'Trunkrs has no account — enter the postal code of your Trunkrs hub (e.g. 1234AB, as set when adding the integration).',
         cainiao_account_help:   'Cainiao has no account or postal code — leave this field empty; the sensors are named sensor.cainiao_*.',
         hermes_account_help:    'Hermes has no account or postal code — leave this field empty; the sensors are named sensor.hermes_*.',
+        packeta_account_help:   'Packeta has no account or postal code — leave this field empty; the sensors are named sensor.packeta_*.',
+        correos_account_help:   'Correos has no account or postal code — leave this field empty; the sensors are named sensor.correos_*.',
         show_add_parcel:        'Show "Add parcel" on the card',
         add_parcel_toggle:      '+ Add parcel',
         add_parcel_carrier:     'Carrier',
@@ -388,6 +392,8 @@ const IMG = {
     trunkrs:   `${REPO_BASE}/trunkrs`,
     cainiao:   `${REPO_BASE}/cainiao`,
     hermes:    `${REPO_BASE}/hermes`,
+    packeta:   `${REPO_BASE}/packeta`,
+    correos:   `${REPO_BASE}/correos`,
 };
 
 // Points at the ha-parcel-integrations org, not the individual maintainers' personal repos
@@ -405,6 +411,8 @@ const CARRIER_REPO_URLS = {
     trunkrs:   'https://github.com/ha-parcel-integrations/ha-trunkrs',
     cainiao:   'https://github.com/ha-parcel-integrations/ha-cainiao',
     hermes:    'https://github.com/ha-parcel-integrations/ha-hermes',
+    packeta:   'https://github.com/ha-parcel-integrations/ha-packeta',
+    correos:   'https://github.com/ha-parcel-integrations/ha-correos',
 };
 
 const CARRIER_ASSETS = {
@@ -529,6 +537,42 @@ const CARRIER_ASSETS = {
             delivered_mini:  `${IMG.hermes}/hermes_step_delivered_mini.png?raw=true`
         }
     },
+    // Packeta art: step icons and the animated van are the shared GLS master illustration
+    // hue-shifted to the confirmed brand red (#BA1B02, read off the badge background behind the
+    // logo's reversed-white lockup via getComputedStyle on tracking.packeta.com). Packeta has no
+    // standalone dark logo — only the white-on-red badge lockup — so the logo/mark art here
+    // faithfully reproduces that same red rounded badge rather than inventing a non-canonical
+    // dark variant.
+    packeta: {
+        logo:   `${IMG.packeta}/packeta-logo.svg?raw=true`,
+        van:    `${IMG.packeta}/packeta-van.gif?raw=true`,
+        banner: `${IMG.packeta}/packeta-banner.png?raw=true`,
+        steps: {
+            registered:      `${IMG.packeta}/packeta_step_registered.png?raw=true`,
+            registered_mini: `${IMG.packeta}/packeta_step_registered_mini.png?raw=true`,
+            sorting:         `${IMG.packeta}/packeta_step_sorting.png?raw=true`,
+            transit:         `${IMG.packeta}/packeta_step_transit.png?raw=true`,
+            delivered:       `${IMG.packeta}/packeta_step_delivered.png?raw=true`,
+            delivered_mini:  `${IMG.packeta}/packeta_step_delivered_mini.png?raw=true`
+        }
+    },
+    // Correos art: step icons and the animated van are the shared GLS master illustration
+    // hue-shifted to the confirmed brand blue (#00457D, the fill colour in Correos' own official
+    // logo SVG). The logo is that same official mark (the crown-and-horn symbol; the 2019 rebrand
+    // dropped the "correos" wordmark entirely, so the icon alone is the current real logo).
+    correos: {
+        logo:   `${IMG.correos}/correos-logo.svg?raw=true`,
+        van:    `${IMG.correos}/correos-van.gif?raw=true`,
+        banner: `${IMG.correos}/correos-banner.png?raw=true`,
+        steps: {
+            registered:      `${IMG.correos}/correos_step_registered.png?raw=true`,
+            registered_mini: `${IMG.correos}/correos_step_registered_mini.png?raw=true`,
+            sorting:         `${IMG.correos}/correos_step_sorting.png?raw=true`,
+            transit:         `${IMG.correos}/correos_step_transit.png?raw=true`,
+            delivered:       `${IMG.correos}/correos_step_delivered.png?raw=true`,
+            delivered_mini:  `${IMG.correos}/correos_step_delivered_mini.png?raw=true`
+        }
+    },
     postnl_legacy: {
         logo:   `${IMG.postnl}/postnl-logo.png?raw=true`,
         van:    `${IMG.postnl}/postnl-van.gif?raw=true`,
@@ -555,7 +599,7 @@ const CARRIER_PRESETS = {
                     // not hardcode it back to `null` ("unsupported"), that was only ever
                     // true historically.
                     slug_first_suffixes: { incoming: 'binnenkomende_pakketten', delivered: 'bezorgde_pakketten', outgoing: 'uitgaande_pakketten', letters: null } },
-    // gls / dragonfly / trunkrs / cainiao / hermes are all account-less carriers from the same
+    // gls / dragonfly / trunkrs / cainiao / hermes / packeta / correos are all account-less carriers from the same
     // ha-parcel-integrations family: one "hub" (global, or per postal code for gls/trunkrs)
     // holds a dynamically managed list of tracked parcels, added either through the
     // integration's own Options dialog or by calling its `<domain>.track_parcel` service —
@@ -584,6 +628,14 @@ const CARRIER_PRESETS = {
     // Brand colour confirmed by pixel-sampling the official Hermes (Germany) logo (#008CC3).
     hermes:       { label: 'Hermes',                     icon: 'mdi:package-variant-closed', color: '#008cc3', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'hermes',
                     track_parcel_service: { domain: 'hermes', field: 'tracking_code', supports_postal_code: false } },
+    // Brand colour read off the badge background behind Packeta's white logo lockup
+    // (getComputedStyle on the styled ancestor, tracking.packeta.com) — #BA1B02.
+    packeta:      { label: 'Packeta',                    icon: 'mdi:package-variant-closed', color: '#ba1b02', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'packeta',
+                    track_parcel_service: { domain: 'packeta', field: 'tracking_code', supports_postal_code: false } },
+    // Brand colour confirmed from Correos' own official logo SVG (Wikimedia-hosted, single fill
+    // #00457D) — the 2019 rebrand's icon-only mark, no separate wordmark exists any more.
+    correos:      { label: 'Correos',                    icon: 'mdi:package-variant-closed', color: '#00457d', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'correos',
+                    track_parcel_service: { domain: 'correos', field: 'tracking_code', supports_postal_code: false } },
     postnl_legacy:{ label: 'PostNL (ArjenBos)',          icon: 'mdi:package-variant-closed', color: '#ed8c00', schema: 'single_entity', supports_letters: false, sensor_slug: null     },
     custom:       { label: 'Custom',                     icon: 'mdi:package-variant-closed', color: '#ed8c00', schema: 'canonical',     supports_letters: false, sensor_slug: null     }
 };
@@ -714,7 +766,7 @@ function detectCarrierUsers(hass, carrierType) {
 // recommended default and the user can switch the type manually if they're
 // still on v3.x) and postnl_legacy / custom (sensor_slug is null — no
 // entity-based detection is possible for those).
-const AUTO_DETECT_CARRIER_TYPES = ['postnl_v4', 'dhl', 'dpd', 'gls', 'dragonfly', 'trunkrs', 'cainiao', 'hermes'];
+const AUTO_DETECT_CARRIER_TYPES = ['postnl_v4', 'dhl', 'dpd', 'gls', 'dragonfly', 'trunkrs', 'cainiao', 'hermes', 'packeta', 'correos'];
 
 // Infers a sensible days_back for a freshly auto-populated card: the number
 // of days since the oldest currently-visible delivered parcel, across every
@@ -1414,7 +1466,7 @@ class HkiParcelsCard extends HTMLElement {
     // "+ Add parcel" — calls the carrier integration's own `<domain>.track_parcel`
     // service so a Track & Trace number entered on the live card actually starts being
     // tracked by the integration, not just displayed. Only offered for carriers whose
-    // preset declares `track_parcel_service` (gls/dragonfly/trunkrs/cainiao/hermes — the
+    // preset declares `track_parcel_service` (gls/dragonfly/trunkrs/cainiao/hermes/packeta/correos — the
     // account-less "hub + dynamically added parcels" family, see CARRIER_PRESETS).
     // ------------------------------------------------------------------
 
@@ -2816,6 +2868,8 @@ class HkiParcelsCardEditor extends LitElement {
             dragonfly: 'dragonfly_account_help',
             cainiao: 'cainiao_account_help',
             hermes: 'hermes_account_help',
+            packeta: 'packeta_account_help',
+            correos: 'correos_account_help',
         }[carrierType];
         if (key) return this._t(key);
         return html`"_${preset.sensor_slug}${this._t('account_help_suffix')}`;
@@ -2973,6 +3027,8 @@ class HkiParcelsCardEditor extends LitElement {
                             { value: 'trunkrs',       label: 'Trunkrs' },
                             { value: 'cainiao',       label: 'Cainiao' },
                             { value: 'hermes',        label: 'Hermes' },
+                            { value: 'packeta',       label: 'Packeta' },
+                            { value: 'correos',       label: 'Correos' },
                             { value: 'postnl',        label: 'PostNL (<v4.x)' },
                             { value: 'postnl_legacy', label: 'PostNL (ArjenBos)' },
                             { value: 'custom',        label: 'Custom' }

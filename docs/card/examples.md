@@ -44,6 +44,8 @@ carriers:
     user: "1234ab"
   - type: cainiao
   - type: hermes
+  - type: packeta
+  - type: correos
 ```
 
 With this many carriers, the combo banner (and the carrier overview popup when you click a logo in it) becomes the fastest way to check on a specific carrier without paging through every tab.
@@ -64,6 +66,8 @@ carriers:
     user: "1234ab"
   - type: cainiao
   - type: hermes
+  - type: packeta
+  - type: correos
 ```
 
 ---

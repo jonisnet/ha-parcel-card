@@ -1,5 +1,27 @@
 # Changelog
 
+## [1.5.2] — 2026-07-29
+
+### Added
+
+- **Packeta and Correos carrier support** — two new carrier types (`packeta`, `correos`), both
+  account-less (tracking number only, no postal code) and using the same canonical schema as every
+  other carrier — account detection, entity templating and the editor's carrier-type dropdown all
+  support them like any other carrier out of the box.
+  - **Packeta** — [ha-parcel-integrations/ha-packeta](https://github.com/ha-parcel-integrations/ha-packeta),
+    tracking the Central-European pickup-point and locker network (CZ, SK, HU, PL, RO), also known
+    as Zásilkovna, by its "Z" tracking code.
+  - **Correos** — [ha-parcel-integrations/ha-correos](https://github.com/ha-parcel-integrations/ha-correos),
+    tracking Spain's national postal service by tracking code.
+  - Both have full custom branding to match every other carrier: the real official logo/mark
+    (Packeta's red badge lockup pixel-sampled from tracking.packeta.com; Correos' crown-and-horn
+    mark taken directly from its official 2019-rebrand SVG), an animated van and step icons
+    produced by hue-shifting the same shared master illustration every other carrier's art already
+    uses, and a translated account-less help string (NL + EN).
+  - Neither integration's public tracking exposes an expected delivery time — the next-delivery
+    sensor and Deliveries calendar stay empty for these two carriers, same as already noted for
+    some other account-less carriers.
+
 ## [1.5.1] — 2026-07-25
 
 ### Added

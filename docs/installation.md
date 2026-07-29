@@ -61,9 +61,9 @@ The card supports three PostNL variants.
 !!! note "GLS has no sender/account"
     You track parcels by tracking number and postal code, not a login. The card's `user` field maps to the hub's postal code (e.g. `1234ab`), and the Sent tab is not available for this carrier.
 
-### Dragonfly, Trunkrs, Cainiao and Hermes
+### Dragonfly, Trunkrs, Cainiao, Hermes, Packeta and Correos
 
-These four, together with GLS above, are the "account-less" carriers in the family: instead of logging into an account, you register individual parcels by tracking number (plus a postal code for GLS and Trunkrs). None of them have a Sent tab, since there's no sender/account concept to distinguish outgoing parcels.
+These six, together with GLS above, are the "account-less" carriers in the family: instead of logging into an account, you register individual parcels by tracking number (plus a postal code for GLS and Trunkrs). None of them have a Sent tab, since there's no sender/account concept to distinguish outgoing parcels.
 
 | Carrier | Integration | Identified by |
 | ------- | ----------- | ------------- |
@@ -71,6 +71,8 @@ These four, together with GLS above, are the "account-less" carriers in the fami
 | **Trunkrs** | [ha-parcel-integrations/ha-trunkrs](https://github.com/ha-parcel-integrations/ha-trunkrs) | Trunkrs number + postal code (one hub per postal code) |
 | **Cainiao** | [ha-parcel-integrations/ha-cainiao](https://github.com/ha-parcel-integrations/ha-cainiao) | Tracking number only — cross-border parcels (AliExpress, Temu, Shein, ...) that haven't reached a local carrier yet |
 | **Hermes** | [ha-parcel-integrations/ha-hermes](https://github.com/ha-parcel-integrations/ha-hermes) | 14-digit tracking code only — no account, no postal code. Germany ("Hermes Paket" / myhermes.de) |
+| **Packeta** | [ha-parcel-integrations/ha-packeta](https://github.com/ha-parcel-integrations/ha-packeta) | "Z" tracking code only — no account, no postal code. Central Europe (CZ, SK, HU, PL, RO) pickup-point network, also known as Zásilkovna |
+| **Correos** | [ha-parcel-integrations/ha-correos](https://github.com/ha-parcel-integrations/ha-correos) | Tracking code only — no account, no postal code. Spain's national postal service |
 
 !!! info "Dragonfly's original integration"
     Dragonfly support was created by [Alwin Hummels (@HummelsTech)](https://github.com/HummelsTech), who maintains it standalone at [HummelsTech/ha-dragonfly](https://github.com/HummelsTech/ha-dragonfly) as well as the mirror in ha-parcel-integrations linked above — either one works with this card. These docs default to the ha-parcel-integrations link to keep every integration under one roof, but the original repo is just as valid a choice, and updates may land there first.
@@ -78,7 +80,10 @@ These four, together with GLS above, are the "account-less" carriers in the fami
 !!! warning "Trunkrs is an early release"
     The integration only recognises the `SHIPMENT_DELIVERED` status so far; every other state currently shows as `unknown` rather than guessing. It will improve as more statuses get mapped upstream.
 
-For all five of these, the card's "+ Add parcel" control can register a new parcel directly from the dashboard by calling the integration's own `track_parcel` service — no need to open the integration's own Configure dialog. See [Add parcel support](card/overview.md#add-parcel-support) for why PostNL/DHL/DPD don't have this control.
+!!! note "Packeta and Correos expose no ETA"
+    Neither integration's public tracking includes an expected delivery time. The `next_delivery` sensor and Deliveries calendar stay empty for these two carriers, and no `delivery_time_changed` event ever fires — this is expected, not a bug.
+
+For all seven of these, the card's "+ Add parcel" control can register a new parcel directly from the dashboard by calling the integration's own `track_parcel` service — no need to open the integration's own Configure dialog. See [Add parcel support](card/overview.md#add-parcel-support) for why PostNL/DHL/DPD don't have this control.
 
 ---
 
@@ -98,6 +103,8 @@ Coverage varies by carrier:
 | Trunkrs | ❌ not available yet |
 | Cainiao | ❌ not available yet |
 | Hermes | ❌ not available yet |
+| Packeta | ❌ not available yet |
+| Correos | ❌ not available yet |
 
 Carriers without a proper branded icon yet fall back to a generic `mdi:package-variant-closed` icon.
 
@@ -115,3 +122,5 @@ Carriers without a proper branded icon yet fall back to a generic `mdi:package-v
 | ha-parcel-integrations/ha-trunkrs | — (early release) |
 | ha-parcel-integrations/ha-cainiao | 0.9.0 (early release) |
 | ha-parcel-integrations/ha-hermes | — (added 2026-07-23) |
+| ha-parcel-integrations/ha-packeta | — (added 2026-07-29) |
+| ha-parcel-integrations/ha-correos | — (added 2026-07-29) |

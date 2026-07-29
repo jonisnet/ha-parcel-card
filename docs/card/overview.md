@@ -1,6 +1,6 @@
 # HKI Parcels Card
 
-A multi-carrier parcel tracking card for Home Assistant. Track parcels from PostNL, DHL, DPD, GLS, Dragonfly, Trunkrs, Cainiao and Hermes in a single unified view, with support for letterbox mail images.
+A multi-carrier parcel tracking card for Home Assistant. Track parcels from PostNL, DHL, DPD, GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta and Correos in a single unified view, with support for letterbox mail images.
 
 !!! note
     HKI Cards were created for the visual editor in Home Assistant. It is possible that the documentation is not complete for all features.
@@ -21,6 +21,8 @@ This card requires at least one parcel-tracking integration to be installed in H
 | **Trunkrs** | Tracking number + postal code |
 | **Cainiao** | Tracking number only |
 | **Hermes** | Tracking number only |
+| **Packeta** | Tracking number only |
+| **Correos** | Tracking number only |
 
 ---
 
@@ -28,7 +30,7 @@ This card requires at least one parcel-tracking integration to be installed in H
 
 ### :package: Parcel tracking
 
-- **Multi-carrier** — PostNL, DHL, DPD, GLS, Dragonfly, Trunkrs, Cainiao and Hermes side by side; add the same carrier multiple times for multiple accounts or hubs
+- **Multi-carrier** — PostNL, DHL, DPD, GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta and Correos side by side; add the same carrier multiple times for multiple accounts or hubs
 - **Automatic sensor names** — enter only the account name; the card builds all sensor entity IDs automatically, for both known naming schemes
 - **Four tabs** — In Transit · Delivered · Sent · Letters
 - **Split sections** — both Sent and Letters are split into *Still to be delivered* and *Delivered*
@@ -54,6 +56,8 @@ For the account-less carriers, the card shows a "+ Add parcel" control that call
 | Trunkrs | ✅ | Account-less — tracked by number + postal code |
 | Cainiao | ✅ | Account-less — tracked by number only |
 | Hermes | ✅ | Account-less — tracked by number only |
+| Packeta | ✅ | Account-less — tracked by number only |
+| Correos | ✅ | Account-less — tracked by number only |
 
 For GLS and Trunkrs, which can have multiple hubs (one per postal code), the carrier's configured `user` value is passed along automatically so the parcel lands on the right hub.
 

@@ -37,9 +37,9 @@ With two or more carriers configured, the card automatically builds a combo bann
 
 ---
 
-## Account-less carriers (GLS, Dragonfly, Trunkrs, Cainiao, Hermes)
+## Account-less carriers (GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos)
 
-These carriers have no login — GLS and Trunkrs use a postal code, Dragonfly, Cainiao and Hermes use nothing but the tracking number itself:
+These carriers have no login — GLS and Trunkrs use a postal code, Dragonfly, Cainiao, Hermes, Packeta and Correos use nothing but the tracking number itself:
 
 ```yaml
 type: custom:hki-parcels-card
@@ -52,6 +52,8 @@ carriers:
     user: "1234ab"
   - type: cainiao
   - type: hermes
+  - type: packeta
+  - type: correos
 ```
 
 Since there's no account to auto-sync from, each of these carriers shows a "+ Add parcel" control on the card so you can register a tracking number directly. Disable it per-card with `show_add_parcel: false`.
