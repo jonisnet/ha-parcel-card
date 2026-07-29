@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.5.3] — 2026-07-29
+
+### Fixed
+
+- **Correos banner still showed "GLS."** — the banner asset is supposed to be the carrier's own logo
+  centered on a plain white background (that's how every other carrier's banner works: Hermes shows
+  "Hermes", Packeta shows its red "Packeta" badge), but Correos' banner was left as a straight
+  hue-shifted copy of GLS's own "GLS." wordmark banner, just recoloured to Correos blue — so it still
+  visibly read as the wrong brand. Replaced with Correos' real crown-and-horn mark, centered on white.
+
 ## [1.5.2] — 2026-07-29
 
 ### Added
