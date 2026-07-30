@@ -638,7 +638,7 @@ const CARRIER_PRESETS = {
     // the right hub when more than one is configured — the card passes the carrier's own
     // `user` value (which for these carriers IS the postal code, see gls/trunkrs_account_help).
     gls:          { label: 'GLS',                        icon: 'mdi:package-variant-closed', color: '#061ab1', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'gls',
-                    track_parcel_service: { domain: 'gls', field: 'parcel_no', supports_postal_code: true } },
+                    track_parcel_service: { domain: 'gls', field: 'tracking_code', supports_postal_code: true } },
     // Brand colour confirmed by pixel-sampling the official Dragonfly wordmark (teal, #00a78f).
     dragonfly:    { label: 'Dragonfly',                  icon: 'mdi:package-variant-closed', color: '#00a78f', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'dragonfly',
                     track_parcel_service: { domain: 'dragonfly', field: 'tracking_code', supports_postal_code: false } },
@@ -648,7 +648,7 @@ const CARRIER_PRESETS = {
     // legible/vivid of the two against the card's light and dark themes — same role the accent
     // colour plays for every other carrier.
     trunkrs:      { label: 'Trunkrs',                    icon: 'mdi:package-variant-closed', color: '#2ce27e', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'trunkrs',
-                    track_parcel_service: { domain: 'trunkrs', field: 'trunkrs_nr', supports_postal_code: true } },
+                    track_parcel_service: { domain: 'trunkrs', field: 'tracking_code', supports_postal_code: true } },
     // Brand colour confirmed by pixel-sampling the official Cainiao logo (#0066ff) — matches the
     // "Brandeis Blue" value from https://www.schemecolor.com/cainiao-logo-color.php exactly.
     cainiao:      { label: 'Cainiao',                    icon: 'mdi:package-variant-closed', color: '#0066ff', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'cainiao',
