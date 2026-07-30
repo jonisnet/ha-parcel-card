@@ -1,6 +1,6 @@
 # HKI Parcels Card
 
-**Track parcels from PostNL, DHL, DPD, GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta and Correos in a single Home Assistant card.**
+**Track parcels from PostNL, DHL, DPD, Vinted Go, GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta and Correos in a single Home Assistant card.**
 
 Automatic sensor detection, animated banners, a 4-step delivery tracker, letterbox mail with scan images, a carrier overview popup, and a complete visual editor — no YAML required.
 
@@ -12,7 +12,7 @@ Automatic sensor detection, animated banners, a 4-step delivery tracker, letterb
 
     ---
 
-    PostNL, DHL, DPD, GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta and Correos side by side. Add the same carrier multiple times for multiple accounts or hubs.
+    PostNL, DHL, DPD, Vinted Go, GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta and Correos side by side. Add the same carrier multiple times for multiple accounts or hubs.
 
 -   :magic_wand:{ .lg .middle } **Auto sensor detection**
 
@@ -63,7 +63,7 @@ Automatic sensor detection, animated banners, a 4-step delivery tracker, letterb
     !!! tip "Which PostNL type?"
         Use `postnl_v4` ("PostNL") for ha-postnl ≥ 4.0.0 (recommended). `postnl` ("PostNL (<v4.x)") and `postnl_legacy` ("PostNL (ArjenBos)") are being phased out — see [Installation](installation.md#postnl).
 
-=== "DHL / DPD / GLS"
+=== "DHL / DPD / Vinted Go / GLS"
 
     ```yaml
     type: custom:hki-parcels-card
@@ -73,12 +73,17 @@ Automatic sensor detection, animated banners, a 4-step delivery tracker, letterb
         user: my_account
       - type: dpd
         user: my_account
+      - type: vinted_go
+        user: my_account
       - type: gls
         user: "1234ab"
     ```
 
     !!! note "GLS has no account"
         GLS tracks parcels by tracking number and postal code rather than a login — `user` maps to the hub's postal code.
+
+    !!! note "Vinted Go is account-based"
+        Vinted Go logs in with an e-mail address and a verification link (no password, no tracking-code entry) — like PostNL/DHL/DPD it has no `track_parcel` service, so it doesn't get the card's "+ Add parcel" control. Unlike every account-less carrier below, it tracks both incoming *and* outgoing parcels.
 
 === "Dragonfly / Trunkrs / Cainiao / Hermes / Packeta / Correos"
 
@@ -109,6 +114,8 @@ Automatic sensor detection, animated banners, a 4-step delivery tracker, letterb
         user: my_account
       - type: dpd
         user: my_account
+      - type: vinted_go
+        user: my_account
       - type: gls
         user: "1234ab"
       - type: dragonfly
@@ -138,6 +145,7 @@ All carriers below are part of the [ha-parcel-integrations](https://github.com/h
 | **PostNL (ArjenBos)**² | [arjenbos/ha-postnl](https://github.com/arjenbos/ha-postnl) | `postnl_legacy` | Account login |
 | **DHL** | [ha-dhl-nl](https://github.com/ha-parcel-integrations/ha-dhl-nl) | `dhl` | Account login |
 | **DPD** | [ha-dpd](https://github.com/ha-parcel-integrations/ha-dpd) | `dpd` | Account login |
+| **Vinted Go** | [ha-vinted-go](https://github.com/ha-parcel-integrations/ha-vinted-go) | `vinted_go` | Account login (e-mail + verification link) |
 | **GLS** | [ha-gls](https://github.com/ha-parcel-integrations/ha-gls) | `gls` | Tracking number + postal code |
 | **Dragonfly**¹ | [ha-dragonfly](https://github.com/ha-parcel-integrations/ha-dragonfly) | `dragonfly` | Tracking number only |
 | **Trunkrs** | [ha-trunkrs](https://github.com/ha-parcel-integrations/ha-trunkrs) | `trunkrs` | Tracking number + postal code |
@@ -151,7 +159,7 @@ All carriers below are part of the [ha-parcel-integrations](https://github.com/h
 ² Being phased out — see the [deprecation notice](installation.md#postnl).
 
 !!! note "Add parcel support"
-    Only the account-less carriers (GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos) get the card's "+ Add parcel" control — PostNL, DHL and DPD auto-sync every parcel tied to the logged-in account and don't expose a service to register one manually. Full explanation on the [Overview page](card/overview.md#add-parcel-support).
+    Only the account-less carriers (GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos) get the card's "+ Add parcel" control — PostNL, DHL, DPD and Vinted Go auto-sync every parcel tied to the logged-in account and don't expose a service to register one manually. Full explanation on the [Overview page](card/overview.md#add-parcel-support).
 
 ---
 

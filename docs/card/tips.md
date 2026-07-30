@@ -34,7 +34,7 @@ The editor's auto-detection also handles this case automatically.
 
 ## Registering a parcel without opening the integration
 
-For GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta and Correos, use the "+ Add parcel" control at the bottom of the card instead of switching to the integration's own Configure dialog — it calls the same `track_parcel` service directly, so the parcel shows up in the card immediately. See [Add parcel support](overview.md#add-parcel-support) for why this isn't available for PostNL/DHL/DPD.
+For GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta and Correos, use the "+ Add parcel" control at the bottom of the card instead of switching to the integration's own Configure dialog — it calls the same `track_parcel` service directly, so the parcel shows up in the card immediately. See [Add parcel support](overview.md#add-parcel-support) for why this isn't available for PostNL/DHL/DPD/Vinted Go.
 
 ---
 

@@ -1,13 +1,13 @@
 # HKI Parcels Card
 
-[![Version](https://img.shields.io/badge/version-v1.5.3-blue?style=flat-square)](https://github.com/jonisnet/hki-parcels-card/releases/latest)
+[![Version](https://img.shields.io/badge/version-v1.5.4-blue?style=flat-square)](https://github.com/jonisnet/hki-parcels-card/releases/latest)
 [![HACS](https://img.shields.io/badge/HACS-Custom-orange?style=flat-square)](https://hacs.xyz)
 [![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](https://github.com/jonisnet/hki-parcels-card/blob/main/LICENSE)
 [![HA](https://img.shields.io/badge/Home%20Assistant-2026.7%2B-41bdf5?style=flat-square)](https://www.home-assistant.io)
 [![Downloads](https://img.shields.io/github/downloads/jonisnet/hki-parcels-card/total?style=flat-square&label=downloads)](https://github.com/jonisnet/hki-parcels-card/releases)
 [![Sponsor](https://img.shields.io/badge/sponsor-%E2%9D%A4-ea4aaa?style=flat-square&logo=githubsponsors)](https://github.com/sponsors/jonisnet)
 
-**Track parcels from PostNL, DHL, DPD, GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta and Correos in a single Home Assistant card** — with animated banners, letter scan images, automatic sensor detection, a "+ Add parcel" control for account-less carriers, and a full visual editor.
+**Track parcels from PostNL, DHL, DPD, Vinted Go, GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta and Correos in a single Home Assistant card** — with animated banners, letter scan images, automatic sensor detection, a "+ Add parcel" control for account-less carriers, and a full visual editor.
 
 📖 **Full documentation, configuration reference and screenshots:** **[jonisnet.github.io/hki-parcels-card](https://jonisnet.github.io/hki-parcels-card/)**
 
@@ -21,7 +21,7 @@
 
 ## Features
 
-- **Multi-carrier** — PostNL, DHL, DPD, GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta and Correos side by side in one card, each with its own branded logo, van animation and banner
+- **Multi-carrier** — PostNL, DHL, DPD, Vinted Go, GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta and Correos side by side in one card, each with its own branded logo, van animation and banner
 - **Four tabs** — In Transit · Delivered · Sent · Letters, with parcel details, barcode and a direct tracking link
 - **4-step delivery tracker** — a branded progress illustration (Registered · Sorting centre · Out for delivery · Delivered) when a parcel is selected
 - **Carrier overview popup** — click a logo in the multi-carrier banner to see every parcel and letter for that carrier across all tabs in one popup, with details expandable in place
@@ -58,6 +58,7 @@ Install the integration for each carrier you use **before** adding the card. All
 | **PostNL** | [ha-parcel-integrations/ha-postnl](https://github.com/ha-parcel-integrations/ha-postnl) ≥ 4.0.0 (older `postnl` / `postnl_legacy` variants are being phased out, see [Installation](https://jonisnet.github.io/hki-parcels-card/installation/#postnl)) | Account login |
 | **DHL** | [ha-parcel-integrations/ha-dhl-nl](https://github.com/ha-parcel-integrations/ha-dhl-nl) | Account login |
 | **DPD** | [ha-parcel-integrations/ha-dpd](https://github.com/ha-parcel-integrations/ha-dpd) | Account login |
+| **Vinted Go** | [ha-parcel-integrations/ha-vinted-go](https://github.com/ha-parcel-integrations/ha-vinted-go) | Account login (e-mail + verification link, no password) |
 | **GLS** | [ha-parcel-integrations/ha-gls](https://github.com/ha-parcel-integrations/ha-gls) | Tracking number + postal code |
 | **Dragonfly** | [ha-parcel-integrations/ha-dragonfly](https://github.com/ha-parcel-integrations/ha-dragonfly) — created by [Alwin Hummels](https://github.com/HummelsTech), also maintained standalone at [HummelsTech/ha-dragonfly](https://github.com/HummelsTech/ha-dragonfly); either works with this card | Tracking number only |
 | **Trunkrs** | [ha-parcel-integrations/ha-trunkrs](https://github.com/ha-parcel-integrations/ha-trunkrs) | Tracking number + postal code |
@@ -77,6 +78,7 @@ The card's "+ Add parcel" control only appears for carriers whose integration is
 | PostNL | ❌ | Account-based — parcels appear automatically, no `track_parcel` service exists |
 | DHL | ❌ | Account-based — parcels appear automatically, no `track_parcel` service exists |
 | DPD | ❌ | Account-based — parcels appear automatically, no `track_parcel` service exists |
+| Vinted Go | ❌ | Account-based — parcels appear automatically, no `track_parcel` service exists |
 | GLS | ✅ | Account-less — tracked by number + postal code |
 | Dragonfly | ✅ | Account-less — tracked by number only |
 | Trunkrs | ✅ | Account-less — tracked by number + postal code |
@@ -125,6 +127,8 @@ carriers:
     user: my_account
   - type: dpd
     user: my_account
+  - type: vinted_go
+    user: my_account
   - type: gls
     user: "1234ab"
   - type: dragonfly
@@ -151,7 +155,7 @@ This card is free and maintained in my spare time. If it's useful to you, a smal
 ## Credits
 
 - [jimz011/hki-elements](https://github.com/jimz011/hki-elements) — original PostNL card and visual design
-- [ha-parcel-integrations](https://github.com/ha-parcel-integrations) — PostNL, DHL, DPD, GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta and Correos integrations, all sharing one canonical parcel format
+- [ha-parcel-integrations](https://github.com/ha-parcel-integrations) — PostNL, DHL, DPD, Vinted Go, GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta and Correos integrations, all sharing one canonical parcel format
 - [Alwin Hummels (@HummelsTech)](https://github.com/HummelsTech) — created the Dragonfly integration ([HummelsTech/ha-dragonfly](https://github.com/HummelsTech/ha-dragonfly)), also mirrored into ha-parcel-integrations above
 - [arjenbos/ha-postnl](https://github.com/arjenbos/ha-postnl) — legacy PostNL integration
 

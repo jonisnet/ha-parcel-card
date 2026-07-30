@@ -50,16 +50,20 @@ The card supports three PostNL variants.
 
     **PostNL (ArjenBos)** will also be removed starting from v2.0, unless [arjenbos/ha-postnl](https://github.com/arjenbos/ha-postnl) receives an update of its own before that point.
 
-### DHL, DPD and GLS
+### DHL, DPD, Vinted Go and GLS
 
 | Carrier | Integration |
 | ------- | ----------- |
 | **DHL** | [ha-parcel-integrations/ha-dhl-nl](https://github.com/ha-parcel-integrations/ha-dhl-nl) |
 | **DPD** | [ha-parcel-integrations/ha-dpd](https://github.com/ha-parcel-integrations/ha-dpd) |
+| **Vinted Go** | [ha-parcel-integrations/ha-vinted-go](https://github.com/ha-parcel-integrations/ha-vinted-go) |
 | **GLS** | [ha-parcel-integrations/ha-gls](https://github.com/ha-parcel-integrations/ha-gls) |
 
 !!! note "GLS has no sender/account"
     You track parcels by tracking number and postal code, not a login. The card's `user` field maps to the hub's postal code (e.g. `1234ab`), and the Sent tab is not available for this carrier.
+
+!!! note "Vinted Go logs in with e-mail, not a password"
+    Login is an e-mail address plus a verification link — there's no password and no way to register a tracking number directly, so like PostNL/DHL/DPD it has no `track_parcel` service and doesn't get the card's "+ Add parcel" control. Unlike PostNL/DHL/DPD and every account-less carrier below, Vinted Go tracks both incoming *and* outgoing parcels (it's built around Vinted's peer-to-peer resale marketplace). There's no `next_delivery`/ETA sensor for this integration at all.
 
 ### Dragonfly, Trunkrs, Cainiao, Hermes, Packeta and Correos
 
@@ -83,7 +87,7 @@ These six, together with GLS above, are the "account-less" carriers in the famil
 !!! note "Packeta and Correos expose no ETA"
     Neither integration's public tracking includes an expected delivery time. The `next_delivery` sensor and Deliveries calendar stay empty for these two carriers, and no `delivery_time_changed` event ever fires — this is expected, not a bug.
 
-For all seven of these, the card's "+ Add parcel" control can register a new parcel directly from the dashboard by calling the integration's own `track_parcel` service — no need to open the integration's own Configure dialog. See [Add parcel support](card/overview.md#add-parcel-support) for why PostNL/DHL/DPD don't have this control.
+For all seven of these, the card's "+ Add parcel" control can register a new parcel directly from the dashboard by calling the integration's own `track_parcel` service — no need to open the integration's own Configure dialog. See [Add parcel support](card/overview.md#add-parcel-support) for why PostNL/DHL/DPD/Vinted Go don't have this control.
 
 ---
 
@@ -105,6 +109,7 @@ Coverage varies by carrier:
 | Hermes | ❌ not available yet |
 | Packeta | ❌ not available yet |
 | Correos | ❌ not available yet |
+| Vinted Go | ❌ not available yet |
 
 Carriers without a proper branded icon yet fall back to a generic `mdi:package-variant-closed` icon.
 
@@ -124,3 +129,4 @@ Carriers without a proper branded icon yet fall back to a generic `mdi:package-v
 | ha-parcel-integrations/ha-hermes | — (added 2026-07-23) |
 | ha-parcel-integrations/ha-packeta | — (added 2026-07-29) |
 | ha-parcel-integrations/ha-correos | — (added 2026-07-29) |
+| ha-parcel-integrations/ha-vinted-go | — (added 2026-07-30) |

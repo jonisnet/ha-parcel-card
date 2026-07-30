@@ -1,5 +1,24 @@
 # Changelog
 
+## [1.5.4] — 2026-07-30
+
+### Added
+
+- **Vinted Go carrier support** — new carrier type (`vinted_go`), backed by
+  [ha-parcel-integrations/ha-vinted-go](https://github.com/ha-parcel-integrations/ha-vinted-go),
+  tracking parcels bought and sold through Vinted's own shipping service. Unlike every other
+  account-less carrier added recently (Hermes, Packeta, Correos), Vinted Go is **account-based** —
+  you log in with an e-mail address and a verification link, no password and no tracking-code
+  entry — so it follows the `postnl_v4`/`dhl`/`dpd` pattern instead: no `track_parcel` service and
+  no "+ Add parcel" control, since every parcel tied to the account already appears automatically.
+  It's also the only account-based carrier in the card that tracks both **incoming and outgoing**
+  parcels (`supports_outgoing: true`), matching how Vinted itself works as a peer-to-peer resale
+  marketplace. There is no `next_delivery`/ETA sensor for this integration at all. Full custom
+  branding included: the real "Vinted Go" script wordmark (rasterised from vintedgo.com's own
+  `/assets/logo.svg`), an animated van and step icons hue-shifted from the shared master
+  illustration to the confirmed brand teal `#007782` (vintedgo.com's own `--primary-default` CSS
+  custom property).
+
 ## [1.5.3] — 2026-07-29
 
 ### Fixed

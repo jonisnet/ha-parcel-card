@@ -37,6 +37,20 @@ With two or more carriers configured, the card automatically builds a combo bann
 
 ---
 
+## Vinted Go (incoming and outgoing)
+
+```yaml
+type: custom:hki-parcels-card
+title: Parcels
+carriers:
+  - type: vinted_go
+    user: my_account
+```
+
+Like PostNL/DHL/DPD, Vinted Go is account-based (login is an e-mail address plus a verification link, no password) — every parcel tied to the account appears automatically, so there's no `track_parcel` service and no "+ Add parcel" control for it. Unlike PostNL/DHL/DPD, Vinted Go tracks both incoming *and* outgoing parcels, and there's no `next_delivery`/ETA sensor for it at all.
+
+---
+
 ## Account-less carriers (GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos)
 
 These carriers have no login — GLS and Trunkrs use a postal code, Dragonfly, Cainiao, Hermes, Packeta and Correos use nothing but the tracking number itself:

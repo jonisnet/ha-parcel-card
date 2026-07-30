@@ -37,6 +37,8 @@ carriers:
     user: my_account
   - type: dpd
     user: my_account
+  - type: vinted_go
+    user: my_account
   - type: gls
     user: "1234ab"
   - type: dragonfly

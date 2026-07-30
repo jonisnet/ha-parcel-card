@@ -75,6 +75,7 @@ When `type: postnl_legacy` these options apply instead.
 | `postnl` | PostNL (<v4.x) | ha-parcel-integrations/ha-postnl ≤ 3.x | legacy | ✅ | — |
 | `dhl` | DHL | ha-parcel-integrations/ha-dhl-nl | canonical | — | — |
 | `dpd` | DPD | ha-parcel-integrations/ha-dpd | canonical | — | — |
+| `vinted_go` | Vinted Go | ha-parcel-integrations/ha-vinted-go | canonical | — | — |
 | `gls` | GLS | ha-parcel-integrations/ha-gls | canonical | — | ✅ |
 | `dragonfly` | Dragonfly | ha-parcel-integrations/ha-dragonfly | canonical | — | ✅ |
 | `trunkrs` | Trunkrs | ha-parcel-integrations/ha-trunkrs | canonical | — | ✅ |
@@ -96,6 +97,9 @@ When `type: postnl_legacy` these options apply instead.
 !!! note
     `gls`, `dragonfly`, `trunkrs`, `cainiao`, `hermes`, `packeta` and `correos` have no Sent tab — these carriers track parcels by number (plus postal code for GLS/Trunkrs) with no sender/account concept, so `entity_outgoing` and `entity_outgoing_delivered` are not applicable. See [Add parcel support](overview.md#add-parcel-support) for why only these seven carriers get the "+ Add parcel" control.
 
+!!! note "Vinted Go"
+    `vinted_go` is account-based (e-mail + verification link login, no password) like `postnl_v4`/`dhl`/`dpd`, so it has no `track_parcel_service` and doesn't get the "+ Add parcel" control either. Unlike those three, and unlike every account-less carrier above, it tracks both incoming *and* outgoing parcels — the Sent tab works normally. There is no `next_delivery`/ETA sensor for this integration at all.
+
 ---
 
 ## Sensor naming
@@ -105,7 +109,7 @@ The `user` field is the account part of the sensor name. The card builds all ent
 | Scheme | Example |
 | ------ | ------- |
 | `sensor.<user>_<carrier>_*` | PostNL, DHL — `sensor.my_account_postnl_incoming_parcels` |
-| `sensor.<carrier>_<user>_*` | DPD, GLS, Trunkrs — `sensor.dpd_my_account_binnenkomende_pakketten`, `sensor.gls_1234ab_incoming_parcels`, `sensor.trunkrs_1234ab_incoming_parcels` |
+| `sensor.<carrier>_<user>_*` | DPD, Vinted Go, GLS, Trunkrs — `sensor.dpd_my_account_binnenkomende_pakketten`, `sensor.vinted_go_my_account_incoming_parcels`, `sensor.gls_1234ab_incoming_parcels`, `sensor.trunkrs_1234ab_incoming_parcels` |
 | `sensor.<carrier>_*` (no prefix) | Dragonfly, Cainiao, Hermes, Packeta, Correos — `sensor.dragonfly_incoming_parcels`, `sensor.cainiao_incoming_parcels`, `sensor.hermes_incoming_parcels`, `sensor.packeta_incoming_parcels`, `sensor.correos_incoming_parcels` |
 
 The correct scheme is detected automatically. Leave `user` empty if your sensors have no account prefix, or for any Dragonfly/Cainiao/Hermes/Packeta/Correos sensor — those five have no account or postal code at all.
@@ -153,6 +157,8 @@ carriers:
   - type: dhl
     user: my_account
   - type: dpd
+    user: my_account
+  - type: vinted_go
     user: my_account
   - type: gls
     user: "1234ab"

@@ -68,7 +68,7 @@ window.HKI.getSelectValue = window.HKI.getSelectValue || ((ev, options = null) =
 
 (() => {
 const { LitElement, html, css } = window.HKI.getLit();
-const CARD_VERSION = 'v1.5.3';
+const CARD_VERSION = 'v1.5.4';
 console.info(`%c HKI-PARCELS-CARD %c ${CARD_VERSION} `, 'color: white; background: #ed8c00; font-weight: bold;', 'color: #ed8c00; background: white; font-weight: bold;');
 
 const DEFAULT_CARRIER_ICON = 'mdi:package-variant-closed';
@@ -187,7 +187,6 @@ const TRANSLATIONS = {
         hermes_account_help:    'Hermes heeft geen account of postcode — laat dit veld leeg; de sensoren heten sensor.hermes_*.',
         packeta_account_help:   'Packeta heeft geen account of postcode — laat dit veld leeg; de sensoren heten sensor.packeta_*.',
         correos_account_help:   'Correos heeft geen account of postcode — laat dit veld leeg; de sensoren heten sensor.correos_*.',
-        vintedgo_account_help:  'VintedGo heeft geen account of postcode — laat dit veld leeg; de sensoren heten sensor.vintedgo_*.', // SPECULATIVE: sensor slug/wording unverified, no real ha-vintedgo integration exists yet
         show_add_parcel:        'Toon "Pakket toevoegen" op de kaart',
         add_parcel_toggle:      '+ Pakket toevoegen',
         add_parcel_carrier:     'Dienst',
@@ -327,7 +326,6 @@ const TRANSLATIONS = {
         hermes_account_help:    'Hermes has no account or postal code — leave this field empty; the sensors are named sensor.hermes_*.',
         packeta_account_help:   'Packeta has no account or postal code — leave this field empty; the sensors are named sensor.packeta_*.',
         correos_account_help:   'Correos has no account or postal code — leave this field empty; the sensors are named sensor.correos_*.',
-        vintedgo_account_help:  'VintedGo has no account or postal code — leave this field empty; the sensors are named sensor.vintedgo_*.', // SPECULATIVE: sensor slug/wording unverified, no real ha-vintedgo integration exists yet
         show_add_parcel:        'Show "Add parcel" on the card',
         add_parcel_toggle:      '+ Add parcel',
         add_parcel_carrier:     'Carrier',
@@ -396,7 +394,7 @@ const IMG = {
     hermes:    `${REPO_BASE}/hermes`,
     packeta:   `${REPO_BASE}/packeta`,
     correos:   `${REPO_BASE}/correos`,
-    vintedgo:  `${REPO_BASE}/vintedgo`,
+    vinted_go: `${REPO_BASE}/vinted_go`,
 };
 
 // Points at the ha-parcel-integrations org, not the individual maintainers' personal repos
@@ -416,10 +414,7 @@ const CARRIER_REPO_URLS = {
     hermes:    'https://github.com/ha-parcel-integrations/ha-hermes',
     packeta:   'https://github.com/ha-parcel-integrations/ha-packeta',
     correos:   'https://github.com/ha-parcel-integrations/ha-correos',
-    // SPECULATIVE: guessed repo name following this org's established `ha-<carrier>` convention;
-    // ha-vintedgo does not exist yet (Peter Nijssen only announced "Vinted Go is incoming" in a
-    // GitHub discussion) — verify the actual repo name once it ships.
-    vintedgo:  'https://github.com/ha-parcel-integrations/ha-vintedgo',
+    vinted_go: 'https://github.com/ha-parcel-integrations/ha-vinted-go',
 };
 
 const CARRIER_ASSETS = {
@@ -580,28 +575,22 @@ const CARRIER_ASSETS = {
             delivered_mini:  `${IMG.correos}/correos_step_delivered_mini.png?raw=true`
         }
     },
-    // SPECULATIVE / UNRELEASED: VintedGo art. There is no real ha-vintedgo integration yet — Peter
-    // Nijssen only announced "Vinted Go is incoming" in a GitHub discussion. Built ahead of time so
-    // this card is ready the moment it ships. Step icons and the animated van are the shared GLS
-    // master illustration hue-shifted to VintedGo's confirmed brand colour (#007782, the
-    // --primary-default CSS custom property read directly from vintedgo.com's own stylesheet). The
-    // logo is VintedGo's own real "Vinted Go" script wordmark (rasterised from vintedgo.com's
-    // /assets/logo.svg, recoloured from white to the confirmed teal). The small badge composited
-    // into the sorting card / transit icon / van door is a generic invented parcel-box mark, NOT a
-    // real VintedGo symbol — no standalone icon mark is known to exist for VintedGo, only the
-    // wordmark. All of this must be re-checked against the real ha-vintedgo integration before
-    // release.
-    vintedgo: {
-        logo:   `${IMG.vintedgo}/vintedgo-logo.svg?raw=true`,
-        van:    `${IMG.vintedgo}/vintedgo-van.gif?raw=true`,
-        banner: `${IMG.vintedgo}/vintedgo-banner.png?raw=true`,
+    // Vinted Go art: step icons and the animated van are the shared GLS master illustration
+    // hue-shifted to the confirmed brand teal (#007782, the --primary-default CSS custom property
+    // read directly from vintedgo.com's own compiled stylesheet). The logo is Vinted Go's own real
+    // "Vinted Go" script wordmark (rasterised from vintedgo.com's /assets/logo.svg, recoloured from
+    // white to the confirmed teal).
+    vinted_go: {
+        logo:   `${IMG.vinted_go}/vinted_go-logo.svg?raw=true`,
+        van:    `${IMG.vinted_go}/vinted_go-van.gif?raw=true`,
+        banner: `${IMG.vinted_go}/vinted_go-banner.png?raw=true`,
         steps: {
-            registered:      `${IMG.vintedgo}/vintedgo_step_registered.png?raw=true`,
-            registered_mini: `${IMG.vintedgo}/vintedgo_step_registered_mini.png?raw=true`,
-            sorting:         `${IMG.vintedgo}/vintedgo_step_sorting.png?raw=true`,
-            transit:         `${IMG.vintedgo}/vintedgo_step_transit.png?raw=true`,
-            delivered:       `${IMG.vintedgo}/vintedgo_step_delivered.png?raw=true`,
-            delivered_mini:  `${IMG.vintedgo}/vintedgo_step_delivered_mini.png?raw=true`
+            registered:      `${IMG.vinted_go}/vinted_go_step_registered.png?raw=true`,
+            registered_mini: `${IMG.vinted_go}/vinted_go_step_registered_mini.png?raw=true`,
+            sorting:         `${IMG.vinted_go}/vinted_go_step_sorting.png?raw=true`,
+            transit:         `${IMG.vinted_go}/vinted_go_step_transit.png?raw=true`,
+            delivered:       `${IMG.vinted_go}/vinted_go_step_delivered.png?raw=true`,
+            delivered_mini:  `${IMG.vinted_go}/vinted_go_step_delivered_mini.png?raw=true`
         }
     },
     postnl_legacy: {
@@ -630,8 +619,15 @@ const CARRIER_PRESETS = {
                     // not hardcode it back to `null` ("unsupported"), that was only ever
                     // true historically.
                     slug_first_suffixes: { incoming: 'binnenkomende_pakketten', delivered: 'bezorgde_pakketten', outgoing: 'uitgaande_pakketten', letters: null } },
-    // gls / dragonfly / trunkrs / cainiao / hermes / packeta / correos (and, speculatively, vintedgo)
-    // are all account-less carriers from the same
+    // Account-based like postnl_v4/dhl/dpd above (e-mail + verification-link login, no password,
+    // no tracking-code entry) — so there's no track_parcel_service and no "+ Add parcel" control
+    // for this carrier. Brand colour #007782 is the --primary-default CSS custom property read
+    // directly from vintedgo.com's own compiled stylesheet (rgb(0,119,130); the darker
+    // --primary-dark rgb(0,70,84)/#004654 is used for their header background). Unlike every other
+    // account-less carrier below, Vinted Go tracks both incoming and outgoing parcels
+    // (supports_outgoing: true) and has no next_delivery/ETA sensor at all.
+    vinted_go:    { label: 'Vinted Go',                  icon: 'mdi:package-variant-closed', color: '#007782', schema: 'canonical',     supports_letters: false, supports_outgoing: true,  sensor_slug: 'vinted_go' },
+    // gls / dragonfly / trunkrs / cainiao / hermes / packeta / correos are all account-less carriers from the same
     // ha-parcel-integrations family: one "hub" (global, or per postal code for gls/trunkrs)
     // holds a dynamically managed list of tracked parcels, added either through the
     // integration's own Options dialog or by calling its `<domain>.track_parcel` service —
@@ -668,19 +664,6 @@ const CARRIER_PRESETS = {
     // #00457D) — the 2019 rebrand's icon-only mark, no separate wordmark exists any more.
     correos:      { label: 'Correos',                    icon: 'mdi:package-variant-closed', color: '#00457d', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'correos',
                     track_parcel_service: { domain: 'correos', field: 'tracking_code', supports_postal_code: false } },
-    // SPECULATIVE / UNRELEASED — no real ha-vintedgo integration exists yet. Peter Nijssen
-    // (ha-parcel-integrations lead maintainer) only announced "Vinted Go is incoming" in a GitHub
-    // discussion; a separate discussion thread found vintedgo.com's tracking page returns the same
-    // result regardless of whether the postal code entered is correct, which Peter confirmed was
-    // unexpected — strongly suggesting (but NOT confirming) an account-less, tracking-code-only
-    // integration matching the dragonfly/cainiao/hermes/packeta/correos pattern used below. Brand
-    // colour IS confirmed for real: #007782 is the --primary-default CSS custom property read
-    // directly from vintedgo.com's own compiled stylesheet (rgb(0,119,130); the darker
-    // --primary-dark rgb(0,70,84) / #004654 is what VintedGo uses for its header background).
-    // Everything else on this line (domain/field/sensor_slug names) is a best-effort GUESS and
-    // MUST be verified against the real ha-vintedgo README before this ever ships.
-    vintedgo:     { label: 'VintedGo',                   icon: 'mdi:package-variant-closed', color: '#007782', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'vintedgo',
-                    track_parcel_service: { domain: 'vintedgo', field: 'tracking_code', supports_postal_code: false } },
     postnl_legacy:{ label: 'PostNL (ArjenBos)',          icon: 'mdi:package-variant-closed', color: '#ed8c00', schema: 'single_entity', supports_letters: false, sensor_slug: null     },
     custom:       { label: 'Custom',                     icon: 'mdi:package-variant-closed', color: '#ed8c00', schema: 'canonical',     supports_letters: false, sensor_slug: null     }
 };
@@ -811,7 +794,7 @@ function detectCarrierUsers(hass, carrierType) {
 // recommended default and the user can switch the type manually if they're
 // still on v3.x) and postnl_legacy / custom (sensor_slug is null — no
 // entity-based detection is possible for those).
-const AUTO_DETECT_CARRIER_TYPES = ['postnl_v4', 'dhl', 'dpd', 'gls', 'dragonfly', 'trunkrs', 'cainiao', 'hermes', 'packeta', 'correos', 'vintedgo']; // 'vintedgo' is SPECULATIVE — no real integration/sensors exist yet
+const AUTO_DETECT_CARRIER_TYPES = ['postnl_v4', 'dhl', 'dpd', 'vinted_go', 'gls', 'dragonfly', 'trunkrs', 'cainiao', 'hermes', 'packeta', 'correos'];
 
 // Infers a sensible days_back for a freshly auto-populated card: the number
 // of days since the oldest currently-visible delivered parcel, across every
@@ -1511,9 +1494,8 @@ class HkiParcelsCard extends HTMLElement {
     // "+ Add parcel" — calls the carrier integration's own `<domain>.track_parcel`
     // service so a Track & Trace number entered on the live card actually starts being
     // tracked by the integration, not just displayed. Only offered for carriers whose
-    // preset declares `track_parcel_service` (gls/dragonfly/trunkrs/cainiao/hermes/packeta/correos,
-    // and speculatively vintedgo — the account-less "hub + dynamically added parcels" family, see
-    // CARRIER_PRESETS).
+    // preset declares `track_parcel_service` (gls/dragonfly/trunkrs/cainiao/hermes/packeta/correos —
+    // the account-less "hub + dynamically added parcels" family, see CARRIER_PRESETS).
     // ------------------------------------------------------------------
 
     // { carrier, index, preset }[] for every configured carrier that supports adding a
@@ -2916,7 +2898,6 @@ class HkiParcelsCardEditor extends LitElement {
             hermes: 'hermes_account_help',
             packeta: 'packeta_account_help',
             correos: 'correos_account_help',
-            vintedgo: 'vintedgo_account_help', // SPECULATIVE — see CARRIER_PRESETS.vintedgo
         }[carrierType];
         if (key) return this._t(key);
         return html`"_${preset.sensor_slug}${this._t('account_help_suffix')}`;
@@ -3076,7 +3057,7 @@ class HkiParcelsCardEditor extends LitElement {
                             { value: 'hermes',        label: 'Hermes' },
                             { value: 'packeta',       label: 'Packeta' },
                             { value: 'correos',       label: 'Correos' },
-                            { value: 'vintedgo',      label: 'VintedGo' }, // SPECULATIVE — no real ha-vintedgo integration exists yet, see CARRIER_PRESETS.vintedgo
+                            { value: 'vinted_go',     label: 'Vinted Go' },
                             { value: 'postnl',        label: 'PostNL (<v4.x)' },
                             { value: 'postnl_legacy', label: 'PostNL (ArjenBos)' },
                             { value: 'custom',        label: 'Custom' }

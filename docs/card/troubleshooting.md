@@ -80,7 +80,7 @@ Letters appear but no scan images are displayed.
 
 **Causes and solutions:**
 
-1. The control doesn't appear at all — it only shows when at least one configured carrier is account-less (GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos). PostNL, DHL and DPD don't support it; see [Add parcel support](overview.md#add-parcel-support) for why.
+1. The control doesn't appear at all — it only shows when at least one configured carrier is account-less (GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos). PostNL, DHL, DPD and Vinted Go don't support it; see [Add parcel support](overview.md#add-parcel-support) for why.
 2. `show_add_parcel: false` is set — remove it or set to `true`.
 3. Submitting a tracking number does nothing / errors — the control calls the integration's own `track_parcel` service directly. Check **Developer Tools → Actions** to confirm that service exists for your carrier's integration (e.g. `gls.track_parcel`), and check the integration's own logs for the actual failure reason (invalid tracking number, carrier API error, etc.) — the card only relays the call, it doesn't validate tracking numbers itself.
 4. For GLS/Trunkrs specifically — the parcel may land on the wrong hub if `user` (the postal code) isn't set correctly on that carrier entry, since it's passed along automatically with the service call.
@@ -92,7 +92,7 @@ Letters appear but no scan images are displayed.
 **Causes and solutions:**
 
 1. If a carrier currently has zero parcels in every tab, the popup previously fell back to a generic icon and colour instead of the carrier's configured branding — fixed in v1.5.0b3. Update to the latest version.
-2. The icon shown is a plain generic shape or a text mark instead of a proper logo — this isn't a bug in the card. [custom-brand-icons](https://github.com/elax46/custom-brand-icons) coverage varies per carrier; some (DPD, GLS) currently only have placeholder-style artwork upstream, and Trunkrs/Cainiao/Hermes/Packeta/Correos have no PHU icon at all yet. See [PHU carrier icons](../installation.md#optional-phu-carrier-icons).
+2. The icon shown is a plain generic shape or a text mark instead of a proper logo — this isn't a bug in the card. [custom-brand-icons](https://github.com/elax46/custom-brand-icons) coverage varies per carrier; some (DPD, GLS) currently only have placeholder-style artwork upstream, and Trunkrs/Cainiao/Hermes/Packeta/Correos/Vinted Go have no PHU icon at all yet. See [PHU carrier icons](../installation.md#optional-phu-carrier-icons).
 
 ---
 
