@@ -144,6 +144,12 @@ For the full list of card/carrier options, sensor naming schemes and the carrier
 
 ---
 
+## Translations
+
+The card automatically follows your Home Assistant UI language — no setting to configure. Currently available: 🇬🇧 English, 🇳🇱 Dutch, 🇩🇪 German, 🇫🇷 French, 🇪🇸 Spanish, 🇮🇹 Italian, 🇵🇱 Polish, 🇵🇹 Portuguese (any other language falls back to English). Want to add or improve one? See **[translations/README.md](translations/README.md)** — it's a single JSON file per language, no code changes needed.
+
+---
+
 ## Sponsor
 
 This card is free and maintained in my spare time. If it's useful to you, a small contribution is very welcome and appreciated:

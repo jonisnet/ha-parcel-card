@@ -1,0 +1,29 @@
+name: Validate translations
+
+# Every translations/<lang>.json must have exactly the same keys as translations/en.json
+# (the reference), and hki-parcels-card.js's bundled TRANSLATIONS block must be in sync
+# with those files — see scripts/build_translations.py.
+on:
+  pull_request:
+    paths:
+      - "translations/**"
+      - "scripts/build_translations.py"
+      - "hki-parcels-card.js"
+  push:
+    branches: [main]
+    paths:
+      - "translations/**"
+      - "scripts/build_translations.py"
+      - "hki-parcels-card.js"
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Validate keys and check bundle is up to date
+        run: python scripts/build_translations.py --check
