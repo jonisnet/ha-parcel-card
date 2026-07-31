@@ -1,5 +1,31 @@
 # Changelog
 
+## [1.5.5] — 2026-07-31
+
+### Added
+
+- **6 new languages** — German, French, Spanish, Italian, Polish and Portuguese join
+  English and Dutch. The card has always picked its language automatically from Home
+  Assistant's own UI language (`hass.language`), so nothing to configure; any language not
+  yet covered still falls back to English as before. These 6 are AI-drafted from the English
+  source text and marked as such internally until a native speaker has reviewed them — see
+  `translations/README.md` if you'd like to help confirm one or add another.
+- **Community-contributable translation format** — translations moved out of a single inline
+  object in `hki-parcels-card.js` into one `translations/<lang>.json` file per language, plus
+  a small script (`scripts/build_translations.py`) that validates every file has exactly the
+  same keys as `en.json` and bundles them back into the card (still a single self-contained
+  file at runtime — no added network dependency). A new CI check
+  (`validate-translations.yml`) fails a PR if a translation file is incomplete or the bundle
+  is out of sync, instead of that shipping unnoticed.
+
+### Changed
+
+- **GLS and Trunkrs `track_parcel` field renamed to `tracking_code`** — both integrations
+  standardized their service's tracking-number field on `tracking_code` on 2026-07-30
+  (`ha-gls` v1.3.0, `ha-trunkrs` v0.10.x), deprecating the old `parcel_no`/`trunkrs_nr` names.
+  The old names still work today as an alias, but the card now calls the service with the new
+  field name ahead of that alias eventually being removed.
+
 ## [1.5.4] — 2026-07-30
 
 ### Added
