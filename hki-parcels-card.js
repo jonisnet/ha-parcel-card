@@ -68,7 +68,7 @@ window.HKI.getSelectValue = window.HKI.getSelectValue || ((ev, options = null) =
 
 (() => {
 const { LitElement, html, css } = window.HKI.getLit();
-const CARD_VERSION = 'v1.5.5';
+const CARD_VERSION = 'v1.5.6';
 console.info(`%c HKI-PARCELS-CARD %c ${CARD_VERSION} `, 'color: white; background: #ed8c00; font-weight: bold;', 'color: #ed8c00; background: white; font-weight: bold;');
 
 const DEFAULT_CARRIER_ICON = 'mdi:package-variant-closed';
@@ -80,7 +80,18 @@ function hasPhuIcons() {
 }
 
 function getDefaultIcon(carrierType) {
-    const phuMap = { postnl: 'phu:postnl', postnl_v4: 'phu:postnl', dhl: 'phu:dhl', dpd: 'phu:dpd', gls: 'phu:gls-group', dragonfly: 'phu:dragonfly', postnl_legacy: 'phu:postnl' };
+    // Keep in sync with whatever elax46/custom-brand-icons actually ships under icon-svg/ —
+    // a phu: reference to a name that isn't in the installed iconset renders blank, which is
+    // worse than the mdi: fallback, so only map a carrier here once its icon is confirmed live
+    // in a released custom-brand-icons version (checked 2026-07-31 against release 2026.07.5).
+    // hermes/packeta/correos are intentionally NOT mapped yet — no phu icon exists for them
+    // upstream at all (submitted, not yet merged); they keep falling back to mdi: until then.
+    const phuMap = {
+        postnl: 'phu:postnl', postnl_v4: 'phu:postnl', postnl_legacy: 'phu:postnl',
+        dhl: 'phu:dhl', dpd: 'phu:dpd',
+        gls: 'phu:gls-group', dragonfly: 'phu:dragonfly', trunkrs: 'phu:trunkrs',
+        cainiao: 'phu:cainiao', vinted_go: 'phu:vinted',
+    };
     if (hasPhuIcons() && phuMap[carrierType]) return phuMap[carrierType];
     return 'mdi:package-variant-closed';
 }
@@ -2881,7 +2892,7 @@ class HkiParcelsCard extends HTMLElement {
             .tab:hover { background: rgba(237, 140, 0, 0.1); }
             .tab.active { color: var(--accent); font-weight: bold; }
             .tab.active::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--accent); }
-            .header-animation { background-size: cover; background-position: center; background-repeat: no-repeat; padding: 16px; border-bottom: 1px solid var(--divider-color); height: 150px; box-sizing: border-box; }
+            .header-animation { background-size: contain; background-position: center; background-repeat: no-repeat; padding: 16px; border-bottom: 1px solid var(--divider-color); height: 150px; box-sizing: border-box; }
             .header-animation.animation-active { background-image: none !important; background-color: var(--card-background-color); }
             .header-animation.combo-placeholder { background-image: none !important; background-color: var(--card-background-color); display: flex; flex-direction: column; padding: 0 !important; height: auto; min-height: 150px; }
             .header-animation.status-tracker-active { height: auto; min-height: 150px; padding-top: 14px; padding-bottom: 12px; }

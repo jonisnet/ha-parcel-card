@@ -1,5 +1,27 @@
 # Changelog
 
+## [1.5.6] — 2026-07-31
+
+### Fixed
+
+- **Missing PHU icons for Cainiao, Trunkrs and Vinted Go** — the card's `phu:` icon map
+  (`getDefaultIcon()`) was never updated when these carriers were added, so they always fell
+  back to the generic `mdi:package-variant-closed` icon even for users with
+  [custom-brand-icons](https://github.com/elax46/custom-brand-icons) installed and even though
+  a real icon exists for all three. Wired up now. Hermes, Packeta and Correos still fall back
+  to the generic icon — no `phu:` icon exists for them upstream yet; icons have been submitted
+  ([custom-brand-icons#1395](https://github.com/elax46/custom-brand-icons/pull/1395)) and will
+  be wired up here once merged.
+- **Single-carrier banner cropping (Trunkrs, DPD and others)** — `.header-animation` used
+  `background-size: cover`, which crops to fill a container whose width changes with dashboard
+  zoom/screen size while its height stays fixed at 150px. Depending on the current aspect ratio
+  this could crop either the sides (cutting off e.g. the "s" in "Trunkrs") or the top/bottom
+  (DPD), inconsistently. Changed to `contain`, matching every other image in the card — the full
+  banner is now always fully visible.
+- **Packeta logo badge cut off and mis-centered** — `packeta-logo.svg`'s content group was
+  positioned so it extended 24px below the declared canvas height (clipped) and was off-center
+  on both axes. Recentered.
+
 ## [1.5.5] — 2026-07-31
 
 ### Added
