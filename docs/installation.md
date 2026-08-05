@@ -65,9 +65,9 @@ The card supports three PostNL variants.
 !!! note "Vinted Go logs in with e-mail, not a password"
     Login is an e-mail address plus a verification link — there's no password and no way to register a tracking number directly, so like PostNL/DHL/DPD it has no `track_parcel` service and doesn't get the card's "+ Add parcel" control. Unlike PostNL/DHL/DPD and every account-less carrier below, Vinted Go tracks both incoming *and* outgoing parcels (it's built around Vinted's peer-to-peer resale marketplace). There's no `next_delivery`/ETA sensor for this integration at all.
 
-### Dragonfly, Trunkrs, Cainiao, Hermes, Packeta and Correos
+### Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic and Budbee
 
-These six, together with GLS above, are the "account-less" carriers in the family: instead of logging into an account, you register individual parcels by tracking number (plus a postal code for GLS and Trunkrs). None of them have a Sent tab, since there's no sender/account concept to distinguish outgoing parcels.
+These, together with GLS above, are the "account-less" carriers in the family: instead of logging into an account, you register individual parcels by tracking number (plus a postal code for GLS and Trunkrs). None of them have a Sent tab except Budbee, since there's no sender/account concept to distinguish outgoing parcels for the rest.
 
 | Carrier | Integration | Identified by |
 | ------- | ----------- | ------------- |
@@ -77,6 +77,14 @@ These six, together with GLS above, are the "account-less" carriers in the famil
 | **Hermes** | [ha-parcel-integrations/ha-hermes](https://github.com/ha-parcel-integrations/ha-hermes) | 14-digit tracking code only — no account, no postal code. Germany ("Hermes Paket" / myhermes.de) |
 | **Packeta** | [ha-parcel-integrations/ha-packeta](https://github.com/ha-parcel-integrations/ha-packeta) | "Z" tracking code only — no account, no postal code. Central Europe (CZ, SK, HU, PL, RO) pickup-point network, also known as Zásilkovna |
 | **Correos** | [ha-parcel-integrations/ha-correos](https://github.com/ha-parcel-integrations/ha-correos) | Tracking code only — no account, no postal code. Spain's national postal service |
+| **PostNord** | [ha-parcel-integrations/ha-postnord](https://github.com/ha-parcel-integrations/ha-postnord) | Tracking code only — no account, no postal code. Nordic postal service (Sweden, Denmark, Norway, Finland) |
+| **Sameday** | [ha-parcel-integrations/ha-sameday](https://github.com/ha-parcel-integrations/ha-sameday) | AWB tracking code only — no account, no postal code. Romania-based courier |
+| **Swiss Post** | [ha-parcel-integrations/ha-swiss-post](https://github.com/ha-parcel-integrations/ha-swiss-post) | Tracking code only — no account, no postal code. Switzerland's national postal service |
+| **Planzer** | [ha-parcel-integrations/ha-planzer](https://github.com/ha-parcel-integrations/ha-planzer) | Shipment number only — no account, no postal code. Switzerland |
+| **Austrian Post** | [ha-parcel-integrations/ha-oesterreichische-post](https://github.com/ha-parcel-integrations/ha-oesterreichische-post) | Tracking code only — no account, no postal code. Austria's national postal service (Österreichische Post) |
+| **Helthjem** | [ha-parcel-integrations/ha-helthjem](https://github.com/ha-parcel-integrations/ha-helthjem) | Tracking code only — no account, no postal code. Norway |
+| **Dynalogic** | [ha-parcel-integrations/ha-dynalogic](https://github.com/ha-parcel-integrations/ha-dynalogic) | Tracking code only — no account. Netherlands; the integration's `track_parcel` service also accepts an optional postal code as a lookup aid, but the card doesn't need to send one |
+| **Budbee** | [ha-parcel-integrations/ha-budbee](https://github.com/ha-parcel-integrations/ha-budbee) | Tracking code only — no account, no postal code. Sweden-based last-mile delivery; unlike every other carrier in this table, it tracks both incoming *and* outgoing parcels, so the Sent tab works normally |
 
 !!! info "Dragonfly's original integration"
     Dragonfly support was created by [Alwin Hummels (@HummelsTech)](https://github.com/HummelsTech), who maintains it standalone at [HummelsTech/ha-dragonfly](https://github.com/HummelsTech/ha-dragonfly) as well as the mirror in ha-parcel-integrations linked above — either one works with this card. These docs default to the ha-parcel-integrations link to keep every integration under one roof, but the original repo is just as valid a choice, and updates may land there first.
@@ -87,7 +95,7 @@ These six, together with GLS above, are the "account-less" carriers in the famil
 !!! note "Packeta and Correos expose no ETA"
     Neither integration's public tracking includes an expected delivery time. The `next_delivery` sensor and Deliveries calendar stay empty for these two carriers, and no `delivery_time_changed` event ever fires — this is expected, not a bug.
 
-For all seven of these, the card's "+ Add parcel" control can register a new parcel directly from the dashboard by calling the integration's own `track_parcel` service — no need to open the integration's own Configure dialog. See [Add parcel support](card/overview.md#add-parcel-support) for why PostNL/DHL/DPD/Vinted Go don't have this control.
+For all of these, the card's "+ Add parcel" control can register a new parcel directly from the dashboard by calling the integration's own `track_parcel` service — no need to open the integration's own Configure dialog. See [Add parcel support](card/overview.md#add-parcel-support) for why PostNL/DHL/DPD/Vinted Go don't have this control.
 
 ---
 
@@ -106,10 +114,18 @@ Coverage varies by carrier:
 | Dragonfly | ✅ real logo |
 | Trunkrs | ❌ not available yet |
 | Cainiao | ❌ not available yet |
-| Hermes | ❌ not available yet |
-| Packeta | ❌ not available yet |
-| Correos | ❌ not available yet |
+| Hermes | ✅ real logo |
+| Packeta | ✅ real logo |
+| Correos | ✅ real logo |
 | Vinted Go | ❌ not available yet |
+| PostNord | ❌ wordmark-only brand, no standalone icon mark exists |
+| Sameday | ❌ not submitted upstream yet |
+| Swiss Post | ✅ real logo |
+| Planzer | ❌ wordmark-only brand, no standalone icon mark exists |
+| Austrian Post | ✅ real logo |
+| Helthjem | ❌ not submitted upstream yet |
+| Dynalogic | ❌ wordmark-only brand, no standalone icon mark exists |
+| Budbee | ❌ not available yet |
 
 Carriers without a proper branded icon yet fall back to a generic `mdi:package-variant-closed` icon.
 
@@ -130,3 +146,11 @@ Carriers without a proper branded icon yet fall back to a generic `mdi:package-v
 | ha-parcel-integrations/ha-packeta | — (added 2026-07-29) |
 | ha-parcel-integrations/ha-correos | — (added 2026-07-29) |
 | ha-parcel-integrations/ha-vinted-go | — (added 2026-07-30) |
+| ha-parcel-integrations/ha-postnord | — (added 2026-08-05) |
+| ha-parcel-integrations/ha-sameday | — (added 2026-08-05) |
+| ha-parcel-integrations/ha-swiss-post | — (added 2026-08-05) |
+| ha-parcel-integrations/ha-planzer | — (added 2026-08-05) |
+| ha-parcel-integrations/ha-oesterreichische-post | — (added 2026-08-05) |
+| ha-parcel-integrations/ha-helthjem | — (added 2026-08-05) |
+| ha-parcel-integrations/ha-dynalogic | — (added 2026-08-05) |
+| ha-parcel-integrations/ha-budbee | — (added 2026-08-05) |

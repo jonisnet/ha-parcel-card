@@ -1,6 +1,6 @@
 # HKI Parcels Card
 
-A multi-carrier parcel tracking card for Home Assistant. Track parcels from PostNL, DHL, DPD, Vinted Go, GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta and Correos in a single unified view, with support for letterbox mail images.
+A multi-carrier parcel tracking card for Home Assistant. Track parcels from PostNL, DHL, DPD, Vinted Go, GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic and Budbee in a single unified view, with support for letterbox mail images.
 
 !!! note
     HKI Cards were created for the visual editor in Home Assistant. It is possible that the documentation is not complete for all features.
@@ -31,7 +31,7 @@ This card requires at least one parcel-tracking integration to be installed in H
 
 ### :package: Parcel tracking
 
-- **Multi-carrier** — PostNL, DHL, DPD, Vinted Go, GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta and Correos side by side; add the same carrier multiple times for multiple accounts or hubs
+- **Multi-carrier** — PostNL, DHL, DPD, Vinted Go, GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic and Budbee side by side; add the same carrier multiple times for multiple accounts or hubs
 - **Automatic sensor names** — enter only the account name; the card builds all sensor entity IDs automatically, for both known naming schemes
 - **Four tabs** — In Transit · Delivered · Sent · Letters
 - **Split sections** — both Sent and Letters are split into *Still to be delivered* and *Delivered*

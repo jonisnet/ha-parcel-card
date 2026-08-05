@@ -66,6 +66,14 @@ Install the integration for each carrier you use **before** adding the card. All
 | **Hermes** | [ha-parcel-integrations/ha-hermes](https://github.com/ha-parcel-integrations/ha-hermes) | Tracking number only |
 | **Packeta** | [ha-parcel-integrations/ha-packeta](https://github.com/ha-parcel-integrations/ha-packeta) | Tracking number only |
 | **Correos** | [ha-parcel-integrations/ha-correos](https://github.com/ha-parcel-integrations/ha-correos) | Tracking number only |
+| **PostNord** | [ha-parcel-integrations/ha-postnord](https://github.com/ha-parcel-integrations/ha-postnord) | Tracking number only |
+| **Sameday** | [ha-parcel-integrations/ha-sameday](https://github.com/ha-parcel-integrations/ha-sameday) | Tracking number only |
+| **Swiss Post** | [ha-parcel-integrations/ha-swiss-post](https://github.com/ha-parcel-integrations/ha-swiss-post) | Tracking number only |
+| **Planzer** | [ha-parcel-integrations/ha-planzer](https://github.com/ha-parcel-integrations/ha-planzer) | Tracking number only |
+| **Austrian Post** | [ha-parcel-integrations/ha-oesterreichische-post](https://github.com/ha-parcel-integrations/ha-oesterreichische-post) | Tracking number only |
+| **Helthjem** | [ha-parcel-integrations/ha-helthjem](https://github.com/ha-parcel-integrations/ha-helthjem) | Tracking number only |
+| **Dynalogic** | [ha-parcel-integrations/ha-dynalogic](https://github.com/ha-parcel-integrations/ha-dynalogic) | Tracking number only |
+| **Budbee** | [ha-parcel-integrations/ha-budbee](https://github.com/ha-parcel-integrations/ha-budbee) | Tracking number only |
 
 Full version compatibility notes, PostNL variant details and sensor naming: [jonisnet.github.io/hki-parcels-card/card/configuration](https://jonisnet.github.io/hki-parcels-card/card/configuration/).
 
@@ -86,6 +94,14 @@ The card's "+ Add parcel" control only appears for carriers whose integration is
 | Hermes | ✅ | Account-less — tracked by number only |
 | Packeta | ✅ | Account-less — tracked by number only |
 | Correos | ✅ | Account-less — tracked by number only |
+| PostNord | ✅ | Account-less — tracked by number only |
+| Sameday | ✅ | Account-less — tracked by number only |
+| Swiss Post | ✅ | Account-less — tracked by number only |
+| Planzer | ✅ | Account-less — tracked by number only |
+| Austrian Post | ✅ | Account-less — tracked by number only |
+| Helthjem | ✅ | Account-less — tracked by number only |
+| Dynalogic | ✅ | Account-less — tracked by number only |
+| Budbee | ✅ | Account-less — tracked by number only |
 
 ---
 
@@ -138,6 +154,14 @@ carriers:
   - type: hermes
   - type: packeta
   - type: correos
+  - type: postnord
+  - type: sameday
+  - type: swiss_post
+  - type: planzer
+  - type: austrian_post
+  - type: helthjem
+  - type: dynalogic
+  - type: budbee
 ```
 
 For the full list of card/carrier options, sensor naming schemes and the carrier types reference table, see the **[Configuration guide](https://jonisnet.github.io/hki-parcels-card/card/configuration/)**.
@@ -161,7 +185,7 @@ This card is free and maintained in my spare time. If it's useful to you, a smal
 ## Credits
 
 - [jimz011/hki-elements](https://github.com/jimz011/hki-elements) — original PostNL card and visual design
-- [ha-parcel-integrations](https://github.com/ha-parcel-integrations) — PostNL, DHL, DPD, Vinted Go, GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta and Correos integrations, all sharing one canonical parcel format
+- [ha-parcel-integrations](https://github.com/ha-parcel-integrations) — PostNL, DHL, DPD, Vinted Go, GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic and Budbee integrations, all sharing one canonical parcel format
 - [Alwin Hummels (@HummelsTech)](https://github.com/HummelsTech) — created the Dragonfly integration ([HummelsTech/ha-dragonfly](https://github.com/HummelsTech/ha-dragonfly)), also mirrored into ha-parcel-integrations above
 - [arjenbos/ha-postnl](https://github.com/arjenbos/ha-postnl) — legacy PostNL integration
 

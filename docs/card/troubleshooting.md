@@ -23,7 +23,7 @@ The card loads but the parcel list is empty.
 1. `days_back` is too short — increase the value to show older delivered parcels.
 2. The integration has not yet received data from the carrier — wait for the next update cycle or trigger a manual refresh.
 3. The sensor exists but has no attributes — verify the integration is authenticated (or, for account-less carriers, that at least one parcel has been registered).
-4. For account-less carriers (GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos) — nothing has been tracked yet. Use the "+ Add parcel" control, or the integration's own Configure dialog, to register a tracking number.
+4. For account-less carriers (GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee) — nothing has been tracked yet. Use the "+ Add parcel" control, or the integration's own Configure dialog, to register a tracking number.
 
 ---
 
@@ -80,7 +80,7 @@ Letters appear but no scan images are displayed.
 
 **Causes and solutions:**
 
-1. The control doesn't appear at all — it only shows when at least one configured carrier is account-less (GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos). PostNL, DHL, DPD and Vinted Go don't support it; see [Add parcel support](overview.md#add-parcel-support) for why.
+1. The control doesn't appear at all — it only shows when at least one configured carrier is account-less (GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee). PostNL, DHL, DPD and Vinted Go don't support it; see [Add parcel support](overview.md#add-parcel-support) for why.
 2. `show_add_parcel: false` is set — remove it or set to `true`.
 3. Submitting a tracking number does nothing / errors — the control calls the integration's own `track_parcel` service directly. Check **Developer Tools → Actions** to confirm that service exists for your carrier's integration (e.g. `gls.track_parcel`), and check the integration's own logs for the actual failure reason (invalid tracking number, carrier API error, etc.) — the card only relays the call, it doesn't validate tracking numbers itself.
 4. For GLS/Trunkrs specifically — the parcel may land on the wrong hub if `user` (the postal code) isn't set correctly on that carrier entry, since it's passed along automatically with the service call.
@@ -92,7 +92,7 @@ Letters appear but no scan images are displayed.
 **Causes and solutions:**
 
 1. If a carrier currently has zero parcels in every tab, the popup previously fell back to a generic icon and colour instead of the carrier's configured branding — fixed in v1.5.0b3. Update to the latest version.
-2. The icon shown is a plain generic shape or a text mark instead of a proper logo — this isn't a bug in the card. [custom-brand-icons](https://github.com/elax46/custom-brand-icons) coverage varies per carrier; some (DPD, GLS) currently only have placeholder-style artwork upstream, and Trunkrs/Cainiao/Hermes/Packeta/Correos/Vinted Go have no PHU icon at all yet. See [PHU carrier icons](../installation.md#optional-phu-carrier-icons).
+2. The icon shown is a plain generic shape or a text mark instead of a proper logo — this isn't a bug in the card. [custom-brand-icons](https://github.com/elax46/custom-brand-icons) coverage varies per carrier; some (DPD, GLS) currently only have placeholder-style artwork upstream, and Trunkrs/Cainiao/Vinted Go/PostNord/Sameday/Planzer/Helthjem/Dynalogic/Budbee have no PHU icon at all yet. See [PHU carrier icons](../installation.md#optional-phu-carrier-icons).
 
 ---
 

@@ -48,6 +48,14 @@ carriers:
   - type: hermes
   - type: packeta
   - type: correos
+  - type: postnord
+  - type: sameday
+  - type: swiss_post
+  - type: planzer
+  - type: austrian_post
+  - type: helthjem
+  - type: dynalogic
+  - type: budbee
 ```
 
 With this many carriers, the combo banner (and the carrier overview popup when you click a logo in it) becomes the fastest way to check on a specific carrier without paging through every tab.
@@ -70,6 +78,14 @@ carriers:
   - type: hermes
   - type: packeta
   - type: correos
+  - type: postnord
+  - type: sameday
+  - type: swiss_post
+  - type: planzer
+  - type: austrian_post
+  - type: helthjem
+  - type: dynalogic
+  - type: budbee
 ```
 
 ---
