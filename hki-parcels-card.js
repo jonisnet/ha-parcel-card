@@ -1561,6 +1561,18 @@ function resolveEntityId(hass, base, altBase, slotKey, suffix, preset) {
             if (hass.states[candidate]) return candidate;
         }
     }
+    // Nothing matched exactly — before giving up, check for Home Assistant's own
+    // disambiguation suffix (_2, _3, ...), appended automatically when this
+    // entity_id would otherwise collide with one already in the registry (e.g.
+    // a stale sensor left over from a reinstall). See detectCarrierUsers() above
+    // for the matching tolerance on the "which account exists" side of this.
+    for (const b of [base, altBase]) {
+        for (const suf of suffixes) {
+            const pattern = new RegExp(`^sensor\\.${b}_${suf}_\\d+$`);
+            const candidate = Object.keys(hass.states).find(id => pattern.test(id));
+            if (candidate) return candidate;
+        }
+    }
     return guess;
 }
 
@@ -1615,10 +1627,16 @@ function detectCarrierUsers(hass, carrierType) {
         ...(preset.slug_first_suffixes?.incoming != null ? [preset.slug_first_suffixes.incoming] : []),
         ...CANONICAL_SUFFIXES.incoming,
     ];
+    // Trailing (?:_\d+)? tolerates Home Assistant's own disambiguation suffix
+    // (_2, _3, ...), which it appends automatically when an entity_id would
+    // otherwise collide with one already in the registry — e.g. a stale sensor
+    // left over from a reinstall. Without this, that one carrier's entities
+    // silently fail every pattern and fall back to "no sensors found", even
+    // though the sensor is real and works fine when entered manually.
     const patterns = incomingSuffixes.map(suffix => ({
-        userFirst: new RegExp(`^sensor\\.(.+)_${slug}_${suffix}$`),
-        slugFirst: new RegExp(`^sensor\\.${slug}_(.+)_${suffix}$`),
-        noPrefix:  new RegExp(`^sensor\\.${slug}_${suffix}$`),
+        userFirst: new RegExp(`^sensor\\.(.+)_${slug}_${suffix}(?:_\\d+)?$`),
+        slugFirst: new RegExp(`^sensor\\.${slug}_(.+)_${suffix}(?:_\\d+)?$`),
+        noPrefix:  new RegExp(`^sensor\\.${slug}_${suffix}(?:_\\d+)?$`),
     }));
     const seen = new Map(); // user → slugFirst
     for (const entityId of Object.keys(hass.states)) {
