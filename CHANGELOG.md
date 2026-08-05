@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.5.8] — 2026-08-05
+
+### Fixed
+
+- **DHL not auto-detected** — Home Assistant never renames an entity_id when an integration's
+  translation text changes later, so an account set up before ha-dhl-nl's 2026-07-02 wording
+  pass (which renamed "Binnenkomende pakketten" to "Inkomende pakketten") kept the old
+  entity_id (`sensor.dhl_<user>_binnenkomende_pakketten`) forever — but the card's detection
+  only recognized the current wording, so it silently showed "no sensors found" even though the
+  sensor was real (reported in [#8](https://github.com/jonisnet/hki-parcels-card/issues/8)).
+  Added `binnenkomende_pakketten` to `CANONICAL_SUFFIXES` so this is recognized for every
+  carrier, not just DHL — an audit of every carrier's full translation history found this exact
+  rename happened only for DHL and DPD (DPD was already covered by its own preset override), on
+  the same day, and nowhere else — so no other carrier is at risk of this specific issue.
+
 ## [1.5.7] — 2026-08-05
 
 ### Added

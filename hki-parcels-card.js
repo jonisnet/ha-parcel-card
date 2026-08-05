@@ -68,7 +68,7 @@ window.HKI.getSelectValue = window.HKI.getSelectValue || ((ev, options = null) =
 
 (() => {
 const { LitElement, html, css } = window.HKI.getLit();
-const CARD_VERSION = 'v1.5.7';
+const CARD_VERSION = 'v1.5.8';
 console.info(`%c HKI-PARCELS-CARD %c ${CARD_VERSION} `, 'color: white; background: #ed8c00; font-weight: bold;', 'color: #ed8c00; background: white; font-weight: bold;');
 
 const DEFAULT_CARRIER_ICON = 'mdi:package-variant-closed';
@@ -1785,7 +1785,17 @@ function slugifyUserSlug(text) {
 //   ("slug first") ordering, within the very same account — so language
 //   AND ordering can each vary independently per sensor, not just per carrier.
 const CANONICAL_SUFFIXES = {
-    incoming:           ['incoming_parcels', 'inkomende_pakketten'],
+    // 'binnenkomende_pakketten' is a legacy Dutch translation string — several
+    // ha-parcel-integrations carriers used to translate "incoming_parcels" this way and later
+    // renamed the display text to "Inkomende pakketten", but Home Assistant never renames an
+    // entity_id to match a changed translation, so any account set up before that rename keeps
+    // the old entity_id forever. DPD's own preset already special-cased this (see
+    // CARRIER_PRESETS.dpd.slug_first_suffixes), but the same staleness bit DHL too (confirmed
+    // via a live user report — jonisnet/hki-parcels-card#8 — entity_id
+    // sensor.dhl_<user>_binnenkomende_pakketten, current translations/nl.json says "Inkomende
+    // pakketten" for the exact same key), so it belongs here rather than as a
+    // one-off per-carrier fix: any carrier could have pre-rename accounts still around.
+    incoming:           ['incoming_parcels', 'inkomende_pakketten', 'binnenkomende_pakketten'],
     delivered:          ['delivered_parcels', 'bezorgde_pakketten'],
     outgoing:           ['outgoing_parcels', 'uitgaande_pakketten'],
     outgoing_delivered: ['outgoing_delivered_parcels', 'delivered_outgoing_parcels', 'bezorgde_uitgaande_pakketten', 'uitgaande_bezorgde_pakketten'],
