@@ -84,9 +84,11 @@ function getDefaultIcon(carrierType) {
     // a phu: reference to a name that isn't in the installed iconset renders blank, which is
     // worse than the mdi: fallback, so only map a carrier here once its icon is confirmed live
     // in a released custom-brand-icons version (checked 2026-08-05 against release 2026.08.0).
-    // postnord/planzer are intentionally NOT mapped — both are wordmark-only brands with no
-    // distinct pictorial mark, and we don't submit invented letterform icons upstream. sameday
-    // is not mapped yet either — a real icon exists for it but hasn't been submitted/merged.
+    // postnord/planzer/dynalogic are intentionally NOT mapped — all three are wordmark-only
+    // brands with no distinct pictorial mark, and we don't submit invented letterform icons
+    // upstream. sameday/helthjem aren't mapped yet either — real icons exist for both (built
+    // from each carrier's own source mark) but are held back locally, not submitted/merged.
+    // budbee has a real icon too (its own round "b" avatar) but was declined for this project.
     const phuMap = {
         postnl: 'phu:postnl', postnl_v4: 'phu:postnl', postnl_legacy: 'phu:postnl',
         dhl: 'phu:dhl', dpd: 'phu:dpd',
@@ -206,6 +208,9 @@ const TRANSLATIONS = {
         swiss_post_account_help: 'Swiss Post has no account or postal code — leave this field empty; the sensors are named sensor.swiss_post_*.',
         planzer_account_help: 'Planzer has no account or postal code — leave this field empty; the sensors are named sensor.planzer_*.',
         austrian_post_account_help: 'Austrian Post has no account or postal code — leave this field empty; the sensors are named sensor.oesterreichische_post_*.',
+        helthjem_account_help: 'Helthjem has no account or postal code — leave this field empty; the sensors are named sensor.helthjem_*.',
+        dynalogic_account_help: 'Dynalogic has no account or postal code — leave this field empty; the sensors are named sensor.dynalogic_*.',
+        budbee_account_help: 'Budbee has no account or postal code — leave this field empty; the sensors are named sensor.budbee_*.',
         show_add_parcel: 'Show "Add parcel" on the card',
         add_parcel_toggle: '+ Add parcel',
         add_parcel_carrier: 'Carrier',
@@ -349,6 +354,9 @@ const TRANSLATIONS = {
         swiss_post_account_help: 'Swiss Post heeft geen account of postcode — laat dit veld leeg; de sensoren heten sensor.swiss_post_*.',
         planzer_account_help: 'Planzer heeft geen account of postcode — laat dit veld leeg; de sensoren heten sensor.planzer_*.',
         austrian_post_account_help: 'Austrian Post heeft geen account of postcode — laat dit veld leeg; de sensoren heten sensor.oesterreichische_post_*.',
+        helthjem_account_help: 'Helthjem heeft geen account of postcode — laat dit veld leeg; de sensoren heten sensor.helthjem_*.',
+        dynalogic_account_help: 'Dynalogic heeft geen account of postcode — laat dit veld leeg; de sensoren heten sensor.dynalogic_*.',
+        budbee_account_help: 'Budbee heeft geen account of postcode — laat dit veld leeg; de sensoren heten sensor.budbee_*.',
         show_add_parcel: 'Toon "Pakket toevoegen" op de kaart',
         add_parcel_toggle: '+ Pakket toevoegen',
         add_parcel_carrier: 'Dienst',
@@ -493,6 +501,9 @@ const TRANSLATIONS = {
         swiss_post_account_help: 'Die Schweizerische Post hat kein Konto oder Postleitzahl — lasse dieses Feld leer; die Sensoren heißen sensor.swiss_post_*.',
         planzer_account_help: 'Planzer hat kein Konto oder Postleitzahl — lasse dieses Feld leer; die Sensoren heißen sensor.planzer_*.',
         austrian_post_account_help: 'Die Österreichische Post hat kein Konto oder Postleitzahl — lasse dieses Feld leer; die Sensoren heißen sensor.oesterreichische_post_*.',
+        helthjem_account_help: 'Helthjem hat kein Konto oder Postleitzahl — lasse dieses Feld leer; die Sensoren heißen sensor.helthjem_*.',
+        dynalogic_account_help: 'Dynalogic hat kein Konto oder Postleitzahl — lasse dieses Feld leer; die Sensoren heißen sensor.dynalogic_*.',
+        budbee_account_help: 'Budbee hat kein Konto oder Postleitzahl — lasse dieses Feld leer; die Sensoren heißen sensor.budbee_*.',
         show_add_parcel: '"Paket hinzufügen" auf der Karte anzeigen',
         add_parcel_toggle: '+ Paket hinzufügen',
         add_parcel_carrier: 'Zustelldienst',
@@ -637,6 +648,9 @@ const TRANSLATIONS = {
         swiss_post_account_help: 'Correos Suizo no tiene cuenta ni código postal — deja este campo vacío; los sensores se llaman sensor.swiss_post_*.',
         planzer_account_help: 'Planzer no tiene cuenta ni código postal — deja este campo vacío; los sensores se llaman sensor.planzer_*.',
         austrian_post_account_help: 'Correos de Austria no tiene cuenta ni código postal — deja este campo vacío; los sensores se llaman sensor.oesterreichische_post_*.',
+        helthjem_account_help: 'Helthjem no tiene cuenta ni código postal — deja este campo vacío; los sensores se llaman sensor.helthjem_*.',
+        dynalogic_account_help: 'Dynalogic no tiene cuenta ni código postal — deja este campo vacío; los sensores se llaman sensor.dynalogic_*.',
+        budbee_account_help: 'Budbee no tiene cuenta ni código postal — deja este campo vacío; los sensores se llaman sensor.budbee_*.',
         show_add_parcel: 'Mostrar "Añadir paquete" en la tarjeta',
         add_parcel_toggle: '+ Añadir paquete',
         add_parcel_carrier: 'Transportista',
@@ -781,6 +795,9 @@ const TRANSLATIONS = {
         swiss_post_account_help: 'La Poste Suisse n\'a pas de compte ni de code postal — laissez ce champ vide ; les capteurs sont nommés sensor.swiss_post_*.',
         planzer_account_help: 'Planzer n\'a pas de compte ni de code postal — laissez ce champ vide ; les capteurs sont nommés sensor.planzer_*.',
         austrian_post_account_help: 'La Poste autrichienne n\'a pas de compte ni de code postal — laissez ce champ vide ; les capteurs sont nommés sensor.oesterreichische_post_*.',
+        helthjem_account_help: 'Helthjem n\'a pas de compte ni de code postal — laissez ce champ vide ; les capteurs sont nommés sensor.helthjem_*.',
+        dynalogic_account_help: 'Dynalogic n\'a pas de compte ni de code postal — laissez ce champ vide ; les capteurs sont nommés sensor.dynalogic_*.',
+        budbee_account_help: 'Budbee n\'a pas de compte ni de code postal — laissez ce champ vide ; les capteurs sont nommés sensor.budbee_*.',
         show_add_parcel: 'Afficher "Ajouter un colis" sur la carte',
         add_parcel_toggle: '+ Ajouter un colis',
         add_parcel_carrier: 'Transporteur',
@@ -925,6 +942,9 @@ const TRANSLATIONS = {
         swiss_post_account_help: 'La Posta Svizzera non ha account o CAP — lascia questo campo vuoto; i sensori si chiamano sensor.swiss_post_*.',
         planzer_account_help: 'Planzer non ha account o CAP — lascia questo campo vuoto; i sensori si chiamano sensor.planzer_*.',
         austrian_post_account_help: 'La Posta Austriaca non ha account o CAP — lascia questo campo vuoto; i sensori si chiamano sensor.oesterreichische_post_*.',
+        helthjem_account_help: 'Helthjem non ha account o CAP — lascia questo campo vuoto; i sensori si chiamano sensor.helthjem_*.',
+        dynalogic_account_help: 'Dynalogic non ha account o CAP — lascia questo campo vuoto; i sensori si chiamano sensor.dynalogic_*.',
+        budbee_account_help: 'Budbee non ha account o CAP — lascia questo campo vuoto; i sensori si chiamano sensor.budbee_*.',
         show_add_parcel: 'Mostra "Aggiungi pacco" sulla scheda',
         add_parcel_toggle: '+ Aggiungi pacco',
         add_parcel_carrier: 'Corriere',
@@ -1069,6 +1089,9 @@ const TRANSLATIONS = {
         swiss_post_account_help: 'Poczta Szwajcarska nie ma konta ani kodu pocztowego — pozostaw to pole puste; czujniki nazywają się sensor.swiss_post_*.',
         planzer_account_help: 'Planzer nie ma konta ani kodu pocztowego — pozostaw to pole puste; czujniki nazywają się sensor.planzer_*.',
         austrian_post_account_help: 'Poczta Austriacka nie ma konta ani kodu pocztowego — pozostaw to pole puste; czujniki nazywają się sensor.oesterreichische_post_*.',
+        helthjem_account_help: 'Helthjem nie ma konta ani kodu pocztowego — pozostaw to pole puste; czujniki nazywają się sensor.helthjem_*.',
+        dynalogic_account_help: 'Dynalogic nie ma konta ani kodu pocztowego — pozostaw to pole puste; czujniki nazywają się sensor.dynalogic_*.',
+        budbee_account_help: 'Budbee nie ma konta ani kodu pocztowego — pozostaw to pole puste; czujniki nazywają się sensor.budbee_*.',
         show_add_parcel: 'Pokaż "Dodaj paczkę" na karcie',
         add_parcel_toggle: '+ Dodaj paczkę',
         add_parcel_carrier: 'Przewoźnik',
@@ -1213,6 +1236,9 @@ const TRANSLATIONS = {
         swiss_post_account_help: 'Os Correios Suíços não têm conta nem código postal — deixe este campo vazio; os sensores chamam-se sensor.swiss_post_*.',
         planzer_account_help: 'A Planzer não tem conta nem código postal — deixe este campo vazio; os sensores chamam-se sensor.planzer_*.',
         austrian_post_account_help: 'Os Correios Austríacos não têm conta nem código postal — deixe este campo vazio; os sensores chamam-se sensor.oesterreichische_post_*.',
+        helthjem_account_help: 'A Helthjem não tem conta nem código postal — deixe este campo vazio; os sensores chamam-se sensor.helthjem_*.',
+        dynalogic_account_help: 'A Dynalogic não tem conta nem código postal — deixe este campo vazio; os sensores chamam-se sensor.dynalogic_*.',
+        budbee_account_help: 'A Budbee não tem conta nem código postal — deixe este campo vazio; os sensores chamam-se sensor.budbee_*.',
         show_add_parcel: 'Mostrar "Adicionar encomenda" no cartão',
         add_parcel_toggle: '+ Adicionar encomenda',
         add_parcel_carrier: 'Transportadora',
@@ -1288,6 +1314,9 @@ const IMG = {
     swiss_post:    `${REPO_BASE}/swiss_post`,
     planzer:       `${REPO_BASE}/planzer`,
     austrian_post: `${REPO_BASE}/austrian_post`,
+    helthjem:  `${REPO_BASE}/helthjem`,
+    dynalogic: `${REPO_BASE}/dynalogic`,
+    budbee:    `${REPO_BASE}/budbee`,
 };
 
 // Points at the ha-parcel-integrations org, not the individual maintainers' personal repos
@@ -1313,6 +1342,9 @@ const CARRIER_REPO_URLS = {
     swiss_post:    'https://github.com/ha-parcel-integrations/ha-swiss-post',
     planzer:       'https://github.com/ha-parcel-integrations/ha-planzer',
     austrian_post: 'https://github.com/ha-parcel-integrations/ha-oesterreichische-post',
+    helthjem:  'https://github.com/ha-parcel-integrations/ha-helthjem',
+    dynalogic: 'https://github.com/ha-parcel-integrations/ha-dynalogic',
+    budbee:    'https://github.com/ha-parcel-integrations/ha-budbee',
 };
 
 const CARRIER_ASSETS = {
@@ -1573,6 +1605,58 @@ const CARRIER_ASSETS = {
             delivered_mini:  `${IMG.austrian_post}/austrian_post_step_delivered_mini.png?raw=true`
         }
     },
+    // Helthjem art: step icons and the animated van are the shared GLS master illustration
+    // hue-shifted to the confirmed brand orange (#ffb202, the fill colour in Helthjem's own
+    // official logo SVG). The logo is Helthjem's own isometric parcel-box mark + wordmark.
+    helthjem: {
+        logo:   `${IMG.helthjem}/helthjem-logo.svg?raw=true`,
+        van:    `${IMG.helthjem}/helthjem-van.gif?raw=true`,
+        banner: `${IMG.helthjem}/helthjem-banner.png?raw=true`,
+        steps: {
+            registered:      `${IMG.helthjem}/helthjem_step_registered.png?raw=true`,
+            registered_mini: `${IMG.helthjem}/helthjem_step_registered_mini.png?raw=true`,
+            sorting:         `${IMG.helthjem}/helthjem_step_sorting.png?raw=true`,
+            transit:         `${IMG.helthjem}/helthjem_step_transit.png?raw=true`,
+            delivered:       `${IMG.helthjem}/helthjem_step_delivered.png?raw=true`,
+            delivered_mini:  `${IMG.helthjem}/helthjem_step_delivered_mini.png?raw=true`
+        }
+    },
+    // Dynalogic art: step icons and the animated van are the shared GLS master illustration
+    // hue-shifted to the confirmed brand orange (#f29920, pixel-sampled from Dynalogic's own
+    // logo). The logo is Dynalogic's own "DYNALOG!C" wordmark — no separate pictorial mark
+    // exists for this brand, same as PostNord/Planzer.
+    dynalogic: {
+        logo:   `${IMG.dynalogic}/dynalogic-logo.png?raw=true`,
+        van:    `${IMG.dynalogic}/dynalogic-van.gif?raw=true`,
+        banner: `${IMG.dynalogic}/dynalogic-banner.png?raw=true`,
+        steps: {
+            registered:      `${IMG.dynalogic}/dynalogic_step_registered.png?raw=true`,
+            registered_mini: `${IMG.dynalogic}/dynalogic_step_registered_mini.png?raw=true`,
+            sorting:         `${IMG.dynalogic}/dynalogic_step_sorting.png?raw=true`,
+            transit:         `${IMG.dynalogic}/dynalogic_step_transit.png?raw=true`,
+            delivered:       `${IMG.dynalogic}/dynalogic_step_delivered.png?raw=true`,
+            delivered_mini:  `${IMG.dynalogic}/dynalogic_step_delivered_mini.png?raw=true`
+        }
+    },
+    // Budbee art: step icons and the animated van are the shared GLS master illustration
+    // hue-shifted to the confirmed brand mint (#41cda5, pixel-sampled from Budbee's own logo).
+    // The logo is Budbee's own wordmark-on-tile lockup (same tile-style treatment as Packeta).
+    // Budbee also has a real round "b" avatar mark, used for the step/van badges — see
+    // CARRIER_PRESETS.budbee for the one thing that differs from every other account-less
+    // carrier here: Budbee tracks outgoing parcels too (supports_outgoing: true).
+    budbee: {
+        logo:   `${IMG.budbee}/budbee-logo.png?raw=true`,
+        van:    `${IMG.budbee}/budbee-van.gif?raw=true`,
+        banner: `${IMG.budbee}/budbee-banner.png?raw=true`,
+        steps: {
+            registered:      `${IMG.budbee}/budbee_step_registered.png?raw=true`,
+            registered_mini: `${IMG.budbee}/budbee_step_registered_mini.png?raw=true`,
+            sorting:         `${IMG.budbee}/budbee_step_sorting.png?raw=true`,
+            transit:         `${IMG.budbee}/budbee_step_transit.png?raw=true`,
+            delivered:       `${IMG.budbee}/budbee_step_delivered.png?raw=true`,
+            delivered_mini:  `${IMG.budbee}/budbee_step_delivered_mini.png?raw=true`
+        }
+    },
     postnl_legacy: {
         logo:   `${IMG.postnl}/postnl-logo.png?raw=true`,
         van:    `${IMG.postnl}/postnl-van.gif?raw=true`,
@@ -1661,6 +1745,20 @@ const CARRIER_PRESETS = {
     // must match that, even though the carrier type key here is the readable austrian_post.
     austrian_post:{ label: 'Austrian Post',               icon: 'mdi:package-variant-closed', color: '#f8d800', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'oesterreichische_post',
                     track_parcel_service: { domain: 'oesterreichische_post', field: 'tracking_code', supports_postal_code: false } },
+    // Brand colour confirmed from the fill value in Helthjem's own logo SVG (orange, #ffb202).
+    helthjem:     { label: 'Helthjem',                   icon: 'mdi:package-variant-closed', color: '#ffb202', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'helthjem',
+                    track_parcel_service: { domain: 'helthjem', field: 'tracking_code', supports_postal_code: false } },
+    // Brand colour confirmed by pixel-sampling the official Dynalogic wordmark (orange, #f29920 —
+    // the leading/dominant colour; the logo's other colour, slate #66839c, was the alternative).
+    // postal_code is an optional field on this carrier's track_parcel service (a lookup aid, not
+    // an account/hub selector like GLS) — the card has nothing to send there, so left unsupported.
+    dynalogic:    { label: 'Dynalogic',                  icon: 'mdi:package-variant-closed', color: '#f29920', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'dynalogic',
+                    track_parcel_service: { domain: 'dynalogic', field: 'tracking_code', supports_postal_code: false } },
+    // Brand colour confirmed by pixel-sampling the official Budbee round avatar mark (mint,
+    // #41cda5). Unlike every other carrier in this account-less group, Budbee tracks outgoing
+    // parcels too (has real outgoing_parcels/outgoing_delivered_parcels sensors upstream).
+    budbee:       { label: 'Budbee',                     icon: 'mdi:package-variant-closed', color: '#41cda5', schema: 'canonical',     supports_letters: false, supports_outgoing: true,  sensor_slug: 'budbee',
+                    track_parcel_service: { domain: 'budbee', field: 'tracking_code', supports_postal_code: false } },
     postnl_legacy:{ label: 'PostNL (ArjenBos)',          icon: 'mdi:package-variant-closed', color: '#ed8c00', schema: 'single_entity', supports_letters: false, sensor_slug: null     },
     custom:       { label: 'Custom',                     icon: 'mdi:package-variant-closed', color: '#ed8c00', schema: 'canonical',     supports_letters: false, sensor_slug: null     }
 };
@@ -1809,7 +1907,7 @@ function detectCarrierUsers(hass, carrierType) {
 // recommended default and the user can switch the type manually if they're
 // still on v3.x) and postnl_legacy / custom (sensor_slug is null — no
 // entity-based detection is possible for those).
-const AUTO_DETECT_CARRIER_TYPES = ['postnl_v4', 'dhl', 'dpd', 'vinted_go', 'gls', 'dragonfly', 'trunkrs', 'cainiao', 'hermes', 'packeta', 'correos', 'postnord', 'sameday', 'swiss_post', 'planzer', 'austrian_post'];
+const AUTO_DETECT_CARRIER_TYPES = ['postnl_v4', 'dhl', 'dpd', 'vinted_go', 'gls', 'dragonfly', 'trunkrs', 'cainiao', 'hermes', 'packeta', 'correos', 'postnord', 'sameday', 'swiss_post', 'planzer', 'austrian_post', 'helthjem', 'dynalogic', 'budbee'];
 
 // Infers a sensible days_back for a freshly auto-populated card: the number
 // of days since the oldest currently-visible delivered parcel, across every
@@ -3918,6 +4016,9 @@ class HkiParcelsCardEditor extends LitElement {
             swiss_post: 'swiss_post_account_help',
             planzer: 'planzer_account_help',
             austrian_post: 'austrian_post_account_help',
+            helthjem: 'helthjem_account_help',
+            dynalogic: 'dynalogic_account_help',
+            budbee: 'budbee_account_help',
         }[carrierType];
         if (key) return this._t(key);
         return html`"_${preset.sensor_slug}${this._t('account_help_suffix')}`;
@@ -4083,6 +4184,9 @@ class HkiParcelsCardEditor extends LitElement {
                             { value: 'swiss_post',    label: 'Swiss Post' },
                             { value: 'planzer',       label: 'Planzer' },
                             { value: 'austrian_post', label: 'Austrian Post' },
+                            { value: 'helthjem',      label: 'Helthjem' },
+                            { value: 'dynalogic',     label: 'Dynalogic' },
+                            { value: 'budbee',        label: 'Budbee' },
                             { value: 'postnl',        label: 'PostNL (<v4.x)' },
                             { value: 'postnl_legacy', label: 'PostNL (ArjenBos)' },
                             { value: 'custom',        label: 'Custom' }
