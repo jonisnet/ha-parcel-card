@@ -1,13 +1,13 @@
 # HKI Parcels Card
 
-[![Version](https://img.shields.io/badge/version-v1.5.6-blue?style=flat-square)](https://github.com/jonisnet/hki-parcels-card/releases/latest)
+[![Version](https://img.shields.io/badge/version-v1.5.7-blue?style=flat-square)](https://github.com/jonisnet/hki-parcels-card/releases/latest)
 [![HACS](https://img.shields.io/badge/HACS-Custom-orange?style=flat-square)](https://hacs.xyz)
 [![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](https://github.com/jonisnet/hki-parcels-card/blob/main/LICENSE)
 [![HA](https://img.shields.io/badge/Home%20Assistant-2026.7%2B-41bdf5?style=flat-square)](https://www.home-assistant.io)
 [![Downloads](https://img.shields.io/github/downloads/jonisnet/hki-parcels-card/total?style=flat-square&label=downloads)](https://github.com/jonisnet/hki-parcels-card/releases)
 [![Sponsor](https://img.shields.io/badge/sponsor-%E2%9D%A4-ea4aaa?style=flat-square&logo=githubsponsors)](https://github.com/sponsors/jonisnet)
 
-**Track parcels from PostNL, DHL, DPD, Vinted Go, GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta and Correos in a single Home Assistant card** — with animated banners, letter scan images, automatic sensor detection, a "+ Add parcel" control for account-less carriers, and a full visual editor.
+**Track parcels from PostNL, DHL, DPD, Vinted Go, GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic and Budbee in a single Home Assistant card** — with animated banners, letter scan images, automatic sensor detection, a "+ Add parcel" control for account-less carriers, and a full visual editor.
 
 📖 **Full documentation, configuration reference and screenshots:** **[jonisnet.github.io/hki-parcels-card](https://jonisnet.github.io/hki-parcels-card/)**
 
@@ -21,11 +21,11 @@
 
 ## Features
 
-- **Multi-carrier** — PostNL, DHL, DPD, Vinted Go, GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta and Correos side by side in one card, each with its own branded logo, van animation and banner
+- **Multi-carrier** — PostNL, DHL, DPD, Vinted Go, GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic and Budbee side by side in one card, each with its own branded logo, van animation and banner
 - **Four tabs** — In Transit · Delivered · Sent · Letters, with parcel details, barcode and a direct tracking link
 - **4-step delivery tracker** — a branded progress illustration (Registered · Sorting centre · Out for delivery · Delivered) when a parcel is selected
 - **Carrier overview popup** — click a logo in the multi-carrier banner to see every parcel and letter for that carrier across all tabs in one popup, with details expandable in place
-- **Add a parcel from the card** — account-less carriers (GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos) get a "+ Add parcel" control that registers a new Track & Trace number directly; see [Add parcel support](#add-parcel-support) below for why PostNL/DHL/DPD don't
+- **Add a parcel from the card** — account-less carriers (GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee) get a "+ Add parcel" control that registers a new Track & Trace number directly; see [Add parcel support](#add-parcel-support) below for why PostNL/DHL/DPD don't
 - **Letterbox mail** — PostNL letters get their own tab with scan images, matched automatically and resilient to ha-postnl updates
 - **Full visual editor** — no YAML required, with auto sensor detection, a media browser for custom images, a colour picker and live preview
 - **Automatic combo banner** — with two or more carriers configured, the card builds a combo banner from just the carriers you've actually added

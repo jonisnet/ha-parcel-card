@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.5.7] — 2026-08-05
+
+### Added
+
+- **8 new carriers** — PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem,
+  Dynalogic and Budbee. All follow the same account-less "hub" pattern as GLS/Dragonfly/
+  Trunkrs/Cainiao/Hermes/Packeta/Correos (single config entry, no login, a `track_parcel`
+  service with a `tracking_code` field), verified directly against each integration's current
+  source rather than assumed from the naming pattern. Budbee is the one exception in this
+  group — it has real `outgoing_parcels`/`outgoing_delivered_parcels` sensors upstream, so it
+  tracks sent parcels too, like Vinted Go. Austrian Post's underlying Home Assistant domain is
+  `oesterreichische_post`, not `austrian_post` — sensor auto-detection accounts for that.
+  PostNord, Planzer and Dynalogic are wordmark-only brands with no distinct pictorial mark, so
+  they use the generic package icon rather than an invented one; the rest have their own
+  branded icon, van animation and banner, built from each carrier's real logo. Swiss Post and
+  Austrian Post are also now wired to their real upstream `phu:` icons.
+
 ## [1.5.6] — 2026-07-31
 
 ### Fixed
