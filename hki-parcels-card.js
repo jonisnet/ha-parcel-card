@@ -83,14 +83,17 @@ function getDefaultIcon(carrierType) {
     // Keep in sync with whatever elax46/custom-brand-icons actually ships under icon-svg/ —
     // a phu: reference to a name that isn't in the installed iconset renders blank, which is
     // worse than the mdi: fallback, so only map a carrier here once its icon is confirmed live
-    // in a released custom-brand-icons version (checked 2026-07-31 against release 2026.07.5).
-    // hermes/packeta/correos are intentionally NOT mapped yet — no phu icon exists for them
-    // upstream at all (submitted, not yet merged); they keep falling back to mdi: until then.
+    // in a released custom-brand-icons version (checked 2026-08-05 against release 2026.08.0).
+    // postnord/planzer are intentionally NOT mapped — both are wordmark-only brands with no
+    // distinct pictorial mark, and we don't submit invented letterform icons upstream. sameday
+    // is not mapped yet either — a real icon exists for it but hasn't been submitted/merged.
     const phuMap = {
         postnl: 'phu:postnl', postnl_v4: 'phu:postnl', postnl_legacy: 'phu:postnl',
         dhl: 'phu:dhl', dpd: 'phu:dpd',
         gls: 'phu:gls-group', dragonfly: 'phu:dragonfly', trunkrs: 'phu:trunkrs',
         cainiao: 'phu:cainiao', vinted_go: 'phu:vinted',
+        hermes: 'phu:hermes', packeta: 'phu:packeta', correos: 'phu:correos',
+        swiss_post: 'phu:swisspost', austrian_post: 'phu:austrianpost',
     };
     if (hasPhuIcons() && phuMap[carrierType]) return phuMap[carrierType];
     return 'mdi:package-variant-closed';
@@ -198,6 +201,11 @@ const TRANSLATIONS = {
         hermes_account_help: 'Hermes has no account or postal code — leave this field empty; the sensors are named sensor.hermes_*.',
         packeta_account_help: 'Packeta has no account or postal code — leave this field empty; the sensors are named sensor.packeta_*.',
         correos_account_help: 'Correos has no account or postal code — leave this field empty; the sensors are named sensor.correos_*.',
+        postnord_account_help: 'PostNord has no account or postal code — leave this field empty; the sensors are named sensor.postnord_*.',
+        sameday_account_help: 'Sameday has no account or postal code — leave this field empty; the sensors are named sensor.sameday_*.',
+        swiss_post_account_help: 'Swiss Post has no account or postal code — leave this field empty; the sensors are named sensor.swiss_post_*.',
+        planzer_account_help: 'Planzer has no account or postal code — leave this field empty; the sensors are named sensor.planzer_*.',
+        austrian_post_account_help: 'Austrian Post has no account or postal code — leave this field empty; the sensors are named sensor.oesterreichische_post_*.',
         show_add_parcel: 'Show "Add parcel" on the card',
         add_parcel_toggle: '+ Add parcel',
         add_parcel_carrier: 'Carrier',
@@ -336,6 +344,11 @@ const TRANSLATIONS = {
         hermes_account_help: 'Hermes heeft geen account of postcode — laat dit veld leeg; de sensoren heten sensor.hermes_*.',
         packeta_account_help: 'Packeta heeft geen account of postcode — laat dit veld leeg; de sensoren heten sensor.packeta_*.',
         correos_account_help: 'Correos heeft geen account of postcode — laat dit veld leeg; de sensoren heten sensor.correos_*.',
+        postnord_account_help: 'PostNord heeft geen account of postcode — laat dit veld leeg; de sensoren heten sensor.postnord_*.',
+        sameday_account_help: 'Sameday heeft geen account of postcode — laat dit veld leeg; de sensoren heten sensor.sameday_*.',
+        swiss_post_account_help: 'Swiss Post heeft geen account of postcode — laat dit veld leeg; de sensoren heten sensor.swiss_post_*.',
+        planzer_account_help: 'Planzer heeft geen account of postcode — laat dit veld leeg; de sensoren heten sensor.planzer_*.',
+        austrian_post_account_help: 'Austrian Post heeft geen account of postcode — laat dit veld leeg; de sensoren heten sensor.oesterreichische_post_*.',
         show_add_parcel: 'Toon "Pakket toevoegen" op de kaart',
         add_parcel_toggle: '+ Pakket toevoegen',
         add_parcel_carrier: 'Dienst',
@@ -475,6 +488,11 @@ const TRANSLATIONS = {
         hermes_account_help: 'Hermes hat kein Konto oder Postleitzahl — lasse dieses Feld leer; die Sensoren heißen sensor.hermes_*.',
         packeta_account_help: 'Packeta hat kein Konto oder Postleitzahl — lasse dieses Feld leer; die Sensoren heißen sensor.packeta_*.',
         correos_account_help: 'Correos hat kein Konto oder Postleitzahl — lasse dieses Feld leer; die Sensoren heißen sensor.correos_*.',
+        postnord_account_help: 'PostNord hat kein Konto oder Postleitzahl — lasse dieses Feld leer; die Sensoren heißen sensor.postnord_*.',
+        sameday_account_help: 'Sameday hat kein Konto oder Postleitzahl — lasse dieses Feld leer; die Sensoren heißen sensor.sameday_*.',
+        swiss_post_account_help: 'Die Schweizerische Post hat kein Konto oder Postleitzahl — lasse dieses Feld leer; die Sensoren heißen sensor.swiss_post_*.',
+        planzer_account_help: 'Planzer hat kein Konto oder Postleitzahl — lasse dieses Feld leer; die Sensoren heißen sensor.planzer_*.',
+        austrian_post_account_help: 'Die Österreichische Post hat kein Konto oder Postleitzahl — lasse dieses Feld leer; die Sensoren heißen sensor.oesterreichische_post_*.',
         show_add_parcel: '"Paket hinzufügen" auf der Karte anzeigen',
         add_parcel_toggle: '+ Paket hinzufügen',
         add_parcel_carrier: 'Zustelldienst',
@@ -614,6 +632,11 @@ const TRANSLATIONS = {
         hermes_account_help: 'Hermes no tiene cuenta ni código postal — deja este campo vacío; los sensores se llaman sensor.hermes_*.',
         packeta_account_help: 'Packeta no tiene cuenta ni código postal — deja este campo vacío; los sensores se llaman sensor.packeta_*.',
         correos_account_help: 'Correos no tiene cuenta ni código postal — deja este campo vacío; los sensores se llaman sensor.correos_*.',
+        postnord_account_help: 'PostNord no tiene cuenta ni código postal — deja este campo vacío; los sensores se llaman sensor.postnord_*.',
+        sameday_account_help: 'Sameday no tiene cuenta ni código postal — deja este campo vacío; los sensores se llaman sensor.sameday_*.',
+        swiss_post_account_help: 'Correos Suizo no tiene cuenta ni código postal — deja este campo vacío; los sensores se llaman sensor.swiss_post_*.',
+        planzer_account_help: 'Planzer no tiene cuenta ni código postal — deja este campo vacío; los sensores se llaman sensor.planzer_*.',
+        austrian_post_account_help: 'Correos de Austria no tiene cuenta ni código postal — deja este campo vacío; los sensores se llaman sensor.oesterreichische_post_*.',
         show_add_parcel: 'Mostrar "Añadir paquete" en la tarjeta',
         add_parcel_toggle: '+ Añadir paquete',
         add_parcel_carrier: 'Transportista',
@@ -753,6 +776,11 @@ const TRANSLATIONS = {
         hermes_account_help: 'Hermes n\'a pas de compte ni de code postal — laissez ce champ vide ; les capteurs sont nommés sensor.hermes_*.',
         packeta_account_help: 'Packeta n\'a pas de compte ni de code postal — laissez ce champ vide ; les capteurs sont nommés sensor.packeta_*.',
         correos_account_help: 'Correos n\'a pas de compte ni de code postal — laissez ce champ vide ; les capteurs sont nommés sensor.correos_*.',
+        postnord_account_help: 'PostNord n\'a pas de compte ni de code postal — laissez ce champ vide ; les capteurs sont nommés sensor.postnord_*.',
+        sameday_account_help: 'Sameday n\'a pas de compte ni de code postal — laissez ce champ vide ; les capteurs sont nommés sensor.sameday_*.',
+        swiss_post_account_help: 'La Poste Suisse n\'a pas de compte ni de code postal — laissez ce champ vide ; les capteurs sont nommés sensor.swiss_post_*.',
+        planzer_account_help: 'Planzer n\'a pas de compte ni de code postal — laissez ce champ vide ; les capteurs sont nommés sensor.planzer_*.',
+        austrian_post_account_help: 'La Poste autrichienne n\'a pas de compte ni de code postal — laissez ce champ vide ; les capteurs sont nommés sensor.oesterreichische_post_*.',
         show_add_parcel: 'Afficher "Ajouter un colis" sur la carte',
         add_parcel_toggle: '+ Ajouter un colis',
         add_parcel_carrier: 'Transporteur',
@@ -892,6 +920,11 @@ const TRANSLATIONS = {
         hermes_account_help: 'Hermes non ha account o CAP — lascia questo campo vuoto; i sensori si chiamano sensor.hermes_*.',
         packeta_account_help: 'Packeta non ha account o CAP — lascia questo campo vuoto; i sensori si chiamano sensor.packeta_*.',
         correos_account_help: 'Correos non ha account o CAP — lascia questo campo vuoto; i sensori si chiamano sensor.correos_*.',
+        postnord_account_help: 'PostNord non ha account o CAP — lascia questo campo vuoto; i sensori si chiamano sensor.postnord_*.',
+        sameday_account_help: 'Sameday non ha account o CAP — lascia questo campo vuoto; i sensori si chiamano sensor.sameday_*.',
+        swiss_post_account_help: 'La Posta Svizzera non ha account o CAP — lascia questo campo vuoto; i sensori si chiamano sensor.swiss_post_*.',
+        planzer_account_help: 'Planzer non ha account o CAP — lascia questo campo vuoto; i sensori si chiamano sensor.planzer_*.',
+        austrian_post_account_help: 'La Posta Austriaca non ha account o CAP — lascia questo campo vuoto; i sensori si chiamano sensor.oesterreichische_post_*.',
         show_add_parcel: 'Mostra "Aggiungi pacco" sulla scheda',
         add_parcel_toggle: '+ Aggiungi pacco',
         add_parcel_carrier: 'Corriere',
@@ -1031,6 +1064,11 @@ const TRANSLATIONS = {
         hermes_account_help: 'Hermes nie ma konta ani kodu pocztowego — pozostaw to pole puste; czujniki nazywają się sensor.hermes_*.',
         packeta_account_help: 'Packeta nie ma konta ani kodu pocztowego — pozostaw to pole puste; czujniki nazywają się sensor.packeta_*.',
         correos_account_help: 'Correos nie ma konta ani kodu pocztowego — pozostaw to pole puste; czujniki nazywają się sensor.correos_*.',
+        postnord_account_help: 'PostNord nie ma konta ani kodu pocztowego — pozostaw to pole puste; czujniki nazywają się sensor.postnord_*.',
+        sameday_account_help: 'Sameday nie ma konta ani kodu pocztowego — pozostaw to pole puste; czujniki nazywają się sensor.sameday_*.',
+        swiss_post_account_help: 'Poczta Szwajcarska nie ma konta ani kodu pocztowego — pozostaw to pole puste; czujniki nazywają się sensor.swiss_post_*.',
+        planzer_account_help: 'Planzer nie ma konta ani kodu pocztowego — pozostaw to pole puste; czujniki nazywają się sensor.planzer_*.',
+        austrian_post_account_help: 'Poczta Austriacka nie ma konta ani kodu pocztowego — pozostaw to pole puste; czujniki nazywają się sensor.oesterreichische_post_*.',
         show_add_parcel: 'Pokaż "Dodaj paczkę" na karcie',
         add_parcel_toggle: '+ Dodaj paczkę',
         add_parcel_carrier: 'Przewoźnik',
@@ -1170,6 +1208,11 @@ const TRANSLATIONS = {
         hermes_account_help: 'A Hermes não tem conta nem código postal — deixe este campo vazio; os sensores chamam-se sensor.hermes_*.',
         packeta_account_help: 'A Packeta não tem conta nem código postal — deixe este campo vazio; os sensores chamam-se sensor.packeta_*.',
         correos_account_help: 'A Correos não tem conta nem código postal — deixe este campo vazio; os sensores chamam-se sensor.correos_*.',
+        postnord_account_help: 'A PostNord não tem conta nem código postal — deixe este campo vazio; os sensores chamam-se sensor.postnord_*.',
+        sameday_account_help: 'A Sameday não tem conta nem código postal — deixe este campo vazio; os sensores chamam-se sensor.sameday_*.',
+        swiss_post_account_help: 'Os Correios Suíços não têm conta nem código postal — deixe este campo vazio; os sensores chamam-se sensor.swiss_post_*.',
+        planzer_account_help: 'A Planzer não tem conta nem código postal — deixe este campo vazio; os sensores chamam-se sensor.planzer_*.',
+        austrian_post_account_help: 'Os Correios Austríacos não têm conta nem código postal — deixe este campo vazio; os sensores chamam-se sensor.oesterreichische_post_*.',
         show_add_parcel: 'Mostrar "Adicionar encomenda" no cartão',
         add_parcel_toggle: '+ Adicionar encomenda',
         add_parcel_carrier: 'Transportadora',
@@ -1240,6 +1283,11 @@ const IMG = {
     packeta:   `${REPO_BASE}/packeta`,
     correos:   `${REPO_BASE}/correos`,
     vinted_go: `${REPO_BASE}/vinted_go`,
+    postnord:      `${REPO_BASE}/postnord`,
+    sameday:       `${REPO_BASE}/sameday`,
+    swiss_post:    `${REPO_BASE}/swiss_post`,
+    planzer:       `${REPO_BASE}/planzer`,
+    austrian_post: `${REPO_BASE}/austrian_post`,
 };
 
 // Points at the ha-parcel-integrations org, not the individual maintainers' personal repos
@@ -1260,6 +1308,11 @@ const CARRIER_REPO_URLS = {
     packeta:   'https://github.com/ha-parcel-integrations/ha-packeta',
     correos:   'https://github.com/ha-parcel-integrations/ha-correos',
     vinted_go: 'https://github.com/ha-parcel-integrations/ha-vinted-go',
+    postnord:      'https://github.com/ha-parcel-integrations/ha-postnord',
+    sameday:       'https://github.com/ha-parcel-integrations/ha-sameday',
+    swiss_post:    'https://github.com/ha-parcel-integrations/ha-swiss-post',
+    planzer:       'https://github.com/ha-parcel-integrations/ha-planzer',
+    austrian_post: 'https://github.com/ha-parcel-integrations/ha-oesterreichische-post',
 };
 
 const CARRIER_ASSETS = {
@@ -1438,6 +1491,88 @@ const CARRIER_ASSETS = {
             delivered_mini:  `${IMG.vinted_go}/vinted_go_step_delivered_mini.png?raw=true`
         }
     },
+    // PostNord art: step icons and the animated van are the shared GLS master illustration
+    // hue-shifted to the confirmed brand teal (#0098b8, pixel-sampled from PostNord's own logo).
+    // The logo is PostNord's own wordmark — no separate pictorial mark exists for this brand.
+    postnord: {
+        logo:   `${IMG.postnord}/postnord-logo.svg?raw=true`,
+        van:    `${IMG.postnord}/postnord-van.gif?raw=true`,
+        banner: `${IMG.postnord}/postnord-banner.png?raw=true`,
+        steps: {
+            registered:      `${IMG.postnord}/postnord_step_registered.png?raw=true`,
+            registered_mini: `${IMG.postnord}/postnord_step_registered_mini.png?raw=true`,
+            sorting:         `${IMG.postnord}/postnord_step_sorting.png?raw=true`,
+            transit:         `${IMG.postnord}/postnord_step_transit.png?raw=true`,
+            delivered:       `${IMG.postnord}/postnord_step_delivered.png?raw=true`,
+            delivered_mini:  `${IMG.postnord}/postnord_step_delivered_mini.png?raw=true`
+        }
+    },
+    // Sameday art: step icons and the animated van are the shared GLS master illustration
+    // hue-shifted to the confirmed brand red (#e82020, pixel-sampled from Sameday's own logo).
+    // The logo is Sameday's own shield mark + wordmark.
+    sameday: {
+        logo:   `${IMG.sameday}/sameday-logo.png?raw=true`,
+        van:    `${IMG.sameday}/sameday-van.gif?raw=true`,
+        banner: `${IMG.sameday}/sameday-banner.png?raw=true`,
+        steps: {
+            registered:      `${IMG.sameday}/sameday_step_registered.png?raw=true`,
+            registered_mini: `${IMG.sameday}/sameday_step_registered_mini.png?raw=true`,
+            sorting:         `${IMG.sameday}/sameday_step_sorting.png?raw=true`,
+            transit:         `${IMG.sameday}/sameday_step_transit.png?raw=true`,
+            delivered:       `${IMG.sameday}/sameday_step_delivered.png?raw=true`,
+            delivered_mini:  `${IMG.sameday}/sameday_step_delivered_mini.png?raw=true`
+        }
+    },
+    // Swiss Post art: step icons and the animated van are the shared GLS master illustration
+    // hue-shifted to the confirmed brand yellow (#f8c800, pixel-sampled from Swiss Post's own
+    // logo). The logo is Swiss Post's own cross-and-P mark.
+    swiss_post: {
+        logo:   `${IMG.swiss_post}/swiss_post-logo.svg?raw=true`,
+        van:    `${IMG.swiss_post}/swiss_post-van.gif?raw=true`,
+        banner: `${IMG.swiss_post}/swiss_post-banner.png?raw=true`,
+        steps: {
+            registered:      `${IMG.swiss_post}/swiss_post_step_registered.png?raw=true`,
+            registered_mini: `${IMG.swiss_post}/swiss_post_step_registered_mini.png?raw=true`,
+            sorting:         `${IMG.swiss_post}/swiss_post_step_sorting.png?raw=true`,
+            transit:         `${IMG.swiss_post}/swiss_post_step_transit.png?raw=true`,
+            delivered:       `${IMG.swiss_post}/swiss_post_step_delivered.png?raw=true`,
+            delivered_mini:  `${IMG.swiss_post}/swiss_post_step_delivered_mini.png?raw=true`
+        }
+    },
+    // Planzer art: step icons and the animated van are the shared GLS master illustration
+    // hue-shifted to the confirmed brand red (#a00818, pixel-sampled from Planzer's own logo).
+    // The logo is Planzer's own wordmark — no separate pictorial mark exists for this brand.
+    planzer: {
+        logo:   `${IMG.planzer}/planzer-logo.svg?raw=true`,
+        van:    `${IMG.planzer}/planzer-van.gif?raw=true`,
+        banner: `${IMG.planzer}/planzer-banner.png?raw=true`,
+        steps: {
+            registered:      `${IMG.planzer}/planzer_step_registered.png?raw=true`,
+            registered_mini: `${IMG.planzer}/planzer_step_registered_mini.png?raw=true`,
+            sorting:         `${IMG.planzer}/planzer_step_sorting.png?raw=true`,
+            transit:         `${IMG.planzer}/planzer_step_transit.png?raw=true`,
+            delivered:       `${IMG.planzer}/planzer_step_delivered.png?raw=true`,
+            delivered_mini:  `${IMG.planzer}/planzer_step_delivered_mini.png?raw=true`
+        }
+    },
+    // Austrian Post art: step icons and the animated van are the shared GLS master illustration
+    // hue-shifted to the confirmed brand gold (#f8d800, pixel-sampled from Austrian Post's own
+    // logo). The logo is Austrian Post's own horn mark + "Post" wordmark. HA domain for this
+    // integration is oesterreichische_post (see CARRIER_PRESETS.austrian_post.sensor_slug) —
+    // the asset/type key stays austrian_post for readability, matching the English carrier name.
+    austrian_post: {
+        logo:   `${IMG.austrian_post}/austrian_post-logo.svg?raw=true`,
+        van:    `${IMG.austrian_post}/austrian_post-van.gif?raw=true`,
+        banner: `${IMG.austrian_post}/austrian_post-banner.png?raw=true`,
+        steps: {
+            registered:      `${IMG.austrian_post}/austrian_post_step_registered.png?raw=true`,
+            registered_mini: `${IMG.austrian_post}/austrian_post_step_registered_mini.png?raw=true`,
+            sorting:         `${IMG.austrian_post}/austrian_post_step_sorting.png?raw=true`,
+            transit:         `${IMG.austrian_post}/austrian_post_step_transit.png?raw=true`,
+            delivered:       `${IMG.austrian_post}/austrian_post_step_delivered.png?raw=true`,
+            delivered_mini:  `${IMG.austrian_post}/austrian_post_step_delivered_mini.png?raw=true`
+        }
+    },
     postnl_legacy: {
         logo:   `${IMG.postnl}/postnl-logo.png?raw=true`,
         van:    `${IMG.postnl}/postnl-van.gif?raw=true`,
@@ -1509,6 +1644,23 @@ const CARRIER_PRESETS = {
     // #00457D) — the 2019 rebrand's icon-only mark, no separate wordmark exists any more.
     correos:      { label: 'Correos',                    icon: 'mdi:package-variant-closed', color: '#00457d', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'correos',
                     track_parcel_service: { domain: 'correos', field: 'tracking_code', supports_postal_code: false } },
+    // Brand colour confirmed by pixel-sampling the official PostNord wordmark (teal, #0098b8).
+    postnord:     { label: 'PostNord',                   icon: 'mdi:package-variant-closed', color: '#0098b8', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'postnord',
+                    track_parcel_service: { domain: 'postnord', field: 'tracking_code', supports_postal_code: false } },
+    // Brand colour confirmed by pixel-sampling the official Sameday logo (red, #e82020).
+    sameday:      { label: 'Sameday',                    icon: 'mdi:package-variant-closed', color: '#e82020', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'sameday',
+                    track_parcel_service: { domain: 'sameday', field: 'tracking_code', supports_postal_code: false } },
+    // Brand colour confirmed by pixel-sampling the official Swiss Post logo (yellow, #f8c800).
+    swiss_post:   { label: 'Swiss Post',                 icon: 'mdi:package-variant-closed', color: '#f8c800', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'swiss_post',
+                    track_parcel_service: { domain: 'swiss_post', field: 'tracking_code', supports_postal_code: false } },
+    // Brand colour confirmed by pixel-sampling the official Planzer wordmark (red, #a00818).
+    planzer:      { label: 'Planzer',                    icon: 'mdi:package-variant-closed', color: '#a00818', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'planzer',
+                    track_parcel_service: { domain: 'planzer', field: 'tracking_code', supports_postal_code: false } },
+    // Brand colour confirmed by pixel-sampling the official Austrian Post horn mark (gold,
+    // #f8d800). HA domain is oesterreichische_post — sensor_slug/track_parcel_service.domain
+    // must match that, even though the carrier type key here is the readable austrian_post.
+    austrian_post:{ label: 'Austrian Post',               icon: 'mdi:package-variant-closed', color: '#f8d800', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'oesterreichische_post',
+                    track_parcel_service: { domain: 'oesterreichische_post', field: 'tracking_code', supports_postal_code: false } },
     postnl_legacy:{ label: 'PostNL (ArjenBos)',          icon: 'mdi:package-variant-closed', color: '#ed8c00', schema: 'single_entity', supports_letters: false, sensor_slug: null     },
     custom:       { label: 'Custom',                     icon: 'mdi:package-variant-closed', color: '#ed8c00', schema: 'canonical',     supports_letters: false, sensor_slug: null     }
 };
@@ -1657,7 +1809,7 @@ function detectCarrierUsers(hass, carrierType) {
 // recommended default and the user can switch the type manually if they're
 // still on v3.x) and postnl_legacy / custom (sensor_slug is null — no
 // entity-based detection is possible for those).
-const AUTO_DETECT_CARRIER_TYPES = ['postnl_v4', 'dhl', 'dpd', 'vinted_go', 'gls', 'dragonfly', 'trunkrs', 'cainiao', 'hermes', 'packeta', 'correos'];
+const AUTO_DETECT_CARRIER_TYPES = ['postnl_v4', 'dhl', 'dpd', 'vinted_go', 'gls', 'dragonfly', 'trunkrs', 'cainiao', 'hermes', 'packeta', 'correos', 'postnord', 'sameday', 'swiss_post', 'planzer', 'austrian_post'];
 
 // Infers a sensible days_back for a freshly auto-populated card: the number
 // of days since the oldest currently-visible delivered parcel, across every
@@ -3761,6 +3913,11 @@ class HkiParcelsCardEditor extends LitElement {
             hermes: 'hermes_account_help',
             packeta: 'packeta_account_help',
             correos: 'correos_account_help',
+            postnord: 'postnord_account_help',
+            sameday: 'sameday_account_help',
+            swiss_post: 'swiss_post_account_help',
+            planzer: 'planzer_account_help',
+            austrian_post: 'austrian_post_account_help',
         }[carrierType];
         if (key) return this._t(key);
         return html`"_${preset.sensor_slug}${this._t('account_help_suffix')}`;
@@ -3921,6 +4078,11 @@ class HkiParcelsCardEditor extends LitElement {
                             { value: 'packeta',       label: 'Packeta' },
                             { value: 'correos',       label: 'Correos' },
                             { value: 'vinted_go',     label: 'Vinted Go' },
+                            { value: 'postnord',      label: 'PostNord' },
+                            { value: 'sameday',       label: 'Sameday' },
+                            { value: 'swiss_post',    label: 'Swiss Post' },
+                            { value: 'planzer',       label: 'Planzer' },
+                            { value: 'austrian_post', label: 'Austrian Post' },
                             { value: 'postnl',        label: 'PostNL (<v4.x)' },
                             { value: 'postnl_legacy', label: 'PostNL (ArjenBos)' },
                             { value: 'custom',        label: 'Custom' }
