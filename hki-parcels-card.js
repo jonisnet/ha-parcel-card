@@ -148,6 +148,12 @@ const TRANSLATIONS = {
         label_status: 'Status',
         label_delivery: 'Delivery',
         label_pickup_point: 'Pickup point',
+        label_custom_name: 'Custom name',
+        add_custom_name: '+ Add name',
+        custom_name_placeholder: 'e.g. Birthday gift',
+        custom_name_edit: 'Edit name',
+        custom_name_save: 'Save',
+        custom_name_cancel: 'Cancel',
         home_delivery: 'Home delivery',
         pickup_point: 'Pickup point',
         label_type: 'Type',
@@ -185,6 +191,7 @@ const TRANSLATIONS = {
         show_placeholder: 'Show placeholder image',
         show_tracking_link: 'Show tracking link button (disable for kiosk / touch-only)',
         show_raw_status: 'Show the carrier\'s own status text instead of the translated label',
+        show_custom_names: 'Allow giving parcels a custom name (saved in this browser only)',
         section_appearance: 'Appearance',
         label_header_color: 'Header color',
         label_header_text: 'Header text color',
@@ -297,6 +304,12 @@ const TRANSLATIONS = {
         label_status: 'Status',
         label_delivery: 'Bezorgwijze',
         label_pickup_point: 'Afhaalpunt',
+        label_custom_name: 'Eigen naam',
+        add_custom_name: '+ Naam toevoegen',
+        custom_name_placeholder: 'bijv. Verjaardagscadeau',
+        custom_name_edit: 'Naam bewerken',
+        custom_name_save: 'Opslaan',
+        custom_name_cancel: 'Annuleren',
         home_delivery: 'Thuisbezorging',
         pickup_point: 'Afhaalpunt',
         label_type: 'Type',
@@ -334,6 +347,7 @@ const TRANSLATIONS = {
         show_placeholder: 'Toon placeholder',
         show_tracking_link: 'Toon "Track & Trace" knop',
         show_raw_status: 'Toon carrier\'s eigen statustekst i.p.v. de vertaalde melding',
+        show_custom_names: 'Sta toe pakketten een eigen naam te geven (alleen opgeslagen in deze browser)',
         section_appearance: 'Uiterlijk',
         label_header_color: 'Header Kleur',
         label_header_text: 'Header Tekst Kleur',
@@ -447,6 +461,12 @@ const TRANSLATIONS = {
         label_status: 'Status',
         label_delivery: 'Zustellart',
         label_pickup_point: 'Abholstation',
+        label_custom_name: 'Eigener Name',
+        add_custom_name: '+ Name hinzufügen',
+        custom_name_placeholder: 'z. B. Geburtstagsgeschenk',
+        custom_name_edit: 'Name bearbeiten',
+        custom_name_save: 'Speichern',
+        custom_name_cancel: 'Abbrechen',
         home_delivery: 'Zustellung nach Hause',
         pickup_point: 'Abholstation',
         label_type: 'Typ',
@@ -484,6 +504,7 @@ const TRANSLATIONS = {
         show_placeholder: 'Platzhalterbild anzeigen',
         show_tracking_link: 'Sendungsverfolgungs-Schaltfläche anzeigen (deaktivieren für Kiosk/reine Touch-Nutzung)',
         show_raw_status: 'Den eigenen Statustext des Zustelldienstes statt der übersetzten Meldung anzeigen',
+        show_custom_names: 'Erlauben, Paketen einen eigenen Namen zu geben (nur in diesem Browser gespeichert)',
         section_appearance: 'Erscheinungsbild',
         label_header_color: 'Kopfzeilenfarbe',
         label_header_text: 'Kopfzeilen-Textfarbe',
@@ -597,6 +618,12 @@ const TRANSLATIONS = {
         label_status: 'Estado',
         label_delivery: 'Modo de entrega',
         label_pickup_point: 'Punto de recogida',
+        label_custom_name: 'Nombre personalizado',
+        add_custom_name: '+ Añadir nombre',
+        custom_name_placeholder: 'p. ej. Regalo de cumpleaños',
+        custom_name_edit: 'Editar nombre',
+        custom_name_save: 'Guardar',
+        custom_name_cancel: 'Cancelar',
         home_delivery: 'Entrega a domicilio',
         pickup_point: 'Punto de recogida',
         label_type: 'Tipo',
@@ -634,6 +661,7 @@ const TRANSLATIONS = {
         show_placeholder: 'Mostrar imagen de marcador de posición',
         show_tracking_link: 'Mostrar botón de seguimiento (desactivar para kiosco / uso táctil exclusivo)',
         show_raw_status: 'Mostrar el texto de estado propio del transportista en lugar de la etiqueta traducida',
+        show_custom_names: 'Permitir dar a los paquetes un nombre personalizado (guardado solo en este navegador)',
         section_appearance: 'Apariencia',
         label_header_color: 'Color de la cabecera',
         label_header_text: 'Color del texto de la cabecera',
@@ -747,6 +775,12 @@ const TRANSLATIONS = {
         label_status: 'Statut',
         label_delivery: 'Mode de livraison',
         label_pickup_point: 'Point de retrait',
+        label_custom_name: 'Nom personnalisé',
+        add_custom_name: '+ Ajouter un nom',
+        custom_name_placeholder: 'p. ex. Cadeau d\'anniversaire',
+        custom_name_edit: 'Modifier le nom',
+        custom_name_save: 'Enregistrer',
+        custom_name_cancel: 'Annuler',
         home_delivery: 'Livraison à domicile',
         pickup_point: 'Point de retrait',
         label_type: 'Type',
@@ -784,6 +818,7 @@ const TRANSLATIONS = {
         show_placeholder: 'Afficher l\'image de remplacement',
         show_tracking_link: 'Afficher le bouton de suivi (désactiver pour un usage kiosque / tactile uniquement)',
         show_raw_status: 'Afficher le texte de statut propre au transporteur au lieu du libellé traduit',
+        show_custom_names: 'Autoriser à donner un nom personnalisé aux colis (enregistré uniquement dans ce navigateur)',
         section_appearance: 'Apparence',
         label_header_color: 'Couleur de l\'en-tête',
         label_header_text: 'Couleur du texte de l\'en-tête',
@@ -897,6 +932,12 @@ const TRANSLATIONS = {
         label_status: 'Stato',
         label_delivery: 'Modalità di consegna',
         label_pickup_point: 'Punto di ritiro',
+        label_custom_name: 'Nome personalizzato',
+        add_custom_name: '+ Aggiungi nome',
+        custom_name_placeholder: 'es. Regalo di compleanno',
+        custom_name_edit: 'Modifica nome',
+        custom_name_save: 'Salva',
+        custom_name_cancel: 'Annulla',
         home_delivery: 'Consegna a domicilio',
         pickup_point: 'Punto di ritiro',
         label_type: 'Tipo',
@@ -934,6 +975,7 @@ const TRANSLATIONS = {
         show_placeholder: 'Mostra immagine segnaposto',
         show_tracking_link: 'Mostra pulsante di tracciamento (disattiva per kiosk / solo touch)',
         show_raw_status: 'Mostra il testo di stato del corriere invece dell\'etichetta tradotta',
+        show_custom_names: 'Consenti di assegnare un nome personalizzato ai pacchi (salvato solo in questo browser)',
         section_appearance: 'Aspetto',
         label_header_color: 'Colore intestazione',
         label_header_text: 'Colore testo intestazione',
@@ -1047,6 +1089,12 @@ const TRANSLATIONS = {
         label_status: 'Status',
         label_delivery: 'Sposób dostawy',
         label_pickup_point: 'Punkt odbioru',
+        label_custom_name: 'Własna nazwa',
+        add_custom_name: '+ Dodaj nazwę',
+        custom_name_placeholder: 'np. Prezent urodzinowy',
+        custom_name_edit: 'Edytuj nazwę',
+        custom_name_save: 'Zapisz',
+        custom_name_cancel: 'Anuluj',
         home_delivery: 'Dostawa do domu',
         pickup_point: 'Punkt odbioru',
         label_type: 'Typ',
@@ -1084,6 +1132,7 @@ const TRANSLATIONS = {
         show_placeholder: 'Pokaż obraz zastępczy',
         show_tracking_link: 'Pokaż przycisk śledzenia (wyłącz dla kiosku / obsługi wyłącznie dotykowej)',
         show_raw_status: 'Pokaż własny tekst statusu przewoźnika zamiast przetłumaczonej etykiety',
+        show_custom_names: 'Zezwól na nadawanie paczkom własnej nazwy (zapisywane tylko w tej przeglądarce)',
         section_appearance: 'Wygląd',
         label_header_color: 'Kolor nagłówka',
         label_header_text: 'Kolor tekstu nagłówka',
@@ -1197,6 +1246,12 @@ const TRANSLATIONS = {
         label_status: 'Estado',
         label_delivery: 'Modo de entrega',
         label_pickup_point: 'Ponto de recolha',
+        label_custom_name: 'Nome personalizado',
+        add_custom_name: '+ Adicionar nome',
+        custom_name_placeholder: 'por ex. Presente de aniversário',
+        custom_name_edit: 'Editar nome',
+        custom_name_save: 'Guardar',
+        custom_name_cancel: 'Cancelar',
         home_delivery: 'Entrega ao domicílio',
         pickup_point: 'Ponto de recolha',
         label_type: 'Tipo',
@@ -1234,6 +1289,7 @@ const TRANSLATIONS = {
         show_placeholder: 'Mostrar imagem de marcador de posição',
         show_tracking_link: 'Mostrar botão de rastreamento (desativar para quiosque / uso apenas tátil)',
         show_raw_status: 'Mostrar o texto de estado próprio da transportadora em vez da etiqueta traduzida',
+        show_custom_names: 'Permitir atribuir um nome personalizado às encomendas (guardado apenas neste navegador)',
         section_appearance: 'Aparência',
         label_header_color: 'Cor do cabeçalho',
         label_header_text: 'Cor do texto do cabeçalho',
@@ -2057,6 +2113,7 @@ class HkiParcelsCard extends HTMLElement {
         this.attachShadow({ mode: 'open' });
         this._activeTab = 'onderweg';
         this._selectedParcel = null;
+        this._editingNameKey = null;
         this._isRendered = false;
         // "+ Add parcel" mini-form state (see _renderAddParcelForm / _submitAddParcel).
         this._addParcelOpen = false;
@@ -2092,6 +2149,7 @@ class HkiParcelsCard extends HTMLElement {
             show_placeholder: true,
             show_tracking_link: true,
             show_add_parcel: true,
+            show_custom_names: true,
             header_color: '',
             header_text_color: '',
             placeholder_image: DEFAULT_PLACEHOLDER_IMAGE,
@@ -2189,6 +2247,7 @@ class HkiParcelsCard extends HTMLElement {
             carriers,
             show_tracking_link: true,
             show_add_parcel: true,
+            show_custom_names: true,
             layout_order: ['header', 'animation', 'tabs', 'list']
         };
     }
@@ -2226,6 +2285,7 @@ class HkiParcelsCard extends HTMLElement {
         const preset = CARRIER_PRESETS[carrier.type] || CARRIER_PRESETS.custom;
         const assets  = CARRIER_ASSETS[carrier.type] || CARRIER_ASSETS.custom;
         return {
+            carrier_type:   carrier.type,
             carrier_name:   carrier.name,
             carrier_icon:   (carrier.icon && carrier.icon !== DEFAULT_CARRIER_ICON) ? carrier.icon : getDefaultIcon(carrier.type),
             carrier_color:  carrier.color  || preset.color || DEFAULT_CARRIER_COLOR,
@@ -2301,9 +2361,69 @@ class HkiParcelsCard extends HTMLElement {
 
     _normalizeItem(item, carrier) {
         if (!item || typeof item !== 'object') return null;
-        return carrier.schema === 'canonical'
+        const normalized = carrier.schema === 'canonical'
             ? this._normalizeCanonical(item, carrier)
             : this._normalizeLegacy(item, carrier);
+        if (normalized && this.config.show_custom_names !== false) {
+            const custom = this._getCustomName(normalized.carrier_type, normalized.key);
+            if (custom) normalized.custom_name = custom;
+        }
+        return normalized;
+    }
+
+    // ------------------------------------------------------------------
+    // Custom parcel names — a small user-friendly label per tracking code,
+    // e.g. "Birthday gift" instead of a bare barcode (see GH issue #9). There
+    // is no backend for this (the card cannot write back to the integration's
+    // own sensor data, and a live dashboard card cannot persist into its own
+    // stored YAML config either — only the editor can), so the mapping lives
+    // in the browser's localStorage, scoped per browser/device rather than
+    // synced across the household. Keyed by "<carrier_type>:<tracking_code>"
+    // so two different carriers reusing the same code never collide.
+    // ------------------------------------------------------------------
+
+    _escapeHtml(str) {
+        return String(str ?? '')
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;');
+    }
+
+    _customNamesStorageKey() { return 'hki-parcels-card-custom-names'; }
+
+    _loadCustomNames() {
+        if (this.__customNames) return this.__customNames;
+        try {
+            this.__customNames = JSON.parse(localStorage.getItem(this._customNamesStorageKey()) || '{}') || {};
+        } catch (e) {
+            this.__customNames = {};
+        }
+        return this.__customNames;
+    }
+
+    _customNameStorageId(carrierType, itemKey) {
+        return `${carrierType || ''}:${itemKey || ''}`;
+    }
+
+    _getCustomName(carrierType, itemKey) {
+        if (!itemKey) return null;
+        return this._loadCustomNames()[this._customNameStorageId(carrierType, itemKey)] || null;
+    }
+
+    _setCustomName(carrierType, itemKey, name) {
+        if (!itemKey) return;
+        const names = this._loadCustomNames();
+        const id = this._customNameStorageId(carrierType, itemKey);
+        const trimmed = (name || '').trim();
+        if (trimmed) names[id] = trimmed;
+        else delete names[id];
+        try {
+            localStorage.setItem(this._customNamesStorageKey(), JSON.stringify(names));
+        } catch (e) {
+            // Storage full or unavailable (e.g. some private-browsing modes) — the in-memory
+            // copy still reflects the change for the rest of this session, just not persisted.
+        }
     }
 
     _getCarrierSensorItems(carrier, entityField) {
@@ -2560,6 +2680,62 @@ class HkiParcelsCard extends HTMLElement {
         this._openLetterPopup(letterSrc, letterName, letterDate);
     }
 
+    // Binds the custom-name controls rendered by _renderCustomNameRow(). Called from every
+    // place that renders parcel items — the main list, the full re-render, and the carrier
+    // popup — since each owns a separate DOM subtree.
+    _bindCustomNameEvents(root) {
+        if (!root) return;
+        root.querySelectorAll('.custom-name-add-btn, .custom-name-edit-btn').forEach(el =>
+            el.addEventListener('click', this._handleCustomNameEditClick.bind(this))
+        );
+        root.querySelectorAll('.custom-name-save').forEach(el =>
+            el.addEventListener('click', this._handleCustomNameSaveClick.bind(this))
+        );
+        root.querySelectorAll('.custom-name-cancel').forEach(el =>
+            el.addEventListener('click', this._handleCustomNameCancelClick.bind(this))
+        );
+        root.querySelectorAll('.custom-name-input').forEach(el => {
+            el.addEventListener('click', e => e.stopPropagation());
+            el.addEventListener('keydown', e => {
+                if (e.key === 'Enter') this._handleCustomNameSaveClick(e);
+                else if (e.key === 'Escape') this._handleCustomNameCancelClick(e);
+            });
+        });
+        // Focus + select whichever input is currently in edit mode, right after it was rendered.
+        const activeInput = root.querySelector('.custom-name-editing .custom-name-input');
+        if (activeInput) requestAnimationFrame(() => { activeInput.focus(); activeInput.select(); });
+    }
+
+    _handleCustomNameEditClick(e) {
+        e.stopPropagation();
+        const row = e.currentTarget.closest('.custom-name-row');
+        if (!row) return;
+        this._editingNameKey = this._customNameStorageId(row.dataset.carrierType, row.dataset.key);
+        this._lastListFingerprint = null;
+        this.updateContent();
+        this._refreshCarrierPopupIfOpen();
+    }
+
+    _handleCustomNameSaveClick(e) {
+        e.stopPropagation();
+        const row = e.currentTarget.closest('.custom-name-row');
+        if (!row) return;
+        const input = row.querySelector('.custom-name-input');
+        this._setCustomName(row.dataset.carrierType, row.dataset.key, input?.value || '');
+        this._editingNameKey = null;
+        this._lastListFingerprint = null;
+        this.updateContent();
+        this._refreshCarrierPopupIfOpen();
+    }
+
+    _handleCustomNameCancelClick(e) {
+        e.stopPropagation();
+        this._editingNameKey = null;
+        this._lastListFingerprint = null;
+        this.updateContent();
+        this._refreshCarrierPopupIfOpen();
+    }
+
     _getNoSelectionBackground() {
         const carriers = this.config.carriers || [];
         // setConfig() always fills placeholder_image with DEFAULT_PLACEHOLDER_IMAGE when the
@@ -2649,6 +2825,7 @@ class HkiParcelsCard extends HTMLElement {
 
     _openCarrierPopup(carrierName) {
         if (!carrierName) return;
+        this._openPopupCarrierName = carrierName;
         const data = this.getData();
         if (!data) return;
         const sections = this._getCarrierSections(data, carrierName);
@@ -2698,10 +2875,20 @@ class HkiParcelsCard extends HTMLElement {
         popup.querySelectorAll('.letter-thumb').forEach(el =>
             el.addEventListener('click', this.handleLetterThumbClick.bind(this))
         );
+        this._bindCustomNameEvents(popup);
     }
 
     _closeCarrierPopup() {
         this.shadowRoot.querySelector('.carrier-popup-overlay')?.classList.remove('open');
+        this._openPopupCarrierName = null;
+    }
+
+    // If the carrier popup is open, rebuild it so it reflects the latest custom-name edit —
+    // updateContent()/renderList() only ever touch the main list, never the popup's own DOM.
+    _refreshCarrierPopupIfOpen() {
+        if (this._openPopupCarrierName && this.shadowRoot.querySelector('.carrier-popup-overlay.open')) {
+            this._openCarrierPopup(this._openPopupCarrierName);
+        }
     }
 
     // Clicking an item in the carrier popup just expands/collapses its own details panel in
@@ -3129,6 +3316,27 @@ class HkiParcelsCard extends HTMLElement {
         }
     }
 
+    _renderCustomNameRow(item) {
+        const storageId = this._customNameStorageId(item.carrier_type, item.key);
+        if (this._editingNameKey === storageId) {
+            return `
+            <div class="detail-row custom-name-row custom-name-editing" data-key="${item.key}" data-carrier-type="${item.carrier_type || ''}">
+                <input type="text" class="custom-name-input" maxlength="60"
+                       value="${this._escapeHtml(item.custom_name || '')}"
+                       placeholder="${this._escapeHtml(this._t('custom_name_placeholder'))}" />
+                <button class="custom-name-save" title="${this._t('custom_name_save')}"><ha-icon icon="mdi:check"></ha-icon></button>
+                <button class="custom-name-cancel" title="${this._t('custom_name_cancel')}"><ha-icon icon="mdi:close"></ha-icon></button>
+            </div>`;
+        }
+        return `
+        <div class="detail-row custom-name-row" data-key="${item.key}" data-carrier-type="${item.carrier_type || ''}">
+            ${item.custom_name
+                ? `<strong>${this._t('label_custom_name')}:</strong> ${this._escapeHtml(item.custom_name)}
+                   <button class="custom-name-edit-btn" title="${this._t('custom_name_edit')}"><ha-icon icon="mdi:pencil"></ha-icon></button>`
+                : `<button class="custom-name-add-btn"><ha-icon icon="mdi:plus"></ha-icon> ${this._t('add_custom_name')}</button>`}
+        </div>`;
+    }
+
     _renderParcelItem(item) {
         const isDelivered = item.delivered;
         const isLetter    = !!item.is_letter;
@@ -3153,7 +3361,7 @@ class HkiParcelsCard extends HTMLElement {
         <div class="parcel ${isSelected ? 'selected' : ''}" data-key="${item.key}" style="--carrier-color:${item.carrier_color || DEFAULT_CARRIER_COLOR};">
             <div class="parcel-header" data-key="${item.key}">
                 <div class="ph-left">
-                    <span class="ph-name">${item.name || this._t('unknown')}</span>
+                    <span class="ph-name">${item.custom_name ? this._escapeHtml(item.custom_name) : (item.name || this._t('unknown'))}</span>
                     <span class="ph-status">
                         <ha-icon class="ph-status-icon" icon="${statusIcon}" style="width:16px;height:16px;"></ha-icon>
                         ${statusMsg}
@@ -3170,6 +3378,7 @@ class HkiParcelsCard extends HTMLElement {
                      onerror="this.style.display='none';this.nextElementSibling&&(this.nextElementSibling.style.display='flex');" />` : ''}
                 ${isLetter && (!letterThumb || true) ? `<div class="detail-row letter-no-image" style="${letterThumb ? 'display:none;' : ''}"><ha-icon icon="mdi:email-outline"></ha-icon> ${this._t('no_image')}</div>` : ''}
                 ${!isLetter && item.key ? `<div class="detail-row"><strong>${this._t('label_tracking')}:</strong> ${item.key}</div>` : ''}
+                ${!isLetter && item.key && this.config.show_custom_names !== false ? this._renderCustomNameRow(item) : ''}
                 ${item.raw_status ? `<div class="detail-row"><strong>${this._t('label_status')}:</strong> ${item.raw_status}</div>` : ''}
                 ${deliveryDetail}
                 <div class="detail-row"><strong>${this._t('label_type')}:</strong> ${isLetter ? this._t('type_letter') : this._t('type_parcel')}</div>
@@ -3229,6 +3438,7 @@ class HkiParcelsCard extends HTMLElement {
         listEl.querySelectorAll('.letter-thumb').forEach(el =>
             el.addEventListener('click', this.handleLetterThumbClick.bind(this))
         );
+        this._bindCustomNameEvents(listEl);
     }
 
     render() {
@@ -3337,6 +3547,15 @@ class HkiParcelsCard extends HTMLElement {
             .detail-row strong { color: var(--primary-text-color); }
             .btn-track { background: var(--carrier-color, var(--accent)); color: white; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 0.9em; font-weight: 600; display: inline-block; margin-top: 8px; transition: all 0.2s; }
             .btn-track:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.25); }
+            .custom-name-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+            .custom-name-add-btn { background: none; border: none; color: var(--carrier-color, var(--accent)); cursor: pointer; font-size: 0.9em; font-weight: 600; padding: 2px 0; display: inline-flex; align-items: center; gap: 4px; }
+            .custom-name-add-btn ha-icon { width: 16px; height: 16px; }
+            .custom-name-edit-btn, .custom-name-save, .custom-name-cancel { background: none; border: none; color: var(--secondary-text-color); cursor: pointer; padding: 2px; display: inline-flex; align-items: center; border-radius: 4px; }
+            .custom-name-edit-btn ha-icon, .custom-name-save ha-icon, .custom-name-cancel ha-icon { width: 16px; height: 16px; }
+            .custom-name-edit-btn:hover, .custom-name-save:hover, .custom-name-cancel:hover { background: var(--divider-color); }
+            .custom-name-save { color: var(--success-color, #4caf50); }
+            .custom-name-cancel { color: var(--error-color, red); }
+            .custom-name-input { flex: 1; min-width: 120px; padding: 6px 8px; border-radius: 4px; border: 1px solid var(--divider-color); background: var(--card-background-color); color: var(--primary-text-color); font-size: 0.9em; }
             .list::-webkit-scrollbar { width: 6px; }
             .list::-webkit-scrollbar-track { background: transparent; }
             .list::-webkit-scrollbar-thumb { background: var(--divider-color); border-radius: 3px; }
@@ -3413,6 +3632,7 @@ class HkiParcelsCard extends HTMLElement {
         this.shadowRoot.querySelectorAll('.letter-thumb').forEach(el =>
             el.addEventListener('click', this.handleLetterThumbClick.bind(this))
         );
+        this._bindCustomNameEvents(this.shadowRoot);
         this._bindAddParcelEvents(this.shadowRoot.querySelector('.add-parcel-container'));
         this.updateAnimation(displayed);
     }
@@ -3450,6 +3670,7 @@ class HkiParcelsCardEditor extends LitElement {
             show_placeholder: true,
             show_tracking_link: true,
             show_add_parcel: true,
+            show_custom_names: true,
             header_color: '',
             header_text_color: '',
             placeholder_image: DEFAULT_PLACEHOLDER_IMAGE,
@@ -3475,7 +3696,7 @@ class HkiParcelsCardEditor extends LitElement {
         if (!field || !this._config) return;
         let value = this._val(ev);
         if (new Set(['days_back']).has(field)) value = parseInt(value, 10);
-        if (new Set(['show_delivered','show_sent','show_letters','show_animation','show_header','show_placeholder','show_tracking_link','show_add_parcel','show_raw_status']).has(field))
+        if (new Set(['show_delivered','show_sent','show_letters','show_animation','show_header','show_placeholder','show_tracking_link','show_add_parcel','show_raw_status','show_custom_names']).has(field))
             value = !!(ev.target?.checked ?? value);
         this._config = { ...this._config, [field]: value };
         this._emit();
@@ -4417,6 +4638,7 @@ class HkiParcelsCardEditor extends LitElement {
                     <div class="switch-row"><ha-switch .checked=${this._config.show_tracking_link !== false} data-field="show_tracking_link" @change=${this._changed}></ha-switch><span>${this._t('show_tracking_link')}</span></div>
                     <div class="switch-row"><ha-switch .checked=${this._config.show_add_parcel !== false} data-field="show_add_parcel" @change=${this._changed}></ha-switch><span>${this._t('show_add_parcel')}</span></div>
                     <div class="switch-row"><ha-switch .checked=${this._config.show_raw_status === true} data-field="show_raw_status" @change=${this._changed}></ha-switch><span>${this._t('show_raw_status')}</span></div>
+                    <div class="switch-row"><ha-switch .checked=${this._config.show_custom_names !== false} data-field="show_custom_names" @change=${this._changed}></ha-switch><span>${this._t('show_custom_names')}</span></div>
                 </details>
 
                 <details class="section-details">

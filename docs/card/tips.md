@@ -38,6 +38,12 @@ For GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameda
 
 ---
 
+## Naming a parcel
+
+Open a parcel's detail panel and click "+ Add name" to give it a short label of your own — "Birthday gift" is a lot easier to spot than a bare tracking code. The name is saved in your browser, so it's per-device rather than synced across everyone's phones and tablets. Disable the control entirely with `show_custom_names: false`.
+
+---
+
 ## Limiting the history period
 
 Use `days_back` to control how far back delivered parcels are shown. A shorter period keeps the Delivered tab manageable.

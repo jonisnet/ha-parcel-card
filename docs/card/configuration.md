@@ -19,10 +19,14 @@ These options apply to the card as a whole.
 | `placeholder_image` | string | _(built-in)_ | URL to a custom background image. Overrides the automatic combo banner — set to a fixed picture if you'd rather always show the same image |
 | `show_add_parcel` | boolean | `true` | Show the "+ Add parcel" control at the bottom of the card (only appears when at least one configured carrier supports it — GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee, Nova Post, Delhivery, SunYou) |
 | `show_raw_status` | boolean | `false` | Show the carrier's own raw status text (e.g. GLS's "Onderweg - geladen voor aflevering") as the main status message instead of the card's generic translated label ("In transit"). Falls back to the generic label when a parcel has no raw status |
+| `show_custom_names` | boolean | `true` | Show a "+ Add name" control in each parcel's detail panel, letting you give it a short custom label (e.g. "Birthday gift") instead of just a tracking code. See the note below |
 | `layout_order` | list | `[header, animation, tabs, list]` | Order of card sections |
 | `carriers` | list | — | **Required.** List of carrier configurations (see below) |
 
 \* When the card is first added, `days_back` is pre-filled from your actual delivered-parcel history (the oldest delivered parcel currently visible, across every detected carrier) instead of the flat `90`. This is a one-time default, not a live setting.
+
+!!! note "Custom parcel names are saved per browser, not synced"
+    There's no backend to write a custom name into — the card can't write back to an integration's own sensor data, and a live dashboard card can't persist into its own stored YAML config either (only the editor can, while you're editing the dashboard). So custom names are saved in the browser's local storage instead, keyed by carrier and tracking code. That means a name you set on your phone won't show up on a tablet or another family member's browser — each device keeps its own labels. Set `show_custom_names: false` to hide the control entirely.
 
 ---
 
