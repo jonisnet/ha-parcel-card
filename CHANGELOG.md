@@ -1,5 +1,27 @@
 # Changelog
 
+## [1.6.0] — 2026-08-10
+
+### Added
+
+- **Nova Post, Delhivery and SunYou carrier support** — three new carrier types (`nova_post`,
+  `delhivery`, `sunyou`), all account-less "hub" carriers identical in pattern to
+  Helthjem/Dynalogic: tracking code only, no account, no postal code, no outgoing/letters
+  support. Nova Post and Delhivery are both brand-new [ha-parcel-integrations](https://github.com/ha-parcel-integrations)
+  repos (added 2026-08-10); SunYou's integration appeared later than an earlier speculative
+  asset batch for it, so its wiring here was verified fresh against the actual current
+  `ha-sunyou` code rather than reused unchecked.
+  - **Nova Post** — [ha-parcel-integrations/ha-nova-post](https://github.com/ha-parcel-integrations/ha-nova-post),
+    brand red `#ed1c24` (confirmed against the official Wikimedia SVG and the repo's own bundled
+    brand icon). Ukraine's largest private courier network (Nova Poshta).
+  - **Delhivery** — [ha-parcel-integrations/ha-delhivery](https://github.com/ha-parcel-integrations/ha-delhivery),
+    brand red `#ed1b36` (pixel-sampled from the repo's own bundled brand icon — genuinely close
+    to Nova Post's red, a real coincidence of two red-branded carriers added in the same batch).
+    India-based logistics company.
+  - **SunYou** — [ha-parcel-integrations/ha-sunyou](https://github.com/ha-parcel-integrations/ha-sunyou),
+    brand green `#29a03a` (pixel-sampled from SunYou's own "SUNYOU" wordmark logo). China-based
+    cross-border courier (SYPost).
+
 ## [1.5.8] — 2026-08-05
 
 ### Fixed
