@@ -191,7 +191,11 @@ const TRANSLATIONS = {
         show_placeholder: 'Show placeholder image',
         show_tracking_link: 'Show tracking link button (disable for kiosk / touch-only)',
         show_raw_status: 'Show the carrier\'s own status text instead of the translated label',
-        show_custom_names: 'Allow giving parcels a custom name (saved in this browser only)',
+        custom_name_scope_label: 'Custom parcel names',
+        custom_name_scope_off: 'Off',
+        custom_name_scope_device: 'Only for me (this browser)',
+        custom_name_scope_shared: 'For everyone (synced via Home Assistant)',
+        custom_name_scope_help: '"For everyone" is saved to your Home Assistant account and shows up on every device signed in with it — the natural choice if your household shares one login. "Only for me" stays in this browser only.',
         section_appearance: 'Appearance',
         label_header_color: 'Header color',
         label_header_text: 'Header text color',
@@ -347,7 +351,11 @@ const TRANSLATIONS = {
         show_placeholder: 'Toon placeholder',
         show_tracking_link: 'Toon "Track & Trace" knop',
         show_raw_status: 'Toon carrier\'s eigen statustekst i.p.v. de vertaalde melding',
-        show_custom_names: 'Sta toe pakketten een eigen naam te geven (alleen opgeslagen in deze browser)',
+        custom_name_scope_label: 'Eigen pakketnamen',
+        custom_name_scope_off: 'Uit',
+        custom_name_scope_device: 'Alleen voor mij (deze browser)',
+        custom_name_scope_shared: 'Voor iedereen (gesynchroniseerd via Home Assistant)',
+        custom_name_scope_help: '"Voor iedereen" wordt opgeslagen bij je Home Assistant-account en is zichtbaar op elk apparaat dat daarmee is ingelogd — de logische keuze als je huishouden één gedeeld account gebruikt. "Alleen voor mij" blijft beperkt tot deze browser.',
         section_appearance: 'Uiterlijk',
         label_header_color: 'Header Kleur',
         label_header_text: 'Header Tekst Kleur',
@@ -504,7 +512,11 @@ const TRANSLATIONS = {
         show_placeholder: 'Platzhalterbild anzeigen',
         show_tracking_link: 'Sendungsverfolgungs-Schaltfläche anzeigen (deaktivieren für Kiosk/reine Touch-Nutzung)',
         show_raw_status: 'Den eigenen Statustext des Zustelldienstes statt der übersetzten Meldung anzeigen',
-        show_custom_names: 'Erlauben, Paketen einen eigenen Namen zu geben (nur in diesem Browser gespeichert)',
+        custom_name_scope_label: 'Eigene Paketnamen',
+        custom_name_scope_off: 'Aus',
+        custom_name_scope_device: 'Nur für mich (dieser Browser)',
+        custom_name_scope_shared: 'Für alle (synchronisiert über Home Assistant)',
+        custom_name_scope_help: '„Für alle“ wird in deinem Home-Assistant-Konto gespeichert und erscheint auf jedem Gerät, das damit angemeldet ist — die naheliegende Wahl, wenn dein Haushalt einen gemeinsamen Login nutzt. „Nur für mich“ bleibt auf diesen Browser beschränkt.',
         section_appearance: 'Erscheinungsbild',
         label_header_color: 'Kopfzeilenfarbe',
         label_header_text: 'Kopfzeilen-Textfarbe',
@@ -661,7 +673,11 @@ const TRANSLATIONS = {
         show_placeholder: 'Mostrar imagen de marcador de posición',
         show_tracking_link: 'Mostrar botón de seguimiento (desactivar para kiosco / uso táctil exclusivo)',
         show_raw_status: 'Mostrar el texto de estado propio del transportista en lugar de la etiqueta traducida',
-        show_custom_names: 'Permitir dar a los paquetes un nombre personalizado (guardado solo en este navegador)',
+        custom_name_scope_label: 'Nombres personalizados de paquetes',
+        custom_name_scope_off: 'Desactivado',
+        custom_name_scope_device: 'Solo para mí (este navegador)',
+        custom_name_scope_shared: 'Para todos (sincronizado a través de Home Assistant)',
+        custom_name_scope_help: '"Para todos" se guarda en tu cuenta de Home Assistant y aparece en cualquier dispositivo con esa sesión iniciada — la opción natural si tu hogar comparte un mismo inicio de sesión. "Solo para mí" se queda solo en este navegador.',
         section_appearance: 'Apariencia',
         label_header_color: 'Color de la cabecera',
         label_header_text: 'Color del texto de la cabecera',
@@ -818,7 +834,11 @@ const TRANSLATIONS = {
         show_placeholder: 'Afficher l\'image de remplacement',
         show_tracking_link: 'Afficher le bouton de suivi (désactiver pour un usage kiosque / tactile uniquement)',
         show_raw_status: 'Afficher le texte de statut propre au transporteur au lieu du libellé traduit',
-        show_custom_names: 'Autoriser à donner un nom personnalisé aux colis (enregistré uniquement dans ce navigateur)',
+        custom_name_scope_label: 'Noms personnalisés des colis',
+        custom_name_scope_off: 'Désactivé',
+        custom_name_scope_device: 'Pour moi seulement (ce navigateur)',
+        custom_name_scope_shared: 'Pour tout le monde (synchronisé via Home Assistant)',
+        custom_name_scope_help: '« Pour tout le monde » est enregistré sur votre compte Home Assistant et apparaît sur tout appareil connecté avec ce compte — le choix naturel si votre foyer partage une même connexion. « Pour moi seulement » reste limité à ce navigateur.',
         section_appearance: 'Apparence',
         label_header_color: 'Couleur de l\'en-tête',
         label_header_text: 'Couleur du texte de l\'en-tête',
@@ -975,7 +995,11 @@ const TRANSLATIONS = {
         show_placeholder: 'Mostra immagine segnaposto',
         show_tracking_link: 'Mostra pulsante di tracciamento (disattiva per kiosk / solo touch)',
         show_raw_status: 'Mostra il testo di stato del corriere invece dell\'etichetta tradotta',
-        show_custom_names: 'Consenti di assegnare un nome personalizzato ai pacchi (salvato solo in questo browser)',
+        custom_name_scope_label: 'Nomi personalizzati dei pacchi',
+        custom_name_scope_off: 'Disattivato',
+        custom_name_scope_device: 'Solo per me (questo browser)',
+        custom_name_scope_shared: 'Per tutti (sincronizzato tramite Home Assistant)',
+        custom_name_scope_help: '"Per tutti" viene salvato nel tuo account Home Assistant e appare su ogni dispositivo che ha effettuato l\'accesso con esso — la scelta naturale se in famiglia condividete un unico accesso. "Solo per me" resta limitato a questo browser.',
         section_appearance: 'Aspetto',
         label_header_color: 'Colore intestazione',
         label_header_text: 'Colore testo intestazione',
@@ -1132,7 +1156,11 @@ const TRANSLATIONS = {
         show_placeholder: 'Pokaż obraz zastępczy',
         show_tracking_link: 'Pokaż przycisk śledzenia (wyłącz dla kiosku / obsługi wyłącznie dotykowej)',
         show_raw_status: 'Pokaż własny tekst statusu przewoźnika zamiast przetłumaczonej etykiety',
-        show_custom_names: 'Zezwól na nadawanie paczkom własnej nazwy (zapisywane tylko w tej przeglądarce)',
+        custom_name_scope_label: 'Własne nazwy paczek',
+        custom_name_scope_off: 'Wyłączone',
+        custom_name_scope_device: 'Tylko dla mnie (ta przeglądarka)',
+        custom_name_scope_shared: 'Dla wszystkich (synchronizowane przez Home Assistant)',
+        custom_name_scope_help: '"Dla wszystkich" jest zapisywane na Twoim koncie Home Assistant i pojawia się na każdym urządzeniu zalogowanym na to konto — naturalny wybór, jeśli domownicy współdzielą jedno konto. "Tylko dla mnie" pozostaje ograniczone do tej przeglądarki.',
         section_appearance: 'Wygląd',
         label_header_color: 'Kolor nagłówka',
         label_header_text: 'Kolor tekstu nagłówka',
@@ -1289,7 +1317,11 @@ const TRANSLATIONS = {
         show_placeholder: 'Mostrar imagem de marcador de posição',
         show_tracking_link: 'Mostrar botão de rastreamento (desativar para quiosque / uso apenas tátil)',
         show_raw_status: 'Mostrar o texto de estado próprio da transportadora em vez da etiqueta traduzida',
-        show_custom_names: 'Permitir atribuir um nome personalizado às encomendas (guardado apenas neste navegador)',
+        custom_name_scope_label: 'Nomes personalizados de encomendas',
+        custom_name_scope_off: 'Desativado',
+        custom_name_scope_device: 'Só para mim (este navegador)',
+        custom_name_scope_shared: 'Para todos (sincronizado através do Home Assistant)',
+        custom_name_scope_help: '"Para todos" é guardado na tua conta Home Assistant e aparece em qualquer dispositivo com essa sessão iniciada — a escolha natural se a tua casa partilha um único início de sessão. "Só para mim" fica limitado a este navegador.',
         section_appearance: 'Aparência',
         label_header_color: 'Cor do cabeçalho',
         label_header_text: 'Cor do texto do cabeçalho',
@@ -2149,7 +2181,7 @@ class HkiParcelsCard extends HTMLElement {
             show_placeholder: true,
             show_tracking_link: true,
             show_add_parcel: true,
-            show_custom_names: true,
+            custom_name_scope: 'device',
             header_color: '',
             header_text_color: '',
             placeholder_image: DEFAULT_PLACEHOLDER_IMAGE,
@@ -2247,7 +2279,7 @@ class HkiParcelsCard extends HTMLElement {
             carriers,
             show_tracking_link: true,
             show_add_parcel: true,
-            show_custom_names: true,
+            custom_name_scope: 'device',
             layout_order: ['header', 'animation', 'tabs', 'list']
         };
     }
@@ -2364,7 +2396,7 @@ class HkiParcelsCard extends HTMLElement {
         const normalized = carrier.schema === 'canonical'
             ? this._normalizeCanonical(item, carrier)
             : this._normalizeLegacy(item, carrier);
-        if (normalized && this.config.show_custom_names !== false) {
+        if (normalized && this._customNameScope() !== 'off') {
             const custom = this._getCustomName(normalized.carrier_type, normalized.key);
             if (custom) normalized.custom_name = custom;
         }
@@ -2373,13 +2405,23 @@ class HkiParcelsCard extends HTMLElement {
 
     // ------------------------------------------------------------------
     // Custom parcel names — a small user-friendly label per tracking code,
-    // e.g. "Birthday gift" instead of a bare barcode (see GH issue #9). There
-    // is no backend for this (the card cannot write back to the integration's
-    // own sensor data, and a live dashboard card cannot persist into its own
-    // stored YAML config either — only the editor can), so the mapping lives
-    // in the browser's localStorage, scoped per browser/device rather than
-    // synced across the household. Keyed by "<carrier_type>:<tracking_code>"
-    // so two different carriers reusing the same code never collide.
+    // e.g. "Birthday gift" instead of a bare barcode (see GH issue #9).
+    // `custom_name_scope` picks where that mapping lives:
+    //   - 'off'    — the feature is hidden entirely.
+    //   - 'device' — browser localStorage. Simple, no round-trip, but each
+    //     browser/device keeps its own names.
+    //   - 'shared' — Home Assistant's built-in per-user "frontend user data"
+    //     store (the same websocket API HA's own frontend uses for small
+    //     preferences), via `frontend/get_user_data` / `frontend/set_user_data`.
+    //     This is server-side, so it's the same for every device logged into
+    //     the same HA user — genuinely shared across a household's phones and
+    //     tablets when they all use one shared HA login, which is common.
+    //     Neither the card nor a live dashboard view can write into the
+    //     dashboard's own stored YAML config (only the editor can), so this
+    //     HA-native store is the closest thing to a real synced option
+    //     without shipping a companion backend integration.
+    // Keyed by "<carrier_type>:<tracking_code>" so two different carriers
+    // reusing the same code never collide.
     // ------------------------------------------------------------------
 
     _escapeHtml(str) {
@@ -2392,7 +2434,37 @@ class HkiParcelsCard extends HTMLElement {
 
     _customNamesStorageKey() { return 'hki-parcels-card-custom-names'; }
 
+    _customNameScope() {
+        const scope = this.config.custom_name_scope;
+        return (scope === 'off' || scope === 'shared') ? scope : 'device';
+    }
+
+    // Kicks off the async load from HA's per-user store; returns {} until it resolves,
+    // then triggers a re-render so the loaded names appear. Cheap to call repeatedly —
+    // guarded so only one fetch is ever in flight.
+    _fetchSharedCustomNames() {
+        if (this.__sharedCustomNamesLoading || !this._hass?.connection) return;
+        this.__sharedCustomNamesLoading = true;
+        this._hass.connection.sendMessagePromise({
+            type: 'frontend/get_user_data', key: this._customNamesStorageKey()
+        }).then(res => {
+            this.__sharedCustomNames = res?.value || {};
+        }).catch(() => {
+            this.__sharedCustomNames = this.__sharedCustomNames || {};
+        }).finally(() => {
+            this.__sharedCustomNamesLoading = false;
+            this._lastListFingerprint = null;
+            this.updateContent();
+            this._refreshCarrierPopupIfOpen();
+        });
+    }
+
     _loadCustomNames() {
+        if (this._customNameScope() === 'shared') {
+            if (this.__sharedCustomNames) return this.__sharedCustomNames;
+            this._fetchSharedCustomNames();
+            return {};
+        }
         if (this.__customNames) return this.__customNames;
         try {
             this.__customNames = JSON.parse(localStorage.getItem(this._customNamesStorageKey()) || '{}') || {};
@@ -2411,11 +2483,45 @@ class HkiParcelsCard extends HTMLElement {
         return this._loadCustomNames()[this._customNameStorageId(carrierType, itemKey)] || null;
     }
 
+    // Deliberately not awaited by callers: everything up to the first `await` inside
+    // (including the optimistic cache update below) runs synchronously, so the caller's
+    // immediate re-render already reflects the change. The 'shared' branch's actual
+    // server round-trip then finishes in the background.
     _setCustomName(carrierType, itemKey, name) {
         if (!itemKey) return;
-        const names = this._loadCustomNames();
         const id = this._customNameStorageId(carrierType, itemKey);
         const trimmed = (name || '').trim();
+
+        if (this._customNameScope() === 'shared') {
+            const optimistic = { ...(this.__sharedCustomNames || {}) };
+            if (trimmed) optimistic[id] = trimmed;
+            else delete optimistic[id];
+            this.__sharedCustomNames = optimistic;
+
+            if (!this._hass?.connection) return;
+            (async () => {
+                try {
+                    // Re-fetch the current server value first so this save can't clobber a
+                    // name another device saved moments earlier — merge, don't overwrite.
+                    const res = await this._hass.connection.sendMessagePromise({
+                        type: 'frontend/get_user_data', key: this._customNamesStorageKey()
+                    });
+                    const serverNames = res?.value || {};
+                    if (trimmed) serverNames[id] = trimmed;
+                    else delete serverNames[id];
+                    await this._hass.connection.sendMessagePromise({
+                        type: 'frontend/set_user_data', key: this._customNamesStorageKey(), value: serverNames
+                    });
+                    this.__sharedCustomNames = serverNames;
+                } catch (e) {
+                    // HA unreachable or the call was rejected — the optimistic value from
+                    // above stays for the rest of this session, it just never persisted.
+                }
+            })();
+            return;
+        }
+
+        const names = this._loadCustomNames();
         if (trimmed) names[id] = trimmed;
         else delete names[id];
         try {
@@ -3378,7 +3484,7 @@ class HkiParcelsCard extends HTMLElement {
                      onerror="this.style.display='none';this.nextElementSibling&&(this.nextElementSibling.style.display='flex');" />` : ''}
                 ${isLetter && (!letterThumb || true) ? `<div class="detail-row letter-no-image" style="${letterThumb ? 'display:none;' : ''}"><ha-icon icon="mdi:email-outline"></ha-icon> ${this._t('no_image')}</div>` : ''}
                 ${!isLetter && item.key ? `<div class="detail-row"><strong>${this._t('label_tracking')}:</strong> ${item.key}</div>` : ''}
-                ${!isLetter && item.key && this.config.show_custom_names !== false ? this._renderCustomNameRow(item) : ''}
+                ${!isLetter && item.key && this._customNameScope() !== 'off' ? this._renderCustomNameRow(item) : ''}
                 ${item.raw_status ? `<div class="detail-row"><strong>${this._t('label_status')}:</strong> ${item.raw_status}</div>` : ''}
                 ${deliveryDetail}
                 <div class="detail-row"><strong>${this._t('label_type')}:</strong> ${isLetter ? this._t('type_letter') : this._t('type_parcel')}</div>
@@ -3670,7 +3776,7 @@ class HkiParcelsCardEditor extends LitElement {
             show_placeholder: true,
             show_tracking_link: true,
             show_add_parcel: true,
-            show_custom_names: true,
+            custom_name_scope: 'device',
             header_color: '',
             header_text_color: '',
             placeholder_image: DEFAULT_PLACEHOLDER_IMAGE,
@@ -3696,7 +3802,7 @@ class HkiParcelsCardEditor extends LitElement {
         if (!field || !this._config) return;
         let value = this._val(ev);
         if (new Set(['days_back']).has(field)) value = parseInt(value, 10);
-        if (new Set(['show_delivered','show_sent','show_letters','show_animation','show_header','show_placeholder','show_tracking_link','show_add_parcel','show_raw_status','show_custom_names']).has(field))
+        if (new Set(['show_delivered','show_sent','show_letters','show_animation','show_header','show_placeholder','show_tracking_link','show_add_parcel','show_raw_status']).has(field))
             value = !!(ev.target?.checked ?? value);
         this._config = { ...this._config, [field]: value };
         this._emit();
@@ -4638,7 +4744,18 @@ class HkiParcelsCardEditor extends LitElement {
                     <div class="switch-row"><ha-switch .checked=${this._config.show_tracking_link !== false} data-field="show_tracking_link" @change=${this._changed}></ha-switch><span>${this._t('show_tracking_link')}</span></div>
                     <div class="switch-row"><ha-switch .checked=${this._config.show_add_parcel !== false} data-field="show_add_parcel" @change=${this._changed}></ha-switch><span>${this._t('show_add_parcel')}</span></div>
                     <div class="switch-row"><ha-switch .checked=${this._config.show_raw_status === true} data-field="show_raw_status" @change=${this._changed}></ha-switch><span>${this._t('show_raw_status')}</span></div>
-                    <div class="switch-row"><ha-switch .checked=${this._config.show_custom_names !== false} data-field="show_custom_names" @change=${this._changed}></ha-switch><span>${this._t('show_custom_names')}</span></div>
+                    <div class="plain-field">
+                        <label>${this._t('custom_name_scope_label')}</label>
+                        <ha-selector .hass=${this.hass}
+                            .selector=${{ select: { options: [
+                                { value: 'off',    label: this._t('custom_name_scope_off') },
+                                { value: 'device', label: this._t('custom_name_scope_device') },
+                                { value: 'shared', label: this._t('custom_name_scope_shared') }
+                            ], mode: 'dropdown' } }}
+                            .value=${this._config.custom_name_scope || 'device'}
+                            @value-changed=${(ev) => this._changed(ev, 'custom_name_scope')}></ha-selector>
+                        <div class="helper-text">${this._t('custom_name_scope_help')}</div>
+                    </div>
                 </details>
 
                 <details class="section-details">

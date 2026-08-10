@@ -40,7 +40,7 @@ For GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameda
 
 ## Naming a parcel
 
-Open a parcel's detail panel and click "+ Add name" to give it a short label of your own — "Birthday gift" is a lot easier to spot than a bare tracking code. The name is saved in your browser, so it's per-device rather than synced across everyone's phones and tablets. Disable the control entirely with `show_custom_names: false`.
+Open a parcel's detail panel and click "+ Add name" to give it a short label of your own — "Birthday gift" is a lot easier to spot than a bare tracking code. By default the name is saved in your browser only (`custom_name_scope: device`). Set `custom_name_scope: shared` instead to save it to your Home Assistant account, so it shows up on every device signed in with it — the better choice if your household shares one login. Set `custom_name_scope: off` to hide the control entirely.
 
 ---
 
