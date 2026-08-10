@@ -17,7 +17,7 @@ These options apply to the card as a whole.
 | `header_color` | string | _(theme)_ | Header background colour |
 | `header_text_color` | string | _(theme)_ | Header text colour |
 | `placeholder_image` | string | _(built-in)_ | URL to a custom background image. Overrides the automatic combo banner — set to a fixed picture if you'd rather always show the same image |
-| `show_add_parcel` | boolean | `true` | Show the "+ Add parcel" control at the bottom of the card (only appears when at least one configured carrier supports it — GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee) |
+| `show_add_parcel` | boolean | `true` | Show the "+ Add parcel" control at the bottom of the card (only appears when at least one configured carrier supports it — GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee, Nova Post, Delhivery, SunYou) |
 | `show_raw_status` | boolean | `false` | Show the carrier's own raw status text (e.g. GLS's "Onderweg - geladen voor aflevering") as the main status message instead of the card's generic translated label ("In transit"). Falls back to the generic label when a parcel has no raw status |
 | `layout_order` | list | `[header, animation, tabs, list]` | Order of card sections |
 | `carriers` | list | — | **Required.** List of carrier configurations (see below) |
@@ -52,8 +52,8 @@ Normally the card generates sensor entity IDs automatically from `type` and `use
 | ------ | ---- | ----------- |
 | `entity_incoming` | string | Sensor for incoming parcels in transit |
 | `entity_delivered` | string | Sensor for delivered incoming parcels |
-| `entity_outgoing` | string | Sensor for outgoing parcels in transit (not applicable for GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic) |
-| `entity_outgoing_delivered` | string | Sensor for delivered outgoing parcels (not applicable for GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic) |
+| `entity_outgoing` | string | Sensor for outgoing parcels in transit (not applicable for GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Nova Post, Delhivery, SunYou) |
+| `entity_outgoing_delivered` | string | Sensor for delivered outgoing parcels (not applicable for GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Nova Post, Delhivery, SunYou) |
 | `entity_letters` | string | Sensor for PostNL letterbox mail (PostNL only) |
 
 ### PostNL (ArjenBos) options
@@ -91,6 +91,9 @@ When `type: postnl_legacy` these options apply instead.
 | `helthjem` | Helthjem | ha-parcel-integrations/ha-helthjem | canonical | — | ✅ |
 | `dynalogic` | Dynalogic | ha-parcel-integrations/ha-dynalogic | canonical | — | ✅ |
 | `budbee` | Budbee | ha-parcel-integrations/ha-budbee | canonical | — | ✅ |
+| `nova_post` | Nova Post | ha-parcel-integrations/ha-nova-post | canonical | — | ✅ |
+| `delhivery` | Delhivery | ha-parcel-integrations/ha-delhivery | canonical | — | ✅ |
+| `sunyou` | SunYou | ha-parcel-integrations/ha-sunyou | canonical | — | ✅ |
 | `postnl_legacy` | PostNL (ArjenBos) | arjenbos/ha-postnl | single_entity | — | — |
 | `custom` | Custom | any | canonical | — | — |
 
@@ -103,7 +106,7 @@ When `type: postnl_legacy` these options apply instead.
     **PostNL (<v4.x)** will no longer be supported starting from HKI Parcels Card v2.0. **PostNL (ArjenBos)** will also be removed from v2.0, unless arjenbos updates that integration before then. See [Installation](../installation.md#postnl) for details.
 
 !!! note
-    `gls`, `dragonfly`, `trunkrs`, `cainiao`, `hermes`, `packeta`, `correos`, `postnord`, `sameday`, `swiss_post`, `planzer`, `austrian_post`, `helthjem` and `dynalogic` have no Sent tab — these carriers track parcels by number (plus postal code for GLS/Trunkrs) with no sender/account concept, so `entity_outgoing` and `entity_outgoing_delivered` are not applicable. See [Add parcel support](overview.md#add-parcel-support) for why these carriers get the "+ Add parcel" control.
+    `gls`, `dragonfly`, `trunkrs`, `cainiao`, `hermes`, `packeta`, `correos`, `postnord`, `sameday`, `swiss_post`, `planzer`, `austrian_post`, `helthjem`, `dynalogic`, `nova_post`, `delhivery` and `sunyou` have no Sent tab — these carriers track parcels by number (plus postal code for GLS/Trunkrs) with no sender/account concept, so `entity_outgoing` and `entity_outgoing_delivered` are not applicable. See [Add parcel support](overview.md#add-parcel-support) for why these carriers get the "+ Add parcel" control.
 
 !!! note "Vinted Go"
     `vinted_go` is account-based (e-mail + verification link login, no password) like `postnl_v4`/`dhl`/`dpd`, so it has no `track_parcel_service` and doesn't get the "+ Add parcel" control either. Unlike those three, and unlike every account-less carrier above, it tracks both incoming *and* outgoing parcels — the Sent tab works normally. There is no `next_delivery`/ETA sensor for this integration at all.
@@ -121,9 +124,9 @@ The `user` field is the account part of the sensor name. The card builds all ent
 | ------ | ------- |
 | `sensor.<user>_<carrier>_*` | PostNL, DHL — `sensor.my_account_postnl_incoming_parcels` |
 | `sensor.<carrier>_<user>_*` | DPD, Vinted Go, GLS, Trunkrs — `sensor.dpd_my_account_binnenkomende_pakketten`, `sensor.vinted_go_my_account_incoming_parcels`, `sensor.gls_1234ab_incoming_parcels`, `sensor.trunkrs_1234ab_incoming_parcels` |
-| `sensor.<carrier>_*` (no prefix) | Dragonfly, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee — `sensor.dragonfly_incoming_parcels`, `sensor.cainiao_incoming_parcels`, `sensor.hermes_incoming_parcels`, `sensor.packeta_incoming_parcels`, `sensor.correos_incoming_parcels`, `sensor.postnord_incoming_parcels`, `sensor.sameday_incoming_parcels`, `sensor.swiss_post_incoming_parcels`, `sensor.planzer_incoming_parcels`, `sensor.oesterreichische_post_incoming_parcels` (Austrian Post), `sensor.helthjem_incoming_parcels`, `sensor.dynalogic_incoming_parcels`, `sensor.budbee_incoming_parcels` |
+| `sensor.<carrier>_*` (no prefix) | Dragonfly, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee, Nova Post, Delhivery, SunYou — `sensor.dragonfly_incoming_parcels`, `sensor.cainiao_incoming_parcels`, `sensor.hermes_incoming_parcels`, `sensor.packeta_incoming_parcels`, `sensor.correos_incoming_parcels`, `sensor.postnord_incoming_parcels`, `sensor.sameday_incoming_parcels`, `sensor.swiss_post_incoming_parcels`, `sensor.planzer_incoming_parcels`, `sensor.oesterreichische_post_incoming_parcels` (Austrian Post), `sensor.helthjem_incoming_parcels`, `sensor.dynalogic_incoming_parcels`, `sensor.budbee_incoming_parcels`, `sensor.nova_post_incoming_parcels`, `sensor.delhivery_incoming_parcels`, `sensor.sunyou_incoming_parcels` |
 
-The correct scheme is detected automatically. Leave `user` empty if your sensors have no account prefix, or for any account-less no-prefix carrier (Dragonfly, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee) — those carriers have no account or postal code at all.
+The correct scheme is detected automatically. Leave `user` empty if your sensors have no account prefix, or for any account-less no-prefix carrier (Dragonfly, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee, Nova Post, Delhivery, SunYou) — those carriers have no account or postal code at all.
 
 ---
 

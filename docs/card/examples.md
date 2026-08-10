@@ -56,6 +56,9 @@ carriers:
   - type: helthjem
   - type: dynalogic
   - type: budbee
+  - type: nova_post
+  - type: delhivery
+  - type: sunyou
 ```
 
 With this many carriers, the combo banner (and the carrier overview popup when you click a logo in it) becomes the fastest way to check on a specific carrier without paging through every tab.
@@ -86,6 +89,9 @@ carriers:
   - type: helthjem
   - type: dynalogic
   - type: budbee
+  - type: nova_post
+  - type: delhivery
+  - type: sunyou
 ```
 
 ---

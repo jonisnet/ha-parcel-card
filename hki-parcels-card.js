@@ -211,6 +211,9 @@ const TRANSLATIONS = {
         helthjem_account_help: 'Helthjem has no account or postal code — leave this field empty; the sensors are named sensor.helthjem_*.',
         dynalogic_account_help: 'Dynalogic has no account or postal code — leave this field empty; the sensors are named sensor.dynalogic_*.',
         budbee_account_help: 'Budbee has no account or postal code — leave this field empty; the sensors are named sensor.budbee_*.',
+        nova_post_account_help: 'Nova Post has no account or postal code — leave this field empty; the sensors are named sensor.nova_post_*.',
+        delhivery_account_help: 'Delhivery has no account or postal code — leave this field empty; the sensors are named sensor.delhivery_*.',
+        sunyou_account_help: 'SunYou has no account or postal code — leave this field empty; the sensors are named sensor.sunyou_*.',
         show_add_parcel: 'Show "Add parcel" on the card',
         add_parcel_toggle: '+ Add parcel',
         add_parcel_carrier: 'Carrier',
@@ -357,6 +360,9 @@ const TRANSLATIONS = {
         helthjem_account_help: 'Helthjem heeft geen account of postcode — laat dit veld leeg; de sensoren heten sensor.helthjem_*.',
         dynalogic_account_help: 'Dynalogic heeft geen account of postcode — laat dit veld leeg; de sensoren heten sensor.dynalogic_*.',
         budbee_account_help: 'Budbee heeft geen account of postcode — laat dit veld leeg; de sensoren heten sensor.budbee_*.',
+        nova_post_account_help: 'Nova Post heeft geen account of postcode — laat dit veld leeg; de sensoren heten sensor.nova_post_*.',
+        delhivery_account_help: 'Delhivery heeft geen account of postcode — laat dit veld leeg; de sensoren heten sensor.delhivery_*.',
+        sunyou_account_help: 'SunYou heeft geen account of postcode — laat dit veld leeg; de sensoren heten sensor.sunyou_*.',
         show_add_parcel: 'Toon "Pakket toevoegen" op de kaart',
         add_parcel_toggle: '+ Pakket toevoegen',
         add_parcel_carrier: 'Dienst',
@@ -504,6 +510,9 @@ const TRANSLATIONS = {
         helthjem_account_help: 'Helthjem hat kein Konto oder Postleitzahl — lasse dieses Feld leer; die Sensoren heißen sensor.helthjem_*.',
         dynalogic_account_help: 'Dynalogic hat kein Konto oder Postleitzahl — lasse dieses Feld leer; die Sensoren heißen sensor.dynalogic_*.',
         budbee_account_help: 'Budbee hat kein Konto oder Postleitzahl — lasse dieses Feld leer; die Sensoren heißen sensor.budbee_*.',
+        nova_post_account_help: 'Nova Post hat kein Konto oder Postleitzahl — lasse dieses Feld leer; die Sensoren heißen sensor.nova_post_*.',
+        delhivery_account_help: 'Delhivery hat kein Konto oder Postleitzahl — lasse dieses Feld leer; die Sensoren heißen sensor.delhivery_*.',
+        sunyou_account_help: 'SunYou hat kein Konto oder Postleitzahl — lasse dieses Feld leer; die Sensoren heißen sensor.sunyou_*.',
         show_add_parcel: '"Paket hinzufügen" auf der Karte anzeigen',
         add_parcel_toggle: '+ Paket hinzufügen',
         add_parcel_carrier: 'Zustelldienst',
@@ -651,6 +660,9 @@ const TRANSLATIONS = {
         helthjem_account_help: 'Helthjem no tiene cuenta ni código postal — deja este campo vacío; los sensores se llaman sensor.helthjem_*.',
         dynalogic_account_help: 'Dynalogic no tiene cuenta ni código postal — deja este campo vacío; los sensores se llaman sensor.dynalogic_*.',
         budbee_account_help: 'Budbee no tiene cuenta ni código postal — deja este campo vacío; los sensores se llaman sensor.budbee_*.',
+        nova_post_account_help: 'Nova Post no tiene cuenta ni código postal — deja este campo vacío; los sensores se llaman sensor.nova_post_*.',
+        delhivery_account_help: 'Delhivery no tiene cuenta ni código postal — deja este campo vacío; los sensores se llaman sensor.delhivery_*.',
+        sunyou_account_help: 'SunYou no tiene cuenta ni código postal — deja este campo vacío; los sensores se llaman sensor.sunyou_*.',
         show_add_parcel: 'Mostrar "Añadir paquete" en la tarjeta',
         add_parcel_toggle: '+ Añadir paquete',
         add_parcel_carrier: 'Transportista',
@@ -798,6 +810,9 @@ const TRANSLATIONS = {
         helthjem_account_help: 'Helthjem n\'a pas de compte ni de code postal — laissez ce champ vide ; les capteurs sont nommés sensor.helthjem_*.',
         dynalogic_account_help: 'Dynalogic n\'a pas de compte ni de code postal — laissez ce champ vide ; les capteurs sont nommés sensor.dynalogic_*.',
         budbee_account_help: 'Budbee n\'a pas de compte ni de code postal — laissez ce champ vide ; les capteurs sont nommés sensor.budbee_*.',
+        nova_post_account_help: 'Nova Post n\'a pas de compte ni de code postal — laissez ce champ vide ; les capteurs sont nommés sensor.nova_post_*.',
+        delhivery_account_help: 'Delhivery n\'a pas de compte ni de code postal — laissez ce champ vide ; les capteurs sont nommés sensor.delhivery_*.',
+        sunyou_account_help: 'SunYou n\'a pas de compte ni de code postal — laissez ce champ vide ; les capteurs sont nommés sensor.sunyou_*.',
         show_add_parcel: 'Afficher "Ajouter un colis" sur la carte',
         add_parcel_toggle: '+ Ajouter un colis',
         add_parcel_carrier: 'Transporteur',
@@ -945,6 +960,9 @@ const TRANSLATIONS = {
         helthjem_account_help: 'Helthjem non ha account o CAP — lascia questo campo vuoto; i sensori si chiamano sensor.helthjem_*.',
         dynalogic_account_help: 'Dynalogic non ha account o CAP — lascia questo campo vuoto; i sensori si chiamano sensor.dynalogic_*.',
         budbee_account_help: 'Budbee non ha account o CAP — lascia questo campo vuoto; i sensori si chiamano sensor.budbee_*.',
+        nova_post_account_help: 'Nova Post non ha account o CAP — lascia questo campo vuoto; i sensori si chiamano sensor.nova_post_*.',
+        delhivery_account_help: 'Delhivery non ha account o CAP — lascia questo campo vuoto; i sensori si chiamano sensor.delhivery_*.',
+        sunyou_account_help: 'SunYou non ha account o CAP — lascia questo campo vuoto; i sensori si chiamano sensor.sunyou_*.',
         show_add_parcel: 'Mostra "Aggiungi pacco" sulla scheda',
         add_parcel_toggle: '+ Aggiungi pacco',
         add_parcel_carrier: 'Corriere',
@@ -1092,6 +1110,9 @@ const TRANSLATIONS = {
         helthjem_account_help: 'Helthjem nie ma konta ani kodu pocztowego — pozostaw to pole puste; czujniki nazywają się sensor.helthjem_*.',
         dynalogic_account_help: 'Dynalogic nie ma konta ani kodu pocztowego — pozostaw to pole puste; czujniki nazywają się sensor.dynalogic_*.',
         budbee_account_help: 'Budbee nie ma konta ani kodu pocztowego — pozostaw to pole puste; czujniki nazywają się sensor.budbee_*.',
+        nova_post_account_help: 'Nova Post nie ma konta ani kodu pocztowego — pozostaw to pole puste; czujniki nazywają się sensor.nova_post_*.',
+        delhivery_account_help: 'Delhivery nie ma konta ani kodu pocztowego — pozostaw to pole puste; czujniki nazywają się sensor.delhivery_*.',
+        sunyou_account_help: 'SunYou nie ma konta ani kodu pocztowego — pozostaw to pole puste; czujniki nazywają się sensor.sunyou_*.',
         show_add_parcel: 'Pokaż "Dodaj paczkę" na karcie',
         add_parcel_toggle: '+ Dodaj paczkę',
         add_parcel_carrier: 'Przewoźnik',
@@ -1239,6 +1260,9 @@ const TRANSLATIONS = {
         helthjem_account_help: 'A Helthjem não tem conta nem código postal — deixe este campo vazio; os sensores chamam-se sensor.helthjem_*.',
         dynalogic_account_help: 'A Dynalogic não tem conta nem código postal — deixe este campo vazio; os sensores chamam-se sensor.dynalogic_*.',
         budbee_account_help: 'A Budbee não tem conta nem código postal — deixe este campo vazio; os sensores chamam-se sensor.budbee_*.',
+        nova_post_account_help: 'A Nova Post não tem conta nem código postal — deixe este campo vazio; os sensores chamam-se sensor.nova_post_*.',
+        delhivery_account_help: 'A Delhivery não tem conta nem código postal — deixe este campo vazio; os sensores chamam-se sensor.delhivery_*.',
+        sunyou_account_help: 'A SunYou não tem conta nem código postal — deixe este campo vazio; os sensores chamam-se sensor.sunyou_*.',
         show_add_parcel: 'Mostrar "Adicionar encomenda" no cartão',
         add_parcel_toggle: '+ Adicionar encomenda',
         add_parcel_carrier: 'Transportadora',
@@ -1317,6 +1341,9 @@ const IMG = {
     helthjem:  `${REPO_BASE}/helthjem`,
     dynalogic: `${REPO_BASE}/dynalogic`,
     budbee:    `${REPO_BASE}/budbee`,
+    nova_post: `${REPO_BASE}/nova_post`,
+    delhivery: `${REPO_BASE}/delhivery`,
+    sunyou:    `${REPO_BASE}/sunyou`,
 };
 
 // Points at the ha-parcel-integrations org, not the individual maintainers' personal repos
@@ -1345,6 +1372,9 @@ const CARRIER_REPO_URLS = {
     helthjem:  'https://github.com/ha-parcel-integrations/ha-helthjem',
     dynalogic: 'https://github.com/ha-parcel-integrations/ha-dynalogic',
     budbee:    'https://github.com/ha-parcel-integrations/ha-budbee',
+    nova_post: 'https://github.com/ha-parcel-integrations/ha-nova-post',
+    delhivery: 'https://github.com/ha-parcel-integrations/ha-delhivery',
+    sunyou:    'https://github.com/ha-parcel-integrations/ha-sunyou',
 };
 
 const CARRIER_ASSETS = {
@@ -1657,6 +1687,60 @@ const CARRIER_ASSETS = {
             delivered_mini:  `${IMG.budbee}/budbee_step_delivered_mini.png?raw=true`
         }
     },
+    // Nova Post art: step icons and the animated van are the shared GLS master illustration
+    // hue-shifted to the confirmed brand red (#ed1c24, matching the official Wikimedia SVG and
+    // the repo's own bundled brand icon). The mark badge reuses Nova Post's real red diamond
+    // arrows/"H" icon, cropped from the integration's own brand asset — a genuine icon-only
+    // mark exists for this brand, unlike PostNord/Planzer/Dynalogic.
+    nova_post: {
+        logo:   `${IMG.nova_post}/nova_post-logo.png?raw=true`,
+        van:    `${IMG.nova_post}/nova_post-van.gif?raw=true`,
+        banner: `${IMG.nova_post}/nova_post-banner.png?raw=true`,
+        steps: {
+            registered:      `${IMG.nova_post}/nova_post_step_registered.png?raw=true`,
+            registered_mini: `${IMG.nova_post}/nova_post_step_registered_mini.png?raw=true`,
+            sorting:         `${IMG.nova_post}/nova_post_step_sorting.png?raw=true`,
+            transit:         `${IMG.nova_post}/nova_post_step_transit.png?raw=true`,
+            delivered:       `${IMG.nova_post}/nova_post_step_delivered.png?raw=true`,
+            delivered_mini:  `${IMG.nova_post}/nova_post_step_delivered_mini.png?raw=true`
+        }
+    },
+    // Delhivery art: step icons and the animated van are the shared GLS master illustration
+    // hue-shifted to the confirmed brand red (#ed1b36, pixel-sampled from the integration's own
+    // bundled brand icon). Delhivery's real logo is a pure wordmark with no separate icon-only
+    // mark, so the badge uses a bold "D" letterform, same treatment as Budbee's fallback style.
+    // The banner is Delhivery's real black wordmark (with its red accent squares) on white.
+    delhivery: {
+        logo:   `${IMG.delhivery}/delhivery-logo.png?raw=true`,
+        van:    `${IMG.delhivery}/delhivery-van.gif?raw=true`,
+        banner: `${IMG.delhivery}/delhivery-banner.png?raw=true`,
+        steps: {
+            registered:      `${IMG.delhivery}/delhivery_step_registered.png?raw=true`,
+            registered_mini: `${IMG.delhivery}/delhivery_step_registered_mini.png?raw=true`,
+            sorting:         `${IMG.delhivery}/delhivery_step_sorting.png?raw=true`,
+            transit:         `${IMG.delhivery}/delhivery_step_transit.png?raw=true`,
+            delivered:       `${IMG.delhivery}/delhivery_step_delivered.png?raw=true`,
+            delivered_mini:  `${IMG.delhivery}/delhivery_step_delivered_mini.png?raw=true`
+        }
+    },
+    // SunYou art: step icons and the animated van are the shared GLS master illustration
+    // hue-shifted to the confirmed brand green (#29a03a, pixel-sampled from SunYou's own
+    // "SUNYOU" wordmark logo — the "YOU" half and the swoosh accent). No separate icon-only
+    // mark exists for this brand, so the badge uses the swoosh motif from the real logo.
+    // The banner is SunYou's real two-tone (blue/green) wordmark logo centered on white.
+    sunyou: {
+        logo:   `${IMG.sunyou}/sunyou-logo.png?raw=true`,
+        van:    `${IMG.sunyou}/sunyou-van.gif?raw=true`,
+        banner: `${IMG.sunyou}/sunyou-banner.png?raw=true`,
+        steps: {
+            registered:      `${IMG.sunyou}/sunyou_step_registered.png?raw=true`,
+            registered_mini: `${IMG.sunyou}/sunyou_step_registered_mini.png?raw=true`,
+            sorting:         `${IMG.sunyou}/sunyou_step_sorting.png?raw=true`,
+            transit:         `${IMG.sunyou}/sunyou_step_transit.png?raw=true`,
+            delivered:       `${IMG.sunyou}/sunyou_step_delivered.png?raw=true`,
+            delivered_mini:  `${IMG.sunyou}/sunyou_step_delivered_mini.png?raw=true`
+        }
+    },
     postnl_legacy: {
         logo:   `${IMG.postnl}/postnl-logo.png?raw=true`,
         van:    `${IMG.postnl}/postnl-van.gif?raw=true`,
@@ -1759,6 +1843,20 @@ const CARRIER_PRESETS = {
     // parcels too (has real outgoing_parcels/outgoing_delivered_parcels sensors upstream).
     budbee:       { label: 'Budbee',                     icon: 'mdi:package-variant-closed', color: '#41cda5', schema: 'canonical',     supports_letters: false, supports_outgoing: true,  sensor_slug: 'budbee',
                     track_parcel_service: { domain: 'budbee', field: 'tracking_code', supports_postal_code: false } },
+    // Brand colour confirmed against the official Wikimedia SVG and the repo's own bundled
+    // brand icon (#ed1c24). Nova Post is Ukraine's largest private courier network.
+    nova_post:    { label: 'Nova Post',                  icon: 'mdi:package-variant-closed', color: '#ed1c24', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'nova_post',
+                    track_parcel_service: { domain: 'nova_post', field: 'tracking_code', supports_postal_code: false } },
+    // Brand colour pixel-sampled from the repo's own bundled brand icon (#ed1b36) — genuinely
+    // close to Nova Post's red, confirmed as a real coincidence of two red-branded carriers
+    // researched in the same batch, not a modeling error. Delhivery is an Indian logistics company.
+    delhivery:    { label: 'Delhivery',                  icon: 'mdi:package-variant-closed', color: '#ed1b36', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'delhivery',
+                    track_parcel_service: { domain: 'delhivery', field: 'tracking_code', supports_postal_code: false } },
+    // Brand colour pixel-sampled from SunYou's own "SUNYOU" wordmark logo (#29a03a, the "YOU"
+    // half and swoosh accent — the logo is two-tone blue/green, green chosen as the more
+    // prominent accent colour). SunYou (SYPost) is a China-based cross-border courier.
+    sunyou:       { label: 'SunYou',                     icon: 'mdi:package-variant-closed', color: '#29a03a', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'sunyou',
+                    track_parcel_service: { domain: 'sunyou', field: 'tracking_code', supports_postal_code: false } },
     postnl_legacy:{ label: 'PostNL (ArjenBos)',          icon: 'mdi:package-variant-closed', color: '#ed8c00', schema: 'single_entity', supports_letters: false, sensor_slug: null     },
     custom:       { label: 'Custom',                     icon: 'mdi:package-variant-closed', color: '#ed8c00', schema: 'canonical',     supports_letters: false, sensor_slug: null     }
 };
@@ -1917,7 +2015,7 @@ function detectCarrierUsers(hass, carrierType) {
 // recommended default and the user can switch the type manually if they're
 // still on v3.x) and postnl_legacy / custom (sensor_slug is null — no
 // entity-based detection is possible for those).
-const AUTO_DETECT_CARRIER_TYPES = ['postnl_v4', 'dhl', 'dpd', 'vinted_go', 'gls', 'dragonfly', 'trunkrs', 'cainiao', 'hermes', 'packeta', 'correos', 'postnord', 'sameday', 'swiss_post', 'planzer', 'austrian_post', 'helthjem', 'dynalogic', 'budbee'];
+const AUTO_DETECT_CARRIER_TYPES = ['postnl_v4', 'dhl', 'dpd', 'vinted_go', 'gls', 'dragonfly', 'trunkrs', 'cainiao', 'hermes', 'packeta', 'correos', 'postnord', 'sameday', 'swiss_post', 'planzer', 'austrian_post', 'helthjem', 'dynalogic', 'budbee', 'nova_post', 'delhivery', 'sunyou'];
 
 // Infers a sensible days_back for a freshly auto-populated card: the number
 // of days since the oldest currently-visible delivered parcel, across every
@@ -4029,6 +4127,9 @@ class HkiParcelsCardEditor extends LitElement {
             helthjem: 'helthjem_account_help',
             dynalogic: 'dynalogic_account_help',
             budbee: 'budbee_account_help',
+            nova_post: 'nova_post_account_help',
+            delhivery: 'delhivery_account_help',
+            sunyou: 'sunyou_account_help',
         }[carrierType];
         if (key) return this._t(key);
         return html`"_${preset.sensor_slug}${this._t('account_help_suffix')}`;
@@ -4197,6 +4298,9 @@ class HkiParcelsCardEditor extends LitElement {
                             { value: 'helthjem',      label: 'Helthjem' },
                             { value: 'dynalogic',     label: 'Dynalogic' },
                             { value: 'budbee',        label: 'Budbee' },
+                            { value: 'nova_post',     label: 'Nova Post' },
+                            { value: 'delhivery',     label: 'Delhivery' },
+                            { value: 'sunyou',        label: 'SunYou' },
                             { value: 'postnl',        label: 'PostNL (<v4.x)' },
                             { value: 'postnl_legacy', label: 'PostNL (ArjenBos)' },
                             { value: 'custom',        label: 'Custom' }

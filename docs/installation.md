@@ -65,7 +65,7 @@ The card supports three PostNL variants.
 !!! note "Vinted Go logs in with e-mail, not a password"
     Login is an e-mail address plus a verification link — there's no password and no way to register a tracking number directly, so like PostNL/DHL/DPD it has no `track_parcel` service and doesn't get the card's "+ Add parcel" control. Unlike PostNL/DHL/DPD and every account-less carrier below, Vinted Go tracks both incoming *and* outgoing parcels (it's built around Vinted's peer-to-peer resale marketplace). There's no `next_delivery`/ETA sensor for this integration at all.
 
-### Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic and Budbee
+### Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee, Nova Post, Delhivery and SunYou
 
 These, together with GLS above, are the "account-less" carriers in the family: instead of logging into an account, you register individual parcels by tracking number (plus a postal code for GLS and Trunkrs). None of them have a Sent tab except Budbee, since there's no sender/account concept to distinguish outgoing parcels for the rest.
 
@@ -85,6 +85,9 @@ These, together with GLS above, are the "account-less" carriers in the family: i
 | **Helthjem** | [ha-parcel-integrations/ha-helthjem](https://github.com/ha-parcel-integrations/ha-helthjem) | Tracking code only — no account, no postal code. Norway |
 | **Dynalogic** | [ha-parcel-integrations/ha-dynalogic](https://github.com/ha-parcel-integrations/ha-dynalogic) | Tracking code only — no account. Netherlands; the integration's `track_parcel` service also accepts an optional postal code as a lookup aid, but the card doesn't need to send one |
 | **Budbee** | [ha-parcel-integrations/ha-budbee](https://github.com/ha-parcel-integrations/ha-budbee) | Tracking code only — no account, no postal code. Sweden-based last-mile delivery; unlike every other carrier in this table, it tracks both incoming *and* outgoing parcels, so the Sent tab works normally |
+| **Nova Post** | [ha-parcel-integrations/ha-nova-post](https://github.com/ha-parcel-integrations/ha-nova-post) | Tracking code only — no account, no postal code. Ukraine's largest private courier network (Nova Poshta) |
+| **Delhivery** | [ha-parcel-integrations/ha-delhivery](https://github.com/ha-parcel-integrations/ha-delhivery) | Tracking code only — no account, no postal code. India-based logistics company |
+| **SunYou** | [ha-parcel-integrations/ha-sunyou](https://github.com/ha-parcel-integrations/ha-sunyou) | Tracking code only — no account, no postal code. China-based cross-border courier (SYPost) |
 
 !!! info "Dragonfly's original integration"
     Dragonfly support was created by [Alwin Hummels (@HummelsTech)](https://github.com/HummelsTech), who maintains it standalone at [HummelsTech/ha-dragonfly](https://github.com/HummelsTech/ha-dragonfly) as well as the mirror in ha-parcel-integrations linked above — either one works with this card. These docs default to the ha-parcel-integrations link to keep every integration under one roof, but the original repo is just as valid a choice, and updates may land there first.
@@ -126,6 +129,9 @@ Coverage varies by carrier:
 | Helthjem | ❌ not submitted upstream yet |
 | Dynalogic | ❌ wordmark-only brand, no standalone icon mark exists |
 | Budbee | ❌ not available yet |
+| Nova Post | ❌ not available yet |
+| Delhivery | ❌ not available yet |
+| SunYou | ❌ not available yet |
 
 Carriers without a proper branded icon yet fall back to a generic `mdi:package-variant-closed` icon.
 
@@ -154,3 +160,6 @@ Carriers without a proper branded icon yet fall back to a generic `mdi:package-v
 | ha-parcel-integrations/ha-helthjem | — (added 2026-08-05) |
 | ha-parcel-integrations/ha-dynalogic | — (added 2026-08-05) |
 | ha-parcel-integrations/ha-budbee | — (added 2026-08-05) |
+| ha-parcel-integrations/ha-nova-post | — (added 2026-08-10) |
+| ha-parcel-integrations/ha-delhivery | — (added 2026-08-10) |
+| ha-parcel-integrations/ha-sunyou | 0.9.0 (added 2026-08-07) |

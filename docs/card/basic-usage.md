@@ -51,7 +51,7 @@ Like PostNL/DHL/DPD, Vinted Go is account-based (login is an e-mail address plus
 
 ---
 
-## Account-less carriers (GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee)
+## Account-less carriers (GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee, Nova Post, Delhivery, SunYou)
 
 These carriers have no login — GLS and Trunkrs use a postal code, the rest use nothing but the tracking number itself:
 
@@ -76,6 +76,9 @@ carriers:
   - type: helthjem
   - type: dynalogic
   - type: budbee
+  - type: nova_post
+  - type: delhivery
+  - type: sunyou
 ```
 
 Since there's no account to auto-sync from, each of these carriers shows a "+ Add parcel" control on the card so you can register a tracking number directly. Disable it per-card with `show_add_parcel: false`.

@@ -1,6 +1,6 @@
 # HKI Parcels Card
 
-**Track parcels from PostNL, DHL, DPD, Vinted Go, GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic and Budbee in a single Home Assistant card.**
+**Track parcels from PostNL, DHL, DPD, Vinted Go, GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee, Nova Post, Delhivery and SunYou in a single Home Assistant card.**
 
 Automatic sensor detection, animated banners, a 4-step delivery tracker, letterbox mail with scan images, a carrier overview popup, and a complete visual editor — no YAML required.
 
@@ -12,7 +12,7 @@ Automatic sensor detection, animated banners, a 4-step delivery tracker, letterb
 
     ---
 
-    PostNL, DHL, DPD, Vinted Go, GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic and Budbee side by side. Add the same carrier multiple times for multiple accounts or hubs.
+    PostNL, DHL, DPD, Vinted Go, GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee, Nova Post, Delhivery and SunYou side by side. Add the same carrier multiple times for multiple accounts or hubs.
 
 -   :magic_wand:{ .lg .middle } **Auto sensor detection**
 
@@ -30,7 +30,7 @@ Automatic sensor detection, animated banners, a 4-step delivery tracker, letterb
 
     ---
 
-    Account-less carriers (GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee) get a "+ Add parcel" control that registers a tracking number directly.
+    Account-less carriers (GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee, Nova Post, Delhivery, SunYou) get a "+ Add parcel" control that registers a tracking number directly.
 
 -   :frame_with_picture:{ .lg .middle } **Media browser**
 
@@ -100,7 +100,7 @@ Automatic sensor detection, animated banners, a 4-step delivery tracker, letterb
       - type: correos
     ```
 
-    These six (plus GLS) are the account-less carriers — register a parcel with the "+ Add parcel" control on the card itself instead of logging into an account. See [Add parcel support](card/overview.md#add-parcel-support).
+    These six (plus GLS) are a sample of the account-less carriers — register a parcel with the "+ Add parcel" control on the card itself instead of logging into an account. See the "Every carrier" tab for the complete list, and [Add parcel support](card/overview.md#add-parcel-support) for how it works.
 
 === "Every carrier"
 
@@ -125,6 +125,17 @@ Automatic sensor detection, animated banners, a 4-step delivery tracker, letterb
       - type: hermes
       - type: packeta
       - type: correos
+      - type: postnord
+      - type: sameday
+      - type: swiss_post
+      - type: planzer
+      - type: austrian_post
+      - type: helthjem
+      - type: dynalogic
+      - type: budbee
+      - type: nova_post
+      - type: delhivery
+      - type: sunyou
     ```
 
 Or skip the YAML entirely — add the card via the dashboard UI and it auto-detects every installed carrier integration, pre-filling a fully configured entry for each one it finds.
@@ -153,13 +164,24 @@ All carriers below are part of the [ha-parcel-integrations](https://github.com/h
 | **Hermes** | [ha-hermes](https://github.com/ha-parcel-integrations/ha-hermes) | `hermes` | Tracking number only |
 | **Packeta** | [ha-packeta](https://github.com/ha-parcel-integrations/ha-packeta) | `packeta` | Tracking number only |
 | **Correos** | [ha-correos](https://github.com/ha-parcel-integrations/ha-correos) | `correos` | Tracking number only |
+| **PostNord** | [ha-postnord](https://github.com/ha-parcel-integrations/ha-postnord) | `postnord` | Tracking number only |
+| **Sameday** | [ha-sameday](https://github.com/ha-parcel-integrations/ha-sameday) | `sameday` | Tracking number only |
+| **Swiss Post** | [ha-swiss-post](https://github.com/ha-parcel-integrations/ha-swiss-post) | `swiss_post` | Tracking number only |
+| **Planzer** | [ha-planzer](https://github.com/ha-parcel-integrations/ha-planzer) | `planzer` | Tracking number only |
+| **Austrian Post** | [ha-oesterreichische-post](https://github.com/ha-parcel-integrations/ha-oesterreichische-post) | `austrian_post` | Tracking number only |
+| **Helthjem** | [ha-helthjem](https://github.com/ha-parcel-integrations/ha-helthjem) | `helthjem` | Tracking number only |
+| **Dynalogic** | [ha-dynalogic](https://github.com/ha-parcel-integrations/ha-dynalogic) | `dynalogic` | Tracking number only |
+| **Budbee** | [ha-budbee](https://github.com/ha-parcel-integrations/ha-budbee) | `budbee` | Tracking number only |
+| **Nova Post** | [ha-nova-post](https://github.com/ha-parcel-integrations/ha-nova-post) | `nova_post` | Tracking number only |
+| **Delhivery** | [ha-delhivery](https://github.com/ha-parcel-integrations/ha-delhivery) | `delhivery` | Tracking number only |
+| **SunYou** | [ha-sunyou](https://github.com/ha-parcel-integrations/ha-sunyou) | `sunyou` | Tracking number only |
 
-¹ Created by [Alwin Hummels (@HummelsTech)](https://github.com/HummelsTech), who also maintains it standalone at [HummelsTech/ha-dragonfly](https://github.com/HummelsTech/ha-dragonfly) — see [Installation](installation.md#dragonfly-trunkrs-cainiao-hermes-packeta-and-correos) for details.
+¹ Created by [Alwin Hummels (@HummelsTech)](https://github.com/HummelsTech), who also maintains it standalone at [HummelsTech/ha-dragonfly](https://github.com/HummelsTech/ha-dragonfly) — see [Installation](installation.md#dragonfly-trunkrs-cainiao-hermes-packeta-correos-postnord-sameday-swiss-post-planzer-austrian-post-helthjem-dynalogic-budbee-nova-post-delhivery-and-sunyou) for details.
 
 ² Being phased out — see the [deprecation notice](installation.md#postnl).
 
 !!! note "Add parcel support"
-    Only the account-less carriers (GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee) get the card's "+ Add parcel" control — PostNL, DHL, DPD and Vinted Go auto-sync every parcel tied to the logged-in account and don't expose a service to register one manually. Full explanation on the [Overview page](card/overview.md#add-parcel-support).
+    Only the account-less carriers (GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee, Nova Post, Delhivery, SunYou) get the card's "+ Add parcel" control — PostNL, DHL, DPD and Vinted Go auto-sync every parcel tied to the logged-in account and don't expose a service to register one manually. Full explanation on the [Overview page](card/overview.md#add-parcel-support).
 
 ---
 
