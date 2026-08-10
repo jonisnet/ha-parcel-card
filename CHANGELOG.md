@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.6.1] — 2026-08-10
+
+### Fixed
+
+- **v1.6.0 asset was stale for existing HACS installs** — the v1.6.0 release's uploaded file
+  was overwritten in place (via `gh release upload --clobber`) three separate times while the
+  custom parcel names feature and its "shared" scope option were being built, all under the same
+  version tag. HACS only re-downloads a release when it sees a new version number, not when an
+  existing tag's asset content changes — so anyone who had already updated to v1.6.0 kept the
+  very first upload (Nova Post/Delhivery/SunYou only, no custom names at all), confirmed live by
+  fetching the actually-served file and finding no trace of `custom_name_scope`. No code changed
+  here; this release exists purely to give HACS a genuinely new version number to fetch.
+
 ## [1.6.0] — 2026-08-10
 
 ### Added
