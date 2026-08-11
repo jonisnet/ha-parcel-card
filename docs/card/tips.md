@@ -40,7 +40,13 @@ For GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameda
 
 ## Naming a parcel
 
-Open a parcel's detail panel and click "+ Add name" to give it a short label of your own — "Birthday gift" is a lot easier to spot than a bare tracking code. By default the name is saved in your browser only (`custom_name_scope: device`). Set `custom_name_scope: shared` instead to save it to your Home Assistant account, so it shows up on every device signed in with it — the better choice if your household shares one login. Set `custom_name_scope: off` to hide the control entirely.
+Open a parcel's detail panel and click "+ Add name" to give it a short label of your own — "Birthday gift" is a lot easier to spot than a bare tracking code. By default (`custom_name_scope: everyone`) the name is saved instance-wide with live updates for every Home Assistant user — adding or editing one requires an admin account, though everyone can see the names. Set `custom_name_scope: me` to save it to your own Home Assistant account instead (synced across your own devices only), `device` to keep it in this browser only, or `off` to hide the control entirely.
+
+---
+
+## Changing how parcels are sorted and grouped
+
+By default, In Transit and Sent show the soonest-arriving parcel first within each carrier's own section (Delivered shows the most recent first), and carrier sections aren't in a fixed order — whichever carrier's next parcel is soonest shows first. Set `group_by_carrier: false` for one flat list instead, where parcels from different carriers interleave directly by date rather than being grouped — e.g. a PostNL parcel, then two DHL parcels, then three more PostNL parcels, purely in delivery-time order. Set `sort_order: newest_first` or `oldest_first` to pin one fixed direction everywhere instead of the automatic soonest/most-recent split.
 
 ---
 

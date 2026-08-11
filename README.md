@@ -1,6 +1,6 @@
 # HKI Parcels Card
 
-[![Version](https://img.shields.io/badge/version-v1.6.1-blue?style=flat-square)](https://github.com/jonisnet/hki-parcels-card/releases/latest)
+[![Version](https://img.shields.io/badge/version-v1.7.0-blue?style=flat-square)](https://github.com/jonisnet/hki-parcels-card/releases/latest)
 [![HACS](https://img.shields.io/badge/HACS-Custom-orange?style=flat-square)](https://hacs.xyz)
 [![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](https://github.com/jonisnet/hki-parcels-card/blob/main/LICENSE)
 [![HA](https://img.shields.io/badge/Home%20Assistant-2026.7%2B-41bdf5?style=flat-square)](https://www.home-assistant.io)
@@ -26,7 +26,8 @@
 - **4-step delivery tracker** — a branded progress illustration (Registered · Sorting centre · Out for delivery · Delivered) when a parcel is selected
 - **Carrier overview popup** — click a logo in the multi-carrier banner to see every parcel and letter for that carrier across all tabs in one popup, with details expandable in place
 - **Add a parcel from the card** — account-less carriers (GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee, Nova Post, Delhivery, SunYou) get a "+ Add parcel" control that registers a new Track & Trace number directly; see [Add parcel support](#add-parcel-support) below for why PostNL/DHL/DPD don't
-- **Custom parcel names** — give any parcel a short label of your own (e.g. "Birthday gift") right from its detail panel, instead of just a tracking code; saved to your browser or synced to your Home Assistant account, your choice — see `custom_name_scope`
+- **Custom parcel names** — give any parcel a short label of your own (e.g. "Birthday gift") right from its detail panel, instead of just a tracking code; shared instance-wide with live updates by default, or scope it to just you or just this browser — see `custom_name_scope`
+- **Flexible sorting & grouping** — soonest-arriving parcel on top by default, or pin newest/oldest-first everywhere; group parcels by carrier or show one flat, interleaved list — see `sort_order`/`group_by_carrier`
 - **Letterbox mail** — PostNL letters get their own tab with scan images, matched automatically and resilient to ha-postnl updates
 - **Full visual editor** — no YAML required, with auto sensor detection, a media browser for custom images, a colour picker and live preview
 - **Automatic combo banner** — with two or more carriers configured, the card builds a combo banner from just the carriers you've actually added

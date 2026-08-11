@@ -19,20 +19,26 @@ These options apply to the card as a whole.
 | `placeholder_image` | string | _(built-in)_ | URL to a custom background image. Overrides the automatic combo banner — set to a fixed picture if you'd rather always show the same image |
 | `show_add_parcel` | boolean | `true` | Show the "+ Add parcel" control at the bottom of the card (only appears when at least one configured carrier supports it — GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee, Nova Post, Delhivery, SunYou) |
 | `show_raw_status` | boolean | `false` | Show the carrier's own raw status text (e.g. GLS's "Onderweg - geladen voor aflevering") as the main status message instead of the card's generic translated label ("In transit"). Falls back to the generic label when a parcel has no raw status |
-| `custom_name_scope` | string | `device` | Show a "+ Add name" control in each parcel's detail panel, letting you give it a short custom label (e.g. "Birthday gift") instead of just a tracking code. `off` hides the control entirely; `device` saves names in this browser only; `shared` saves them to your Home Assistant account so they show up on every device signed in with it. See the note below |
+| `custom_name_scope` | string | `everyone` | Show a "+ Add name" control in each parcel's detail panel, letting you give it a short custom label (e.g. "Birthday gift") instead of just a tracking code. `off` hides the control entirely; `device` saves names in this browser only; `me` saves them to your Home Assistant account (synced across your own devices); `everyone` saves them instance-wide for every user to see. See the note below |
+| `sort_order` | string | `auto` | `auto` (recommended) shows the soonest-arriving parcel first in In Transit and Sent, and the most recently delivered parcel first in Delivered. `newest_first`/`oldest_first` pin one direction everywhere instead. See the note below |
+| `group_by_carrier` | boolean | `true` | Group parcels into per-carrier sections. Set to `false` for one flat list sorted purely by `sort_order`, interleaving carriers directly instead of showing all of one carrier's parcels before the next |
 | `layout_order` | list | `[header, animation, tabs, list]` | Order of card sections |
 | `carriers` | list | — | **Required.** List of carrier configurations (see below) |
 
 \* When the card is first added, `days_back` is pre-filled from your actual delivered-parcel history (the oldest delivered parcel currently visible, across every detected carrier) instead of the flat `90`. This is a one-time default, not a live setting.
 
-!!! note "Custom parcel names: only-for-me vs. shared"
+!!! note "Custom parcel names: three scopes"
     There's no backend to write a custom name into an integration's own sensor data, and a live dashboard card can't persist into its own stored YAML config either (only the editor can, while you're editing the dashboard) — so this has to live somewhere else:
 
-    - `custom_name_scope: device` (the default) saves names in the browser's local storage. Simple, but a name you set on your phone won't show up on a tablet or another family member's browser — each device keeps its own labels.
-    - `custom_name_scope: shared` saves names to Home Assistant's own per-user storage instead (the same mechanism HA's own frontend uses for small preferences), via the `frontend/get_user_data`/`frontend/set_user_data` websocket calls. That's server-side, so it's the same for every device signed in with that HA account — the natural choice if your household shares one login on every phone and wall tablet. If everyone has their own separate HA account, "shared" only syncs across *your own* devices, not your housemates'.
+    - `custom_name_scope: device` saves names in the browser's local storage. Simple, but a name you set on your phone won't show up on a tablet or another device — each browser keeps its own labels.
+    - `custom_name_scope: me` saves names to Home Assistant's own per-user storage instead (the same mechanism HA's own frontend uses for small preferences), via the `frontend/get_user_data`/`frontend/set_user_data` websocket calls. That's server-side, so it's the same for every device signed in with *your* HA account — but a different HA user on the same instance won't see it.
+    - `custom_name_scope: everyone` (the default) saves names instance-wide, via Home Assistant's `frontend/get_system_data`/`set_system_data`/`subscribe_system_data` websocket calls — visible to every user of this Home Assistant instance, with live updates (no refresh needed to see a name someone else just added). Reading is open to everyone, but **adding or editing a name requires an administrator account** — HA enforces that server-side. Non-admin users still see existing shared names, just without the "+ Add name"/edit controls. This also needs a reasonably recent Home Assistant core (the system-data API landed in HA core ~2025.12); on an older core it degrades to showing no shared names rather than erroring.
     - `custom_name_scope: off` hides the control entirely.
 
-    Switching between `device` and `shared` starts with a blank set of names — the two stores aren't merged or migrated automatically.
+    Switching between scopes starts with a blank set of names for the new scope — the stores aren't merged or migrated automatically. `shared` is still accepted as a legacy alias for `me`, from before this option split into `me` and `everyone`.
+
+!!! note "Parcel order and grouping"
+    By default (`sort_order: auto`, `group_by_carrier: true`) In Transit and Sent show the parcel arriving soonest first *within* each carrier's own section, and the carrier whose next parcel is soonest gets its section shown first — the sections aren't in a fixed order. Delivered shows the most recently delivered parcel first. Set `group_by_carrier: false` for one flat, ungrouped list instead — parcels from different carriers then interleave directly by date (e.g. a PostNL parcel, then two DHL parcels, then three more PostNL parcels, purely in delivery-time order) rather than being grouped into contiguous per-carrier sections. `sort_order: newest_first`/`oldest_first` override the automatic soonest/most-recent split and pin one fixed direction across every tab.
 
 ---
 

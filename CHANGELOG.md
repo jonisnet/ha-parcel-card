@@ -1,5 +1,50 @@
 # Changelog
 
+## [1.7.0] — 2026-08-11
+
+### Added
+
+- **`custom_name_scope` split into three real scopes** — `device` (browser-only, unchanged),
+  `me` (renamed from `shared`: your own Home Assistant account, synced across your own
+  devices), and new `everyone` (now the default): saved instance-wide via Home Assistant's
+  `frontend/get_system_data`/`set_system_data`/`subscribe_system_data` websocket calls, with
+  live updates — no refresh needed to see a name someone else just added on another device.
+  Reading is open to every user; adding or editing a name requires an administrator account
+  (enforced by Home Assistant itself), so non-admin users see existing shared names read-only.
+  Needs Home Assistant core ≥ ~2025.12 (when the system-data API was added); older cores just
+  show no shared names rather than erroring. `shared` is still accepted as a legacy alias for
+  `me`. This follow-up to v1.6.1's `me`-only "For everyone" came directly out of the discussion
+  on [#9](https://github.com/jonisnet/hki-parcels-card/issues/9) — a single option that was
+  actually just "synced to my own account" was genuinely misleading once someone had two
+  different HA logins in the same household.
+- **`sort_order` option** (`auto` / `newest_first` / `oldest_first`) — fixes
+  [#11](https://github.com/jonisnet/hki-parcels-card/issues/11): In Transit and the upcoming
+  half of Sent used to sort the same "most recent first" way as Delivered, putting the parcel
+  arriving furthest in the future above the one arriving today. `auto` (the default) now sorts
+  soonest-first for anything not yet delivered and most-recent-first for Delivered; the other
+  two options pin one direction everywhere for anyone who'd rather it not change per tab.
+  Parcels with no usable date always sort to the bottom regardless of direction now, instead of
+  jumping to the top the way the old `|| 0` fallback did once the comparison flipped.
+- **`group_by_carrier` option** (default `true`, unchanged visual behaviour) — set to `false`
+  for one flat list sorted purely by `sort_order`, interleaving parcels from every carrier
+  directly by date instead of grouping all of one carrier's parcels into a contiguous section
+  before the next carrier's. Carrier sections (when grouping is on) aren't in a fixed order
+  either — whichever carrier's next parcel is soonest gets shown first, a side effect of the
+  `sort_order` fix above rather than a separate feature.
+
+### Fixed
+
+- **12-hour clock shown regardless of the Home Assistant profile's 24-hour preference** — fixes
+  [#10](https://github.com/jonisnet/hki-parcels-card/issues/10). The card only ever passed
+  `hass.language` to `toLocaleTimeString`, ignoring `hass.locale.time_format` entirely, so
+  English-language profiles always got a 12-hour clock. `time_format` has four possible values
+  (`12`/`24`/`language`/`system`), and only `12`/`24` have a fixed answer — `language` means "by
+  the display language's own convention" (`en-US` is 12h, `en-GB`/`nl`/`de` are 24h) and
+  `system` means "by the browser's own locale," neither of which a simple switch on the language
+  code can resolve correctly. Fixed by mirroring Home Assistant's own frontend algorithm
+  (`src/common/datetime/use_am_pm.ts`): probe `Intl` with a known 22:00 timestamp and check
+  whether it rendered as "10" (12h) or "22" (24h), rather than guessing from the language alone.
+
 ## [1.6.1] — 2026-08-10
 
 ### Fixed

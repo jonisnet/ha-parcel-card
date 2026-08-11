@@ -68,7 +68,7 @@ window.HKI.getSelectValue = window.HKI.getSelectValue || ((ev, options = null) =
 
 (() => {
 const { LitElement, html, css } = window.HKI.getLit();
-const CARD_VERSION = 'v1.6.1';
+const CARD_VERSION = 'v1.7.0';
 console.info(`%c HKI-PARCELS-CARD %c ${CARD_VERSION} `, 'color: white; background: #ed8c00; font-weight: bold;', 'color: #ed8c00; background: white; font-weight: bold;');
 
 const DEFAULT_CARRIER_ICON = 'mdi:package-variant-closed';
@@ -193,9 +193,16 @@ const TRANSLATIONS = {
         show_raw_status: 'Show the carrier\'s own status text instead of the translated label',
         custom_name_scope_label: 'Custom parcel names',
         custom_name_scope_off: 'Off',
-        custom_name_scope_device: 'Only for me (this browser)',
-        custom_name_scope_shared: 'For everyone (synced via Home Assistant)',
-        custom_name_scope_help: '"For everyone" is saved to your Home Assistant account and shows up on every device signed in with it — the natural choice if your household shares one login. "Only for me" stays in this browser only.',
+        custom_name_scope_device: 'This browser/device only',
+        custom_name_scope_me: 'For me only',
+        custom_name_scope_everyone: 'For everyone',
+        custom_name_scope_help: '"This browser/device only" never leaves this browser. "For me only" is saved to your Home Assistant account and follows you across your own devices. "For everyone" is saved instance-wide for every user to see — adding or editing a name under this option requires an administrator account; everyone can still see the names.',
+        sort_order_label: 'Parcel order',
+        sort_order_auto: 'Automatic (soonest first, most recent delivery first)',
+        sort_order_newest_first: 'Newest/furthest first everywhere',
+        sort_order_oldest_first: 'Oldest/soonest first everywhere',
+        sort_order_help: '"Automatic" (recommended) shows the soonest-arriving parcel first in In Transit and Sent, and the most recently delivered parcel first in Delivered. The other two options pick one direction and keep it everywhere.',
+        group_by_carrier: 'Group parcels by carrier (disable for one flat list sorted purely by date, interleaving carriers)',
         section_appearance: 'Appearance',
         label_header_color: 'Header color',
         label_header_text: 'Header text color',
@@ -353,9 +360,16 @@ const TRANSLATIONS = {
         show_raw_status: 'Toon carrier\'s eigen statustekst i.p.v. de vertaalde melding',
         custom_name_scope_label: 'Eigen pakketnamen',
         custom_name_scope_off: 'Uit',
-        custom_name_scope_device: 'Alleen voor mij (deze browser)',
-        custom_name_scope_shared: 'Voor iedereen (gesynchroniseerd via Home Assistant)',
-        custom_name_scope_help: '"Voor iedereen" wordt opgeslagen bij je Home Assistant-account en is zichtbaar op elk apparaat dat daarmee is ingelogd — de logische keuze als je huishouden één gedeeld account gebruikt. "Alleen voor mij" blijft beperkt tot deze browser.',
+        custom_name_scope_device: 'Alleen deze browser/dit apparaat',
+        custom_name_scope_me: 'Alleen voor mij',
+        custom_name_scope_everyone: 'Voor iedereen',
+        custom_name_scope_help: '"Alleen deze browser/dit apparaat" verlaat deze browser nooit. "Alleen voor mij" wordt opgeslagen bij je Home Assistant-account en volgt je op al je eigen apparaten. "Voor iedereen" wordt instance-breed opgeslagen, zichtbaar voor elke gebruiker — een naam toevoegen of wijzigen bij deze optie vereist een beheerdersaccount; iedereen kan de namen wel gewoon zien.',
+        sort_order_label: 'Volgorde pakketten',
+        sort_order_auto: 'Automatisch (eerstvolgend bovenaan, meest recent bezorgd bovenaan)',
+        sort_order_newest_first: 'Overal nieuwste/verst weg bovenaan',
+        sort_order_oldest_first: 'Overal oudste/eerstvolgend bovenaan',
+        sort_order_help: '"Automatisch" (aanbevolen) toont het eerstvolgende pakket bovenaan bij Onderweg en Verzonden, en het meest recent bezorgde pakket bovenaan bij Bezorgd. De andere twee opties kiezen één vaste richting overal.',
+        group_by_carrier: 'Pakketten groeperen per carrier (uitzetten voor één platte lijst puur op datum gesorteerd, carriers door elkaar)',
         section_appearance: 'Uiterlijk',
         label_header_color: 'Header Kleur',
         label_header_text: 'Header Tekst Kleur',
@@ -514,9 +528,16 @@ const TRANSLATIONS = {
         show_raw_status: 'Den eigenen Statustext des Zustelldienstes statt der übersetzten Meldung anzeigen',
         custom_name_scope_label: 'Eigene Paketnamen',
         custom_name_scope_off: 'Aus',
-        custom_name_scope_device: 'Nur für mich (dieser Browser)',
-        custom_name_scope_shared: 'Für alle (synchronisiert über Home Assistant)',
-        custom_name_scope_help: '„Für alle“ wird in deinem Home-Assistant-Konto gespeichert und erscheint auf jedem Gerät, das damit angemeldet ist — die naheliegende Wahl, wenn dein Haushalt einen gemeinsamen Login nutzt. „Nur für mich“ bleibt auf diesen Browser beschränkt.',
+        custom_name_scope_device: 'Nur dieser Browser/dieses Gerät',
+        custom_name_scope_me: 'Nur für mich',
+        custom_name_scope_everyone: 'Für alle',
+        custom_name_scope_help: '„Nur dieser Browser/dieses Gerät“ verlässt diesen Browser nie. „Nur für mich“ wird in deinem Home-Assistant-Konto gespeichert und folgt dir auf all deinen eigenen Geräten. „Für alle“ wird instanzweit gespeichert und ist für jeden Benutzer sichtbar — einen Namen bei dieser Option hinzuzufügen oder zu ändern erfordert ein Administratorkonto; sehen können ihn trotzdem alle.',
+        sort_order_label: 'Paketreihenfolge',
+        sort_order_auto: 'Automatisch (nächstes zuerst, zuletzt zugestellt zuerst)',
+        sort_order_newest_first: 'Überall neuestes/am weitesten entferntes zuerst',
+        sort_order_oldest_first: 'Überall ältestes/nächstes zuerst',
+        sort_order_help: '„Automatisch“ (empfohlen) zeigt bei Unterwegs und Versendet das nächste Paket zuerst und bei Zugestellt das zuletzt zugestellte zuerst. Die anderen beiden Optionen legen überall eine feste Richtung fest.',
+        group_by_carrier: 'Pakete nach Zustelldienst gruppieren (deaktivieren für eine flache, rein nach Datum sortierte Liste mit gemischten Zustelldiensten)',
         section_appearance: 'Erscheinungsbild',
         label_header_color: 'Kopfzeilenfarbe',
         label_header_text: 'Kopfzeilen-Textfarbe',
@@ -675,9 +696,16 @@ const TRANSLATIONS = {
         show_raw_status: 'Mostrar el texto de estado propio del transportista en lugar de la etiqueta traducida',
         custom_name_scope_label: 'Nombres personalizados de paquetes',
         custom_name_scope_off: 'Desactivado',
-        custom_name_scope_device: 'Solo para mí (este navegador)',
-        custom_name_scope_shared: 'Para todos (sincronizado a través de Home Assistant)',
-        custom_name_scope_help: '"Para todos" se guarda en tu cuenta de Home Assistant y aparece en cualquier dispositivo con esa sesión iniciada — la opción natural si tu hogar comparte un mismo inicio de sesión. "Solo para mí" se queda solo en este navegador.',
+        custom_name_scope_device: 'Solo este navegador/dispositivo',
+        custom_name_scope_me: 'Solo para mí',
+        custom_name_scope_everyone: 'Para todos',
+        custom_name_scope_help: '"Solo este navegador/dispositivo" nunca sale de este navegador. "Solo para mí" se guarda en tu cuenta de Home Assistant y te sigue en todos tus propios dispositivos. "Para todos" se guarda a nivel de instancia, visible para todos los usuarios — añadir o editar un nombre con esta opción requiere una cuenta de administrador; todos pueden verlos igualmente.',
+        sort_order_label: 'Orden de los paquetes',
+        sort_order_auto: 'Automático (el más próximo primero, el entregado más reciente primero)',
+        sort_order_newest_first: 'Más reciente/lejano primero en todas partes',
+        sort_order_oldest_first: 'Más antiguo/próximo primero en todas partes',
+        sort_order_help: '"Automático" (recomendado) muestra primero el paquete que llega antes en En tránsito y Enviado, y el entregado más recientemente primero en Entregado. Las otras dos opciones fijan una dirección en todas partes.',
+        group_by_carrier: 'Agrupar paquetes por transportista (desactivar para una lista plana ordenada solo por fecha, mezclando transportistas)',
         section_appearance: 'Apariencia',
         label_header_color: 'Color de la cabecera',
         label_header_text: 'Color del texto de la cabecera',
@@ -836,9 +864,16 @@ const TRANSLATIONS = {
         show_raw_status: 'Afficher le texte de statut propre au transporteur au lieu du libellé traduit',
         custom_name_scope_label: 'Noms personnalisés des colis',
         custom_name_scope_off: 'Désactivé',
-        custom_name_scope_device: 'Pour moi seulement (ce navigateur)',
-        custom_name_scope_shared: 'Pour tout le monde (synchronisé via Home Assistant)',
-        custom_name_scope_help: '« Pour tout le monde » est enregistré sur votre compte Home Assistant et apparaît sur tout appareil connecté avec ce compte — le choix naturel si votre foyer partage une même connexion. « Pour moi seulement » reste limité à ce navigateur.',
+        custom_name_scope_device: 'Ce navigateur/appareil uniquement',
+        custom_name_scope_me: 'Pour moi seulement',
+        custom_name_scope_everyone: 'Pour tout le monde',
+        custom_name_scope_help: '« Ce navigateur/appareil uniquement » ne quitte jamais ce navigateur. « Pour moi seulement » est enregistré sur votre compte Home Assistant et vous suit sur tous vos propres appareils. « Pour tout le monde » est enregistré à l\'échelle de l\'instance, visible par tous les utilisateurs — ajouter ou modifier un nom avec cette option nécessite un compte administrateur ; tout le monde peut néanmoins les voir.',
+        sort_order_label: 'Ordre des colis',
+        sort_order_auto: 'Automatique (le plus proche d\'abord, le plus récemment livré d\'abord)',
+        sort_order_newest_first: 'Le plus récent/éloigné en premier partout',
+        sort_order_oldest_first: 'Le plus ancien/proche en premier partout',
+        sort_order_help: '« Automatique » (recommandé) affiche d\'abord le colis qui arrive le plus tôt dans En transit et Envoyé, et le colis livré le plus récemment dans Livré. Les deux autres options fixent une direction partout.',
+        group_by_carrier: 'Grouper les colis par transporteur (désactiver pour une liste unique triée uniquement par date, transporteurs mélangés)',
         section_appearance: 'Apparence',
         label_header_color: 'Couleur de l\'en-tête',
         label_header_text: 'Couleur du texte de l\'en-tête',
@@ -997,9 +1032,16 @@ const TRANSLATIONS = {
         show_raw_status: 'Mostra il testo di stato del corriere invece dell\'etichetta tradotta',
         custom_name_scope_label: 'Nomi personalizzati dei pacchi',
         custom_name_scope_off: 'Disattivato',
-        custom_name_scope_device: 'Solo per me (questo browser)',
-        custom_name_scope_shared: 'Per tutti (sincronizzato tramite Home Assistant)',
-        custom_name_scope_help: '"Per tutti" viene salvato nel tuo account Home Assistant e appare su ogni dispositivo che ha effettuato l\'accesso con esso — la scelta naturale se in famiglia condividete un unico accesso. "Solo per me" resta limitato a questo browser.',
+        custom_name_scope_device: 'Solo questo browser/dispositivo',
+        custom_name_scope_me: 'Solo per me',
+        custom_name_scope_everyone: 'Per tutti',
+        custom_name_scope_help: '"Solo questo browser/dispositivo" non esce mai da questo browser. "Solo per me" viene salvato nel tuo account Home Assistant e ti segue su tutti i tuoi dispositivi. "Per tutti" viene salvato a livello di istanza, visibile a tutti gli utenti — aggiungere o modificare un nome con questa opzione richiede un account amministratore; tutti possono comunque vederli.',
+        sort_order_label: 'Ordine dei pacchi',
+        sort_order_auto: 'Automatico (il prossimo per primo, il consegnato più di recente per primo)',
+        sort_order_newest_first: 'Ovunque il più recente/lontano per primo',
+        sort_order_oldest_first: 'Ovunque il più vecchio/prossimo per primo',
+        sort_order_help: '"Automatico" (consigliato) mostra per primo il pacco in arrivo più presto in In transito e Inviato, e il pacco consegnato più di recente in Consegnato. Le altre due opzioni fissano una direzione ovunque.',
+        group_by_carrier: 'Raggruppa i pacchi per corriere (disattiva per un elenco unico ordinato solo per data, con corrieri mescolati)',
         section_appearance: 'Aspetto',
         label_header_color: 'Colore intestazione',
         label_header_text: 'Colore testo intestazione',
@@ -1158,9 +1200,16 @@ const TRANSLATIONS = {
         show_raw_status: 'Pokaż własny tekst statusu przewoźnika zamiast przetłumaczonej etykiety',
         custom_name_scope_label: 'Własne nazwy paczek',
         custom_name_scope_off: 'Wyłączone',
-        custom_name_scope_device: 'Tylko dla mnie (ta przeglądarka)',
-        custom_name_scope_shared: 'Dla wszystkich (synchronizowane przez Home Assistant)',
-        custom_name_scope_help: '"Dla wszystkich" jest zapisywane na Twoim koncie Home Assistant i pojawia się na każdym urządzeniu zalogowanym na to konto — naturalny wybór, jeśli domownicy współdzielą jedno konto. "Tylko dla mnie" pozostaje ograniczone do tej przeglądarki.',
+        custom_name_scope_device: 'Tylko ta przeglądarka/urządzenie',
+        custom_name_scope_me: 'Tylko dla mnie',
+        custom_name_scope_everyone: 'Dla wszystkich',
+        custom_name_scope_help: '"Tylko ta przeglądarka/urządzenie" nigdy nie opuszcza tej przeglądarki. "Tylko dla mnie" jest zapisywane na Twoim koncie Home Assistant i towarzyszy Ci na wszystkich Twoich urządzeniach. "Dla wszystkich" jest zapisywane na poziomie instancji, widoczne dla każdego użytkownika — dodanie lub edycja nazwy przy tej opcji wymaga konta administratora; mimo to wszyscy mogą je zobaczyć.',
+        sort_order_label: 'Kolejność paczek',
+        sort_order_auto: 'Automatycznie (najbliższa najpierw, ostatnio dostarczona najpierw)',
+        sort_order_newest_first: 'Wszędzie najnowsza/najdalsza najpierw',
+        sort_order_oldest_first: 'Wszędzie najstarsza/najbliższa najpierw',
+        sort_order_help: '"Automatycznie" (zalecane) pokazuje najpierw paczkę, która dotrze najszybciej w zakładkach W drodze i Wysłane, a w Dostarczone najpierw ostatnio dostarczoną. Pozostałe dwie opcje ustalają jeden stały kierunek wszędzie.',
+        group_by_carrier: 'Grupuj paczki według przewoźnika (wyłącz, aby uzyskać jedną listę posortowaną tylko według daty, z wymieszanymi przewoźnikami)',
         section_appearance: 'Wygląd',
         label_header_color: 'Kolor nagłówka',
         label_header_text: 'Kolor tekstu nagłówka',
@@ -1319,9 +1368,16 @@ const TRANSLATIONS = {
         show_raw_status: 'Mostrar o texto de estado próprio da transportadora em vez da etiqueta traduzida',
         custom_name_scope_label: 'Nomes personalizados de encomendas',
         custom_name_scope_off: 'Desativado',
-        custom_name_scope_device: 'Só para mim (este navegador)',
-        custom_name_scope_shared: 'Para todos (sincronizado através do Home Assistant)',
-        custom_name_scope_help: '"Para todos" é guardado na tua conta Home Assistant e aparece em qualquer dispositivo com essa sessão iniciada — a escolha natural se a tua casa partilha um único início de sessão. "Só para mim" fica limitado a este navegador.',
+        custom_name_scope_device: 'Só este navegador/dispositivo',
+        custom_name_scope_me: 'Só para mim',
+        custom_name_scope_everyone: 'Para todos',
+        custom_name_scope_help: '"Só este navegador/dispositivo" nunca sai deste navegador. "Só para mim" é guardado na tua conta Home Assistant e acompanha-te em todos os teus dispositivos. "Para todos" é guardado ao nível da instância, visível para todos os utilizadores — adicionar ou editar um nome com esta opção requer uma conta de administrador; todos podem à mesma vê-los.',
+        sort_order_label: 'Ordem das encomendas',
+        sort_order_auto: 'Automático (a mais próxima primeiro, a entregue mais recentemente primeiro)',
+        sort_order_newest_first: 'Mais recente/distante primeiro em todo o lado',
+        sort_order_oldest_first: 'Mais antiga/próxima primeiro em todo o lado',
+        sort_order_help: '"Automático" (recomendado) mostra primeiro a encomenda que chega mais cedo em Em trânsito e Enviado, e a entregue mais recentemente primeiro em Entregue. As outras duas opções fixam uma direção em todo o lado.',
+        group_by_carrier: 'Agrupar encomendas por transportadora (desativar para uma lista única ordenada apenas por data, com transportadoras misturadas)',
         section_appearance: 'Aparência',
         label_header_color: 'Cor do cabeçalho',
         label_header_text: 'Cor do texto do cabeçalho',
@@ -2181,7 +2237,9 @@ class HkiParcelsCard extends HTMLElement {
             show_placeholder: true,
             show_tracking_link: true,
             show_add_parcel: true,
-            custom_name_scope: 'device',
+            custom_name_scope: 'everyone',
+            sort_order: 'auto',
+            group_by_carrier: true,
             header_color: '',
             header_text_color: '',
             placeholder_image: DEFAULT_PLACEHOLDER_IMAGE,
@@ -2279,7 +2337,9 @@ class HkiParcelsCard extends HTMLElement {
             carriers,
             show_tracking_link: true,
             show_add_parcel: true,
-            custom_name_scope: 'device',
+            custom_name_scope: 'everyone',
+            sort_order: 'auto',
+            group_by_carrier: true,
             layout_order: ['header', 'animation', 'tabs', 'list']
         };
     }
@@ -2406,22 +2466,32 @@ class HkiParcelsCard extends HTMLElement {
     // ------------------------------------------------------------------
     // Custom parcel names — a small user-friendly label per tracking code,
     // e.g. "Birthday gift" instead of a bare barcode (see GH issue #9).
-    // `custom_name_scope` picks where that mapping lives:
-    //   - 'off'    — the feature is hidden entirely.
-    //   - 'device' — browser localStorage. Simple, no round-trip, but each
+    // `custom_name_scope` picks where that mapping lives — neither the card nor a
+    // live dashboard view can write into the dashboard's own stored YAML config
+    // (only the editor can), so this has to live somewhere else:
+    //   - 'off'      — the feature is hidden entirely.
+    //   - 'device'   — browser localStorage. Simple, no round-trip, but each
     //     browser/device keeps its own names.
-    //   - 'shared' — Home Assistant's built-in per-user "frontend user data"
-    //     store (the same websocket API HA's own frontend uses for small
-    //     preferences), via `frontend/get_user_data` / `frontend/set_user_data`.
-    //     This is server-side, so it's the same for every device logged into
-    //     the same HA user — genuinely shared across a household's phones and
-    //     tablets when they all use one shared HA login, which is common.
-    //     Neither the card nor a live dashboard view can write into the
-    //     dashboard's own stored YAML config (only the editor can), so this
-    //     HA-native store is the closest thing to a real synced option
-    //     without shipping a companion backend integration.
+    //   - 'me'       — Home Assistant's per-user "frontend user data" store (the
+    //     same websocket API HA's own frontend uses for small preferences), via
+    //     `frontend/get_user_data`/`frontend/set_user_data`. Server-side, so it's
+    //     the same on every device signed into *that one* HA account — but a
+    //     different HA user on the same instance does not see it.
+    //   - 'everyone' (default) — Home Assistant's instance-wide "frontend system
+    //     data" store, via `frontend/get_system_data`/`set_system_data`/
+    //     `subscribe_system_data` — genuinely shared by every user of this HA
+    //     instance, with live push updates. Added to HA core ~2025.12, and
+    //     writes require an admin session (reads don't) — both are enforced
+    //     server-side, so on an older core or from a non-admin session this
+    //     degrades to "read-only, or empty" rather than silently lying about
+    //     what's actually shared, which is what motivated splitting this out
+    //     from 'me' in the first place (see the discussion on issue #9: a
+    //     single "For everyone" option that was actually just "me" was
+    //     genuinely misleading).
     // Keyed by "<carrier_type>:<tracking_code>" so two different carriers
-    // reusing the same code never collide.
+    // reusing the same code never collide. 'shared' is accepted as a legacy
+    // alias for 'me' — this project's own name for the option before it split
+    // into 'me' + 'everyone'.
     // ------------------------------------------------------------------
 
     _escapeHtml(str) {
@@ -2436,33 +2506,76 @@ class HkiParcelsCard extends HTMLElement {
 
     _customNameScope() {
         const scope = this.config.custom_name_scope;
-        return (scope === 'off' || scope === 'shared') ? scope : 'device';
+        if (scope === 'off' || scope === 'device' || scope === 'everyone') return scope;
+        if (scope === 'me' || scope === 'shared') return 'me';
+        return 'everyone';
     }
+
+    _isAdmin() { return !!this._hass?.user?.is_admin; }
 
     // Kicks off the async load from HA's per-user store; returns {} until it resolves,
     // then triggers a re-render so the loaded names appear. Cheap to call repeatedly —
     // guarded so only one fetch is ever in flight.
-    _fetchSharedCustomNames() {
-        if (this.__sharedCustomNamesLoading || !this._hass?.connection) return;
-        this.__sharedCustomNamesLoading = true;
+    _fetchMeCustomNames() {
+        if (this.__meCustomNamesLoading || !this._hass?.connection) return;
+        this.__meCustomNamesLoading = true;
         this._hass.connection.sendMessagePromise({
             type: 'frontend/get_user_data', key: this._customNamesStorageKey()
         }).then(res => {
-            this.__sharedCustomNames = res?.value || {};
+            this.__meCustomNames = res?.value || {};
         }).catch(() => {
-            this.__sharedCustomNames = this.__sharedCustomNames || {};
+            this.__meCustomNames = this.__meCustomNames || {};
         }).finally(() => {
-            this.__sharedCustomNamesLoading = false;
+            this.__meCustomNamesLoading = false;
             this._lastListFingerprint = null;
             this.updateContent();
             this._refreshCarrierPopupIfOpen();
         });
     }
 
+    // Opens (once) a live subscription to HA's instance-wide store — the first event fires
+    // synchronously as part of subscribing (an initial snapshot, not just an ack), and further
+    // events arrive whenever *any* user/device changes the data, so 'everyone' scope needs no
+    // manual refresh to see another device's save. Unsubscribed in disconnectedCallback().
+    _subscribeEveryoneCustomNames() {
+        if (this.__everyoneSubPromise || !this._hass?.connection) return;
+        this.__everyoneSubPromise = this._hass.connection.subscribeMessage(
+            (data) => {
+                this.__everyoneCustomNames = data?.value || {};
+                this._lastListFingerprint = null;
+                this.updateContent();
+                this._refreshCarrierPopupIfOpen();
+            },
+            { type: 'frontend/subscribe_system_data', key: this._customNamesStorageKey() }
+        ).then(unsub => {
+            this.__everyoneUnsub = unsub;
+        }).catch(() => {
+            // Older HA core (frontend/system_data needs ~2025.12+) or unreachable — leave
+            // custom names empty for this scope rather than erroring the whole card, and
+            // allow a later retry (e.g. after a reconnect) since the promise is cleared.
+            this.__everyoneCustomNames = this.__everyoneCustomNames || {};
+            this.__everyoneSubPromise = null;
+        });
+    }
+
+    disconnectedCallback() {
+        if (this.__everyoneUnsub) {
+            try { this.__everyoneUnsub(); } catch (e) { /* already gone */ }
+            this.__everyoneUnsub = null;
+        }
+        this.__everyoneSubPromise = null;
+    }
+
     _loadCustomNames() {
-        if (this._customNameScope() === 'shared') {
-            if (this.__sharedCustomNames) return this.__sharedCustomNames;
-            this._fetchSharedCustomNames();
+        const scope = this._customNameScope();
+        if (scope === 'everyone') {
+            if (this.__everyoneCustomNames) return this.__everyoneCustomNames;
+            this._subscribeEveryoneCustomNames();
+            return {};
+        }
+        if (scope === 'me') {
+            if (this.__meCustomNames) return this.__meCustomNames;
+            this._fetchMeCustomNames();
             return {};
         }
         if (this.__customNames) return this.__customNames;
@@ -2485,18 +2598,50 @@ class HkiParcelsCard extends HTMLElement {
 
     // Deliberately not awaited by callers: everything up to the first `await` inside
     // (including the optimistic cache update below) runs synchronously, so the caller's
-    // immediate re-render already reflects the change. The 'shared' branch's actual
-    // server round-trip then finishes in the background.
+    // immediate re-render already reflects the change. The 'me'/'everyone' branches' actual
+    // server round-trip then finishes in the background — for 'everyone' the live subscription
+    // this card already holds will also deliver the authoritative value once the save lands.
     _setCustomName(carrierType, itemKey, name) {
         if (!itemKey) return;
+        const scope = this._customNameScope();
         const id = this._customNameStorageId(carrierType, itemKey);
         const trimmed = (name || '').trim();
 
-        if (this._customNameScope() === 'shared') {
-            const optimistic = { ...(this.__sharedCustomNames || {}) };
+        if (scope === 'everyone') {
+            // The editor already hides add/edit controls for non-admins under this scope;
+            // this is just defense in depth against stale/cached markup calling in anyway.
+            if (!this._isAdmin()) return;
+            const optimistic = { ...(this.__everyoneCustomNames || {}) };
             if (trimmed) optimistic[id] = trimmed;
             else delete optimistic[id];
-            this.__sharedCustomNames = optimistic;
+            this.__everyoneCustomNames = optimistic;
+
+            if (!this._hass?.connection) return;
+            (async () => {
+                try {
+                    const res = await this._hass.connection.sendMessagePromise({
+                        type: 'frontend/get_system_data', key: this._customNamesStorageKey()
+                    });
+                    const serverNames = res?.value || {};
+                    if (trimmed) serverNames[id] = trimmed;
+                    else delete serverNames[id];
+                    await this._hass.connection.sendMessagePromise({
+                        type: 'frontend/set_system_data', key: this._customNamesStorageKey(), value: serverNames
+                    });
+                } catch (e) {
+                    // HA core too old for frontend/system_data, the session turned out not to
+                    // be admin after all, or unreachable — the optimistic value stays for the
+                    // rest of this session, it just never persisted.
+                }
+            })();
+            return;
+        }
+
+        if (scope === 'me') {
+            const optimistic = { ...(this.__meCustomNames || {}) };
+            if (trimmed) optimistic[id] = trimmed;
+            else delete optimistic[id];
+            this.__meCustomNames = optimistic;
 
             if (!this._hass?.connection) return;
             (async () => {
@@ -2512,7 +2657,7 @@ class HkiParcelsCard extends HTMLElement {
                     await this._hass.connection.sendMessagePromise({
                         type: 'frontend/set_user_data', key: this._customNamesStorageKey(), value: serverNames
                     });
-                    this.__sharedCustomNames = serverNames;
+                    this.__meCustomNames = serverNames;
                 } catch (e) {
                     // HA unreachable or the call was rejected — the optimistic value from
                     // above stays for the rest of this session, it just never persisted.
@@ -2731,11 +2876,31 @@ class HkiParcelsCard extends HTMLElement {
     // Rendering helpers
     // ------------------------------------------------------------------
 
-    _sortShipments(items) {
-        return [...(items || [])].sort((a, b) =>
-            new Date(b.delivery_date || b.planned_date || b.expected_datetime || 0) -
-            new Date(a.delivery_date || a.planned_date || a.expected_datetime || 0)
-        );
+    // `ascending` picks the direction; items with no usable date always sort to the bottom
+    // regardless of direction, rather than jumping to the top the way a bare `|| 0` fallback
+    // would once the comparison flips (see GH issue #11).
+    _sortShipments(items, ascending = false) {
+        const ts = (x) => {
+            const t = new Date(x.delivery_date || x.planned_date || x.expected_datetime || 0).getTime();
+            return !t || Number.isNaN(t) ? null : t;
+        };
+        return [...(items || [])].sort((a, b) => {
+            const ta = ts(a), tb = ts(b);
+            if (ta === null && tb === null) return 0;
+            if (ta === null) return 1;
+            if (tb === null) return -1;
+            return ascending ? ta - tb : tb - ta;
+        });
+    }
+
+    // `sort_order` (editor option, GH issue #11): 'auto' (default) is soonest-first for
+    // not-yet-delivered lists and most-recent-first for delivered ones — the two other options
+    // pin one direction everywhere, for anyone who'd rather it not change per tab/section.
+    _resolveSortAscending(defaultAscending) {
+        const order = this.config.sort_order;
+        if (order === 'newest_first') return false;
+        if (order === 'oldest_first') return true;
+        return defaultAscending;
     }
 
     getFilteredShipments(data) {
@@ -2743,11 +2908,11 @@ class HkiParcelsCard extends HTMLElement {
         if (this._activeTab === 'post' || this._activeTab === 'verzonden') {
             const bucket = data[this._activeTab] || {};
             return {
-                upcoming: this._sortShipments(bucket.upcoming),
-                delivered: this._sortShipments(bucket.delivered)
+                upcoming: this._sortShipments(bucket.upcoming, this._resolveSortAscending(true)),
+                delivered: this._sortShipments(bucket.delivered, this._resolveSortAscending(false))
             };
         }
-        return this._sortShipments(data[this._activeTab]);
+        return this._sortShipments(data[this._activeTab], this._resolveSortAscending(this._activeTab === 'onderweg'));
     }
 
     _groupByCarrier(items) {
@@ -3283,9 +3448,25 @@ class HkiParcelsCard extends HTMLElement {
         return { dayPart, timePart };
     }
 
+    // Resolves hass.locale.time_format ("12" / "24" / "language" / "system") into a 12h-vs-24h
+    // boolean. "language"/"system" have no fixed answer — e.g. "language" is 12h for en-US but
+    // 24h for en-GB/nl/de — so this probes Intl with a known 22:00 timestamp and checks whether
+    // it rendered as "10" (12h) rather than "22" (24h), mirroring Home Assistant's own frontend
+    // (src/common/datetime/use_am_pm.ts) rather than guessing from the language code alone.
+    _useAmPm() {
+        const tf = this._hass?.locale?.time_format;
+        if (!tf || tf === 'language' || tf === 'system') {
+            const testLang = tf === 'language' ? this._hass?.language : undefined;
+            return new Date('January 1, 2023 22:00:00').toLocaleString(testLang).includes('10');
+        }
+        return tf === '12';
+    }
+
     _formatTime(dateStr) {
         if (!dateStr) return '';
-        return new Date(dateStr).toLocaleTimeString(this._hass?.language || 'en', { hour: '2-digit', minute: '2-digit' });
+        return new Date(dateStr).toLocaleTimeString(this._hass?.language || 'en', {
+            hour: '2-digit', minute: '2-digit', hour12: this._useAmPm()
+        });
     }
 
     _formatDateOnly(dateStr) {
@@ -3423,8 +3604,12 @@ class HkiParcelsCard extends HTMLElement {
     }
 
     _renderCustomNameRow(item) {
+        // Writes under 'everyone' scope require an admin session server-side (reads don't) —
+        // mirror that here so non-admins see the shared names read-only instead of an add/edit
+        // control that would silently fail (_setCustomName has its own admin check too).
+        const canEdit = this._customNameScope() !== 'everyone' || this._isAdmin();
         const storageId = this._customNameStorageId(item.carrier_type, item.key);
-        if (this._editingNameKey === storageId) {
+        if (canEdit && this._editingNameKey === storageId) {
             return `
             <div class="detail-row custom-name-row custom-name-editing" data-key="${item.key}" data-carrier-type="${item.carrier_type || ''}">
                 <input type="text" class="custom-name-input" maxlength="60"
@@ -3432,6 +3617,13 @@ class HkiParcelsCard extends HTMLElement {
                        placeholder="${this._escapeHtml(this._t('custom_name_placeholder'))}" />
                 <button class="custom-name-save" title="${this._t('custom_name_save')}"><ha-icon icon="mdi:check"></ha-icon></button>
                 <button class="custom-name-cancel" title="${this._t('custom_name_cancel')}"><ha-icon icon="mdi:close"></ha-icon></button>
+            </div>`;
+        }
+        if (!canEdit) {
+            if (!item.custom_name) return '';
+            return `
+            <div class="detail-row custom-name-row">
+                <strong>${this._t('label_custom_name')}:</strong> ${this._escapeHtml(item.custom_name)}
             </div>`;
         }
         return `
@@ -3493,12 +3685,20 @@ class HkiParcelsCard extends HTMLElement {
         </div>`;
     }
 
+    // `group_by_carrier: false` (editor option) renders one flat list sorted purely by the
+    // active `sort_order` — parcels from different carriers interleave directly by date instead
+    // of being grouped into contiguous per-carrier sections (see GH issue #11 discussion: "eerste
+    // volgende bezorging zou carrier onafhankelijk moeten zijn"). Each row still shows its own
+    // carrier icon/colour via _renderParcelItem, so carrier identity isn't lost, just not grouped.
     _renderGroupedList(displayed) {
         if (displayed.length === 0) {
             return `<div class="empty-state">
                 <ha-icon icon="mdi:package-variant-closed" style="width:48px;height:48px;margin-bottom:10px;"></ha-icon>
                 <div>${this._t('no_parcels')}</div>
             </div>`;
+        }
+        if (this.config.group_by_carrier === false) {
+            return displayed.map(item => this._renderParcelItem(item)).join('');
         }
         return this._groupByCarrier(displayed).map(group => `
             <div class="carrier-section">
@@ -3776,7 +3976,9 @@ class HkiParcelsCardEditor extends LitElement {
             show_placeholder: true,
             show_tracking_link: true,
             show_add_parcel: true,
-            custom_name_scope: 'device',
+            custom_name_scope: 'everyone',
+            sort_order: 'auto',
+            group_by_carrier: true,
             header_color: '',
             header_text_color: '',
             placeholder_image: DEFAULT_PLACEHOLDER_IMAGE,
@@ -3802,7 +4004,7 @@ class HkiParcelsCardEditor extends LitElement {
         if (!field || !this._config) return;
         let value = this._val(ev);
         if (new Set(['days_back']).has(field)) value = parseInt(value, 10);
-        if (new Set(['show_delivered','show_sent','show_letters','show_animation','show_header','show_placeholder','show_tracking_link','show_add_parcel','show_raw_status']).has(field))
+        if (new Set(['show_delivered','show_sent','show_letters','show_animation','show_header','show_placeholder','show_tracking_link','show_add_parcel','show_raw_status','group_by_carrier']).has(field))
             value = !!(ev.target?.checked ?? value);
         this._config = { ...this._config, [field]: value };
         this._emit();
@@ -4748,14 +4950,28 @@ class HkiParcelsCardEditor extends LitElement {
                         <label>${this._t('custom_name_scope_label')}</label>
                         <ha-selector .hass=${this.hass}
                             .selector=${{ select: { options: [
-                                { value: 'off',    label: this._t('custom_name_scope_off') },
-                                { value: 'device', label: this._t('custom_name_scope_device') },
-                                { value: 'shared', label: this._t('custom_name_scope_shared') }
+                                { value: 'off',      label: this._t('custom_name_scope_off') },
+                                { value: 'device',   label: this._t('custom_name_scope_device') },
+                                { value: 'me',       label: this._t('custom_name_scope_me') },
+                                { value: 'everyone', label: this._t('custom_name_scope_everyone') }
                             ], mode: 'dropdown' } }}
-                            .value=${this._config.custom_name_scope || 'device'}
+                            .value=${this._config.custom_name_scope || 'everyone'}
                             @value-changed=${(ev) => this._changed(ev, 'custom_name_scope')}></ha-selector>
                         <div class="helper-text">${this._t('custom_name_scope_help')}</div>
                     </div>
+                    <div class="plain-field">
+                        <label>${this._t('sort_order_label')}</label>
+                        <ha-selector .hass=${this.hass}
+                            .selector=${{ select: { options: [
+                                { value: 'auto',         label: this._t('sort_order_auto') },
+                                { value: 'newest_first', label: this._t('sort_order_newest_first') },
+                                { value: 'oldest_first', label: this._t('sort_order_oldest_first') }
+                            ], mode: 'dropdown' } }}
+                            .value=${this._config.sort_order || 'auto'}
+                            @value-changed=${(ev) => this._changed(ev, 'sort_order')}></ha-selector>
+                        <div class="helper-text">${this._t('sort_order_help')}</div>
+                    </div>
+                    <div class="switch-row"><ha-switch .checked=${this._config.group_by_carrier !== false} data-field="group_by_carrier" @change=${this._changed}></ha-switch><span>${this._t('group_by_carrier')}</span></div>
                 </details>
 
                 <details class="section-details">
