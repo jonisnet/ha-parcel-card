@@ -1,5 +1,7 @@
 {
-    "_meta": { "machine_drafted": true },
+    "_meta": {
+        "machine_drafted": true
+    },
     "tab_in_transit": "Na cestě",
     "tab_delivered": "Doručeno",
     "tab_sent": "Odesláno",
@@ -124,6 +126,7 @@
     "nova_post_account_help": "Nova Post nemá účet ani PSČ — ponechte toto pole prázdné; senzory se jmenují sensor.nova_post_*.",
     "delhivery_account_help": "Delhivery nemá účet ani PSČ — ponechte toto pole prázdné; senzory se jmenují sensor.delhivery_*.",
     "sunyou_account_help": "SunYou nemá účet ani PSČ — ponechte toto pole prázdné; senzory se jmenují sensor.sunyou_*.",
+    "quickpac_account_help": "Quickpac nemá účet ani PSČ — ponechte toto pole prázdné; senzory se jmenují sensor.quickpac_*.",
     "show_add_parcel": "Zobrazit \"Přidat zásilku\" na kartě",
     "add_parcel_toggle": "+ Přidat zásilku",
     "add_parcel_carrier": "Dopravce",

@@ -1,5 +1,7 @@
 {
-    "_meta": { "machine_drafted": true },
+    "_meta": {
+        "machine_drafted": true
+    },
     "tab_in_transit": "मार्ग में",
     "tab_delivered": "डिलीवर हो गया",
     "tab_sent": "भेजा गया",
@@ -124,6 +126,7 @@
     "nova_post_account_help": "Nova Post का कोई खाता या पिन कोड नहीं है — इस फ़ील्ड को खाली छोड़ें; सेंसर का नाम sensor.nova_post_* होता है।",
     "delhivery_account_help": "Delhivery का कोई खाता या पिन कोड नहीं है — इस फ़ील्ड को खाली छोड़ें; सेंसर का नाम sensor.delhivery_* होता है।",
     "sunyou_account_help": "SunYou का कोई खाता या पिन कोड नहीं है — इस फ़ील्ड को खाली छोड़ें; सेंसर का नाम sensor.sunyou_* होता है।",
+    "quickpac_account_help": "Quickpac का कोई खाता या पिन कोड नहीं है — इस फ़ील्ड को खाली छोड़ें; सेंसर का नाम sensor.quickpac_* होता है।",
     "show_add_parcel": "कार्ड पर \"पार्सल जोड़ें\" दिखाएँ",
     "add_parcel_toggle": "+ पार्सल जोड़ें",
     "add_parcel_carrier": "कैरियर",

@@ -1,5 +1,7 @@
 {
-    "_meta": { "machine_drafted": true },
+    "_meta": {
+        "machine_drafted": true
+    },
     "tab_in_transit": "På väg",
     "tab_delivered": "Levererat",
     "tab_sent": "Skickat",
@@ -124,6 +126,7 @@
     "nova_post_account_help": "Nova Post har inget konto eller postnummer — lämna detta fält tomt; sensorerna heter sensor.nova_post_*.",
     "delhivery_account_help": "Delhivery har inget konto eller postnummer — lämna detta fält tomt; sensorerna heter sensor.delhivery_*.",
     "sunyou_account_help": "SunYou har inget konto eller postnummer — lämna detta fält tomt; sensorerna heter sensor.sunyou_*.",
+    "quickpac_account_help": "Quickpac har inget konto eller postnummer — lämna detta fält tomt; sensorerna heter sensor.quickpac_*.",
     "show_add_parcel": "Visa \"Lägg till paket\" på kortet",
     "add_parcel_toggle": "+ Lägg till paket",
     "add_parcel_carrier": "Transportör",

@@ -68,7 +68,7 @@ window.HKI.getSelectValue = window.HKI.getSelectValue || ((ev, options = null) =
 
 (() => {
 const { LitElement, html, css } = window.HKI.getLit();
-const CARD_VERSION = 'v1.7.1';
+const CARD_VERSION = 'v2.0.0b1';
 console.info(`%c HKI-PARCELS-CARD %c ${CARD_VERSION} `, 'color: white; background: #ed8c00; font-weight: bold;', 'color: #ed8c00; background: white; font-weight: bold;');
 
 const DEFAULT_CARRIER_ICON = 'mdi:package-variant-closed';
@@ -91,11 +91,12 @@ function getDefaultIcon(carrierType) {
     // just assumed), and we don't submit invented letterform icons upstream. Note Dynalogic's
     // "DYNALOG!C" wordmark stylizes the I as "!", but that mark never appears standalone
     // (favicon crops to a plain "D" instead) — a real stylistic detail, not an extractable icon.
-    // sameday/helthjem aren't mapped yet either — real icons exist for both (built from each
-    // carrier's own source mark) but are held back locally, not submitted/merged. nova_post
-    // also has a real icon (its red diamond-arrows "H" mark, already used in this card's own
-    // branding) not yet submitted upstream. budbee has a real icon too (its own round "b"
-    // avatar) but was declined for this project.
+    // sameday/helthjem/nova_post/budbee (full wordmark, not the round "b" avatar — see PR
+    // description) have real icons built and submitted upstream as of 2026-08-11
+    // (elax46/custom-brand-icons#1435) but aren't mapped here yet since that PR hasn't merged —
+    // add them once it has, don't map ahead of the icon actually being live. quickpac has no
+    // real pictorial mark (wordmark + plain accent dot, not a distinct shape) — falls through to
+    // mdi: like postnord/planzer/dynalogic/delhivery below.
     const phuMap = {
         postnl: 'phu:postnl', postnl_v4: 'phu:postnl', postnl_legacy: 'phu:postnl',
         dhl: 'phu:dhl', dpd: 'phu:dpd',
@@ -103,7 +104,7 @@ function getDefaultIcon(carrierType) {
         cainiao: 'phu:cainiao', vinted_go: 'phu:vinted',
         hermes: 'phu:hermes', packeta: 'phu:packeta', correos: 'phu:correos',
         swiss_post: 'phu:swisspost', austrian_post: 'phu:austrianpost',
-        sunyou: 'phu:sunyou',
+        sunyou: 'phu:sunyou', an_post: 'phu:anpost',
     };
     if (hasPhuIcons() && phuMap[carrierType]) return phuMap[carrierType];
     return 'mdi:package-variant-closed';
@@ -240,6 +241,7 @@ const TRANSLATIONS = {
         nova_post_account_help: 'Nova Post has no account or postal code — leave this field empty; the sensors are named sensor.nova_post_*.',
         delhivery_account_help: 'Delhivery has no account or postal code — leave this field empty; the sensors are named sensor.delhivery_*.',
         sunyou_account_help: 'SunYou has no account or postal code — leave this field empty; the sensors are named sensor.sunyou_*.',
+        quickpac_account_help: 'Quickpac has no account or postal code — leave this field empty; the sensors are named sensor.quickpac_*.',
         show_add_parcel: 'Show "Add parcel" on the card',
         add_parcel_toggle: '+ Add parcel',
         add_parcel_carrier: 'Carrier',
@@ -407,6 +409,7 @@ const TRANSLATIONS = {
         nova_post_account_help: 'Nova Post heeft geen account of postcode — laat dit veld leeg; de sensoren heten sensor.nova_post_*.',
         delhivery_account_help: 'Delhivery heeft geen account of postcode — laat dit veld leeg; de sensoren heten sensor.delhivery_*.',
         sunyou_account_help: 'SunYou heeft geen account of postcode — laat dit veld leeg; de sensoren heten sensor.sunyou_*.',
+        quickpac_account_help: 'Quickpac heeft geen account of postcode — laat dit veld leeg; de sensoren heten sensor.quickpac_*.',
         show_add_parcel: 'Toon "Pakket toevoegen" op de kaart',
         add_parcel_toggle: '+ Pakket toevoegen',
         add_parcel_carrier: 'Dienst',
@@ -575,6 +578,7 @@ const TRANSLATIONS = {
         nova_post_account_help: 'Nova Post няма акаунт или пощенски код — оставете това поле празно; сензорите се наричат sensor.nova_post_*.',
         delhivery_account_help: 'Delhivery няма акаунт или пощенски код — оставете това поле празно; сензорите се наричат sensor.delhivery_*.',
         sunyou_account_help: 'SunYou няма акаунт или пощенски код — оставете това поле празно; сензорите се наричат sensor.sunyou_*.',
+        quickpac_account_help: 'Quickpac няма акаунт или пощенски код — оставете това поле празно; сензорите се наричат sensor.quickpac_*.',
         show_add_parcel: 'Показвай "Добави пратка" на картата',
         add_parcel_toggle: '+ Добави пратка',
         add_parcel_carrier: 'Превозвач',
@@ -743,6 +747,7 @@ const TRANSLATIONS = {
         nova_post_account_help: 'Nova Post nemá účet ani PSČ — ponechte toto pole prázdné; senzory se jmenují sensor.nova_post_*.',
         delhivery_account_help: 'Delhivery nemá účet ani PSČ — ponechte toto pole prázdné; senzory se jmenují sensor.delhivery_*.',
         sunyou_account_help: 'SunYou nemá účet ani PSČ — ponechte toto pole prázdné; senzory se jmenují sensor.sunyou_*.',
+        quickpac_account_help: 'Quickpac nemá účet ani PSČ — ponechte toto pole prázdné; senzory se jmenují sensor.quickpac_*.',
         show_add_parcel: 'Zobrazit "Přidat zásilku" na kartě',
         add_parcel_toggle: '+ Přidat zásilku',
         add_parcel_carrier: 'Dopravce',
@@ -911,6 +916,7 @@ const TRANSLATIONS = {
         nova_post_account_help: 'Nova Post har ingen konto eller postnummer — lad dette felt være tomt; sensorerne hedder sensor.nova_post_*.',
         delhivery_account_help: 'Delhivery har ingen konto eller postnummer — lad dette felt være tomt; sensorerne hedder sensor.delhivery_*.',
         sunyou_account_help: 'SunYou har ingen konto eller postnummer — lad dette felt være tomt; sensorerne hedder sensor.sunyou_*.',
+        quickpac_account_help: 'Quickpac har ingen konto eller postnummer — lad dette felt være tomt; sensorerne hedder sensor.quickpac_*.',
         show_add_parcel: 'Vis "Tilføj pakke" på kortet',
         add_parcel_toggle: '+ Tilføj pakke',
         add_parcel_carrier: 'Transportør',
@@ -1079,6 +1085,7 @@ const TRANSLATIONS = {
         nova_post_account_help: 'Nova Post hat kein Konto oder Postleitzahl — lasse dieses Feld leer; die Sensoren heißen sensor.nova_post_*.',
         delhivery_account_help: 'Delhivery hat kein Konto oder Postleitzahl — lasse dieses Feld leer; die Sensoren heißen sensor.delhivery_*.',
         sunyou_account_help: 'SunYou hat kein Konto oder Postleitzahl — lasse dieses Feld leer; die Sensoren heißen sensor.sunyou_*.',
+        quickpac_account_help: 'Quickpac hat kein Konto oder Postleitzahl — lasse dieses Feld leer; die Sensoren heißen sensor.quickpac_*.',
         show_add_parcel: '"Paket hinzufügen" auf der Karte anzeigen',
         add_parcel_toggle: '+ Paket hinzufügen',
         add_parcel_carrier: 'Zustelldienst',
@@ -1247,6 +1254,7 @@ const TRANSLATIONS = {
         nova_post_account_help: 'Nova Post no tiene cuenta ni código postal — deja este campo vacío; los sensores se llaman sensor.nova_post_*.',
         delhivery_account_help: 'Delhivery no tiene cuenta ni código postal — deja este campo vacío; los sensores se llaman sensor.delhivery_*.',
         sunyou_account_help: 'SunYou no tiene cuenta ni código postal — deja este campo vacío; los sensores se llaman sensor.sunyou_*.',
+        quickpac_account_help: 'Quickpac no tiene cuenta ni código postal — deja este campo vacío; los sensores se llaman sensor.quickpac_*.',
         show_add_parcel: 'Mostrar "Añadir paquete" en la tarjeta',
         add_parcel_toggle: '+ Añadir paquete',
         add_parcel_carrier: 'Transportista',
@@ -1415,6 +1423,7 @@ const TRANSLATIONS = {
         nova_post_account_help: 'Nova Postilla ei ole tiliä tai postinumeroa — jätä tämä kenttä tyhjäksi; anturit nimetään sensor.nova_post_*.',
         delhivery_account_help: 'Delhiverylla ei ole tiliä tai postinumeroa — jätä tämä kenttä tyhjäksi; anturit nimetään sensor.delhivery_*.',
         sunyou_account_help: 'SunYoulla ei ole tiliä tai postinumeroa — jätä tämä kenttä tyhjäksi; anturit nimetään sensor.sunyou_*.',
+        quickpac_account_help: 'Quickpaclla ei ole tiliä tai postinumeroa — jätä tämä kenttä tyhjäksi; anturit nimetään sensor.quickpac_*.',
         show_add_parcel: 'Näytä "Lisää paketti" kortissa',
         add_parcel_toggle: '+ Lisää paketti',
         add_parcel_carrier: 'Kuljetusyhtiö',
@@ -1583,6 +1592,7 @@ const TRANSLATIONS = {
         nova_post_account_help: 'Nova Post n\'a pas de compte ni de code postal — laissez ce champ vide ; les capteurs sont nommés sensor.nova_post_*.',
         delhivery_account_help: 'Delhivery n\'a pas de compte ni de code postal — laissez ce champ vide ; les capteurs sont nommés sensor.delhivery_*.',
         sunyou_account_help: 'SunYou n\'a pas de compte ni de code postal — laissez ce champ vide ; les capteurs sont nommés sensor.sunyou_*.',
+        quickpac_account_help: 'Quickpac n\'a pas de compte ni de code postal — laissez ce champ vide ; les capteurs sont nommés sensor.quickpac_*.',
         show_add_parcel: 'Afficher "Ajouter un colis" sur la carte',
         add_parcel_toggle: '+ Ajouter un colis',
         add_parcel_carrier: 'Transporteur',
@@ -1751,6 +1761,7 @@ const TRANSLATIONS = {
         nova_post_account_help: 'Nova Post का कोई खाता या पिन कोड नहीं है — इस फ़ील्ड को खाली छोड़ें; सेंसर का नाम sensor.nova_post_* होता है।',
         delhivery_account_help: 'Delhivery का कोई खाता या पिन कोड नहीं है — इस फ़ील्ड को खाली छोड़ें; सेंसर का नाम sensor.delhivery_* होता है।',
         sunyou_account_help: 'SunYou का कोई खाता या पिन कोड नहीं है — इस फ़ील्ड को खाली छोड़ें; सेंसर का नाम sensor.sunyou_* होता है।',
+        quickpac_account_help: 'Quickpac का कोई खाता या पिन कोड नहीं है — इस फ़ील्ड को खाली छोड़ें; सेंसर का नाम sensor.quickpac_* होता है।',
         show_add_parcel: 'कार्ड पर "पार्सल जोड़ें" दिखाएँ',
         add_parcel_toggle: '+ पार्सल जोड़ें',
         add_parcel_carrier: 'कैरियर',
@@ -1919,6 +1930,7 @@ const TRANSLATIONS = {
         nova_post_account_help: 'A Nova Post-nak nincs fiókja vagy irányítószáma — hagyja üresen ezt a mezőt; az érzékelők neve sensor.nova_post_*.',
         delhivery_account_help: 'A Delhivery-nek nincs fiókja vagy irányítószáma — hagyja üresen ezt a mezőt; az érzékelők neve sensor.delhivery_*.',
         sunyou_account_help: 'A SunYou-nak nincs fiókja vagy irányítószáma — hagyja üresen ezt a mezőt; az érzékelők neve sensor.sunyou_*.',
+        quickpac_account_help: 'A Quickpac-nak nincs fiókja vagy irányítószáma — hagyja üresen ezt a mezőt; az érzékelők neve sensor.quickpac_*.',
         show_add_parcel: '"Csomag hozzáadása" megjelenítése a kártyán',
         add_parcel_toggle: '+ Csomag hozzáadása',
         add_parcel_carrier: 'Szolgáltató',
@@ -2087,6 +2099,7 @@ const TRANSLATIONS = {
         nova_post_account_help: 'Nova Post non ha account o CAP — lascia questo campo vuoto; i sensori si chiamano sensor.nova_post_*.',
         delhivery_account_help: 'Delhivery non ha account o CAP — lascia questo campo vuoto; i sensori si chiamano sensor.delhivery_*.',
         sunyou_account_help: 'SunYou non ha account o CAP — lascia questo campo vuoto; i sensori si chiamano sensor.sunyou_*.',
+        quickpac_account_help: 'Quickpac non ha account o CAP — lascia questo campo vuoto; i sensori si chiamano sensor.quickpac_*.',
         show_add_parcel: 'Mostra "Aggiungi pacco" sulla scheda',
         add_parcel_toggle: '+ Aggiungi pacco',
         add_parcel_carrier: 'Corriere',
@@ -2255,6 +2268,7 @@ const TRANSLATIONS = {
         nova_post_account_help: 'Nova Post har ingen konto eller postnummer — la dette feltet stå tomt; sensorene heter sensor.nova_post_*.',
         delhivery_account_help: 'Delhivery har ingen konto eller postnummer — la dette feltet stå tomt; sensorene heter sensor.delhivery_*.',
         sunyou_account_help: 'SunYou har ingen konto eller postnummer — la dette feltet stå tomt; sensorene heter sensor.sunyou_*.',
+        quickpac_account_help: 'Quickpac har ingen konto eller postnummer — la dette feltet stå tomt; sensorene heter sensor.quickpac_*.',
         show_add_parcel: 'Vis "Legg til pakke" på kortet',
         add_parcel_toggle: '+ Legg til pakke',
         add_parcel_carrier: 'Transportør',
@@ -2423,6 +2437,7 @@ const TRANSLATIONS = {
         nova_post_account_help: 'Nova Post nie ma konta ani kodu pocztowego — pozostaw to pole puste; czujniki nazywają się sensor.nova_post_*.',
         delhivery_account_help: 'Delhivery nie ma konta ani kodu pocztowego — pozostaw to pole puste; czujniki nazywają się sensor.delhivery_*.',
         sunyou_account_help: 'SunYou nie ma konta ani kodu pocztowego — pozostaw to pole puste; czujniki nazywają się sensor.sunyou_*.',
+        quickpac_account_help: 'Quickpac nie ma konta ani kodu pocztowego — pozostaw to pole puste; czujniki nazywają się sensor.quickpac_*.',
         show_add_parcel: 'Pokaż "Dodaj paczkę" na karcie',
         add_parcel_toggle: '+ Dodaj paczkę',
         add_parcel_carrier: 'Przewoźnik',
@@ -2591,6 +2606,7 @@ const TRANSLATIONS = {
         nova_post_account_help: 'A Nova Post não tem conta nem código postal — deixe este campo vazio; os sensores chamam-se sensor.nova_post_*.',
         delhivery_account_help: 'A Delhivery não tem conta nem código postal — deixe este campo vazio; os sensores chamam-se sensor.delhivery_*.',
         sunyou_account_help: 'A SunYou não tem conta nem código postal — deixe este campo vazio; os sensores chamam-se sensor.sunyou_*.',
+        quickpac_account_help: 'A Quickpac não tem conta nem código postal — deixe este campo vazio; os sensores chamam-se sensor.quickpac_*.',
         show_add_parcel: 'Mostrar "Adicionar encomenda" no cartão',
         add_parcel_toggle: '+ Adicionar encomenda',
         add_parcel_carrier: 'Transportadora',
@@ -2759,6 +2775,7 @@ const TRANSLATIONS = {
         nova_post_account_help: 'Nova Post nu are cont sau cod poștal — lăsați acest câmp gol; senzorii se numesc sensor.nova_post_*.',
         delhivery_account_help: 'Delhivery nu are cont sau cod poștal — lăsați acest câmp gol; senzorii se numesc sensor.delhivery_*.',
         sunyou_account_help: 'SunYou nu are cont sau cod poștal — lăsați acest câmp gol; senzorii se numesc sensor.sunyou_*.',
+        quickpac_account_help: 'Quickpac nu are cont sau cod poștal — lăsați acest câmp gol; senzorii se numesc sensor.quickpac_*.',
         show_add_parcel: 'Afișează "Adaugă colet" pe card',
         add_parcel_toggle: '+ Adaugă colet',
         add_parcel_carrier: 'Curier',
@@ -2927,6 +2944,7 @@ const TRANSLATIONS = {
         nova_post_account_help: 'Nova Post nemá účet ani PSČ — ponechajte toto pole prázdne; senzory sa volajú sensor.nova_post_*.',
         delhivery_account_help: 'Delhivery nemá účet ani PSČ — ponechajte toto pole prázdne; senzory sa volajú sensor.delhivery_*.',
         sunyou_account_help: 'SunYou nemá účet ani PSČ — ponechajte toto pole prázdne; senzory sa volajú sensor.sunyou_*.',
+        quickpac_account_help: 'Quickpac nemá účet ani PSČ — ponechajte toto pole prázdne; senzory sa volajú sensor.quickpac_*.',
         show_add_parcel: 'Zobraziť "Pridať zásielku" na karte',
         add_parcel_toggle: '+ Pridať zásielku',
         add_parcel_carrier: 'Dopravca',
@@ -3095,6 +3113,7 @@ const TRANSLATIONS = {
         nova_post_account_help: 'Nova Post har inget konto eller postnummer — lämna detta fält tomt; sensorerna heter sensor.nova_post_*.',
         delhivery_account_help: 'Delhivery har inget konto eller postnummer — lämna detta fält tomt; sensorerna heter sensor.delhivery_*.',
         sunyou_account_help: 'SunYou har inget konto eller postnummer — lämna detta fält tomt; sensorerna heter sensor.sunyou_*.',
+        quickpac_account_help: 'Quickpac har inget konto eller postnummer — lämna detta fält tomt; sensorerna heter sensor.quickpac_*.',
         show_add_parcel: 'Visa "Lägg till paket" på kortet',
         add_parcel_toggle: '+ Lägg till paket',
         add_parcel_carrier: 'Transportör',
@@ -3263,6 +3282,7 @@ const TRANSLATIONS = {
         nova_post_account_help: 'Nova Post не має облікового запису чи поштового індексу — залиште це поле порожнім; сенсори називаються sensor.nova_post_*.',
         delhivery_account_help: 'Delhivery не має облікового запису чи поштового індексу — залиште це поле порожнім; сенсори називаються sensor.delhivery_*.',
         sunyou_account_help: 'SunYou не має облікового запису чи поштового індексу — залиште це поле порожнім; сенсори називаються sensor.sunyou_*.',
+        quickpac_account_help: 'Quickpac не має облікового запису чи поштового індексу — залиште це поле порожнім; сенсори називаються sensor.quickpac_*.',
         show_add_parcel: 'Показати "Додати посилку" на картці',
         add_parcel_toggle: '+ Додати посилку',
         add_parcel_carrier: 'Перевізник',
@@ -3344,6 +3364,8 @@ const IMG = {
     nova_post: `${REPO_BASE}/nova_post`,
     delhivery: `${REPO_BASE}/delhivery`,
     sunyou:    `${REPO_BASE}/sunyou`,
+    an_post:   `${REPO_BASE}/an_post`,
+    quickpac:  `${REPO_BASE}/quickpac`,
 };
 
 // Points at the ha-parcel-integrations org, not the individual maintainers' personal repos
@@ -3375,6 +3397,8 @@ const CARRIER_REPO_URLS = {
     nova_post: 'https://github.com/ha-parcel-integrations/ha-nova-post',
     delhivery: 'https://github.com/ha-parcel-integrations/ha-delhivery',
     sunyou:    'https://github.com/ha-parcel-integrations/ha-sunyou',
+    an_post:   'https://github.com/ha-parcel-integrations/ha-an-post',
+    quickpac:  'https://github.com/ha-parcel-integrations/ha-quickpac',
 };
 
 const CARRIER_ASSETS = {
@@ -3741,6 +3765,39 @@ const CARRIER_ASSETS = {
             delivered_mini:  `${IMG.sunyou}/sunyou_step_delivered_mini.png?raw=true`
         }
     },
+    // An Post art: step icons and the animated van are the shared GLS master illustration
+    // hue-shifted to the confirmed brand green (#00b065, the fill colour in An Post's own official
+    // logo SVG). The logo is that same official "an post" wordmark, including its swirl-in-the-o mark.
+    an_post: {
+        logo:   `${IMG.an_post}/an_post-logo.svg?raw=true`,
+        van:    `${IMG.an_post}/an_post-van.gif?raw=true`,
+        banner: `${IMG.an_post}/an_post-banner.png?raw=true`,
+        steps: {
+            registered:      `${IMG.an_post}/an_post_step_registered.png?raw=true`,
+            registered_mini: `${IMG.an_post}/an_post_step_registered_mini.png?raw=true`,
+            sorting:         `${IMG.an_post}/an_post_step_sorting.png?raw=true`,
+            transit:         `${IMG.an_post}/an_post_step_transit.png?raw=true`,
+            delivered:       `${IMG.an_post}/an_post_step_delivered.png?raw=true`,
+            delivered_mini:  `${IMG.an_post}/an_post_step_delivered_mini.png?raw=true`
+        }
+    },
+    // Quickpac art: step icons and the animated van are the shared GLS master illustration
+    // hue-shifted to the confirmed brand green (#34a02e, pixel-sampled from Quickpac's own logo —
+    // the wordmark's dark "pac" half, #1f1f1f, is plain near-black text, not a brand accent).
+    // The logo is Quickpac's own "quickpac" wordmark with its accent dot.
+    quickpac: {
+        logo:   `${IMG.quickpac}/quickpac-logo.svg?raw=true`,
+        van:    `${IMG.quickpac}/quickpac-van.gif?raw=true`,
+        banner: `${IMG.quickpac}/quickpac-banner.png?raw=true`,
+        steps: {
+            registered:      `${IMG.quickpac}/quickpac_step_registered.png?raw=true`,
+            registered_mini: `${IMG.quickpac}/quickpac_step_registered_mini.png?raw=true`,
+            sorting:         `${IMG.quickpac}/quickpac_step_sorting.png?raw=true`,
+            transit:         `${IMG.quickpac}/quickpac_step_transit.png?raw=true`,
+            delivered:       `${IMG.quickpac}/quickpac_step_delivered.png?raw=true`,
+            delivered_mini:  `${IMG.quickpac}/quickpac_step_delivered_mini.png?raw=true`
+        }
+    },
     postnl_legacy: {
         logo:   `${IMG.postnl}/postnl-logo.png?raw=true`,
         van:    `${IMG.postnl}/postnl-van.gif?raw=true`,
@@ -3857,6 +3914,15 @@ const CARRIER_PRESETS = {
     // prominent accent colour). SunYou (SYPost) is a China-based cross-border courier.
     sunyou:       { label: 'SunYou',                     icon: 'mdi:package-variant-closed', color: '#29a03a', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'sunyou',
                     track_parcel_service: { domain: 'sunyou', field: 'tracking_code', supports_postal_code: false } },
+    // Account-based like postnl_v4/dhl/dpd (login through An Post's own identity service, no
+    // tracking-code entry) — so no track_parcel_service/"+ Add parcel" control. Brand colour
+    // confirmed from the fill value in An Post's own logo SVG (green, #00b065). Incoming only —
+    // ha-an-post has no outgoing/outgoing_delivered sensor.
+    an_post:      { label: 'An Post',                    icon: 'mdi:package-variant-closed', color: '#00b065', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'an_post' },
+    // Brand colour pixel-sampled from Quickpac's own logo (green, #34a02e — the "quick" half; the
+    // "pac" half is plain near-black text, not an accent). Tracking code only, no postal code.
+    quickpac:     { label: 'Quickpac',                   icon: 'mdi:package-variant-closed', color: '#34a02e', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'quickpac',
+                    track_parcel_service: { domain: 'quickpac', field: 'tracking_code', supports_postal_code: false } },
     postnl_legacy:{ label: 'PostNL (ArjenBos)',          icon: 'mdi:package-variant-closed', color: '#ed8c00', schema: 'single_entity', supports_letters: false, sensor_slug: null     },
     custom:       { label: 'Custom',                     icon: 'mdi:package-variant-closed', color: '#ed8c00', schema: 'canonical',     supports_letters: false, sensor_slug: null     }
 };
@@ -4015,7 +4081,7 @@ function detectCarrierUsers(hass, carrierType) {
 // recommended default and the user can switch the type manually if they're
 // still on v3.x) and postnl_legacy / custom (sensor_slug is null — no
 // entity-based detection is possible for those).
-const AUTO_DETECT_CARRIER_TYPES = ['postnl_v4', 'dhl', 'dpd', 'vinted_go', 'gls', 'dragonfly', 'trunkrs', 'cainiao', 'hermes', 'packeta', 'correos', 'postnord', 'sameday', 'swiss_post', 'planzer', 'austrian_post', 'helthjem', 'dynalogic', 'budbee', 'nova_post', 'delhivery', 'sunyou'];
+const AUTO_DETECT_CARRIER_TYPES = ['postnl_v4', 'dhl', 'dpd', 'vinted_go', 'gls', 'dragonfly', 'trunkrs', 'cainiao', 'hermes', 'packeta', 'correos', 'postnord', 'sameday', 'swiss_post', 'planzer', 'austrian_post', 'helthjem', 'dynalogic', 'budbee', 'nova_post', 'delhivery', 'sunyou', 'an_post', 'quickpac'];
 
 // Infers a sensible days_back for a freshly auto-populated card: the number
 // of days since the oldest currently-visible delivered parcel, across every
@@ -6686,6 +6752,8 @@ class HkiParcelsCardEditor extends LitElement {
                             { value: 'nova_post',     label: 'Nova Post' },
                             { value: 'delhivery',     label: 'Delhivery' },
                             { value: 'sunyou',        label: 'SunYou' },
+                            { value: 'an_post',       label: 'An Post' },
+                            { value: 'quickpac',      label: 'Quickpac' },
                             { value: 'postnl',        label: 'PostNL (<v4.x)' },
                             { value: 'postnl_legacy', label: 'PostNL (ArjenBos)' },
                             { value: 'custom',        label: 'Custom' }

@@ -123,6 +123,7 @@
     "nova_post_account_help": "Nova Post heeft geen account of postcode — laat dit veld leeg; de sensoren heten sensor.nova_post_*.",
     "delhivery_account_help": "Delhivery heeft geen account of postcode — laat dit veld leeg; de sensoren heten sensor.delhivery_*.",
     "sunyou_account_help": "SunYou heeft geen account of postcode — laat dit veld leeg; de sensoren heten sensor.sunyou_*.",
+    "quickpac_account_help": "Quickpac heeft geen account of postcode — laat dit veld leeg; de sensoren heten sensor.quickpac_*.",
     "show_add_parcel": "Toon \"Pakket toevoegen\" op de kaart",
     "add_parcel_toggle": "+ Pakket toevoegen",
     "add_parcel_carrier": "Dienst",

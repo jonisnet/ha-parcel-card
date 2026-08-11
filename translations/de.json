@@ -1,5 +1,7 @@
 {
-    "_meta": { "machine_drafted": true },
+    "_meta": {
+        "machine_drafted": true
+    },
     "tab_in_transit": "Unterwegs",
     "tab_delivered": "Zugestellt",
     "tab_sent": "Versendet",
@@ -124,6 +126,7 @@
     "nova_post_account_help": "Nova Post hat kein Konto oder Postleitzahl — lasse dieses Feld leer; die Sensoren heißen sensor.nova_post_*.",
     "delhivery_account_help": "Delhivery hat kein Konto oder Postleitzahl — lasse dieses Feld leer; die Sensoren heißen sensor.delhivery_*.",
     "sunyou_account_help": "SunYou hat kein Konto oder Postleitzahl — lasse dieses Feld leer; die Sensoren heißen sensor.sunyou_*.",
+    "quickpac_account_help": "Quickpac hat kein Konto oder Postleitzahl — lasse dieses Feld leer; die Sensoren heißen sensor.quickpac_*.",
     "show_add_parcel": "\"Paket hinzufügen\" auf der Karte anzeigen",
     "add_parcel_toggle": "+ Paket hinzufügen",
     "add_parcel_carrier": "Zustelldienst",

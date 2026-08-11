@@ -50,7 +50,7 @@ The card supports three PostNL variants.
 
     **PostNL (ArjenBos)** will also be removed starting from v2.0, unless [arjenbos/ha-postnl](https://github.com/arjenbos/ha-postnl) receives an update of its own before that point.
 
-### DHL, DPD, Vinted Go and GLS
+### DHL, DPD, Vinted Go, GLS and An Post
 
 | Carrier | Integration |
 | ------- | ----------- |
@@ -58,6 +58,7 @@ The card supports three PostNL variants.
 | **DPD** | [ha-parcel-integrations/ha-dpd](https://github.com/ha-parcel-integrations/ha-dpd) |
 | **Vinted Go** | [ha-parcel-integrations/ha-vinted-go](https://github.com/ha-parcel-integrations/ha-vinted-go) |
 | **GLS** | [ha-parcel-integrations/ha-gls](https://github.com/ha-parcel-integrations/ha-gls) |
+| **An Post** | [ha-parcel-integrations/ha-an-post](https://github.com/ha-parcel-integrations/ha-an-post) |
 
 !!! note "GLS has no sender/account"
     You track parcels by tracking number and postal code, not a login. The card's `user` field maps to the hub's postal code (e.g. `1234ab`), and the Sent tab is not available for this carrier.
@@ -65,7 +66,10 @@ The card supports three PostNL variants.
 !!! note "Vinted Go logs in with e-mail, not a password"
     Login is an e-mail address plus a verification link — there's no password and no way to register a tracking number directly, so like PostNL/DHL/DPD it has no `track_parcel` service and doesn't get the card's "+ Add parcel" control. Unlike PostNL/DHL/DPD and every account-less carrier below, Vinted Go tracks both incoming *and* outgoing parcels (it's built around Vinted's peer-to-peer resale marketplace). There's no `next_delivery`/ETA sensor for this integration at all.
 
-### Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee, Nova Post, Delhivery and SunYou
+!!! note "An Post is account-based but incoming only"
+    Like DHL/DPD, you log into your own An Post account (e-mail + password) rather than entering tracking codes — so no `track_parcel` service and no "+ Add parcel" control. Unlike DHL/DPD, there's no outgoing/Sent support: `ha-an-post` only exposes incoming and delivered parcels. Ireland's national postal operator.
+
+### Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee, Nova Post, Delhivery, SunYou and Quickpac
 
 These, together with GLS above, are the "account-less" carriers in the family: instead of logging into an account, you register individual parcels by tracking number (plus a postal code for GLS and Trunkrs). None of them have a Sent tab except Budbee, since there's no sender/account concept to distinguish outgoing parcels for the rest.
 
@@ -88,6 +92,7 @@ These, together with GLS above, are the "account-less" carriers in the family: i
 | **Nova Post** | [ha-parcel-integrations/ha-nova-post](https://github.com/ha-parcel-integrations/ha-nova-post) | Tracking code only — no account, no postal code. Ukraine's largest private courier network (Nova Poshta) |
 | **Delhivery** | [ha-parcel-integrations/ha-delhivery](https://github.com/ha-parcel-integrations/ha-delhivery) | Tracking code only — no account, no postal code. India-based logistics company |
 | **SunYou** | [ha-parcel-integrations/ha-sunyou](https://github.com/ha-parcel-integrations/ha-sunyou) | Tracking code only — no account, no postal code. China-based cross-border courier (SYPost) |
+| **Quickpac** | [ha-parcel-integrations/ha-quickpac](https://github.com/ha-parcel-integrations/ha-quickpac) | Shipment number only — no account, no postal code. Switzerland; delivery arm for Galaxus/Digitec and other Swiss e-commerce |
 
 !!! info "Dragonfly's original integration"
     Dragonfly support was created by [Alwin Hummels (@HummelsTech)](https://github.com/HummelsTech), who maintains it standalone at [HummelsTech/ha-dragonfly](https://github.com/HummelsTech/ha-dragonfly) as well as the mirror in ha-parcel-integrations linked above — either one works with this card. These docs default to the ha-parcel-integrations link to keep every integration under one roof, but the original repo is just as valid a choice, and updates may land there first.
@@ -122,16 +127,18 @@ Coverage varies by carrier:
 | Correos | ✅ real logo |
 | Vinted Go | ❌ not available yet |
 | PostNord | ❌ wordmark-only brand, no standalone icon mark exists |
-| Sameday | ❌ not submitted upstream yet |
+| Sameday | ⏳ submitted upstream, pending merge ([#1435](https://github.com/elax46/custom-brand-icons/pull/1435)) |
 | Swiss Post | ✅ real logo |
 | Planzer | ❌ wordmark-only brand, no standalone icon mark exists |
 | Austrian Post | ✅ real logo |
-| Helthjem | ❌ not submitted upstream yet |
+| Helthjem | ⏳ submitted upstream, pending merge ([#1435](https://github.com/elax46/custom-brand-icons/pull/1435)) |
 | Dynalogic | ❌ wordmark-only brand, no standalone icon mark exists |
-| Budbee | ❌ not available yet |
-| Nova Post | ❌ not available yet |
+| Budbee | ⏳ submitted upstream, pending merge ([#1435](https://github.com/elax46/custom-brand-icons/pull/1435)) |
+| Nova Post | ⏳ submitted upstream, pending merge ([#1435](https://github.com/elax46/custom-brand-icons/pull/1435)) |
 | Delhivery | ❌ not available yet |
 | SunYou | ✅ real logo |
+| An Post | ✅ real logo |
+| Quickpac | ❌ wordmark + plain accent dot, no standalone icon mark to extract |
 
 Carriers without a proper branded icon yet fall back to a generic `mdi:package-variant-closed` icon.
 

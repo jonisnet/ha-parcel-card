@@ -1,5 +1,21 @@
 # Changelog
 
+## [2.0.0b1] — 2026-08-11 (beta, `v2.0.0-dev` branch)
+
+### Added
+
+- **An Post** (Ireland) and **Quickpac** (Switzerland) carrier support — both went live in
+  `ha-parcel-integrations` after peternijssen flagged them as being researched
+  ([org discussion #3](https://github.com/ha-parcel-integrations/.github/discussions/3)); the
+  branding assets (logo, van, banner, step icons) were prepared in advance of the integrations
+  shipping. An Post is account-based like DHL/DPD (no "+ Add parcel" control, incoming only —
+  `ha-an-post` has no outgoing sensor). Quickpac is account-less/tracking-code-only like Sameday
+  et al. An Post also gets a real `phu:` icon (`phu:anpost`, already live in custom-brand-icons);
+  Quickpac falls back to the generic `mdi:` icon — its logo is a plain wordmark + accent dot, no
+  distinct pictorial mark to extract.
+- This starts the `v2.0.0-dev` branch/beta cycle — `main` stays on the v1.7.x line so bugfixes can
+  keep shipping there independently while v2.0.0 is worked toward.
+
 ## [1.7.1] — 2026-08-11
 
 ### Added

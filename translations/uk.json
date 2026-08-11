@@ -1,5 +1,7 @@
 {
-    "_meta": { "machine_drafted": true },
+    "_meta": {
+        "machine_drafted": true
+    },
     "tab_in_transit": "В дорозі",
     "tab_delivered": "Доставлено",
     "tab_sent": "Надіслано",
@@ -124,6 +126,7 @@
     "nova_post_account_help": "Nova Post не має облікового запису чи поштового індексу — залиште це поле порожнім; сенсори називаються sensor.nova_post_*.",
     "delhivery_account_help": "Delhivery не має облікового запису чи поштового індексу — залиште це поле порожнім; сенсори називаються sensor.delhivery_*.",
     "sunyou_account_help": "SunYou не має облікового запису чи поштового індексу — залиште це поле порожнім; сенсори називаються sensor.sunyou_*.",
+    "quickpac_account_help": "Quickpac не має облікового запису чи поштового індексу — залиште це поле порожнім; сенсори називаються sensor.quickpac_*.",
     "show_add_parcel": "Показати \"Додати посилку\" на картці",
     "add_parcel_toggle": "+ Додати посилку",
     "add_parcel_carrier": "Перевізник",

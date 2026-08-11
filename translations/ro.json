@@ -1,5 +1,7 @@
 {
-    "_meta": { "machine_drafted": true },
+    "_meta": {
+        "machine_drafted": true
+    },
     "tab_in_transit": "În tranzit",
     "tab_delivered": "Livrat",
     "tab_sent": "Trimis",
@@ -124,6 +126,7 @@
     "nova_post_account_help": "Nova Post nu are cont sau cod poștal — lăsați acest câmp gol; senzorii se numesc sensor.nova_post_*.",
     "delhivery_account_help": "Delhivery nu are cont sau cod poștal — lăsați acest câmp gol; senzorii se numesc sensor.delhivery_*.",
     "sunyou_account_help": "SunYou nu are cont sau cod poștal — lăsați acest câmp gol; senzorii se numesc sensor.sunyou_*.",
+    "quickpac_account_help": "Quickpac nu are cont sau cod poștal — lăsați acest câmp gol; senzorii se numesc sensor.quickpac_*.",
     "show_add_parcel": "Afișează \"Adaugă colet\" pe card",
     "add_parcel_toggle": "+ Adaugă colet",
     "add_parcel_carrier": "Curier",

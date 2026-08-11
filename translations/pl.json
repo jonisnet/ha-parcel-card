@@ -1,5 +1,7 @@
 {
-    "_meta": { "machine_drafted": true },
+    "_meta": {
+        "machine_drafted": true
+    },
     "tab_in_transit": "W drodze",
     "tab_delivered": "Dostarczone",
     "tab_sent": "Wysłane",
@@ -124,6 +126,7 @@
     "nova_post_account_help": "Nova Post nie ma konta ani kodu pocztowego — pozostaw to pole puste; czujniki nazywają się sensor.nova_post_*.",
     "delhivery_account_help": "Delhivery nie ma konta ani kodu pocztowego — pozostaw to pole puste; czujniki nazywają się sensor.delhivery_*.",
     "sunyou_account_help": "SunYou nie ma konta ani kodu pocztowego — pozostaw to pole puste; czujniki nazywają się sensor.sunyou_*.",
+    "quickpac_account_help": "Quickpac nie ma konta ani kodu pocztowego — pozostaw to pole puste; czujniki nazywają się sensor.quickpac_*.",
     "show_add_parcel": "Pokaż \"Dodaj paczkę\" na karcie",
     "add_parcel_toggle": "+ Dodaj paczkę",
     "add_parcel_carrier": "Przewoźnik",

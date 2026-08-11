@@ -1,5 +1,7 @@
 {
-    "_meta": { "machine_drafted": true },
+    "_meta": {
+        "machine_drafted": true
+    },
     "tab_in_transit": "Úton",
     "tab_delivered": "Kézbesítve",
     "tab_sent": "Küldött",
@@ -124,6 +126,7 @@
     "nova_post_account_help": "A Nova Post-nak nincs fiókja vagy irányítószáma — hagyja üresen ezt a mezőt; az érzékelők neve sensor.nova_post_*.",
     "delhivery_account_help": "A Delhivery-nek nincs fiókja vagy irányítószáma — hagyja üresen ezt a mezőt; az érzékelők neve sensor.delhivery_*.",
     "sunyou_account_help": "A SunYou-nak nincs fiókja vagy irányítószáma — hagyja üresen ezt a mezőt; az érzékelők neve sensor.sunyou_*.",
+    "quickpac_account_help": "A Quickpac-nak nincs fiókja vagy irányítószáma — hagyja üresen ezt a mezőt; az érzékelők neve sensor.quickpac_*.",
     "show_add_parcel": "\"Csomag hozzáadása\" megjelenítése a kártyán",
     "add_parcel_toggle": "+ Csomag hozzáadása",
     "add_parcel_carrier": "Szolgáltató",

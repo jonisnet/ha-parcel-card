@@ -1,5 +1,7 @@
 {
-    "_meta": { "machine_drafted": true },
+    "_meta": {
+        "machine_drafted": true
+    },
     "tab_in_transit": "In transito",
     "tab_delivered": "Consegnato",
     "tab_sent": "Inviato",
@@ -124,6 +126,7 @@
     "nova_post_account_help": "Nova Post non ha account o CAP — lascia questo campo vuoto; i sensori si chiamano sensor.nova_post_*.",
     "delhivery_account_help": "Delhivery non ha account o CAP — lascia questo campo vuoto; i sensori si chiamano sensor.delhivery_*.",
     "sunyou_account_help": "SunYou non ha account o CAP — lascia questo campo vuoto; i sensori si chiamano sensor.sunyou_*.",
+    "quickpac_account_help": "Quickpac non ha account o CAP — lascia questo campo vuoto; i sensori si chiamano sensor.quickpac_*.",
     "show_add_parcel": "Mostra \"Aggiungi pacco\" sulla scheda",
     "add_parcel_toggle": "+ Aggiungi pacco",
     "add_parcel_carrier": "Corriere",

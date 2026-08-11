@@ -1,5 +1,7 @@
 {
-    "_meta": { "machine_drafted": true },
+    "_meta": {
+        "machine_drafted": true
+    },
     "tab_in_transit": "Matkalla",
     "tab_delivered": "Toimitettu",
     "tab_sent": "Lähetetty",
@@ -124,6 +126,7 @@
     "nova_post_account_help": "Nova Postilla ei ole tiliä tai postinumeroa — jätä tämä kenttä tyhjäksi; anturit nimetään sensor.nova_post_*.",
     "delhivery_account_help": "Delhiverylla ei ole tiliä tai postinumeroa — jätä tämä kenttä tyhjäksi; anturit nimetään sensor.delhivery_*.",
     "sunyou_account_help": "SunYoulla ei ole tiliä tai postinumeroa — jätä tämä kenttä tyhjäksi; anturit nimetään sensor.sunyou_*.",
+    "quickpac_account_help": "Quickpaclla ei ole tiliä tai postinumeroa — jätä tämä kenttä tyhjäksi; anturit nimetään sensor.quickpac_*.",
     "show_add_parcel": "Näytä \"Lisää paketti\" kortissa",
     "add_parcel_toggle": "+ Lisää paketti",
     "add_parcel_carrier": "Kuljetusyhtiö",

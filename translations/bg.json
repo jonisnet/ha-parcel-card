@@ -1,5 +1,7 @@
 {
-    "_meta": { "machine_drafted": true },
+    "_meta": {
+        "machine_drafted": true
+    },
     "tab_in_transit": "По пътя",
     "tab_delivered": "Доставено",
     "tab_sent": "Изпратено",
@@ -124,6 +126,7 @@
     "nova_post_account_help": "Nova Post няма акаунт или пощенски код — оставете това поле празно; сензорите се наричат sensor.nova_post_*.",
     "delhivery_account_help": "Delhivery няма акаунт или пощенски код — оставете това поле празно; сензорите се наричат sensor.delhivery_*.",
     "sunyou_account_help": "SunYou няма акаунт или пощенски код — оставете това поле празно; сензорите се наричат sensor.sunyou_*.",
+    "quickpac_account_help": "Quickpac няма акаунт или пощенски код — оставете това поле празно; сензорите се наричат sensor.quickpac_*.",
     "show_add_parcel": "Показвай \"Добави пратка\" на картата",
     "add_parcel_toggle": "+ Добави пратка",
     "add_parcel_carrier": "Превозвач",
