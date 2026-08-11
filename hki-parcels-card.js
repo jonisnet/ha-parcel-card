@@ -3966,6 +3966,42 @@ const CANONICAL_SUFFIXES = {
     letters:            ['letters', 'brieven'],
 };
 
+// Real Home Assistant integration domain per carrier type, when it differs from
+// CARRIER_PRESETS[type].sensor_slug (which exists to build entity_id text guesses,
+// not to name the actual integration). Only DHL differs today (domain dhl_nl,
+// sensor_slug 'dhl' kept for entity_id-guessing/backward compatibility) — confirmed
+// against each integration's own custom_components folder name, not assumed. Used
+// by the translation_key registry lookup below, which needs the real platform value.
+const PLATFORM_DOMAIN = { dhl: 'dhl_nl' };
+
+// Groups a carrier's sensor entities by device, keyed off Home Assistant's own
+// (unlocalized) translation_key rather than guessed entity_id text — this is what
+// makes account/entity detection actually language-proof. Background: a
+// has_entity_name entity's entity_id suffix is derived from whatever language the
+// HA frontend was displaying when the entity was first created, not from its
+// (always-English) translation_key — CANONICAL_SUFFIXES below patches specific
+// known words (English/Dutch) onto that guess, but that only ever covers
+// languages someone thought to add. A German-language GLS account broke the card
+// outright (jonisnet/hki-parcels-card#14 — reported via
+// ha-parcel-integrations/.github#3) because "eingehende Pakete" wasn't on that
+// list; the next new language would have broken it again. translation_key never
+// changes with locale, so matching on it sidesteps the whole problem instead of
+// extending the word list forever. Requires `hass.entities` (the lightweight
+// frontend entity-registry cache, standard on modern Home Assistant) — returns an
+// empty map when unavailable, so callers fall back to the text-guessing path.
+function registryEntitiesByDevice(hass, domain) {
+    const byDevice = new Map();
+    if (!hass?.entities) return byDevice;
+    for (const [entityId, entry] of Object.entries(hass.entities)) {
+        if (!entityId.startsWith('sensor.')) continue;
+        if (entry.platform !== domain) continue;
+        const key = entry.device_id || entityId;
+        if (!byDevice.has(key)) byDevice.set(key, []);
+        byDevice.get(key).push({ entityId, translationKey: entry.translation_key });
+    }
+    return byDevice;
+}
+
 // Builds a candidate entity_id and, when `hass` is available, verifies it
 // against real state before accepting it. Tries the primary guess
 // (`base` + `suffix`) first, then `base` + every alternate in
@@ -4000,11 +4036,30 @@ function resolveEntityId(hass, base, altBase, slotKey, suffix, preset) {
     return guess;
 }
 
-function buildTemplatedEntities(user, carrierType, slugFirst = false, hass = null) {
+// `deviceId`, when given (from a registry-detected account — see
+// detectCarrierUsers/registryEntitiesByDevice above), resolves every slot by
+// translation_key within that device instead of guessing entity_id text at all;
+// this is what actually fixes the "unknown language" case, since there's no
+// suffix word to guess in the first place. Omit it (the default, for manually
+// typed/edited `user` values with no known device) to keep the original
+// text-guessing behaviour exactly as before.
+function buildTemplatedEntities(user, carrierType, slugFirst = false, hass = null, deviceId = null) {
     const preset = CARRIER_PRESETS[carrierType] || CARRIER_PRESETS.custom;
     const slug = preset.sensor_slug;
     if (!slug) {
         return { entity_incoming: null, entity_delivered: null, entity_outgoing: null, entity_outgoing_delivered: null, entity_letters: null };
+    }
+    if (deviceId && hass?.entities) {
+        const domain = PLATFORM_DOMAIN[carrierType] || slug;
+        const entities = registryEntitiesByDevice(hass, domain).get(deviceId) || [];
+        const byKey = (key) => entities.find(e => e.translationKey === key)?.entityId || null;
+        return {
+            entity_incoming:           byKey('incoming_parcels'),
+            entity_delivered:          byKey('delivered_parcels'),
+            entity_outgoing:           preset.supports_outgoing !== false ? byKey('outgoing_parcels') : null,
+            entity_outgoing_delivered: preset.supports_outgoing !== false ? byKey('outgoing_delivered_parcels') : null,
+            entity_letters:            preset.supports_letters ? byKey('letters') : null
+        };
     }
     const u = slugifyUserSlug(user);
     const userFirstBase = u ? `${u}_${slug}` : slug;
@@ -4033,8 +4088,8 @@ function buildTemplatedEntities(user, carrierType, slugFirst = false, hass = nul
     };
 }
 
-// Returns { user, slugFirst }[] for all detected accounts of a carrier type.
-// Tries every known "incoming" suffix — the carrier's own override (if any)
+// Returns { user, slugFirst, deviceId }[] for all detected accounts of a carrier
+// type. Tries every known "incoming" suffix — the carrier's own override (if any)
 // plus the universal English/Dutch alternates in CANONICAL_SUFFIXES — against
 // both "sensor.<user>_<slug>_<suffix>" and "sensor.<slug>_<user>_<suffix>",
 // since language and prefix ordering can each vary independently per sensor
@@ -4042,6 +4097,16 @@ function buildTemplatedEntities(user, carrierType, slugFirst = false, hass = nul
 // the editor instance) so both the editor's account-detection UI and
 // HkiParcelsCard.getStubConfig() (auto-populating carriers on first add) can
 // use it.
+//
+// After that text-based pass, also runs a translation_key-based pass via
+// registryEntitiesByDevice() and adds any account it finds that the text pass
+// missed — this is what catches a suffix word in a language CANONICAL_SUFFIXES
+// doesn't know about (see that function's comment for the full story). Entries
+// found this way carry a non-null `deviceId`; pass it on to
+// buildTemplatedEntities() to resolve their actual entity_ids by translation_key
+// too, since there's no reliable suffix text to guess for them in the first
+// place. `user` for these is best-effort (the device's own display name,
+// slugified) — cosmetic only, it doesn't feed back into any suffix guess.
 function detectCarrierUsers(hass, carrierType) {
     if (!hass) return [];
     const preset = CARRIER_PRESETS[carrierType];
@@ -4063,16 +4128,28 @@ function detectCarrierUsers(hass, carrierType) {
         noPrefix:  new RegExp(`^sensor\\.${slug}_${suffix}(?:_\\d+)?$`),
     }));
     const seen = new Map(); // user → slugFirst
+    const claimed = new Set(); // entity_ids already matched by the text-based pass
     for (const entityId of Object.keys(hass.states)) {
         for (const { userFirst, slugFirst, noPrefix } of patterns) {
             const m1 = userFirst.exec(entityId);
-            if (m1 && !seen.has(m1[1])) { seen.set(m1[1], false); break; }
+            if (m1 && !seen.has(m1[1])) { seen.set(m1[1], false); claimed.add(entityId); break; }
             const m2 = slugFirst.exec(entityId);
-            if (m2 && !seen.has(m2[1])) { seen.set(m2[1], true); break; }
-            if (noPrefix.test(entityId) && !seen.has('')) { seen.set('', false); break; }
+            if (m2 && !seen.has(m2[1])) { seen.set(m2[1], true); claimed.add(entityId); break; }
+            if (noPrefix.test(entityId) && !seen.has('')) { seen.set('', false); claimed.add(entityId); break; }
         }
     }
-    return [...seen.entries()].map(([user, slugFirst]) => ({ user, slugFirst }));
+    const results = [...seen.entries()].map(([user, slugFirst]) => ({ user, slugFirst, deviceId: null }));
+
+    const domain = PLATFORM_DOMAIN[carrierType] || slug;
+    let anonCount = 0;
+    for (const [deviceId, entities] of registryEntitiesByDevice(hass, domain)) {
+        const incoming = entities.find(e => e.translationKey === 'incoming_parcels');
+        if (!incoming || claimed.has(incoming.entityId)) continue; // already found by the text pass
+        const deviceName = hass.devices?.[deviceId]?.name_by_user || hass.devices?.[deviceId]?.name;
+        const user = deviceName ? slugifyUserSlug(deviceName) : `account${++anonCount}`;
+        results.push({ user, slugFirst: false, deviceId });
+    }
+    return results;
 }
 
 // The carrier types offered for auto-population when the card is first added
@@ -4193,8 +4270,8 @@ class HkiParcelsCard extends HTMLElement {
         if (hass) {
             for (const type of AUTO_DETECT_CARRIER_TYPES) {
                 const preset = CARRIER_PRESETS[type];
-                for (const { user, slugFirst } of detectCarrierUsers(hass, type)) {
-                    const templated = buildTemplatedEntities(user, type, slugFirst, hass);
+                for (const { user, slugFirst, deviceId } of detectCarrierUsers(hass, type)) {
+                    const templated = buildTemplatedEntities(user, type, slugFirst, hass, deviceId);
                     carriers.push({
                         type,
                         name: preset.label,
@@ -5952,7 +6029,7 @@ class HkiParcelsCardEditor extends LitElement {
         const detectedEntry = detected.length === 1 ? detected[0] : null;
         const autoUser     = current.user != null ? current.user : (detectedEntry?.user ?? '');
         const slugFirst    = detectedEntry?.slugFirst ?? false;
-        const templated    = !isSingle && detectedEntry !== null ? buildTemplatedEntities(autoUser, type, slugFirst, this.hass) : {};
+        const templated    = !isSingle && detectedEntry !== null ? buildTemplatedEntities(autoUser, type, slugFirst, this.hass, detectedEntry?.deviceId) : {};
         carriers[index] = {
             ...current, type,
             name: preset.label, icon: getDefaultIcon(type), color: preset.color, schema: preset.schema,
@@ -5999,7 +6076,7 @@ class HkiParcelsCardEditor extends LitElement {
         const autoEntry = detected.length === 1 ? detected[0] : null;
         const autoUser  = autoEntry?.user ?? null;
         const slugFirst = autoEntry?.slugFirst ?? false;
-        const templated = autoUser !== null ? buildTemplatedEntities(autoUser, type, slugFirst, this.hass) : {};
+        const templated = autoUser !== null ? buildTemplatedEntities(autoUser, type, slugFirst, this.hass, autoEntry?.deviceId) : {};
         const carriers = [...(this._config.carriers || []), {
             type, name: preset.label, icon: getDefaultIcon(type), color: preset.color,
             schema: preset.schema, logo_path: '', van_path: '', banner_path: '',
@@ -6087,7 +6164,7 @@ class HkiParcelsCardEditor extends LitElement {
         const detected = this._detectUsers(current.type);
         const entry    = detected.find(d => d.user === user);
         const slugFirst = entry?.slugFirst ?? current._slugFirst ?? false;
-        const templated = buildTemplatedEntities(user, current.type, slugFirst, this.hass);
+        const templated = buildTemplatedEntities(user, current.type, slugFirst, this.hass, entry?.deviceId);
         const supportsLetters = (CARRIER_PRESETS[current.type] || CARRIER_PRESETS.custom).supports_letters;
         carriers[index] = {
             ...current, user,
