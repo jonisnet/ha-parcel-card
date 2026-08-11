@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.8.0] — 2026-08-11
+
+### Added
+
+- **11 new languages**: Czech, Slovak, Hungarian, Romanian, Bulgarian, Ukrainian, Hindi,
+  Swedish, Danish, Finnish, and Norwegian (Bokmål) — chosen to match the language coverage
+  the underlying `ha-parcel-integrations` carrier integrations themselves recently added
+  (reported in [#13](https://github.com/jonisnet/hki-parcels-card/issues/13) by peternijssen,
+  who maintains several of them). The card now supports 19 languages in total.
+
+### Fixed
+
+- **Repository description was stale** — still read "dutch parcels card for home assistant"
+  despite the card supporting 22 international carriers for a while now
+  ([#12](https://github.com/jonisnet/hki-parcels-card/issues/12)).
+
 ## [1.7.0] — 2026-08-11
 
 ### Added

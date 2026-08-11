@@ -131,7 +131,7 @@ Coverage varies by carrier:
 | Budbee | ❌ not available yet |
 | Nova Post | ❌ not available yet |
 | Delhivery | ❌ not available yet |
-| SunYou | ❌ not available yet |
+| SunYou | ✅ real logo |
 
 Carriers without a proper branded icon yet fall back to a generic `mdi:package-variant-closed` icon.
 

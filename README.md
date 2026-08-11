@@ -1,6 +1,6 @@
 # HKI Parcels Card
 
-[![Version](https://img.shields.io/badge/version-v1.7.0-blue?style=flat-square)](https://github.com/jonisnet/hki-parcels-card/releases/latest)
+[![Version](https://img.shields.io/badge/version-v1.8.0-blue?style=flat-square)](https://github.com/jonisnet/hki-parcels-card/releases/latest)
 [![HACS](https://img.shields.io/badge/HACS-Custom-orange?style=flat-square)](https://hacs.xyz)
 [![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](https://github.com/jonisnet/hki-parcels-card/blob/main/LICENSE)
 [![HA](https://img.shields.io/badge/Home%20Assistant-2026.7%2B-41bdf5?style=flat-square)](https://www.home-assistant.io)
@@ -181,7 +181,7 @@ For the full list of card/carrier options, sensor naming schemes and the carrier
 
 ## Translations
 
-The card automatically follows your Home Assistant UI language — no setting to configure. Currently available: 🇬🇧 English, 🇳🇱 Dutch, 🇩🇪 German, 🇫🇷 French, 🇪🇸 Spanish, 🇮🇹 Italian, 🇵🇱 Polish, 🇵🇹 Portuguese (any other language falls back to English). Want to add or improve one? See **[translations/README.md](translations/README.md)** — it's a single JSON file per language, no code changes needed.
+The card automatically follows your Home Assistant UI language — no setting to configure. Currently available: 🇬🇧 English, 🇳🇱 Dutch, 🇩🇪 German, 🇫🇷 French, 🇪🇸 Spanish, 🇮🇹 Italian, 🇵🇱 Polish, 🇵🇹 Portuguese, 🇨🇿 Czech, 🇸🇰 Slovak, 🇭🇺 Hungarian, 🇷🇴 Romanian, 🇧🇬 Bulgarian, 🇺🇦 Ukrainian, 🇮🇳 Hindi, 🇸🇪 Swedish, 🇩🇰 Danish, 🇫🇮 Finnish, 🇳🇴 Norwegian (Bokmål) (any other language falls back to English) — chosen to match the languages the underlying carrier integrations themselves support. Want to add or improve one? See **[translations/README.md](translations/README.md)** — it's a single JSON file per language, no code changes needed.
 
 ---
 
