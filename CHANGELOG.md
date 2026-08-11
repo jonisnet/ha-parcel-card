@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.0.0b3] — 2026-08-12 (beta, `v2.0.0-dev` branch)
+
+### Added
+
+- **Carrier icon per parcel in the flat list** — ported from v1.7.3 on `main`. See that entry
+  below for the full explanation. Includes the follow-up vertical-alignment fix (flex-centre
+  `.ph-name` instead of a hand-tuned `vertical-align` offset on `ha-icon`).
+
 ## [2.0.0b2] — 2026-08-11 (beta, `v2.0.0-dev` branch)
 
 ### Fixed
@@ -22,6 +30,18 @@
   distinct pictorial mark to extract.
 - This starts the `v2.0.0-dev` branch/beta cycle — `main` stays on the v1.7.x line so bugfixes can
   keep shipping there independently while v2.0.0 is worked toward.
+
+## [1.7.3] — 2026-08-12
+
+### Added
+
+- **Carrier icon per parcel in the flat list** — with `group_by_carrier: false`, each row now
+  shows the carrier's own branded icon next to its name (the same `phu:`/`mdi:` icon already
+  used in the banner, carrier popup and grouped-view section headers), instead of relying only
+  on the small status icon's colour tint. Some carrier brand colours sit close enough together
+  that the colour alone wasn't always enough to tell them apart at a glance; the icon's shape
+  is unambiguous regardless of colour. Grouped view is unaffected — it already identifies the
+  carrier via its section header.
 
 ## [1.7.2] — 2026-08-11
 
