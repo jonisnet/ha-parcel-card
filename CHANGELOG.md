@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.0.0b5] — 2026-08-12 (beta, `v2.0.0-dev` branch)
+
+### Added
+
+- **"+ Add parcel" support for An Post** — `ha-an-post` shipped for real (2026-08-11), and unlike
+  the account-based DHL/DPD/PostNL family it turns out to also expose `an_post.track_parcel`/
+  `untrack_parcel`, adding a tracking code to a server-side watchlist. Its service requires a
+  `config_entry_id` (disambiguating between multiple An Post accounts), which no other carrier's
+  `track_parcel_service` needed — resolved via a new `_resolveConfigEntryId()` helper that walks
+  the entity → device registry chain (`hass.devices[id].config_entries`). If it can't be resolved
+  (stale registry, no cached device), the submit is refused with an error rather than calling the
+  service without it.
+
 ## [2.0.0b4] — 2026-08-12 (beta, `v2.0.0-dev` branch)
 
 ### Fixed

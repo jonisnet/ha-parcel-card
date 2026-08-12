@@ -56,7 +56,7 @@ Click a carrier's logo in the multi-carrier combo banner to open a popup listing
 
 ### Add parcel support
 
-For the account-less carriers, the card shows a "+ Add parcel" control that calls the integration's own `track_parcel` service directly — the parcel is genuinely registered with the integration, not just added to the card's own view. Toggle it off with `show_add_parcel: false` if you'd rather add parcels through the integration itself.
+For the account-less carriers, plus An Post (account-based, but its integration still exposes a `track_parcel` service to add a code to the account's watchlist), the card shows a "+ Add parcel" control that calls the integration's own `track_parcel` service directly — the parcel is genuinely registered with the integration, not just added to the card's own view. Toggle it off with `show_add_parcel: false` if you'd rather add parcels through the integration itself.
 
 | Carrier | Add parcel from card | Why |
 | ------- | :-------------------: | --- |

@@ -68,7 +68,7 @@ window.HKI.getSelectValue = window.HKI.getSelectValue || ((ev, options = null) =
 
 (() => {
 const { LitElement, html, css } = window.HKI.getLit();
-const CARD_VERSION = 'v2.0.0b4';
+const CARD_VERSION = 'v2.0.0b5';
 console.info(`%c HKI-PARCELS-CARD %c ${CARD_VERSION} `, 'color: white; background: #ed8c00; font-weight: bold;', 'color: #ed8c00; background: white; font-weight: bold;');
 
 const DEFAULT_CARRIER_ICON = 'mdi:package-variant-closed';
@@ -3914,11 +3914,16 @@ const CARRIER_PRESETS = {
     // prominent accent colour). SunYou (SYPost) is a China-based cross-border courier.
     sunyou:       { label: 'SunYou',                     icon: 'mdi:package-variant-closed', color: '#29a03a', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'sunyou',
                     track_parcel_service: { domain: 'sunyou', field: 'tracking_code', supports_postal_code: false } },
-    // Account-based like postnl_v4/dhl/dpd (login through An Post's own identity service, no
-    // tracking-code entry) — so no track_parcel_service/"+ Add parcel" control. Brand colour
-    // confirmed from the fill value in An Post's own logo SVG (green, #00b065). Incoming only —
-    // ha-an-post has no outgoing/outgoing_delivered sensor.
-    an_post:      { label: 'An Post',                    icon: 'mdi:package-variant-closed', color: '#00b065', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'an_post' },
+    // Account-based (login through An Post's own identity service) but — unlike postnl_v4/dhl/dpd —
+    // it ALSO exposes track_parcel/untrack_parcel, adding a tracking code to a server-side
+    // watchlist. Confirmed against the real ha-an-post repo once it shipped (2026-08). Its
+    // service requires config_entry_id (a user can have more than one An Post account), which
+    // no other track_parcel_service carrier here needs — see requires_config_entry_id below and
+    // its resolution in _resolveConfigEntryId(). Brand colour confirmed from the fill value in
+    // An Post's own logo SVG (green, #00b065). Incoming only — ha-an-post has no
+    // outgoing/outgoing_delivered sensor.
+    an_post:      { label: 'An Post',                    icon: 'mdi:package-variant-closed', color: '#00b065', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'an_post',
+                    track_parcel_service: { domain: 'an_post', field: 'tracking_code', supports_postal_code: false, requires_config_entry_id: true } },
     // Brand colour pixel-sampled from Quickpac's own logo (green, #34a02e — the "quick" half; the
     // "pac" half is plain near-black text, not an accent). Tracking code only, no postal code.
     quickpac:     { label: 'Quickpac',                   icon: 'mdi:package-variant-closed', color: '#34a02e', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'quickpac',
@@ -5223,8 +5228,9 @@ class HkiParcelsCard extends HTMLElement {
     // "+ Add parcel" — calls the carrier integration's own `<domain>.track_parcel`
     // service so a Track & Trace number entered on the live card actually starts being
     // tracked by the integration, not just displayed. Only offered for carriers whose
-    // preset declares `track_parcel_service` (gls/dragonfly/trunkrs/cainiao/hermes/packeta/correos —
-    // the account-less "hub + dynamically added parcels" family, see CARRIER_PRESETS).
+    // preset declares `track_parcel_service` — mostly the account-less "hub + dynamically added
+    // parcels" family (gls/dragonfly/trunkrs/cainiao/hermes/packeta/correos/…), plus An Post,
+    // which is account-based but still exposes the same service (see CARRIER_PRESETS).
     // ------------------------------------------------------------------
 
     // { carrier, index, preset }[] for every configured carrier that supports adding a
@@ -5309,6 +5315,20 @@ class HkiParcelsCard extends HTMLElement {
         if (this._addParcelOpen) container.querySelector('.add-parcel-input')?.focus();
     }
 
+    // Resolves the config_entry_id of the account that owns a carrier's sensors, via the
+    // entity registry → device registry chain (`hass.devices[id].config_entries` is the only
+    // place HA's frontend `hass` object exposes this — there's no direct entity→entry lookup).
+    // Needed for services like an_post.track_parcel that require it to disambiguate between
+    // more than one account of the same integration. Returns null if it can't be resolved
+    // (e.g. no registry cache, or the carrier's saved entity_id is itself stale) — the caller
+    // must treat that as "can't submit", not send the service call without it.
+    _resolveConfigEntryId(carrier) {
+        const entityId = carrier.entity_incoming || carrier.entity_delivered || carrier.entity_outgoing;
+        const deviceId = entityId && this._hass?.entities?.[entityId]?.device_id;
+        const configEntries = deviceId && this._hass?.devices?.[deviceId]?.config_entries;
+        return Array.isArray(configEntries) && configEntries.length ? configEntries[0] : null;
+    }
+
     async _submitAddParcel() {
         const trackable = this._getTrackableCarriers();
         const entry = trackable.find(t => t.index === this._addParcelCarrierIndex) || trackable[0];
@@ -5320,12 +5340,21 @@ class HkiParcelsCard extends HTMLElement {
         const svc = preset.track_parcel_service;
         if (!svc) return;
 
+        const data = { [svc.field]: value };
+        if (svc.supports_postal_code && carrier.user) data.postal_code = carrier.user;
+        if (svc.requires_config_entry_id) {
+            const entryId = this._resolveConfigEntryId(carrier);
+            if (!entryId) {
+                this._addParcelMessage = { type: 'error', text: this._t('add_parcel_error') };
+                this._updateAddParcelBar();
+                return;
+            }
+            data.config_entry_id = entryId;
+        }
+
         this._addParcelBusy = true;
         this._addParcelMessage = null;
         this._updateAddParcelBar();
-
-        const data = { [svc.field]: value };
-        if (svc.supports_postal_code && carrier.user) data.postal_code = carrier.user;
 
         try {
             await this._hass.callService(svc.domain, 'track_parcel', data);

@@ -80,7 +80,7 @@ Letters appear but no scan images are displayed.
 
 **Causes and solutions:**
 
-1. The control doesn't appear at all — it only shows when at least one configured carrier is account-less (GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee, Nova Post, Delhivery, SunYou, Quickpac). PostNL, DHL, DPD, Vinted Go and An Post don't support it; see [Add parcel support](overview.md#add-parcel-support) for why.
+1. The control doesn't appear at all — it only shows when at least one configured carrier supports it: the account-less carriers (GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee, Nova Post, Delhivery, SunYou, Quickpac), plus An Post (account-based, but its integration also exposes a `track_parcel` service to add a code to the account's watchlist). PostNL, DHL, DPD and Vinted Go don't support it; see [Add parcel support](overview.md#add-parcel-support) for why.
 2. `show_add_parcel: false` is set — remove it or set to `true`.
 3. Submitting a tracking number does nothing / errors — the control calls the integration's own `track_parcel` service directly. Check **Developer Tools → Actions** to confirm that service exists for your carrier's integration (e.g. `gls.track_parcel`), and check the integration's own logs for the actual failure reason (invalid tracking number, carrier API error, etc.) — the card only relays the call, it doesn't validate tracking numbers itself.
 4. For GLS/Trunkrs specifically — the parcel may land on the wrong hub if `user` (the postal code) isn't set correctly on that carrier entry, since it's passed along automatically with the service call.
