@@ -1,4 +1,20 @@
-# HKI Parcels Card
+# HKI Parcels Card — v2.0.0-dev (beta)
+
+> ⚠️ **You're on the `v2.0.0-dev` branch — a beta, not a release.** It carries everything the
+> stable [`main`](https://github.com/jonisnet/hki-parcels-card/tree/main) branch (v1.7.x) has,
+> plus new carriers and features that haven't shipped in a stable v2.0.0 release yet. It can
+> break, and it is **not** distributed through HACS (HACS tracks `main`'s releases only, so
+> installing this branch never affects your existing v1.x install or triggers an update for
+> anyone else) — install it manually if you want to try it early:
+>
+> 1. Download `hki-parcels-card.js` from this branch directly:
+>    [raw.githubusercontent.com/jonisnet/hki-parcels-card/v2.0.0-dev/hki-parcels-card.js](https://raw.githubusercontent.com/jonisnet/hki-parcels-card/v2.0.0-dev/hki-parcels-card.js)
+> 2. Place it at `/config/www/hki-parcels-card-v2-dev.js` (a different filename than the stable
+>    install, so both can coexist)
+> 3. Go to **Settings → Dashboards → Resources** and add it as a **JavaScript module** resource
+> 4. Use `type: custom:hki-parcels-card` in your dashboard as normal
+>
+> Found a bug specific to this branch? Open an issue and mention you're on `v2.0.0-dev`.
 
 [![Version](https://img.shields.io/badge/version-v2.0.0b5-blue?style=flat-square)](https://github.com/jonisnet/hki-parcels-card/releases/latest)
 [![HACS](https://img.shields.io/badge/HACS-Custom-orange?style=flat-square)](https://hacs.xyz)
