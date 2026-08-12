@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.0b4] — 2026-08-12 (beta, `v2.0.0-dev` branch)
+
+### Fixed
+
+- **A carrier's saved sensor reference could silently go stale and stop showing data** — ported
+  from v1.7.5 on `main`. See that entry below for the full explanation.
+
 ## [2.0.0b3] — 2026-08-12 (beta, `v2.0.0-dev` branch)
 
 ### Added
@@ -30,6 +37,32 @@
   distinct pictorial mark to extract.
 - This starts the `v2.0.0-dev` branch/beta cycle — `main` stays on the v1.7.x line so bugfixes can
   keep shipping there independently while v2.0.0 is worked toward.
+
+## [1.7.5] — 2026-08-12
+
+### Fixed
+
+- **A carrier's saved sensor reference could silently go stale and stop showing data** — a
+  `has_entity_name` integration recreating its entities under a newly-added language (or after
+  being removed and re-added) can leave an already-configured carrier's `entity_incoming`/
+  `entity_delivered`/etc. pointing at an entity_id that no longer exists at all — surfaced by a
+  GLS account whose entities were regenerated when German support was added
+  ([ha-gls#2](https://github.com/ha-parcel-integrations/ha-gls/issues/2)). The v1.7.2 fix only
+  covered the editor's auto-detect flow, not an *already-saved* reference going stale later —
+  the card now also repairs a missing entity_id at render time the same way, by matching
+  `translation_key` + integration platform via the entity registry. When more than one account
+  of the same carrier type matches and the carrier's own stored account name doesn't narrow it
+  to exactly one, it deliberately shows nothing rather than risk mixing in a different
+  account's parcels.
+
+## [1.7.4] — 2026-08-12
+
+### Fixed
+
+- **Carrier icon in the flat list sat too low, off-centre with the parcel name** (regression
+  from v1.7.3) — it relied on a hand-tuned `vertical-align` offset on the `ha-icon` element,
+  which doesn't translate reliably since `ha-icon` has its own internal layout. Fixed by
+  flex-centring `.ph-name` itself instead, which doesn't depend on guessing baseline metrics.
 
 ## [1.7.3] — 2026-08-12
 
