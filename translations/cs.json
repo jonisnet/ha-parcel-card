@@ -40,6 +40,7 @@
     "no_image": "Obrázek není k dispozici",
     "label_tracking": "Sledování",
     "label_status": "Stav",
+    "label_receiver": "Příjemce",
     "label_delivery": "Doručení",
     "label_pickup_point": "Výdejní místo",
     "label_custom_name": "Vlastní název",

@@ -40,6 +40,7 @@
     "no_image": "Ingen bilde tilgjengelig",
     "label_tracking": "Sporing",
     "label_status": "Status",
+    "label_receiver": "Mottaker",
     "label_delivery": "Levering",
     "label_pickup_point": "Hentested",
     "label_custom_name": "Eget navn",

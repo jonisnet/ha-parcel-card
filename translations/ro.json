@@ -40,6 +40,7 @@
     "no_image": "Nicio imagine disponibilă",
     "label_tracking": "Urmărire",
     "label_status": "Stare",
+    "label_receiver": "Destinatar",
     "label_delivery": "Livrare",
     "label_pickup_point": "Punct de ridicare",
     "label_custom_name": "Nume personalizat",

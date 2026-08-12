@@ -40,6 +40,7 @@
     "no_image": "Kuvaa ei saatavilla",
     "label_tracking": "Seuranta",
     "label_status": "Tila",
+    "label_receiver": "Vastaanottaja",
     "label_delivery": "Toimitus",
     "label_pickup_point": "Noutopiste",
     "label_custom_name": "Oma nimi",

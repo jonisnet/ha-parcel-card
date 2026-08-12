@@ -40,6 +40,7 @@
     "no_image": "Nincs elérhető kép",
     "label_tracking": "Nyomkövetés",
     "label_status": "Állapot",
+    "label_receiver": "Címzett",
     "label_delivery": "Kézbesítés",
     "label_pickup_point": "Csomagpont",
     "label_custom_name": "Egyéni név",

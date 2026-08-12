@@ -37,6 +37,7 @@
     "no_image": "Geen afbeelding beschikbaar",
     "label_tracking": "Track & Trace",
     "label_status": "Status",
+    "label_receiver": "Ontvanger",
     "label_delivery": "Bezorgwijze",
     "label_pickup_point": "Afhaalpunt",
     "label_custom_name": "Eigen naam",

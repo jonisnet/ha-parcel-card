@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0b6] — 2026-08-12 (beta, `v2.0.0-dev` branch)
+
+### Added
+
+- **Receiver shown in the expanded parcel view** — when a parcel is expanded, the addressee
+  (`receiver`, part of the shared `ha-parcel-integrations` canonical parcel contract — already
+  populated by e.g. ha-postnl) now shows between the status row and the delivery-method
+  ("Bezorgwijze") row, for parcels only (never letters). No integration changes needed — the
+  card already carried every raw field through into the normalized item, this just adds a row
+  for one that wasn't rendered yet. Silently omitted when a carrier's data doesn't include it.
+
 ## [2.0.0b5] — 2026-08-12 (beta, `v2.0.0-dev` branch)
 
 ### Added

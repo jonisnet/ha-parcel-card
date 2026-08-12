@@ -68,7 +68,7 @@ window.HKI.getSelectValue = window.HKI.getSelectValue || ((ev, options = null) =
 
 (() => {
 const { LitElement, html, css } = window.HKI.getLit();
-const CARD_VERSION = 'v2.0.0b5';
+const CARD_VERSION = 'v2.0.0b6';
 console.info(`%c HKI-PARCELS-CARD %c ${CARD_VERSION} `, 'color: white; background: #ed8c00; font-weight: bold;', 'color: #ed8c00; background: white; font-weight: bold;');
 
 const DEFAULT_CARRIER_ICON = 'mdi:package-variant-closed';
@@ -155,6 +155,7 @@ const TRANSLATIONS = {
         no_image: 'No image available',
         label_tracking: 'Tracking',
         label_status: 'Status',
+        label_receiver: 'Receiver',
         label_delivery: 'Delivery',
         label_pickup_point: 'Pickup point',
         label_custom_name: 'Custom name',
@@ -323,6 +324,7 @@ const TRANSLATIONS = {
         no_image: 'Geen afbeelding beschikbaar',
         label_tracking: 'Track & Trace',
         label_status: 'Status',
+        label_receiver: 'Ontvanger',
         label_delivery: 'Bezorgwijze',
         label_pickup_point: 'Afhaalpunt',
         label_custom_name: 'Eigen naam',
@@ -492,6 +494,7 @@ const TRANSLATIONS = {
         no_image: 'Няма налично изображение',
         label_tracking: 'Проследяване',
         label_status: 'Статус',
+        label_receiver: 'Получател',
         label_delivery: 'Доставка',
         label_pickup_point: 'Офис за получаване',
         label_custom_name: 'Собствено име',
@@ -661,6 +664,7 @@ const TRANSLATIONS = {
         no_image: 'Obrázek není k dispozici',
         label_tracking: 'Sledování',
         label_status: 'Stav',
+        label_receiver: 'Příjemce',
         label_delivery: 'Doručení',
         label_pickup_point: 'Výdejní místo',
         label_custom_name: 'Vlastní název',
@@ -830,6 +834,7 @@ const TRANSLATIONS = {
         no_image: 'Intet billede tilgængeligt',
         label_tracking: 'Sporing',
         label_status: 'Status',
+        label_receiver: 'Modtager',
         label_delivery: 'Levering',
         label_pickup_point: 'Afhentningssted',
         label_custom_name: 'Eget navn',
@@ -999,6 +1004,7 @@ const TRANSLATIONS = {
         no_image: 'Kein Bild verfügbar',
         label_tracking: 'Sendungsverfolgung',
         label_status: 'Status',
+        label_receiver: 'Empfänger',
         label_delivery: 'Zustellart',
         label_pickup_point: 'Abholstation',
         label_custom_name: 'Eigener Name',
@@ -1168,6 +1174,7 @@ const TRANSLATIONS = {
         no_image: 'No hay imagen disponible',
         label_tracking: 'Seguimiento',
         label_status: 'Estado',
+        label_receiver: 'Destinatario',
         label_delivery: 'Modo de entrega',
         label_pickup_point: 'Punto de recogida',
         label_custom_name: 'Nombre personalizado',
@@ -1337,6 +1344,7 @@ const TRANSLATIONS = {
         no_image: 'Kuvaa ei saatavilla',
         label_tracking: 'Seuranta',
         label_status: 'Tila',
+        label_receiver: 'Vastaanottaja',
         label_delivery: 'Toimitus',
         label_pickup_point: 'Noutopiste',
         label_custom_name: 'Oma nimi',
@@ -1506,6 +1514,7 @@ const TRANSLATIONS = {
         no_image: 'Aucune image disponible',
         label_tracking: 'Suivi',
         label_status: 'Statut',
+        label_receiver: 'Destinataire',
         label_delivery: 'Mode de livraison',
         label_pickup_point: 'Point de retrait',
         label_custom_name: 'Nom personnalisé',
@@ -1675,6 +1684,7 @@ const TRANSLATIONS = {
         no_image: 'कोई छवि उपलब्ध नहीं',
         label_tracking: 'ट्रैकिंग',
         label_status: 'स्थिति',
+        label_receiver: 'प्राप्तकर्ता',
         label_delivery: 'डिलीवरी',
         label_pickup_point: 'पिकअप पॉइंट',
         label_custom_name: 'कस्टम नाम',
@@ -1844,6 +1854,7 @@ const TRANSLATIONS = {
         no_image: 'Nincs elérhető kép',
         label_tracking: 'Nyomkövetés',
         label_status: 'Állapot',
+        label_receiver: 'Címzett',
         label_delivery: 'Kézbesítés',
         label_pickup_point: 'Csomagpont',
         label_custom_name: 'Egyéni név',
@@ -2013,6 +2024,7 @@ const TRANSLATIONS = {
         no_image: 'Nessuna immagine disponibile',
         label_tracking: 'Tracciamento',
         label_status: 'Stato',
+        label_receiver: 'Destinatario',
         label_delivery: 'Modalità di consegna',
         label_pickup_point: 'Punto di ritiro',
         label_custom_name: 'Nome personalizzato',
@@ -2182,6 +2194,7 @@ const TRANSLATIONS = {
         no_image: 'Ingen bilde tilgjengelig',
         label_tracking: 'Sporing',
         label_status: 'Status',
+        label_receiver: 'Mottaker',
         label_delivery: 'Levering',
         label_pickup_point: 'Hentested',
         label_custom_name: 'Eget navn',
@@ -2351,6 +2364,7 @@ const TRANSLATIONS = {
         no_image: 'Brak dostępnego obrazu',
         label_tracking: 'Śledzenie',
         label_status: 'Status',
+        label_receiver: 'Odbiorca',
         label_delivery: 'Sposób dostawy',
         label_pickup_point: 'Punkt odbioru',
         label_custom_name: 'Własna nazwa',
@@ -2520,6 +2534,7 @@ const TRANSLATIONS = {
         no_image: 'Nenhuma imagem disponível',
         label_tracking: 'Rastreamento',
         label_status: 'Estado',
+        label_receiver: 'Destinatário',
         label_delivery: 'Modo de entrega',
         label_pickup_point: 'Ponto de recolha',
         label_custom_name: 'Nome personalizado',
@@ -2689,6 +2704,7 @@ const TRANSLATIONS = {
         no_image: 'Nicio imagine disponibilă',
         label_tracking: 'Urmărire',
         label_status: 'Stare',
+        label_receiver: 'Destinatar',
         label_delivery: 'Livrare',
         label_pickup_point: 'Punct de ridicare',
         label_custom_name: 'Nume personalizat',
@@ -2858,6 +2874,7 @@ const TRANSLATIONS = {
         no_image: 'Obrázok nie je k dispozícii',
         label_tracking: 'Sledovanie',
         label_status: 'Stav',
+        label_receiver: 'Príjemca',
         label_delivery: 'Doručenie',
         label_pickup_point: 'Výdajné miesto',
         label_custom_name: 'Vlastný názov',
@@ -3027,6 +3044,7 @@ const TRANSLATIONS = {
         no_image: 'Ingen bild tillgänglig',
         label_tracking: 'Spårning',
         label_status: 'Status',
+        label_receiver: 'Mottagare',
         label_delivery: 'Leverans',
         label_pickup_point: 'Utlämningsställe',
         label_custom_name: 'Eget namn',
@@ -3196,6 +3214,7 @@ const TRANSLATIONS = {
         no_image: 'Зображення недоступне',
         label_tracking: 'Відстеження',
         label_status: 'Статус',
+        label_receiver: 'Отримувач',
         label_delivery: 'Доставка',
         label_pickup_point: 'Пункт видачі',
         label_custom_name: 'Власна назва',
@@ -5765,6 +5784,7 @@ class HkiParcelsCard extends HTMLElement {
                 ${!isLetter && item.key ? `<div class="detail-row"><strong>${this._t('label_tracking')}:</strong> ${item.key}</div>` : ''}
                 ${!isLetter && item.key && this._customNameScope() !== 'off' ? this._renderCustomNameRow(item) : ''}
                 ${item.raw_status ? `<div class="detail-row"><strong>${this._t('label_status')}:</strong> ${item.raw_status}</div>` : ''}
+                ${!isLetter && item.receiver ? `<div class="detail-row"><strong>${this._t('label_receiver')}:</strong> ${item.receiver}</div>` : ''}
                 ${deliveryDetail}
                 <div class="detail-row"><strong>${this._t('label_type')}:</strong> ${isLetter ? this._t('type_letter') : this._t('type_parcel')}</div>
                 ${item.url && this.config.show_tracking_link !== false ? `<a href="${item.url}" target="_blank" class="btn-track">${this._t('open_tracking')}</a>` : ''}

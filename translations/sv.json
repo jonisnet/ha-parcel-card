@@ -40,6 +40,7 @@
     "no_image": "Ingen bild tillgänglig",
     "label_tracking": "Spårning",
     "label_status": "Status",
+    "label_receiver": "Mottagare",
     "label_delivery": "Leverans",
     "label_pickup_point": "Utlämningsställe",
     "label_custom_name": "Eget namn",

@@ -37,6 +37,7 @@
     "no_image": "No image available",
     "label_tracking": "Tracking",
     "label_status": "Status",
+    "label_receiver": "Receiver",
     "label_delivery": "Delivery",
     "label_pickup_point": "Pickup point",
     "label_custom_name": "Custom name",

@@ -40,6 +40,7 @@
     "no_image": "Nenhuma imagem disponível",
     "label_tracking": "Rastreamento",
     "label_status": "Estado",
+    "label_receiver": "Destinatário",
     "label_delivery": "Modo de entrega",
     "label_pickup_point": "Ponto de recolha",
     "label_custom_name": "Nome personalizado",

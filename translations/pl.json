@@ -40,6 +40,7 @@
     "no_image": "Brak dostępnego obrazu",
     "label_tracking": "Śledzenie",
     "label_status": "Status",
+    "label_receiver": "Odbiorca",
     "label_delivery": "Sposób dostawy",
     "label_pickup_point": "Punkt odbioru",
     "label_custom_name": "Własna nazwa",

@@ -40,6 +40,7 @@
     "no_image": "Зображення недоступне",
     "label_tracking": "Відстеження",
     "label_status": "Статус",
+    "label_receiver": "Отримувач",
     "label_delivery": "Доставка",
     "label_pickup_point": "Пункт видачі",
     "label_custom_name": "Власна назва",
