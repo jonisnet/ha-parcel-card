@@ -167,6 +167,15 @@ const TRANSLATIONS = {
         home_delivery: 'Home delivery',
         pickup_point: 'Pickup point',
         label_type: 'Type',
+        label_weight: 'Weight',
+        label_dimensions: 'Dimensions',
+        label_order_number: 'Order number',
+        extra_delivery_code: 'Delivery code available',
+        extra_servicepoint_code: 'Service point pickup code',
+        extra_locker_code: 'Locker code available',
+        extra_climate_neutral: 'Climate-neutral delivery',
+        extra_letterbox_parcel: 'Fits through the letterbox',
+        extra_rerouted: 'Rerouted',
         type_letter: 'Letter',
         type_parcel: 'Parcel',
         open_tracking: 'OPEN TRACKING ↗',
@@ -336,6 +345,15 @@ const TRANSLATIONS = {
         home_delivery: 'Thuisbezorging',
         pickup_point: 'Afhaalpunt',
         label_type: 'Type',
+        label_weight: 'Gewicht',
+        label_dimensions: 'Afmetingen',
+        label_order_number: 'Bestelnummer',
+        extra_delivery_code: 'Bezorgcode beschikbaar',
+        extra_servicepoint_code: 'Ophaalcode servicepunt',
+        extra_locker_code: 'Kluiscode beschikbaar',
+        extra_climate_neutral: 'Klimaatneutrale bezorging',
+        extra_letterbox_parcel: 'Brievenbuspakket',
+        extra_rerouted: 'Omgeleid',
         type_letter: 'Brief',
         type_parcel: 'Pakket',
         open_tracking: 'TRACK & TRACE OPENEN ↗',
@@ -506,6 +524,15 @@ const TRANSLATIONS = {
         home_delivery: 'Доставка до дома',
         pickup_point: 'Офис за получаване',
         label_type: 'Тип',
+        label_weight: 'Тегло',
+        label_dimensions: 'Размери',
+        label_order_number: 'Номер на поръчката',
+        extra_delivery_code: 'Наличен код за доставка',
+        extra_servicepoint_code: 'Код за вземане от пункт',
+        extra_locker_code: 'Наличен код за автомат',
+        extra_climate_neutral: 'Климатично неутрална доставка',
+        extra_letterbox_parcel: 'Пратка за пощенска кутия',
+        extra_rerouted: 'Пренасочена',
         type_letter: 'Писмо',
         type_parcel: 'Пратка',
         open_tracking: 'ОТВОРИ ПРОСЛЕДЯВАНЕТО ↗',
@@ -676,6 +703,15 @@ const TRANSLATIONS = {
         home_delivery: 'Doručení domů',
         pickup_point: 'Výdejní místo',
         label_type: 'Typ',
+        label_weight: 'Hmotnost',
+        label_dimensions: 'Rozměry',
+        label_order_number: 'Číslo objednávky',
+        extra_delivery_code: 'K dispozici doručovací kód',
+        extra_servicepoint_code: 'Kód pro vyzvednutí na výdejním místě',
+        extra_locker_code: 'K dispozici kód pro schránku',
+        extra_climate_neutral: 'Klimaticky neutrální doručení',
+        extra_letterbox_parcel: 'Zásilka do schránky',
+        extra_rerouted: 'Přesměrováno',
         type_letter: 'Dopis',
         type_parcel: 'Zásilka',
         open_tracking: 'OTEVŘÍT SLEDOVÁNÍ ↗',
@@ -846,6 +882,15 @@ const TRANSLATIONS = {
         home_delivery: 'Levering til hjemmet',
         pickup_point: 'Afhentningssted',
         label_type: 'Type',
+        label_weight: 'Vægt',
+        label_dimensions: 'Mål',
+        label_order_number: 'Ordrenummer',
+        extra_delivery_code: 'Leveringskode tilgængelig',
+        extra_servicepoint_code: 'Afhentningskode til servicepunkt',
+        extra_locker_code: 'Boks-kode tilgængelig',
+        extra_climate_neutral: 'Klimaneutral levering',
+        extra_letterbox_parcel: 'Postkassepakke',
+        extra_rerouted: 'Omdirigeret',
         type_letter: 'Brev',
         type_parcel: 'Pakke',
         open_tracking: 'ÅBN SPORING ↗',
@@ -1016,6 +1061,15 @@ const TRANSLATIONS = {
         home_delivery: 'Zustellung nach Hause',
         pickup_point: 'Abholstation',
         label_type: 'Typ',
+        label_weight: 'Gewicht',
+        label_dimensions: 'Abmessungen',
+        label_order_number: 'Bestellnummer',
+        extra_delivery_code: 'Zustellcode verfügbar',
+        extra_servicepoint_code: 'Abholcode für Servicepunkt',
+        extra_locker_code: 'Schließfach-Code verfügbar',
+        extra_climate_neutral: 'Klimaneutrale Zustellung',
+        extra_letterbox_parcel: 'Briefkastenpaket',
+        extra_rerouted: 'Umgeleitet',
         type_letter: 'Brief',
         type_parcel: 'Paket',
         open_tracking: 'SENDUNGSVERFOLGUNG ÖFFNEN ↗',
@@ -1186,6 +1240,15 @@ const TRANSLATIONS = {
         home_delivery: 'Entrega a domicilio',
         pickup_point: 'Punto de recogida',
         label_type: 'Tipo',
+        label_weight: 'Peso',
+        label_dimensions: 'Dimensiones',
+        label_order_number: 'Número de pedido',
+        extra_delivery_code: 'Código de entrega disponible',
+        extra_servicepoint_code: 'Código de recogida en punto de servicio',
+        extra_locker_code: 'Código de taquilla disponible',
+        extra_climate_neutral: 'Entrega climáticamente neutra',
+        extra_letterbox_parcel: 'Paquete de buzón',
+        extra_rerouted: 'Redirigido',
         type_letter: 'Carta',
         type_parcel: 'Paquete',
         open_tracking: 'ABRIR SEGUIMIENTO ↗',
@@ -1356,6 +1419,15 @@ const TRANSLATIONS = {
         home_delivery: 'Kotiinkuljetus',
         pickup_point: 'Noutopiste',
         label_type: 'Tyyppi',
+        label_weight: 'Paino',
+        label_dimensions: 'Mitat',
+        label_order_number: 'Tilausnumero',
+        extra_delivery_code: 'Toimituskoodi saatavilla',
+        extra_servicepoint_code: 'Nouto-koodi palvelupisteeseen',
+        extra_locker_code: 'Lokerokoodi saatavilla',
+        extra_climate_neutral: 'Ilmastoneutraali toimitus',
+        extra_letterbox_parcel: 'Postiluukkupaketti',
+        extra_rerouted: 'Uudelleenreititetty',
         type_letter: 'Kirje',
         type_parcel: 'Paketti',
         open_tracking: 'AVAA SEURANTA ↗',
@@ -1526,6 +1598,15 @@ const TRANSLATIONS = {
         home_delivery: 'Livraison à domicile',
         pickup_point: 'Point de retrait',
         label_type: 'Type',
+        label_weight: 'Poids',
+        label_dimensions: 'Dimensions',
+        label_order_number: 'Numéro de commande',
+        extra_delivery_code: 'Code de livraison disponible',
+        extra_servicepoint_code: 'Code de retrait au point relais',
+        extra_locker_code: 'Code de casier disponible',
+        extra_climate_neutral: 'Livraison neutre en carbone',
+        extra_letterbox_parcel: 'Colis boîte aux lettres',
+        extra_rerouted: 'Redirigé',
         type_letter: 'Lettre',
         type_parcel: 'Colis',
         open_tracking: 'OUVRIR LE SUIVI ↗',
@@ -1696,6 +1777,15 @@ const TRANSLATIONS = {
         home_delivery: 'होम डिलीवरी',
         pickup_point: 'पिकअप पॉइंट',
         label_type: 'प्रकार',
+        label_weight: 'वज़न',
+        label_dimensions: 'आयाम',
+        label_order_number: 'ऑर्डर नंबर',
+        extra_delivery_code: 'डिलीवरी कोड उपलब्ध',
+        extra_servicepoint_code: 'सर्विस पॉइंट पिकअप कोड',
+        extra_locker_code: 'लॉकर कोड उपलब्ध',
+        extra_climate_neutral: 'जलवायु-तटस्थ डिलीवरी',
+        extra_letterbox_parcel: 'लेटरबॉक्स पार्सल',
+        extra_rerouted: 'पुनर्मार्गित',
         type_letter: 'पत्र',
         type_parcel: 'पार्सल',
         open_tracking: 'ट्रैकिंग खोलें ↗',
@@ -1866,6 +1956,15 @@ const TRANSLATIONS = {
         home_delivery: 'Házhoz szállítás',
         pickup_point: 'Csomagpont',
         label_type: 'Típus',
+        label_weight: 'Súly',
+        label_dimensions: 'Méretek',
+        label_order_number: 'Rendelésszám',
+        extra_delivery_code: 'Kézbesítési kód elérhető',
+        extra_servicepoint_code: 'Átvételi kód a szervizpontnál',
+        extra_locker_code: 'Csomagautomata-kód elérhető',
+        extra_climate_neutral: 'Klímasemleges kézbesítés',
+        extra_letterbox_parcel: 'Levélszekrény-csomag',
+        extra_rerouted: 'Átirányítva',
         type_letter: 'Levél',
         type_parcel: 'Csomag',
         open_tracking: 'NYOMKÖVETÉS MEGNYITÁSA ↗',
@@ -2036,6 +2135,15 @@ const TRANSLATIONS = {
         home_delivery: 'Consegna a domicilio',
         pickup_point: 'Punto di ritiro',
         label_type: 'Tipo',
+        label_weight: 'Peso',
+        label_dimensions: 'Dimensioni',
+        label_order_number: 'Numero d\'ordine',
+        extra_delivery_code: 'Codice di consegna disponibile',
+        extra_servicepoint_code: 'Codice di ritiro presso il punto servizio',
+        extra_locker_code: 'Codice armadietto disponibile',
+        extra_climate_neutral: 'Consegna a impatto climatico zero',
+        extra_letterbox_parcel: 'Pacco da cassetta postale',
+        extra_rerouted: 'Reindirizzato',
         type_letter: 'Lettera',
         type_parcel: 'Pacco',
         open_tracking: 'APRI TRACCIAMENTO ↗',
@@ -2206,6 +2314,15 @@ const TRANSLATIONS = {
         home_delivery: 'Levering hjem',
         pickup_point: 'Hentested',
         label_type: 'Type',
+        label_weight: 'Vekt',
+        label_dimensions: 'Mål',
+        label_order_number: 'Ordrenummer',
+        extra_delivery_code: 'Leveringskode tilgjengelig',
+        extra_servicepoint_code: 'Hentekode til servicepunkt',
+        extra_locker_code: 'Skapkode tilgjengelig',
+        extra_climate_neutral: 'Klimanøytral levering',
+        extra_letterbox_parcel: 'Postkassepakke',
+        extra_rerouted: 'Omdirigert',
         type_letter: 'Brev',
         type_parcel: 'Pakke',
         open_tracking: 'ÅPNE SPORING ↗',
@@ -2376,6 +2493,15 @@ const TRANSLATIONS = {
         home_delivery: 'Dostawa do domu',
         pickup_point: 'Punkt odbioru',
         label_type: 'Typ',
+        label_weight: 'Waga',
+        label_dimensions: 'Wymiary',
+        label_order_number: 'Numer zamówienia',
+        extra_delivery_code: 'Dostępny kod dostawy',
+        extra_servicepoint_code: 'Kod odbioru w punkcie serwisowym',
+        extra_locker_code: 'Dostępny kod skrytki',
+        extra_climate_neutral: 'Dostawa neutralna klimatycznie',
+        extra_letterbox_parcel: 'Paczka do skrzynki pocztowej',
+        extra_rerouted: 'Przekierowano',
         type_letter: 'List',
         type_parcel: 'Paczka',
         open_tracking: 'OTWÓRZ ŚLEDZENIE ↗',
@@ -2546,6 +2672,15 @@ const TRANSLATIONS = {
         home_delivery: 'Entrega ao domicílio',
         pickup_point: 'Ponto de recolha',
         label_type: 'Tipo',
+        label_weight: 'Peso',
+        label_dimensions: 'Dimensões',
+        label_order_number: 'Número de encomenda',
+        extra_delivery_code: 'Código de entrega disponível',
+        extra_servicepoint_code: 'Código de recolha no ponto de serviço',
+        extra_locker_code: 'Código de cacifo disponível',
+        extra_climate_neutral: 'Entrega neutra em carbono',
+        extra_letterbox_parcel: 'Encomenda de caixa de correio',
+        extra_rerouted: 'Redirecionado',
         type_letter: 'Carta',
         type_parcel: 'Encomenda',
         open_tracking: 'ABRIR RASTREAMENTO ↗',
@@ -2716,6 +2851,15 @@ const TRANSLATIONS = {
         home_delivery: 'Livrare la domiciliu',
         pickup_point: 'Punct de ridicare',
         label_type: 'Tip',
+        label_weight: 'Greutate',
+        label_dimensions: 'Dimensiuni',
+        label_order_number: 'Număr comandă',
+        extra_delivery_code: 'Cod de livrare disponibil',
+        extra_servicepoint_code: 'Cod de ridicare la punctul de servicii',
+        extra_locker_code: 'Cod de dulap disponibil',
+        extra_climate_neutral: 'Livrare neutră climatic',
+        extra_letterbox_parcel: 'Colet pentru cutia poștală',
+        extra_rerouted: 'Redirecționat',
         type_letter: 'Scrisoare',
         type_parcel: 'Colet',
         open_tracking: 'DESCHIDE URMĂRIREA ↗',
@@ -2886,6 +3030,15 @@ const TRANSLATIONS = {
         home_delivery: 'Doručenie domov',
         pickup_point: 'Výdajné miesto',
         label_type: 'Typ',
+        label_weight: 'Hmotnosť',
+        label_dimensions: 'Rozmery',
+        label_order_number: 'Číslo objednávky',
+        extra_delivery_code: 'K dispozícii doručovací kód',
+        extra_servicepoint_code: 'Kód na vyzdvihnutie na výdajnom mieste',
+        extra_locker_code: 'K dispozícii kód schránky',
+        extra_climate_neutral: 'Klimaticky neutrálne doručenie',
+        extra_letterbox_parcel: 'Zásielka do schránky',
+        extra_rerouted: 'Presmerované',
         type_letter: 'List',
         type_parcel: 'Zásielka',
         open_tracking: 'OTVORIŤ SLEDOVANIE ↗',
@@ -3056,6 +3209,15 @@ const TRANSLATIONS = {
         home_delivery: 'Hemleverans',
         pickup_point: 'Utlämningsställe',
         label_type: 'Typ',
+        label_weight: 'Vikt',
+        label_dimensions: 'Mått',
+        label_order_number: 'Ordernummer',
+        extra_delivery_code: 'Leveranskod tillgänglig',
+        extra_servicepoint_code: 'Upphämtningskod för servicepunkt',
+        extra_locker_code: 'Skåpkod tillgänglig',
+        extra_climate_neutral: 'Klimatneutral leverans',
+        extra_letterbox_parcel: 'Brevlådspaket',
+        extra_rerouted: 'Omdirigerad',
         type_letter: 'Brev',
         type_parcel: 'Paket',
         open_tracking: 'ÖPPNA SPÅRNING ↗',
@@ -3226,6 +3388,15 @@ const TRANSLATIONS = {
         home_delivery: 'Доставка додому',
         pickup_point: 'Пункт видачі',
         label_type: 'Тип',
+        label_weight: 'Вага',
+        label_dimensions: 'Розміри',
+        label_order_number: 'Номер замовлення',
+        extra_delivery_code: 'Доступний код доставки',
+        extra_servicepoint_code: 'Код отримання в сервісному пункті',
+        extra_locker_code: 'Доступний код камери схову',
+        extra_climate_neutral: 'Кліматично нейтральна доставка',
+        extra_letterbox_parcel: 'Посилка для поштової скриньки',
+        extra_rerouted: 'Перенаправлено',
         type_letter: 'Лист',
         type_parcel: 'Посилка',
         open_tracking: 'ВІДКРИТИ ВІДСТЕЖЕННЯ ↗',
@@ -3949,6 +4120,38 @@ const CARRIER_PRESETS = {
                     track_parcel_service: { domain: 'quickpac', field: 'tracking_code', supports_postal_code: false } },
     postnl_legacy:{ label: 'PostNL (ArjenBos)',          icon: 'mdi:package-variant-closed', color: '#ed8c00', schema: 'single_entity', supports_letters: false, sensor_slug: null     },
     custom:       { label: 'Custom',                     icon: 'mdi:package-variant-closed', color: '#ed8c00', schema: 'canonical',     supports_letters: false, sensor_slug: null     }
+};
+
+// Curated, per-carrier "extra details" pulled from `item.raw` fields the canonical
+// contract doesn't cover (see contract.md — `raw` is carrier-specific and out of
+// scope for the shared shape). Deliberately NOT a blind dump of `item.raw`: that
+// varies wildly per carrier, duplicates PII already visible elsewhere (e.g. DHL's
+// `destination` is just the user's own address), and would need per-carrier
+// judgement anyway to be worth reading. Developer Tools' own state inspector
+// already covers "show me literally everything" for anyone who wants that.
+// Extend incrementally as a carrier's raw payload turns out to carry something
+// worth surfacing — each function returns `{ labelKey, value }` for a plain
+// detail-row, or `{ icon, labelKey }` (no `value`) for a small pill badge.
+const CARRIER_EXTRA_DETAILS = {
+    dhl: (raw) => {
+        const out = [];
+        if (raw.orderId) out.push({ labelKey: 'label_order_number', value: raw.orderId });
+        if (raw.hasDeliveryCode) out.push({ icon: 'mdi:key-variant', labelKey: 'extra_delivery_code' });
+        if (raw.hasServicePointPickupCode) out.push({ icon: 'mdi:store-outline', labelKey: 'extra_servicepoint_code' });
+        if (raw.hasLockerCode) out.push({ icon: 'mdi:locker-outline', labelKey: 'extra_locker_code' });
+        if (raw.isClimateNeutralDelivery) out.push({ icon: 'mdi:leaf', labelKey: 'extra_climate_neutral' });
+        return out;
+    },
+    postnl_v4: (raw) => {
+        const out = [];
+        // "Parcel" is the default/expected case — only worth a badge for the
+        // letterbox-sized special case; "Recipient" is likewise the default for
+        // delivery_address_type, only "Rerouted" is worth calling out (a return is
+        // already visible via the canonical `status: returning`, no need to repeat it).
+        if (raw.shipment_type === 'LetterboxParcel') out.push({ icon: 'mdi:email-fast-outline', labelKey: 'extra_letterbox_parcel' });
+        if (raw.delivery_address_type === 'Rerouted') out.push({ icon: 'mdi:transit-connection-variant', labelKey: 'extra_rerouted' });
+        return out;
+    }
 };
 
 function slugifyUserSlug(text) {
@@ -5745,6 +5948,32 @@ class HkiParcelsCard extends HTMLElement {
         }
     }
 
+    // Renders the curated per-carrier "extra details" (see CARRIER_EXTRA_DETAILS) as a
+    // mix of plain detail-rows (entries with a `value`) and small pill badges (entries
+    // without one), e.g. a "Climate-neutral" or "Rerouted" flag. Returns '' when the
+    // carrier has no extractor, `item.raw` is unavailable, or nothing qualified.
+    _renderExtraDetails(item) {
+        const extractor = CARRIER_EXTRA_DETAILS[item.carrier_type];
+        if (!extractor || !item.raw) return '';
+        let extras;
+        try {
+            extras = extractor(item.raw) || [];
+        } catch {
+            return '';
+        }
+        if (!extras.length) return '';
+        const rows = extras.filter(e => e.value !== undefined);
+        const badges = extras.filter(e => e.value === undefined);
+        const rowsHtml = rows.map(r =>
+            `<div class="detail-row"><strong>${this._t(r.labelKey)}:</strong> ${this._escapeHtml(String(r.value))}</div>`
+        ).join('');
+        const badgesHtml = badges.length ? `
+            <div class="extra-badges">
+                ${badges.map(b => `<span class="extra-badge"><ha-icon icon="${b.icon}"></ha-icon>${this._t(b.labelKey)}</span>`).join('')}
+            </div>` : '';
+        return rowsHtml + badgesHtml;
+    }
+
     _renderCustomNameRow(item) {
         // Writes under 'everyone' scope require an admin session server-side (reads don't) —
         // mirror that here so non-admins see the shared names read-only instead of an add/edit
@@ -5831,6 +6060,9 @@ class HkiParcelsCard extends HTMLElement {
                 ${!isLetter && item.receiver ? `<div class="detail-row"><strong>${this._t('label_receiver')}:</strong> ${item.receiver}</div>` : ''}
                 ${deliveryDetail}
                 <div class="detail-row"><strong>${this._t('label_type')}:</strong> ${isLetter ? this._t('type_letter') : this._t('type_parcel')}</div>
+                ${!isLetter && typeof item.weight === 'number' ? `<div class="detail-row"><strong>${this._t('label_weight')}:</strong> ${item.weight} kg</div>` : ''}
+                ${!isLetter && item.dimensions?.text ? `<div class="detail-row"><strong>${this._t('label_dimensions')}:</strong> ${item.dimensions.text}</div>` : ''}
+                ${!isLetter ? this._renderExtraDetails(item) : ''}
                 ${item.url && this.config.show_tracking_link !== false ? `<a href="${item.url}" target="_blank" class="btn-track">${this._t('open_tracking')}</a>` : ''}
             </div>
         </div>`;
@@ -6003,6 +6235,9 @@ class HkiParcelsCard extends HTMLElement {
             .selected .details-panel { display: block; max-height: 200px; }
             .detail-row { margin-bottom: 6px; }
             .detail-row strong { color: var(--primary-text-color); }
+            .extra-badges { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 8px; }
+            .extra-badge { display: inline-flex; align-items: center; gap: 4px; padding: 3px 9px; border-radius: 12px; font-size: 0.8em; font-weight: 500; color: var(--carrier-color, var(--accent)); background: color-mix(in srgb, var(--carrier-color, var(--accent)) 14%, transparent); }
+            .extra-badge ha-icon { width: 15px; height: 15px; }
             .btn-track { background: var(--carrier-color, var(--accent)); color: white; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 0.9em; font-weight: 600; display: inline-block; margin-top: 8px; transition: all 0.2s; }
             .btn-track:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.25); }
             .custom-name-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
