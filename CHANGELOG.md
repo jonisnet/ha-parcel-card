@@ -1,5 +1,27 @@
 # Changelog
 
+## [2.0.0b9] — 2026-08-14 (beta, `v2.0.0-dev` branch)
+
+### Added
+
+- **"Pakket afhaalpunt" step in the status tracker** — parcels whose final delivery is to an
+  official carrier pickup point/locker (`pickup: true`, never true for a plain "left with a
+  neighbour" home delivery) now get a 5th step between "Onderweg" and "Bezorgd" instead of
+  falling through to the bare van/chip fallback with no step dots at all. Stays visible as
+  completed even once the parcel is fully delivered, so the Bezorgd tab still shows it went via
+  a pickup point. Uses a shared, carrier-agnostic illustration for now — branded per-carrier
+  versions are a follow-up.
+
+### Changed
+
+- **The out-for-delivery van is now positioned near the house end of the road** (75%, not 25%)
+  — that step is the one moment the parcel is genuinely close to arriving.
+- **Replaced the 3-way "Extra details" dropdown with two independent show/hide switches** —
+  "Toon extra info-knop" and "Toon ruwe data-knop" (both on by default). The card still decides
+  *how* each is presented; the user only chooses whether they show at all. Also regrouped the
+  "Weergave opties" section so every switch sits together, with the dropdown/select fields
+  (custom name scope, sort order) moved after them.
+
 ## [2.0.0b8] — 2026-08-14 (beta, `v2.0.0-dev` branch)
 
 ### Changed
