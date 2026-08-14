@@ -4260,8 +4260,8 @@ const CARRIER_EXTRA_DETAILS = {
         // letterbox-sized special case; "Recipient" is likewise the default for
         // delivery_address_type, only "Rerouted" is worth calling out (a return is
         // already visible via the canonical `status: returning`, no need to repeat it).
-        if (raw.shipment_type === 'LetterboxParcel') out.push({ icon: 'mdi:email-fast-outline', labelKey: 'extra_letterbox_parcel' });
-        if (raw.delivery_address_type === 'Rerouted') out.push({ icon: 'mdi:transit-connection-variant', labelKey: 'extra_rerouted' });
+        if (raw.shipment_type === 'LetterboxParcel') out.push({ icon: 'mdi:mailbox-outline', labelKey: 'extra_letterbox_parcel' });
+        if (raw.delivery_address_type === 'Rerouted') out.push({ icon: 'mdi:redo-variant', labelKey: 'extra_rerouted' });
         return out;
     }
 };
@@ -6477,7 +6477,7 @@ class HkiParcelsCard extends HTMLElement {
             .detail-row strong { color: var(--primary-text-color); }
             .extra-badges { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 8px; }
             .extra-badge { display: inline-flex; align-items: center; gap: 4px; padding: 3px 9px; border-radius: 12px; font-size: 0.8em; font-weight: 500; color: var(--carrier-color, var(--accent)); background: color-mix(in srgb, var(--carrier-color, var(--accent)) 14%, transparent); }
-            .extra-badge ha-icon { width: 15px; height: 15px; }
+            .extra-badge ha-icon { --mdc-icon-size: 15px; flex-shrink: 0; }
             .extra-details { margin-top: 6px; }
             .extra-details-content { padding-top: 4px; }
             /* Shared box model for every button-like action in the details panel — "Toon meer",
