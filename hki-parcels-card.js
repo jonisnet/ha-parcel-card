@@ -6156,26 +6156,30 @@ class HkiParcelsCard extends HTMLElement {
 
         return `
             <details class="extra-details">
-                <summary class="hki-btn hki-btn-secondary">${this._t('show_more_details')}</summary>
+                <summary class="hki-btn">${this._t('show_more_details')}</summary>
                 <div class="extra-details-content">${content}</div>
             </details>`;
     }
 
-    // The bottom action row: "Show raw data" (opens a popup — see _openRawDataPopup) and
-    // "Track & trace" side by side, same size/weight so neither reads as secondary. Kept as
-    // real <button>/<a> elements (not <details>/<summary>) since these trigger actions rather
-    // than reveal inline content. Always sits below the parcel's own info, including whatever
-    // _renderExtraDetailsSection revealed above it — never shown for letters.
+    // Side action column, next to the parcel's own info (see .details-panel-body/.details-info
+    // in _renderParcelItem) rather than below it: "Track & trace" on top since it's the primary
+    // action, "Show raw data" (opens a popup — see _openRawDataPopup) stacked underneath as the
+    // secondary one — outlined rather than filled, mirroring "Show more" being filled/primary
+    // now that it's the only action left in the main info column (see _renderExtraDetailsSection
+    // — that's the other half of this colour swap). Kept as real <button>/<a> elements (not
+    // <details>/<summary>) since these trigger actions rather than reveal inline content. Stacks
+    // below the info column on narrow/mobile widths instead of sitting beside it (see the
+    // .details-panel-body media query). Never shown for letters (no url/raw on those items).
     _renderDetailActions(item) {
         const mode = this.config.extra_details_mode || 'button';
-        const rawBtn = (item.raw && mode !== 'hidden')
-            ? `<button class="hki-btn raw-data-btn" data-key="${item.key}">${this._t('show_raw_data')}</button>`
-            : '';
         const trackLink = (item.url && this.config.show_tracking_link !== false)
             ? `<a href="${item.url}" target="_blank" class="hki-btn btn-track">${this._t('open_tracking')}</a>`
             : '';
-        if (!rawBtn && !trackLink) return '';
-        return `<div class="detail-actions">${rawBtn}${trackLink}</div>`;
+        const rawBtn = (item.raw && mode !== 'hidden')
+            ? `<button class="hki-btn hki-btn-secondary raw-data-btn" data-key="${item.key}">${this._t('show_raw_data')}</button>`
+            : '';
+        if (!trackLink && !rawBtn) return '';
+        return `<div class="details-actions-side">${trackLink}${rawBtn}</div>`;
     }
 
     // Opens the full, pretty-printed `item.raw` dump as a popup rather than inline text — the
@@ -6285,14 +6289,18 @@ class HkiParcelsCard extends HTMLElement {
                      data-letter-name="${item.name || ''}" data-letter-date="${dateLabel || ''}" data-letter-src="${letterThumb}"
                      onerror="this.style.display='none';this.nextElementSibling&&(this.nextElementSibling.style.display='flex');" />` : ''}
                 ${isLetter && (!letterThumb || true) ? `<div class="detail-row letter-no-image" style="${letterThumb ? 'display:none;' : ''}"><ha-icon icon="mdi:email-outline"></ha-icon> ${this._t('no_image')}</div>` : ''}
-                ${!isLetter && item.key ? `<div class="detail-row"><strong>${this._t('label_tracking')}:</strong> ${item.key}</div>` : ''}
-                ${!isLetter && item.key && this._customNameScope() !== 'off' ? this._renderCustomNameRow(item) : ''}
-                ${item.raw_status ? `<div class="detail-row"><strong>${this._t('label_status')}:</strong> ${item.raw_status}</div>` : ''}
-                ${!isLetter && item.receiver ? `<div class="detail-row"><strong>${this._t('label_receiver')}:</strong> ${item.receiver}</div>` : ''}
-                ${deliveryDetail}
-                <div class="detail-row"><strong>${this._t('label_type')}:</strong> ${isLetter ? this._t('type_letter') : this._t('type_parcel')}</div>
-                ${!isLetter ? this._renderExtraDetailsSection(item) : ''}
-                ${this._renderDetailActions(item)}
+                <div class="details-panel-body">
+                    <div class="details-info">
+                        ${!isLetter && item.key ? `<div class="detail-row"><strong>${this._t('label_tracking')}:</strong> ${item.key}</div>` : ''}
+                        ${!isLetter && item.key && this._customNameScope() !== 'off' ? this._renderCustomNameRow(item) : ''}
+                        ${item.raw_status ? `<div class="detail-row"><strong>${this._t('label_status')}:</strong> ${item.raw_status}</div>` : ''}
+                        ${!isLetter && item.receiver ? `<div class="detail-row"><strong>${this._t('label_receiver')}:</strong> ${item.receiver}</div>` : ''}
+                        ${deliveryDetail}
+                        <div class="detail-row"><strong>${this._t('label_type')}:</strong> ${isLetter ? this._t('type_letter') : this._t('type_parcel')}</div>
+                        ${!isLetter ? this._renderExtraDetailsSection(item) : ''}
+                    </div>
+                    ${this._renderDetailActions(item)}
+                </div>
             </div>
         </div>`;
     }
@@ -6476,22 +6484,33 @@ class HkiParcelsCard extends HTMLElement {
             .extra-details-content { padding-top: 4px; }
             /* Shared box model for every button-like action in the details panel — "Toon meer",
                "Toon ruwe gegevens" and "Track & trace" all read as equally important, same size,
-               same weight, per explicit feedback that the first two were reading as throwaway
-               text links next to a full button. Colour is the only thing that varies (.hki-btn
-               alone = filled/primary look; .hki-btn-secondary = outlined, for the "Toon meer"
-               disclosure specifically, since revealing content in place is a different kind of
-               action than navigating away or opening a popup). */
+               same weight, per explicit feedback that they were reading as throwaway text links
+               next to a full button. Colour is the only thing that varies: .hki-btn alone =
+               filled/primary ("Toon meer" and "Track & trace" — the two actions each column's
+               user actually reaches for first); .hki-btn-secondary = outlined ("Toon ruwe
+               gegevens" — a deliberately quieter secondary action, stacked under "Track & trace"
+               in the side column, see .details-actions-side below). */
             .hki-btn { display: inline-flex; align-items: center; gap: 6px; background: var(--carrier-color, var(--accent)); color: white; text-decoration: none; border: 1.5px solid transparent; padding: 8px 16px; border-radius: 6px; font-size: 0.9em; font-weight: 600; font-family: inherit; cursor: pointer; transition: all 0.2s; list-style: none; user-select: none; }
             .hki-btn::-webkit-details-marker { display: none; }
             .hki-btn:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.25); }
             .hki-btn-secondary { background: transparent; color: var(--carrier-color, var(--accent)); border-color: var(--carrier-color, var(--accent)); }
-            .hki-btn-secondary::before { content: '▸'; display: inline-block; transition: transform 0.15s ease; }
-            .extra-details[open] > .hki-btn-secondary::before { transform: rotate(90deg); }
-            .detail-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
-            @media (min-width: 480px) {
-                /* Track & trace reads better pinned to the far end of the row on anything wider
-                   than a phone; on narrow/mobile widths the buttons just stack in document order. */
-                .detail-actions .btn-track { margin-left: auto; }
+            /* The reveal-chevron belongs to the "Toon meer" disclosure structurally (any
+               <summary> directly inside .extra-details), independent of which colour variant
+               that summary happens to use — kept as its own selector rather than tied to
+               .hki-btn-secondary after the colours above were swapped. */
+            .extra-details > summary::before { content: '▸'; display: inline-block; transition: transform 0.15s ease; }
+            .extra-details[open] > summary::before { transform: rotate(90deg); }
+            /* Side column next to the parcel's own info (see .details-panel-body/.details-info)
+               rather than a row below it: "Track & trace" on top, "Toon ruwe gegevens" stacked
+               underneath, both stretched to the same width. Below ~480px there usually isn't
+               room for a real side column next to the info text, so it drops into the normal
+               top-to-bottom flow instead (see the .details-panel-body media query). */
+            .details-panel-body { display: flex; gap: 12px; align-items: flex-start; }
+            .details-info { flex: 1; min-width: 0; }
+            .details-actions-side { display: flex; flex-direction: column; gap: 8px; flex-shrink: 0; margin-top: 2px; }
+            @media (max-width: 479px) {
+                .details-panel-body { flex-direction: column; }
+                .details-actions-side { margin-top: 10px; }
             }
             .custom-name-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
             .custom-name-add-btn { background: none; border: none; color: var(--carrier-color, var(--accent)); cursor: pointer; font-size: 0.9em; font-weight: 600; padding: 2px 0; display: inline-flex; align-items: center; gap: 4px; }
