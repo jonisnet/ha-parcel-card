@@ -1,5 +1,35 @@
 # Changelog
 
+## [2.0.0b7] — 2026-08-14 (beta, `v2.0.0-dev` branch)
+
+### Fixed
+
+- **Switching a carrier's type in the editor kept the previous type's account** — ported from
+  v1.7.6 on `main`. See that entry below for the full explanation
+  ([#14](https://github.com/jonisnet/hki-parcels-card/issues/14)).
+- **Expanding the last parcel in a list gave no visible feedback** — ported from v1.7.6 on
+  `main`. See that entry below for the full explanation
+  ([#15](https://github.com/jonisnet/hki-parcels-card/issues/15)).
+
+### Added
+
+- **Weight and dimensions in the parcel detail panel** — both are part of the shared canonical
+  parcel contract; shown as new rows (hidden when a carrier doesn't provide them, same as
+  `pickup_point` already is) ([#16](https://github.com/jonisnet/hki-parcels-card/issues/16)).
+- **Curated per-carrier "extra details"** — a handful of genuinely useful carrier-specific
+  fields the canonical contract doesn't cover, pulled from each carrier's raw payload: DHL's
+  order number and delivery/service-point/locker pickup-code availability and climate-neutral
+  flag; PostNL's letterbox-parcel and rerouted-delivery flags. Deliberately a short, reviewed
+  allowlist rather than a blind dump of raw data — that varies wildly per carrier and often
+  duplicates information (e.g. a full destination address) already shown elsewhere.
+- **New `extra_details_mode` card option** ("Extra details" in the editor) — controls how the
+  above (plus weight/dimensions) is shown: behind a "Show more" disclosure (default), always
+  inline, or hidden entirely.
+- **"Show raw data" disclosure** — nested under "Show more" (or shown directly when
+  `extra_details_mode` is "always"), a full pretty-printed dump of the parcel's raw carrier
+  payload, for anyone who wants to see literally everything without leaving the card. Not shown
+  at all when `extra_details_mode` is "hidden".
+
 ## [2.0.0b6] — 2026-08-12 (beta, `v2.0.0-dev` branch)
 
 ### Added
