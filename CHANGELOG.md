@@ -1,5 +1,20 @@
 # Changelog
 
+## [2.0.0b8] — 2026-08-14 (beta, `v2.0.0-dev` branch)
+
+### Changed
+
+- **Raw parcel data now opens as a popup** instead of an inline dump — closer to what was
+  actually asked for in the b7 "Show raw data" disclosure, and consistent with the card's
+  existing letter-image popup.
+- **"Show more" and "Show raw data" now match "Track & trace" in size and visual weight** —
+  previously they read as small text links next to a full button. All three share a new
+  `.hki-btn` style; "Show more" stays outlined (it reveals content in place rather than
+  navigating away or opening something), the other two are filled.
+- **"Show raw data" and "Track & trace" now sit together in one row** below the parcel's own
+  info, with "Track & trace" pushed to the far end on anything wider than a phone; on mobile
+  widths they stack in document order instead.
+
 ## [2.0.0b7] — 2026-08-14 (beta, `v2.0.0-dev` branch)
 
 ### Fixed
