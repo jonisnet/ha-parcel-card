@@ -133,6 +133,7 @@ const TRANSLATIONS = {
         step_label_registered: 'Registered',
         step_label_sorting: 'Sorting centre',
         step_label_transit: 'Out for delivery',
+        step_label_pickup_point: 'Pickup point',
         step_label_delivered: 'Delivered',
         step_info_registered: 'Registered at',
         step_info_sorting: 'At sorting centre at',
@@ -315,6 +316,7 @@ const TRANSLATIONS = {
         step_label_registered: 'Aangemeld',
         step_label_sorting: 'Sorteercentrum',
         step_label_transit: 'Onderweg',
+        step_label_pickup_point: 'Pakket afhaalpunt',
         step_label_delivered: 'Bezorgd',
         step_info_registered: 'Aangemeld om',
         step_info_sorting: 'Bij sorteercentrum om',
@@ -498,6 +500,7 @@ const TRANSLATIONS = {
         step_label_registered: 'Регистрирана',
         step_label_sorting: 'Сортировъчен център',
         step_label_transit: 'В процес на доставка',
+        step_label_pickup_point: 'Пункт за получаване',
         step_label_delivered: 'Доставена',
         step_info_registered: 'Регистрирана в',
         step_info_sorting: 'В сортировъчен център в',
@@ -681,6 +684,7 @@ const TRANSLATIONS = {
         step_label_registered: 'Zaregistrováno',
         step_label_sorting: 'Třídicí centrum',
         step_label_transit: 'V doručování',
+        step_label_pickup_point: 'Výdejní místo',
         step_label_delivered: 'Doručeno',
         step_info_registered: 'Zaregistrováno v',
         step_info_sorting: 'V třídicím centru v',
@@ -864,6 +868,7 @@ const TRANSLATIONS = {
         step_label_registered: 'Registreret',
         step_label_sorting: 'Sorteringscenter',
         step_label_transit: 'Ude til levering',
+        step_label_pickup_point: 'Afhentningssted',
         step_label_delivered: 'Leveret',
         step_info_registered: 'Registreret kl.',
         step_info_sorting: 'På sorteringscenter kl.',
@@ -1047,6 +1052,7 @@ const TRANSLATIONS = {
         step_label_registered: 'Angemeldet',
         step_label_sorting: 'Sortierzentrum',
         step_label_transit: 'In Zustellung',
+        step_label_pickup_point: 'Abholpunkt',
         step_label_delivered: 'Zugestellt',
         step_info_registered: 'Angemeldet um',
         step_info_sorting: 'Im Sortierzentrum um',
@@ -1230,6 +1236,7 @@ const TRANSLATIONS = {
         step_label_registered: 'Registrado',
         step_label_sorting: 'Centro de clasificación',
         step_label_transit: 'En reparto',
+        step_label_pickup_point: 'Punto de recogida',
         step_label_delivered: 'Entregado',
         step_info_registered: 'Registrado a las',
         step_info_sorting: 'En el centro de clasificación a las',
@@ -1413,6 +1420,7 @@ const TRANSLATIONS = {
         step_label_registered: 'Rekisteröity',
         step_label_sorting: 'Lajittelukeskus',
         step_label_transit: 'Jakelussa',
+        step_label_pickup_point: 'Noutopiste',
         step_label_delivered: 'Toimitettu',
         step_info_registered: 'Rekisteröity klo',
         step_info_sorting: 'Lajittelukeskuksessa klo',
@@ -1596,6 +1604,7 @@ const TRANSLATIONS = {
         step_label_registered: 'Enregistré',
         step_label_sorting: 'Centre de tri',
         step_label_transit: 'En livraison',
+        step_label_pickup_point: 'Point de retrait',
         step_label_delivered: 'Livré',
         step_info_registered: 'Enregistré à',
         step_info_sorting: 'Au centre de tri à',
@@ -1779,6 +1788,7 @@ const TRANSLATIONS = {
         step_label_registered: 'पंजीकृत',
         step_label_sorting: 'छँटाई केंद्र',
         step_label_transit: 'डिलीवरी के लिए निकला',
+        step_label_pickup_point: 'पिकअप पॉइंट',
         step_label_delivered: 'डिलीवर हो गया',
         step_info_registered: 'पंजीकृत किया गया',
         step_info_sorting: 'छँटाई केंद्र पर',
@@ -1962,6 +1972,7 @@ const TRANSLATIONS = {
         step_label_registered: 'Regisztrálva',
         step_label_sorting: 'Elosztóközpont',
         step_label_transit: 'Kézbesítés alatt',
+        step_label_pickup_point: 'Átvételi pont',
         step_label_delivered: 'Kézbesítve',
         step_info_registered: 'Regisztrálva:',
         step_info_sorting: 'Elosztóközpontban:',
@@ -2145,6 +2156,7 @@ const TRANSLATIONS = {
         step_label_registered: 'Registrato',
         step_label_sorting: 'Centro di smistamento',
         step_label_transit: 'In consegna',
+        step_label_pickup_point: 'Punto di ritiro',
         step_label_delivered: 'Consegnato',
         step_info_registered: 'Registrato alle',
         step_info_sorting: 'Al centro di smistamento alle',
@@ -2328,6 +2340,7 @@ const TRANSLATIONS = {
         step_label_registered: 'Registrert',
         step_label_sorting: 'Sorteringssentral',
         step_label_transit: 'Ute for levering',
+        step_label_pickup_point: 'Hentested',
         step_label_delivered: 'Levert',
         step_info_registered: 'Registrert kl.',
         step_info_sorting: 'På sorteringssentral kl.',
@@ -2511,6 +2524,7 @@ const TRANSLATIONS = {
         step_label_registered: 'Zarejestrowana',
         step_label_sorting: 'Sortownia',
         step_label_transit: 'W doręczeniu',
+        step_label_pickup_point: 'Punkt odbioru',
         step_label_delivered: 'Dostarczona',
         step_info_registered: 'Zarejestrowano o',
         step_info_sorting: 'W sortowni o',
@@ -2694,6 +2708,7 @@ const TRANSLATIONS = {
         step_label_registered: 'Registado',
         step_label_sorting: 'Centro de triagem',
         step_label_transit: 'Em distribuição',
+        step_label_pickup_point: 'Ponto de recolha',
         step_label_delivered: 'Entregue',
         step_info_registered: 'Registado às',
         step_info_sorting: 'No centro de triagem às',
@@ -2877,6 +2892,7 @@ const TRANSLATIONS = {
         step_label_registered: 'Înregistrat',
         step_label_sorting: 'Centru de sortare',
         step_label_transit: 'În curs de livrare',
+        step_label_pickup_point: 'Punct de ridicare',
         step_label_delivered: 'Livrat',
         step_info_registered: 'Înregistrat la',
         step_info_sorting: 'La centrul de sortare la',
@@ -3060,6 +3076,7 @@ const TRANSLATIONS = {
         step_label_registered: 'Zaregistrované',
         step_label_sorting: 'Triediace centrum',
         step_label_transit: 'V doručovaní',
+        step_label_pickup_point: 'Výdajné miesto',
         step_label_delivered: 'Doručené',
         step_info_registered: 'Zaregistrované o',
         step_info_sorting: 'V triediacom centre o',
@@ -3243,6 +3260,7 @@ const TRANSLATIONS = {
         step_label_registered: 'Registrerat',
         step_label_sorting: 'Sorteringscenter',
         step_label_transit: 'Ute för leverans',
+        step_label_pickup_point: 'Utlämningsställe',
         step_label_delivered: 'Levererat',
         step_info_registered: 'Registrerat kl.',
         step_info_sorting: 'Vid sorteringscenter kl.',
@@ -3426,6 +3444,7 @@ const TRANSLATIONS = {
         step_label_registered: 'Зареєстровано',
         step_label_sorting: 'Сортувальний центр',
         step_label_transit: 'На доставці',
+        step_label_pickup_point: 'Пункт видачі',
         step_label_delivered: 'Доставлено',
         step_info_registered: 'Зареєстровано о',
         step_info_sorting: 'У сортувальному центрі о',
@@ -4073,9 +4092,26 @@ const CARRIER_ASSETS = {
 };
 
 // Canonical parcel-status happy path, mapped to a 1-based step index.
-// Statuses outside this set (at_pickup_point, returning, problem, unknown) fall
-// back to the plain van/chip + status-text treatment rather than the step tracker.
+// Statuses outside this set (returning, problem, unknown) fall back to the plain
+// van/chip + status-text treatment rather than the step tracker.
 const STATUS_STEP_ORDER = ['registered', 'in_transit', 'out_for_delivery', 'delivered'];
+
+// Parcels whose final delivery is to an official carrier pickup point/locker
+// (`item.pickup === true` — never true for a plain "left with a neighbour" home
+// delivery, that's still a home address) get a 5th step inserted between
+// "out for delivery" and "delivered", since `at_pickup_point` is a real
+// intermediate stop for that path that plain home deliveries never pass
+// through. Stays part of the tracker (all dots shown as done) even once the
+// parcel reaches `delivered`, so the Bezorgd tab still shows it went via a
+// pickup point on the way.
+const STATUS_STEP_ORDER_PICKUP = ['registered', 'in_transit', 'out_for_delivery', 'at_pickup_point', 'delivered'];
+
+// Generic placeholder hero art for the "at pickup point" step (see
+// STATUS_STEP_ORDER_PICKUP) — shared across every carrier until each gets its
+// own branded illustration to match the other steps (deliberately out of scope
+// for the first version of this feature). `CARRIER_ASSETS[type].steps.pickup_point`
+// takes priority over this the moment a carrier-specific one is added.
+const SHARED_PICKUP_POINT_IMG = `${REPO_BASE}/shared/pickup_point_step.png?raw=true`;
 
 const CARRIER_PRESETS = {
     postnl_v4:    { label: 'PostNL',                    icon: 'mdi:package-variant-closed', color: '#ed8c00', schema: 'canonical',     supports_letters: true,  sensor_slug: 'postnl' },
@@ -5787,18 +5823,31 @@ class HkiParcelsCard extends HTMLElement {
         }
     }
 
-    // Renders the 4-step happy-path tracker: a small progress row (registered / in_transit /
-    // out_for_delivery / delivered) plus a large "hero" for the current step — the carrier's own
-    // step illustration for registered/sorting/delivered, or the existing driving-van visual for
-    // out_for_delivery (stepIndex 3), since that's already exactly what "onderweg met bezorger" is.
-    _renderStatusTracker(selected, stepIndex) {
+    // Renders the happy-path tracker: a small progress row (registered / in_transit /
+    // out_for_delivery [/ at_pickup_point] / delivered) plus a large "hero" for the current step —
+    // the carrier's own step illustration for registered/sorting/pickup_point/delivered, or the
+    // driving-van visual for out_for_delivery, since that's already exactly what "onderweg met
+    // bezorger" is. `stepOrder` is STATUS_STEP_ORDER_PICKUP (5 steps) for parcels whose final
+    // delivery is to a pickup point (item.pickup === true), STATUS_STEP_ORDER (4 steps) otherwise
+    // — chosen by the caller (updateAnimation), since it also needs it to compute `stepIndex`.
+    _renderStatusTracker(selected, stepIndex, stepOrder) {
         const color = selected.carrier_color || DEFAULT_CARRIER_COLOR;
-        const stepKeys = ['registered', 'sorting', 'transit', 'delivered'];
-        const stepMiniKeys = ['registered_mini', 'sorting', 'transit', 'delivered_mini'];
-        const stepLabelKeys = ['step_label_registered', 'step_label_sorting', 'step_label_transit', 'step_label_delivered'];
+        const hasPickupStep = stepOrder.includes('at_pickup_point');
+        const stepKeys      = hasPickupStep
+            ? ['registered', 'sorting', 'transit', 'pickup_point', 'delivered']
+            : ['registered', 'sorting', 'transit', 'delivered'];
+        const stepMiniKeys  = hasPickupStep
+            ? ['registered_mini', 'sorting', 'transit', 'pickup_point', 'delivered_mini']
+            : ['registered_mini', 'sorting', 'transit', 'delivered_mini'];
+        const stepLabelKeys = hasPickupStep
+            ? ['step_label_registered', 'step_label_sorting', 'step_label_transit', 'step_label_pickup_point', 'step_label_delivered']
+            : ['step_label_registered', 'step_label_sorting', 'step_label_transit', 'step_label_delivered'];
         const steps = selected.carrier_steps || {};
-        const isFinalStep = stepIndex === STATUS_STEP_ORDER.length;
-        const dots = STATUS_STEP_ORDER.map((_, i) => {
+        // No carrier-specific art for this step yet anywhere (see SHARED_PICKUP_POINT_IMG) — a
+        // carrier's own CARRIER_ASSETS[type].steps.pickup_point, once one exists, still wins.
+        const pickupPointImg = (key) => steps[key] || (key.startsWith('pickup_point') ? SHARED_PICKUP_POINT_IMG : undefined);
+        const isFinalStep = stepIndex === stepOrder.length;
+        const dots = stepOrder.map((_, i) => {
             const n = i + 1;
             // Reaching the last step (delivered) IS completion, so it gets the done/checkmark
             // treatment too, not just the "current" ring — there's no step after it to await.
@@ -5806,7 +5855,7 @@ class HkiParcelsCard extends HTMLElement {
             const colorVar = state !== 'upcoming' ? ` style="--step-color:${color};"` : '';
             // Mini icons never carry a baked-in checkmark (registered/delivered have a plain
             // variant) — completion is shown only via the overlay badge below, never both.
-            const icon = steps[stepMiniKeys[i]] || steps[stepKeys[i]];
+            const icon = pickupPointImg(stepMiniKeys[i]) || pickupPointImg(stepKeys[i]);
             const label = this._t(stepLabelKeys[i]);
             const col = `
                 <div class="status-step-col">
@@ -5816,15 +5865,15 @@ class HkiParcelsCard extends HTMLElement {
                     </div>
                     <div class="status-step-label ${state !== 'upcoming' ? 'active' : ''}">${label}</div>
                 </div>`;
-            if (n === STATUS_STEP_ORDER.length) return col;
+            if (n === stepOrder.length) return col;
             const lineDone = n < stepIndex;
             return `${col}<div class="status-step-line ${lineDone ? 'done' : ''}"${lineDone ? ` style="--step-color:${color};"` : ''}></div>`;
         }).join('');
 
+        const currentStatus = stepOrder[stepIndex - 1];
         let heroImgHtml;
-        if (stepIndex === 3) {
-            // 75%, not 25% — this is the "out for delivery" step specifically (stepIndex 3, the
-            // literal "Onderweg" dot), the one moment the parcel is genuinely close to arriving,
+        if (currentStatus === 'out_for_delivery') {
+            // 75%, not 25% — this is the one moment the parcel is genuinely close to arriving,
             // so the van belongs near the house end of the road, not near the start of it.
             heroImgHtml = `
                 <div class="visual-road">
@@ -5835,8 +5884,11 @@ class HkiParcelsCard extends HTMLElement {
                         : `<div class="carrier-chip" style="background:${color}; left:75%;"><ha-icon icon="${selected.carrier_icon || DEFAULT_CARRIER_ICON}"></ha-icon></div>`}
                 </div>`;
         } else {
-            const key = stepIndex === 1 ? 'registered' : stepIndex === 2 ? 'sorting' : 'delivered';
-            const img = steps[key];
+            const key = currentStatus === 'registered' ? 'registered'
+                : currentStatus === 'in_transit' ? 'sorting'
+                : currentStatus === 'at_pickup_point' ? 'pickup_point'
+                : 'delivered';
+            const img = pickupPointImg(key);
             heroImgHtml = img ? `<div class="status-hero"><img class="status-hero-img" src="${img}" alt="" /></div>` : '';
         }
 
@@ -5986,16 +6038,18 @@ class HkiParcelsCard extends HTMLElement {
         animationEl.classList.remove('combo-placeholder');
         animationEl.classList.remove('status-tracker-active');
 
-        // 4-step happy-path tracker (registered -> in_transit -> out_for_delivery -> delivered),
-        // only for canonical-schema carriers that have step illustrations configured. Letters and
-        // any other status (at_pickup_point, returning, problem, unknown) fall through to the
-        // plain van/chip + status-text treatment below, unchanged.
+        // Happy-path tracker (registered -> in_transit -> out_for_delivery [-> at_pickup_point]
+        // -> delivered — the pickup-point step only for parcels actually headed to one, see
+        // STATUS_STEP_ORDER_PICKUP), only for canonical-schema carriers that have step
+        // illustrations configured. Letters and any other status (returning, problem, unknown)
+        // fall through to the plain van/chip + status-text treatment below, unchanged.
+        const stepOrder = selected?.pickup ? STATUS_STEP_ORDER_PICKUP : STATUS_STEP_ORDER;
         const stepIndex = (selected && !selected.is_letter && selected.carrier_steps)
-            ? STATUS_STEP_ORDER.indexOf(selected.status) + 1 : 0;
+            ? stepOrder.indexOf(selected.status) + 1 : 0;
         if (this.config.show_animation && selected && stepIndex > 0) {
             animationEl.classList.add('animation-active');
             animationEl.classList.add('status-tracker-active');
-            animationEl.innerHTML = this._renderStatusTracker(selected, stepIndex);
+            animationEl.innerHTML = this._renderStatusTracker(selected, stepIndex, stepOrder);
             return;
         }
 
