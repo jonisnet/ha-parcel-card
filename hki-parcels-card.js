@@ -5878,13 +5878,16 @@ class HkiParcelsCard extends HTMLElement {
 
         let heroImgHtml;
         if (stepIndex === 3) {
+            // 75%, not 25% — this is the "out for delivery" step specifically (stepIndex 3, the
+            // literal "Onderweg" dot), the one moment the parcel is genuinely close to arriving,
+            // so the van belongs near the house end of the road, not near the start of it.
             heroImgHtml = `
                 <div class="visual-road">
                     <div class="house-bg">🏠</div>
                     <div class="road-line"></div>
                     ${selected.carrier_van
-                        ? `<img class="carrier-van-gif" src="${selected.carrier_van}" alt="${selected.carrier_name || ''}" style="left:25%;" />`
-                        : `<div class="carrier-chip" style="background:${color}; left:25%;"><ha-icon icon="${selected.carrier_icon || DEFAULT_CARRIER_ICON}"></ha-icon></div>`}
+                        ? `<img class="carrier-van-gif" src="${selected.carrier_van}" alt="${selected.carrier_name || ''}" style="left:75%;" />`
+                        : `<div class="carrier-chip" style="background:${color}; left:75%;"><ha-icon icon="${selected.carrier_icon || DEFAULT_CARRIER_ICON}"></ha-icon></div>`}
                 </div>`;
         } else {
             const key = stepIndex === 1 ? 'registered' : stepIndex === 2 ? 'sorting' : 'delivered';
