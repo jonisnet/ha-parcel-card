@@ -5431,6 +5431,36 @@ class HkiParcelsCard extends HTMLElement {
         if (activeInput) requestAnimationFrame(() => { activeInput.focus(); activeInput.select(); });
     }
 
+    // "Show raw data" opens a popup rather than expanding inline (see _openRawDataPopup) — needs
+    // its own click-binding wherever parcel items get rendered, same call sites as
+    // _bindCustomNameEvents. Looks the item back up from the currently loaded data by key rather
+    // than threading it through a data-* attribute, since item.raw itself isn't string-safe to
+    // stash in the DOM.
+    _bindRawDataButtons(root) {
+        if (!root) return;
+        root.querySelectorAll('.raw-data-btn').forEach(el =>
+            el.addEventListener('click', e => {
+                e.stopPropagation();
+                const key = e.currentTarget.dataset.key;
+                const item = this._findParcelByKey(key);
+                if (item) this._openRawDataPopup(item);
+            })
+        );
+    }
+
+    // Finds a normalized parcel item by key across every tab — the click handler above only has
+    // the key (from data-key), not the item itself, since raw payloads aren't safe to round-trip
+    // through a DOM attribute.
+    _findParcelByKey(key) {
+        if (!key) return null;
+        const data = this.getData();
+        for (const bucket of [data.onderweg, data.bezorgd, data.verzonden?.upcoming, data.verzonden?.delivered, data.post?.upcoming, data.post?.delivered]) {
+            const found = (bucket || []).find(p => p.key === key);
+            if (found) return found;
+        }
+        return null;
+    }
+
     _handleCustomNameEditClick(e) {
         e.stopPropagation();
         const row = e.currentTarget.closest('.custom-name-row');
@@ -5601,6 +5631,7 @@ class HkiParcelsCard extends HTMLElement {
             el.addEventListener('click', this.handleLetterThumbClick.bind(this))
         );
         this._bindCustomNameEvents(popup);
+        this._bindRawDataButtons(popup);
     }
 
     _closeCarrierPopup() {
@@ -6088,11 +6119,12 @@ class HkiParcelsCard extends HTMLElement {
     //   'hidden' — none of it, not even the raw-data escape hatch (nothing to show() call);
     //   'always' — rendered inline, same as the other detail-rows;
     //   'button' (default) — behind a native <details> "Show more" disclosure, so the panel
-    //     stays short by default. Either way the raw dump sits behind its own nested <details>
-    //     ("Show raw data") rather than being dumped inline — it's a deliberately narrow,
-    //     reviewed allowlist above that, not a replacement for it (see CARRIER_EXTRA_DETAILS).
-    // Native <details>/<summary> needs no click-binding/state of its own, and — unlike toggling
-    // via updateContent() — never disturbs the rest of the (possibly long) parcel list.
+    //     stays short by default.
+    // The full raw-data dump is NOT part of this block any more — it opens as its own popup
+    // (see _openRawDataPopup), triggered by a full-size button that sits alongside "Track &
+    // trace" in _renderDetailActions, not nested inline text. Native <details>/<summary> needs
+    // no click-binding/state of its own, and — unlike toggling via updateContent() — never
+    // disturbs the rest of the (possibly long) parcel list.
     _renderExtraDetailsSection(item) {
         const mode = this.config.extra_details_mode || 'button';
         if (mode === 'hidden') return '';
@@ -6117,22 +6149,60 @@ class HkiParcelsCard extends HTMLElement {
             } catch { /* a bad raw shape just skips the curated extras, not the rest of the panel */ }
         }
 
-        const rawHtml = item.raw ? `
-            <details class="raw-details">
-                <summary>${this._t('show_raw_data')}</summary>
-                <pre class="raw-dump">${this._escapeHtml(JSON.stringify(item.raw, null, 2))}</pre>
-            </details>` : '';
-
-        const content = rows.join('') + extraRowsHtml + badgesHtml + rawHtml;
+        const content = rows.join('') + extraRowsHtml + badgesHtml;
         if (!content) return '';
 
         if (mode === 'always') return content;
 
         return `
             <details class="extra-details">
-                <summary>${this._t('show_more_details')}</summary>
+                <summary class="hki-btn hki-btn-secondary">${this._t('show_more_details')}</summary>
                 <div class="extra-details-content">${content}</div>
             </details>`;
+    }
+
+    // The bottom action row: "Show raw data" (opens a popup — see _openRawDataPopup) and
+    // "Track & trace" side by side, same size/weight so neither reads as secondary. Kept as
+    // real <button>/<a> elements (not <details>/<summary>) since these trigger actions rather
+    // than reveal inline content. Always sits below the parcel's own info, including whatever
+    // _renderExtraDetailsSection revealed above it — never shown for letters.
+    _renderDetailActions(item) {
+        const mode = this.config.extra_details_mode || 'button';
+        const rawBtn = (item.raw && mode !== 'hidden')
+            ? `<button class="hki-btn raw-data-btn" data-key="${item.key}">${this._t('show_raw_data')}</button>`
+            : '';
+        const trackLink = (item.url && this.config.show_tracking_link !== false)
+            ? `<a href="${item.url}" target="_blank" class="hki-btn btn-track">${this._t('open_tracking')}</a>`
+            : '';
+        if (!rawBtn && !trackLink) return '';
+        return `<div class="detail-actions">${rawBtn}${trackLink}</div>`;
+    }
+
+    // Opens the full, pretty-printed `item.raw` dump as a popup rather than inline text — the
+    // curated extras above stay a short, reviewed allowlist (see CARRIER_EXTRA_DETAILS); this is
+    // the separate "I want to see literally everything" escape hatch. Mirrors _openLetterPopup's
+    // structure/lifecycle (single reused overlay element, closed on backdrop or × click).
+    _openRawDataPopup(item) {
+        let popup = this.shadowRoot.querySelector('.raw-data-popup-overlay');
+        if (!popup) {
+            popup = document.createElement('div');
+            popup.className = 'raw-data-popup-overlay';
+            this.shadowRoot.appendChild(popup);
+            popup.addEventListener('click', e => {
+                if (e.target === popup || e.target.closest('.raw-data-popup-close')) this._closeRawDataPopup();
+            });
+        }
+        popup.innerHTML = `
+            <div class="raw-data-popup-content">
+                <button class="raw-data-popup-close" title="Close"><ha-icon icon="mdi:close"></ha-icon></button>
+                <div class="raw-data-popup-title">${this._t('show_raw_data')}${item.key ? ` — ${item.key}` : ''}</div>
+                <pre class="raw-dump">${this._escapeHtml(JSON.stringify(item.raw, null, 2))}</pre>
+            </div>`;
+        popup.classList.add('open');
+    }
+
+    _closeRawDataPopup() {
+        this.shadowRoot.querySelector('.raw-data-popup-overlay')?.classList.remove('open');
     }
 
     _renderCustomNameRow(item) {
@@ -6222,7 +6292,7 @@ class HkiParcelsCard extends HTMLElement {
                 ${deliveryDetail}
                 <div class="detail-row"><strong>${this._t('label_type')}:</strong> ${isLetter ? this._t('type_letter') : this._t('type_parcel')}</div>
                 ${!isLetter ? this._renderExtraDetailsSection(item) : ''}
-                ${item.url && this.config.show_tracking_link !== false ? `<a href="${item.url}" target="_blank" class="btn-track">${this._t('open_tracking')}</a>` : ''}
+                ${this._renderDetailActions(item)}
             </div>
         </div>`;
     }
@@ -6287,6 +6357,7 @@ class HkiParcelsCard extends HTMLElement {
             el.addEventListener('click', this.handleLetterThumbClick.bind(this))
         );
         this._bindCustomNameEvents(listEl);
+        this._bindRawDataButtons(listEl);
     }
 
     render() {
@@ -6391,25 +6462,37 @@ class HkiParcelsCard extends HTMLElement {
             .chevron { transition: transform 0.3s; margin-left: 8px; }
             .selected .chevron { transform: rotate(180deg); color: var(--carrier-color, var(--accent)); }
             .details-panel { padding: 12px 16px; background: var(--secondary-background-color); border-top: 1px solid var(--divider-color); font-size: 0.9em; color: var(--secondary-text-color); display: none; max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
-            /* 900px comfortably fits the base rows plus an opened "Toon meer" section and its
-               nested raw-data dump (itself capped at 260px with its own scroll, see .raw-dump)
-               — was 200px, sized only for the original tracking/status/receiver/type rows,
-               before weight/dimensions/curated-extras/raw-data existed and could be expanded. */
-            .selected .details-panel { display: block; max-height: 900px; }
+            /* 500px comfortably fits the base rows plus an opened "Toon meer" section — the raw
+               dump itself lives in its own popup now (see .raw-data-popup-*), not inline, so it
+               no longer has to fit in here. Was 200px, sized only for the original tracking/
+               status/receiver/type rows, before weight/dimensions/curated-extras existed. */
+            .selected .details-panel { display: block; max-height: 500px; }
             .detail-row { margin-bottom: 6px; }
             .detail-row strong { color: var(--primary-text-color); }
             .extra-badges { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 8px; }
             .extra-badge { display: inline-flex; align-items: center; gap: 4px; padding: 3px 9px; border-radius: 12px; font-size: 0.8em; font-weight: 500; color: var(--carrier-color, var(--accent)); background: color-mix(in srgb, var(--carrier-color, var(--accent)) 14%, transparent); }
             .extra-badge ha-icon { width: 15px; height: 15px; }
-            .extra-details, .raw-details { margin-top: 6px; }
-            .extra-details > summary, .raw-details > summary { cursor: pointer; color: var(--carrier-color, var(--accent)); font-size: 0.85em; font-weight: 600; list-style: none; padding: 2px 0; user-select: none; }
-            .extra-details > summary::-webkit-details-marker, .raw-details > summary::-webkit-details-marker { display: none; }
-            .extra-details > summary::before, .raw-details > summary::before { content: '▸'; display: inline-block; width: 0.9em; transition: transform 0.15s ease; }
-            .extra-details[open] > summary::before, .raw-details[open] > summary::before { transform: rotate(90deg); }
+            .extra-details { margin-top: 6px; }
             .extra-details-content { padding-top: 4px; }
-            .raw-dump { background: var(--secondary-background-color); border-radius: 6px; padding: 8px; font-size: 0.72em; line-height: 1.4; white-space: pre-wrap; word-break: break-word; max-height: 260px; overflow-y: auto; margin-top: 4px; }
-            .btn-track { background: var(--carrier-color, var(--accent)); color: white; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 0.9em; font-weight: 600; display: inline-block; margin-top: 8px; transition: all 0.2s; }
-            .btn-track:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.25); }
+            /* Shared box model for every button-like action in the details panel — "Toon meer",
+               "Toon ruwe gegevens" and "Track & trace" all read as equally important, same size,
+               same weight, per explicit feedback that the first two were reading as throwaway
+               text links next to a full button. Colour is the only thing that varies (.hki-btn
+               alone = filled/primary look; .hki-btn-secondary = outlined, for the "Toon meer"
+               disclosure specifically, since revealing content in place is a different kind of
+               action than navigating away or opening a popup). */
+            .hki-btn { display: inline-flex; align-items: center; gap: 6px; background: var(--carrier-color, var(--accent)); color: white; text-decoration: none; border: 1.5px solid transparent; padding: 8px 16px; border-radius: 6px; font-size: 0.9em; font-weight: 600; font-family: inherit; cursor: pointer; transition: all 0.2s; list-style: none; user-select: none; }
+            .hki-btn::-webkit-details-marker { display: none; }
+            .hki-btn:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.25); }
+            .hki-btn-secondary { background: transparent; color: var(--carrier-color, var(--accent)); border-color: var(--carrier-color, var(--accent)); }
+            .hki-btn-secondary::before { content: '▸'; display: inline-block; transition: transform 0.15s ease; }
+            .extra-details[open] > .hki-btn-secondary::before { transform: rotate(90deg); }
+            .detail-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+            @media (min-width: 480px) {
+                /* Track & trace reads better pinned to the far end of the row on anything wider
+                   than a phone; on narrow/mobile widths the buttons just stack in document order. */
+                .detail-actions .btn-track { margin-left: auto; }
+            }
             .custom-name-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
             .custom-name-add-btn { background: none; border: none; color: var(--carrier-color, var(--accent)); cursor: pointer; font-size: 0.9em; font-weight: 600; padding: 2px 0; display: inline-flex; align-items: center; gap: 4px; }
             .custom-name-add-btn ha-icon { width: 16px; height: 16px; }
@@ -6432,6 +6515,13 @@ class HkiParcelsCard extends HTMLElement {
             .letter-popup-caption { color: var(--primary-text-color); font-size: 0.95em; text-align: center; }
             .letter-popup-close { position: absolute; top: 8px; right: 8px; background: var(--secondary-background-color); border: none; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--primary-text-color); }
             .letter-popup-close:hover { background: var(--divider-color); }
+            .raw-data-popup-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.7); display: none; align-items: center; justify-content: center; z-index: 9999; padding: 24px; box-sizing: border-box; }
+            .raw-data-popup-overlay.open { display: flex; }
+            .raw-data-popup-content { position: relative; background: var(--card-background-color, white); border-radius: 8px; padding: 20px; width: 640px; max-width: 90vw; max-height: 90vh; display: flex; flex-direction: column; gap: 10px; box-sizing: border-box; }
+            .raw-data-popup-title { color: var(--primary-text-color); font-size: 1.05em; font-weight: 600; padding-right: 28px; word-break: break-word; }
+            .raw-data-popup-close { position: absolute; top: 8px; right: 8px; background: var(--secondary-background-color); border: none; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--primary-text-color); }
+            .raw-data-popup-close:hover { background: var(--divider-color); }
+            .raw-dump { background: var(--secondary-background-color); border-radius: 6px; padding: 10px; font-size: 0.78em; line-height: 1.45; white-space: pre-wrap; word-break: break-word; max-height: 70vh; overflow-y: auto; margin: 0; }
             .carrier-popup-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.7); display: none; align-items: center; justify-content: center; z-index: 9999; padding: 24px; box-sizing: border-box; }
             .carrier-popup-overlay.open { display: flex; }
             .carrier-popup-content { position: relative; background: var(--card-background-color, white); border-radius: 8px; width: 420px; max-width: 90vw; max-height: 85vh; display: flex; flex-direction: column; overflow: hidden; }
@@ -6496,6 +6586,7 @@ class HkiParcelsCard extends HTMLElement {
             el.addEventListener('click', this.handleLetterThumbClick.bind(this))
         );
         this._bindCustomNameEvents(this.shadowRoot);
+        this._bindRawDataButtons(this.shadowRoot);
         this._bindAddParcelEvents(this.shadowRoot.querySelector('.add-parcel-container'));
         this.updateAnimation(displayed);
     }
