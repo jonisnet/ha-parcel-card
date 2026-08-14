@@ -176,6 +176,13 @@ const TRANSLATIONS = {
         extra_climate_neutral: 'Climate-neutral delivery',
         extra_letterbox_parcel: 'Fits through the letterbox',
         extra_rerouted: 'Rerouted',
+        extra_details_mode_label: 'Extra details',
+        extra_details_mode_button: 'Behind a "Show more" button (default)',
+        extra_details_mode_always: 'Always show',
+        extra_details_mode_hidden: 'Always hide',
+        extra_details_mode_help: 'Controls whether weight, dimensions and other carrier-specific extras appear directly in the parcel details, only after tapping "Show more", or not at all.',
+        show_more_details: 'Show more',
+        show_raw_data: 'Show raw data',
         type_letter: 'Letter',
         type_parcel: 'Parcel',
         open_tracking: 'OPEN TRACKING ↗',
@@ -354,6 +361,13 @@ const TRANSLATIONS = {
         extra_climate_neutral: 'Klimaatneutrale bezorging',
         extra_letterbox_parcel: 'Brievenbuspakket',
         extra_rerouted: 'Omgeleid',
+        extra_details_mode_label: 'Extra details',
+        extra_details_mode_button: 'Achter een "Toon meer"-knop (standaard)',
+        extra_details_mode_always: 'Altijd tonen',
+        extra_details_mode_hidden: 'Altijd verbergen',
+        extra_details_mode_help: 'Bepaalt of gewicht, afmetingen en andere carrier-specifieke extra\'s direct in de pakketdetails staan, pas na een klik op "Toon meer" verschijnen, of helemaal niet getoond worden.',
+        show_more_details: 'Toon meer',
+        show_raw_data: 'Toon ruwe gegevens',
         type_letter: 'Brief',
         type_parcel: 'Pakket',
         open_tracking: 'TRACK & TRACE OPENEN ↗',
@@ -533,6 +547,13 @@ const TRANSLATIONS = {
         extra_climate_neutral: 'Климатично неутрална доставка',
         extra_letterbox_parcel: 'Пратка за пощенска кутия',
         extra_rerouted: 'Пренасочена',
+        extra_details_mode_label: 'Допълнителни подробности',
+        extra_details_mode_button: 'Зад бутон „Покажи повече“ (по подразбиране)',
+        extra_details_mode_always: 'Винаги показвай',
+        extra_details_mode_hidden: 'Винаги скривай',
+        extra_details_mode_help: 'Определя дали теглото, размерите и другите специфични за превозвача екстри се показват директно в детайлите на пратката, само след натискане на „Покажи повече“, или изобщо не се показват.',
+        show_more_details: 'Покажи повече',
+        show_raw_data: 'Покажи необработените данни',
         type_letter: 'Писмо',
         type_parcel: 'Пратка',
         open_tracking: 'ОТВОРИ ПРОСЛЕДЯВАНЕТО ↗',
@@ -712,6 +733,13 @@ const TRANSLATIONS = {
         extra_climate_neutral: 'Klimaticky neutrální doručení',
         extra_letterbox_parcel: 'Zásilka do schránky',
         extra_rerouted: 'Přesměrováno',
+        extra_details_mode_label: 'Další podrobnosti',
+        extra_details_mode_button: 'Za tlačítkem „Zobrazit více“ (výchozí)',
+        extra_details_mode_always: 'Vždy zobrazit',
+        extra_details_mode_hidden: 'Vždy skrýt',
+        extra_details_mode_help: 'Určuje, zda se hmotnost, rozměry a další specifické údaje dopravce zobrazí přímo v podrobnostech zásilky, až po klepnutí na „Zobrazit více“, nebo vůbec ne.',
+        show_more_details: 'Zobrazit více',
+        show_raw_data: 'Zobrazit surová data',
         type_letter: 'Dopis',
         type_parcel: 'Zásilka',
         open_tracking: 'OTEVŘÍT SLEDOVÁNÍ ↗',
@@ -891,6 +919,13 @@ const TRANSLATIONS = {
         extra_climate_neutral: 'Klimaneutral levering',
         extra_letterbox_parcel: 'Postkassepakke',
         extra_rerouted: 'Omdirigeret',
+        extra_details_mode_label: 'Ekstra detaljer',
+        extra_details_mode_button: 'Bag en "Vis mere"-knap (standard)',
+        extra_details_mode_always: 'Vis altid',
+        extra_details_mode_hidden: 'Skjul altid',
+        extra_details_mode_help: 'Bestemmer om vægt, mål og andre transportørspecifikke ekstra oplysninger vises direkte i pakkedetaljerne, først efter tryk på "Vis mere", eller slet ikke.',
+        show_more_details: 'Vis mere',
+        show_raw_data: 'Vis rådata',
         type_letter: 'Brev',
         type_parcel: 'Pakke',
         open_tracking: 'ÅBN SPORING ↗',
@@ -1070,6 +1105,13 @@ const TRANSLATIONS = {
         extra_climate_neutral: 'Klimaneutrale Zustellung',
         extra_letterbox_parcel: 'Briefkastenpaket',
         extra_rerouted: 'Umgeleitet',
+        extra_details_mode_label: 'Zusätzliche Details',
+        extra_details_mode_button: 'Hinter einer Schaltfläche „Mehr anzeigen“ (Standard)',
+        extra_details_mode_always: 'Immer anzeigen',
+        extra_details_mode_hidden: 'Immer ausblenden',
+        extra_details_mode_help: 'Legt fest, ob Gewicht, Abmessungen und weitere zustelldienstspezifische Extras direkt in den Paketdetails erscheinen, erst nach Tippen auf „Mehr anzeigen“, oder gar nicht.',
+        show_more_details: 'Mehr anzeigen',
+        show_raw_data: 'Rohdaten anzeigen',
         type_letter: 'Brief',
         type_parcel: 'Paket',
         open_tracking: 'SENDUNGSVERFOLGUNG ÖFFNEN ↗',
@@ -1249,6 +1291,13 @@ const TRANSLATIONS = {
         extra_climate_neutral: 'Entrega climáticamente neutra',
         extra_letterbox_parcel: 'Paquete de buzón',
         extra_rerouted: 'Redirigido',
+        extra_details_mode_label: 'Detalles adicionales',
+        extra_details_mode_button: 'Detrás de un botón "Mostrar más" (predeterminado)',
+        extra_details_mode_always: 'Mostrar siempre',
+        extra_details_mode_hidden: 'Ocultar siempre',
+        extra_details_mode_help: 'Determina si el peso, las dimensiones y otros extras específicos del transportista aparecen directamente en los detalles del paquete, solo tras pulsar "Mostrar más", o nunca.',
+        show_more_details: 'Mostrar más',
+        show_raw_data: 'Mostrar datos sin procesar',
         type_letter: 'Carta',
         type_parcel: 'Paquete',
         open_tracking: 'ABRIR SEGUIMIENTO ↗',
@@ -1428,6 +1477,13 @@ const TRANSLATIONS = {
         extra_climate_neutral: 'Ilmastoneutraali toimitus',
         extra_letterbox_parcel: 'Postiluukkupaketti',
         extra_rerouted: 'Uudelleenreititetty',
+        extra_details_mode_label: 'Lisätiedot',
+        extra_details_mode_button: '"Näytä lisää" -painikkeen takana (oletus)',
+        extra_details_mode_always: 'Näytä aina',
+        extra_details_mode_hidden: 'Piilota aina',
+        extra_details_mode_help: 'Määrittää, näkyvätkö paino, mitat ja muut kuljetusyhtiökohtaiset lisätiedot suoraan paketin tiedoissa, vasta "Näytä lisää" -painikkeen painamisen jälkeen, vai ei lainkaan.',
+        show_more_details: 'Näytä lisää',
+        show_raw_data: 'Näytä raakadata',
         type_letter: 'Kirje',
         type_parcel: 'Paketti',
         open_tracking: 'AVAA SEURANTA ↗',
@@ -1607,6 +1663,13 @@ const TRANSLATIONS = {
         extra_climate_neutral: 'Livraison neutre en carbone',
         extra_letterbox_parcel: 'Colis boîte aux lettres',
         extra_rerouted: 'Redirigé',
+        extra_details_mode_label: 'Détails supplémentaires',
+        extra_details_mode_button: 'Derrière un bouton « Afficher plus » (par défaut)',
+        extra_details_mode_always: 'Toujours afficher',
+        extra_details_mode_hidden: 'Toujours masquer',
+        extra_details_mode_help: 'Détermine si le poids, les dimensions et d\'autres extras propres au transporteur apparaissent directement dans les détails du colis, seulement après avoir appuyé sur « Afficher plus », ou jamais.',
+        show_more_details: 'Afficher plus',
+        show_raw_data: 'Afficher les données brutes',
         type_letter: 'Lettre',
         type_parcel: 'Colis',
         open_tracking: 'OUVRIR LE SUIVI ↗',
@@ -1786,6 +1849,13 @@ const TRANSLATIONS = {
         extra_climate_neutral: 'जलवायु-तटस्थ डिलीवरी',
         extra_letterbox_parcel: 'लेटरबॉक्स पार्सल',
         extra_rerouted: 'पुनर्मार्गित',
+        extra_details_mode_label: 'अतिरिक्त विवरण',
+        extra_details_mode_button: '"और दिखाएं" बटन के पीछे (डिफ़ॉल्ट)',
+        extra_details_mode_always: 'हमेशा दिखाएं',
+        extra_details_mode_hidden: 'हमेशा छुपाएं',
+        extra_details_mode_help: 'यह तय करता है कि वज़न, आयाम और अन्य कैरियर-विशिष्ट अतिरिक्त जानकारी सीधे पार्सल विवरण में दिखे, "और दिखाएं" पर टैप करने के बाद ही दिखे, या बिल्कुल न दिखे।',
+        show_more_details: 'और दिखाएं',
+        show_raw_data: 'रॉ डेटा दिखाएं',
         type_letter: 'पत्र',
         type_parcel: 'पार्सल',
         open_tracking: 'ट्रैकिंग खोलें ↗',
@@ -1965,6 +2035,13 @@ const TRANSLATIONS = {
         extra_climate_neutral: 'Klímasemleges kézbesítés',
         extra_letterbox_parcel: 'Levélszekrény-csomag',
         extra_rerouted: 'Átirányítva',
+        extra_details_mode_label: 'További részletek',
+        extra_details_mode_button: '„Több megjelenítése” gomb mögött (alapértelmezett)',
+        extra_details_mode_always: 'Mindig megjelenítve',
+        extra_details_mode_hidden: 'Mindig elrejtve',
+        extra_details_mode_help: 'Meghatározza, hogy a súly, a méretek és más szolgáltatóspecifikus extrák közvetlenül megjelenjenek a csomag részleteinél, csak a „Több megjelenítése” gombra kattintás után jelenjenek meg, vagy egyáltalán ne jelenjenek meg.',
+        show_more_details: 'Több megjelenítése',
+        show_raw_data: 'Nyers adatok megjelenítése',
         type_letter: 'Levél',
         type_parcel: 'Csomag',
         open_tracking: 'NYOMKÖVETÉS MEGNYITÁSA ↗',
@@ -2144,6 +2221,13 @@ const TRANSLATIONS = {
         extra_climate_neutral: 'Consegna a impatto climatico zero',
         extra_letterbox_parcel: 'Pacco da cassetta postale',
         extra_rerouted: 'Reindirizzato',
+        extra_details_mode_label: 'Dettagli extra',
+        extra_details_mode_button: 'Dietro un pulsante "Mostra di più" (predefinito)',
+        extra_details_mode_always: 'Mostra sempre',
+        extra_details_mode_hidden: 'Nascondi sempre',
+        extra_details_mode_help: 'Determina se peso, dimensioni e altri extra specifici del corriere compaiono direttamente nei dettagli del pacco, solo dopo aver toccato "Mostra di più", oppure mai.',
+        show_more_details: 'Mostra di più',
+        show_raw_data: 'Mostra dati grezzi',
         type_letter: 'Lettera',
         type_parcel: 'Pacco',
         open_tracking: 'APRI TRACCIAMENTO ↗',
@@ -2323,6 +2407,13 @@ const TRANSLATIONS = {
         extra_climate_neutral: 'Klimanøytral levering',
         extra_letterbox_parcel: 'Postkassepakke',
         extra_rerouted: 'Omdirigert',
+        extra_details_mode_label: 'Ekstra detaljer',
+        extra_details_mode_button: 'Bak en "Vis mer"-knapp (standard)',
+        extra_details_mode_always: 'Vis alltid',
+        extra_details_mode_hidden: 'Skjul alltid',
+        extra_details_mode_help: 'Bestemmer om vekt, mål og andre transportørspesifikke ekstra opplysninger vises direkte i pakkedetaljene, først etter trykk på "Vis mer", eller aldri.',
+        show_more_details: 'Vis mer',
+        show_raw_data: 'Vis rådata',
         type_letter: 'Brev',
         type_parcel: 'Pakke',
         open_tracking: 'ÅPNE SPORING ↗',
@@ -2502,6 +2593,13 @@ const TRANSLATIONS = {
         extra_climate_neutral: 'Dostawa neutralna klimatycznie',
         extra_letterbox_parcel: 'Paczka do skrzynki pocztowej',
         extra_rerouted: 'Przekierowano',
+        extra_details_mode_label: 'Dodatkowe szczegóły',
+        extra_details_mode_button: 'Za przyciskiem „Pokaż więcej” (domyślnie)',
+        extra_details_mode_always: 'Zawsze pokazuj',
+        extra_details_mode_hidden: 'Zawsze ukryj',
+        extra_details_mode_help: 'Określa, czy waga, wymiary i inne dodatkowe informacje charakterystyczne dla przewoźnika pojawiają się bezpośrednio w szczegółach paczki, dopiero po kliknięciu „Pokaż więcej”, czy wcale.',
+        show_more_details: 'Pokaż więcej',
+        show_raw_data: 'Pokaż surowe dane',
         type_letter: 'List',
         type_parcel: 'Paczka',
         open_tracking: 'OTWÓRZ ŚLEDZENIE ↗',
@@ -2681,6 +2779,13 @@ const TRANSLATIONS = {
         extra_climate_neutral: 'Entrega neutra em carbono',
         extra_letterbox_parcel: 'Encomenda de caixa de correio',
         extra_rerouted: 'Redirecionado',
+        extra_details_mode_label: 'Detalhes extra',
+        extra_details_mode_button: 'Atrás de um botão "Mostrar mais" (predefinição)',
+        extra_details_mode_always: 'Mostrar sempre',
+        extra_details_mode_hidden: 'Ocultar sempre',
+        extra_details_mode_help: 'Determina se o peso, as dimensões e outros extras específicos da transportadora aparecem diretamente nos detalhes da encomenda, só depois de tocar em "Mostrar mais", ou nunca.',
+        show_more_details: 'Mostrar mais',
+        show_raw_data: 'Mostrar dados brutos',
         type_letter: 'Carta',
         type_parcel: 'Encomenda',
         open_tracking: 'ABRIR RASTREAMENTO ↗',
@@ -2860,6 +2965,13 @@ const TRANSLATIONS = {
         extra_climate_neutral: 'Livrare neutră climatic',
         extra_letterbox_parcel: 'Colet pentru cutia poștală',
         extra_rerouted: 'Redirecționat',
+        extra_details_mode_label: 'Detalii suplimentare',
+        extra_details_mode_button: 'În spatele unui buton „Arată mai mult” (implicit)',
+        extra_details_mode_always: 'Afișează întotdeauna',
+        extra_details_mode_hidden: 'Ascunde întotdeauna',
+        extra_details_mode_help: 'Determină dacă greutatea, dimensiunile și alte extra specifice curierului apar direct în detaliile coletului, doar după apăsarea pe „Arată mai mult”, sau deloc.',
+        show_more_details: 'Arată mai mult',
+        show_raw_data: 'Arată datele brute',
         type_letter: 'Scrisoare',
         type_parcel: 'Colet',
         open_tracking: 'DESCHIDE URMĂRIREA ↗',
@@ -3039,6 +3151,13 @@ const TRANSLATIONS = {
         extra_climate_neutral: 'Klimaticky neutrálne doručenie',
         extra_letterbox_parcel: 'Zásielka do schránky',
         extra_rerouted: 'Presmerované',
+        extra_details_mode_label: 'Ďalšie podrobnosti',
+        extra_details_mode_button: 'Za tlačidlom „Zobraziť viac“ (predvolené)',
+        extra_details_mode_always: 'Vždy zobraziť',
+        extra_details_mode_hidden: 'Vždy skryť',
+        extra_details_mode_help: 'Určuje, či sa hmotnosť, rozmery a ďalšie špecifické údaje dopravcu zobrazia priamo v podrobnostiach zásielky, až po kliknutí na „Zobraziť viac“, alebo vôbec nie.',
+        show_more_details: 'Zobraziť viac',
+        show_raw_data: 'Zobraziť nespracované údaje',
         type_letter: 'List',
         type_parcel: 'Zásielka',
         open_tracking: 'OTVORIŤ SLEDOVANIE ↗',
@@ -3218,6 +3337,13 @@ const TRANSLATIONS = {
         extra_climate_neutral: 'Klimatneutral leverans',
         extra_letterbox_parcel: 'Brevlådspaket',
         extra_rerouted: 'Omdirigerad',
+        extra_details_mode_label: 'Extra detaljer',
+        extra_details_mode_button: 'Bakom en "Visa mer"-knapp (standard)',
+        extra_details_mode_always: 'Visa alltid',
+        extra_details_mode_hidden: 'Dölj alltid',
+        extra_details_mode_help: 'Avgör om vikt, mått och andra transportörsspecifika extrauppgifter visas direkt i paketdetaljerna, först efter tryck på "Visa mer", eller inte alls.',
+        show_more_details: 'Visa mer',
+        show_raw_data: 'Visa rådata',
         type_letter: 'Brev',
         type_parcel: 'Paket',
         open_tracking: 'ÖPPNA SPÅRNING ↗',
@@ -3397,6 +3523,13 @@ const TRANSLATIONS = {
         extra_climate_neutral: 'Кліматично нейтральна доставка',
         extra_letterbox_parcel: 'Посилка для поштової скриньки',
         extra_rerouted: 'Перенаправлено',
+        extra_details_mode_label: 'Додаткові деталі',
+        extra_details_mode_button: 'За кнопкою «Показати більше» (за замовчуванням)',
+        extra_details_mode_always: 'Завжди показувати',
+        extra_details_mode_hidden: 'Завжди приховувати',
+        extra_details_mode_help: 'Визначає, чи відображаються вага, розміри та інші специфічні для перевізника додаткові дані безпосередньо в деталях посилки, лише після натискання «Показати більше», чи не відображаються взагалі.',
+        show_more_details: 'Показати більше',
+        show_raw_data: 'Показати необроблені дані',
         type_letter: 'Лист',
         type_parcel: 'Посилка',
         open_tracking: 'ВІДКРИТИ ВІДСТЕЖЕННЯ ↗',
@@ -4510,6 +4643,7 @@ class HkiParcelsCard extends HTMLElement {
             show_add_parcel: true,
             custom_name_scope: 'everyone',
             sort_order: 'auto',
+            extra_details_mode: 'button',
             group_by_carrier: true,
             header_color: '',
             header_text_color: '',
@@ -4610,6 +4744,7 @@ class HkiParcelsCard extends HTMLElement {
             show_add_parcel: true,
             custom_name_scope: 'everyone',
             sort_order: 'auto',
+            extra_details_mode: 'button',
             group_by_carrier: true,
             layout_order: ['header', 'animation', 'tabs', 'list']
         };
@@ -5948,30 +6083,56 @@ class HkiParcelsCard extends HTMLElement {
         }
     }
 
-    // Renders the curated per-carrier "extra details" (see CARRIER_EXTRA_DETAILS) as a
-    // mix of plain detail-rows (entries with a `value`) and small pill badges (entries
-    // without one), e.g. a "Climate-neutral" or "Rerouted" flag. Returns '' when the
-    // carrier has no extractor, `item.raw` is unavailable, or nothing qualified.
-    _renderExtraDetails(item) {
+    // Builds weight/dimensions rows + the curated per-carrier extras (CARRIER_EXTRA_DETAILS)
+    // + an on-demand full `item.raw` dump, then wraps the lot according to `extra_details_mode`:
+    //   'hidden' — none of it, not even the raw-data escape hatch (nothing to show() call);
+    //   'always' — rendered inline, same as the other detail-rows;
+    //   'button' (default) — behind a native <details> "Show more" disclosure, so the panel
+    //     stays short by default. Either way the raw dump sits behind its own nested <details>
+    //     ("Show raw data") rather than being dumped inline — it's a deliberately narrow,
+    //     reviewed allowlist above that, not a replacement for it (see CARRIER_EXTRA_DETAILS).
+    // Native <details>/<summary> needs no click-binding/state of its own, and — unlike toggling
+    // via updateContent() — never disturbs the rest of the (possibly long) parcel list.
+    _renderExtraDetailsSection(item) {
+        const mode = this.config.extra_details_mode || 'button';
+        if (mode === 'hidden') return '';
+
+        const rows = [];
+        if (typeof item.weight === 'number') rows.push(`<div class="detail-row"><strong>${this._t('label_weight')}:</strong> ${item.weight} kg</div>`);
+        if (item.dimensions?.text) rows.push(`<div class="detail-row"><strong>${this._t('label_dimensions')}:</strong> ${item.dimensions.text}</div>`);
+
         const extractor = CARRIER_EXTRA_DETAILS[item.carrier_type];
-        if (!extractor || !item.raw) return '';
-        let extras;
-        try {
-            extras = extractor(item.raw) || [];
-        } catch {
-            return '';
+        let extraRowsHtml = '', badgesHtml = '';
+        if (extractor && item.raw) {
+            try {
+                const extras = extractor(item.raw) || [];
+                extraRowsHtml = extras.filter(e => e.value !== undefined).map(r =>
+                    `<div class="detail-row"><strong>${this._t(r.labelKey)}:</strong> ${this._escapeHtml(String(r.value))}</div>`
+                ).join('');
+                const badges = extras.filter(e => e.value === undefined);
+                badgesHtml = badges.length ? `
+                    <div class="extra-badges">
+                        ${badges.map(b => `<span class="extra-badge"><ha-icon icon="${b.icon}"></ha-icon>${this._t(b.labelKey)}</span>`).join('')}
+                    </div>` : '';
+            } catch { /* a bad raw shape just skips the curated extras, not the rest of the panel */ }
         }
-        if (!extras.length) return '';
-        const rows = extras.filter(e => e.value !== undefined);
-        const badges = extras.filter(e => e.value === undefined);
-        const rowsHtml = rows.map(r =>
-            `<div class="detail-row"><strong>${this._t(r.labelKey)}:</strong> ${this._escapeHtml(String(r.value))}</div>`
-        ).join('');
-        const badgesHtml = badges.length ? `
-            <div class="extra-badges">
-                ${badges.map(b => `<span class="extra-badge"><ha-icon icon="${b.icon}"></ha-icon>${this._t(b.labelKey)}</span>`).join('')}
-            </div>` : '';
-        return rowsHtml + badgesHtml;
+
+        const rawHtml = item.raw ? `
+            <details class="raw-details">
+                <summary>${this._t('show_raw_data')}</summary>
+                <pre class="raw-dump">${this._escapeHtml(JSON.stringify(item.raw, null, 2))}</pre>
+            </details>` : '';
+
+        const content = rows.join('') + extraRowsHtml + badgesHtml + rawHtml;
+        if (!content) return '';
+
+        if (mode === 'always') return content;
+
+        return `
+            <details class="extra-details">
+                <summary>${this._t('show_more_details')}</summary>
+                <div class="extra-details-content">${content}</div>
+            </details>`;
     }
 
     _renderCustomNameRow(item) {
@@ -6060,9 +6221,7 @@ class HkiParcelsCard extends HTMLElement {
                 ${!isLetter && item.receiver ? `<div class="detail-row"><strong>${this._t('label_receiver')}:</strong> ${item.receiver}</div>` : ''}
                 ${deliveryDetail}
                 <div class="detail-row"><strong>${this._t('label_type')}:</strong> ${isLetter ? this._t('type_letter') : this._t('type_parcel')}</div>
-                ${!isLetter && typeof item.weight === 'number' ? `<div class="detail-row"><strong>${this._t('label_weight')}:</strong> ${item.weight} kg</div>` : ''}
-                ${!isLetter && item.dimensions?.text ? `<div class="detail-row"><strong>${this._t('label_dimensions')}:</strong> ${item.dimensions.text}</div>` : ''}
-                ${!isLetter ? this._renderExtraDetails(item) : ''}
+                ${!isLetter ? this._renderExtraDetailsSection(item) : ''}
                 ${item.url && this.config.show_tracking_link !== false ? `<a href="${item.url}" target="_blank" class="btn-track">${this._t('open_tracking')}</a>` : ''}
             </div>
         </div>`;
@@ -6232,12 +6391,23 @@ class HkiParcelsCard extends HTMLElement {
             .chevron { transition: transform 0.3s; margin-left: 8px; }
             .selected .chevron { transform: rotate(180deg); color: var(--carrier-color, var(--accent)); }
             .details-panel { padding: 12px 16px; background: var(--secondary-background-color); border-top: 1px solid var(--divider-color); font-size: 0.9em; color: var(--secondary-text-color); display: none; max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
-            .selected .details-panel { display: block; max-height: 200px; }
+            /* 900px comfortably fits the base rows plus an opened "Toon meer" section and its
+               nested raw-data dump (itself capped at 260px with its own scroll, see .raw-dump)
+               — was 200px, sized only for the original tracking/status/receiver/type rows,
+               before weight/dimensions/curated-extras/raw-data existed and could be expanded. */
+            .selected .details-panel { display: block; max-height: 900px; }
             .detail-row { margin-bottom: 6px; }
             .detail-row strong { color: var(--primary-text-color); }
             .extra-badges { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 8px; }
             .extra-badge { display: inline-flex; align-items: center; gap: 4px; padding: 3px 9px; border-radius: 12px; font-size: 0.8em; font-weight: 500; color: var(--carrier-color, var(--accent)); background: color-mix(in srgb, var(--carrier-color, var(--accent)) 14%, transparent); }
             .extra-badge ha-icon { width: 15px; height: 15px; }
+            .extra-details, .raw-details { margin-top: 6px; }
+            .extra-details > summary, .raw-details > summary { cursor: pointer; color: var(--carrier-color, var(--accent)); font-size: 0.85em; font-weight: 600; list-style: none; padding: 2px 0; user-select: none; }
+            .extra-details > summary::-webkit-details-marker, .raw-details > summary::-webkit-details-marker { display: none; }
+            .extra-details > summary::before, .raw-details > summary::before { content: '▸'; display: inline-block; width: 0.9em; transition: transform 0.15s ease; }
+            .extra-details[open] > summary::before, .raw-details[open] > summary::before { transform: rotate(90deg); }
+            .extra-details-content { padding-top: 4px; }
+            .raw-dump { background: var(--secondary-background-color); border-radius: 6px; padding: 8px; font-size: 0.72em; line-height: 1.4; white-space: pre-wrap; word-break: break-word; max-height: 260px; overflow-y: auto; margin-top: 4px; }
             .btn-track { background: var(--carrier-color, var(--accent)); color: white; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 0.9em; font-weight: 600; display: inline-block; margin-top: 8px; transition: all 0.2s; }
             .btn-track:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.25); }
             .custom-name-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
@@ -6365,6 +6535,7 @@ class HkiParcelsCardEditor extends LitElement {
             show_add_parcel: true,
             custom_name_scope: 'everyone',
             sort_order: 'auto',
+            extra_details_mode: 'button',
             group_by_carrier: true,
             header_color: '',
             header_text_color: '',
@@ -7368,6 +7539,18 @@ class HkiParcelsCardEditor extends LitElement {
                         <div class="helper-text">${this._t('sort_order_help')}</div>
                     </div>
                     <div class="switch-row"><ha-switch .checked=${this._config.group_by_carrier !== false} data-field="group_by_carrier" @change=${this._changed}></ha-switch><span>${this._t('group_by_carrier')}</span></div>
+                    <div class="plain-field">
+                        <label>${this._t('extra_details_mode_label')}</label>
+                        <ha-selector .hass=${this.hass}
+                            .selector=${{ select: { options: [
+                                { value: 'button', label: this._t('extra_details_mode_button') },
+                                { value: 'always', label: this._t('extra_details_mode_always') },
+                                { value: 'hidden', label: this._t('extra_details_mode_hidden') }
+                            ], mode: 'dropdown' } }}
+                            .value=${this._config.extra_details_mode || 'button'}
+                            @value-changed=${(ev) => this._changed(ev, 'extra_details_mode')}></ha-selector>
+                        <div class="helper-text">${this._t('extra_details_mode_help')}</div>
+                    </div>
                 </details>
 
                 <details class="section-details">
