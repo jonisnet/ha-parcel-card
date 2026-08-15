@@ -6,7 +6,7 @@
 type: custom:ha-parcels-card
 title: PostNL
 carriers:
-  - type: postnl_v4
+  - type: postnl
     user: my_account
 ```
 
@@ -19,7 +19,7 @@ type: custom:ha-parcels-card
 title: PostNL
 show_letters: true
 carriers:
-  - type: postnl_v4
+  - type: postnl
     user: my_account
 ```
 
@@ -31,7 +31,7 @@ carriers:
 type: custom:ha-parcels-card
 title: Alle pakketten
 carriers:
-  - type: postnl_v4
+  - type: postnl
     user: my_account
   - type: dhl
     user: my_account
@@ -96,19 +96,6 @@ carriers:
 
 ---
 
-## PostNL (ArjenBos) legacy mode
-
-```yaml
-type: custom:ha-parcels-card
-title: PostNL
-carriers:
-  - type: postnl_legacy
-    entity: sensor.postnl_delivery
-    distribution_entity: sensor.postnl_distribution
-```
-
----
-
 ## Active deliveries only (no history)
 
 ```yaml
@@ -118,7 +105,7 @@ show_delivered: false
 show_sent: false
 show_letters: false
 carriers:
-  - type: postnl_v4
+  - type: postnl
     user: my_account
   - type: dhl
     user: my_account
@@ -136,7 +123,7 @@ show_animation: false
 show_placeholder: false
 show_header: true
 carriers:
-  - type: postnl_v4
+  - type: postnl
     user: my_account
 ```
 
@@ -150,7 +137,7 @@ title: Pakketjes
 header_color: "#1a1a2e"
 header_text_color: "#ffffff"
 carriers:
-  - type: postnl_v4
+  - type: postnl
     user: my_account
     name: PostNL
     color: "#ed8c00"
@@ -168,7 +155,7 @@ For setups where sensors are named `sensor.postnl_incoming_parcels` (no `<user>_
 type: custom:ha-parcels-card
 title: PostNL
 carriers:
-  - type: postnl_v4
+  - type: postnl
     user: ""
 ```
 
@@ -182,7 +169,7 @@ When sensor entity IDs differ from the automatic pattern:
 type: custom:ha-parcels-card
 title: PostNL
 carriers:
-  - type: postnl_v4
+  - type: postnl
     user: ""
     entity_incoming: sensor.postnl_parcels_inbound
     entity_delivered: sensor.postnl_parcels_delivered

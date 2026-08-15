@@ -16,7 +16,7 @@
 >
 > Found a bug? Open an issue here, not on `hki-parcels-card`.
 
-[![Version](https://img.shields.io/badge/version-v2.0.0b9-blue?style=flat-square)](https://github.com/jonisnet/ha-parcels-card/releases/latest)
+[![Version](https://img.shields.io/badge/version-v2.0.0b10-blue?style=flat-square)](https://github.com/jonisnet/ha-parcels-card/releases/latest)
 [![HACS](https://img.shields.io/badge/HACS-Custom-orange?style=flat-square)](https://hacs.xyz)
 [![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](https://github.com/jonisnet/ha-parcels-card/blob/main/LICENSE)
 [![HA](https://img.shields.io/badge/Home%20Assistant-2026.7%2B-41bdf5?style=flat-square)](https://www.home-assistant.io)
@@ -74,7 +74,7 @@ Install the integration for each carrier you use **before** adding the card. All
 
 | Carrier | Integration | Account type |
 | ------- | ----------- | ------------ |
-| **PostNL** | [ha-parcel-integrations/ha-postnl](https://github.com/ha-parcel-integrations/ha-postnl) ≥ 4.0.0 (older `postnl` / `postnl_legacy` variants are being phased out, see [Installation](https://jonisnet.github.io/ha-parcels-card/installation/#postnl)) | Account login |
+| **PostNL** | [ha-parcel-integrations/ha-postnl](https://github.com/ha-parcel-integrations/ha-postnl) ≥ 4.0.0 | Account login |
 | **DHL** | [ha-parcel-integrations/ha-dhl-nl](https://github.com/ha-parcel-integrations/ha-dhl-nl) | Account login |
 | **DPD** | [ha-parcel-integrations/ha-dpd](https://github.com/ha-parcel-integrations/ha-dpd) | Account login |
 | **Vinted Go** | [ha-parcel-integrations/ha-vinted-go](https://github.com/ha-parcel-integrations/ha-vinted-go) | Account login (e-mail + verification link, no password) |
@@ -162,7 +162,7 @@ Or add it via YAML:
 type: custom:ha-parcels-card
 title: Parcels
 carriers:
-  - type: postnl_v4
+  - type: postnl
     user: my_account
   - type: dhl
     user: my_account
@@ -216,7 +216,6 @@ This card is free and maintained in my spare time. If it's useful to you, a smal
 - [jimz011/hki-elements](https://github.com/jimz011/hki-elements) — original PostNL card and visual design
 - [ha-parcel-integrations](https://github.com/ha-parcel-integrations) — PostNL, DHL, DPD, Vinted Go, GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee, Nova Post, Delhivery and SunYou integrations, all sharing one canonical parcel format
 - [Alwin Hummels (@HummelsTech)](https://github.com/HummelsTech) — created the Dragonfly integration ([HummelsTech/ha-dragonfly](https://github.com/HummelsTech/ha-dragonfly)), also mirrored into ha-parcel-integrations above
-- [arjenbos/ha-postnl](https://github.com/arjenbos/ha-postnl) — legacy PostNL integration
 
 ---
 

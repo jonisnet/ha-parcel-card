@@ -72,23 +72,13 @@ Normally the card generates sensor entity IDs automatically from `type` and `use
 | `entity_outgoing_delivered` | string | Sensor for delivered outgoing parcels (not applicable for GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Nova Post, Delhivery, SunYou) |
 | `entity_letters` | string | Sensor for PostNL letterbox mail (PostNL only) |
 
-### PostNL (ArjenBos) options
-
-When `type: postnl_legacy` these options apply instead.
-
-| Option | Type | Description |
-| ------ | ---- | ----------- |
-| `entity` | string | **Required.** Combined PostNL delivery sensor |
-| `distribution_entity` | string | Optional. PostNL distribution (sent) sensor |
-
 ---
 
 ## Carrier types
 
 | Type | Label in editor | Integration | Schema | Letters | Add parcel from card |
 | ---- | ---------------- | ----------- | ------ | :-----: | :-------------------: |
-| `postnl_v4` | PostNL | ha-parcel-integrations/ha-postnl ≥ 4.0.0 | canonical | ✅ | — |
-| `postnl` | PostNL (<v4.x) | ha-parcel-integrations/ha-postnl ≤ 3.x | legacy | ✅ | — |
+| `postnl` | PostNL | ha-parcel-integrations/ha-postnl ≥ 4.0.0 | canonical | ✅ | — |
 | `dhl` | DHL | ha-parcel-integrations/ha-dhl-nl | canonical | — | — |
 | `dpd` | DPD | ha-parcel-integrations/ha-dpd | canonical | — | — |
 | `vinted_go` | Vinted Go | ha-parcel-integrations/ha-vinted-go | canonical | — | — |
@@ -110,22 +100,16 @@ When `type: postnl_legacy` these options apply instead.
 | `nova_post` | Nova Post | ha-parcel-integrations/ha-nova-post | canonical | — | ✅ |
 | `delhivery` | Delhivery | ha-parcel-integrations/ha-delhivery | canonical | — | ✅ |
 | `sunyou` | SunYou | ha-parcel-integrations/ha-sunyou | canonical | — | ✅ |
-| `postnl_legacy` | PostNL (ArjenBos) | arjenbos/ha-postnl | single_entity | — | — |
 | `custom` | Custom | any | canonical | — | — |
 
-!!! tip "Which PostNL type should I use?"
-    Use `postnl_v4` ("PostNL") for new installations or if you have updated to ha-postnl 4.0.0 or later.
-    Use `postnl` ("PostNL (<v4.x)") if you are still on version 3.x.
-    Use `postnl_legacy` ("PostNL (ArjenBos)") only for the arjenbos/ha-postnl integration.
-
-!!! warning "Deprecation notice"
-    **PostNL (<v4.x)** will no longer be supported starting from HA Parcels Card v2.0. **PostNL (ArjenBos)** will also be removed from v2.0, unless arjenbos updates that integration before then. See [Installation](../installation.md#postnl) for details.
+!!! note "PostNL (<v4.x) and PostNL (ArjenBos) removed"
+    Both were removed in this v2.0 release, as announced ahead of time — see [Installation](../installation.md#postnl). The stable [hki-parcels-card](https://github.com/jonisnet/hki-parcels-card) v1.x line still supports both.
 
 !!! note
     `gls`, `dragonfly`, `trunkrs`, `cainiao`, `hermes`, `packeta`, `correos`, `postnord`, `sameday`, `swiss_post`, `planzer`, `austrian_post`, `helthjem`, `dynalogic`, `nova_post`, `delhivery` and `sunyou` have no Sent tab — these carriers track parcels by number (plus postal code for GLS/Trunkrs) with no sender/account concept, so `entity_outgoing` and `entity_outgoing_delivered` are not applicable. See [Add parcel support](overview.md#add-parcel-support) for why these carriers get the "+ Add parcel" control.
 
 !!! note "Vinted Go"
-    `vinted_go` is account-based (e-mail + verification link login, no password) like `postnl_v4`/`dhl`/`dpd`, so it has no `track_parcel_service` and doesn't get the "+ Add parcel" control either. Unlike those three, and unlike every account-less carrier above, it tracks both incoming *and* outgoing parcels — the Sent tab works normally. There is no `next_delivery`/ETA sensor for this integration at all.
+    `vinted_go` is account-based (e-mail + verification link login, no password) like `postnl`/`dhl`/`dpd`, so it has no `track_parcel_service` and doesn't get the "+ Add parcel" control either. Unlike those three, and unlike every account-less carrier above, it tracks both incoming *and* outgoing parcels — the Sent tab works normally. There is no `next_delivery`/ETA sensor for this integration at all.
 
 !!! note "Budbee"
     `budbee` is account-less like the carriers above (tracked by number only, no postal code) and does get the "+ Add parcel" control — but unlike the rest of that group, it tracks both incoming *and* outgoing parcels, so the Sent tab works normally for Budbee.
@@ -169,7 +153,7 @@ layout_order:
   - tabs
   - list
 carriers:
-  - type: postnl_v4
+  - type: postnl
     user: my_account
     name: PostNL
     icon: phu:postnl

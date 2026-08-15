@@ -1,30 +1,12 @@
 # Tips & Tricks
 
-## Choosing the right PostNL type
-
-The card supports three PostNL variants. Use the table below to pick the right one.
-
-| Situation | Use type | Label |
-| --------- | -------- | ----- |
-| Fresh install, ha-postnl ≥ 4.0.0 | `postnl_v4` | PostNL |
-| Existing install, ha-postnl ≤ 3.x | `postnl` | PostNL (<v4.x) |
-| Using arjenbos/ha-postnl | `postnl_legacy` | PostNL (ArjenBos) |
-
-!!! tip
-    If you upgrade from ha-postnl v3.x to v4.x, change `type: postnl` to `type: postnl_v4` in the card configuration. Your sensor entity IDs stay the same — only the card type needs to change.
-
-!!! warning "PostNL (<v4.x) and PostNL (ArjenBos) are being phased out"
-    Both will no longer be supported starting from HA Parcels Card v2.0 — PostNL (ArjenBos) only sticks around past that point if arjenbos updates the integration before then. See [Installation](../installation.md#postnl).
-
----
-
 ## Sensors without a username prefix
 
 Some setups create sensors without a username prefix, for example `sensor.postnl_incoming_parcels` instead of `sensor.john_postnl_incoming_parcels`. In this case, leave the `user` field empty:
 
 ```yaml
 carriers:
-  - type: postnl_v4
+  - type: postnl
     user: ""
 ```
 
@@ -105,7 +87,7 @@ show_delivered: false
 show_sent: false
 show_letters: false
 carriers:
-  - type: postnl_v4
+  - type: postnl
     user: my_account
 
 # History card
@@ -117,7 +99,7 @@ days_back: 30
 show_animation: false
 show_placeholder: false
 carriers:
-  - type: postnl_v4
+  - type: postnl
     user: my_account
 ```
 

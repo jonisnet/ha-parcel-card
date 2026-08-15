@@ -9,8 +9,7 @@ The card cannot find one or more sensor entities.
 1. The parcel integration is not installed — install the integration for your carrier (see [Installation](../installation.md)) and configure your account or tracking number.
 2. The `user` field does not match your sensor prefix — check the actual sensor name in **Developer Tools → States** and adjust `user` accordingly.
 3. The sensors have no username prefix — leave `user` empty (`user: ""`).
-4. You selected the wrong PostNL type — if your sensor names include `postnl`, use `postnl_v4` ("PostNL", for ha-postnl ≥ 4.x) or `postnl` ("PostNL (<v4.x)", for ha-postnl ≤ 3.x), not `postnl_legacy` ("PostNL (ArjenBos)").
-5. The editor's "integration not found" link points at the wrong repo — this was fixed to point at the [ha-parcel-integrations](https://github.com/ha-parcel-integrations) org; update the card if you still see links to `peternijssen/*` or `HummelsTech/*`.
+4. The editor's "integration not found" link points at the wrong repo — this was fixed to point at the [ha-parcel-integrations](https://github.com/ha-parcel-integrations) org; update the card if you still see links to `peternijssen/*` or `HummelsTech/*`.
 
 ---
 
@@ -35,7 +34,7 @@ Delivered parcels do not appear in the Delivered tab.
 
 1. `show_delivered` is set to `false` — enable it in the card options.
 2. The parcels are older than `days_back` — increase the value.
-3. Using `postnl_v4` type with an older ha-postnl version — ha-postnl ≥ 4.0.0 is required for `postnl_v4`. Use `postnl` for version 3.x.
+3. Using an older `ha-postnl` version — `ha-postnl` ≥ 4.0.0 is required for the `postnl` carrier type.
 
 ---
 
@@ -48,7 +47,6 @@ The Sent tab is empty, or missing entirely.
 1. `show_sent` is set to `false` — enable it.
 2. The carrier is GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Nova Post, Delhivery, SunYou or Quickpac — these carriers have no Sent tab at all, since there's no sender/account concept for account-less tracking. This is expected, not a bug. (Budbee is the one exception among the account-less carriers — it tracks outgoing parcels too, so its Sent tab works normally.) An Post has an account but still has no Sent tab either — `ha-an-post` simply doesn't expose an outgoing sensor.
 3. The `entity_outgoing` sensor is not configured and cannot be derived automatically — verify the sensor exists in Developer Tools and add a manual override if needed.
-4. For `postnl_legacy` — configure `distribution_entity` alongside `entity`.
 
 ---
 
@@ -59,7 +57,7 @@ The Post tab does not appear or shows no letters.
 **Causes and solutions:**
 
 1. `show_letters` is set to `false` — enable it.
-2. The carrier type is not PostNL — only `postnl_v4` and `postnl` support letters.
+2. The carrier type is not PostNL — only `postnl` supports letters.
 3. The `entity_letters` sensor does not exist — the letters sensor is created by ha-postnl when your account has letterbox mail. Verify it exists in Developer Tools.
 
 ---

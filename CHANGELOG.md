@@ -1,5 +1,44 @@
 # Changelog
 
+## [2.0.0b10] — 2026-08-15
+
+### Changed
+
+- **Renamed from "HKI Parcels Card" to "HA Parcels Card"**, now developed in its own repository,
+  [jonisnet/ha-parcels-card](https://github.com/jonisnet/ha-parcels-card) — "HKI" is
+  [jimz011](https://github.com/jimz011)'s own trade name, and this project is moving toward the
+  broader [ha-parcel-integrations](https://github.com/ha-parcel-integrations) family instead. The
+  card file, custom element and card type all changed accordingly:
+  `custom:hki-parcels-card` → `custom:ha-parcels-card`. The stable v1.x line continues unchanged
+  at [jonisnet/hki-parcels-card](https://github.com/jonisnet/hki-parcels-card).
+- **`postnl_v4` renamed to `postnl`** — now that the old `postnl`/`postnl_legacy` types are gone
+  (see below), the plain `postnl` key was free to take over as the one and only PostNL type.
+
+### Removed
+
+- **PostNL (<v4.x)** (`type: postnl`, ha-postnl ≤ 3.x) and **PostNL (ArjenBos)**
+  (`type: postnl_legacy`, arjenbos/ha-postnl) — removed as announced in the
+  [1.5.0 deprecation notice](https://github.com/jonisnet/hki-parcels-card/blob/main/CHANGELOG.md).
+  arjenbos/ha-postnl has not been updated since (last release June 2026), so the conditional
+  reprieve for PostNL (ArjenBos) does not apply. Upgrade to
+  [ha-postnl](https://github.com/ha-parcel-integrations/ha-postnl) ≥ 4.0.0 and use the single
+  `postnl` card type — see [Installation](https://jonisnet.github.io/ha-parcels-card/installation/#postnl).
+  The stable [hki-parcels-card](https://github.com/jonisnet/hki-parcels-card) v1.x line still
+  supports both if you're not ready to upgrade.
+
+### Fixed
+
+- **The 4-step delivery tracker could get stuck on "Sorting centre" and never advance to "Out
+  for delivery"** for `ha-postnl` v4.x, which reports its status as an UPPERCASE enum
+  (`OUT_FOR_DELIVERY`, `DELIVERED`, ...) while DHL/DPD use lowercase — the tracker matched status
+  case-sensitively, so the uppercase value never matched. Status values are now normalized to
+  lowercase once, consistently.
+- **`translations/*.json` was missing 14 keys** relative to what was actually shipping in the
+  bundled card (weight/dimensions/order-number labels, extra-info badges, raw-data buttons) —
+  backfilled from the currently-shipping values.
+- Custom parcel names (local + HA's per-user/system storage) migrate automatically from the old
+  `hki-parcels-card-custom-names` key to `ha-parcels-card-custom-names`, one time, per scope.
+
 ## [2.0.0b9] — 2026-08-14 (beta, `v2.0.0-dev` branch)
 
 ### Added

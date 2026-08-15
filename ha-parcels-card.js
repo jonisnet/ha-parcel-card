@@ -68,7 +68,7 @@ window.HAParcelsCard.getSelectValue = window.HAParcelsCard.getSelectValue || ((e
 
 (() => {
 const { LitElement, html, css } = window.HAParcelsCard.getLit();
-const CARD_VERSION = 'v2.0.0b9';
+const CARD_VERSION = 'v2.0.0b10';
 console.info(`%c HA-PARCELS-CARD %c ${CARD_VERSION} `, 'color: white; background: #ed8c00; font-weight: bold;', 'color: #ed8c00; background: white; font-weight: bold;');
 
 const DEFAULT_CARRIER_ICON = 'mdi:package-variant-closed';
@@ -98,7 +98,7 @@ function getDefaultIcon(carrierType) {
     // real pictorial mark (wordmark + plain accent dot, not a distinct shape) — falls through to
     // mdi: like postnord/planzer/dynalogic/delhivery below.
     const phuMap = {
-        postnl: 'phu:postnl', postnl_v4: 'phu:postnl', postnl_legacy: 'phu:postnl',
+        postnl: 'phu:postnl',
         dhl: 'phu:dhl', dpd: 'phu:dpd',
         gls: 'phu:gls-group', dragonfly: 'phu:dragonfly', trunkrs: 'phu:trunkrs',
         cainiao: 'phu:cainiao', vinted_go: 'phu:vinted',
@@ -180,7 +180,6 @@ const TRANSLATIONS = {
         error_no_carriers_hint: 'Add at least 1 carrier with an entity_incoming or entity_delivered.',
         editor_title: '📦 Multi-carrier parcel card',
         editor_intro1: 'Add one or more carriers below (PostNL, DHL, DPD, ...). Each carrier can have up to 4 sensors.',
-        editor_intro2: 'Pick the right PostNL type: PostNL (current ≥4.x integration), PostNL (<v4.x, being phased out), or PostNL (ArjenBos, being phased out).',
         section_basic: 'Basic Settings',
         label_card_title: 'Card title',
         label_days_back: 'Days to show delivery history',
@@ -221,7 +220,6 @@ const TRANSLATIONS = {
         color_custom: 'Custom',
         btn_remove_carrier: 'Remove carrier',
         label_carrier_name: 'Name',
-        legacy_warning: 'Recreates the original hki-postnl-card: one entity with both in-transit and delivered parcels, plus a separate entity for sent parcels. No letter support, no sensor templating. This mode will not receive further updates as long as arjenbos/ha-postnl is not actively maintained.',
         label_account: 'Account / user part of the sensor name',
         account_help_suffix: '_incoming_parcels" etc. The 4 sensors are built automatically.',
         gls_account_help: 'GLS has no account — enter the postal code of your GLS hub (e.g. 1234AB, as set when adding the integration).',
@@ -268,8 +266,6 @@ const TRANSLATIONS = {
         label_van: 'Vehicle GIF URL (optional)',
         label_banner: 'Banner URL (optional, background when 1 carrier)',
         appearance_help: 'Logo, vehicle animation and banner already have a built-in default per carrier. Only fill in a value here if you want to override it.',
-        postnl_entity_label: 'PostNL Incoming Entity',
-        postnl_dist_label: 'PostNL Outgoing Entity (optional)',
         detected_one: 'Auto-detected',
         detected_multiple: 'Multiple accounts found — choose one',
         detected_none: 'No sensors found — enter manually',
@@ -363,7 +359,6 @@ const TRANSLATIONS = {
         error_no_carriers_hint: 'Voeg minstens 1 carrier toe met een entity_incoming of entity_delivered.',
         editor_title: '📦 Multi-carrier pakketten kaart',
         editor_intro1: 'Voeg hieronder één of meer carriers toe (PostNL, DHL, DPD, ...). Elke carrier kan tot 4 sensoren hebben.',
-        editor_intro2: 'Kies het juiste PostNL-type: PostNL (huidige ≥4.x integratie), PostNL (<v4.x, wordt uitgefaseerd) of PostNL (ArjenBos, wordt uitgefaseerd).',
         section_basic: 'Basis Instellingen',
         label_card_title: 'Kaartnaam',
         label_days_back: 'Aantal dagen geschiedenis (bezorgd)',
@@ -404,7 +399,6 @@ const TRANSLATIONS = {
         color_custom: 'Aangepast',
         btn_remove_carrier: 'Verwijder carrier',
         label_carrier_name: 'Naam',
-        legacy_warning: 'Recreëert de originele hki-postnl-card: één entity met onderweg én bezorgde pakketten, plus een losse entity voor verzonden. Geen brieven, geen sensor-templating. Deze modus krijgt geen verdere updates zolang arjenbos/ha-postnl niet wordt bijgehouden.',
         label_account: 'Account / gebruikersdeel van de sensornaam',
         account_help_suffix: '_incoming_parcels" etc. De 4 sensoren worden automatisch opgebouwd.',
         gls_account_help: 'GLS heeft geen account — vul de postcode van je GLS-hub in (bv. 1234AB, zoals ingesteld bij het toevoegen van de integratie).',
@@ -451,8 +445,6 @@ const TRANSLATIONS = {
         label_van: 'Voertuig GIF URL (optioneel)',
         label_banner: 'Banner URL (optioneel, achtergrond bij 1 carrier)',
         appearance_help: 'Logo, voertuig-animatie en banner hebben al een ingebouwde standaard per carrier. Vul hier alleen iets in als je die wilt overschrijven.',
-        postnl_entity_label: 'PostNL Ontvangst Entity',
-        postnl_dist_label: 'PostNL Verzending Entity (optioneel)',
         detected_one: 'Automatisch gevonden',
         detected_multiple: 'Meerdere accounts gevonden — kies er één',
         detected_none: 'Geen sensors gevonden — vul handmatig in',
@@ -547,7 +539,6 @@ const TRANSLATIONS = {
         error_no_carriers_hint: 'Добавете поне 1 превозвач с entity_incoming или entity_delivered.',
         editor_title: '📦 Карта за пратки с множество превозвачи',
         editor_intro1: 'Добавете един или повече превозвачи по-долу (PostNL, DHL, DPD, ...). Всеки превозвач може да има до 4 сензора.',
-        editor_intro2: 'Изберете правилния тип PostNL: PostNL (текуща интеграция ≥4.x), PostNL (<v4.x, извежда се от употреба) или PostNL (ArjenBos, извежда се от употреба).',
         section_basic: 'Основни настройки',
         label_card_title: 'Заглавие на картата',
         label_days_back: 'Дни за показване на историята на доставките',
@@ -588,7 +579,6 @@ const TRANSLATIONS = {
         color_custom: 'Персонализиран',
         btn_remove_carrier: 'Премахни превозвача',
         label_carrier_name: 'Име',
-        legacy_warning: 'Пресъздава оригиналната карта hki-postnl-card: един обект с пратки по пътя и доставени, плюс отделен обект за изпратени пратки. Без поддръжка на писма, без шаблониране на сензори. Този режим няма да получава повече актуализации, докато arjenbos/ha-postnl не се поддържа активно.',
         label_account: 'Акаунт / потребителска част от името на сензора',
         account_help_suffix: '_incoming_parcels" и т.н. 4-те сензора се създават автоматично.',
         gls_account_help: 'GLS няма акаунт — въведете пощенския код на вашия GLS хъб (напр. 1234AB, както е зададен при добавяне на интеграцията).',
@@ -635,8 +625,6 @@ const TRANSLATIONS = {
         label_van: 'URL на GIF на превозно средство (по избор)',
         label_banner: 'URL на банер (по избор, фон при 1 превозвач)',
         appearance_help: 'Логото, анимацията на превозното средство и банерът вече имат вградена стойност по подразбиране за всеки превозвач. Попълнете стойност тук само ако искате да я замените.',
-        postnl_entity_label: 'Входящ обект на PostNL',
-        postnl_dist_label: 'Изходящ обект на PostNL (по избор)',
         detected_one: 'Открито автоматично',
         detected_multiple: 'Намерени са няколко акаунта — изберете един',
         detected_none: 'Не са намерени сензори — въведете ръчно',
@@ -731,7 +719,6 @@ const TRANSLATIONS = {
         error_no_carriers_hint: 'Přidejte alespoň 1 dopravce s entity_incoming nebo entity_delivered.',
         editor_title: '📦 Karta zásilek od více dopravců',
         editor_intro1: 'Níže přidejte jednoho nebo více dopravců (PostNL, DHL, DPD, ...). Každý dopravce může mít až 4 senzory.',
-        editor_intro2: 'Vyberte správný typ PostNL: PostNL (aktuální integrace ≥4.x), PostNL (<v4.x, postupně rušeno), nebo PostNL (ArjenBos, postupně rušeno).',
         section_basic: 'Základní nastavení',
         label_card_title: 'Název karty',
         label_days_back: 'Počet dní historie doručení',
@@ -772,7 +759,6 @@ const TRANSLATIONS = {
         color_custom: 'Vlastní',
         btn_remove_carrier: 'Odebrat dopravce',
         label_carrier_name: 'Název',
-        legacy_warning: 'Znovu vytvoří původní kartu hki-postnl-card: jedna entita s zásilkami na cestě i doručenými, plus samostatná entita pro odeslané zásilky. Bez podpory dopisů, bez šablonování senzorů. Tento režim nebude dále aktualizován, dokud nebude arjenbos/ha-postnl aktivně udržován.',
         label_account: 'Účet / uživatelská část názvu senzoru',
         account_help_suffix: '_incoming_parcels" atd. 4 senzory se vytvoří automaticky.',
         gls_account_help: 'GLS nemá účet — zadejte PSČ vašeho GLS uzlu (např. 1234AB, jak bylo nastaveno při přidávání integrace).',
@@ -819,8 +805,6 @@ const TRANSLATIONS = {
         label_van: 'URL GIF vozidla (volitelné)',
         label_banner: 'URL banneru (volitelné, pozadí při 1 dopravci)',
         appearance_help: 'Logo, animace vozidla a banner již mají výchozí hodnotu podle dopravce. Vyplňte zde hodnotu pouze pokud ji chcete přepsat.',
-        postnl_entity_label: 'Vstupní entita PostNL',
-        postnl_dist_label: 'Výstupní entita PostNL (volitelné)',
         detected_one: 'Automaticky rozpoznáno',
         detected_multiple: 'Nalezeno více účtů — vyberte jeden',
         detected_none: 'Nenalezeny žádné senzory — zadejte ručně',
@@ -915,7 +899,6 @@ const TRANSLATIONS = {
         error_no_carriers_hint: 'Tilføj mindst 1 transportør med entity_incoming eller entity_delivered.',
         editor_title: '📦 Pakkekort for flere transportører',
         editor_intro1: 'Tilføj en eller flere transportører nedenfor (PostNL, DHL, DPD, ...). Hver transportør kan have op til 4 sensorer.',
-        editor_intro2: 'Vælg den korrekte PostNL-type: PostNL (nuværende ≥4.x-integration), PostNL (<v4.x, udfases) eller PostNL (ArjenBos, udfases).',
         section_basic: 'Grundlæggende indstillinger',
         label_card_title: 'Kortets titel',
         label_days_back: 'Antal dage der vises leveringshistorik for',
@@ -956,7 +939,6 @@ const TRANSLATIONS = {
         color_custom: 'Brugerdefineret',
         btn_remove_carrier: 'Fjern transportør',
         label_carrier_name: 'Navn',
-        legacy_warning: 'Genskaber det oprindelige hki-postnl-card: én entitet med pakker undervejs og leverede, plus en separat entitet til sendte pakker. Ingen brevunderstøttelse, ingen sensortemplering. Denne tilstand vil ikke modtage flere opdateringer, så længe arjenbos/ha-postnl ikke vedligeholdes aktivt.',
         label_account: 'Konto / brugerdel af sensornavnet',
         account_help_suffix: '_incoming_parcels" osv. De 4 sensorer oprettes automatisk.',
         gls_account_help: 'GLS har ingen konto — indtast postnummeret for dit GLS-hub (f.eks. 1234AB, som angivet da integrationen blev tilføjet).',
@@ -1003,8 +985,6 @@ const TRANSLATIONS = {
         label_van: 'Køretøjs-GIF-URL (valgfrit)',
         label_banner: 'Banner-URL (valgfrit, baggrund ved 1 transportør)',
         appearance_help: 'Logo, køretøjsanimation og banner har allerede en indbygget standardværdi pr. transportør. Udfyld kun en værdi her, hvis du vil tilsidesætte den.',
-        postnl_entity_label: 'PostNL indgående entitet',
-        postnl_dist_label: 'PostNL udgående entitet (valgfrit)',
         detected_one: 'Automatisk fundet',
         detected_multiple: 'Flere konti fundet — vælg en',
         detected_none: 'Ingen sensorer fundet — indtast manuelt',
@@ -1099,7 +1079,6 @@ const TRANSLATIONS = {
         error_no_carriers_hint: 'Füge mindestens 1 Zustelldienst mit einer entity_incoming oder entity_delivered hinzu.',
         editor_title: '📦 Multi-Zustelldienst-Paketkarte',
         editor_intro1: 'Füge unten einen oder mehrere Zustelldienste hinzu (PostNL, DHL, DPD, ...). Jeder Zustelldienst kann bis zu 4 Sensoren haben.',
-        editor_intro2: 'Wähle den richtigen PostNL-Typ: PostNL (aktuelle ≥4.x-Integration), PostNL (<v4.x, wird ausgemustert) oder PostNL (ArjenBos, wird ausgemustert).',
         section_basic: 'Grundeinstellungen',
         label_card_title: 'Kartentitel',
         label_days_back: 'Anzahl Tage Zustellverlauf',
@@ -1140,7 +1119,6 @@ const TRANSLATIONS = {
         color_custom: 'Benutzerdefiniert',
         btn_remove_carrier: 'Zustelldienst entfernen',
         label_carrier_name: 'Name',
-        legacy_warning: 'Erstellt die ursprüngliche hki-postnl-card nach: eine Entität mit unterwegs- und zugestellten Paketen, plus eine separate Entität für versendete Pakete. Keine Briefunterstützung, kein Sensor-Templating. Dieser Modus erhält keine weiteren Updates, solange arjenbos/ha-postnl nicht aktiv gepflegt wird.',
         label_account: 'Konto / Benutzerteil des Sensornamens',
         account_help_suffix: '_incoming_parcels" usw. Die 4 Sensoren werden automatisch erstellt.',
         gls_account_help: 'GLS hat kein Konto — gib die Postleitzahl deines GLS-Hubs ein (z. B. 1234AB, wie beim Hinzufügen der Integration eingestellt).',
@@ -1187,8 +1165,6 @@ const TRANSLATIONS = {
         label_van: 'Fahrzeug-GIF-URL (optional)',
         label_banner: 'Banner-URL (optional, Hintergrund bei 1 Zustelldienst)',
         appearance_help: 'Logo, Fahrzeuganimation und Banner haben bereits einen eingebauten Standard pro Zustelldienst. Trage hier nur etwas ein, wenn du das überschreiben möchtest.',
-        postnl_entity_label: 'PostNL Eingangs-Entität',
-        postnl_dist_label: 'PostNL Ausgangs-Entität (optional)',
         detected_one: 'Automatisch gefunden',
         detected_multiple: 'Mehrere Konten gefunden — eines auswählen',
         detected_none: 'Keine Sensoren gefunden — manuell eingeben',
@@ -1283,7 +1259,6 @@ const TRANSLATIONS = {
         error_no_carriers_hint: 'Añade al menos 1 transportista con una entity_incoming o entity_delivered.',
         editor_title: '📦 Tarjeta de paquetes multitransportista',
         editor_intro1: 'Añade a continuación uno o más transportistas (PostNL, DHL, DPD, ...). Cada transportista puede tener hasta 4 sensores.',
-        editor_intro2: 'Elige el tipo de PostNL correcto: PostNL (integración actual ≥4.x), PostNL (<v4.x, en proceso de retirada) o PostNL (ArjenBos, en proceso de retirada).',
         section_basic: 'Ajustes básicos',
         label_card_title: 'Título de la tarjeta',
         label_days_back: 'Días de historial de entregas a mostrar',
@@ -1324,7 +1299,6 @@ const TRANSLATIONS = {
         color_custom: 'Personalizado',
         btn_remove_carrier: 'Eliminar transportista',
         label_carrier_name: 'Nombre',
-        legacy_warning: 'Recrea la hki-postnl-card original: una entidad con paquetes en tránsito y entregados, más una entidad separada para paquetes enviados. Sin soporte de correo, sin plantillas de sensores. Este modo no recibirá más actualizaciones mientras arjenbos/ha-postnl no se mantenga activamente.',
         label_account: 'Cuenta / parte de usuario del nombre del sensor',
         account_help_suffix: '_incoming_parcels" etc. Los 4 sensores se generan automáticamente.',
         gls_account_help: 'GLS no tiene cuenta — introduce el código postal de tu hub GLS (p. ej. 1234AB, tal como se configuró al añadir la integración).',
@@ -1371,8 +1345,6 @@ const TRANSLATIONS = {
         label_van: 'URL del GIF del vehículo (opcional)',
         label_banner: 'URL del banner (opcional, fondo cuando hay 1 transportista)',
         appearance_help: 'El logotipo, la animación del vehículo y el banner ya tienen un valor predeterminado por transportista. Rellena esto solo si quieres sobrescribirlo.',
-        postnl_entity_label: 'Entidad de recepción de PostNL',
-        postnl_dist_label: 'Entidad de envío de PostNL (opcional)',
         detected_one: 'Detectado automáticamente',
         detected_multiple: 'Se encontraron varias cuentas — elige una',
         detected_none: 'No se encontraron sensores — introduce manualmente',
@@ -1467,7 +1439,6 @@ const TRANSLATIONS = {
         error_no_carriers_hint: 'Lisää vähintään 1 kuljetusyhtiö, jolla on entity_incoming tai entity_delivered.',
         editor_title: '📦 Usean kuljetusyhtiön pakettikortti',
         editor_intro1: 'Lisää yksi tai useampi kuljetusyhtiö alle (PostNL, DHL, DPD, ...). Jokaisella kuljetusyhtiöllä voi olla enintään 4 anturia.',
-        editor_intro2: 'Valitse oikea PostNL-tyyppi: PostNL (nykyinen ≥4.x-integraatio), PostNL (<v4.x, poistumassa käytöstä) tai PostNL (ArjenBos, poistumassa käytöstä).',
         section_basic: 'Perusasetukset',
         label_card_title: 'Kortin otsikko',
         label_days_back: 'Toimitushistorian näyttöpäivien määrä',
@@ -1508,7 +1479,6 @@ const TRANSLATIONS = {
         color_custom: 'Mukautettu',
         btn_remove_carrier: 'Poista kuljetusyhtiö',
         label_carrier_name: 'Nimi',
-        legacy_warning: 'Luo alkuperäisen hki-postnl-card-kortin uudelleen: yksi entiteetti sekä matkalla oleville että toimitetuille paketeille, sekä erillinen entiteetti lähetetyille paketeille. Ei kirjetukea, ei anturimallinnusta. Tämä tila ei saa enää päivityksiä niin kauan kuin arjenbos/ha-postnl ei ole aktiivisesti ylläpidetty.',
         label_account: 'Tili / anturin nimen käyttäjäosa',
         account_help_suffix: '_incoming_parcels" jne. 4 anturia luodaan automaattisesti.',
         gls_account_help: 'GLS:llä ei ole tiliä — anna GLS-keskuksesi postinumero (esim. 1234AB, kuten integraatiota lisättäessä asetettiin).',
@@ -1555,8 +1525,6 @@ const TRANSLATIONS = {
         label_van: 'Ajoneuvon GIF-URL (valinnainen)',
         label_banner: 'Bannerin URL (valinnainen, tausta yhden kuljetusyhtiön ollessa käytössä)',
         appearance_help: 'Logolla, ajoneuvoanimaatiolla ja bannerilla on jo sisäänrakennettu oletusarvo kuljetusyhtiöittäin. Täytä arvo tähän vain, jos haluat ohittaa sen.',
-        postnl_entity_label: 'PostNL saapuva entiteetti',
-        postnl_dist_label: 'PostNL lähtevä entiteetti (valinnainen)',
         detected_one: 'Tunnistettu automaattisesti',
         detected_multiple: 'Useita tilejä löytyi — valitse yksi',
         detected_none: 'Antureita ei löytynyt — syötä manuaalisesti',
@@ -1651,7 +1619,6 @@ const TRANSLATIONS = {
         error_no_carriers_hint: 'Ajoutez au moins 1 transporteur avec une entity_incoming ou entity_delivered.',
         editor_title: '📦 Carte de colis multi-transporteurs',
         editor_intro1: 'Ajoutez ci-dessous un ou plusieurs transporteurs (PostNL, DHL, DPD, ...). Chaque transporteur peut avoir jusqu\'à 4 capteurs.',
-        editor_intro2: 'Choisissez le bon type PostNL : PostNL (intégration actuelle ≥4.x), PostNL (<v4.x, en cours d\'abandon) ou PostNL (ArjenBos, en cours d\'abandon).',
         section_basic: 'Paramètres de base',
         label_card_title: 'Titre de la carte',
         label_days_back: 'Nombre de jours d\'historique de livraison',
@@ -1692,7 +1659,6 @@ const TRANSLATIONS = {
         color_custom: 'Personnalisé',
         btn_remove_carrier: 'Supprimer le transporteur',
         label_carrier_name: 'Nom',
-        legacy_warning: 'Recrée la hki-postnl-card d\'origine : une entité avec les colis en transit et livrés, plus une entité séparée pour les colis envoyés. Pas de courrier, pas de modélisation de capteurs. Ce mode ne recevra plus de mises à jour tant que arjenbos/ha-postnl n\'est pas activement maintenu.',
         label_account: 'Compte / partie utilisateur du nom du capteur',
         account_help_suffix: '_incoming_parcels" etc. Les 4 capteurs sont créés automatiquement.',
         gls_account_help: 'GLS n\'a pas de compte — indiquez le code postal de votre hub GLS (ex. 1234AB, tel que défini lors de l\'ajout de l\'intégration).',
@@ -1739,8 +1705,6 @@ const TRANSLATIONS = {
         label_van: 'URL du GIF du véhicule (optionnel)',
         label_banner: 'URL de la bannière (optionnel, arrière-plan pour 1 transporteur)',
         appearance_help: 'Le logo, l\'animation du véhicule et la bannière ont déjà une valeur par défaut intégrée par transporteur. Ne remplissez ceci que si vous souhaitez la remplacer.',
-        postnl_entity_label: 'Entité de réception PostNL',
-        postnl_dist_label: 'Entité d\'envoi PostNL (optionnel)',
         detected_one: 'Détecté automatiquement',
         detected_multiple: 'Plusieurs comptes trouvés — choisissez-en un',
         detected_none: 'Aucun capteur trouvé — saisissez manuellement',
@@ -1835,7 +1799,6 @@ const TRANSLATIONS = {
         error_no_carriers_hint: 'entity_incoming या entity_delivered वाला कम से कम 1 कैरियर जोड़ें।',
         editor_title: '📦 मल्टी-कैरियर पार्सल कार्ड',
         editor_intro1: 'नीचे एक या अधिक कैरियर जोड़ें (PostNL, DHL, DPD, ...)। प्रत्येक कैरियर में अधिकतम 4 सेंसर हो सकते हैं।',
-        editor_intro2: 'सही PostNL प्रकार चुनें: PostNL (मौजूदा ≥4.x इंटीग्रेशन), PostNL (<v4.x, चरणबद्ध रूप से हटाया जा रहा है), या PostNL (ArjenBos, चरणबद्ध रूप से हटाया जा रहा है)।',
         section_basic: 'मूल सेटिंग्स',
         label_card_title: 'कार्ड शीर्षक',
         label_days_back: 'डिलीवरी इतिहास दिखाने के दिन',
@@ -1876,7 +1839,6 @@ const TRANSLATIONS = {
         color_custom: 'कस्टम',
         btn_remove_carrier: 'कैरियर हटाएँ',
         label_carrier_name: 'नाम',
-        legacy_warning: 'मूल hki-postnl-card को फिर से बनाता है: मार्ग में और डिलीवर किए गए पार्सल वाली एक इकाई, साथ ही भेजे गए पार्सल के लिए एक अलग इकाई। कोई पत्र समर्थन नहीं, कोई सेंसर टेम्पलेटिंग नहीं। जब तक arjenbos/ha-postnl सक्रिय रूप से बनाए नहीं रखा जाता, यह मोड आगे कोई अपडेट प्राप्त नहीं करेगा।',
         label_account: 'सेंसर नाम का खाता / उपयोगकर्ता भाग',
         account_help_suffix: '_incoming_parcels" आदि। 4 सेंसर स्वचालित रूप से बनाए जाते हैं।',
         gls_account_help: 'GLS का कोई खाता नहीं है — अपने GLS हब का पिन कोड दर्ज करें (जैसे 1234AB, जैसा कि इंटीग्रेशन जोड़ते समय सेट किया गया था)।',
@@ -1923,8 +1885,6 @@ const TRANSLATIONS = {
         label_van: 'वाहन GIF URL (वैकल्पिक)',
         label_banner: 'बैनर URL (वैकल्पिक, 1 कैरियर होने पर पृष्ठभूमि)',
         appearance_help: 'लोगो, वाहन एनिमेशन और बैनर के लिए प्रत्येक कैरियर की पहले से एक बिल्ट-इन डिफ़ॉल्ट है। इसे ओवरराइड करने के लिए ही यहाँ मान भरें।',
-        postnl_entity_label: 'PostNL आने वाली इकाई',
-        postnl_dist_label: 'PostNL जाने वाली इकाई (वैकल्पिक)',
         detected_one: 'स्वचालित रूप से पहचाना गया',
         detected_multiple: 'कई खाते मिले — एक चुनें',
         detected_none: 'कोई सेंसर नहीं मिला — मैन्युअल रूप से दर्ज करें',
@@ -2019,7 +1979,6 @@ const TRANSLATIONS = {
         error_no_carriers_hint: 'Adjon hozzá legalább 1 szolgáltatót entity_incoming vagy entity_delivered beállítással.',
         editor_title: '📦 Több szolgáltatós csomagkártya',
         editor_intro1: 'Adjon hozzá alább egy vagy több szolgáltatót (PostNL, DHL, DPD, ...). Minden szolgáltatóhoz akár 4 érzékelő tartozhat.',
-        editor_intro2: 'Válassza ki a megfelelő PostNL típust: PostNL (jelenlegi ≥4.x integráció), PostNL (<v4.x, kivezetés alatt), vagy PostNL (ArjenBos, kivezetés alatt).',
         section_basic: 'Alapbeállítások',
         label_card_title: 'Kártya címe',
         label_days_back: 'Kézbesítési előzmény napjai',
@@ -2060,7 +2019,6 @@ const TRANSLATIONS = {
         color_custom: 'Egyéni',
         btn_remove_carrier: 'Szolgáltató eltávolítása',
         label_carrier_name: 'Név',
-        legacy_warning: 'Az eredeti hki-postnl-card kártyát hozza létre újra: egy entitás az úton lévő és kézbesített csomagokkal, plusz egy külön entitás a küldött csomagokhoz. Nincs levélkezelés, nincs érzékelő-sablonozás. Ez a mód nem kap további frissítést, amíg az arjenbos/ha-postnl nincs aktívan karbantartva.',
         label_account: 'Fiók / felhasználói rész az érzékelő nevében',
         account_help_suffix: '_incoming_parcels" stb. A 4 érzékelő automatikusan létrejön.',
         gls_account_help: 'A GLS-nek nincs fiókja — adja meg a GLS csomagpont irányítószámát (pl. 1234AB, ahogy az integráció hozzáadásakor beállította).',
@@ -2107,8 +2065,6 @@ const TRANSLATIONS = {
         label_van: 'Jármű GIF URL (opcionális)',
         label_banner: 'Banner URL (opcionális, háttér 1 szolgáltató esetén)',
         appearance_help: 'A logónak, a jármű animációjának és a bannernek szolgáltatónként már van beépített alapértelmezése. Csak akkor adjon meg itt értéket, ha felül szeretné bírálni.',
-        postnl_entity_label: 'PostNL bejövő entitás',
-        postnl_dist_label: 'PostNL kimenő entitás (opcionális)',
         detected_one: 'Automatikusan felismerve',
         detected_multiple: 'Több fiók található — válasszon egyet',
         detected_none: 'Nem található érzékelő — adja meg kézzel',
@@ -2203,7 +2159,6 @@ const TRANSLATIONS = {
         error_no_carriers_hint: 'Aggiungi almeno 1 corriere con una entity_incoming o entity_delivered.',
         editor_title: '📦 Scheda pacchi multi-corriere',
         editor_intro1: 'Aggiungi qui sotto uno o più corrieri (PostNL, DHL, DPD, ...). Ogni corriere può avere fino a 4 sensori.',
-        editor_intro2: 'Scegli il tipo PostNL corretto: PostNL (integrazione attuale ≥4.x), PostNL (<v4.x, in dismissione) o PostNL (ArjenBos, in dismissione).',
         section_basic: 'Impostazioni di base',
         label_card_title: 'Titolo della scheda',
         label_days_back: 'Giorni di cronologia consegne da mostrare',
@@ -2244,7 +2199,6 @@ const TRANSLATIONS = {
         color_custom: 'Personalizzato',
         btn_remove_carrier: 'Rimuovi corriere',
         label_carrier_name: 'Nome',
-        legacy_warning: 'Ricrea l\'originale hki-postnl-card: un\'entità con pacchi in transito e consegnati, più un\'entità separata per i pacchi inviati. Nessun supporto posta, nessun templating dei sensori. Questa modalità non riceverà ulteriori aggiornamenti finché arjenbos/ha-postnl non sarà mantenuto attivamente.',
         label_account: 'Account / parte utente del nome del sensore',
         account_help_suffix: '_incoming_parcels" ecc. I 4 sensori vengono creati automaticamente.',
         gls_account_help: 'GLS non ha un account — inserisci il CAP del tuo hub GLS (es. 1234AB, come impostato durante l\'aggiunta dell\'integrazione).',
@@ -2291,8 +2245,6 @@ const TRANSLATIONS = {
         label_van: 'URL GIF del veicolo (opzionale)',
         label_banner: 'URL del banner (opzionale, sfondo con 1 corriere)',
         appearance_help: 'Logo, animazione del veicolo e banner hanno già un valore predefinito per corriere. Compila questo campo solo se vuoi sovrascriverlo.',
-        postnl_entity_label: 'Entità di ricezione PostNL',
-        postnl_dist_label: 'Entità di spedizione PostNL (opzionale)',
         detected_one: 'Rilevato automaticamente',
         detected_multiple: 'Trovati più account — scegline uno',
         detected_none: 'Nessun sensore trovato — inserisci manualmente',
@@ -2387,7 +2339,6 @@ const TRANSLATIONS = {
         error_no_carriers_hint: 'Legg til minst 1 transportør med entity_incoming eller entity_delivered.',
         editor_title: '📦 Pakkekort for flere transportører',
         editor_intro1: 'Legg til én eller flere transportører nedenfor (PostNL, DHL, DPD, ...). Hver transportør kan ha opptil 4 sensorer.',
-        editor_intro2: 'Velg riktig PostNL-type: PostNL (nåværende ≥4.x-integrasjon), PostNL (<v4.x, fases ut) eller PostNL (ArjenBos, fases ut).',
         section_basic: 'Grunnleggende innstillinger',
         label_card_title: 'Korttittel',
         label_days_back: 'Antall dager leveringshistorikk skal vises',
@@ -2428,7 +2379,6 @@ const TRANSLATIONS = {
         color_custom: 'Egendefinert',
         btn_remove_carrier: 'Fjern transportør',
         label_carrier_name: 'Navn',
-        legacy_warning: 'Gjenskaper det opprinnelige hki-postnl-card: én entitet med både pakker underveis og leverte, pluss en egen entitet for sendte pakker. Ingen brevstøtte, ingen sensormaler. Denne modusen vil ikke få flere oppdateringer så lenge arjenbos/ha-postnl ikke vedlikeholdes aktivt.',
         label_account: 'Konto / brukerdel av sensornavnet',
         account_help_suffix: '_incoming_parcels" osv. De 4 sensorene opprettes automatisk.',
         gls_account_help: 'GLS har ingen konto — angi postnummeret til din GLS-hub (f.eks. 1234AB, som angitt da integrasjonen ble lagt til).',
@@ -2475,8 +2425,6 @@ const TRANSLATIONS = {
         label_van: 'Kjøretøy-GIF-URL (valgfritt)',
         label_banner: 'Banner-URL (valgfritt, bakgrunn ved 1 transportør)',
         appearance_help: 'Logo, kjøretøyanimasjon og banner har allerede en innebygd standardverdi per transportør. Fyll bare inn en verdi her hvis du vil overstyre den.',
-        postnl_entity_label: 'PostNL innkommende entitet',
-        postnl_dist_label: 'PostNL utgående entitet (valgfritt)',
         detected_one: 'Automatisk oppdaget',
         detected_multiple: 'Flere kontoer funnet — velg én',
         detected_none: 'Ingen sensorer funnet — angi manuelt',
@@ -2571,7 +2519,6 @@ const TRANSLATIONS = {
         error_no_carriers_hint: 'Dodaj co najmniej 1 przewoźnika z entity_incoming lub entity_delivered.',
         editor_title: '📦 Karta paczek wielu przewoźników',
         editor_intro1: 'Dodaj poniżej jednego lub więcej przewoźników (PostNL, DHL, DPD, ...). Każdy przewoźnik może mieć do 4 czujników.',
-        editor_intro2: 'Wybierz właściwy typ PostNL: PostNL (aktualna integracja ≥4.x), PostNL (<v4.x, wycofywana) lub PostNL (ArjenBos, wycofywana).',
         section_basic: 'Ustawienia podstawowe',
         label_card_title: 'Tytuł karty',
         label_days_back: 'Liczba dni historii dostaw do pokazania',
@@ -2612,7 +2559,6 @@ const TRANSLATIONS = {
         color_custom: 'Niestandardowy',
         btn_remove_carrier: 'Usuń przewoźnika',
         label_carrier_name: 'Nazwa',
-        legacy_warning: 'Odtwarza oryginalną hki-postnl-card: jedna encja z paczkami w drodze i dostarczonymi, plus osobna encja dla paczek wysłanych. Brak obsługi listów, brak szablonowania czujników. Ten tryb nie otrzyma dalszych aktualizacji, dopóki arjenbos/ha-postnl nie będzie aktywnie utrzymywane.',
         label_account: 'Konto / część nazwy czujnika dotycząca użytkownika',
         account_help_suffix: '_incoming_parcels" itd. 4 czujniki są tworzone automatycznie.',
         gls_account_help: 'GLS nie ma konta — wpisz kod pocztowy swojego huba GLS (np. 1234AB, zgodnie z ustawieniem przy dodawaniu integracji).',
@@ -2659,8 +2605,6 @@ const TRANSLATIONS = {
         label_van: 'URL GIF pojazdu (opcjonalnie)',
         label_banner: 'URL banera (opcjonalnie, tło przy 1 przewoźniku)',
         appearance_help: 'Logo, animacja pojazdu i baner mają już wbudowaną wartość domyślną dla każdego przewoźnika. Wypełnij to pole tylko wtedy, gdy chcesz je nadpisać.',
-        postnl_entity_label: 'Encja odbioru PostNL',
-        postnl_dist_label: 'Encja wysyłki PostNL (opcjonalnie)',
         detected_one: 'Wykryto automatycznie',
         detected_multiple: 'Znaleziono wiele kont — wybierz jedno',
         detected_none: 'Nie znaleziono czujników — wpisz ręcznie',
@@ -2755,7 +2699,6 @@ const TRANSLATIONS = {
         error_no_carriers_hint: 'Adicione pelo menos 1 transportadora com uma entity_incoming ou entity_delivered.',
         editor_title: '📦 Cartão de encomendas multi-transportadora',
         editor_intro1: 'Adicione abaixo uma ou mais transportadoras (PostNL, DHL, DPD, ...). Cada transportadora pode ter até 4 sensores.',
-        editor_intro2: 'Escolha o tipo de PostNL correto: PostNL (integração atual ≥4.x), PostNL (<v4.x, em descontinuação) ou PostNL (ArjenBos, em descontinuação).',
         section_basic: 'Definições básicas',
         label_card_title: 'Título do cartão',
         label_days_back: 'Número de dias de histórico de entregas a mostrar',
@@ -2796,7 +2739,6 @@ const TRANSLATIONS = {
         color_custom: 'Personalizado',
         btn_remove_carrier: 'Remover transportadora',
         label_carrier_name: 'Nome',
-        legacy_warning: 'Recria o hki-postnl-card original: uma entidade com encomendas em trânsito e entregues, mais uma entidade separada para encomendas enviadas. Sem suporte de correio, sem templating de sensores. Este modo não receberá mais atualizações enquanto arjenbos/ha-postnl não for ativamente mantido.',
         label_account: 'Conta / parte de utilizador do nome do sensor',
         account_help_suffix: '_incoming_parcels" etc. Os 4 sensores são criados automaticamente.',
         gls_account_help: 'A GLS não tem conta — introduza o código postal do seu hub GLS (ex. 1234AB, tal como definido ao adicionar a integração).',
@@ -2843,8 +2785,6 @@ const TRANSLATIONS = {
         label_van: 'URL do GIF do veículo (opcional)',
         label_banner: 'URL do banner (opcional, fundo com 1 transportadora)',
         appearance_help: 'O logótipo, a animação do veículo e o banner já têm um valor predefinido por transportadora. Preencha isto apenas se quiser substituí-lo.',
-        postnl_entity_label: 'Entidade de receção PostNL',
-        postnl_dist_label: 'Entidade de envio PostNL (opcional)',
         detected_one: 'Detetado automaticamente',
         detected_multiple: 'Foram encontradas várias contas — escolha uma',
         detected_none: 'Nenhum sensor encontrado — introduza manualmente',
@@ -2939,7 +2879,6 @@ const TRANSLATIONS = {
         error_no_carriers_hint: 'Adăugați cel puțin 1 curier cu entity_incoming sau entity_delivered.',
         editor_title: '📦 Card colete multi-curier',
         editor_intro1: 'Adăugați unul sau mai mulți curieri mai jos (PostNL, DHL, DPD, ...). Fiecare curier poate avea până la 4 senzori.',
-        editor_intro2: 'Alegeți tipul corect de PostNL: PostNL (integrarea actuală ≥4.x), PostNL (<v4.x, în curs de eliminare) sau PostNL (ArjenBos, în curs de eliminare).',
         section_basic: 'Setări de bază',
         label_card_title: 'Titlul cardului',
         label_days_back: 'Zile de afișat din istoricul livrărilor',
@@ -2980,7 +2919,6 @@ const TRANSLATIONS = {
         color_custom: 'Personalizat',
         btn_remove_carrier: 'Elimină curierul',
         label_carrier_name: 'Nume',
-        legacy_warning: 'Recreează cardul original hki-postnl-card: o singură entitate cu colete în tranzit și livrate, plus o entitate separată pentru coletele trimise. Fără suport pentru scrisori, fără șabloane de senzori. Acest mod nu va mai primi actualizări atâta timp cât arjenbos/ha-postnl nu este întreținut activ.',
         label_account: 'Cont / partea de utilizator din numele senzorului',
         account_help_suffix: '_incoming_parcels" etc. Cei 4 senzori sunt creați automat.',
         gls_account_help: 'GLS nu are cont — introduceți codul poștal al hub-ului dvs. GLS (de ex. 1234AB, așa cum a fost setat la adăugarea integrării).',
@@ -3027,8 +2965,6 @@ const TRANSLATIONS = {
         label_van: 'URL GIF vehicul (opțional)',
         label_banner: 'URL banner (opțional, fundal la 1 curier)',
         appearance_help: 'Logo-ul, animația vehiculului și bannerul au deja o valoare implicită pentru fiecare curier. Completați o valoare aici doar dacă doriți să o suprascrieți.',
-        postnl_entity_label: 'Entitate PostNL de intrare',
-        postnl_dist_label: 'Entitate PostNL de ieșire (opțional)',
         detected_one: 'Detectat automat',
         detected_multiple: 'Au fost găsite mai multe conturi — alegeți unul',
         detected_none: 'Niciun senzor găsit — introduceți manual',
@@ -3123,7 +3059,6 @@ const TRANSLATIONS = {
         error_no_carriers_hint: 'Pridajte aspoň 1 dopravcu s entity_incoming alebo entity_delivered.',
         editor_title: '📦 Karta zásielok od viacerých dopravcov',
         editor_intro1: 'Nižšie pridajte jedného alebo viacerých dopravcov (PostNL, DHL, DPD, ...). Každý dopravca môže mať až 4 senzory.',
-        editor_intro2: 'Vyberte správny typ PostNL: PostNL (aktuálna integrácia ≥4.x), PostNL (<v4.x, postupne rušené), alebo PostNL (ArjenBos, postupne rušené).',
         section_basic: 'Základné nastavenia',
         label_card_title: 'Názov karty',
         label_days_back: 'Počet dní histórie doručenia',
@@ -3164,7 +3099,6 @@ const TRANSLATIONS = {
         color_custom: 'Vlastné',
         btn_remove_carrier: 'Odstrániť dopravcu',
         label_carrier_name: 'Názov',
-        legacy_warning: 'Znovu vytvorí pôvodnú kartu hki-postnl-card: jedna entita so zásielkami na ceste aj doručenými, plus samostatná entita pre odoslané zásielky. Bez podpory listov, bez šablónovania senzorov. Tento režim nebude ďalej aktualizovaný, kým nebude arjenbos/ha-postnl aktívne udržiavaný.',
         label_account: 'Účet / používateľská časť názvu senzora',
         account_help_suffix: '_incoming_parcels" atď. 4 senzory sa vytvoria automaticky.',
         gls_account_help: 'GLS nemá účet — zadajte PSČ vášho GLS uzla (napr. 1234AB, ako bolo nastavené pri pridávaní integrácie).',
@@ -3211,8 +3145,6 @@ const TRANSLATIONS = {
         label_van: 'URL GIF vozidla (voliteľné)',
         label_banner: 'URL banneru (voliteľné, pozadie pri 1 dopravcovi)',
         appearance_help: 'Logo, animácia vozidla a banner už majú predvolenú hodnotu podľa dopravcu. Vyplňte tu hodnotu len ak ju chcete prepísať.',
-        postnl_entity_label: 'Vstupná entita PostNL',
-        postnl_dist_label: 'Výstupná entita PostNL (voliteľné)',
         detected_one: 'Automaticky rozpoznané',
         detected_multiple: 'Nájdených viacero účtov — vyberte jeden',
         detected_none: 'Nenašli sa žiadne senzory — zadajte ručne',
@@ -3307,7 +3239,6 @@ const TRANSLATIONS = {
         error_no_carriers_hint: 'Lägg till minst 1 transportör med entity_incoming eller entity_delivered.',
         editor_title: '📦 Paketkort för flera transportörer',
         editor_intro1: 'Lägg till en eller flera transportörer nedan (PostNL, DHL, DPD, ...). Varje transportör kan ha upp till 4 sensorer.',
-        editor_intro2: 'Välj rätt PostNL-typ: PostNL (nuvarande ≥4.x-integration), PostNL (<v4.x, fasas ut) eller PostNL (ArjenBos, fasas ut).',
         section_basic: 'Grundinställningar',
         label_card_title: 'Kortets titel',
         label_days_back: 'Antal dagar att visa leveranshistorik',
@@ -3348,7 +3279,6 @@ const TRANSLATIONS = {
         color_custom: 'Anpassad',
         btn_remove_carrier: 'Ta bort transportör',
         label_carrier_name: 'Namn',
-        legacy_warning: 'Återskapar det ursprungliga hki-postnl-card: en entitet med både paket på väg och levererade, plus en separat entitet för skickade paket. Inget brevstöd, ingen sensormallning. Detta läge kommer inte få fler uppdateringar så länge arjenbos/ha-postnl inte underhålls aktivt.',
         label_account: 'Konto / användardel av sensornamnet',
         account_help_suffix: '_incoming_parcels" osv. De 4 sensorerna skapas automatiskt.',
         gls_account_help: 'GLS har inget konto — ange postnumret för din GLS-hub (t.ex. 1234AB, som angavs när integrationen lades till).',
@@ -3395,8 +3325,6 @@ const TRANSLATIONS = {
         label_van: 'Fordons-GIF-URL (valfritt)',
         label_banner: 'Banner-URL (valfritt, bakgrund vid 1 transportör)',
         appearance_help: 'Logotyp, fordonsanimation och banner har redan ett inbyggt standardvärde per transportör. Fyll bara i ett värde här om du vill åsidosätta det.',
-        postnl_entity_label: 'PostNL inkommande entitet',
-        postnl_dist_label: 'PostNL utgående entitet (valfritt)',
         detected_one: 'Automatiskt identifierad',
         detected_multiple: 'Flera konton hittades — välj ett',
         detected_none: 'Inga sensorer hittades — ange manuellt',
@@ -3491,7 +3419,6 @@ const TRANSLATIONS = {
         error_no_carriers_hint: 'Додайте принаймні 1 перевізника з entity_incoming або entity_delivered.',
         editor_title: '📦 Картка посилок від кількох перевізників',
         editor_intro1: 'Додайте одного або кількох перевізників нижче (PostNL, DHL, DPD, ...). Кожен перевізник може мати до 4 сенсорів.',
-        editor_intro2: 'Виберіть правильний тип PostNL: PostNL (поточна інтеграція ≥4.x), PostNL (<v4.x, поступово припиняється) або PostNL (ArjenBos, поступово припиняється).',
         section_basic: 'Основні налаштування',
         label_card_title: 'Заголовок картки',
         label_days_back: 'Кількість днів історії доставки',
@@ -3532,7 +3459,6 @@ const TRANSLATIONS = {
         color_custom: 'Власний',
         btn_remove_carrier: 'Видалити перевізника',
         label_carrier_name: 'Назва',
-        legacy_warning: 'Відтворює оригінальну картку hki-postnl-card: одна сутність із посилками в дорозі та доставленими, плюс окрема сутність для надісланих посилок. Без підтримки листів, без шаблонування сенсорів. Цей режим не отримуватиме подальших оновлень, поки arjenbos/ha-postnl активно не підтримується.',
         label_account: 'Обліковий запис / частина назви сенсора для користувача',
         account_help_suffix: '_incoming_parcels" тощо. 4 сенсори створюються автоматично.',
         gls_account_help: 'GLS не має облікового запису — введіть поштовий індекс вашого хабу GLS (напр. 1234AB, як було встановлено під час додавання інтеграції).',
@@ -3579,8 +3505,6 @@ const TRANSLATIONS = {
         label_van: 'URL GIF транспорту (необов\'язково)',
         label_banner: 'URL банера (необов\'язково, фон при 1 перевізнику)',
         appearance_help: 'Логотип, анімація транспорту та банер уже мають вбудоване значення за замовчуванням для кожного перевізника. Заповніть значення тут, лише якщо хочете його перевизначити.',
-        postnl_entity_label: 'Вхідна сутність PostNL',
-        postnl_dist_label: 'Вихідна сутність PostNL (необов\'язково)',
         detected_one: 'Виявлено автоматично',
         detected_multiple: 'Знайдено кілька облікових записів — виберіть один',
         detected_none: 'Сенсорів не знайдено — введіть вручну',
@@ -3660,7 +3584,7 @@ const IMG = {
 // peternijssen/ha-gls has had no release at all since the move) — pointing here keeps the
 // "integration not found" link in the editor from sending people to a stale/abandoned repo.
 const CARRIER_REPO_URLS = {
-    postnl_v4: 'https://github.com/ha-parcel-integrations/ha-postnl',
+    postnl:    'https://github.com/ha-parcel-integrations/ha-postnl',
     dhl:       'https://github.com/ha-parcel-integrations/ha-dhl-nl',
     dpd:       'https://github.com/ha-parcel-integrations/ha-dpd',
     gls:       'https://github.com/ha-parcel-integrations/ha-gls',
@@ -3687,7 +3611,7 @@ const CARRIER_REPO_URLS = {
 };
 
 const CARRIER_ASSETS = {
-    postnl_v4: {
+    postnl: {
         logo:   `${IMG.postnl}/postnl-logo.png?raw=true`,
         van:    `${IMG.postnl}/postnl-van.gif?raw=true`,
         banner: `${IMG.postnl}/postnl-banner.jpg?raw=true`,
@@ -3699,11 +3623,6 @@ const CARRIER_ASSETS = {
             delivered:       `${IMG.postnl}/postnl_step_delivered.png?raw=true`,
             delivered_mini:  `${IMG.postnl}/postnl_step_delivered_mini.png?raw=true`
         }
-    },
-    postnl: {
-        logo:   `${IMG.postnl}/postnl-logo.png?raw=true`,
-        van:    `${IMG.postnl}/postnl-van.gif?raw=true`,
-        banner: `${IMG.postnl}/postnl-banner.jpg?raw=true`
     },
     dhl: {
         logo:   `${IMG.dhl}/DHL_logo.png?raw=true`,
@@ -4083,11 +4002,6 @@ const CARRIER_ASSETS = {
             delivered_mini:  `${IMG.quickpac}/quickpac_step_delivered_mini.png?raw=true`
         }
     },
-    postnl_legacy: {
-        logo:   `${IMG.postnl}/postnl-logo.png?raw=true`,
-        van:    `${IMG.postnl}/postnl-van.gif?raw=true`,
-        banner: `${IMG.postnl}/postnl-banner.jpg?raw=true`
-    },
     custom: { logo: null, van: null, banner: null }
 };
 
@@ -4114,8 +4028,7 @@ const STATUS_STEP_ORDER_PICKUP = ['registered', 'in_transit', 'out_for_delivery'
 const SHARED_PICKUP_POINT_IMG = `${REPO_BASE}/shared/pickup_point_step.png?raw=true`;
 
 const CARRIER_PRESETS = {
-    postnl_v4:    { label: 'PostNL',                    icon: 'mdi:package-variant-closed', color: '#ed8c00', schema: 'canonical',     supports_letters: true,  sensor_slug: 'postnl' },
-    postnl:       { label: 'PostNL (<v4.x)',             icon: 'mdi:package-variant-closed', color: '#ed8c00', schema: 'legacy',        supports_letters: true,  sensor_slug: 'postnl' },
+    postnl:       { label: 'PostNL',                    icon: 'mdi:package-variant-closed', color: '#ed8c00', schema: 'canonical',     supports_letters: true,  sensor_slug: 'postnl' },
     dhl:          { label: 'DHL',                        icon: 'mdi:package-variant-closed', color: '#ffcc00', schema: 'canonical',     supports_letters: false, sensor_slug: 'dhl'    },
     dpd:          { label: 'DPD',                        icon: 'mdi:package-variant-closed', color: '#dc0032', schema: 'canonical',     supports_letters: false, sensor_slug: 'dpd',
                     // outgoing_delivered intentionally has no override here (unlike the
@@ -4126,7 +4039,7 @@ const CARRIER_PRESETS = {
                     // not hardcode it back to `null` ("unsupported"), that was only ever
                     // true historically.
                     slug_first_suffixes: { incoming: 'binnenkomende_pakketten', delivered: 'bezorgde_pakketten', outgoing: 'uitgaande_pakketten', letters: null } },
-    // Account-based like postnl_v4/dhl/dpd above (e-mail + verification-link login, no password,
+    // Account-based like postnl/dhl/dpd above (e-mail + verification-link login, no password,
     // no tracking-code entry) — so there's no track_parcel_service and no "+ Add parcel" control
     // for this carrier. Brand colour #007782 is the --primary-default CSS custom property read
     // directly from vintedgo.com's own compiled stylesheet (rgb(0,119,130); the darker
@@ -4216,7 +4129,7 @@ const CARRIER_PRESETS = {
     // prominent accent colour). SunYou (SYPost) is a China-based cross-border courier.
     sunyou:       { label: 'SunYou',                     icon: 'mdi:package-variant-closed', color: '#29a03a', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'sunyou',
                     track_parcel_service: { domain: 'sunyou', field: 'tracking_code', supports_postal_code: false } },
-    // Account-based (login through An Post's own identity service) but — unlike postnl_v4/dhl/dpd —
+    // Account-based (login through An Post's own identity service) but — unlike postnl/dhl/dpd —
     // it ALSO exposes track_parcel/untrack_parcel, adding a tracking code to a server-side
     // watchlist. Confirmed against the real ha-an-post repo once it shipped (2026-08). Its
     // service requires config_entry_id (a user can have more than one An Post account), which
@@ -4230,7 +4143,6 @@ const CARRIER_PRESETS = {
     // "pac" half is plain near-black text, not an accent). Tracking code only, no postal code.
     quickpac:     { label: 'Quickpac',                   icon: 'mdi:package-variant-closed', color: '#34a02e', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'quickpac',
                     track_parcel_service: { domain: 'quickpac', field: 'tracking_code', supports_postal_code: false } },
-    postnl_legacy:{ label: 'PostNL (ArjenBos)',          icon: 'mdi:package-variant-closed', color: '#ed8c00', schema: 'single_entity', supports_letters: false, sensor_slug: null     },
     custom:       { label: 'Custom',                     icon: 'mdi:package-variant-closed', color: '#ed8c00', schema: 'canonical',     supports_letters: false, sensor_slug: null     }
 };
 
@@ -4254,7 +4166,7 @@ const CARRIER_EXTRA_DETAILS = {
         if (raw.isClimateNeutralDelivery) out.push({ icon: 'mdi:leaf', labelKey: 'extra_climate_neutral' });
         return out;
     },
-    postnl_v4: (raw) => {
+    postnl: (raw) => {
         const out = [];
         // "Parcel" is the default/expected case — only worth a badge for the
         // letterbox-sized special case; "Recipient" is likewise the default for
@@ -4342,9 +4254,7 @@ function registryEntitiesByDevice(hass, domain) {
 }
 
 // Maps a saved config's entity field to the canonical (unlocalized) translation_key used by
-// every ha-parcel-integrations carrier, for the runtime repair below. 'entity'/
-// 'distribution_entity' (single_entity/legacy schema) are intentionally not covered — that
-// schema predates has_entity_name and has no canonical translation_key to match against.
+// every ha-parcel-integrations carrier, for the runtime repair below.
 const ENTITY_FIELD_TRANSLATION_KEY = {
     entity_incoming: 'incoming_parcels',
     entity_delivered: 'delivered_parcels',
@@ -4537,12 +4447,9 @@ function detectCarrierUsers(hass, carrierType) {
 }
 
 // The carrier types offered for auto-population when the card is first added
-// (HaParcelsCard.getStubConfig). Excludes postnl (legacy v3.x — same
-// sensor_slug as postnl_v4, so detection can't tell them apart; v4 is the
-// recommended default and the user can switch the type manually if they're
-// still on v3.x) and postnl_legacy / custom (sensor_slug is null — no
-// entity-based detection is possible for those).
-const AUTO_DETECT_CARRIER_TYPES = ['postnl_v4', 'dhl', 'dpd', 'vinted_go', 'gls', 'dragonfly', 'trunkrs', 'cainiao', 'hermes', 'packeta', 'correos', 'postnord', 'sameday', 'swiss_post', 'planzer', 'austrian_post', 'helthjem', 'dynalogic', 'budbee', 'nova_post', 'delhivery', 'sunyou', 'an_post', 'quickpac'];
+// (HaParcelsCard.getStubConfig). Excludes custom (sensor_slug is null — no
+// entity-based detection is possible for it).
+const AUTO_DETECT_CARRIER_TYPES = ['postnl', 'dhl', 'dpd', 'vinted_go', 'gls', 'dragonfly', 'trunkrs', 'cainiao', 'hermes', 'packeta', 'correos', 'postnord', 'sameday', 'swiss_post', 'planzer', 'austrian_post', 'helthjem', 'dynalogic', 'budbee', 'nova_post', 'delhivery', 'sunyou', 'an_post', 'quickpac'];
 
 // Infers a sensible days_back for a freshly auto-populated card: the number
 // of days since the oldest currently-visible delivered parcel, across every
@@ -4684,7 +4591,7 @@ class HaParcelsCard extends HTMLElement {
                     name: 'PostNL',
                     icon: 'mdi:package-variant-closed',
                     color: '#ed8c00',
-                    schema: 'legacy',
+                    schema: 'canonical',
                     logo_path: '', van_path: '', banner_path: '',
                     entity_incoming: 'sensor.postnl_incoming_parcels',
                     entity_delivered: 'sensor.postnl_delivered_parcels',
@@ -5125,7 +5032,7 @@ class HaParcelsCard extends HTMLElement {
         // Carriers without a sender/account concept (e.g. GLS) never have real outgoing
         // sensors. Ignoring the field here — not just hiding it in the editor — also
         // protects against a saved config that still has a stale entity reference left
-        // over from switching a carrier's type (e.g. postnl_v4 -> gls) before this was fixed.
+        // over from switching a carrier's type (e.g. postnl -> gls) before this was fixed.
         if ((entityField === 'entity_outgoing' || entityField === 'entity_outgoing_delivered')
             && (CARRIER_PRESETS[carrier.type] || CARRIER_PRESETS.custom).supports_outgoing === false) {
             return [];
@@ -5153,7 +5060,7 @@ class HaParcelsCard extends HTMLElement {
         const carriers = this.config.carriers || [];
         if (carriers.length === 0) return null;
         const anyConfigured = carriers.some(c =>
-            c.entity_incoming || c.entity_delivered || c.entity_outgoing || c.entity_outgoing_delivered || c.entity_letters || c.entity || c.distribution_entity
+            c.entity_incoming || c.entity_delivered || c.entity_outgoing || c.entity_outgoing_delivered || c.entity_letters
         );
         if (!anyConfigured) return null;
 
@@ -5165,45 +5072,28 @@ class HaParcelsCard extends HTMLElement {
         let postUpcoming = [], postDelivered = [];
 
         carriers.forEach(carrier => {
-            const isSingleEntity = (CARRIER_PRESETS[carrier.type] || CARRIER_PRESETS.custom).schema === 'single_entity';
-            let merged;
-
-            if (isSingleEntity) {
-                const items = this._getCarrierSensorItems(carrier, 'entity');
-                merged = items.filter(item => {
-                    if (!item.delivered) return true;
-                    return new Date(item.delivery_date || item.planned_date || 0) >= cutoffDate;
-                });
-            } else {
-                const incoming  = this._getCarrierSensorItems(carrier, 'entity_incoming').map(i => ({ ...i, delivered: false }));
-                const delivered = this._getCarrierSensorItems(carrier, 'entity_delivered').map(i => ({ ...i, delivered: true }));
-                const byKey = new Map();
-                incoming.concat(delivered).forEach(item => {
-                    const key = item.key || JSON.stringify(item);
-                    const existing = byKey.get(key);
-                    if (!existing || item.delivered) byKey.set(key, item);
-                });
-                merged = Array.from(byKey.values()).filter(item => {
-                    if (!item.delivered) return true;
-                    return new Date(item.delivery_date || item.planned_date || 0) >= cutoffDate;
-                });
-            }
+            const incoming  = this._getCarrierSensorItems(carrier, 'entity_incoming').map(i => ({ ...i, delivered: false }));
+            const delivered = this._getCarrierSensorItems(carrier, 'entity_delivered').map(i => ({ ...i, delivered: true }));
+            const byKey = new Map();
+            incoming.concat(delivered).forEach(item => {
+                const key = item.key || JSON.stringify(item);
+                const existing = byKey.get(key);
+                if (!existing || item.delivered) byKey.set(key, item);
+            });
+            const merged = Array.from(byKey.values()).filter(item => {
+                if (!item.delivered) return true;
+                return new Date(item.delivery_date || item.planned_date || 0) >= cutoffDate;
+            });
 
             onderweg = onderweg.concat(merged.filter(i => !i.delivered));
             bezorgd  = bezorgd.concat(merged.filter(i => i.delivered));
 
-            if (isSingleEntity) {
-                verzondenUpcoming = verzondenUpcoming.concat(
-                    this._getCarrierSensorItems(carrier, 'distribution_entity')
-                );
-            } else {
-                verzondenUpcoming = verzondenUpcoming.concat(
-                    this._getCarrierSensorItems(carrier, 'entity_outgoing').map(i => ({ ...i, delivered: false }))
-                );
-                verzondenDelivered = verzondenDelivered.concat(
-                    this._getCarrierSensorItems(carrier, 'entity_outgoing_delivered').map(i => ({ ...i, delivered: true }))
-                );
-            }
+            verzondenUpcoming = verzondenUpcoming.concat(
+                this._getCarrierSensorItems(carrier, 'entity_outgoing').map(i => ({ ...i, delivered: false }))
+            );
+            verzondenDelivered = verzondenDelivered.concat(
+                this._getCarrierSensorItems(carrier, 'entity_outgoing_delivered').map(i => ({ ...i, delivered: true }))
+            );
 
             const carrierLetters = this._getCarrierLetters(carrier);
             const todayStart = new Date();
@@ -6748,32 +6638,29 @@ class HaParcelsCardEditor extends LitElement {
         const preset  = CARRIER_PRESETS[type] || CARRIER_PRESETS.custom;
         const carriers = [...(this._config.carriers || [])];
         const current = carriers[index] || {};
-        const isSingle = preset.schema === 'single_entity';
         // Auto-detect account when changing type (use existing user if already set).
-        const detected     = !isSingle ? this._detectUsers(type) : [];
+        const detected     = this._detectUsers(type);
         const detectedEntry = detected.length === 1 ? detected[0] : null;
         // Only keep the carried-over account if it actually resolves for the new
         // carrier type — otherwise e.g. switching PostNL -> GLS left the PostNL
         // account behind, pointing every generated entity_id at a sensor that
         // doesn't exist, with the card then showing nothing and no error (#14).
-        const keptTemplated = !isSingle && current.user ? buildTemplatedEntities(current.user, type, current._slugFirst ?? false, this.hass) : null;
+        const keptTemplated = current.user ? buildTemplatedEntities(current.user, type, current._slugFirst ?? false, this.hass) : null;
         const keptUser      = keptTemplated && this.hass?.states?.[keptTemplated.entity_incoming] ? current.user : null;
         const autoUser      = keptUser ?? (detectedEntry?.user ?? '');
         const slugFirst     = keptUser ? (current._slugFirst ?? false) : (detectedEntry?.slugFirst ?? false);
         const templated     = keptUser ? keptTemplated
-            : (!isSingle && detectedEntry !== null ? buildTemplatedEntities(autoUser, type, slugFirst, this.hass, detectedEntry?.deviceId) : {});
+            : (detectedEntry !== null ? buildTemplatedEntities(autoUser, type, slugFirst, this.hass, detectedEntry?.deviceId) : {});
         carriers[index] = {
             ...current, type,
             name: preset.label, icon: getDefaultIcon(type), color: preset.color, schema: preset.schema,
             user: autoUser,
             _slugFirst: slugFirst,
             _manualUser: !!keptUser,
-            entity_incoming:    isSingle ? '' : (templated.entity_incoming    ?? current.entity_incoming    ?? ''),
-            entity_delivered:   isSingle ? '' : (templated.entity_delivered   ?? current.entity_delivered   ?? ''),
-            entity_outgoing:    (isSingle || preset.supports_outgoing === false) ? '' : (templated.entity_outgoing    ?? current.entity_outgoing    ?? ''),
-            entity_outgoing_delivered: (isSingle || preset.supports_outgoing === false) ? '' : (templated.entity_outgoing_delivered ?? current.entity_outgoing_delivered ?? ''),
-            entity:             isSingle ? (current.entity ?? '') : '',
-            distribution_entity:isSingle ? (current.distribution_entity ?? '') : '',
+            entity_incoming:    templated.entity_incoming    ?? current.entity_incoming    ?? '',
+            entity_delivered:   templated.entity_delivered   ?? current.entity_delivered   ?? '',
+            entity_outgoing:    preset.supports_outgoing === false ? '' : (templated.entity_outgoing    ?? current.entity_outgoing    ?? ''),
+            entity_outgoing_delivered: preset.supports_outgoing === false ? '' : (templated.entity_outgoing_delivered ?? current.entity_outgoing_delivered ?? ''),
             entity_letters:     preset.supports_letters ? (templated.entity_letters ?? current.entity_letters ?? '') : ''
         };
         this._config = { ...this._config, carriers };
@@ -6801,7 +6688,7 @@ class HaParcelsCardEditor extends LitElement {
     }
 
     _addCarrier() {
-        const type   = 'postnl_v4';
+        const type   = 'postnl';
         const preset = CARRIER_PRESETS[type];
         // Auto-detect user for the default carrier type immediately.
         const detected  = this._detectUsers(type);
@@ -7539,7 +7426,7 @@ class HaParcelsCardEditor extends LitElement {
                 <div class="carrier-card-body">
                     <ha-selector .hass=${this.hass}
                         .selector=${{ select: { options: [
-                            { value: 'postnl_v4',     label: 'PostNL' },
+                            { value: 'postnl',        label: 'PostNL' },
                             { value: 'dhl',           label: 'DHL' },
                             { value: 'dpd',           label: 'DPD' },
                             { value: 'gls',           label: 'GLS' },
@@ -7563,11 +7450,9 @@ class HaParcelsCardEditor extends LitElement {
                             { value: 'sunyou',        label: 'SunYou' },
                             { value: 'an_post',       label: 'An Post' },
                             { value: 'quickpac',      label: 'Quickpac' },
-                            { value: 'postnl',        label: 'PostNL (<v4.x)' },
-                            { value: 'postnl_legacy', label: 'PostNL (ArjenBos)' },
                             { value: 'custom',        label: 'Custom' }
                         ], mode: 'dropdown' } }}
-                        .value=${carrier.type || 'postnl_v4'} .label=${"Carrier"}
+                        .value=${carrier.type || 'postnl'} .label=${"Carrier"}
                         @value-changed=${(ev) => this._carrierTypeChanged(index, ev)}></ha-selector>
 
                     ${carrier.type === 'custom' ? html`
@@ -7576,16 +7461,9 @@ class HaParcelsCardEditor extends LitElement {
                             <input id="ha-carrier-name-${index}" type="text" .value=${carrier.name || ''}
                                 @input=${(ev) => this._carrierChanged(index, 'name', ev)} />
                         </div>
-                    ` : carrier.type === 'postnl_legacy' ? html`
-                        <div class="helper-text">
-                            ⚠ ${this._t('legacy_warning')}
-                            (<a href="https://github.com/arjenbos/ha-postnl" target="_blank">arjenbos/ha-postnl</a>)
-                        </div>
-                        ${this._renderEntityPicker(this._t('postnl_entity_label'), carrier.entity, 'e.g. sensor.postnl_delivery', (ev) => this._carrierChanged(index, 'entity', ev))}
-                        ${this._renderEntityPicker(this._t('postnl_dist_label'), carrier.distribution_entity, 'e.g. sensor.postnl_distribution', (ev) => this._carrierChanged(index, 'distribution_entity', ev))}
                     ` : this._renderUserDetection(carrier, index, preset, supportsLetters, supportsOutgoing)}
 
-                    ${carrier.type !== 'postnl_legacy' ? (() => {
+                    ${(() => {
                         const sk = `sensors-${index}`;
                         const open = !!this._openSections[sk];
                         return html`
@@ -7607,7 +7485,7 @@ class HaParcelsCardEditor extends LitElement {
                                 ? this._renderEntityPicker(this._t('entity_letters'), carrier.entity_letters, this._t('letters_entity_help'), (ev) => this._carrierChanged(index, 'entity_letters', ev))
                                 : html`<div class="helper-text">${this._t('no_letters_support')}</div>`}
                         </div>` : ''}`;
-                    })() : ''}
+                    })()}
 
                     ${this._renderAppearanceOverride(carrier, index, preset)}
                 </div>` : ''}
@@ -7630,7 +7508,6 @@ class HaParcelsCardEditor extends LitElement {
                 <details class="warning-box-details" open>
                     <summary class="warning-title">${this._t('editor_title')}</summary>
                     <div style="margin-top:8px;">${this._t('editor_intro1')}</div>
-                    <div style="margin-top:8px;">${this._t('editor_intro2')}</div>
                 </details>
 
                 <details class="section-details" open>

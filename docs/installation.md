@@ -34,21 +34,16 @@ Install the integration for each carrier you use **before** adding the card. All
 
 ### PostNL
 
-The card supports three PostNL variants.
+| Label | Card type | Integration |
+| ----- | --------- | ----------- |
+| **PostNL** | `postnl` | [ha-parcel-integrations/ha-postnl](https://github.com/ha-parcel-integrations/ha-postnl) ≥ 4.0.0 |
 
-| Label | Card type | Integration | When to use |
-| ----- | --------- | ----------- | ----------- |
-| **PostNL** | `postnl_v4` | [ha-parcel-integrations/ha-postnl](https://github.com/ha-parcel-integrations/ha-postnl) ≥ 4.0.0 | **Recommended** — new installs and upgrades |
-| **PostNL (<v4.x)** | `postnl` | [ha-parcel-integrations/ha-postnl](https://github.com/ha-parcel-integrations/ha-postnl) ≤ 3.x | Still on version 3.x |
-| **PostNL (ArjenBos)** | `postnl_legacy` | [arjenbos/ha-postnl](https://github.com/arjenbos/ha-postnl) | Single-entity legacy mode |
-
-!!! tip "Upgrading from ha-postnl v3 to v4?"
-    Change the card type from `postnl` to `postnl_v4`. Your sensor entity IDs stay the same.
-
-!!! warning "Deprecation notice"
-    **PostNL (<v4.x)** will no longer be supported starting from HA Parcels Card v2.0 — upgrade to `ha-postnl` ≥ 4.0.0 and switch the card type to `postnl_v4` before then.
-
-    **PostNL (ArjenBos)** will also be removed starting from v2.0, unless [arjenbos/ha-postnl](https://github.com/arjenbos/ha-postnl) receives an update of its own before that point.
+!!! warning "PostNL (<v4.x) and PostNL (ArjenBos) are no longer supported"
+    As announced ahead of this release, the older `postnl` (ha-postnl ≤ 3.x) and `postnl_legacy`
+    (arjenbos/ha-postnl) card types have been removed from HA Parcels Card v2.0 — upgrade to
+    [ha-postnl](https://github.com/ha-parcel-integrations/ha-postnl) ≥ 4.0.0 and use the single
+    `postnl` card type above. The stable [hki-parcels-card](https://github.com/jonisnet/hki-parcels-card)
+    v1.x line still supports both if you're not ready to upgrade yet.
 
 ### DHL, DPD, Vinted Go, GLS and An Post
 

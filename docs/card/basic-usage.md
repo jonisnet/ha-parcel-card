@@ -8,7 +8,7 @@ The quickest way to add the card is to specify a carrier type and account name. 
 type: custom:ha-parcels-card
 title: My Parcels
 carriers:
-  - type: postnl_v4
+  - type: postnl
     user: my_account
 ```
 
@@ -25,7 +25,7 @@ The `user` field is the account part of your sensor name. For example, if your s
 type: custom:ha-parcels-card
 title: Parcels
 carriers:
-  - type: postnl_v4
+  - type: postnl
     user: my_account
   - type: dhl
     user: my_account
@@ -91,22 +91,9 @@ Since there's no account to auto-sync from, each of these carriers shows a "+ Ad
 type: custom:ha-parcels-card
 title: PostNL
 carriers:
-  - type: postnl_v4
+  - type: postnl
     user: my_account
 show_letters: true
-```
-
----
-
-## PostNL (ArjenBos) / legacy single-entity mode
-
-```yaml
-type: custom:ha-parcels-card
-title: PostNL
-carriers:
-  - type: postnl_legacy
-    entity: sensor.postnl_delivery
-    distribution_entity: sensor.postnl_distribution
 ```
 
 ---
@@ -122,7 +109,7 @@ header_text_color: "#ffffff"
 show_animation: true
 show_placeholder: true
 carriers:
-  - type: postnl_v4
+  - type: postnl
     user: my_account
     name: PostNL
     color: "#ed8c00"

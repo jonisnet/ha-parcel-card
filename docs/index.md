@@ -56,12 +56,11 @@ Automatic sensor detection, animated banners, a 4-step delivery tracker, letterb
     type: custom:ha-parcels-card
     title: Parcels
     carriers:
-      - type: postnl_v4
+      - type: postnl
         user: my_account
     ```
 
-    !!! tip "Which PostNL type?"
-        Use `postnl_v4` ("PostNL") for ha-postnl ≥ 4.0.0 (recommended). `postnl` ("PostNL (<v4.x)") and `postnl_legacy` ("PostNL (ArjenBos)") are being phased out — see [Installation](installation.md#postnl).
+    Requires [ha-postnl](https://github.com/ha-parcel-integrations/ha-postnl) ≥ 4.0.0 — see [Installation](installation.md#postnl).
 
 === "DHL / DPD / Vinted Go / GLS"
 
@@ -108,7 +107,7 @@ Automatic sensor detection, animated banners, a 4-step delivery tracker, letterb
     type: custom:ha-parcels-card
     title: Parcels
     carriers:
-      - type: postnl_v4
+      - type: postnl
         user: my_account
       - type: dhl
         user: my_account
@@ -151,9 +150,7 @@ All carriers below are part of the [ha-parcel-integrations](https://github.com/h
 
 | Carrier | Integration | Card type | Account type |
 | ------- | ----------- | --------- | ------------ |
-| **PostNL** (recommended) | [ha-postnl](https://github.com/ha-parcel-integrations/ha-postnl) ≥ 4.0.0 | `postnl_v4` | Account login |
-| **PostNL (<v4.x)**² | [ha-postnl](https://github.com/ha-parcel-integrations/ha-postnl) ≤ 3.x | `postnl` | Account login |
-| **PostNL (ArjenBos)**² | [arjenbos/ha-postnl](https://github.com/arjenbos/ha-postnl) | `postnl_legacy` | Account login |
+| **PostNL** | [ha-postnl](https://github.com/ha-parcel-integrations/ha-postnl) ≥ 4.0.0 | `postnl` | Account login |
 | **DHL** | [ha-dhl-nl](https://github.com/ha-parcel-integrations/ha-dhl-nl) | `dhl` | Account login |
 | **DPD** | [ha-dpd](https://github.com/ha-parcel-integrations/ha-dpd) | `dpd` | Account login |
 | **Vinted Go** | [ha-vinted-go](https://github.com/ha-parcel-integrations/ha-vinted-go) | `vinted_go` | Account login (e-mail + verification link) |
@@ -177,8 +174,6 @@ All carriers below are part of the [ha-parcel-integrations](https://github.com/h
 | **SunYou** | [ha-sunyou](https://github.com/ha-parcel-integrations/ha-sunyou) | `sunyou` | Tracking number only |
 
 ¹ Created by [Alwin Hummels (@HummelsTech)](https://github.com/HummelsTech), who also maintains it standalone at [HummelsTech/ha-dragonfly](https://github.com/HummelsTech/ha-dragonfly) — see [Installation](installation.md#dragonfly-trunkrs-cainiao-hermes-packeta-correos-postnord-sameday-swiss-post-planzer-austrian-post-helthjem-dynalogic-budbee-nova-post-delhivery-and-sunyou) for details.
-
-² Being phased out — see the [deprecation notice](installation.md#postnl).
 
 !!! note "Add parcel support"
     Only the account-less carriers (GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee, Nova Post, Delhivery, SunYou) get the card's "+ Add parcel" control — PostNL, DHL, DPD and Vinted Go auto-sync every parcel tied to the logged-in account and don't expose a service to register one manually. Full explanation on the [Overview page](card/overview.md#add-parcel-support).
