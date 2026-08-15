@@ -119,7 +119,7 @@ When `type: postnl_legacy` these options apply instead.
     Use `postnl_legacy` ("PostNL (ArjenBos)") only for the arjenbos/ha-postnl integration.
 
 !!! warning "Deprecation notice"
-    **PostNL (<v4.x)** will no longer be supported starting from HKI Parcels Card v2.0. **PostNL (ArjenBos)** will also be removed from v2.0, unless arjenbos updates that integration before then. See [Installation](../installation.md#postnl) for details.
+    **PostNL (<v4.x)** will no longer be supported starting from HA Parcels Card v2.0. **PostNL (ArjenBos)** will also be removed from v2.0, unless arjenbos updates that integration before then. See [Installation](../installation.md#postnl) for details.
 
 !!! note
     `gls`, `dragonfly`, `trunkrs`, `cainiao`, `hermes`, `packeta`, `correos`, `postnord`, `sameday`, `swiss_post`, `planzer`, `austrian_post`, `helthjem`, `dynalogic`, `nova_post`, `delhivery` and `sunyou` have no Sent tab — these carriers track parcels by number (plus postal code for GLS/Trunkrs) with no sender/account concept, so `entity_outgoing` and `entity_outgoing_delivered` are not applicable. See [Add parcel support](overview.md#add-parcel-support) for why these carriers get the "+ Add parcel" control.
@@ -149,7 +149,7 @@ The correct scheme is detected automatically. Leave `user` empty if your sensors
 ## Full configuration example
 
 ```yaml
-type: custom:hki-parcels-card
+type: custom:ha-parcels-card
 title: Parcels
 days_back: 90
 show_delivered: true

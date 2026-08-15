@@ -1,9 +1,9 @@
-# HKI Parcels Card
+# HA Parcels Card
 
 A multi-carrier parcel tracking card for Home Assistant. Track parcels from PostNL, DHL, DPD, Vinted Go, GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee, Nova Post, Delhivery and SunYou in a single unified view, with support for letterbox mail images.
 
 !!! note
-    HKI Cards were created for the visual editor in Home Assistant. It is possible that the documentation is not complete for all features.
+    This card was created for the visual editor in Home Assistant. It is possible that the documentation is not complete for all features.
 
 ---
 

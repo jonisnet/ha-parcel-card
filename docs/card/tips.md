@@ -14,7 +14,7 @@ The card supports three PostNL variants. Use the table below to pick the right o
     If you upgrade from ha-postnl v3.x to v4.x, change `type: postnl` to `type: postnl_v4` in the card configuration. Your sensor entity IDs stay the same — only the card type needs to change.
 
 !!! warning "PostNL (<v4.x) and PostNL (ArjenBos) are being phased out"
-    Both will no longer be supported starting from HKI Parcels Card v2.0 — PostNL (ArjenBos) only sticks around past that point if arjenbos updates the integration before then. See [Installation](../installation.md#postnl).
+    Both will no longer be supported starting from HA Parcels Card v2.0 — PostNL (ArjenBos) only sticks around past that point if arjenbos updates the integration before then. See [Installation](../installation.md#postnl).
 
 ---
 
@@ -99,7 +99,7 @@ Consider using two separate cards: one focused on active deliveries and one show
 
 ```yaml
 # Active deliveries card
-type: custom:hki-parcels-card
+type: custom:ha-parcels-card
 title: Onderweg
 show_delivered: false
 show_sent: false
@@ -109,7 +109,7 @@ carriers:
     user: my_account
 
 # History card
-type: custom:hki-parcels-card
+type: custom:ha-parcels-card
 title: Ontvangen
 show_delivered: true
 show_sent: true

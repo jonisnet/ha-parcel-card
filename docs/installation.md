@@ -3,20 +3,20 @@
 ## Via HACS (recommended)
 
 1. In Home Assistant go to **HACS → Dashboard → ⋮ → Custom repositories**
-2. Add `https://github.com/jonisnet/hki-parcels-card` as category **Dashboard**
-3. Search for **HKI Parcels Card** and install
+2. Add `https://github.com/jonisnet/ha-parcels-card` as category **Dashboard**
+3. Search for **HA Parcels Card** and install
 4. Restart Home Assistant or do a hard refresh (Ctrl+Shift+R)
 
 ---
 
 ## Manual
 
-1. Download `hki-parcels-card.js` from the [latest release](https://github.com/jonisnet/hki-parcels-card/releases/latest)
-2. Place the file at `/config/www/hki-parcels-card.js`
+1. Download `ha-parcels-card.js` from the [latest release](https://github.com/jonisnet/ha-parcels-card/releases/latest)
+2. Place the file at `/config/www/ha-parcels-card.js`
 3. Go to **Settings → Dashboards → Resources** and add:
 
 ```
-/local/hki-parcels-card.js
+/local/ha-parcels-card.js
 ```
 
 Select type: **JavaScript module**
@@ -46,7 +46,7 @@ The card supports three PostNL variants.
     Change the card type from `postnl` to `postnl_v4`. Your sensor entity IDs stay the same.
 
 !!! warning "Deprecation notice"
-    **PostNL (<v4.x)** will no longer be supported starting from HKI Parcels Card v2.0 — upgrade to `ha-postnl` ≥ 4.0.0 and switch the card type to `postnl_v4` before then.
+    **PostNL (<v4.x)** will no longer be supported starting from HA Parcels Card v2.0 — upgrade to `ha-postnl` ≥ 4.0.0 and switch the card type to `postnl_v4` before then.
 
     **PostNL (ArjenBos)** will also be removed starting from v2.0, unless [arjenbos/ha-postnl](https://github.com/arjenbos/ha-postnl) receives an update of its own before that point.
 

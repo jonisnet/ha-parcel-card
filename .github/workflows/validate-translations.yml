@@ -1,20 +1,20 @@
 name: Validate translations
 
 # Every translations/<lang>.json must have exactly the same keys as translations/en.json
-# (the reference), and hki-parcels-card.js's bundled TRANSLATIONS block must be in sync
+# (the reference), and ha-parcels-card.js's bundled TRANSLATIONS block must be in sync
 # with those files — see scripts/build_translations.py.
 on:
   pull_request:
     paths:
       - "translations/**"
       - "scripts/build_translations.py"
-      - "hki-parcels-card.js"
+      - "ha-parcels-card.js"
   push:
     branches: [main]
     paths:
       - "translations/**"
       - "scripts/build_translations.py"
-      - "hki-parcels-card.js"
+      - "ha-parcels-card.js"
   workflow_dispatch:
 
 jobs:

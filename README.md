@@ -1,34 +1,34 @@
-# HKI Parcels Card — v2.0.0-dev (beta)
+# HA Parcels Card (v2, beta)
 
-> ⚠️ **You're on the `v2.0.0-dev` branch — a beta, not a release.** It carries everything the
-> stable [`main`](https://github.com/jonisnet/hki-parcels-card/tree/main) branch (v1.7.x) has,
-> plus new carriers and features that haven't shipped in a stable v2.0.0 release yet. It can
-> break, and it is **not** distributed through HACS (HACS tracks `main`'s releases only, so
-> installing this branch never affects your existing v1.x install or triggers an update for
-> anyone else) — install it manually if you want to try it early:
+> ⚠️ **Beta, not yet a stable release.** This is the v2 successor to
+> [`hki-parcels-card`](https://github.com/jonisnet/hki-parcels-card) (the stable v1.7.x card) —
+> renamed because "HKI" is [jimz011](https://github.com/jimz011)'s own trade name, and v2 is
+> moving toward the broader [ha-parcel-integrations](https://github.com/ha-parcel-integrations)
+> family instead. It is **not yet distributed through HACS** — install it manually if you want to
+> try it early:
 >
-> 1. Download `hki-parcels-card.js` from this branch directly:
->    [raw.githubusercontent.com/jonisnet/hki-parcels-card/v2.0.0-dev/hki-parcels-card.js](https://raw.githubusercontent.com/jonisnet/hki-parcels-card/v2.0.0-dev/hki-parcels-card.js)
-> 2. Place it at `/config/www/hki-parcels-card-v2-dev.js` (a different filename than the stable
->    install, so both can coexist)
+> 1. Download `ha-parcels-card.js` from this repo:
+>    [raw.githubusercontent.com/jonisnet/ha-parcels-card/main/ha-parcels-card.js](https://raw.githubusercontent.com/jonisnet/ha-parcels-card/main/ha-parcels-card.js)
+> 2. Place it at `/config/www/ha-parcels-card.js`
 > 3. Go to **Settings → Dashboards → Resources** and add it as a **JavaScript module** resource
-> 4. Use `type: custom:hki-parcels-card` in your dashboard as normal
+> 4. Use `type: custom:ha-parcels-card` in your dashboard — this is a different card type than
+>    `custom:hki-parcels-card`, so both can be installed side by side without conflict
 >
-> Found a bug specific to this branch? Open an issue and mention you're on `v2.0.0-dev`.
+> Found a bug? Open an issue here, not on `hki-parcels-card`.
 
-[![Version](https://img.shields.io/badge/version-v2.0.0b6-blue?style=flat-square)](https://github.com/jonisnet/hki-parcels-card/releases/latest)
+[![Version](https://img.shields.io/badge/version-v2.0.0b6-blue?style=flat-square)](https://github.com/jonisnet/ha-parcels-card/releases/latest)
 [![HACS](https://img.shields.io/badge/HACS-Custom-orange?style=flat-square)](https://hacs.xyz)
-[![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](https://github.com/jonisnet/hki-parcels-card/blob/main/LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](https://github.com/jonisnet/ha-parcels-card/blob/main/LICENSE)
 [![HA](https://img.shields.io/badge/Home%20Assistant-2026.7%2B-41bdf5?style=flat-square)](https://www.home-assistant.io)
-[![Downloads](https://img.shields.io/github/downloads/jonisnet/hki-parcels-card/total?style=flat-square&label=downloads)](https://github.com/jonisnet/hki-parcels-card/releases)
+[![Downloads](https://img.shields.io/github/downloads/jonisnet/ha-parcels-card/total?style=flat-square&label=downloads)](https://github.com/jonisnet/ha-parcels-card/releases)
 [![Sponsor](https://img.shields.io/badge/sponsor-ea4aaa?style=flat-square&logo=githubsponsors&logoColor=white)](https://github.com/sponsors/jonisnet)
 [![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-FFDD00?style=flat-square&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/jonisnet)
 
 **Track parcels from PostNL, DHL, DPD, Vinted Go, GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee, Nova Post, Delhivery and SunYou in a single Home Assistant card** — with animated banners, letter scan images, automatic sensor detection, a "+ Add parcel" control for account-less carriers, and a full visual editor.
 
-📖 **Full documentation, configuration reference and screenshots:** **[jonisnet.github.io/hki-parcels-card](https://jonisnet.github.io/hki-parcels-card/)**
+📖 **Full documentation, configuration reference and screenshots:** **[jonisnet.github.io/ha-parcels-card](https://jonisnet.github.io/ha-parcels-card/)**
 
-![Dashboard screenshot](https://raw.githubusercontent.com/jonisnet/hki-parcels-card/main/images/screenshot-dashboard.png)
+![Dashboard screenshot](https://raw.githubusercontent.com/jonisnet/ha-parcels-card/main/images/screenshot-dashboard.png)
 
 *Parcel detail with the 4-step delivery tracker*
 
@@ -49,14 +49,14 @@
 - **Full visual editor** — no YAML required, with auto sensor detection, a media browser for custom images, a colour picker and live preview
 - **Automatic combo banner** — with two or more carriers configured, the card builds a combo banner from just the carriers you've actually added
 
-![Editor screenshot](https://raw.githubusercontent.com/jonisnet/hki-parcels-card/main/images/screenshot-editor-carriers.png)
+![Editor screenshot](https://raw.githubusercontent.com/jonisnet/ha-parcels-card/main/images/screenshot-editor-carriers.png)
 
 *Visual editor with live preview*
 
 <table>
 <tr>
-<td><img src="https://raw.githubusercontent.com/jonisnet/hki-parcels-card/main/images/screenshot-banners-dark.png" alt="Combo banner, dark theme"></td>
-<td><img src="https://raw.githubusercontent.com/jonisnet/hki-parcels-card/main/images/screenshot-banners-light.png" alt="Combo banner, light theme"></td>
+<td><img src="https://raw.githubusercontent.com/jonisnet/ha-parcels-card/main/images/screenshot-banners-dark.png" alt="Combo banner, dark theme"></td>
+<td><img src="https://raw.githubusercontent.com/jonisnet/ha-parcels-card/main/images/screenshot-banners-light.png" alt="Combo banner, light theme"></td>
 </tr>
 <tr>
 <td align="center"><em>Dark theme</em></td>
@@ -64,7 +64,7 @@
 </tr>
 </table>
 
-More screenshots and examples: [jonisnet.github.io/hki-parcels-card/card/screenshots](https://jonisnet.github.io/hki-parcels-card/card/screenshots/)
+More screenshots and examples: [jonisnet.github.io/ha-parcels-card/card/screenshots](https://jonisnet.github.io/ha-parcels-card/card/screenshots/)
 
 ---
 
@@ -74,7 +74,7 @@ Install the integration for each carrier you use **before** adding the card. All
 
 | Carrier | Integration | Account type |
 | ------- | ----------- | ------------ |
-| **PostNL** | [ha-parcel-integrations/ha-postnl](https://github.com/ha-parcel-integrations/ha-postnl) ≥ 4.0.0 (older `postnl` / `postnl_legacy` variants are being phased out, see [Installation](https://jonisnet.github.io/hki-parcels-card/installation/#postnl)) | Account login |
+| **PostNL** | [ha-parcel-integrations/ha-postnl](https://github.com/ha-parcel-integrations/ha-postnl) ≥ 4.0.0 (older `postnl` / `postnl_legacy` variants are being phased out, see [Installation](https://jonisnet.github.io/ha-parcels-card/installation/#postnl)) | Account login |
 | **DHL** | [ha-parcel-integrations/ha-dhl-nl](https://github.com/ha-parcel-integrations/ha-dhl-nl) | Account login |
 | **DPD** | [ha-parcel-integrations/ha-dpd](https://github.com/ha-parcel-integrations/ha-dpd) | Account login |
 | **Vinted Go** | [ha-parcel-integrations/ha-vinted-go](https://github.com/ha-parcel-integrations/ha-vinted-go) | Account login (e-mail + verification link, no password) |
@@ -97,7 +97,7 @@ Install the integration for each carrier you use **before** adding the card. All
 | **Delhivery** | [ha-parcel-integrations/ha-delhivery](https://github.com/ha-parcel-integrations/ha-delhivery) | Tracking number only |
 | **SunYou** | [ha-parcel-integrations/ha-sunyou](https://github.com/ha-parcel-integrations/ha-sunyou) | Tracking number only |
 
-Full version compatibility notes, PostNL variant details and sensor naming: [jonisnet.github.io/hki-parcels-card/card/configuration](https://jonisnet.github.io/hki-parcels-card/card/configuration/).
+Full version compatibility notes, PostNL variant details and sensor naming: [jonisnet.github.io/ha-parcels-card/card/configuration](https://jonisnet.github.io/ha-parcels-card/card/configuration/).
 
 ### Add parcel support
 
@@ -135,20 +135,20 @@ The card's "+ Add parcel" control only appears for carriers whose integration is
 ### Via HACS (recommended)
 
 1. Go to **HACS → Dashboard → ⋮ → Custom repositories**
-2. Add `https://github.com/jonisnet/hki-parcels-card` with category **Dashboard**
-3. Search for **HKI Parcels Card** and click Install
+2. Add `https://github.com/jonisnet/ha-parcels-card` with category **Dashboard**
+3. Search for **HA Parcels Card** and click Install
 4. Restart Home Assistant (or do a hard refresh: Ctrl+Shift+R)
 
 ### Manual
 
-1. Download `hki-parcels-card.js` from the [latest release](https://github.com/jonisnet/hki-parcels-card/releases/latest)
-2. Copy the file to `/config/www/hki-parcels-card.js`
-3. Go to **Settings → Dashboards → Resources** and add `/local/hki-parcels-card.js` (type: JavaScript module)
+1. Download `ha-parcels-card.js` from the [latest release](https://github.com/jonisnet/ha-parcels-card/releases/latest)
+2. Copy the file to `/config/www/ha-parcels-card.js`
+3. Go to **Settings → Dashboards → Resources** and add `/local/ha-parcels-card.js` (type: JavaScript module)
 4. Hard refresh your browser
 
 Optional: install [custom-brand-icons](https://github.com/elax46/custom-brand-icons) via HACS for branded PHU carrier icons — detected automatically, no configuration needed.
 
-Full installation guide: [jonisnet.github.io/hki-parcels-card/installation](https://jonisnet.github.io/hki-parcels-card/installation/).
+Full installation guide: [jonisnet.github.io/ha-parcels-card/installation](https://jonisnet.github.io/ha-parcels-card/installation/).
 
 ---
 
@@ -159,7 +159,7 @@ Add the card to your dashboard — it auto-detects every installed carrier integ
 Or add it via YAML:
 
 ```yaml
-type: custom:hki-parcels-card
+type: custom:ha-parcels-card
 title: Parcels
 carriers:
   - type: postnl_v4
@@ -192,7 +192,7 @@ carriers:
   - type: sunyou
 ```
 
-For the full list of card/carrier options, sensor naming schemes and the carrier types reference table, see the **[Configuration guide](https://jonisnet.github.io/hki-parcels-card/card/configuration/)**.
+For the full list of card/carrier options, sensor naming schemes and the carrier types reference table, see the **[Configuration guide](https://jonisnet.github.io/ha-parcels-card/card/configuration/)**.
 
 ---
 

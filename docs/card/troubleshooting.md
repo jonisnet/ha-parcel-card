@@ -112,5 +112,5 @@ The van animation does not appear when a parcel is selected.
 **Causes and solutions:**
 
 1. The JavaScript file is not loaded — verify the resource is added in **Settings → Dashboards → Resources** and the path is correct.
-2. A JavaScript error occurred — open the browser console (F12) and check for errors. Report any errors on the [issue tracker](https://github.com/jonisnet/hki-parcels-card/issues).
+2. A JavaScript error occurred — open the browser console (F12) and check for errors. Report any errors on the [issue tracker](https://github.com/jonisnet/ha-parcels-card/issues).
 3. Clear your browser cache (Ctrl+Shift+R) and reload Home Assistant.

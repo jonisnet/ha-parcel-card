@@ -1,5 +1,5 @@
 // ============================================================
-// HKI Parcels Card (standalone fork)
+// HA Parcels Card (standalone fork)
 // ============================================================
 //
 // A generic, multi-carrier parcel-tracking card for Home Assistant
@@ -16,9 +16,9 @@
 //
 // License: see LICENSE file in this repository.
 
-window.HKI = window.HKI || {};
+window.HAParcelsCard = window.HAParcelsCard || {};
 
-window.HKI.getLit = window.HKI.getLit || (() => {
+window.HAParcelsCard.getLit = window.HAParcelsCard.getLit || (() => {
   let cache = null;
   return () => {
     if (cache) return cache;
@@ -34,7 +34,7 @@ window.HKI.getLit = window.HKI.getLit || (() => {
   };
 })();
 
-window.HKI.getSelectValue = window.HKI.getSelectValue || ((ev, options = null) => {
+window.HAParcelsCard.getSelectValue = window.HAParcelsCard.getSelectValue || ((ev, options = null) => {
   const detailValue = ev?.detail?.value;
   if (detailValue !== undefined && detailValue !== null) return detailValue;
   const targetValue = ev?.target?.value;
@@ -63,17 +63,17 @@ window.HKI.getSelectValue = window.HKI.getSelectValue || ((ev, options = null) =
 
 
 // ============================================================
-// hki-parcels-card
+// ha-parcels-card
 // ============================================================
 
 (() => {
-const { LitElement, html, css } = window.HKI.getLit();
+const { LitElement, html, css } = window.HAParcelsCard.getLit();
 const CARD_VERSION = 'v2.0.0b9';
-console.info(`%c HKI-PARCELS-CARD %c ${CARD_VERSION} `, 'color: white; background: #ed8c00; font-weight: bold;', 'color: #ed8c00; background: white; font-weight: bold;');
+console.info(`%c HA-PARCELS-CARD %c ${CARD_VERSION} `, 'color: white; background: #ed8c00; font-weight: bold;', 'color: #ed8c00; background: white; font-weight: bold;');
 
 const DEFAULT_CARRIER_ICON = 'mdi:package-variant-closed';
 const DEFAULT_CARRIER_COLOR = '#ed8c00';
-const DEFAULT_PLACEHOLDER_IMAGE = 'https://github.com/jonisnet/hki-parcels-card/blob/main/images/shared/dutch-parcels-2.png?raw=true';
+const DEFAULT_PLACEHOLDER_IMAGE = 'https://github.com/jonisnet/ha-parcels-card/blob/main/images/shared/dutch-parcels-2.png?raw=true';
 
 function hasPhuIcons() {
     return !!(window.customIconsets && window.customIconsets['phu']);
@@ -3622,7 +3622,7 @@ function getT(lang) {
 // Carrier configuration
 // ============================================================
 
-const REPO_BASE = 'https://github.com/jonisnet/hki-parcels-card/blob/main/images';
+const REPO_BASE = 'https://github.com/jonisnet/ha-parcels-card/blob/main/images';
 
 // Per-carrier asset folders (images/<carrier>/...). Keeps the images directory navigable as
 // more carriers are added, instead of one flat folder of prefixed filenames.
@@ -4294,7 +4294,7 @@ const CANONICAL_SUFFIXES = {
     // entity_id to match a changed translation, so any account set up before that rename keeps
     // the old entity_id forever. DPD's own preset already special-cased this (see
     // CARRIER_PRESETS.dpd.slug_first_suffixes), but the same staleness bit DHL too (confirmed
-    // via a live user report — jonisnet/hki-parcels-card#8 — entity_id
+    // via a live user report — jonisnet/ha-parcels-card#8 — entity_id
     // sensor.dhl_<user>_binnenkomende_pakketten, current translations/nl.json says "Inkomende
     // pakketten" for the exact same key), so it belongs here rather than as a
     // one-off per-carrier fix: any carrier could have pre-rename accounts still around.
@@ -4321,7 +4321,7 @@ const PLATFORM_DOMAIN = { dhl: 'dhl_nl' };
 // (always-English) translation_key — CANONICAL_SUFFIXES below patches specific
 // known words (English/Dutch) onto that guess, but that only ever covers
 // languages someone thought to add. A German-language GLS account broke the card
-// outright (jonisnet/hki-parcels-card#14 — reported via
+// outright (jonisnet/ha-parcels-card#14 — reported via
 // ha-parcel-integrations/.github#3) because "eingehende Pakete" wasn't on that
 // list; the next new language would have broken it again. translation_key never
 // changes with locale, so matching on it sidesteps the whole problem instead of
@@ -4358,7 +4358,7 @@ const ENTITY_FIELD_TRANSLATION_KEY = {
 // A carrier already configured in the card can go stale at any point its integration
 // recreates its entities under a new locale (has_entity_name derives the entity_id from
 // whatever language HA was displaying at creation time — the exact mechanism behind
-// jonisnet/hki-parcels-card#14/#15's detection fix; this is the runtime half of the same
+// jonisnet/ha-parcels-card#14/#15's detection fix; this is the runtime half of the same
 // problem: a *previously saved* reference has no detection step to go through at all, it just
 // silently stops resolving). Reuses registryEntitiesByDevice (built for the editor's
 // auto-detect flow) since the matching logic is identical either way. Deliberately returns
@@ -4479,7 +4479,7 @@ function buildTemplatedEntities(user, carrierType, slugFirst = false, hass = nul
 // since language and prefix ordering can each vary independently per sensor
 // (see CANONICAL_SUFFIXES / resolveEntityId above). Module-level (not tied to
 // the editor instance) so both the editor's account-detection UI and
-// HkiParcelsCard.getStubConfig() (auto-populating carriers on first add) can
+// HaParcelsCard.getStubConfig() (auto-populating carriers on first add) can
 // use it.
 //
 // After that text-based pass, also runs a translation_key-based pass via
@@ -4537,7 +4537,7 @@ function detectCarrierUsers(hass, carrierType) {
 }
 
 // The carrier types offered for auto-population when the card is first added
-// (HkiParcelsCard.getStubConfig). Excludes postnl (legacy v3.x — same
+// (HaParcelsCard.getStubConfig). Excludes postnl (legacy v3.x — same
 // sensor_slug as postnl_v4, so detection can't tell them apart; v4 is the
 // recommended default and the user can switch the type manually if they're
 // still on v3.x) and postnl_legacy / custom (sensor_slug is null — no
@@ -4578,7 +4578,7 @@ const CANONICAL_DELIVERED_STATUSES = new Set(['delivered', 'DELIVERED']);
 // Card
 // ============================================================
 
-class HkiParcelsCard extends HTMLElement {
+class HaParcelsCard extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: 'open' });
@@ -4640,7 +4640,7 @@ class HkiParcelsCard extends HTMLElement {
     }
 
     static getConfigElement() {
-        return document.createElement("hki-parcels-card-editor");
+        return document.createElement("ha-parcels-card-editor");
     }
 
     // HA calls this with the live `hass` object when the card is first added
@@ -4889,7 +4889,7 @@ class HkiParcelsCard extends HTMLElement {
             .replace(/"/g, '&quot;');
     }
 
-    _customNamesStorageKey() { return 'hki-parcels-card-custom-names'; }
+    _customNamesStorageKey() { return 'ha-parcels-card-custom-names'; }
 
     _customNameScope() {
         const scope = this.config.custom_name_scope;
@@ -6153,7 +6153,7 @@ class HkiParcelsCard extends HTMLElement {
 
         return `
             <details class="extra-details">
-                <summary class="hki-btn">${this._t('show_more_details')}</summary>
+                <summary class="ha-btn">${this._t('show_more_details')}</summary>
                 <div class="extra-details-content">${content}</div>
             </details>`;
     }
@@ -6171,10 +6171,10 @@ class HkiParcelsCard extends HTMLElement {
     // tied to `show_extra_info_button` at all, since a user may want either without the other.
     _renderDetailActions(item) {
         const trackLink = (item.url && this.config.show_tracking_link !== false)
-            ? `<a href="${item.url}" target="_blank" class="hki-btn btn-track">${this._t('open_tracking')}</a>`
+            ? `<a href="${item.url}" target="_blank" class="ha-btn btn-track">${this._t('open_tracking')}</a>`
             : '';
         const rawBtn = (item.raw && this.config.show_raw_data_button !== false)
-            ? `<button class="hki-btn hki-btn-secondary raw-data-btn" data-key="${item.key}">${this._t('show_raw_data')}</button>`
+            ? `<button class="ha-btn ha-btn-secondary raw-data-btn" data-key="${item.key}">${this._t('show_raw_data')}</button>`
             : '';
         if (!trackLink && !rawBtn) return '';
         return `<div class="details-actions-side">${trackLink}${rawBtn}</div>`;
@@ -6483,19 +6483,19 @@ class HkiParcelsCard extends HTMLElement {
             /* Shared box model for every button-like action in the details panel — "Toon meer",
                "Toon ruwe gegevens" and "Track & trace" all read as equally important, same size,
                same weight, per explicit feedback that they were reading as throwaway text links
-               next to a full button. Colour is the only thing that varies: .hki-btn alone =
+               next to a full button. Colour is the only thing that varies: .ha-btn alone =
                filled/primary ("Toon meer" and "Track & trace" — the two actions each column's
-               user actually reaches for first); .hki-btn-secondary = outlined ("Toon ruwe
+               user actually reaches for first); .ha-btn-secondary = outlined ("Toon ruwe
                gegevens" — a deliberately quieter secondary action, stacked under "Track & trace"
                in the side column, see .details-actions-side below). */
-            .hki-btn { display: inline-flex; align-items: center; gap: 6px; background: var(--carrier-color, var(--accent)); color: white; text-decoration: none; border: 1.5px solid transparent; padding: 8px 16px; border-radius: 6px; font-size: 0.9em; font-weight: 600; font-family: inherit; cursor: pointer; transition: all 0.2s; list-style: none; user-select: none; }
-            .hki-btn::-webkit-details-marker { display: none; }
-            .hki-btn:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.25); }
-            .hki-btn-secondary { background: transparent; color: var(--carrier-color, var(--accent)); border-color: var(--carrier-color, var(--accent)); }
+            .ha-btn { display: inline-flex; align-items: center; gap: 6px; background: var(--carrier-color, var(--accent)); color: white; text-decoration: none; border: 1.5px solid transparent; padding: 8px 16px; border-radius: 6px; font-size: 0.9em; font-weight: 600; font-family: inherit; cursor: pointer; transition: all 0.2s; list-style: none; user-select: none; }
+            .ha-btn::-webkit-details-marker { display: none; }
+            .ha-btn:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.25); }
+            .ha-btn-secondary { background: transparent; color: var(--carrier-color, var(--accent)); border-color: var(--carrier-color, var(--accent)); }
             /* The reveal-chevron belongs to the "Toon meer" disclosure structurally (any
                <summary> directly inside .extra-details), independent of which colour variant
                that summary happens to use — kept as its own selector rather than tied to
-               .hki-btn-secondary after the colours above were swapped. */
+               .ha-btn-secondary after the colours above were swapped. */
             .extra-details > summary::before { content: '▸'; display: inline-block; transition: transform 0.15s ease; }
             .extra-details[open] > summary::before { transform: rotate(90deg); }
             /* Side column next to the parcel's own info (see .details-panel-body/.details-info)
@@ -6613,7 +6613,7 @@ class HkiParcelsCard extends HTMLElement {
 // Editor
 // ============================================================
 
-class HkiParcelsCardEditor extends LitElement {
+class HaParcelsCardEditor extends LitElement {
     static get properties() {
         return { hass: { type: Object }, _config: { attribute: false } };
     }
@@ -6657,7 +6657,7 @@ class HkiParcelsCardEditor extends LitElement {
         if (!this._config.layout_order) this._config.layout_order = ['header', 'animation', 'tabs', 'list'];
     }
 
-    _val(ev) { return window.HKI.getSelectValue(ev); }
+    _val(ev) { return window.HAParcelsCard.getSelectValue(ev); }
 
     _emit() {
         this.dispatchEvent(new CustomEvent("config-changed", {
@@ -6794,7 +6794,7 @@ class HkiParcelsCardEditor extends LitElement {
 
     // Returns { user, slugFirst }[] for all detected accounts of a carrier type.
     // Thin wrapper — see the module-level detectCarrierUsers() above, shared
-    // with HkiParcelsCard.getStubConfig().
+    // with HaParcelsCard.getStubConfig().
     _detectUsers(carrierType) {
         return detectCarrierUsers(this.hass, carrierType);
     }
@@ -6969,11 +6969,11 @@ class HkiParcelsCardEditor extends LitElement {
         // --- Fall back to own media browser ---
         // Use showModal() so our dialog enters the browser top-layer above HA's own dialog.
         const backdropStyle = document.createElement('style');
-        backdropStyle.textContent = '#hki-media-picker::backdrop{background:rgba(0,0,0,0.65);}';
+        backdropStyle.textContent = '#ha-media-picker::backdrop{background:rgba(0,0,0,0.65);}';
         document.head.appendChild(backdropStyle);
 
         const dlg = document.createElement('dialog');
-        dlg.id = 'hki-media-picker';
+        dlg.id = 'ha-media-picker';
         dlg.style.cssText = 'padding:0;border:none;border-radius:12px;background:transparent;width:520px;max-width:93vw;max-height:82vh;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,0.6);';
 
         const close = () => {
@@ -7396,7 +7396,7 @@ class HkiParcelsCardEditor extends LitElement {
                     .label=${this._t('label_account')}
                     @value-changed=${(ev) => {
                         ev.stopPropagation();
-                        this._carrierUserSelected(index, window.HKI.getSelectValue(ev));
+                        this._carrierUserSelected(index, window.HAParcelsCard.getSelectValue(ev));
                     }}></ha-selector>
                 ${entityPreview}`;
         }
@@ -7442,8 +7442,8 @@ class HkiParcelsCardEditor extends LitElement {
                     <div class="detected-info detected-label">${this._t('detected_none')}</div>
                 </div>`}
             <div class="plain-field" style="margin-top:8px;">
-                <label for="hki-carrier-user-${index}">${this._t('label_account')}</label>
-                <input id="hki-carrier-user-${index}" type="text" placeholder="${['gls', 'trunkrs'].includes(carrier.type) ? 'e.g. 1234ab' : 'e.g. my_account'}"
+                <label for="ha-carrier-user-${index}">${this._t('label_account')}</label>
+                <input id="ha-carrier-user-${index}" type="text" placeholder="${['gls', 'trunkrs'].includes(carrier.type) ? 'e.g. 1234ab' : 'e.g. my_account'}"
                     .value=${carrier.user || ''}
                     @change=${(ev) => this._carrierUserInputChanged(index, ev)} />
             </div>
@@ -7515,8 +7515,8 @@ class HkiParcelsCardEditor extends LitElement {
 
                     ${carrier.type === 'custom' ? html`
                         <div class="plain-field">
-                            <label for="hki-carrier-name-${index}">${this._t('label_carrier_name')}</label>
-                            <input id="hki-carrier-name-${index}" type="text" .value=${carrier.name || ''}
+                            <label for="ha-carrier-name-${index}">${this._t('label_carrier_name')}</label>
+                            <input id="ha-carrier-name-${index}" type="text" .value=${carrier.name || ''}
                                 @input=${(ev) => this._carrierChanged(index, 'name', ev)} />
                         </div>
                     ` : carrier.type === 'postnl_legacy' ? html`
@@ -7579,13 +7579,13 @@ class HkiParcelsCardEditor extends LitElement {
                 <details class="section-details" open>
                     <summary class="section">${this._t('section_basic')}</summary>
                     <div class="plain-field">
-                        <label for="hki-title-input">${this._t('label_card_title')}</label>
-                        <input id="hki-title-input" type="text" .value=${this._config.title || ''}
+                        <label for="ha-title-input">${this._t('label_card_title')}</label>
+                        <input id="ha-title-input" type="text" .value=${this._config.title || ''}
                             data-field="title" @input=${this._changed} />
                     </div>
                     <div class="plain-field">
-                        <label for="hki-days-input">${this._t('label_days_back')}</label>
-                        <input id="hki-days-input" type="number" .value=${String(this._config.days_back || 90)}
+                        <label for="ha-days-input">${this._t('label_days_back')}</label>
+                        <input id="ha-days-input" type="number" .value=${String(this._config.days_back || 90)}
                             min="1" max="365" data-field="days_back" @input=${this._changed} />
                     </div>
                 </details>
@@ -7679,15 +7679,15 @@ class HkiParcelsCardEditor extends LitElement {
     }
 }
 
-if (!customElements.get('hki-parcels-card'))
-    customElements.define('hki-parcels-card', HkiParcelsCard);
-if (!customElements.get('hki-parcels-card-editor'))
-    customElements.define('hki-parcels-card-editor', HkiParcelsCardEditor);
+if (!customElements.get('ha-parcels-card'))
+    customElements.define('ha-parcels-card', HaParcelsCard);
+if (!customElements.get('ha-parcels-card-editor'))
+    customElements.define('ha-parcels-card-editor', HaParcelsCardEditor);
 
 window.customCards = window.customCards || [];
 window.customCards.push({
-    type: "hki-parcels-card",
-    name: "HKI Parcels Card",
+    type: "ha-parcels-card",
+    name: "HA Parcels Card",
     description: "Multi-carrier parcel tracker (PostNL, DHL, DPD, GLS, Dragonfly, Trunkrs, Cainiao) — fork of jimz011/hki-elements",
     preview: true
 });

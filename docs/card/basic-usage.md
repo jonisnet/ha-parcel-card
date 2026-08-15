@@ -5,7 +5,7 @@
 The quickest way to add the card is to specify a carrier type and account name. The card automatically generates all required sensor entity IDs.
 
 ```yaml
-type: custom:hki-parcels-card
+type: custom:ha-parcels-card
 title: My Parcels
 carriers:
   - type: postnl_v4
@@ -22,7 +22,7 @@ The `user` field is the account part of your sensor name. For example, if your s
 ## Multiple carriers
 
 ```yaml
-type: custom:hki-parcels-card
+type: custom:ha-parcels-card
 title: Parcels
 carriers:
   - type: postnl_v4
@@ -40,7 +40,7 @@ With two or more carriers configured, the card automatically builds a combo bann
 ## Vinted Go (incoming and outgoing)
 
 ```yaml
-type: custom:hki-parcels-card
+type: custom:ha-parcels-card
 title: Parcels
 carriers:
   - type: vinted_go
@@ -56,7 +56,7 @@ Like PostNL/DHL/DPD, Vinted Go is account-based (login is an e-mail address plus
 These carriers have no login — GLS and Trunkrs use a postal code, the rest use nothing but the tracking number itself:
 
 ```yaml
-type: custom:hki-parcels-card
+type: custom:ha-parcels-card
 title: Parcels
 carriers:
   - type: gls
@@ -88,7 +88,7 @@ Since there's no account to auto-sync from, each of these carriers shows a "+ Ad
 ## PostNL with letters
 
 ```yaml
-type: custom:hki-parcels-card
+type: custom:ha-parcels-card
 title: PostNL
 carriers:
   - type: postnl_v4
@@ -101,7 +101,7 @@ show_letters: true
 ## PostNL (ArjenBos) / legacy single-entity mode
 
 ```yaml
-type: custom:hki-parcels-card
+type: custom:ha-parcels-card
 title: PostNL
 carriers:
   - type: postnl_legacy
@@ -114,7 +114,7 @@ carriers:
 ## Customized appearance
 
 ```yaml
-type: custom:hki-parcels-card
+type: custom:ha-parcels-card
 title: My Parcels
 days_back: 30
 header_color: "#1a1a2e"

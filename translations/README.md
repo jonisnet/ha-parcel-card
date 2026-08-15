@@ -17,11 +17,11 @@ it falls back to English.
    ```
    as the first key. Remove it once you're confident it reads naturally.
 4. Run `python scripts/build_translations.py` from the repo root — this bundles
-   `translations/*.json` into the `TRANSLATIONS` block in `hki-parcels-card.js`
+   `translations/*.json` into the `TRANSLATIONS` block in `ha-parcels-card.js`
    (between the `GENERATED:TRANSLATIONS` markers) and fails if any file is missing
    or has extra keys compared to `en.json`.
-5. Commit both your `translations/<lang>.json` and the regenerated `hki-parcels-card.js`,
+5. Commit both your `translations/<lang>.json` and the regenerated `ha-parcels-card.js`,
    and open a PR. CI (`validate-translations.yml`) re-checks that the two stay in sync.
 
-Do not hand-edit the `TRANSLATIONS` block inside `hki-parcels-card.js` — it's generated
+Do not hand-edit the `TRANSLATIONS` block inside `ha-parcels-card.js` — it's generated
 and any manual edit will be overwritten the next time the script runs.

@@ -31,7 +31,7 @@
   existing letter-image popup.
 - **"Show more" and "Show raw data" now match "Track & trace" in size and visual weight** —
   previously they read as small text links next to a full button. All three share a new
-  `.hki-btn` style; "Show more" stays outlined (it reveals content in place rather than
+  `.ha-btn` style; "Show more" stays outlined (it reveals content in place rather than
   navigating away or opening something), the other two are filled.
 - **"Show raw data" and "Track & trace" now sit together in one row** below the parcel's own
   info, with "Track & trace" pushed to the far end on anything wider than a phone; on mobile
@@ -43,16 +43,16 @@
 
 - **Switching a carrier's type in the editor kept the previous type's account** — ported from
   v1.7.6 on `main`. See that entry below for the full explanation
-  ([#14](https://github.com/jonisnet/hki-parcels-card/issues/14)).
+  ([#14](https://github.com/jonisnet/ha-parcels-card/issues/14)).
 - **Expanding the last parcel in a list gave no visible feedback** — ported from v1.7.6 on
   `main`. See that entry below for the full explanation
-  ([#15](https://github.com/jonisnet/hki-parcels-card/issues/15)).
+  ([#15](https://github.com/jonisnet/ha-parcels-card/issues/15)).
 
 ### Added
 
 - **Weight and dimensions in the parcel detail panel** — both are part of the shared canonical
   parcel contract; shown as new rows (hidden when a carrier doesn't provide them, same as
-  `pickup_point` already is) ([#16](https://github.com/jonisnet/hki-parcels-card/issues/16)).
+  `pickup_point` already is) ([#16](https://github.com/jonisnet/ha-parcels-card/issues/16)).
 - **Curated per-carrier "extra details"** — a handful of genuinely useful carrier-specific
   fields the canonical contract doesn't cover, pulled from each carrier's raw payload: DHL's
   order number and delivery/service-point/locker pickup-code availability and climate-neutral
@@ -190,14 +190,14 @@
 - **11 new languages**: Czech, Slovak, Hungarian, Romanian, Bulgarian, Ukrainian, Hindi,
   Swedish, Danish, Finnish, and Norwegian (Bokmål) — chosen to match the language coverage
   the underlying `ha-parcel-integrations` carrier integrations themselves recently added
-  (reported in [#13](https://github.com/jonisnet/hki-parcels-card/issues/13) by peternijssen,
+  (reported in [#13](https://github.com/jonisnet/ha-parcels-card/issues/13) by peternijssen,
   who maintains several of them). The card now supports 19 languages in total.
 
 ### Fixed
 
 - **Repository description was stale** — still read "dutch parcels card for home assistant"
   despite the card supporting 22 international carriers for a while now
-  ([#12](https://github.com/jonisnet/hki-parcels-card/issues/12)).
+  ([#12](https://github.com/jonisnet/ha-parcels-card/issues/12)).
 
 ## [1.7.0] — 2026-08-11
 
@@ -213,11 +213,11 @@
   Needs Home Assistant core ≥ ~2025.12 (when the system-data API was added); older cores just
   show no shared names rather than erroring. `shared` is still accepted as a legacy alias for
   `me`. This follow-up to v1.6.1's `me`-only "For everyone" came directly out of the discussion
-  on [#9](https://github.com/jonisnet/hki-parcels-card/issues/9) — a single option that was
+  on [#9](https://github.com/jonisnet/ha-parcels-card/issues/9) — a single option that was
   actually just "synced to my own account" was genuinely misleading once someone had two
   different HA logins in the same household.
 - **`sort_order` option** (`auto` / `newest_first` / `oldest_first`) — fixes
-  [#11](https://github.com/jonisnet/hki-parcels-card/issues/11): In Transit and the upcoming
+  [#11](https://github.com/jonisnet/ha-parcels-card/issues/11): In Transit and the upcoming
   half of Sent used to sort the same "most recent first" way as Delivered, putting the parcel
   arriving furthest in the future above the one arriving today. `auto` (the default) now sorts
   soonest-first for anything not yet delivered and most-recent-first for Delivered; the other
@@ -234,7 +234,7 @@
 ### Fixed
 
 - **12-hour clock shown regardless of the Home Assistant profile's 24-hour preference** — fixes
-  [#10](https://github.com/jonisnet/hki-parcels-card/issues/10). The card only ever passed
+  [#10](https://github.com/jonisnet/ha-parcels-card/issues/10). The card only ever passed
   `hass.language` to `toLocaleTimeString`, ignoring `hass.locale.time_format` entirely, so
   English-language profiles always got a 12-hour clock. `time_format` has four possible values
   (`12`/`24`/`language`/`system`), and only `12`/`24` have a fixed answer — `language` means "by
@@ -263,7 +263,7 @@
 
 - **Custom parcel names** — a small "+ Add name" control in each parcel's detail panel lets you
   give it a short label of your own (e.g. "Birthday gift") instead of just a tracking code
-  (requested in [#9](https://github.com/jonisnet/hki-parcels-card/issues/9)). New `custom_name_scope`
+  (requested in [#9](https://github.com/jonisnet/ha-parcels-card/issues/9)). New `custom_name_scope`
   option controls where names are saved: `device` (default) uses the browser's local storage —
   simple, but per-device only; `shared` uses Home Assistant's own per-user storage (the same
   `frontend/get_user_data`/`frontend/set_user_data` websocket calls HA's own frontend uses for
@@ -296,7 +296,7 @@
   pass (which renamed "Binnenkomende pakketten" to "Inkomende pakketten") kept the old
   entity_id (`sensor.dhl_<user>_binnenkomende_pakketten`) forever — but the card's detection
   only recognized the current wording, so it silently showed "no sensors found" even though the
-  sensor was real (reported in [#8](https://github.com/jonisnet/hki-parcels-card/issues/8)).
+  sensor was real (reported in [#8](https://github.com/jonisnet/ha-parcels-card/issues/8)).
   Added `binnenkomende_pakketten` to `CANONICAL_SUFFIXES` so this is recognized for every
   carrier, not just DHL — an audit of every carrier's full translation history found this exact
   rename happened only for DHL and DPD (DPD was already covered by its own preset override), on
@@ -352,7 +352,7 @@
   source text and marked as such internally until a native speaker has reviewed them — see
   `translations/README.md` if you'd like to help confirm one or add another.
 - **Community-contributable translation format** — translations moved out of a single inline
-  object in `hki-parcels-card.js` into one `translations/<lang>.json` file per language, plus
+  object in `ha-parcels-card.js` into one `translations/<lang>.json` file per language, plus
   a small script (`scripts/build_translations.py`) that validates every file has exactly the
   same keys as `en.json` and bundles them back into the card (still a single self-contained
   file at runtime — no added network dependency). A new CI check
@@ -523,7 +523,7 @@ release.
 
 ### Deprecation notice
 
-- **PostNL (<v4.x)** (`type: postnl`) will no longer be supported starting from HKI Parcels Card
+- **PostNL (<v4.x)** (`type: postnl`) will no longer be supported starting from HA Parcels Card
   v2.0 — migrate to `postnl_v4` ("PostNL") before then.
 - **PostNL (ArjenBos)** (`type: postnl_legacy`) will also be removed starting from v2.0, unless
   [arjenbos/ha-postnl](https://github.com/arjenbos/ha-postnl) receives an update of its own before

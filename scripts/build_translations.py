@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
 Assembles translations/*.json into the TRANSLATIONS object bundled inside
-hki-parcels-card.js, between the GENERATED:TRANSLATIONS markers.
+ha-parcels-card.js, between the GENERATED:TRANSLATIONS markers.
 
 Usage:
-  python scripts/build_translations.py          # regenerate hki-parcels-card.js
+  python scripts/build_translations.py          # regenerate ha-parcels-card.js
   python scripts/build_translations.py --check  # exit 1 if the file is out of date (CI)
 
 Adding a language: drop translations/<lang>.json next to en.json with the same
@@ -16,7 +16,7 @@ import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TRANSLATIONS_DIR = os.path.join(ROOT, "translations")
-CARD_JS = os.path.join(ROOT, "hki-parcels-card.js")
+CARD_JS = os.path.join(ROOT, "ha-parcels-card.js")
 START_MARKER = "// GENERATED:TRANSLATIONS:START — run `python scripts/build_translations.py` after editing translations/*.json"
 END_MARKER = "// GENERATED:TRANSLATIONS:END"
 REFERENCE_LANG = "en"
@@ -92,7 +92,7 @@ def main():
     start = content.find(START_MARKER)
     end = content.find(END_MARKER)
     if start == -1 or end == -1:
-        sys.exit("Could not find GENERATED:TRANSLATIONS markers in hki-parcels-card.js")
+        sys.exit("Could not find GENERATED:TRANSLATIONS markers in ha-parcels-card.js")
     end_of_end_line = content.find("\n", end)
 
     new_content = (
@@ -107,7 +107,7 @@ def main():
 
     if check_only:
         if new_content != content:
-            print("hki-parcels-card.js is OUT OF DATE relative to translations/*.json.")
+            print("ha-parcels-card.js is OUT OF DATE relative to translations/*.json.")
             print("Run: python scripts/build_translations.py")
             sys.exit(1)
         print(f"OK — {len(langs)} languages, in sync.")
