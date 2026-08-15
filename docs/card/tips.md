@@ -81,7 +81,7 @@ Consider using two separate cards: one focused on active deliveries and one show
 
 ```yaml
 # Active deliveries card
-type: custom:ha-parcels-card
+type: custom:ha-parcel-card
 title: Onderweg
 show_delivered: false
 show_sent: false
@@ -91,7 +91,7 @@ carriers:
     user: my_account
 
 # History card
-type: custom:ha-parcels-card
+type: custom:ha-parcel-card
 title: Ontvangen
 show_delivered: true
 show_sent: true

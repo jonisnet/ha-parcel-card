@@ -133,7 +133,7 @@ The correct scheme is detected automatically. Leave `user` empty if your sensors
 ## Full configuration example
 
 ```yaml
-type: custom:ha-parcels-card
+type: custom:ha-parcel-card
 title: Parcels
 days_back: 90
 show_delivered: true

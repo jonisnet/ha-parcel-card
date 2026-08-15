@@ -1,4 +1,4 @@
-# HA Parcels Card
+# HA Parcel Card
 
 A multi-carrier parcel tracking card for Home Assistant. Track parcels from PostNL, DHL, DPD, Vinted Go, GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee, Nova Post, Delhivery and SunYou in a single unified view, with support for letterbox mail images.
 

@@ -1,6 +1,6 @@
 {
-  "name": "HA Parcels Card",
-  "filename": "ha-parcels-card.js",
+  "name": "HA Parcel Card",
+  "filename": "ha-parcel-card.js",
   "render_readme": true,
   "homeassistant": "2026.7.0"
 }

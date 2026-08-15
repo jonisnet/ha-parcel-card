@@ -3,20 +3,20 @@
 ## Via HACS (recommended)
 
 1. In Home Assistant go to **HACS → Dashboard → ⋮ → Custom repositories**
-2. Add `https://github.com/jonisnet/ha-parcels-card` as category **Dashboard**
-3. Search for **HA Parcels Card** and install
+2. Add `https://github.com/jonisnet/ha-parcel-card` as category **Dashboard**
+3. Search for **HA Parcel Card** and install
 4. Restart Home Assistant or do a hard refresh (Ctrl+Shift+R)
 
 ---
 
 ## Manual
 
-1. Download `ha-parcels-card.js` from the [latest release](https://github.com/jonisnet/ha-parcels-card/releases/latest)
-2. Place the file at `/config/www/ha-parcels-card.js`
+1. Download `ha-parcel-card.js` from the [latest release](https://github.com/jonisnet/ha-parcel-card/releases/latest)
+2. Place the file at `/config/www/ha-parcel-card.js`
 3. Go to **Settings → Dashboards → Resources** and add:
 
 ```
-/local/ha-parcels-card.js
+/local/ha-parcel-card.js
 ```
 
 Select type: **JavaScript module**
@@ -40,7 +40,7 @@ Install the integration for each carrier you use **before** adding the card. All
 
 !!! warning "PostNL (<v4.x) and PostNL (ArjenBos) are no longer supported"
     As announced ahead of this release, the older `postnl` (ha-postnl ≤ 3.x) and `postnl_legacy`
-    (arjenbos/ha-postnl) card types have been removed from HA Parcels Card v2.0 — upgrade to
+    (arjenbos/ha-postnl) card types have been removed from HA Parcel Card v2.0 — upgrade to
     [ha-postnl](https://github.com/ha-parcel-integrations/ha-postnl) ≥ 4.0.0 and use the single
     `postnl` card type above. The stable [hki-parcels-card](https://github.com/jonisnet/hki-parcels-card)
     v1.x line still supports both if you're not ready to upgrade yet.

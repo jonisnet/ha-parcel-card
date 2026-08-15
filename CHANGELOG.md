@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.0.0b11] — 2026-08-15
+
+### Changed
+
+- **Renamed again, from "HA Parcels Card" to "HA Parcel Card"** (singular) — matching
+  [ha-parcel-integrations](https://github.com/ha-parcel-integrations)'s own naming (singular
+  "parcel", not "parcels"). Repository moved from `jonisnet/ha-parcels-card` to
+  `jonisnet/ha-parcel-card` (GitHub redirects the old URL). The card file, custom element and
+  card type changed accordingly: `custom:ha-parcels-card` → `custom:ha-parcel-card`.
+- Custom parcel names migrate automatically from both prior storage keys
+  (`ha-parcels-card-custom-names`, then `hki-parcels-card-custom-names`), most recent first.
+
 ## [2.0.0b10] — 2026-08-15
 
 ### Changed

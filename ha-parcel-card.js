@@ -1,5 +1,5 @@
 // ============================================================
-// HA Parcels Card (standalone fork)
+// HA Parcel Card (standalone fork)
 // ============================================================
 //
 // A generic, multi-carrier parcel-tracking card for Home Assistant
@@ -16,9 +16,9 @@
 //
 // License: see LICENSE file in this repository.
 
-window.HAParcelsCard = window.HAParcelsCard || {};
+window.HAParcelCard = window.HAParcelCard || {};
 
-window.HAParcelsCard.getLit = window.HAParcelsCard.getLit || (() => {
+window.HAParcelCard.getLit = window.HAParcelCard.getLit || (() => {
   let cache = null;
   return () => {
     if (cache) return cache;
@@ -34,7 +34,7 @@ window.HAParcelsCard.getLit = window.HAParcelsCard.getLit || (() => {
   };
 })();
 
-window.HAParcelsCard.getSelectValue = window.HAParcelsCard.getSelectValue || ((ev, options = null) => {
+window.HAParcelCard.getSelectValue = window.HAParcelCard.getSelectValue || ((ev, options = null) => {
   const detailValue = ev?.detail?.value;
   if (detailValue !== undefined && detailValue !== null) return detailValue;
   const targetValue = ev?.target?.value;
@@ -63,17 +63,17 @@ window.HAParcelsCard.getSelectValue = window.HAParcelsCard.getSelectValue || ((e
 
 
 // ============================================================
-// ha-parcels-card
+// ha-parcel-card
 // ============================================================
 
 (() => {
-const { LitElement, html, css } = window.HAParcelsCard.getLit();
-const CARD_VERSION = 'v2.0.0b10';
-console.info(`%c HA-PARCELS-CARD %c ${CARD_VERSION} `, 'color: white; background: #ed8c00; font-weight: bold;', 'color: #ed8c00; background: white; font-weight: bold;');
+const { LitElement, html, css } = window.HAParcelCard.getLit();
+const CARD_VERSION = 'v2.0.0b11';
+console.info(`%c HA-PARCEL-CARD %c ${CARD_VERSION} `, 'color: white; background: #ed8c00; font-weight: bold;', 'color: #ed8c00; background: white; font-weight: bold;');
 
 const DEFAULT_CARRIER_ICON = 'mdi:package-variant-closed';
 const DEFAULT_CARRIER_COLOR = '#ed8c00';
-const DEFAULT_PLACEHOLDER_IMAGE = 'https://github.com/jonisnet/ha-parcels-card/blob/main/images/shared/dutch-parcels-2.png?raw=true';
+const DEFAULT_PLACEHOLDER_IMAGE = 'https://github.com/jonisnet/ha-parcel-card/blob/main/images/shared/dutch-parcels-2.png?raw=true';
 
 function hasPhuIcons() {
     return !!(window.customIconsets && window.customIconsets['phu']);
@@ -3546,7 +3546,7 @@ function getT(lang) {
 // Carrier configuration
 // ============================================================
 
-const REPO_BASE = 'https://github.com/jonisnet/ha-parcels-card/blob/main/images';
+const REPO_BASE = 'https://github.com/jonisnet/ha-parcel-card/blob/main/images';
 
 // Per-carrier asset folders (images/<carrier>/...). Keeps the images directory navigable as
 // more carriers are added, instead of one flat folder of prefixed filenames.
@@ -4206,7 +4206,7 @@ const CANONICAL_SUFFIXES = {
     // entity_id to match a changed translation, so any account set up before that rename keeps
     // the old entity_id forever. DPD's own preset already special-cased this (see
     // CARRIER_PRESETS.dpd.slug_first_suffixes), but the same staleness bit DHL too (confirmed
-    // via a live user report — jonisnet/ha-parcels-card#8 — entity_id
+    // via a live user report — jonisnet/ha-parcel-card#8 — entity_id
     // sensor.dhl_<user>_binnenkomende_pakketten, current translations/nl.json says "Inkomende
     // pakketten" for the exact same key), so it belongs here rather than as a
     // one-off per-carrier fix: any carrier could have pre-rename accounts still around.
@@ -4233,7 +4233,7 @@ const PLATFORM_DOMAIN = { dhl: 'dhl_nl' };
 // (always-English) translation_key — CANONICAL_SUFFIXES below patches specific
 // known words (English/Dutch) onto that guess, but that only ever covers
 // languages someone thought to add. A German-language GLS account broke the card
-// outright (jonisnet/ha-parcels-card#14 — reported via
+// outright (jonisnet/ha-parcel-card#14 — reported via
 // ha-parcel-integrations/.github#3) because "eingehende Pakete" wasn't on that
 // list; the next new language would have broken it again. translation_key never
 // changes with locale, so matching on it sidesteps the whole problem instead of
@@ -4268,7 +4268,7 @@ const ENTITY_FIELD_TRANSLATION_KEY = {
 // A carrier already configured in the card can go stale at any point its integration
 // recreates its entities under a new locale (has_entity_name derives the entity_id from
 // whatever language HA was displaying at creation time — the exact mechanism behind
-// jonisnet/ha-parcels-card#14/#15's detection fix; this is the runtime half of the same
+// jonisnet/ha-parcel-card#14/#15's detection fix; this is the runtime half of the same
 // problem: a *previously saved* reference has no detection step to go through at all, it just
 // silently stops resolving). Reuses registryEntitiesByDevice (built for the editor's
 // auto-detect flow) since the matching logic is identical either way. Deliberately returns
@@ -4389,7 +4389,7 @@ function buildTemplatedEntities(user, carrierType, slugFirst = false, hass = nul
 // since language and prefix ordering can each vary independently per sensor
 // (see CANONICAL_SUFFIXES / resolveEntityId above). Module-level (not tied to
 // the editor instance) so both the editor's account-detection UI and
-// HaParcelsCard.getStubConfig() (auto-populating carriers on first add) can
+// HaParcelCard.getStubConfig() (auto-populating carriers on first add) can
 // use it.
 //
 // After that text-based pass, also runs a translation_key-based pass via
@@ -4447,7 +4447,7 @@ function detectCarrierUsers(hass, carrierType) {
 }
 
 // The carrier types offered for auto-population when the card is first added
-// (HaParcelsCard.getStubConfig). Excludes custom (sensor_slug is null — no
+// (HaParcelCard.getStubConfig). Excludes custom (sensor_slug is null — no
 // entity-based detection is possible for it).
 const AUTO_DETECT_CARRIER_TYPES = ['postnl', 'dhl', 'dpd', 'vinted_go', 'gls', 'dragonfly', 'trunkrs', 'cainiao', 'hermes', 'packeta', 'correos', 'postnord', 'sameday', 'swiss_post', 'planzer', 'austrian_post', 'helthjem', 'dynalogic', 'budbee', 'nova_post', 'delhivery', 'sunyou', 'an_post', 'quickpac'];
 
@@ -4486,7 +4486,7 @@ const CANONICAL_DELIVERED_STATUSES = new Set(['delivered']);
 // Card
 // ============================================================
 
-class HaParcelsCard extends HTMLElement {
+class HaParcelCard extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: 'open' });
@@ -4548,7 +4548,7 @@ class HaParcelsCard extends HTMLElement {
     }
 
     static getConfigElement() {
-        return document.createElement("ha-parcels-card-editor");
+        return document.createElement("ha-parcel-card-editor");
     }
 
     // HA calls this with the live `hass` object when the card is first added
@@ -4802,12 +4802,13 @@ class HaParcelsCard extends HTMLElement {
             .replace(/"/g, '&quot;');
     }
 
-    _customNamesStorageKey() { return 'ha-parcels-card-custom-names'; }
+    _customNamesStorageKey() { return 'ha-parcel-card-custom-names'; }
 
-    // Pre-rename (hki-parcels-card) key. Custom names saved under the old name are migrated
-    // in-place the first time each scope is loaded post-rename — read once, written back under
-    // the new key, never touched again after that.
-    _legacyCustomNamesStorageKey() { return 'hki-parcels-card-custom-names'; }
+    // Prior storage keys, most recent first: 'ha-parcels-card' was this project's own name for
+    // one release before this rename (genuinely in active use, not just a hypothetical), and
+    // 'hki-parcels-card' is the original pre-fork name. Checked in order, first match wins -
+    // migrated in-place the first time each scope is loaded post-rename, never touched again.
+    _legacyCustomNamesStorageKeys() { return ['ha-parcels-card-custom-names', 'hki-parcels-card-custom-names']; }
 
     _customNameScope() {
         const scope = this.config.custom_name_scope;
@@ -4831,21 +4832,24 @@ class HaParcelsCard extends HTMLElement {
                 this.__meCustomNames = res.value;
                 return;
             }
-            // Nothing under the new key yet — one-time check for pre-rename data.
-            try {
-                const legacy = await this._hass.connection.sendMessagePromise({
-                    type: 'frontend/get_user_data', key: this._legacyCustomNamesStorageKey()
-                });
-                if (legacy?.value && Object.keys(legacy.value).length) {
-                    this.__meCustomNames = legacy.value;
-                    this._hass.connection.sendMessagePromise({
-                        type: 'frontend/set_user_data', key: this._customNamesStorageKey(), value: legacy.value
-                    }).catch(() => {});
-                } else {
-                    this.__meCustomNames = {};
+            // Nothing under the new key yet — one-time check for pre-rename data, most recent
+            // prior key first.
+            this.__meCustomNames = {};
+            for (const legacyKey of this._legacyCustomNamesStorageKeys()) {
+                try {
+                    const legacy = await this._hass.connection.sendMessagePromise({
+                        type: 'frontend/get_user_data', key: legacyKey
+                    });
+                    if (legacy?.value && Object.keys(legacy.value).length) {
+                        this.__meCustomNames = legacy.value;
+                        this._hass.connection.sendMessagePromise({
+                            type: 'frontend/set_user_data', key: this._customNamesStorageKey(), value: legacy.value
+                        }).catch(() => {});
+                        break;
+                    }
+                } catch (e) {
+                    // try the next legacy key
                 }
-            } catch (e) {
-                this.__meCustomNames = {};
             }
         }).catch(() => {
             this.__meCustomNames = this.__meCustomNames || {};
@@ -4883,22 +4887,28 @@ class HaParcelsCard extends HTMLElement {
         });
     }
 
-    // One-time migration from the pre-rename (hki-parcels-card) storage key. Writing
-    // 'everyone'-scope data requires admin (mirrors the same gate in _setCustomName below),
-    // so non-admin sessions just skip this and see nothing until an admin loads the card once.
-    _migrateLegacyEveryoneCustomNamesIfEmpty() {
+    // One-time migration from a prior storage key. Writing 'everyone'-scope data requires
+    // admin (mirrors the same gate in _setCustomName below), so non-admin sessions just skip
+    // this and see nothing until an admin loads the card once.
+    async _migrateLegacyEveryoneCustomNamesIfEmpty() {
         if (!this._isAdmin() || !this._hass?.connection) return;
         if (this.__everyoneCustomNames && Object.keys(this.__everyoneCustomNames).length) return;
-        this._hass.connection.sendMessagePromise({
-            type: 'frontend/get_system_data', key: this._legacyCustomNamesStorageKey()
-        }).then(res => {
-            const legacy = res?.value;
-            if (legacy && Object.keys(legacy).length) {
-                this._hass.connection.sendMessagePromise({
-                    type: 'frontend/set_system_data', key: this._customNamesStorageKey(), value: legacy
-                }).catch(() => {});
+        for (const legacyKey of this._legacyCustomNamesStorageKeys()) {
+            try {
+                const res = await this._hass.connection.sendMessagePromise({
+                    type: 'frontend/get_system_data', key: legacyKey
+                });
+                const legacy = res?.value;
+                if (legacy && Object.keys(legacy).length) {
+                    await this._hass.connection.sendMessagePromise({
+                        type: 'frontend/set_system_data', key: this._customNamesStorageKey(), value: legacy
+                    });
+                    return;
+                }
+            } catch (e) {
+                // try the next legacy key
             }
-        }).catch(() => {});
+        }
     }
 
     disconnectedCallback() {
@@ -4927,10 +4937,17 @@ class HaParcelsCard extends HTMLElement {
             if (raw !== null) {
                 this.__customNames = JSON.parse(raw) || {};
             } else {
-                // Nothing under the new key yet — one-time check for pre-rename data.
-                const legacyRaw = localStorage.getItem(this._legacyCustomNamesStorageKey());
-                this.__customNames = legacyRaw ? (JSON.parse(legacyRaw) || {}) : {};
-                if (legacyRaw) localStorage.setItem(this._customNamesStorageKey(), legacyRaw);
+                // Nothing under the new key yet — one-time check for pre-rename data, most
+                // recent prior key first.
+                this.__customNames = {};
+                for (const legacyKey of this._legacyCustomNamesStorageKeys()) {
+                    const legacyRaw = localStorage.getItem(legacyKey);
+                    if (legacyRaw) {
+                        this.__customNames = JSON.parse(legacyRaw) || {};
+                        localStorage.setItem(this._customNamesStorageKey(), legacyRaw);
+                        break;
+                    }
+                }
             }
         } catch (e) {
             this.__customNames = {};
@@ -6560,7 +6577,7 @@ class HaParcelsCard extends HTMLElement {
 // Editor
 // ============================================================
 
-class HaParcelsCardEditor extends LitElement {
+class HaParcelCardEditor extends LitElement {
     static get properties() {
         return { hass: { type: Object }, _config: { attribute: false } };
     }
@@ -6604,7 +6621,7 @@ class HaParcelsCardEditor extends LitElement {
         if (!this._config.layout_order) this._config.layout_order = ['header', 'animation', 'tabs', 'list'];
     }
 
-    _val(ev) { return window.HAParcelsCard.getSelectValue(ev); }
+    _val(ev) { return window.HAParcelCard.getSelectValue(ev); }
 
     _emit() {
         this.dispatchEvent(new CustomEvent("config-changed", {
@@ -6738,7 +6755,7 @@ class HaParcelsCardEditor extends LitElement {
 
     // Returns { user, slugFirst }[] for all detected accounts of a carrier type.
     // Thin wrapper — see the module-level detectCarrierUsers() above, shared
-    // with HaParcelsCard.getStubConfig().
+    // with HaParcelCard.getStubConfig().
     _detectUsers(carrierType) {
         return detectCarrierUsers(this.hass, carrierType);
     }
@@ -7340,7 +7357,7 @@ class HaParcelsCardEditor extends LitElement {
                     .label=${this._t('label_account')}
                     @value-changed=${(ev) => {
                         ev.stopPropagation();
-                        this._carrierUserSelected(index, window.HAParcelsCard.getSelectValue(ev));
+                        this._carrierUserSelected(index, window.HAParcelCard.getSelectValue(ev));
                     }}></ha-selector>
                 ${entityPreview}`;
         }
@@ -7613,15 +7630,15 @@ class HaParcelsCardEditor extends LitElement {
     }
 }
 
-if (!customElements.get('ha-parcels-card'))
-    customElements.define('ha-parcels-card', HaParcelsCard);
-if (!customElements.get('ha-parcels-card-editor'))
-    customElements.define('ha-parcels-card-editor', HaParcelsCardEditor);
+if (!customElements.get('ha-parcel-card'))
+    customElements.define('ha-parcel-card', HaParcelCard);
+if (!customElements.get('ha-parcel-card-editor'))
+    customElements.define('ha-parcel-card-editor', HaParcelCardEditor);
 
 window.customCards = window.customCards || [];
 window.customCards.push({
-    type: "ha-parcels-card",
-    name: "HA Parcels Card",
+    type: "ha-parcel-card",
+    name: "HA Parcel Card",
     description: "Multi-carrier parcel tracker (PostNL, DHL, DPD, GLS, Dragonfly, Trunkrs, Cainiao) — fork of jimz011/hki-elements",
     preview: true
 });

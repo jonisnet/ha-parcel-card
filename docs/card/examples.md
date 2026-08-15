@@ -3,7 +3,7 @@
 ## PostNL only — minimal
 
 ```yaml
-type: custom:ha-parcels-card
+type: custom:ha-parcel-card
 title: PostNL
 carriers:
   - type: postnl
@@ -15,7 +15,7 @@ carriers:
 ## PostNL with letters tab
 
 ```yaml
-type: custom:ha-parcels-card
+type: custom:ha-parcel-card
 title: PostNL
 show_letters: true
 carriers:
@@ -28,7 +28,7 @@ carriers:
 ## Every carrier at once
 
 ```yaml
-type: custom:ha-parcels-card
+type: custom:ha-parcel-card
 title: Alle pakketten
 carriers:
   - type: postnl
@@ -68,7 +68,7 @@ With this many carriers, the combo banner (and the carrier overview popup when y
 ## Account-less carriers with add-parcel enabled
 
 ```yaml
-type: custom:ha-parcels-card
+type: custom:ha-parcel-card
 title: Losse pakketten
 show_add_parcel: true
 carriers:
@@ -99,7 +99,7 @@ carriers:
 ## Active deliveries only (no history)
 
 ```yaml
-type: custom:ha-parcels-card
+type: custom:ha-parcel-card
 title: Onderweg
 show_delivered: false
 show_sent: false
@@ -116,7 +116,7 @@ carriers:
 ## History card (no animation, compact)
 
 ```yaml
-type: custom:ha-parcels-card
+type: custom:ha-parcel-card
 title: Ontvangen
 days_back: 14
 show_animation: false
@@ -132,7 +132,7 @@ carriers:
 ## Custom appearance
 
 ```yaml
-type: custom:ha-parcels-card
+type: custom:ha-parcel-card
 title: Pakketjes
 header_color: "#1a1a2e"
 header_text_color: "#ffffff"
@@ -152,7 +152,7 @@ carriers:
 For setups where sensors are named `sensor.postnl_incoming_parcels` (no `<user>_` prefix):
 
 ```yaml
-type: custom:ha-parcels-card
+type: custom:ha-parcel-card
 title: PostNL
 carriers:
   - type: postnl
@@ -166,7 +166,7 @@ carriers:
 When sensor entity IDs differ from the automatic pattern:
 
 ```yaml
-type: custom:ha-parcels-card
+type: custom:ha-parcel-card
 title: PostNL
 carriers:
   - type: postnl

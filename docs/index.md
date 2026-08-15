@@ -1,4 +1,4 @@
-# HA Parcels Card
+# HA Parcel Card
 
 **Track parcels from PostNL, DHL, DPD, Vinted Go, GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee, Nova Post, Delhivery and SunYou in a single Home Assistant card.**
 
@@ -53,7 +53,7 @@ Automatic sensor detection, animated banners, a 4-step delivery tracker, letterb
 === "PostNL"
 
     ```yaml
-    type: custom:ha-parcels-card
+    type: custom:ha-parcel-card
     title: Parcels
     carriers:
       - type: postnl
@@ -65,7 +65,7 @@ Automatic sensor detection, animated banners, a 4-step delivery tracker, letterb
 === "DHL / DPD / Vinted Go / GLS"
 
     ```yaml
-    type: custom:ha-parcels-card
+    type: custom:ha-parcel-card
     title: Parcels
     carriers:
       - type: dhl
@@ -87,7 +87,7 @@ Automatic sensor detection, animated banners, a 4-step delivery tracker, letterb
 === "Dragonfly / Trunkrs / Cainiao / Hermes / Packeta / Correos"
 
     ```yaml
-    type: custom:ha-parcels-card
+    type: custom:ha-parcel-card
     title: Parcels
     carriers:
       - type: dragonfly
@@ -104,7 +104,7 @@ Automatic sensor detection, animated banners, a 4-step delivery tracker, letterb
 === "Every carrier"
 
     ```yaml
-    type: custom:ha-parcels-card
+    type: custom:ha-parcel-card
     title: Parcels
     carriers:
       - type: postnl
