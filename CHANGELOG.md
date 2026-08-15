@@ -1,5 +1,15 @@
 # Changelog
 
+## Unreleased
+
+### Added
+
+- **Documented the canonical integration contract** (`contract.md`, linked from the README and
+  the docs site's new "For Integration Authors" page) — the sensor/attribute shape any
+  parcel-tracking integration can publish to work with this card via `type: custom`, with zero
+  code changes here. This was previously only implied by a code comment pointing at a
+  `contract.md` that didn't actually exist yet.
+
 ## [2.0.0b11] — 2026-08-15
 
 ### Changed

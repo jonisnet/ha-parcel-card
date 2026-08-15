@@ -72,6 +72,10 @@ More screenshots and examples: [jonisnet.github.io/ha-parcel-card/card/screensho
 
 Install the integration for each carrier you use **before** adding the card. All of them are part of the [ha-parcel-integrations](https://github.com/ha-parcel-integrations) family, publishing the same canonical parcel format — which is what lets one card support all of them.
 
+Maintain a different parcel-tracking integration and want your users to use this card? It's not
+limited to the carriers below — any integration publishing the same canonical format works today
+via `type: custom`, no code changes needed here. See **[the integration contract](contract.md)**.
+
 | Carrier | Integration | Account type |
 | ------- | ----------- | ------------ |
 | **PostNL** | [ha-parcel-integrations/ha-postnl](https://github.com/ha-parcel-integrations/ha-postnl) ≥ 4.0.0 | Account login |
