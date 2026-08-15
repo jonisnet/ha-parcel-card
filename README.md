@@ -4,11 +4,11 @@
 > [`hki-parcels-card`](https://github.com/jonisnet/hki-parcels-card) (the stable v1.7.x card) —
 > renamed because "HKI" is [jimz011](https://github.com/jimz011)'s own trade name, and v2 is
 > moving toward the broader [ha-parcel-integrations](https://github.com/ha-parcel-integrations)
-> family instead. It is **not yet distributed through HACS** — install it manually if you want to
-> try it early:
+> family instead. Not (yet) submitted to HACS' default store, but installable as a **HACS custom
+> repository** now that pre-releases exist — see [Installation](https://jonisnet.github.io/ha-parcel-card/installation/),
+> or install manually:
 >
-> 1. Download `ha-parcel-card.js` from this repo:
->    [raw.githubusercontent.com/jonisnet/ha-parcel-card/main/ha-parcel-card.js](https://raw.githubusercontent.com/jonisnet/ha-parcel-card/main/ha-parcel-card.js)
+> 1. Download `ha-parcel-card.js` from the [latest release](https://github.com/jonisnet/ha-parcel-card/releases/latest)
 > 2. Place it at `/config/www/ha-parcel-card.js`
 > 3. Go to **Settings → Dashboards → Resources** and add it as a **JavaScript module** resource
 > 4. Use `type: custom:ha-parcel-card` in your dashboard — this is a different card type than
