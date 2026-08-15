@@ -530,17 +530,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#postnl-arjenbos-options" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        PostNL (ArjenBos) options
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -799,17 +788,6 @@
     <span class="md-ellipsis">
       
         Sensor overrides
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#postnl-arjenbos-options" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        PostNL (ArjenBos) options
       
     </span>
   </a>
@@ -1126,29 +1104,6 @@
 </tr>
 </tbody>
 </table>
-<h3 id="postnl-arjenbos-options">PostNL (ArjenBos) options<a class="headerlink" href="#postnl-arjenbos-options" title="Permanent link">&para;</a></h3>
-<p>When <code>type: postnl_legacy</code> these options apply instead.</p>
-<table>
-<thead>
-<tr>
-<th>Option</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>entity</code></td>
-<td>string</td>
-<td><strong>Required.</strong> Combined PostNL delivery sensor</td>
-</tr>
-<tr>
-<td><code>distribution_entity</code></td>
-<td>string</td>
-<td>Optional. PostNL distribution (sent) sensor</td>
-</tr>
-</tbody>
-</table>
 <hr />
 <h2 id="carrier-types">Carrier types<a class="headerlink" href="#carrier-types" title="Permanent link">&para;</a></h2>
 <table>
@@ -1164,18 +1119,10 @@
 </thead>
 <tbody>
 <tr>
-<td><code>postnl_v4</code></td>
+<td><code>postnl</code></td>
 <td>PostNL</td>
 <td>ha-parcel-integrations/ha-postnl ≥ 4.0.0</td>
 <td>canonical</td>
-<td style="text-align: center;">✅</td>
-<td style="text-align: center;">—</td>
-</tr>
-<tr>
-<td><code>postnl</code></td>
-<td>PostNL (&lt;v4.x)</td>
-<td>ha-parcel-integrations/ha-postnl ≤ 3.x</td>
-<td>legacy</td>
 <td style="text-align: center;">✅</td>
 <td style="text-align: center;">—</td>
 </tr>
@@ -1348,14 +1295,6 @@
 <td style="text-align: center;">✅</td>
 </tr>
 <tr>
-<td><code>postnl_legacy</code></td>
-<td>PostNL (ArjenBos)</td>
-<td>arjenbos/ha-postnl</td>
-<td>single_entity</td>
-<td style="text-align: center;">—</td>
-<td style="text-align: center;">—</td>
-</tr>
-<tr>
 <td><code>custom</code></td>
 <td>Custom</td>
 <td>any</td>
@@ -1365,15 +1304,9 @@
 </tr>
 </tbody>
 </table>
-<div class="admonition tip">
-<p class="admonition-title">Which PostNL type should I use?</p>
-<p>Use <code>postnl_v4</code> ("PostNL") for new installations or if you have updated to ha-postnl 4.0.0 or later.
-Use <code>postnl</code> ("PostNL (&lt;v4.x)") if you are still on version 3.x.
-Use <code>postnl_legacy</code> ("PostNL (ArjenBos)") only for the arjenbos/ha-postnl integration.</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Deprecation notice</p>
-<p><strong>PostNL (&lt;v4.x)</strong> will no longer be supported starting from HA Parcels Card v2.0. <strong>PostNL (ArjenBos)</strong> will also be removed from v2.0, unless arjenbos updates that integration before then. See <a href="../../installation/#postnl">Installation</a> for details.</p>
+<div class="admonition note">
+<p class="admonition-title">PostNL (&lt;v4.x) and PostNL (ArjenBos) removed</p>
+<p>Both were removed in this v2.0 release, as announced ahead of time — see <a href="../../installation/#postnl">Installation</a>. The stable <a href="https://github.com/jonisnet/hki-parcels-card">hki-parcels-card</a> v1.x line still supports both.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1381,7 +1314,7 @@ Use <code>postnl_legacy</code> ("PostNL (ArjenBos)") only for the arjenbos/ha-po
 </div>
 <div class="admonition note">
 <p class="admonition-title">Vinted Go</p>
-<p><code>vinted_go</code> is account-based (e-mail + verification link login, no password) like <code>postnl_v4</code>/<code>dhl</code>/<code>dpd</code>, so it has no <code>track_parcel_service</code> and doesn't get the "+ Add parcel" control either. Unlike those three, and unlike every account-less carrier above, it tracks both incoming <em>and</em> outgoing parcels — the Sent tab works normally. There is no <code>next_delivery</code>/ETA sensor for this integration at all.</p>
+<p><code>vinted_go</code> is account-based (e-mail + verification link login, no password) like <code>postnl</code>/<code>dhl</code>/<code>dpd</code>, so it has no <code>track_parcel_service</code> and doesn't get the "+ Add parcel" control either. Unlike those three, and unlike every account-less carrier above, it tracks both incoming <em>and</em> outgoing parcels — the Sent tab works normally. There is no <code>next_delivery</code>/ETA sensor for this integration at all.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Budbee</p>
@@ -1435,7 +1368,7 @@ Use <code>postnl_legacy</code> ("PostNL (ArjenBos)") only for the arjenbos/ha-po
 <a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tabs</span>
 <a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">list</span>
 <a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="nt">carriers</span><span class="p">:</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postnl_v4</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postnl</span>
 <a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">    </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_account</span>
 <a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PostNL</span>
 <a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">    </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">phu:postnl</span>

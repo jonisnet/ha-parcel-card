@@ -777,13 +777,10 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">custom:ha-parcels-card</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Parcels</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">carriers</span><span class="p">:</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postnl_v4</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postnl</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_account</span>
 </code></pre></div>
-<div class="admonition tip">
-<p class="admonition-title">Which PostNL type?</p>
-<p>Use <code>postnl_v4</code> ("PostNL") for ha-postnl ≥ 4.0.0 (recommended). <code>postnl</code> ("PostNL (&lt;v4.x)") and <code>postnl_legacy</code> ("PostNL (ArjenBos)") are being phased out — see <a href="installation/#postnl">Installation</a>.</p>
-</div>
+<p>Requires <a href="https://github.com/ha-parcel-integrations/ha-postnl">ha-postnl</a> ≥ 4.0.0 — see <a href="installation/#postnl">Installation</a>.</p>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">custom:ha-parcels-card</span>
@@ -825,7 +822,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">custom:ha-parcels-card</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Parcels</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nt">carriers</span><span class="p">:</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postnl_v4</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postnl</span>
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_account</span>
 <a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dhl</span>
 <a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_account</span>
@@ -874,21 +871,9 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>PostNL</strong> (recommended)</td>
+<td><strong>PostNL</strong></td>
 <td><a href="https://github.com/ha-parcel-integrations/ha-postnl">ha-postnl</a> ≥ 4.0.0</td>
-<td><code>postnl_v4</code></td>
-<td>Account login</td>
-</tr>
-<tr>
-<td><strong>PostNL (&lt;v4.x)</strong>²</td>
-<td><a href="https://github.com/ha-parcel-integrations/ha-postnl">ha-postnl</a> ≤ 3.x</td>
 <td><code>postnl</code></td>
-<td>Account login</td>
-</tr>
-<tr>
-<td><strong>PostNL (ArjenBos)</strong>²</td>
-<td><a href="https://github.com/arjenbos/ha-postnl">arjenbos/ha-postnl</a></td>
-<td><code>postnl_legacy</code></td>
 <td>Account login</td>
 </tr>
 <tr>
@@ -1020,7 +1005,6 @@
 </tbody>
 </table>
 <p>¹ Created by <a href="https://github.com/HummelsTech">Alwin Hummels (@HummelsTech)</a>, who also maintains it standalone at <a href="https://github.com/HummelsTech/ha-dragonfly">HummelsTech/ha-dragonfly</a> — see <a href="installation/#dragonfly-trunkrs-cainiao-hermes-packeta-correos-postnord-sameday-swiss-post-planzer-austrian-post-helthjem-dynalogic-budbee-nova-post-delhivery-and-sunyou">Installation</a> for details.</p>
-<p>² Being phased out — see the <a href="installation/#postnl">deprecation notice</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Add parcel support</p>
 <p>Only the account-less carriers (GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee, Nova Post, Delhivery, SunYou) get the card's "+ Add parcel" control — PostNL, DHL, DPD and Vinted Go auto-sync every parcel tied to the logged-in account and don't expose a service to register one manually. Full explanation on the <a href="card/overview/#add-parcel-support">Overview page</a>.</p>
