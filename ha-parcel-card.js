@@ -68,7 +68,7 @@ window.HAParcelCard.getSelectValue = window.HAParcelCard.getSelectValue || ((ev,
 
 (() => {
 const { LitElement, html, css } = window.HAParcelCard.getLit();
-const CARD_VERSION = 'v2.0.0b11';
+const CARD_VERSION = 'v2.0.0b12';
 console.info(`%c HA-PARCEL-CARD %c ${CARD_VERSION} `, 'color: white; background: #ed8c00; font-weight: bold;', 'color: #ed8c00; background: white; font-weight: bold;');
 
 const DEFAULT_CARRIER_ICON = 'mdi:package-variant-closed';

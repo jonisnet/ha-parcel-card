@@ -16,7 +16,7 @@
 >
 > Found a bug? Open an issue here, not on `hki-parcels-card`.
 
-[![Version](https://img.shields.io/badge/version-v2.0.0b11-blue?style=flat-square)](https://github.com/jonisnet/ha-parcel-card/releases/latest)
+[![Version](https://img.shields.io/badge/version-v2.0.0b12-blue?style=flat-square)](https://github.com/jonisnet/ha-parcel-card/releases/latest)
 [![HACS](https://img.shields.io/badge/HACS-Custom-orange?style=flat-square)](https://hacs.xyz)
 [![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](https://github.com/jonisnet/ha-parcel-card/blob/main/LICENSE)
 [![HA](https://img.shields.io/badge/Home%20Assistant-2026.7%2B-41bdf5?style=flat-square)](https://www.home-assistant.io)
