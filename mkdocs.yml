@@ -88,4 +88,5 @@ nav:
       - Examples: card/examples.md
       - Screenshots: card/screenshots.md
       - Troubleshooting: card/troubleshooting.md
+  - For Integration Authors: contract.md
   - Changelog: changelog.md
