@@ -1,8 +1,8 @@
-site_name: HA Parcels Card Documentation
+site_name: HA Parcel Card Documentation
 site_description: Track parcels from PostNL, DHL, DPD, Vinted Go, GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee, Nova Post, Delhivery and SunYou in a single Home Assistant card.
-site_url: https://jonisnet.github.io/ha-parcels-card/
-repo_url: https://github.com/jonisnet/ha-parcels-card
-repo_name: jonisnet/ha-parcels-card
+site_url: https://jonisnet.github.io/ha-parcel-card/
+repo_url: https://github.com/jonisnet/ha-parcel-card
+repo_name: jonisnet/ha-parcel-card
 edit_uri: edit/main/docs/
 
 # mkdocs.yml lives inside docs/ alongside the markdown source files (index.md, card/, ...)
@@ -71,7 +71,7 @@ markdown_extensions:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/jonisnet/ha-parcels-card
+      link: https://github.com/jonisnet/ha-parcel-card
     - icon: fontawesome/solid/heart
       link: https://github.com/sponsors/jonisnet
 
@@ -80,7 +80,7 @@ copyright: Based on jimz011/hki-elements. Maintained by jonisnet.
 nav:
   - Home: index.md
   - Installation: installation.md
-  - HA Parcels Card:
+  - HA Parcel Card:
       - Overview: card/overview.md
       - Basic Usage: card/basic-usage.md
       - Configuration: card/configuration.md
