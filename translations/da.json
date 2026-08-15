@@ -168,5 +168,19 @@
     "url_banner": "Banner-URL",
     "url_placeholder": "Lad stå tomt for at bruge standardværdien",
     "url_preview_fail": "Billede ikke fundet",
-    "browse_media": "Gennemse"
+    "browse_media": "Gennemse",
+    "step_label_pickup_point": "Afhentningssted",
+    "label_weight": "Vægt",
+    "label_dimensions": "Mål",
+    "label_order_number": "Ordrenummer",
+    "extra_delivery_code": "Leveringskode tilgængelig",
+    "extra_servicepoint_code": "Afhentningskode til servicepunkt",
+    "extra_locker_code": "Boks-kode tilgængelig",
+    "extra_climate_neutral": "Klimaneutral levering",
+    "extra_letterbox_parcel": "Postkassepakke",
+    "extra_rerouted": "Omdirigeret",
+    "show_extra_info_button": "Vis knappen \"ekstra info\"",
+    "show_raw_data_button": "Vis knappen \"rådata\"",
+    "show_more_details": "Vis mere",
+    "show_raw_data": "Vis rådata"
 }

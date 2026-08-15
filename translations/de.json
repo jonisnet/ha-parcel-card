@@ -168,5 +168,19 @@
     "url_banner": "Banner-URL",
     "url_placeholder": "Leer lassen für den Standard",
     "url_preview_fail": "Bild nicht gefunden",
-    "browse_media": "Durchsuchen"
+    "browse_media": "Durchsuchen",
+    "step_label_pickup_point": "Abholpunkt",
+    "label_weight": "Gewicht",
+    "label_dimensions": "Abmessungen",
+    "label_order_number": "Bestellnummer",
+    "extra_delivery_code": "Zustellcode verfügbar",
+    "extra_servicepoint_code": "Abholcode für Servicepunkt",
+    "extra_locker_code": "Schließfach-Code verfügbar",
+    "extra_climate_neutral": "Klimaneutrale Zustellung",
+    "extra_letterbox_parcel": "Briefkastenpaket",
+    "extra_rerouted": "Umgeleitet",
+    "show_extra_info_button": "Schaltfläche „Zusatzinfo“ anzeigen",
+    "show_raw_data_button": "Schaltfläche „Rohdaten“ anzeigen",
+    "show_more_details": "Mehr anzeigen",
+    "show_raw_data": "Rohdaten anzeigen"
 }

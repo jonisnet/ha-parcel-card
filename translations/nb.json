@@ -168,5 +168,19 @@
     "url_banner": "Banner-URL",
     "url_placeholder": "La stå tomt for å bruke standardverdien",
     "url_preview_fail": "Bilde ikke funnet",
-    "browse_media": "Bla gjennom"
+    "browse_media": "Bla gjennom",
+    "step_label_pickup_point": "Hentested",
+    "label_weight": "Vekt",
+    "label_dimensions": "Mål",
+    "label_order_number": "Ordrenummer",
+    "extra_delivery_code": "Leveringskode tilgjengelig",
+    "extra_servicepoint_code": "Hentekode til servicepunkt",
+    "extra_locker_code": "Skapkode tilgjengelig",
+    "extra_climate_neutral": "Klimanøytral levering",
+    "extra_letterbox_parcel": "Postkassepakke",
+    "extra_rerouted": "Omdirigert",
+    "show_extra_info_button": "Vis knappen \"ekstra info\"",
+    "show_raw_data_button": "Vis knappen \"rådata\"",
+    "show_more_details": "Vis mer",
+    "show_raw_data": "Vis rådata"
 }

@@ -168,5 +168,19 @@
     "url_banner": "URL на банер",
     "url_placeholder": "Оставете празно, за да използвате стойността по подразбиране",
     "url_preview_fail": "Изображението не е намерено",
-    "browse_media": "Разгледай"
+    "browse_media": "Разгледай",
+    "step_label_pickup_point": "Пункт за получаване",
+    "label_weight": "Тегло",
+    "label_dimensions": "Размери",
+    "label_order_number": "Номер на поръчката",
+    "extra_delivery_code": "Наличен код за доставка",
+    "extra_servicepoint_code": "Код за вземане от пункт",
+    "extra_locker_code": "Наличен код за автомат",
+    "extra_climate_neutral": "Климатично неутрална доставка",
+    "extra_letterbox_parcel": "Пратка за пощенска кутия",
+    "extra_rerouted": "Пренасочена",
+    "show_extra_info_button": "Показвай бутона „допълнителна информация“",
+    "show_raw_data_button": "Показвай бутона „необработени данни“",
+    "show_more_details": "Покажи повече",
+    "show_raw_data": "Покажи необработените данни"
 }

@@ -165,5 +165,19 @@
     "url_banner": "Banner URL",
     "url_placeholder": "Leave empty to use the built-in default",
     "url_preview_fail": "Image not found",
-    "browse_media": "Browse"
+    "browse_media": "Browse",
+    "step_label_pickup_point": "Pickup point",
+    "label_weight": "Weight",
+    "label_dimensions": "Dimensions",
+    "label_order_number": "Order number",
+    "extra_delivery_code": "Delivery code available",
+    "extra_servicepoint_code": "Service point pickup code",
+    "extra_locker_code": "Locker code available",
+    "extra_climate_neutral": "Climate-neutral delivery",
+    "extra_letterbox_parcel": "Fits through the letterbox",
+    "extra_rerouted": "Rerouted",
+    "show_extra_info_button": "Show \"extra info\" button",
+    "show_raw_data_button": "Show \"raw data\" button",
+    "show_more_details": "Show more",
+    "show_raw_data": "Show raw data"
 }

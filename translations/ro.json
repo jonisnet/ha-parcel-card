@@ -168,5 +168,19 @@
     "url_banner": "URL banner",
     "url_placeholder": "Lăsați gol pentru a utiliza valoarea implicită",
     "url_preview_fail": "Imaginea nu a fost găsită",
-    "browse_media": "Răsfoiește"
+    "browse_media": "Răsfoiește",
+    "step_label_pickup_point": "Punct de ridicare",
+    "label_weight": "Greutate",
+    "label_dimensions": "Dimensiuni",
+    "label_order_number": "Număr comandă",
+    "extra_delivery_code": "Cod de livrare disponibil",
+    "extra_servicepoint_code": "Cod de ridicare la punctul de servicii",
+    "extra_locker_code": "Cod de dulap disponibil",
+    "extra_climate_neutral": "Livrare neutră climatic",
+    "extra_letterbox_parcel": "Colet pentru cutia poștală",
+    "extra_rerouted": "Redirecționat",
+    "show_extra_info_button": "Afișează butonul „info suplimentar”",
+    "show_raw_data_button": "Afișează butonul „date brute”",
+    "show_more_details": "Arată mai mult",
+    "show_raw_data": "Arată datele brute"
 }

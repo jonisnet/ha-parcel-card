@@ -168,5 +168,19 @@
     "url_banner": "Banner URL",
     "url_placeholder": "Hagyja üresen az alapértelmezett használatához",
     "url_preview_fail": "Kép nem található",
-    "browse_media": "Tallózás"
+    "browse_media": "Tallózás",
+    "step_label_pickup_point": "Átvételi pont",
+    "label_weight": "Súly",
+    "label_dimensions": "Méretek",
+    "label_order_number": "Rendelésszám",
+    "extra_delivery_code": "Kézbesítési kód elérhető",
+    "extra_servicepoint_code": "Átvételi kód a szervizpontnál",
+    "extra_locker_code": "Csomagautomata-kód elérhető",
+    "extra_climate_neutral": "Klímasemleges kézbesítés",
+    "extra_letterbox_parcel": "Levélszekrény-csomag",
+    "extra_rerouted": "Átirányítva",
+    "show_extra_info_button": "„További infó” gomb megjelenítése",
+    "show_raw_data_button": "„Nyers adatok” gomb megjelenítése",
+    "show_more_details": "Több megjelenítése",
+    "show_raw_data": "Nyers adatok megjelenítése"
 }

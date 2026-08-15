@@ -168,5 +168,19 @@
     "url_banner": "URL банера",
     "url_placeholder": "Залиште порожнім, щоб використати значення за замовчуванням",
     "url_preview_fail": "Зображення не знайдено",
-    "browse_media": "Огляд"
+    "browse_media": "Огляд",
+    "step_label_pickup_point": "Пункт видачі",
+    "label_weight": "Вага",
+    "label_dimensions": "Розміри",
+    "label_order_number": "Номер замовлення",
+    "extra_delivery_code": "Доступний код доставки",
+    "extra_servicepoint_code": "Код отримання в сервісному пункті",
+    "extra_locker_code": "Доступний код камери схову",
+    "extra_climate_neutral": "Кліматично нейтральна доставка",
+    "extra_letterbox_parcel": "Посилка для поштової скриньки",
+    "extra_rerouted": "Перенаправлено",
+    "show_extra_info_button": "Показувати кнопку «додаткова інформація»",
+    "show_raw_data_button": "Показувати кнопку «необроблені дані»",
+    "show_more_details": "Показати більше",
+    "show_raw_data": "Показати необроблені дані"
 }

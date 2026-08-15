@@ -168,5 +168,19 @@
     "url_banner": "बैनर URL",
     "url_placeholder": "डिफ़ॉल्ट का उपयोग करने के लिए खाली छोड़ें",
     "url_preview_fail": "छवि नहीं मिली",
-    "browse_media": "ब्राउज़ करें"
+    "browse_media": "ब्राउज़ करें",
+    "step_label_pickup_point": "पिकअप पॉइंट",
+    "label_weight": "वज़न",
+    "label_dimensions": "आयाम",
+    "label_order_number": "ऑर्डर नंबर",
+    "extra_delivery_code": "डिलीवरी कोड उपलब्ध",
+    "extra_servicepoint_code": "सर्विस पॉइंट पिकअप कोड",
+    "extra_locker_code": "लॉकर कोड उपलब्ध",
+    "extra_climate_neutral": "जलवायु-तटस्थ डिलीवरी",
+    "extra_letterbox_parcel": "लेटरबॉक्स पार्सल",
+    "extra_rerouted": "पुनर्मार्गित",
+    "show_extra_info_button": "\"अतिरिक्त जानकारी\" बटन दिखाएं",
+    "show_raw_data_button": "\"रॉ डेटा\" बटन दिखाएं",
+    "show_more_details": "और दिखाएं",
+    "show_raw_data": "रॉ डेटा दिखाएं"
 }

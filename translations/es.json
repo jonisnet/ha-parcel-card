@@ -168,5 +168,19 @@
     "url_banner": "URL del banner",
     "url_placeholder": "Deja vacío para usar el valor predeterminado",
     "url_preview_fail": "Imagen no encontrada",
-    "browse_media": "Explorar"
+    "browse_media": "Explorar",
+    "step_label_pickup_point": "Punto de recogida",
+    "label_weight": "Peso",
+    "label_dimensions": "Dimensiones",
+    "label_order_number": "Número de pedido",
+    "extra_delivery_code": "Código de entrega disponible",
+    "extra_servicepoint_code": "Código de recogida en punto de servicio",
+    "extra_locker_code": "Código de taquilla disponible",
+    "extra_climate_neutral": "Entrega climáticamente neutra",
+    "extra_letterbox_parcel": "Paquete de buzón",
+    "extra_rerouted": "Redirigido",
+    "show_extra_info_button": "Mostrar botón \"info adicional\"",
+    "show_raw_data_button": "Mostrar botón \"datos sin procesar\"",
+    "show_more_details": "Mostrar más",
+    "show_raw_data": "Mostrar datos sin procesar"
 }

@@ -168,5 +168,19 @@
     "url_banner": "URL de la bannière",
     "url_placeholder": "Laissez vide pour utiliser la valeur par défaut",
     "url_preview_fail": "Image introuvable",
-    "browse_media": "Parcourir"
+    "browse_media": "Parcourir",
+    "step_label_pickup_point": "Point de retrait",
+    "label_weight": "Poids",
+    "label_dimensions": "Dimensions",
+    "label_order_number": "Numéro de commande",
+    "extra_delivery_code": "Code de livraison disponible",
+    "extra_servicepoint_code": "Code de retrait au point relais",
+    "extra_locker_code": "Code de casier disponible",
+    "extra_climate_neutral": "Livraison neutre en carbone",
+    "extra_letterbox_parcel": "Colis boîte aux lettres",
+    "extra_rerouted": "Redirigé",
+    "show_extra_info_button": "Afficher le bouton « infos supplémentaires »",
+    "show_raw_data_button": "Afficher le bouton « données brutes »",
+    "show_more_details": "Afficher plus",
+    "show_raw_data": "Afficher les données brutes"
 }

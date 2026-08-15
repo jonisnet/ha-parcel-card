@@ -168,5 +168,19 @@
     "url_banner": "Banner-URL",
     "url_placeholder": "Lämna tomt för att använda standardvärdet",
     "url_preview_fail": "Bilden hittades inte",
-    "browse_media": "Bläddra"
+    "browse_media": "Bläddra",
+    "step_label_pickup_point": "Utlämningsställe",
+    "label_weight": "Vikt",
+    "label_dimensions": "Mått",
+    "label_order_number": "Ordernummer",
+    "extra_delivery_code": "Leveranskod tillgänglig",
+    "extra_servicepoint_code": "Upphämtningskod för servicepunkt",
+    "extra_locker_code": "Skåpkod tillgänglig",
+    "extra_climate_neutral": "Klimatneutral leverans",
+    "extra_letterbox_parcel": "Brevlådspaket",
+    "extra_rerouted": "Omdirigerad",
+    "show_extra_info_button": "Visa knappen \"extra info\"",
+    "show_raw_data_button": "Visa knappen \"rådata\"",
+    "show_more_details": "Visa mer",
+    "show_raw_data": "Visa rådata"
 }

@@ -168,5 +168,19 @@
     "url_banner": "Bannerin URL",
     "url_placeholder": "Jätä tyhjäksi käyttääksesi oletusarvoa",
     "url_preview_fail": "Kuvaa ei löytynyt",
-    "browse_media": "Selaa"
+    "browse_media": "Selaa",
+    "step_label_pickup_point": "Noutopiste",
+    "label_weight": "Paino",
+    "label_dimensions": "Mitat",
+    "label_order_number": "Tilausnumero",
+    "extra_delivery_code": "Toimituskoodi saatavilla",
+    "extra_servicepoint_code": "Nouto-koodi palvelupisteeseen",
+    "extra_locker_code": "Lokerokoodi saatavilla",
+    "extra_climate_neutral": "Ilmastoneutraali toimitus",
+    "extra_letterbox_parcel": "Postiluukkupaketti",
+    "extra_rerouted": "Uudelleenreititetty",
+    "show_extra_info_button": "Näytä \"lisätiedot\"-painike",
+    "show_raw_data_button": "Näytä \"raakadata\"-painike",
+    "show_more_details": "Näytä lisää",
+    "show_raw_data": "Näytä raakadata"
 }

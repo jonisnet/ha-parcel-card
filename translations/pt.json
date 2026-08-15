@@ -168,5 +168,19 @@
     "url_banner": "URL do banner",
     "url_placeholder": "Deixe vazio para usar a predefinição",
     "url_preview_fail": "Imagem não encontrada",
-    "browse_media": "Procurar"
+    "browse_media": "Procurar",
+    "step_label_pickup_point": "Ponto de recolha",
+    "label_weight": "Peso",
+    "label_dimensions": "Dimensões",
+    "label_order_number": "Número de encomenda",
+    "extra_delivery_code": "Código de entrega disponível",
+    "extra_servicepoint_code": "Código de recolha no ponto de serviço",
+    "extra_locker_code": "Código de cacifo disponível",
+    "extra_climate_neutral": "Entrega neutra em carbono",
+    "extra_letterbox_parcel": "Encomenda de caixa de correio",
+    "extra_rerouted": "Redirecionado",
+    "show_extra_info_button": "Mostrar botão \"info extra\"",
+    "show_raw_data_button": "Mostrar botão \"dados brutos\"",
+    "show_more_details": "Mostrar mais",
+    "show_raw_data": "Mostrar dados brutos"
 }

@@ -168,5 +168,19 @@
     "url_banner": "URL del banner",
     "url_placeholder": "Lascia vuoto per usare il valore predefinito",
     "url_preview_fail": "Immagine non trovata",
-    "browse_media": "Sfoglia"
+    "browse_media": "Sfoglia",
+    "step_label_pickup_point": "Punto di ritiro",
+    "label_weight": "Peso",
+    "label_dimensions": "Dimensioni",
+    "label_order_number": "Numero d'ordine",
+    "extra_delivery_code": "Codice di consegna disponibile",
+    "extra_servicepoint_code": "Codice di ritiro presso il punto servizio",
+    "extra_locker_code": "Codice armadietto disponibile",
+    "extra_climate_neutral": "Consegna a impatto climatico zero",
+    "extra_letterbox_parcel": "Pacco da cassetta postale",
+    "extra_rerouted": "Reindirizzato",
+    "show_extra_info_button": "Mostra il pulsante \"info extra\"",
+    "show_raw_data_button": "Mostra il pulsante \"dati grezzi\"",
+    "show_more_details": "Mostra di più",
+    "show_raw_data": "Mostra dati grezzi"
 }

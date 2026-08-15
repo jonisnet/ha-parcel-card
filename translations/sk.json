@@ -168,5 +168,19 @@
     "url_banner": "URL banneru",
     "url_placeholder": "Ponechajte prázdne pre použitie predvolenej hodnoty",
     "url_preview_fail": "Obrázok nenájdený",
-    "browse_media": "Prehľadávať"
+    "browse_media": "Prehľadávať",
+    "step_label_pickup_point": "Výdajné miesto",
+    "label_weight": "Hmotnosť",
+    "label_dimensions": "Rozmery",
+    "label_order_number": "Číslo objednávky",
+    "extra_delivery_code": "K dispozícii doručovací kód",
+    "extra_servicepoint_code": "Kód na vyzdvihnutie na výdajnom mieste",
+    "extra_locker_code": "K dispozícii kód schránky",
+    "extra_climate_neutral": "Klimaticky neutrálne doručenie",
+    "extra_letterbox_parcel": "Zásielka do schránky",
+    "extra_rerouted": "Presmerované",
+    "show_extra_info_button": "Zobraziť tlačidlo „ďalšie info“",
+    "show_raw_data_button": "Zobraziť tlačidlo „nespracované údaje“",
+    "show_more_details": "Zobraziť viac",
+    "show_raw_data": "Zobraziť nespracované údaje"
 }

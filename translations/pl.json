@@ -168,5 +168,19 @@
     "url_banner": "URL banera",
     "url_placeholder": "Pozostaw puste, aby użyć wartości domyślnej",
     "url_preview_fail": "Nie znaleziono obrazu",
-    "browse_media": "Przeglądaj"
+    "browse_media": "Przeglądaj",
+    "step_label_pickup_point": "Punkt odbioru",
+    "label_weight": "Waga",
+    "label_dimensions": "Wymiary",
+    "label_order_number": "Numer zamówienia",
+    "extra_delivery_code": "Dostępny kod dostawy",
+    "extra_servicepoint_code": "Kod odbioru w punkcie serwisowym",
+    "extra_locker_code": "Dostępny kod skrytki",
+    "extra_climate_neutral": "Dostawa neutralna klimatycznie",
+    "extra_letterbox_parcel": "Paczka do skrzynki pocztowej",
+    "extra_rerouted": "Przekierowano",
+    "show_extra_info_button": "Pokaż przycisk „dodatkowe info”",
+    "show_raw_data_button": "Pokaż przycisk „surowe dane”",
+    "show_more_details": "Pokaż więcej",
+    "show_raw_data": "Pokaż surowe dane"
 }
