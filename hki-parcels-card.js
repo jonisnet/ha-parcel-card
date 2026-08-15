@@ -315,7 +315,7 @@ const TRANSLATIONS = {
         status_unknown: 'Onbekend',
         step_label_registered: 'Aangemeld',
         step_label_sorting: 'Sorteercentrum',
-        step_label_transit: 'Onderweg',
+        step_label_transit: 'In bezorging',
         step_label_pickup_point: 'Pakket afhaalpunt',
         step_label_delivered: 'Bezorgd',
         step_info_registered: 'Aangemeld om',
