@@ -126,6 +126,8 @@
     "delhivery_account_help": "Delhivery har inget konto eller postnummer — lämna detta fält tomt; sensorerna heter sensor.delhivery_*.",
     "sunyou_account_help": "SunYou har inget konto eller postnummer — lämna detta fält tomt; sensorerna heter sensor.sunyou_*.",
     "quickpac_account_help": "Quickpac har inget konto eller postnummer — lämna detta fält tomt; sensorerna heter sensor.quickpac_*.",
+    "shopee_xpress_account_help": "Shopee Xpress har inget konto eller postnummer — lämna detta fält tomt; sensorerna heter sensor.shopee_xpress_*.",
+    "ceska_posta_account_help": "Ceska Posta har inget konto eller postnummer — lämna detta fält tomt; sensorerna heter sensor.ceska_posta_*.",
     "show_add_parcel": "Visa \"Lägg till paket\" på kortet",
     "add_parcel_toggle": "+ Lägg till paket",
     "add_parcel_carrier": "Transportör",

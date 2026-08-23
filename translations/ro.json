@@ -126,6 +126,8 @@
     "delhivery_account_help": "Delhivery nu are cont sau cod poștal — lăsați acest câmp gol; senzorii se numesc sensor.delhivery_*.",
     "sunyou_account_help": "SunYou nu are cont sau cod poștal — lăsați acest câmp gol; senzorii se numesc sensor.sunyou_*.",
     "quickpac_account_help": "Quickpac nu are cont sau cod poștal — lăsați acest câmp gol; senzorii se numesc sensor.quickpac_*.",
+    "shopee_xpress_account_help": "Shopee Xpress nu are cont sau cod poștal — lăsați acest câmp gol; senzorii se numesc sensor.shopee_xpress_*.",
+    "ceska_posta_account_help": "Ceska Posta nu are cont sau cod poștal — lăsați acest câmp gol; senzorii se numesc sensor.ceska_posta_*.",
     "show_add_parcel": "Afișează \"Adaugă colet\" pe card",
     "add_parcel_toggle": "+ Adaugă colet",
     "add_parcel_carrier": "Curier",

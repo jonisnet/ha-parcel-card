@@ -126,6 +126,8 @@
     "delhivery_account_help": "Delhivery n'a pas de compte ni de code postal — laissez ce champ vide ; les capteurs sont nommés sensor.delhivery_*.",
     "sunyou_account_help": "SunYou n'a pas de compte ni de code postal — laissez ce champ vide ; les capteurs sont nommés sensor.sunyou_*.",
     "quickpac_account_help": "Quickpac n'a pas de compte ni de code postal — laissez ce champ vide ; les capteurs sont nommés sensor.quickpac_*.",
+    "shopee_xpress_account_help": "Shopee Xpress n'a pas de compte ni de code postal — laissez ce champ vide ; les capteurs sont nommés sensor.shopee_xpress_*.",
+    "ceska_posta_account_help": "Ceska Posta n'a pas de compte ni de code postal — laissez ce champ vide ; les capteurs sont nommés sensor.ceska_posta_*.",
     "show_add_parcel": "Afficher \"Ajouter un colis\" sur la carte",
     "add_parcel_toggle": "+ Ajouter un colis",
     "add_parcel_carrier": "Transporteur",

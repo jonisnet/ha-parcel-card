@@ -126,6 +126,8 @@
     "delhivery_account_help": "A Delhivery-nek nincs fiókja vagy irányítószáma — hagyja üresen ezt a mezőt; az érzékelők neve sensor.delhivery_*.",
     "sunyou_account_help": "A SunYou-nak nincs fiókja vagy irányítószáma — hagyja üresen ezt a mezőt; az érzékelők neve sensor.sunyou_*.",
     "quickpac_account_help": "A Quickpac-nak nincs fiókja vagy irányítószáma — hagyja üresen ezt a mezőt; az érzékelők neve sensor.quickpac_*.",
+    "shopee_xpress_account_help": "A Shopee Xpress-nak nincs fiókja vagy irányítószáma — hagyja üresen ezt a mezőt; az érzékelők neve sensor.shopee_xpress_*.",
+    "ceska_posta_account_help": "A Ceska Posta-nak nincs fiókja vagy irányítószáma — hagyja üresen ezt a mezőt; az érzékelők neve sensor.ceska_posta_*.",
     "show_add_parcel": "\"Csomag hozzáadása\" megjelenítése a kártyán",
     "add_parcel_toggle": "+ Csomag hozzáadása",
     "add_parcel_carrier": "Szolgáltató",

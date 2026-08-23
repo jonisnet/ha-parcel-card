@@ -126,6 +126,8 @@
     "delhivery_account_help": "Delhivery non ha account o CAP — lascia questo campo vuoto; i sensori si chiamano sensor.delhivery_*.",
     "sunyou_account_help": "SunYou non ha account o CAP — lascia questo campo vuoto; i sensori si chiamano sensor.sunyou_*.",
     "quickpac_account_help": "Quickpac non ha account o CAP — lascia questo campo vuoto; i sensori si chiamano sensor.quickpac_*.",
+    "shopee_xpress_account_help": "Shopee Xpress non ha account o CAP — lascia questo campo vuoto; i sensori si chiamano sensor.shopee_xpress_*.",
+    "ceska_posta_account_help": "Ceska Posta non ha account o CAP — lascia questo campo vuoto; i sensori si chiamano sensor.ceska_posta_*.",
     "show_add_parcel": "Mostra \"Aggiungi pacco\" sulla scheda",
     "add_parcel_toggle": "+ Aggiungi pacco",
     "add_parcel_carrier": "Corriere",

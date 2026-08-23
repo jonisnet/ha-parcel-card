@@ -126,6 +126,8 @@
     "delhivery_account_help": "Delhivery няма акаунт или пощенски код — оставете това поле празно; сензорите се наричат sensor.delhivery_*.",
     "sunyou_account_help": "SunYou няма акаунт или пощенски код — оставете това поле празно; сензорите се наричат sensor.sunyou_*.",
     "quickpac_account_help": "Quickpac няма акаунт или пощенски код — оставете това поле празно; сензорите се наричат sensor.quickpac_*.",
+    "shopee_xpress_account_help": "Shopee Xpress няма акаунт или пощенски код — оставете това поле празно; сензорите се наричат sensor.shopee_xpress_*.",
+    "ceska_posta_account_help": "Ceska Posta няма акаунт или пощенски код — оставете това поле празно; сензорите се наричат sensor.ceska_posta_*.",
     "show_add_parcel": "Показвай \"Добави пратка\" на картата",
     "add_parcel_toggle": "+ Добави пратка",
     "add_parcel_carrier": "Превозвач",

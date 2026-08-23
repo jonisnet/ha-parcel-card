@@ -126,6 +126,8 @@
     "delhivery_account_help": "Delhivery hat kein Konto oder Postleitzahl — lasse dieses Feld leer; die Sensoren heißen sensor.delhivery_*.",
     "sunyou_account_help": "SunYou hat kein Konto oder Postleitzahl — lasse dieses Feld leer; die Sensoren heißen sensor.sunyou_*.",
     "quickpac_account_help": "Quickpac hat kein Konto oder Postleitzahl — lasse dieses Feld leer; die Sensoren heißen sensor.quickpac_*.",
+    "shopee_xpress_account_help": "Shopee Xpress hat kein Konto oder Postleitzahl — lasse dieses Feld leer; die Sensoren heißen sensor.shopee_xpress_*.",
+    "ceska_posta_account_help": "Ceska Posta hat kein Konto oder Postleitzahl — lasse dieses Feld leer; die Sensoren heißen sensor.ceska_posta_*.",
     "show_add_parcel": "\"Paket hinzufügen\" auf der Karte anzeigen",
     "add_parcel_toggle": "+ Paket hinzufügen",
     "add_parcel_carrier": "Zustelldienst",

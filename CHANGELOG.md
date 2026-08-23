@@ -1,5 +1,26 @@
 # Changelog
 
+## [2.0.0b13] — 2026-08-23
+
+### Added
+
+- **5 new carriers**: InPost, PPL CZ, Shopee Xpress, Ceska Posta and Ampère — all newly published
+  in the [ha-parcel-integrations](https://github.com/ha-parcel-integrations) family since the last
+  carrier audit. Each ships full branding (banner, animated van, step icons) hue-matched to the
+  carrier's own official colour, and shows up in auto-detection and the carrier picker like any
+  other first-class carrier.
+  - InPost, PPL CZ and Ampère are account-based (no "+ Add parcel" control, same as
+    PostNL/DHL/DPD) — InPost via phone+SMS, PPL CZ via passwordless email+PIN, Ampère via a
+    one-time emailed bol.com tracking link.
+  - Shopee Xpress and Ceska Posta get a "+ Add parcel" control (tracking-code based).
+
+### Fixed
+
+- **Quickpac's translated "no account" help text was never actually used** — every locale file
+  had a `quickpac_account_help` string, but the lookup table that picks it never included
+  `quickpac`, so it silently fell back to the generic explanation instead. Fixed alongside adding
+  the same help text for the two new tracking-code carriers above.
+
 ## [2.0.0b12] — 2026-08-15
 
 ### Added

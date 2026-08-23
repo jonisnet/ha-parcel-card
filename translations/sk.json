@@ -126,6 +126,8 @@
     "delhivery_account_help": "Delhivery nemá účet ani PSČ — ponechajte toto pole prázdne; senzory sa volajú sensor.delhivery_*.",
     "sunyou_account_help": "SunYou nemá účet ani PSČ — ponechajte toto pole prázdne; senzory sa volajú sensor.sunyou_*.",
     "quickpac_account_help": "Quickpac nemá účet ani PSČ — ponechajte toto pole prázdne; senzory sa volajú sensor.quickpac_*.",
+    "shopee_xpress_account_help": "Shopee Xpress nemá účet ani PSČ — ponechajte toto pole prázdne; senzory sa volajú sensor.shopee_xpress_*.",
+    "ceska_posta_account_help": "Ceska Posta nemá účet ani PSČ — ponechajte toto pole prázdne; senzory sa volajú sensor.ceska_posta_*.",
     "show_add_parcel": "Zobraziť \"Pridať zásielku\" na karte",
     "add_parcel_toggle": "+ Pridať zásielku",
     "add_parcel_carrier": "Dopravca",

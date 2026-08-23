@@ -126,6 +126,8 @@
     "delhivery_account_help": "A Delhivery não tem conta nem código postal — deixe este campo vazio; os sensores chamam-se sensor.delhivery_*.",
     "sunyou_account_help": "A SunYou não tem conta nem código postal — deixe este campo vazio; os sensores chamam-se sensor.sunyou_*.",
     "quickpac_account_help": "A Quickpac não tem conta nem código postal — deixe este campo vazio; os sensores chamam-se sensor.quickpac_*.",
+    "shopee_xpress_account_help": "A Shopee Xpress não tem conta nem código postal — deixe este campo vazio; os sensores chamam-se sensor.shopee_xpress_*.",
+    "ceska_posta_account_help": "A Ceska Posta não tem conta nem código postal — deixe este campo vazio; os sensores chamam-se sensor.ceska_posta_*.",
     "show_add_parcel": "Mostrar \"Adicionar encomenda\" no cartão",
     "add_parcel_toggle": "+ Adicionar encomenda",
     "add_parcel_carrier": "Transportadora",

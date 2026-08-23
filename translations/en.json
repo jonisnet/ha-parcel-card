@@ -123,6 +123,8 @@
     "delhivery_account_help": "Delhivery has no account or postal code — leave this field empty; the sensors are named sensor.delhivery_*.",
     "sunyou_account_help": "SunYou has no account or postal code — leave this field empty; the sensors are named sensor.sunyou_*.",
     "quickpac_account_help": "Quickpac has no account or postal code — leave this field empty; the sensors are named sensor.quickpac_*.",
+    "shopee_xpress_account_help": "Shopee Xpress has no account or postal code — leave this field empty; the sensors are named sensor.shopee_xpress_*.",
+    "ceska_posta_account_help": "Ceska Posta has no account or postal code — leave this field empty; the sensors are named sensor.ceska_posta_*.",
     "show_add_parcel": "Show \"Add parcel\" on the card",
     "add_parcel_toggle": "+ Add parcel",
     "add_parcel_carrier": "Carrier",

@@ -68,7 +68,7 @@ window.HAParcelCard.getSelectValue = window.HAParcelCard.getSelectValue || ((ev,
 
 (() => {
 const { LitElement, html, css } = window.HAParcelCard.getLit();
-const CARD_VERSION = 'v2.0.0b12';
+const CARD_VERSION = 'v2.0.0b13';
 console.info(`%c HA-PARCEL-CARD %c ${CARD_VERSION} `, 'color: white; background: #ed8c00; font-weight: bold;', 'color: #ed8c00; background: white; font-weight: bold;');
 
 const DEFAULT_CARRIER_ICON = 'mdi:package-variant-closed';
@@ -96,7 +96,8 @@ function getDefaultIcon(carrierType) {
     // (elax46/custom-brand-icons#1435) but aren't mapped here yet since that PR hasn't merged —
     // add them once it has, don't map ahead of the icon actually being live. quickpac has no
     // real pictorial mark (wordmark + plain accent dot, not a distinct shape) — falls through to
-    // mdi: like postnord/planzer/dynalogic/delhivery below.
+    // mdi: like postnord/planzer/dynalogic/delhivery below. inpost.svg confirmed live on
+    // custom-brand-icons main as of 2026-08-23 (sun/moon mark + wordmark, legible at 24px).
     const phuMap = {
         postnl: 'phu:postnl',
         dhl: 'phu:dhl', dpd: 'phu:dpd',
@@ -104,7 +105,7 @@ function getDefaultIcon(carrierType) {
         cainiao: 'phu:cainiao', vinted_go: 'phu:vinted',
         hermes: 'phu:hermes', packeta: 'phu:packeta', correos: 'phu:correos',
         swiss_post: 'phu:swisspost', austrian_post: 'phu:austrianpost',
-        sunyou: 'phu:sunyou', an_post: 'phu:anpost',
+        sunyou: 'phu:sunyou', an_post: 'phu:anpost', inpost: 'phu:inpost',
     };
     if (hasPhuIcons() && phuMap[carrierType]) return phuMap[carrierType];
     return 'mdi:package-variant-closed';
@@ -241,6 +242,8 @@ const TRANSLATIONS = {
         delhivery_account_help: 'Delhivery has no account or postal code — leave this field empty; the sensors are named sensor.delhivery_*.',
         sunyou_account_help: 'SunYou has no account or postal code — leave this field empty; the sensors are named sensor.sunyou_*.',
         quickpac_account_help: 'Quickpac has no account or postal code — leave this field empty; the sensors are named sensor.quickpac_*.',
+        shopee_xpress_account_help: 'Shopee Xpress has no account or postal code — leave this field empty; the sensors are named sensor.shopee_xpress_*.',
+        ceska_posta_account_help: 'Ceska Posta has no account or postal code — leave this field empty; the sensors are named sensor.ceska_posta_*.',
         show_add_parcel: 'Show "Add parcel" on the card',
         add_parcel_toggle: '+ Add parcel',
         add_parcel_carrier: 'Carrier',
@@ -420,6 +423,8 @@ const TRANSLATIONS = {
         delhivery_account_help: 'Delhivery heeft geen account of postcode — laat dit veld leeg; de sensoren heten sensor.delhivery_*.',
         sunyou_account_help: 'SunYou heeft geen account of postcode — laat dit veld leeg; de sensoren heten sensor.sunyou_*.',
         quickpac_account_help: 'Quickpac heeft geen account of postcode — laat dit veld leeg; de sensoren heten sensor.quickpac_*.',
+        shopee_xpress_account_help: 'Shopee Xpress heeft geen account of postcode — laat dit veld leeg; de sensoren heten sensor.shopee_xpress_*.',
+        ceska_posta_account_help: 'Ceska Posta heeft geen account of postcode — laat dit veld leeg; de sensoren heten sensor.ceska_posta_*.',
         show_add_parcel: 'Toon "Pakket toevoegen" op de kaart',
         add_parcel_toggle: '+ Pakket toevoegen',
         add_parcel_carrier: 'Dienst',
@@ -600,6 +605,8 @@ const TRANSLATIONS = {
         delhivery_account_help: 'Delhivery няма акаунт или пощенски код — оставете това поле празно; сензорите се наричат sensor.delhivery_*.',
         sunyou_account_help: 'SunYou няма акаунт или пощенски код — оставете това поле празно; сензорите се наричат sensor.sunyou_*.',
         quickpac_account_help: 'Quickpac няма акаунт или пощенски код — оставете това поле празно; сензорите се наричат sensor.quickpac_*.',
+        shopee_xpress_account_help: 'Shopee Xpress няма акаунт или пощенски код — оставете това поле празно; сензорите се наричат sensor.shopee_xpress_*.',
+        ceska_posta_account_help: 'Ceska Posta няма акаунт или пощенски код — оставете това поле празно; сензорите се наричат sensor.ceska_posta_*.',
         show_add_parcel: 'Показвай "Добави пратка" на картата',
         add_parcel_toggle: '+ Добави пратка',
         add_parcel_carrier: 'Превозвач',
@@ -780,6 +787,8 @@ const TRANSLATIONS = {
         delhivery_account_help: 'Delhivery nemá účet ani PSČ — ponechte toto pole prázdné; senzory se jmenují sensor.delhivery_*.',
         sunyou_account_help: 'SunYou nemá účet ani PSČ — ponechte toto pole prázdné; senzory se jmenují sensor.sunyou_*.',
         quickpac_account_help: 'Quickpac nemá účet ani PSČ — ponechte toto pole prázdné; senzory se jmenují sensor.quickpac_*.',
+        shopee_xpress_account_help: 'Shopee Xpress nemá účet ani PSČ — ponechte toto pole prázdné; senzory se jmenují sensor.shopee_xpress_*.',
+        ceska_posta_account_help: 'Ceska Posta nemá účet ani PSČ — ponechte toto pole prázdné; senzory se jmenují sensor.ceska_posta_*.',
         show_add_parcel: 'Zobrazit "Přidat zásilku" na kartě',
         add_parcel_toggle: '+ Přidat zásilku',
         add_parcel_carrier: 'Dopravce',
@@ -960,6 +969,8 @@ const TRANSLATIONS = {
         delhivery_account_help: 'Delhivery har ingen konto eller postnummer — lad dette felt være tomt; sensorerne hedder sensor.delhivery_*.',
         sunyou_account_help: 'SunYou har ingen konto eller postnummer — lad dette felt være tomt; sensorerne hedder sensor.sunyou_*.',
         quickpac_account_help: 'Quickpac har ingen konto eller postnummer — lad dette felt være tomt; sensorerne hedder sensor.quickpac_*.',
+        shopee_xpress_account_help: 'Shopee Xpress har ingen konto eller postnummer — lad dette felt være tomt; sensorerne hedder sensor.shopee_xpress_*.',
+        ceska_posta_account_help: 'Ceska Posta har ingen konto eller postnummer — lad dette felt være tomt; sensorerne hedder sensor.ceska_posta_*.',
         show_add_parcel: 'Vis "Tilføj pakke" på kortet',
         add_parcel_toggle: '+ Tilføj pakke',
         add_parcel_carrier: 'Transportør',
@@ -1140,6 +1151,8 @@ const TRANSLATIONS = {
         delhivery_account_help: 'Delhivery hat kein Konto oder Postleitzahl — lasse dieses Feld leer; die Sensoren heißen sensor.delhivery_*.',
         sunyou_account_help: 'SunYou hat kein Konto oder Postleitzahl — lasse dieses Feld leer; die Sensoren heißen sensor.sunyou_*.',
         quickpac_account_help: 'Quickpac hat kein Konto oder Postleitzahl — lasse dieses Feld leer; die Sensoren heißen sensor.quickpac_*.',
+        shopee_xpress_account_help: 'Shopee Xpress hat kein Konto oder Postleitzahl — lasse dieses Feld leer; die Sensoren heißen sensor.shopee_xpress_*.',
+        ceska_posta_account_help: 'Ceska Posta hat kein Konto oder Postleitzahl — lasse dieses Feld leer; die Sensoren heißen sensor.ceska_posta_*.',
         show_add_parcel: '"Paket hinzufügen" auf der Karte anzeigen',
         add_parcel_toggle: '+ Paket hinzufügen',
         add_parcel_carrier: 'Zustelldienst',
@@ -1320,6 +1333,8 @@ const TRANSLATIONS = {
         delhivery_account_help: 'Delhivery no tiene cuenta ni código postal — deja este campo vacío; los sensores se llaman sensor.delhivery_*.',
         sunyou_account_help: 'SunYou no tiene cuenta ni código postal — deja este campo vacío; los sensores se llaman sensor.sunyou_*.',
         quickpac_account_help: 'Quickpac no tiene cuenta ni código postal — deja este campo vacío; los sensores se llaman sensor.quickpac_*.',
+        shopee_xpress_account_help: 'Shopee Xpress no tiene cuenta ni código postal — deja este campo vacío; los sensores se llaman sensor.shopee_xpress_*.',
+        ceska_posta_account_help: 'Ceska Posta no tiene cuenta ni código postal — deja este campo vacío; los sensores se llaman sensor.ceska_posta_*.',
         show_add_parcel: 'Mostrar "Añadir paquete" en la tarjeta',
         add_parcel_toggle: '+ Añadir paquete',
         add_parcel_carrier: 'Transportista',
@@ -1500,6 +1515,8 @@ const TRANSLATIONS = {
         delhivery_account_help: 'Delhiverylla ei ole tiliä tai postinumeroa — jätä tämä kenttä tyhjäksi; anturit nimetään sensor.delhivery_*.',
         sunyou_account_help: 'SunYoulla ei ole tiliä tai postinumeroa — jätä tämä kenttä tyhjäksi; anturit nimetään sensor.sunyou_*.',
         quickpac_account_help: 'Quickpaclla ei ole tiliä tai postinumeroa — jätä tämä kenttä tyhjäksi; anturit nimetään sensor.quickpac_*.',
+        shopee_xpress_account_help: 'Shopee Xpresslla ei ole tiliä tai postinumeroa — jätä tämä kenttä tyhjäksi; anturit nimetään sensor.shopee_xpress_*.',
+        ceska_posta_account_help: 'Ceska Postalla ei ole tiliä tai postinumeroa — jätä tämä kenttä tyhjäksi; anturit nimetään sensor.ceska_posta_*.',
         show_add_parcel: 'Näytä "Lisää paketti" kortissa',
         add_parcel_toggle: '+ Lisää paketti',
         add_parcel_carrier: 'Kuljetusyhtiö',
@@ -1680,6 +1697,8 @@ const TRANSLATIONS = {
         delhivery_account_help: 'Delhivery n\'a pas de compte ni de code postal — laissez ce champ vide ; les capteurs sont nommés sensor.delhivery_*.',
         sunyou_account_help: 'SunYou n\'a pas de compte ni de code postal — laissez ce champ vide ; les capteurs sont nommés sensor.sunyou_*.',
         quickpac_account_help: 'Quickpac n\'a pas de compte ni de code postal — laissez ce champ vide ; les capteurs sont nommés sensor.quickpac_*.',
+        shopee_xpress_account_help: 'Shopee Xpress n\'a pas de compte ni de code postal — laissez ce champ vide ; les capteurs sont nommés sensor.shopee_xpress_*.',
+        ceska_posta_account_help: 'Ceska Posta n\'a pas de compte ni de code postal — laissez ce champ vide ; les capteurs sont nommés sensor.ceska_posta_*.',
         show_add_parcel: 'Afficher "Ajouter un colis" sur la carte',
         add_parcel_toggle: '+ Ajouter un colis',
         add_parcel_carrier: 'Transporteur',
@@ -1860,6 +1879,8 @@ const TRANSLATIONS = {
         delhivery_account_help: 'Delhivery का कोई खाता या पिन कोड नहीं है — इस फ़ील्ड को खाली छोड़ें; सेंसर का नाम sensor.delhivery_* होता है।',
         sunyou_account_help: 'SunYou का कोई खाता या पिन कोड नहीं है — इस फ़ील्ड को खाली छोड़ें; सेंसर का नाम sensor.sunyou_* होता है।',
         quickpac_account_help: 'Quickpac का कोई खाता या पिन कोड नहीं है — इस फ़ील्ड को खाली छोड़ें; सेंसर का नाम sensor.quickpac_* होता है।',
+        shopee_xpress_account_help: 'Shopee Xpress का कोई खाता या पिन कोड नहीं है — इस फ़ील्ड को खाली छोड़ें; सेंसर का नाम sensor.shopee_xpress_* होता है।',
+        ceska_posta_account_help: 'Ceska Posta का कोई खाता या पिन कोड नहीं है — इस फ़ील्ड को खाली छोड़ें; सेंसर का नाम sensor.ceska_posta_* होता है।',
         show_add_parcel: 'कार्ड पर "पार्सल जोड़ें" दिखाएँ',
         add_parcel_toggle: '+ पार्सल जोड़ें',
         add_parcel_carrier: 'कैरियर',
@@ -2040,6 +2061,8 @@ const TRANSLATIONS = {
         delhivery_account_help: 'A Delhivery-nek nincs fiókja vagy irányítószáma — hagyja üresen ezt a mezőt; az érzékelők neve sensor.delhivery_*.',
         sunyou_account_help: 'A SunYou-nak nincs fiókja vagy irányítószáma — hagyja üresen ezt a mezőt; az érzékelők neve sensor.sunyou_*.',
         quickpac_account_help: 'A Quickpac-nak nincs fiókja vagy irányítószáma — hagyja üresen ezt a mezőt; az érzékelők neve sensor.quickpac_*.',
+        shopee_xpress_account_help: 'A Shopee Xpress-nak nincs fiókja vagy irányítószáma — hagyja üresen ezt a mezőt; az érzékelők neve sensor.shopee_xpress_*.',
+        ceska_posta_account_help: 'A Ceska Posta-nak nincs fiókja vagy irányítószáma — hagyja üresen ezt a mezőt; az érzékelők neve sensor.ceska_posta_*.',
         show_add_parcel: '"Csomag hozzáadása" megjelenítése a kártyán',
         add_parcel_toggle: '+ Csomag hozzáadása',
         add_parcel_carrier: 'Szolgáltató',
@@ -2220,6 +2243,8 @@ const TRANSLATIONS = {
         delhivery_account_help: 'Delhivery non ha account o CAP — lascia questo campo vuoto; i sensori si chiamano sensor.delhivery_*.',
         sunyou_account_help: 'SunYou non ha account o CAP — lascia questo campo vuoto; i sensori si chiamano sensor.sunyou_*.',
         quickpac_account_help: 'Quickpac non ha account o CAP — lascia questo campo vuoto; i sensori si chiamano sensor.quickpac_*.',
+        shopee_xpress_account_help: 'Shopee Xpress non ha account o CAP — lascia questo campo vuoto; i sensori si chiamano sensor.shopee_xpress_*.',
+        ceska_posta_account_help: 'Ceska Posta non ha account o CAP — lascia questo campo vuoto; i sensori si chiamano sensor.ceska_posta_*.',
         show_add_parcel: 'Mostra "Aggiungi pacco" sulla scheda',
         add_parcel_toggle: '+ Aggiungi pacco',
         add_parcel_carrier: 'Corriere',
@@ -2400,6 +2425,8 @@ const TRANSLATIONS = {
         delhivery_account_help: 'Delhivery har ingen konto eller postnummer — la dette feltet stå tomt; sensorene heter sensor.delhivery_*.',
         sunyou_account_help: 'SunYou har ingen konto eller postnummer — la dette feltet stå tomt; sensorene heter sensor.sunyou_*.',
         quickpac_account_help: 'Quickpac har ingen konto eller postnummer — la dette feltet stå tomt; sensorene heter sensor.quickpac_*.',
+        shopee_xpress_account_help: 'Shopee Xpress har ingen konto eller postnummer — la dette feltet stå tomt; sensorene heter sensor.shopee_xpress_*.',
+        ceska_posta_account_help: 'Ceska Posta har ingen konto eller postnummer — la dette feltet stå tomt; sensorene heter sensor.ceska_posta_*.',
         show_add_parcel: 'Vis "Legg til pakke" på kortet',
         add_parcel_toggle: '+ Legg til pakke',
         add_parcel_carrier: 'Transportør',
@@ -2580,6 +2607,8 @@ const TRANSLATIONS = {
         delhivery_account_help: 'Delhivery nie ma konta ani kodu pocztowego — pozostaw to pole puste; czujniki nazywają się sensor.delhivery_*.',
         sunyou_account_help: 'SunYou nie ma konta ani kodu pocztowego — pozostaw to pole puste; czujniki nazywają się sensor.sunyou_*.',
         quickpac_account_help: 'Quickpac nie ma konta ani kodu pocztowego — pozostaw to pole puste; czujniki nazywają się sensor.quickpac_*.',
+        shopee_xpress_account_help: 'Shopee Xpress nie ma konta ani kodu pocztowego — pozostaw to pole puste; czujniki nazywają się sensor.shopee_xpress_*.',
+        ceska_posta_account_help: 'Ceska Posta nie ma konta ani kodu pocztowego — pozostaw to pole puste; czujniki nazywają się sensor.ceska_posta_*.',
         show_add_parcel: 'Pokaż "Dodaj paczkę" na karcie',
         add_parcel_toggle: '+ Dodaj paczkę',
         add_parcel_carrier: 'Przewoźnik',
@@ -2760,6 +2789,8 @@ const TRANSLATIONS = {
         delhivery_account_help: 'A Delhivery não tem conta nem código postal — deixe este campo vazio; os sensores chamam-se sensor.delhivery_*.',
         sunyou_account_help: 'A SunYou não tem conta nem código postal — deixe este campo vazio; os sensores chamam-se sensor.sunyou_*.',
         quickpac_account_help: 'A Quickpac não tem conta nem código postal — deixe este campo vazio; os sensores chamam-se sensor.quickpac_*.',
+        shopee_xpress_account_help: 'A Shopee Xpress não tem conta nem código postal — deixe este campo vazio; os sensores chamam-se sensor.shopee_xpress_*.',
+        ceska_posta_account_help: 'A Ceska Posta não tem conta nem código postal — deixe este campo vazio; os sensores chamam-se sensor.ceska_posta_*.',
         show_add_parcel: 'Mostrar "Adicionar encomenda" no cartão',
         add_parcel_toggle: '+ Adicionar encomenda',
         add_parcel_carrier: 'Transportadora',
@@ -2940,6 +2971,8 @@ const TRANSLATIONS = {
         delhivery_account_help: 'Delhivery nu are cont sau cod poștal — lăsați acest câmp gol; senzorii se numesc sensor.delhivery_*.',
         sunyou_account_help: 'SunYou nu are cont sau cod poștal — lăsați acest câmp gol; senzorii se numesc sensor.sunyou_*.',
         quickpac_account_help: 'Quickpac nu are cont sau cod poștal — lăsați acest câmp gol; senzorii se numesc sensor.quickpac_*.',
+        shopee_xpress_account_help: 'Shopee Xpress nu are cont sau cod poștal — lăsați acest câmp gol; senzorii se numesc sensor.shopee_xpress_*.',
+        ceska_posta_account_help: 'Ceska Posta nu are cont sau cod poștal — lăsați acest câmp gol; senzorii se numesc sensor.ceska_posta_*.',
         show_add_parcel: 'Afișează "Adaugă colet" pe card',
         add_parcel_toggle: '+ Adaugă colet',
         add_parcel_carrier: 'Curier',
@@ -3120,6 +3153,8 @@ const TRANSLATIONS = {
         delhivery_account_help: 'Delhivery nemá účet ani PSČ — ponechajte toto pole prázdne; senzory sa volajú sensor.delhivery_*.',
         sunyou_account_help: 'SunYou nemá účet ani PSČ — ponechajte toto pole prázdne; senzory sa volajú sensor.sunyou_*.',
         quickpac_account_help: 'Quickpac nemá účet ani PSČ — ponechajte toto pole prázdne; senzory sa volajú sensor.quickpac_*.',
+        shopee_xpress_account_help: 'Shopee Xpress nemá účet ani PSČ — ponechajte toto pole prázdne; senzory sa volajú sensor.shopee_xpress_*.',
+        ceska_posta_account_help: 'Ceska Posta nemá účet ani PSČ — ponechajte toto pole prázdne; senzory sa volajú sensor.ceska_posta_*.',
         show_add_parcel: 'Zobraziť "Pridať zásielku" na karte',
         add_parcel_toggle: '+ Pridať zásielku',
         add_parcel_carrier: 'Dopravca',
@@ -3300,6 +3335,8 @@ const TRANSLATIONS = {
         delhivery_account_help: 'Delhivery har inget konto eller postnummer — lämna detta fält tomt; sensorerna heter sensor.delhivery_*.',
         sunyou_account_help: 'SunYou har inget konto eller postnummer — lämna detta fält tomt; sensorerna heter sensor.sunyou_*.',
         quickpac_account_help: 'Quickpac har inget konto eller postnummer — lämna detta fält tomt; sensorerna heter sensor.quickpac_*.',
+        shopee_xpress_account_help: 'Shopee Xpress har inget konto eller postnummer — lämna detta fält tomt; sensorerna heter sensor.shopee_xpress_*.',
+        ceska_posta_account_help: 'Ceska Posta har inget konto eller postnummer — lämna detta fält tomt; sensorerna heter sensor.ceska_posta_*.',
         show_add_parcel: 'Visa "Lägg till paket" på kortet',
         add_parcel_toggle: '+ Lägg till paket',
         add_parcel_carrier: 'Transportör',
@@ -3480,6 +3517,8 @@ const TRANSLATIONS = {
         delhivery_account_help: 'Delhivery не має облікового запису чи поштового індексу — залиште це поле порожнім; сенсори називаються sensor.delhivery_*.',
         sunyou_account_help: 'SunYou не має облікового запису чи поштового індексу — залиште це поле порожнім; сенсори називаються sensor.sunyou_*.',
         quickpac_account_help: 'Quickpac не має облікового запису чи поштового індексу — залиште це поле порожнім; сенсори називаються sensor.quickpac_*.',
+        shopee_xpress_account_help: 'Shopee Xpress не має облікового запису чи поштового індексу — залиште це поле порожнім; сенсори називаються sensor.shopee_xpress_*.',
+        ceska_posta_account_help: 'Ceska Posta не має облікового запису чи поштового індексу — залиште це поле порожнім; сенсори називаються sensor.ceska_posta_*.',
         show_add_parcel: 'Показати "Додати посилку" на картці',
         add_parcel_toggle: '+ Додати посилку',
         add_parcel_carrier: 'Перевізник',
@@ -3575,6 +3614,11 @@ const IMG = {
     sunyou:    `${REPO_BASE}/sunyou`,
     an_post:   `${REPO_BASE}/an_post`,
     quickpac:  `${REPO_BASE}/quickpac`,
+    inpost:    `${REPO_BASE}/inpost`,
+    ppl_cz:    `${REPO_BASE}/ppl_cz`,
+    shopee_xpress: `${REPO_BASE}/shopee_xpress`,
+    ceska_posta: `${REPO_BASE}/ceska_posta`,
+    ampere:      `${REPO_BASE}/ampere`,
 };
 
 // Points at the ha-parcel-integrations org, not the individual maintainers' personal repos
@@ -3608,6 +3652,11 @@ const CARRIER_REPO_URLS = {
     sunyou:    'https://github.com/ha-parcel-integrations/ha-sunyou',
     an_post:   'https://github.com/ha-parcel-integrations/ha-an-post',
     quickpac:  'https://github.com/ha-parcel-integrations/ha-quickpac',
+    inpost:    'https://github.com/ha-parcel-integrations/ha-inpost',
+    ppl_cz:    'https://github.com/ha-parcel-integrations/ha-ppl-cz',
+    shopee_xpress: 'https://github.com/ha-parcel-integrations/ha-shopee-xpress',
+    ceska_posta: 'https://github.com/ha-parcel-integrations/ha-ceska-posta',
+    ampere:      'https://github.com/ha-parcel-integrations/ha-ampere',
 };
 
 const CARRIER_ASSETS = {
@@ -4002,6 +4051,101 @@ const CARRIER_ASSETS = {
             delivered_mini:  `${IMG.quickpac}/quickpac_step_delivered_mini.png?raw=true`
         }
     },
+    // InPost art: step icons and the animated van are the shared GLS master illustration
+    // hue-shifted to the confirmed brand yellow (#ffcc05, read from InPost's own site CSS custom
+    // properties --color-primary/--yellow). A straight hue-rotate that preserves GLS's original
+    // brand-blue value (~0.69) came out looking olive/mustard rather than InPost's bright yellow —
+    // yellow needs much higher V to read as "yellow" instead of "dark yellow" — so the value was
+    // additionally rescaled (×1.449) to bring the flat brand fill up to V=1.0 before hue-rotating.
+    // The logo/badges are InPost's own sun-and-crescent-moon mark + "InPost" wordmark.
+    inpost: {
+        logo:   `${IMG.inpost}/inpost-logo.svg?raw=true`,
+        van:    `${IMG.inpost}/inpost-van.gif?raw=true`,
+        banner: `${IMG.inpost}/inpost-banner.png?raw=true`,
+        steps: {
+            registered:      `${IMG.inpost}/inpost_step_registered.png?raw=true`,
+            registered_mini: `${IMG.inpost}/inpost_step_registered_mini.png?raw=true`,
+            sorting:         `${IMG.inpost}/inpost_step_sorting.png?raw=true`,
+            transit:         `${IMG.inpost}/inpost_step_transit.png?raw=true`,
+            delivered:       `${IMG.inpost}/inpost_step_delivered.png?raw=true`,
+            delivered_mini:  `${IMG.inpost}/inpost_step_delivered_mini.png?raw=true`
+        }
+    },
+    // PPL CZ art: step icons and the animated van are the shared GLS master illustration
+    // hue-shifted to the confirmed brand blue (#004B93, pixel-sampled from PPL's own official
+    // header logo SVG — matches the --primary CSS custom property on ppl.cz too). The logo is
+    // PPL's own "speed lines + PPL" wordmark, isolated from their combined header logo (which
+    // also bundles a "a company of DHL" sub-badge — that sub-badge was cropped out, not carried
+    // over, since PPL is the carrier the sensors actually belong to).
+    ppl_cz: {
+        logo:   `${IMG.ppl_cz}/ppl_cz-logo.svg?raw=true`,
+        van:    `${IMG.ppl_cz}/ppl_cz-van.gif?raw=true`,
+        banner: `${IMG.ppl_cz}/ppl_cz-banner.png?raw=true`,
+        steps: {
+            registered:      `${IMG.ppl_cz}/ppl_cz_step_registered.png?raw=true`,
+            registered_mini: `${IMG.ppl_cz}/ppl_cz_step_registered_mini.png?raw=true`,
+            sorting:         `${IMG.ppl_cz}/ppl_cz_step_sorting.png?raw=true`,
+            transit:         `${IMG.ppl_cz}/ppl_cz_step_transit.png?raw=true`,
+            delivered:       `${IMG.ppl_cz}/ppl_cz_step_delivered.png?raw=true`,
+            delivered_mini:  `${IMG.ppl_cz}/ppl_cz_step_delivered_mini.png?raw=true`
+        }
+    },
+    // Shopee Xpress art: step icons and the animated van are the shared GLS master illustration
+    // hue-shifted to the confirmed brand orange (#EE4D2D, pixel-sampled from SPX's own official
+    // logo SVG served from spx.co.id — the same orange as Shopee's own consumer brand, since SPX
+    // is Shopee's in-house logistics arm). The small badges use just the "SPX" letters (dropping
+    // the small "EXPRESS" subtitle, illegible at that size); the sorting badge and banner use the
+    // full "SPX EXPRESS" wordmark with its angled underline accent.
+    shopee_xpress: {
+        logo:   `${IMG.shopee_xpress}/shopee_xpress-logo.svg?raw=true`,
+        van:    `${IMG.shopee_xpress}/shopee_xpress-van.gif?raw=true`,
+        banner: `${IMG.shopee_xpress}/shopee_xpress-banner.png?raw=true`,
+        steps: {
+            registered:      `${IMG.shopee_xpress}/shopee_xpress_step_registered.png?raw=true`,
+            registered_mini: `${IMG.shopee_xpress}/shopee_xpress_step_registered_mini.png?raw=true`,
+            sorting:         `${IMG.shopee_xpress}/shopee_xpress_step_sorting.png?raw=true`,
+            transit:         `${IMG.shopee_xpress}/shopee_xpress_step_transit.png?raw=true`,
+            delivered:       `${IMG.shopee_xpress}/shopee_xpress_step_delivered.png?raw=true`,
+            delivered_mini:  `${IMG.shopee_xpress}/shopee_xpress_step_delivered_mini.png?raw=true`
+        }
+    },
+    // Ceska Posta art: step icons and the animated van are the shared GLS master illustration
+    // hue-shifted to the confirmed brand yellow (#FECE22, pixel-sampled from Ceska Posta's own
+    // official logo SVG served from ceskaposta.cz — the postal-horn swirl mark, not the site's UI
+    // accent blue). The small badges use just that yellow swirl mark, white on a yellow square;
+    // the sorting badge and banner use the full two-colour "swirl + Česká pošta" wordmark.
+    ceska_posta: {
+        logo:   `${IMG.ceska_posta}/ceska_posta-logo.svg?raw=true`,
+        van:    `${IMG.ceska_posta}/ceska_posta-van.gif?raw=true`,
+        banner: `${IMG.ceska_posta}/ceska_posta-banner.png?raw=true`,
+        steps: {
+            registered:      `${IMG.ceska_posta}/ceska_posta_step_registered.png?raw=true`,
+            registered_mini: `${IMG.ceska_posta}/ceska_posta_step_registered_mini.png?raw=true`,
+            sorting:         `${IMG.ceska_posta}/ceska_posta_step_sorting.png?raw=true`,
+            transit:         `${IMG.ceska_posta}/ceska_posta_step_transit.png?raw=true`,
+            delivered:       `${IMG.ceska_posta}/ceska_posta_step_delivered.png?raw=true`,
+            delivered_mini:  `${IMG.ceska_posta}/ceska_posta_step_delivered_mini.png?raw=true`
+        }
+    },
+    // Ampère art: step icons and the animated van are the shared GLS master illustration
+    // hue-shifted to the confirmed brand green (#00CC7A, pixel-sampled from Ampère's own logo SVG
+    // on amperebezorgt.nl — Ampère is bol.com's own electric last-mile delivery fleet in NL, hence
+    // the green/EV branding). The wordmark has no separable pictorial mark (the speed-lines are
+    // part of the slanted "A" letterform itself), so the small badges use a plain white "A"
+    // initial instead — same fallback already used for PostNord's "P" badge.
+    ampere: {
+        logo:   `${IMG.ampere}/ampere-logo.svg?raw=true`,
+        van:    `${IMG.ampere}/ampere-van.gif?raw=true`,
+        banner: `${IMG.ampere}/ampere-banner.png?raw=true`,
+        steps: {
+            registered:      `${IMG.ampere}/ampere_step_registered.png?raw=true`,
+            registered_mini: `${IMG.ampere}/ampere_step_registered_mini.png?raw=true`,
+            sorting:         `${IMG.ampere}/ampere_step_sorting.png?raw=true`,
+            transit:         `${IMG.ampere}/ampere_step_transit.png?raw=true`,
+            delivered:       `${IMG.ampere}/ampere_step_delivered.png?raw=true`,
+            delivered_mini:  `${IMG.ampere}/ampere_step_delivered_mini.png?raw=true`
+        }
+    },
     custom: { logo: null, van: null, banner: null }
 };
 
@@ -4143,6 +4287,46 @@ const CARRIER_PRESETS = {
     // "pac" half is plain near-black text, not an accent). Tracking code only, no postal code.
     quickpac:     { label: 'Quickpac',                   icon: 'mdi:package-variant-closed', color: '#34a02e', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'quickpac',
                     track_parcel_service: { domain: 'quickpac', field: 'tracking_code', supports_postal_code: false } },
+    // Pure account-based, like postnl/dhl/dpd — no track_parcel/untrack_parcel service at all
+    // (confirmed: ha-inpost's button.py only has a "refresh" button, no services.yaml). Auth is
+    // phone number + SMS code through InPost's own consumer app API, which then lists every
+    // inbound parcel on the account automatically — there is no "+ Add parcel by code" control
+    // for this carrier, same as PostNL/DHL/DPD. Brand colour read straight from InPost's own site
+    // CSS (--color-primary/--yellow: #ffcc05). Incoming only — ha-inpost has no
+    // outgoing/outgoing_delivered sensor, and it doesn't support letters.
+    inpost:       { label: 'InPost',                     icon: 'mdi:package-variant-closed', color: '#ffcc05', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'inpost' },
+    // Pure account-based (passwordless email + PIN through mojePPL, an Azure B2C login) — no
+    // track_parcel/untrack_parcel service, same as postnl/dhl/dpd/inpost. Unlike those, ha-ppl-cz
+    // DOES expose outgoing_parcels/outgoing_delivered_parcels sensors, so supports_outgoing stays
+    // true here. Brand colour pixel-sampled from PPL's own official logo SVG (#004B93), matching
+    // the --primary CSS custom property on ppl.cz.
+    ppl_cz:       { label: 'PPL CZ',                     icon: 'mdi:package-variant-closed', color: '#004B93', schema: 'canonical',     supports_letters: false, sensor_slug: 'ppl_cz' },
+    // Tracking-code based, like sunyou/delhivery. ha-shopee-xpress's track_parcel service also
+    // accepts an optional `market` field (BR/ID/MY/PH/TH/VN) to override which of its six
+    // regional backends a code is checked against — each config entry/account already picks one
+    // home market at setup, though, so the override is an edge case (tracking a code from a
+    // different market than the account's own), not needed for the normal "+ Add parcel" flow;
+    // deliberately not wired into the UI, same reasoning as leaving supports_postal_code off
+    // carriers that don't need it. Brand colour pixel-sampled from SPX's own official logo SVG
+    // (#EE4D2D — the same orange as parent company Shopee's consumer brand). Incoming only — no
+    // outgoing/outgoing_delivered sensor.
+    shopee_xpress: { label: 'Shopee Xpress',             icon: 'mdi:package-variant-closed', color: '#EE4D2D', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'shopee_xpress',
+                    track_parcel_service: { domain: 'shopee_xpress', field: 'tracking_code', supports_postal_code: false } },
+    // Tracking-code based, keyless/unauthenticated API — no postal code or config_entry_id
+    // needed. Brand colour pixel-sampled from Ceska Posta's own official logo SVG (#FECE22, the
+    // postal-horn swirl mark), not the ceskaposta.cz site's UI accent blue (#3261C0), matching
+    // the DHL precedent of picking the icon-associated colour over the wordmark's text colour.
+    // Incoming only — ha-ceska-posta has no outgoing/outgoing_delivered sensor.
+    ceska_posta:  { label: 'Ceska Posta',                icon: 'mdi:package-variant-closed', color: '#FECE22', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'ceska_posta',
+                    track_parcel_service: { domain: 'ceska_posta', field: 'tracking_code', supports_postal_code: false } },
+    // Pure account-based like postnl/dhl/dpd/inpost/ppl_cz — no track_parcel/untrack_parcel
+    // service at all (no services.yaml in ha-ampere), so no "+ Add parcel" control for this
+    // carrier. Setup is a one-time emailed bol.com tracking-link exchange, not a
+    // username/password login, but functions the same way from the card's side: sensors just
+    // appear once the integration's own config flow captures that link. Brand colour read
+    // straight from Ampère's own site logo SVG (#00CC7A). Incoming only — no
+    // outgoing/outgoing_delivered sensor, and no letters support.
+    ampere:       { label: 'Ampère',                     icon: 'mdi:package-variant-closed', color: '#00CC7A', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'ampere' },
     custom:       { label: 'Custom',                     icon: 'mdi:package-variant-closed', color: '#ed8c00', schema: 'canonical',     supports_letters: false, sensor_slug: null     }
 };
 
@@ -4449,7 +4633,7 @@ function detectCarrierUsers(hass, carrierType) {
 // The carrier types offered for auto-population when the card is first added
 // (HaParcelCard.getStubConfig). Excludes custom (sensor_slug is null — no
 // entity-based detection is possible for it).
-const AUTO_DETECT_CARRIER_TYPES = ['postnl', 'dhl', 'dpd', 'vinted_go', 'gls', 'dragonfly', 'trunkrs', 'cainiao', 'hermes', 'packeta', 'correos', 'postnord', 'sameday', 'swiss_post', 'planzer', 'austrian_post', 'helthjem', 'dynalogic', 'budbee', 'nova_post', 'delhivery', 'sunyou', 'an_post', 'quickpac'];
+const AUTO_DETECT_CARRIER_TYPES = ['postnl', 'dhl', 'dpd', 'vinted_go', 'gls', 'dragonfly', 'trunkrs', 'cainiao', 'hermes', 'packeta', 'correos', 'postnord', 'sameday', 'swiss_post', 'planzer', 'austrian_post', 'helthjem', 'dynalogic', 'budbee', 'nova_post', 'delhivery', 'sunyou', 'an_post', 'quickpac', 'inpost', 'ppl_cz', 'shopee_xpress', 'ceska_posta', 'ampere'];
 
 // Infers a sensible days_back for a freshly auto-populated card: the number
 // of days since the oldest currently-visible delivered parcel, across every
@@ -7294,6 +7478,9 @@ class HaParcelCardEditor extends LitElement {
             nova_post: 'nova_post_account_help',
             delhivery: 'delhivery_account_help',
             sunyou: 'sunyou_account_help',
+            quickpac: 'quickpac_account_help',
+            shopee_xpress: 'shopee_xpress_account_help',
+            ceska_posta: 'ceska_posta_account_help',
         }[carrierType];
         if (key) return this._t(key);
         return html`"_${preset.sensor_slug}${this._t('account_help_suffix')}`;
@@ -7467,6 +7654,11 @@ class HaParcelCardEditor extends LitElement {
                             { value: 'sunyou',        label: 'SunYou' },
                             { value: 'an_post',       label: 'An Post' },
                             { value: 'quickpac',      label: 'Quickpac' },
+                            { value: 'inpost',        label: 'InPost' },
+                            { value: 'ppl_cz',        label: 'PPL CZ' },
+                            { value: 'shopee_xpress', label: 'Shopee Xpress' },
+                            { value: 'ceska_posta',   label: 'Ceska Posta' },
+                            { value: 'ampere',        label: 'Ampère' },
                             { value: 'custom',        label: 'Custom' }
                         ], mode: 'dropdown' } }}
                         .value=${carrier.type || 'postnl'} .label=${"Carrier"}

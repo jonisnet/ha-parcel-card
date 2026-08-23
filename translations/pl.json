@@ -126,6 +126,8 @@
     "delhivery_account_help": "Delhivery nie ma konta ani kodu pocztowego — pozostaw to pole puste; czujniki nazywają się sensor.delhivery_*.",
     "sunyou_account_help": "SunYou nie ma konta ani kodu pocztowego — pozostaw to pole puste; czujniki nazywają się sensor.sunyou_*.",
     "quickpac_account_help": "Quickpac nie ma konta ani kodu pocztowego — pozostaw to pole puste; czujniki nazywają się sensor.quickpac_*.",
+    "shopee_xpress_account_help": "Shopee Xpress nie ma konta ani kodu pocztowego — pozostaw to pole puste; czujniki nazywają się sensor.shopee_xpress_*.",
+    "ceska_posta_account_help": "Ceska Posta nie ma konta ani kodu pocztowego — pozostaw to pole puste; czujniki nazywają się sensor.ceska_posta_*.",
     "show_add_parcel": "Pokaż \"Dodaj paczkę\" na karcie",
     "add_parcel_toggle": "+ Dodaj paczkę",
     "add_parcel_carrier": "Przewoźnik",

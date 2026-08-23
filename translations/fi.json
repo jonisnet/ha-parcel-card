@@ -126,6 +126,8 @@
     "delhivery_account_help": "Delhiverylla ei ole tiliä tai postinumeroa — jätä tämä kenttä tyhjäksi; anturit nimetään sensor.delhivery_*.",
     "sunyou_account_help": "SunYoulla ei ole tiliä tai postinumeroa — jätä tämä kenttä tyhjäksi; anturit nimetään sensor.sunyou_*.",
     "quickpac_account_help": "Quickpaclla ei ole tiliä tai postinumeroa — jätä tämä kenttä tyhjäksi; anturit nimetään sensor.quickpac_*.",
+    "shopee_xpress_account_help": "Shopee Xpresslla ei ole tiliä tai postinumeroa — jätä tämä kenttä tyhjäksi; anturit nimetään sensor.shopee_xpress_*.",
+    "ceska_posta_account_help": "Ceska Postalla ei ole tiliä tai postinumeroa — jätä tämä kenttä tyhjäksi; anturit nimetään sensor.ceska_posta_*.",
     "show_add_parcel": "Näytä \"Lisää paketti\" kortissa",
     "add_parcel_toggle": "+ Lisää paketti",
     "add_parcel_carrier": "Kuljetusyhtiö",

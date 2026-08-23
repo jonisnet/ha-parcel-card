@@ -126,6 +126,8 @@
     "delhivery_account_help": "Delhivery не має облікового запису чи поштового індексу — залиште це поле порожнім; сенсори називаються sensor.delhivery_*.",
     "sunyou_account_help": "SunYou не має облікового запису чи поштового індексу — залиште це поле порожнім; сенсори називаються sensor.sunyou_*.",
     "quickpac_account_help": "Quickpac не має облікового запису чи поштового індексу — залиште це поле порожнім; сенсори називаються sensor.quickpac_*.",
+    "shopee_xpress_account_help": "Shopee Xpress не має облікового запису чи поштового індексу — залиште це поле порожнім; сенсори називаються sensor.shopee_xpress_*.",
+    "ceska_posta_account_help": "Ceska Posta не має облікового запису чи поштового індексу — залиште це поле порожнім; сенсори називаються sensor.ceska_posta_*.",
     "show_add_parcel": "Показати \"Додати посилку\" на картці",
     "add_parcel_toggle": "+ Додати посилку",
     "add_parcel_carrier": "Перевізник",
