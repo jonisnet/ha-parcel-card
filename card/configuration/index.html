@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Track parcels from PostNL, DHL, DPD, Vinted Go, GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee, Nova Post, Delhivery and SunYou in a single Home Assistant card.">
+        <meta name="description" content="Track parcels from all 68 ha-parcel-integrations carriers — PostNL, DHL, DPD, UPS, FedEx, USPS, GLS, bpost, La Poste, Evri and many more — in a single Home Assistant card.">
       
       
       
@@ -967,7 +967,7 @@
 <td><code>show_add_parcel</code></td>
 <td>boolean</td>
 <td><code>true</code></td>
-<td>Show the "+ Add parcel" control at the bottom of the card (only appears when at least one configured carrier supports it — GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee, Nova Post, Delhivery, SunYou)</td>
+<td>Show the "+ Add parcel" control at the bottom of the card (only appears when at least one configured carrier's integration has a <code>track_parcel</code> service — see <a href="#carrier-types">Carrier types</a>)</td>
 </tr>
 <tr>
 <td><code>show_raw_status</code></td>
@@ -1117,12 +1117,12 @@
 <tr>
 <td><code>entity_outgoing</code></td>
 <td>string</td>
-<td>Sensor for outgoing parcels in transit (not applicable for GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Nova Post, Delhivery, SunYou)</td>
+<td>Sensor for outgoing parcels in transit (only for carriers with a Sent tab — see <a href="#carrier-types">Carrier types</a>)</td>
 </tr>
 <tr>
 <td><code>entity_outgoing_delivered</code></td>
 <td>string</td>
-<td>Sensor for delivered outgoing parcels (not applicable for GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Nova Post, Delhivery, SunYou)</td>
+<td>Sensor for delivered outgoing parcels (only for carriers with a Sent tab — see <a href="#carrier-types">Carrier types</a>)</td>
 </tr>
 <tr>
 <td><code>entity_letters</code></td>
@@ -1139,194 +1139,562 @@
 <th>Type</th>
 <th>Label in editor</th>
 <th>Integration</th>
-<th>Schema</th>
 <th style="text-align: center;">Letters</th>
+<th style="text-align: center;">Sent tab</th>
 <th style="text-align: center;">Add parcel from card</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>postnl</code></td>
-<td>PostNL</td>
-<td>ha-parcel-integrations/ha-postnl ≥ 4.0.0</td>
-<td>canonical</td>
-<td style="text-align: center;">✅</td>
+<td><code>fourpx</code></td>
+<td>4PX</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-4px">ha-parcel-integrations/ha-4px</a></td>
 <td style="text-align: center;">—</td>
-</tr>
-<tr>
-<td><code>dhl</code></td>
-<td>DHL</td>
-<td>ha-parcel-integrations/ha-dhl-nl</td>
-<td>canonical</td>
-<td style="text-align: center;">—</td>
-<td style="text-align: center;">—</td>
-</tr>
-<tr>
-<td><code>dpd</code></td>
-<td>DPD</td>
-<td>ha-parcel-integrations/ha-dpd</td>
-<td>canonical</td>
-<td style="text-align: center;">—</td>
-<td style="text-align: center;">—</td>
-</tr>
-<tr>
-<td><code>vinted_go</code></td>
-<td>Vinted Go</td>
-<td>ha-parcel-integrations/ha-vinted-go</td>
-<td>canonical</td>
-<td style="text-align: center;">—</td>
-<td style="text-align: center;">—</td>
-</tr>
-<tr>
-<td><code>gls</code></td>
-<td>GLS</td>
-<td>ha-parcel-integrations/ha-gls</td>
-<td>canonical</td>
 <td style="text-align: center;">—</td>
 <td style="text-align: center;">✅</td>
 </tr>
 <tr>
-<td><code>dragonfly</code></td>
-<td>Dragonfly</td>
-<td>ha-parcel-integrations/ha-dragonfly</td>
-<td>canonical</td>
+<td><code>airmee</code></td>
+<td>Airmee</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-airmee">ha-parcel-integrations/ha-airmee</a></td>
+<td style="text-align: center;">—</td>
 <td style="text-align: center;">—</td>
 <td style="text-align: center;">✅</td>
 </tr>
 <tr>
-<td><code>trunkrs</code></td>
-<td>Trunkrs</td>
-<td>ha-parcel-integrations/ha-trunkrs</td>
-<td>canonical</td>
+<td><code>amazon_orders</code></td>
+<td>Amazon</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-amazon">ha-parcel-integrations/ha-amazon</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr>
+<td><code>ampere</code></td>
+<td>Ampère</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-ampere">ha-parcel-integrations/ha-ampere</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr>
+<td><code>an_post</code></td>
+<td>An Post</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-an-post">ha-parcel-integrations/ha-an-post</a></td>
+<td style="text-align: center;">—</td>
 <td style="text-align: center;">—</td>
 <td style="text-align: center;">✅</td>
 </tr>
 <tr>
-<td><code>cainiao</code></td>
-<td>Cainiao</td>
-<td>ha-parcel-integrations/ha-cainiao</td>
-<td>canonical</td>
+<td><code>apple_express</code></td>
+<td>Apple Express</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-apple-express">ha-parcel-integrations/ha-apple-express</a></td>
+<td style="text-align: center;">—</td>
 <td style="text-align: center;">—</td>
 <td style="text-align: center;">✅</td>
 </tr>
 <tr>
-<td><code>hermes</code></td>
-<td>Hermes</td>
-<td>ha-parcel-integrations/ha-hermes</td>
-<td>canonical</td>
+<td><code>aramex</code></td>
+<td>Aramex</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-aramex">ha-parcel-integrations/ha-aramex</a></td>
 <td style="text-align: center;">—</td>
-<td style="text-align: center;">✅</td>
-</tr>
-<tr>
-<td><code>packeta</code></td>
-<td>Packeta</td>
-<td>ha-parcel-integrations/ha-packeta</td>
-<td>canonical</td>
-<td style="text-align: center;">—</td>
-<td style="text-align: center;">✅</td>
-</tr>
-<tr>
-<td><code>correos</code></td>
-<td>Correos</td>
-<td>ha-parcel-integrations/ha-correos</td>
-<td>canonical</td>
-<td style="text-align: center;">—</td>
-<td style="text-align: center;">✅</td>
-</tr>
-<tr>
-<td><code>postnord</code></td>
-<td>PostNord</td>
-<td>ha-parcel-integrations/ha-postnord</td>
-<td>canonical</td>
-<td style="text-align: center;">—</td>
-<td style="text-align: center;">✅</td>
-</tr>
-<tr>
-<td><code>sameday</code></td>
-<td>Sameday</td>
-<td>ha-parcel-integrations/ha-sameday</td>
-<td>canonical</td>
-<td style="text-align: center;">—</td>
-<td style="text-align: center;">✅</td>
-</tr>
-<tr>
-<td><code>swiss_post</code></td>
-<td>Swiss Post</td>
-<td>ha-parcel-integrations/ha-swiss-post</td>
-<td>canonical</td>
-<td style="text-align: center;">—</td>
-<td style="text-align: center;">✅</td>
-</tr>
-<tr>
-<td><code>planzer</code></td>
-<td>Planzer</td>
-<td>ha-parcel-integrations/ha-planzer</td>
-<td>canonical</td>
 <td style="text-align: center;">—</td>
 <td style="text-align: center;">✅</td>
 </tr>
 <tr>
 <td><code>austrian_post</code></td>
 <td>Austrian Post</td>
-<td>ha-parcel-integrations/ha-oesterreichische-post</td>
-<td>canonical</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-oesterreichische-post">ha-parcel-integrations/ha-oesterreichische-post</a></td>
+<td style="text-align: center;">—</td>
 <td style="text-align: center;">—</td>
 <td style="text-align: center;">✅</td>
 </tr>
 <tr>
-<td><code>helthjem</code></td>
-<td>Helthjem</td>
-<td>ha-parcel-integrations/ha-helthjem</td>
-<td>canonical</td>
+<td><code>better_trucks</code></td>
+<td>Better Trucks</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-better-trucks">ha-parcel-integrations/ha-better-trucks</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>boxnow</code></td>
+<td>BoxNow</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-boxnow">ha-parcel-integrations/ha-boxnow</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>bpost</code></td>
+<td>bpost</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-bpost">ha-parcel-integrations/ha-bpost</a></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>budbee</code></td>
+<td>Budbee</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-budbee">ha-parcel-integrations/ha-budbee</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>cainiao</code></td>
+<td>Cainiao</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-cainiao">ha-parcel-integrations/ha-cainiao</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>canada_post</code></td>
+<td>Canada Post</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-canada-post">ha-parcel-integrations/ha-canada-post</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>canpar</code></td>
+<td>Canpar</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-canpar">ha-parcel-integrations/ha-canpar</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>ceska_posta</code></td>
+<td>Ceska Posta</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-ceska-posta">ha-parcel-integrations/ha-ceska-posta</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>correos</code></td>
+<td>Correos</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-correos">ha-parcel-integrations/ha-correos</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>ctt</code></td>
+<td>CTT</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-ctt">ha-parcel-integrations/ha-ctt</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>dao</code></td>
+<td>DAO</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-dao">ha-parcel-integrations/ha-dao</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr>
+<td><code>delhivery</code></td>
+<td>Delhivery</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-delhivery">ha-parcel-integrations/ha-delhivery</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>dhl_global</code></td>
+<td>DHL</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-dhl">ha-parcel-integrations/ha-dhl</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>dhl</code></td>
+<td>DHL NL</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-dhl-nl">ha-parcel-integrations/ha-dhl-nl</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr>
+<td><code>dpd</code></td>
+<td>DPD</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-dpd">ha-parcel-integrations/ha-dpd</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr>
+<td><code>dragonfly</code></td>
+<td>Dragonfly</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-dragonfly">ha-parcel-integrations/ha-dragonfly</a></td>
+<td style="text-align: center;">—</td>
 <td style="text-align: center;">—</td>
 <td style="text-align: center;">✅</td>
 </tr>
 <tr>
 <td><code>dynalogic</code></td>
 <td>Dynalogic</td>
-<td>ha-parcel-integrations/ha-dynalogic</td>
-<td>canonical</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-dynalogic">ha-parcel-integrations/ha-dynalogic</a></td>
+<td style="text-align: center;">—</td>
 <td style="text-align: center;">—</td>
 <td style="text-align: center;">✅</td>
 </tr>
 <tr>
-<td><code>budbee</code></td>
-<td>Budbee</td>
-<td>ha-parcel-integrations/ha-budbee</td>
-<td>canonical</td>
+<td><code>econt</code></td>
+<td>Econt</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-econt">ha-parcel-integrations/ha-econt</a></td>
+<td style="text-align: center;">—</td>
 <td style="text-align: center;">—</td>
 <td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>elta_courier</code></td>
+<td>ELTA Courier</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-elta-courier">ha-parcel-integrations/ha-elta-courier</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>evri</code></td>
+<td>Evri</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-evri">ha-parcel-integrations/ha-evri</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>fan_courier</code></td>
+<td>FAN Courier</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-fan-courier">ha-parcel-integrations/ha-fan-courier</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>fedex</code></td>
+<td>FedEx</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-fedex">ha-parcel-integrations/ha-fedex</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>gls</code></td>
+<td>GLS</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-gls">ha-parcel-integrations/ha-gls</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>gofo</code></td>
+<td>GOFO Express</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-gofo">ha-parcel-integrations/ha-gofo</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>helthjem</code></td>
+<td>Helthjem</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-helthjem">ha-parcel-integrations/ha-helthjem</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>hermes</code></td>
+<td>Hermes</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-hermes">ha-parcel-integrations/ha-hermes</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>ics_courier</code></td>
+<td>ICS Courier</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-ics-courier">ha-parcel-integrations/ha-ics-courier</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>inpost</code></td>
+<td>InPost</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-inpost">ha-parcel-integrations/ha-inpost</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>laposte</code></td>
+<td>La Poste</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-laposte">ha-parcel-integrations/ha-laposte</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>matkahuolto</code></td>
+<td>Matkahuolto</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-matkahuolto">ha-parcel-integrations/ha-matkahuolto</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>mondial_relay</code></td>
+<td>Mondial Relay</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-mondial-relay">ha-parcel-integrations/ha-mondial-relay</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">—</td>
 </tr>
 <tr>
 <td><code>nova_post</code></td>
 <td>Nova Post</td>
-<td>ha-parcel-integrations/ha-nova-post</td>
-<td>canonical</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-nova-post">ha-parcel-integrations/ha-nova-post</a></td>
+<td style="text-align: center;">—</td>
 <td style="text-align: center;">—</td>
 <td style="text-align: center;">✅</td>
 </tr>
 <tr>
-<td><code>delhivery</code></td>
-<td>Delhivery</td>
-<td>ha-parcel-integrations/ha-delhivery</td>
-<td>canonical</td>
+<td><code>nz_post</code></td>
+<td>NZ Post</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-nz-post">ha-parcel-integrations/ha-nz-post</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>ontrac</code></td>
+<td>OnTrac</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-ontrac">ha-parcel-integrations/ha-ontrac</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>orlen_paczka</code></td>
+<td>ORLEN Paczka</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-orlen-paczka">ha-parcel-integrations/ha-orlen-paczka</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>paack</code></td>
+<td>Paack</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-paack">ha-parcel-integrations/ha-paack</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>packeta</code></td>
+<td>Packeta</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-packeta">ha-parcel-integrations/ha-packeta</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>planzer</code></td>
+<td>Planzer</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-planzer">ha-parcel-integrations/ha-planzer</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>poczta_polska</code></td>
+<td>Poczta Polska</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-poczta-polska">ha-parcel-integrations/ha-poczta-polska</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>poste_italiane</code></td>
+<td>Poste Italiane</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-poste-italiane">ha-parcel-integrations/ha-poste-italiane</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>posten_bring</code></td>
+<td>Posten Bring</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-posten-bring">ha-parcel-integrations/ha-posten-bring</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr>
+<td><code>posti</code></td>
+<td>Posti</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-posti">ha-parcel-integrations/ha-posti</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>postnl</code></td>
+<td>PostNL</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-postnl">ha-parcel-integrations/ha-postnl</a></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr>
+<td><code>postnord</code></td>
+<td>PostNord</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-postnord">ha-parcel-integrations/ha-postnord</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>ppl_cz</code></td>
+<td>PPL CZ</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-ppl-cz">ha-parcel-integrations/ha-ppl-cz</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr>
+<td><code>purolator</code></td>
+<td>Purolator</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-purolator">ha-parcel-integrations/ha-purolator</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>quickpac</code></td>
+<td>Quickpac</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-quickpac">ha-parcel-integrations/ha-quickpac</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>sameday</code></td>
+<td>Sameday</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-sameday">ha-parcel-integrations/ha-sameday</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>seur</code></td>
+<td>SEUR</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-seur">ha-parcel-integrations/ha-seur</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr>
+<td><code>shopee_xpress</code></td>
+<td>Shopee Xpress</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-shopee-xpress">ha-parcel-integrations/ha-shopee-xpress</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>slovak_parcel_service</code></td>
+<td>Slovak Parcel Service</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-slovak-parcel-service">ha-parcel-integrations/ha-slovak-parcel-service</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>slovenska_posta</code></td>
+<td>Slovenská Pošta</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-slovenska-posta">ha-parcel-integrations/ha-slovenska-posta</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>speedx</code></td>
+<td>SpeedX</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-speedx">ha-parcel-integrations/ha-speedx</a></td>
+<td style="text-align: center;">—</td>
 <td style="text-align: center;">—</td>
 <td style="text-align: center;">✅</td>
 </tr>
 <tr>
 <td><code>sunyou</code></td>
 <td>SunYou</td>
-<td>ha-parcel-integrations/ha-sunyou</td>
-<td>canonical</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-sunyou">ha-parcel-integrations/ha-sunyou</a></td>
+<td style="text-align: center;">—</td>
 <td style="text-align: center;">—</td>
 <td style="text-align: center;">✅</td>
 </tr>
 <tr>
+<td><code>swiss_post</code></td>
+<td>Swiss Post</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-swiss-post">ha-parcel-integrations/ha-swiss-post</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>trunkrs</code></td>
+<td>Trunkrs</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-trunkrs">ha-parcel-integrations/ha-trunkrs</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>uniuni</code></td>
+<td>UniUni</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-uniuni">ha-parcel-integrations/ha-uniuni</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>ups</code></td>
+<td>UPS</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-ups">ha-parcel-integrations/ha-ups</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>usps</code></td>
+<td>USPS</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-usps">ha-parcel-integrations/ha-usps</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>vinted_go</code></td>
+<td>Vinted Go</td>
+<td><a href="https://github.com/ha-parcel-integrations/ha-vinted-go">ha-parcel-integrations/ha-vinted-go</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr>
 <td><code>custom</code></td>
 <td>Custom</td>
-<td>any</td>
-<td>canonical</td>
+<td>any integration following <a href="../../contract/">the contract</a></td>
 <td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
 <td style="text-align: center;">—</td>
 </tr>
 </tbody>
@@ -1336,16 +1704,12 @@
 <p>Both were removed in this v2.0 release, as announced ahead of time — see <a href="../../installation/#postnl">Installation</a>. The stable <a href="https://github.com/jonisnet/hki-parcels-card">hki-parcels-card</a> v1.x line still supports both.</p>
 </div>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><code>gls</code>, <code>dragonfly</code>, <code>trunkrs</code>, <code>cainiao</code>, <code>hermes</code>, <code>packeta</code>, <code>correos</code>, <code>postnord</code>, <code>sameday</code>, <code>swiss_post</code>, <code>planzer</code>, <code>austrian_post</code>, <code>helthjem</code>, <code>dynalogic</code>, <code>nova_post</code>, <code>delhivery</code> and <code>sunyou</code> have no Sent tab — these carriers track parcels by number (plus postal code for GLS/Trunkrs) with no sender/account concept, so <code>entity_outgoing</code> and <code>entity_outgoing_delivered</code> are not applicable. See <a href="../overview/#add-parcel-support">Add parcel support</a> for why these carriers get the "+ Add parcel" control.</p>
+<p class="admonition-title">Generated from the card itself</p>
+<p>This table lists every carrier type the card knows, with each capability read from the carrier's own integration: <strong>Sent tab</strong> when it has an <code>outgoing_parcels</code> sensor, <strong>Add parcel from card</strong> when it has a <code>track_parcel</code> service, <strong>Letters</strong> for PostNL's MyMail and bpost's Mail Ahead. Carriers without a Sent tab ignore <code>entity_outgoing</code>/<code>entity_outgoing_delivered</code>.</p>
 </div>
 <div class="admonition note">
-<p class="admonition-title">Vinted Go</p>
-<p><code>vinted_go</code> is account-based (e-mail + verification link login, no password) like <code>postnl</code>/<code>dhl</code>/<code>dpd</code>, so it has no <code>track_parcel_service</code> and doesn't get the "+ Add parcel" control either. Unlike those three, and unlike every account-less carrier above, it tracks both incoming <em>and</em> outgoing parcels — the Sent tab works normally. There is no <code>next_delivery</code>/ETA sensor for this integration at all.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Budbee</p>
-<p><code>budbee</code> is account-less like the carriers above (tracked by number only, no postal code) and does get the "+ Add parcel" control — but unlike the rest of that group, it tracks both incoming <em>and</em> outgoing parcels, so the Sent tab works normally for Budbee.</p>
+<p class="admonition-title"><code>dhl</code> vs <code>dhl_global</code></p>
+<p><code>dhl</code> is <strong>DHL NL</strong> (<a href="https://github.com/ha-parcel-integrations/ha-dhl-nl">ha-dhl-nl</a>) and keeps its type name so existing cards keep working. <code>dhl_global</code> is the separate <a href="https://github.com/ha-parcel-integrations/ha-dhl">ha-dhl</a> integration (DHL Paket Germany, DHL Parcel Poland, DHL Express and DHL's wider network by tracking code). Both create <code>sensor.dhl_*</code> entities; the card tells them apart through Home Assistant's entity registry.</p>
 </div>
 <hr />
 <h2 id="sensor-naming">Sensor naming<a class="headerlink" href="#sensor-naming" title="Permanent link">&para;</a></h2>
@@ -1368,11 +1732,11 @@
 </tr>
 <tr>
 <td><code>sensor.&lt;carrier&gt;_*</code> (no prefix)</td>
-<td>Dragonfly, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee, Nova Post, Delhivery, SunYou — <code>sensor.dragonfly_incoming_parcels</code>, <code>sensor.cainiao_incoming_parcels</code>, <code>sensor.hermes_incoming_parcels</code>, <code>sensor.packeta_incoming_parcels</code>, <code>sensor.correos_incoming_parcels</code>, <code>sensor.postnord_incoming_parcels</code>, <code>sensor.sameday_incoming_parcels</code>, <code>sensor.swiss_post_incoming_parcels</code>, <code>sensor.planzer_incoming_parcels</code>, <code>sensor.oesterreichische_post_incoming_parcels</code> (Austrian Post), <code>sensor.helthjem_incoming_parcels</code>, <code>sensor.dynalogic_incoming_parcels</code>, <code>sensor.budbee_incoming_parcels</code>, <code>sensor.nova_post_incoming_parcels</code>, <code>sensor.delhivery_incoming_parcels</code>, <code>sensor.sunyou_incoming_parcels</code></td>
+<td>Most tracking-code carriers — <code>sensor.ups_incoming_parcels</code>, <code>sensor.dragonfly_incoming_parcels</code>, <code>sensor.oesterreichische_post_incoming_parcels</code> (Austrian Post)</td>
 </tr>
 </tbody>
 </table>
-<p>The correct scheme is detected automatically. Leave <code>user</code> empty if your sensors have no account prefix, or for any account-less no-prefix carrier (Dragonfly, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee, Nova Post, Delhivery, SunYou) — those carriers have no account or postal code at all.</p>
+<p>The correct scheme is detected automatically. Leave <code>user</code> empty if your sensors have no account prefix, or for a tracking-code carrier without a prefix — the editor's help text says which applies to the carrier you picked. On current Home Assistant versions the card matches sensors through the entity registry, so the exact entity_id rarely matters.</p>
 <hr />
 <h2 id="full-configuration-example">Full configuration example<a class="headerlink" href="#full-configuration-example" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">custom:ha-parcel-card</span>

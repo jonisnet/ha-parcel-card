@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Track parcels from PostNL, DHL, DPD, Vinted Go, GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee, Nova Post, Delhivery and SunYou in a single Home Assistant card.">
+        <meta name="description" content="Track parcels from all 68 ha-parcel-integrations carriers — PostNL, DHL, DPD, UPS, FedEx, USPS, GLS, bpost, La Poste, Evri and many more — in a single Home Assistant card.">
       
       
       
@@ -759,7 +759,7 @@
 
 
 <h1 id="ha-parcel-card">HA Parcel Card<a class="headerlink" href="#ha-parcel-card" title="Permanent link">&para;</a></h1>
-<p><strong>Track parcels from PostNL, DHL, DPD, Vinted Go, GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee, Nova Post, Delhivery and SunYou in a single Home Assistant card.</strong></p>
+<p><strong>Track parcels from all 68 carriers of the ha-parcel-integrations family — PostNL, DHL, DPD, UPS, FedEx, USPS, GLS, bpost, La Poste, Evri and many more — in a single Home Assistant card.</strong></p>
 <p>Automatic sensor detection, animated banners, a 4-step delivery tracker, letterbox mail with scan images, a carrier overview popup, and a complete visual editor — no YAML required.</p>
 <p><img alt="Dashboard screenshot" src="images/screenshot-dashboard.png" /></p>
 <div class="grid cards">
@@ -767,7 +767,7 @@
 <li>
 <p><img alt="📦" class="twemoji lg middle" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f4e6.svg" title=":package:" /> <strong>Multi-carrier</strong></p>
 <hr />
-<p>PostNL, DHL, DPD, Vinted Go, GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee, Nova Post, Delhivery and SunYou side by side. Add the same carrier multiple times for multiple accounts or hubs.</p>
+<p>Any of the 68 supported carriers side by side. Add the same carrier multiple times for multiple accounts or hubs.</p>
 </li>
 <li>
 <p><img alt="🪄" class="twemoji lg middle" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1fa84.svg" title=":magic_wand:" /> <strong>Auto sensor detection</strong></p>
@@ -782,7 +782,7 @@
 <li>
 <p><img alt="➕" class="twemoji lg middle" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/2795.svg" title=":heavy_plus_sign:" /> <strong>Add a parcel from the card</strong></p>
 <hr />
-<p>Account-less carriers (GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee, Nova Post, Delhivery, SunYou) get a "+ Add parcel" control that registers a tracking number directly.</p>
+<p>Every carrier whose integration has a <code>track_parcel</code> service gets a "+ Add parcel" control that registers a tracking number directly.</p>
 </li>
 <li>
 <p><img alt="🖼" class="twemoji lg middle" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f5bc.svg" title=":frame_with_picture:" /> <strong>Media browser</strong></p>
@@ -887,155 +887,7 @@
 <hr />
 <h2 id="supported-carriers">Supported carriers<a class="headerlink" href="#supported-carriers" title="Permanent link">&para;</a></h2>
 <p>All carriers below are part of the <a href="https://github.com/ha-parcel-integrations">ha-parcel-integrations</a> family — Home Assistant integrations that publish a shared canonical parcel format, which is what lets one card support all of them with the same logic.</p>
-<table>
-<thead>
-<tr>
-<th>Carrier</th>
-<th>Integration</th>
-<th>Card type</th>
-<th>Account type</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>PostNL</strong></td>
-<td><a href="https://github.com/ha-parcel-integrations/ha-postnl">ha-postnl</a> ≥ 4.0.0</td>
-<td><code>postnl</code></td>
-<td>Account login</td>
-</tr>
-<tr>
-<td><strong>DHL</strong></td>
-<td><a href="https://github.com/ha-parcel-integrations/ha-dhl-nl">ha-dhl-nl</a></td>
-<td><code>dhl</code></td>
-<td>Account login</td>
-</tr>
-<tr>
-<td><strong>DPD</strong></td>
-<td><a href="https://github.com/ha-parcel-integrations/ha-dpd">ha-dpd</a></td>
-<td><code>dpd</code></td>
-<td>Account login</td>
-</tr>
-<tr>
-<td><strong>Vinted Go</strong></td>
-<td><a href="https://github.com/ha-parcel-integrations/ha-vinted-go">ha-vinted-go</a></td>
-<td><code>vinted_go</code></td>
-<td>Account login (e-mail + verification link)</td>
-</tr>
-<tr>
-<td><strong>GLS</strong></td>
-<td><a href="https://github.com/ha-parcel-integrations/ha-gls">ha-gls</a></td>
-<td><code>gls</code></td>
-<td>Tracking number + postal code</td>
-</tr>
-<tr>
-<td><strong>Dragonfly</strong>¹</td>
-<td><a href="https://github.com/ha-parcel-integrations/ha-dragonfly">ha-dragonfly</a></td>
-<td><code>dragonfly</code></td>
-<td>Tracking number only</td>
-</tr>
-<tr>
-<td><strong>Trunkrs</strong></td>
-<td><a href="https://github.com/ha-parcel-integrations/ha-trunkrs">ha-trunkrs</a></td>
-<td><code>trunkrs</code></td>
-<td>Tracking number + postal code</td>
-</tr>
-<tr>
-<td><strong>Cainiao</strong></td>
-<td><a href="https://github.com/ha-parcel-integrations/ha-cainiao">ha-cainiao</a></td>
-<td><code>cainiao</code></td>
-<td>Tracking number only</td>
-</tr>
-<tr>
-<td><strong>Hermes</strong></td>
-<td><a href="https://github.com/ha-parcel-integrations/ha-hermes">ha-hermes</a></td>
-<td><code>hermes</code></td>
-<td>Tracking number only</td>
-</tr>
-<tr>
-<td><strong>Packeta</strong></td>
-<td><a href="https://github.com/ha-parcel-integrations/ha-packeta">ha-packeta</a></td>
-<td><code>packeta</code></td>
-<td>Tracking number only</td>
-</tr>
-<tr>
-<td><strong>Correos</strong></td>
-<td><a href="https://github.com/ha-parcel-integrations/ha-correos">ha-correos</a></td>
-<td><code>correos</code></td>
-<td>Tracking number only</td>
-</tr>
-<tr>
-<td><strong>PostNord</strong></td>
-<td><a href="https://github.com/ha-parcel-integrations/ha-postnord">ha-postnord</a></td>
-<td><code>postnord</code></td>
-<td>Tracking number only</td>
-</tr>
-<tr>
-<td><strong>Sameday</strong></td>
-<td><a href="https://github.com/ha-parcel-integrations/ha-sameday">ha-sameday</a></td>
-<td><code>sameday</code></td>
-<td>Tracking number only</td>
-</tr>
-<tr>
-<td><strong>Swiss Post</strong></td>
-<td><a href="https://github.com/ha-parcel-integrations/ha-swiss-post">ha-swiss-post</a></td>
-<td><code>swiss_post</code></td>
-<td>Tracking number only</td>
-</tr>
-<tr>
-<td><strong>Planzer</strong></td>
-<td><a href="https://github.com/ha-parcel-integrations/ha-planzer">ha-planzer</a></td>
-<td><code>planzer</code></td>
-<td>Tracking number only</td>
-</tr>
-<tr>
-<td><strong>Austrian Post</strong></td>
-<td><a href="https://github.com/ha-parcel-integrations/ha-oesterreichische-post">ha-oesterreichische-post</a></td>
-<td><code>austrian_post</code></td>
-<td>Tracking number only</td>
-</tr>
-<tr>
-<td><strong>Helthjem</strong></td>
-<td><a href="https://github.com/ha-parcel-integrations/ha-helthjem">ha-helthjem</a></td>
-<td><code>helthjem</code></td>
-<td>Tracking number only</td>
-</tr>
-<tr>
-<td><strong>Dynalogic</strong></td>
-<td><a href="https://github.com/ha-parcel-integrations/ha-dynalogic">ha-dynalogic</a></td>
-<td><code>dynalogic</code></td>
-<td>Tracking number only</td>
-</tr>
-<tr>
-<td><strong>Budbee</strong></td>
-<td><a href="https://github.com/ha-parcel-integrations/ha-budbee">ha-budbee</a></td>
-<td><code>budbee</code></td>
-<td>Tracking number only</td>
-</tr>
-<tr>
-<td><strong>Nova Post</strong></td>
-<td><a href="https://github.com/ha-parcel-integrations/ha-nova-post">ha-nova-post</a></td>
-<td><code>nova_post</code></td>
-<td>Tracking number only</td>
-</tr>
-<tr>
-<td><strong>Delhivery</strong></td>
-<td><a href="https://github.com/ha-parcel-integrations/ha-delhivery">ha-delhivery</a></td>
-<td><code>delhivery</code></td>
-<td>Tracking number only</td>
-</tr>
-<tr>
-<td><strong>SunYou</strong></td>
-<td><a href="https://github.com/ha-parcel-integrations/ha-sunyou">ha-sunyou</a></td>
-<td><code>sunyou</code></td>
-<td>Tracking number only</td>
-</tr>
-</tbody>
-</table>
-<p>¹ Created by <a href="https://github.com/HummelsTech">Alwin Hummels (@HummelsTech)</a>, who also maintains it standalone at <a href="https://github.com/HummelsTech/ha-dragonfly">HummelsTech/ha-dragonfly</a> — see <a href="installation/#dragonfly-trunkrs-cainiao-hermes-packeta-correos-postnord-sameday-swiss-post-planzer-austrian-post-helthjem-dynalogic-budbee-nova-post-delhivery-and-sunyou">Installation</a> for details.</p>
-<div class="admonition note">
-<p class="admonition-title">Add parcel support</p>
-<p>Only the account-less carriers (GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee, Nova Post, Delhivery, SunYou) get the card's "+ Add parcel" control — PostNL, DHL, DPD and Vinted Go auto-sync every parcel tied to the logged-in account and don't expose a service to register one manually. Full explanation on the <a href="card/overview/#add-parcel-support">Overview page</a>.</p>
-</div>
+<p>The full list — every carrier, its integration, its card <code>type</code>, and whether it has a Sent tab, letters and the "+ Add parcel" control — is under <strong><a href="card/configuration/#carrier-types">Carrier types</a></strong>.</p>
 <hr />
 <div class="admonition note">
 <p class="admonition-title">Part of HKI Elements</p>
