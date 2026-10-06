@@ -1,6 +1,6 @@
 # HA Parcel Card
 
-A multi-carrier parcel tracking card for Home Assistant. Track parcels from PostNL, DHL, DPD, Vinted Go, GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee, Nova Post, Delhivery and SunYou in a single unified view, with support for letterbox mail images.
+A multi-carrier parcel tracking card for Home Assistant. Track parcels from all 68 carriers of the [ha-parcel-integrations](https://github.com/ha-parcel-integrations) family — PostNL, DHL, DPD, UPS, FedEx, USPS, GLS, bpost, La Poste, Evri and many more — in a single unified view, with support for letterbox mail images.
 
 !!! note
     This card was created for the visual editor in Home Assistant. It is possible that the documentation is not complete for all features.
@@ -11,30 +11,7 @@ A multi-carrier parcel tracking card for Home Assistant. Track parcels from Post
 
 This card requires at least one parcel-tracking integration to be installed in Home Assistant. See [Installation](../installation.md) for the full list and links.
 
-| Carrier | Account type |
-| ------- | ------------ |
-| **PostNL** | Account login |
-| **DHL** | Account login |
-| **DPD** | Account login |
-| **Vinted Go** | Account login (e-mail + verification link) |
-| **GLS** | Tracking number + postal code |
-| **Dragonfly** | Tracking number only |
-| **Trunkrs** | Tracking number + postal code |
-| **Cainiao** | Tracking number only |
-| **Hermes** | Tracking number only |
-| **Packeta** | Tracking number only |
-| **Correos** | Tracking number only |
-| **PostNord** | Tracking number only |
-| **Sameday** | Tracking number only |
-| **Swiss Post** | Tracking number only |
-| **Planzer** | Tracking number only |
-| **Austrian Post** | Tracking number only |
-| **Helthjem** | Tracking number only |
-| **Dynalogic** | Tracking number only |
-| **Budbee** | Tracking number only |
-| **Nova Post** | Tracking number only |
-| **Delhivery** | Tracking number only |
-| **SunYou** | Tracking number only |
+Every supported carrier, with its integration and what it supports, is listed under [Carrier types](configuration.md#carrier-types).
 
 ---
 
@@ -42,7 +19,7 @@ This card requires at least one parcel-tracking integration to be installed in H
 
 ### :package: Parcel tracking
 
-- **Multi-carrier** — PostNL, DHL, DPD, Vinted Go, GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee, Nova Post, Delhivery and SunYou side by side; add the same carrier multiple times for multiple accounts or hubs
+- **Multi-carrier** — any of the 68 supported carriers side by side; add the same carrier multiple times for multiple accounts or hubs
 - **Automatic sensor names** — enter only the account name; the card builds all sensor entity IDs automatically, for both known naming schemes
 - **Four tabs** — In Transit · Delivered · Sent · Letters
 - **Split sections** — both Sent and Letters are split into *Still to be delivered* and *Delivered*
@@ -56,38 +33,15 @@ Click a carrier's logo in the multi-carrier combo banner to open a popup listing
 
 ### Add parcel support
 
-For the account-less carriers, plus An Post (account-based, but its integration still exposes a `track_parcel` service to add a code to the account's watchlist), the card shows a "+ Add parcel" control that calls the integration's own `track_parcel` service directly — the parcel is genuinely registered with the integration, not just added to the card's own view. Toggle it off with `show_add_parcel: false` if you'd rather add parcels through the integration itself.
+For every carrier whose integration has a `track_parcel` service — the tracking-code carriers, plus account-based ones that also accept a code, such as An Post, bpost and DHL — the card shows a "+ Add parcel" control that calls the integration's own `track_parcel` service directly — the parcel is genuinely registered with the integration, not just added to the card's own view. Toggle it off with `show_add_parcel: false` if you'd rather add parcels through the integration itself.
 
-| Carrier | Add parcel from card | Why |
-| ------- | :-------------------: | --- |
-| PostNL | ❌ | Account-based — parcels appear automatically, no `track_parcel` service exists |
-| DHL | ❌ | Account-based — parcels appear automatically, no `track_parcel` service exists |
-| DPD | ❌ | Account-based — parcels appear automatically, no `track_parcel` service exists |
-| Vinted Go | ❌ | Account-based — parcels appear automatically, no `track_parcel` service exists |
-| GLS | ✅ | Account-less — tracked by number + postal code |
-| Dragonfly | ✅ | Account-less — tracked by number only |
-| Trunkrs | ✅ | Account-less — tracked by number + postal code |
-| Cainiao | ✅ | Account-less — tracked by number only |
-| Hermes | ✅ | Account-less — tracked by number only |
-| Packeta | ✅ | Account-less — tracked by number only |
-| Correos | ✅ | Account-less — tracked by number only |
-| PostNord | ✅ | Account-less — tracked by number only |
-| Sameday | ✅ | Account-less — tracked by number only |
-| Swiss Post | ✅ | Account-less — tracked by number only |
-| Planzer | ✅ | Account-less — tracked by number only |
-| Austrian Post | ✅ | Account-less — tracked by number only |
-| Helthjem | ✅ | Account-less — tracked by number only |
-| Dynalogic | ✅ | Account-less — tracked by number only |
-| Budbee | ✅ | Account-less — tracked by number only |
-| Nova Post | ✅ | Account-less — tracked by number only |
-| Delhivery | ✅ | Account-less — tracked by number only |
-| SunYou | ✅ | Account-less — tracked by number only |
+Which carriers have it is listed under [Carrier types](configuration.md#carrier-types). Account-based integrations without such a service (PostNL, DHL NL, DPD, Vinted Go, ...) don't need it: every parcel on the account appears automatically.
 
 For GLS and Trunkrs, which can have multiple hubs (one per postal code), the carrier's configured `user` value is passed along automatically so the parcel lands on the right hub.
 
 ### :email: Letterbox mail
 
-- **PostNL letters** — dedicated tab with scan images matched automatically from `image.*` entities
+- **PostNL and bpost letters** — dedicated tab with scan images matched automatically from `image.*` entities
 - **Works across ha-postnl versions** — matching is based on the `mailitem-xxx` ID, not the entity name, so it survives integration updates
 
 ### :art: Visual interface

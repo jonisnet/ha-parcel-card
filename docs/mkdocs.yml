@@ -1,5 +1,5 @@
 site_name: HA Parcel Card Documentation
-site_description: Track parcels from PostNL, DHL, DPD, Vinted Go, GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee, Nova Post, Delhivery and SunYou in a single Home Assistant card.
+site_description: Track parcels from all 68 ha-parcel-integrations carriers — PostNL, DHL, DPD, UPS, FedEx, USPS, GLS, bpost, La Poste, Evri and many more — in a single Home Assistant card.
 site_url: https://jonisnet.github.io/ha-parcel-card/
 repo_url: https://github.com/jonisnet/ha-parcel-card
 repo_name: jonisnet/ha-parcel-card

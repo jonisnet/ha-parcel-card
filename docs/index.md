@@ -1,6 +1,6 @@
 # HA Parcel Card
 
-**Track parcels from PostNL, DHL, DPD, Vinted Go, GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee, Nova Post, Delhivery and SunYou in a single Home Assistant card.**
+**Track parcels from all 68 carriers of the ha-parcel-integrations family — PostNL, DHL, DPD, UPS, FedEx, USPS, GLS, bpost, La Poste, Evri and many more — in a single Home Assistant card.**
 
 Automatic sensor detection, animated banners, a 4-step delivery tracker, letterbox mail with scan images, a carrier overview popup, and a complete visual editor — no YAML required.
 
@@ -12,7 +12,7 @@ Automatic sensor detection, animated banners, a 4-step delivery tracker, letterb
 
     ---
 
-    PostNL, DHL, DPD, Vinted Go, GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee, Nova Post, Delhivery and SunYou side by side. Add the same carrier multiple times for multiple accounts or hubs.
+    Any of the 68 supported carriers side by side. Add the same carrier multiple times for multiple accounts or hubs.
 
 -   :magic_wand:{ .lg .middle } **Auto sensor detection**
 
@@ -30,7 +30,7 @@ Automatic sensor detection, animated banners, a 4-step delivery tracker, letterb
 
     ---
 
-    Account-less carriers (GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee, Nova Post, Delhivery, SunYou) get a "+ Add parcel" control that registers a tracking number directly.
+    Every carrier whose integration has a `track_parcel` service gets a "+ Add parcel" control that registers a tracking number directly.
 
 -   :frame_with_picture:{ .lg .middle } **Media browser**
 
@@ -148,35 +148,7 @@ Or skip the YAML entirely — add the card via the dashboard UI and it auto-dete
 
 All carriers below are part of the [ha-parcel-integrations](https://github.com/ha-parcel-integrations) family — Home Assistant integrations that publish a shared canonical parcel format, which is what lets one card support all of them with the same logic.
 
-| Carrier | Integration | Card type | Account type |
-| ------- | ----------- | --------- | ------------ |
-| **PostNL** | [ha-postnl](https://github.com/ha-parcel-integrations/ha-postnl) ≥ 4.0.0 | `postnl` | Account login |
-| **DHL** | [ha-dhl-nl](https://github.com/ha-parcel-integrations/ha-dhl-nl) | `dhl` | Account login |
-| **DPD** | [ha-dpd](https://github.com/ha-parcel-integrations/ha-dpd) | `dpd` | Account login |
-| **Vinted Go** | [ha-vinted-go](https://github.com/ha-parcel-integrations/ha-vinted-go) | `vinted_go` | Account login (e-mail + verification link) |
-| **GLS** | [ha-gls](https://github.com/ha-parcel-integrations/ha-gls) | `gls` | Tracking number + postal code |
-| **Dragonfly**¹ | [ha-dragonfly](https://github.com/ha-parcel-integrations/ha-dragonfly) | `dragonfly` | Tracking number only |
-| **Trunkrs** | [ha-trunkrs](https://github.com/ha-parcel-integrations/ha-trunkrs) | `trunkrs` | Tracking number + postal code |
-| **Cainiao** | [ha-cainiao](https://github.com/ha-parcel-integrations/ha-cainiao) | `cainiao` | Tracking number only |
-| **Hermes** | [ha-hermes](https://github.com/ha-parcel-integrations/ha-hermes) | `hermes` | Tracking number only |
-| **Packeta** | [ha-packeta](https://github.com/ha-parcel-integrations/ha-packeta) | `packeta` | Tracking number only |
-| **Correos** | [ha-correos](https://github.com/ha-parcel-integrations/ha-correos) | `correos` | Tracking number only |
-| **PostNord** | [ha-postnord](https://github.com/ha-parcel-integrations/ha-postnord) | `postnord` | Tracking number only |
-| **Sameday** | [ha-sameday](https://github.com/ha-parcel-integrations/ha-sameday) | `sameday` | Tracking number only |
-| **Swiss Post** | [ha-swiss-post](https://github.com/ha-parcel-integrations/ha-swiss-post) | `swiss_post` | Tracking number only |
-| **Planzer** | [ha-planzer](https://github.com/ha-parcel-integrations/ha-planzer) | `planzer` | Tracking number only |
-| **Austrian Post** | [ha-oesterreichische-post](https://github.com/ha-parcel-integrations/ha-oesterreichische-post) | `austrian_post` | Tracking number only |
-| **Helthjem** | [ha-helthjem](https://github.com/ha-parcel-integrations/ha-helthjem) | `helthjem` | Tracking number only |
-| **Dynalogic** | [ha-dynalogic](https://github.com/ha-parcel-integrations/ha-dynalogic) | `dynalogic` | Tracking number only |
-| **Budbee** | [ha-budbee](https://github.com/ha-parcel-integrations/ha-budbee) | `budbee` | Tracking number only |
-| **Nova Post** | [ha-nova-post](https://github.com/ha-parcel-integrations/ha-nova-post) | `nova_post` | Tracking number only |
-| **Delhivery** | [ha-delhivery](https://github.com/ha-parcel-integrations/ha-delhivery) | `delhivery` | Tracking number only |
-| **SunYou** | [ha-sunyou](https://github.com/ha-parcel-integrations/ha-sunyou) | `sunyou` | Tracking number only |
-
-¹ Created by [Alwin Hummels (@HummelsTech)](https://github.com/HummelsTech), who also maintains it standalone at [HummelsTech/ha-dragonfly](https://github.com/HummelsTech/ha-dragonfly) — see [Installation](installation.md#dragonfly-trunkrs-cainiao-hermes-packeta-correos-postnord-sameday-swiss-post-planzer-austrian-post-helthjem-dynalogic-budbee-nova-post-delhivery-and-sunyou) for details.
-
-!!! note "Add parcel support"
-    Only the account-less carriers (GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee, Nova Post, Delhivery, SunYou) get the card's "+ Add parcel" control — PostNL, DHL, DPD and Vinted Go auto-sync every parcel tied to the logged-in account and don't expose a service to register one manually. Full explanation on the [Overview page](card/overview.md#add-parcel-support).
+The full list — every carrier, its integration, its card `type`, and whether it has a Sent tab, letters and the "+ Add parcel" control — is under **[Carrier types](card/configuration.md#carrier-types)**.
 
 ---
 

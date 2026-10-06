@@ -17,7 +17,7 @@ These options apply to the card as a whole.
 | `header_color` | string | _(theme)_ | Header background colour |
 | `header_text_color` | string | _(theme)_ | Header text colour |
 | `placeholder_image` | string | _(built-in)_ | URL to a custom background image. Overrides the automatic combo banner — set to a fixed picture if you'd rather always show the same image |
-| `show_add_parcel` | boolean | `true` | Show the "+ Add parcel" control at the bottom of the card (only appears when at least one configured carrier supports it — GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee, Nova Post, Delhivery, SunYou) |
+| `show_add_parcel` | boolean | `true` | Show the "+ Add parcel" control at the bottom of the card (only appears when at least one configured carrier's integration has a `track_parcel` service — see [Carrier types](#carrier-types)) |
 | `show_raw_status` | boolean | `false` | Show the carrier's own raw status text (e.g. GLS's "Onderweg - geladen voor aflevering") as the main status message instead of the card's generic translated label ("In transit"). Falls back to the generic label when a parcel has no raw status |
 | `custom_name_scope` | string | `everyone` | Show a "+ Add name" control in each parcel's detail panel, letting you give it a short custom label (e.g. "Birthday gift") instead of just a tracking code. `off` hides the control entirely; `device` saves names in this browser only; `me` saves them to your Home Assistant account (synced across your own devices); `everyone` saves them instance-wide for every user to see. See the note below |
 | `sort_order` | string | `auto` | `auto` (recommended) shows the soonest-arriving parcel first in In Transit and Sent, and the most recently delivered parcel first in Delivered. `newest_first`/`oldest_first` pin one direction everywhere instead. See the note below |
@@ -68,51 +68,94 @@ Normally the card generates sensor entity IDs automatically from `type` and `use
 | ------ | ---- | ----------- |
 | `entity_incoming` | string | Sensor for incoming parcels in transit |
 | `entity_delivered` | string | Sensor for delivered incoming parcels |
-| `entity_outgoing` | string | Sensor for outgoing parcels in transit (not applicable for GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Nova Post, Delhivery, SunYou) |
-| `entity_outgoing_delivered` | string | Sensor for delivered outgoing parcels (not applicable for GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Nova Post, Delhivery, SunYou) |
+| `entity_outgoing` | string | Sensor for outgoing parcels in transit (only for carriers with a Sent tab — see [Carrier types](#carrier-types)) |
+| `entity_outgoing_delivered` | string | Sensor for delivered outgoing parcels (only for carriers with a Sent tab — see [Carrier types](#carrier-types)) |
 | `entity_letters` | string | Sensor for PostNL letterbox mail (PostNL only) |
 
 ---
 
 ## Carrier types
 
-| Type | Label in editor | Integration | Schema | Letters | Add parcel from card |
-| ---- | ---------------- | ----------- | ------ | :-----: | :-------------------: |
-| `postnl` | PostNL | ha-parcel-integrations/ha-postnl ≥ 4.0.0 | canonical | ✅ | — |
-| `dhl` | DHL | ha-parcel-integrations/ha-dhl-nl | canonical | — | — |
-| `dpd` | DPD | ha-parcel-integrations/ha-dpd | canonical | — | — |
-| `vinted_go` | Vinted Go | ha-parcel-integrations/ha-vinted-go | canonical | — | — |
-| `gls` | GLS | ha-parcel-integrations/ha-gls | canonical | — | ✅ |
-| `dragonfly` | Dragonfly | ha-parcel-integrations/ha-dragonfly | canonical | — | ✅ |
-| `trunkrs` | Trunkrs | ha-parcel-integrations/ha-trunkrs | canonical | — | ✅ |
-| `cainiao` | Cainiao | ha-parcel-integrations/ha-cainiao | canonical | — | ✅ |
-| `hermes` | Hermes | ha-parcel-integrations/ha-hermes | canonical | — | ✅ |
-| `packeta` | Packeta | ha-parcel-integrations/ha-packeta | canonical | — | ✅ |
-| `correos` | Correos | ha-parcel-integrations/ha-correos | canonical | — | ✅ |
-| `postnord` | PostNord | ha-parcel-integrations/ha-postnord | canonical | — | ✅ |
-| `sameday` | Sameday | ha-parcel-integrations/ha-sameday | canonical | — | ✅ |
-| `swiss_post` | Swiss Post | ha-parcel-integrations/ha-swiss-post | canonical | — | ✅ |
-| `planzer` | Planzer | ha-parcel-integrations/ha-planzer | canonical | — | ✅ |
-| `austrian_post` | Austrian Post | ha-parcel-integrations/ha-oesterreichische-post | canonical | — | ✅ |
-| `helthjem` | Helthjem | ha-parcel-integrations/ha-helthjem | canonical | — | ✅ |
-| `dynalogic` | Dynalogic | ha-parcel-integrations/ha-dynalogic | canonical | — | ✅ |
-| `budbee` | Budbee | ha-parcel-integrations/ha-budbee | canonical | — | ✅ |
-| `nova_post` | Nova Post | ha-parcel-integrations/ha-nova-post | canonical | — | ✅ |
-| `delhivery` | Delhivery | ha-parcel-integrations/ha-delhivery | canonical | — | ✅ |
-| `sunyou` | SunYou | ha-parcel-integrations/ha-sunyou | canonical | — | ✅ |
-| `custom` | Custom | any | canonical | — | — |
+| Type | Label in editor | Integration | Letters | Sent tab | Add parcel from card |
+| ---- | ---------------- | ----------- | :-----: | :------: | :-------------------: |
+| `fourpx` | 4PX | [ha-parcel-integrations/ha-4px](https://github.com/ha-parcel-integrations/ha-4px) | — | — | ✅ |
+| `airmee` | Airmee | [ha-parcel-integrations/ha-airmee](https://github.com/ha-parcel-integrations/ha-airmee) | — | — | ✅ |
+| `amazon_orders` | Amazon | [ha-parcel-integrations/ha-amazon](https://github.com/ha-parcel-integrations/ha-amazon) | — | — | — |
+| `ampere` | Ampère | [ha-parcel-integrations/ha-ampere](https://github.com/ha-parcel-integrations/ha-ampere) | — | — | — |
+| `an_post` | An Post | [ha-parcel-integrations/ha-an-post](https://github.com/ha-parcel-integrations/ha-an-post) | — | — | ✅ |
+| `apple_express` | Apple Express | [ha-parcel-integrations/ha-apple-express](https://github.com/ha-parcel-integrations/ha-apple-express) | — | — | ✅ |
+| `aramex` | Aramex | [ha-parcel-integrations/ha-aramex](https://github.com/ha-parcel-integrations/ha-aramex) | — | — | ✅ |
+| `austrian_post` | Austrian Post | [ha-parcel-integrations/ha-oesterreichische-post](https://github.com/ha-parcel-integrations/ha-oesterreichische-post) | — | — | ✅ |
+| `better_trucks` | Better Trucks | [ha-parcel-integrations/ha-better-trucks](https://github.com/ha-parcel-integrations/ha-better-trucks) | — | — | ✅ |
+| `boxnow` | BoxNow | [ha-parcel-integrations/ha-boxnow](https://github.com/ha-parcel-integrations/ha-boxnow) | — | — | ✅ |
+| `bpost` | bpost | [ha-parcel-integrations/ha-bpost](https://github.com/ha-parcel-integrations/ha-bpost) | ✅ | ✅ | ✅ |
+| `budbee` | Budbee | [ha-parcel-integrations/ha-budbee](https://github.com/ha-parcel-integrations/ha-budbee) | — | ✅ | ✅ |
+| `cainiao` | Cainiao | [ha-parcel-integrations/ha-cainiao](https://github.com/ha-parcel-integrations/ha-cainiao) | — | — | ✅ |
+| `canada_post` | Canada Post | [ha-parcel-integrations/ha-canada-post](https://github.com/ha-parcel-integrations/ha-canada-post) | — | — | ✅ |
+| `canpar` | Canpar | [ha-parcel-integrations/ha-canpar](https://github.com/ha-parcel-integrations/ha-canpar) | — | — | ✅ |
+| `ceska_posta` | Ceska Posta | [ha-parcel-integrations/ha-ceska-posta](https://github.com/ha-parcel-integrations/ha-ceska-posta) | — | — | ✅ |
+| `correos` | Correos | [ha-parcel-integrations/ha-correos](https://github.com/ha-parcel-integrations/ha-correos) | — | — | ✅ |
+| `ctt` | CTT | [ha-parcel-integrations/ha-ctt](https://github.com/ha-parcel-integrations/ha-ctt) | — | — | ✅ |
+| `dao` | DAO | [ha-parcel-integrations/ha-dao](https://github.com/ha-parcel-integrations/ha-dao) | — | ✅ | — |
+| `delhivery` | Delhivery | [ha-parcel-integrations/ha-delhivery](https://github.com/ha-parcel-integrations/ha-delhivery) | — | — | ✅ |
+| `dhl_global` | DHL | [ha-parcel-integrations/ha-dhl](https://github.com/ha-parcel-integrations/ha-dhl) | — | ✅ | ✅ |
+| `dhl` | DHL NL | [ha-parcel-integrations/ha-dhl-nl](https://github.com/ha-parcel-integrations/ha-dhl-nl) | — | ✅ | — |
+| `dpd` | DPD | [ha-parcel-integrations/ha-dpd](https://github.com/ha-parcel-integrations/ha-dpd) | — | ✅ | — |
+| `dragonfly` | Dragonfly | [ha-parcel-integrations/ha-dragonfly](https://github.com/ha-parcel-integrations/ha-dragonfly) | — | — | ✅ |
+| `dynalogic` | Dynalogic | [ha-parcel-integrations/ha-dynalogic](https://github.com/ha-parcel-integrations/ha-dynalogic) | — | — | ✅ |
+| `econt` | Econt | [ha-parcel-integrations/ha-econt](https://github.com/ha-parcel-integrations/ha-econt) | — | — | ✅ |
+| `elta_courier` | ELTA Courier | [ha-parcel-integrations/ha-elta-courier](https://github.com/ha-parcel-integrations/ha-elta-courier) | — | — | ✅ |
+| `evri` | Evri | [ha-parcel-integrations/ha-evri](https://github.com/ha-parcel-integrations/ha-evri) | — | ✅ | ✅ |
+| `fan_courier` | FAN Courier | [ha-parcel-integrations/ha-fan-courier](https://github.com/ha-parcel-integrations/ha-fan-courier) | — | — | ✅ |
+| `fedex` | FedEx | [ha-parcel-integrations/ha-fedex](https://github.com/ha-parcel-integrations/ha-fedex) | — | — | ✅ |
+| `gls` | GLS | [ha-parcel-integrations/ha-gls](https://github.com/ha-parcel-integrations/ha-gls) | — | — | ✅ |
+| `gofo` | GOFO Express | [ha-parcel-integrations/ha-gofo](https://github.com/ha-parcel-integrations/ha-gofo) | — | — | ✅ |
+| `helthjem` | Helthjem | [ha-parcel-integrations/ha-helthjem](https://github.com/ha-parcel-integrations/ha-helthjem) | — | — | ✅ |
+| `hermes` | Hermes | [ha-parcel-integrations/ha-hermes](https://github.com/ha-parcel-integrations/ha-hermes) | — | — | ✅ |
+| `ics_courier` | ICS Courier | [ha-parcel-integrations/ha-ics-courier](https://github.com/ha-parcel-integrations/ha-ics-courier) | — | — | ✅ |
+| `inpost` | InPost | [ha-parcel-integrations/ha-inpost](https://github.com/ha-parcel-integrations/ha-inpost) | — | — | ✅ |
+| `laposte` | La Poste | [ha-parcel-integrations/ha-laposte](https://github.com/ha-parcel-integrations/ha-laposte) | — | — | ✅ |
+| `matkahuolto` | Matkahuolto | [ha-parcel-integrations/ha-matkahuolto](https://github.com/ha-parcel-integrations/ha-matkahuolto) | — | — | ✅ |
+| `mondial_relay` | Mondial Relay | [ha-parcel-integrations/ha-mondial-relay](https://github.com/ha-parcel-integrations/ha-mondial-relay) | — | ✅ | — |
+| `nova_post` | Nova Post | [ha-parcel-integrations/ha-nova-post](https://github.com/ha-parcel-integrations/ha-nova-post) | — | — | ✅ |
+| `nz_post` | NZ Post | [ha-parcel-integrations/ha-nz-post](https://github.com/ha-parcel-integrations/ha-nz-post) | — | — | ✅ |
+| `ontrac` | OnTrac | [ha-parcel-integrations/ha-ontrac](https://github.com/ha-parcel-integrations/ha-ontrac) | — | — | ✅ |
+| `orlen_paczka` | ORLEN Paczka | [ha-parcel-integrations/ha-orlen-paczka](https://github.com/ha-parcel-integrations/ha-orlen-paczka) | — | — | ✅ |
+| `paack` | Paack | [ha-parcel-integrations/ha-paack](https://github.com/ha-parcel-integrations/ha-paack) | — | — | ✅ |
+| `packeta` | Packeta | [ha-parcel-integrations/ha-packeta](https://github.com/ha-parcel-integrations/ha-packeta) | — | ✅ | ✅ |
+| `planzer` | Planzer | [ha-parcel-integrations/ha-planzer](https://github.com/ha-parcel-integrations/ha-planzer) | — | — | ✅ |
+| `poczta_polska` | Poczta Polska | [ha-parcel-integrations/ha-poczta-polska](https://github.com/ha-parcel-integrations/ha-poczta-polska) | — | — | ✅ |
+| `poste_italiane` | Poste Italiane | [ha-parcel-integrations/ha-poste-italiane](https://github.com/ha-parcel-integrations/ha-poste-italiane) | — | — | ✅ |
+| `posten_bring` | Posten Bring | [ha-parcel-integrations/ha-posten-bring](https://github.com/ha-parcel-integrations/ha-posten-bring) | — | ✅ | — |
+| `posti` | Posti | [ha-parcel-integrations/ha-posti](https://github.com/ha-parcel-integrations/ha-posti) | — | — | ✅ |
+| `postnl` | PostNL | [ha-parcel-integrations/ha-postnl](https://github.com/ha-parcel-integrations/ha-postnl) | ✅ | ✅ | — |
+| `postnord` | PostNord | [ha-parcel-integrations/ha-postnord](https://github.com/ha-parcel-integrations/ha-postnord) | — | ✅ | ✅ |
+| `ppl_cz` | PPL CZ | [ha-parcel-integrations/ha-ppl-cz](https://github.com/ha-parcel-integrations/ha-ppl-cz) | — | ✅ | — |
+| `purolator` | Purolator | [ha-parcel-integrations/ha-purolator](https://github.com/ha-parcel-integrations/ha-purolator) | — | ✅ | ✅ |
+| `quickpac` | Quickpac | [ha-parcel-integrations/ha-quickpac](https://github.com/ha-parcel-integrations/ha-quickpac) | — | — | ✅ |
+| `sameday` | Sameday | [ha-parcel-integrations/ha-sameday](https://github.com/ha-parcel-integrations/ha-sameday) | — | — | ✅ |
+| `seur` | SEUR | [ha-parcel-integrations/ha-seur](https://github.com/ha-parcel-integrations/ha-seur) | — | ✅ | — |
+| `shopee_xpress` | Shopee Xpress | [ha-parcel-integrations/ha-shopee-xpress](https://github.com/ha-parcel-integrations/ha-shopee-xpress) | — | — | ✅ |
+| `slovak_parcel_service` | Slovak Parcel Service | [ha-parcel-integrations/ha-slovak-parcel-service](https://github.com/ha-parcel-integrations/ha-slovak-parcel-service) | — | — | ✅ |
+| `slovenska_posta` | Slovenská Pošta | [ha-parcel-integrations/ha-slovenska-posta](https://github.com/ha-parcel-integrations/ha-slovenska-posta) | — | — | ✅ |
+| `speedx` | SpeedX | [ha-parcel-integrations/ha-speedx](https://github.com/ha-parcel-integrations/ha-speedx) | — | — | ✅ |
+| `sunyou` | SunYou | [ha-parcel-integrations/ha-sunyou](https://github.com/ha-parcel-integrations/ha-sunyou) | — | — | ✅ |
+| `swiss_post` | Swiss Post | [ha-parcel-integrations/ha-swiss-post](https://github.com/ha-parcel-integrations/ha-swiss-post) | — | ✅ | ✅ |
+| `trunkrs` | Trunkrs | [ha-parcel-integrations/ha-trunkrs](https://github.com/ha-parcel-integrations/ha-trunkrs) | — | — | ✅ |
+| `uniuni` | UniUni | [ha-parcel-integrations/ha-uniuni](https://github.com/ha-parcel-integrations/ha-uniuni) | — | — | ✅ |
+| `ups` | UPS | [ha-parcel-integrations/ha-ups](https://github.com/ha-parcel-integrations/ha-ups) | — | — | ✅ |
+| `usps` | USPS | [ha-parcel-integrations/ha-usps](https://github.com/ha-parcel-integrations/ha-usps) | — | — | ✅ |
+| `vinted_go` | Vinted Go | [ha-parcel-integrations/ha-vinted-go](https://github.com/ha-parcel-integrations/ha-vinted-go) | — | ✅ | — |
+| `custom` | Custom | any integration following [the contract](../contract.md) | — | ✅ | — |
 
 !!! note "PostNL (<v4.x) and PostNL (ArjenBos) removed"
     Both were removed in this v2.0 release, as announced ahead of time — see [Installation](../installation.md#postnl). The stable [hki-parcels-card](https://github.com/jonisnet/hki-parcels-card) v1.x line still supports both.
 
-!!! note
-    `gls`, `dragonfly`, `trunkrs`, `cainiao`, `hermes`, `packeta`, `correos`, `postnord`, `sameday`, `swiss_post`, `planzer`, `austrian_post`, `helthjem`, `dynalogic`, `nova_post`, `delhivery` and `sunyou` have no Sent tab — these carriers track parcels by number (plus postal code for GLS/Trunkrs) with no sender/account concept, so `entity_outgoing` and `entity_outgoing_delivered` are not applicable. See [Add parcel support](overview.md#add-parcel-support) for why these carriers get the "+ Add parcel" control.
+!!! note "Generated from the card itself"
+    This table lists every carrier type the card knows, with each capability read from the carrier's own integration: **Sent tab** when it has an `outgoing_parcels` sensor, **Add parcel from card** when it has a `track_parcel` service, **Letters** for PostNL's MyMail and bpost's Mail Ahead. Carriers without a Sent tab ignore `entity_outgoing`/`entity_outgoing_delivered`.
 
-!!! note "Vinted Go"
-    `vinted_go` is account-based (e-mail + verification link login, no password) like `postnl`/`dhl`/`dpd`, so it has no `track_parcel_service` and doesn't get the "+ Add parcel" control either. Unlike those three, and unlike every account-less carrier above, it tracks both incoming *and* outgoing parcels — the Sent tab works normally. There is no `next_delivery`/ETA sensor for this integration at all.
-
-!!! note "Budbee"
-    `budbee` is account-less like the carriers above (tracked by number only, no postal code) and does get the "+ Add parcel" control — but unlike the rest of that group, it tracks both incoming *and* outgoing parcels, so the Sent tab works normally for Budbee.
+!!! note "`dhl` vs `dhl_global`"
+    `dhl` is **DHL NL** ([ha-dhl-nl](https://github.com/ha-parcel-integrations/ha-dhl-nl)) and keeps its type name so existing cards keep working. `dhl_global` is the separate [ha-dhl](https://github.com/ha-parcel-integrations/ha-dhl) integration (DHL Paket Germany, DHL Parcel Poland, DHL Express and DHL's wider network by tracking code). Both create `sensor.dhl_*` entities; the card tells them apart through Home Assistant's entity registry.
 
 ---
 
@@ -124,9 +167,9 @@ The `user` field is the account part of the sensor name. The card builds all ent
 | ------ | ------- |
 | `sensor.<user>_<carrier>_*` | PostNL, DHL — `sensor.my_account_postnl_incoming_parcels` |
 | `sensor.<carrier>_<user>_*` | DPD, Vinted Go, GLS, Trunkrs — `sensor.dpd_my_account_binnenkomende_pakketten`, `sensor.vinted_go_my_account_incoming_parcels`, `sensor.gls_1234ab_incoming_parcels`, `sensor.trunkrs_1234ab_incoming_parcels` |
-| `sensor.<carrier>_*` (no prefix) | Dragonfly, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee, Nova Post, Delhivery, SunYou — `sensor.dragonfly_incoming_parcels`, `sensor.cainiao_incoming_parcels`, `sensor.hermes_incoming_parcels`, `sensor.packeta_incoming_parcels`, `sensor.correos_incoming_parcels`, `sensor.postnord_incoming_parcels`, `sensor.sameday_incoming_parcels`, `sensor.swiss_post_incoming_parcels`, `sensor.planzer_incoming_parcels`, `sensor.oesterreichische_post_incoming_parcels` (Austrian Post), `sensor.helthjem_incoming_parcels`, `sensor.dynalogic_incoming_parcels`, `sensor.budbee_incoming_parcels`, `sensor.nova_post_incoming_parcels`, `sensor.delhivery_incoming_parcels`, `sensor.sunyou_incoming_parcels` |
+| `sensor.<carrier>_*` (no prefix) | Most tracking-code carriers — `sensor.ups_incoming_parcels`, `sensor.dragonfly_incoming_parcels`, `sensor.oesterreichische_post_incoming_parcels` (Austrian Post) |
 
-The correct scheme is detected automatically. Leave `user` empty if your sensors have no account prefix, or for any account-less no-prefix carrier (Dragonfly, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee, Nova Post, Delhivery, SunYou) — those carriers have no account or postal code at all.
+The correct scheme is detected automatically. Leave `user` empty if your sensors have no account prefix, or for a tracking-code carrier without a prefix — the editor's help text says which applies to the carrier you picked. On current Home Assistant versions the card matches sensors through the entity registry, so the exact entity_id rarely matters.
 
 ---
 

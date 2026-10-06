@@ -22,7 +22,7 @@ The card loads but the parcel list is empty.
 1. `days_back` is too short — increase the value to show older delivered parcels.
 2. The integration has not yet received data from the carrier — wait for the next update cycle or trigger a manual refresh.
 3. The sensor exists but has no attributes — verify the integration is authenticated (or, for account-less carriers, that at least one parcel has been registered).
-4. For account-less carriers (GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee, Nova Post, Delhivery, SunYou, Quickpac) — nothing has been tracked yet. Use the "+ Add parcel" control, or the integration's own Configure dialog, to register a tracking number.
+4. For tracking-code carriers ("Add parcel from card" in the [Carrier types](configuration.md#carrier-types) table) — nothing has been tracked yet. Use the "+ Add parcel" control, or the integration's own Configure dialog, to register a tracking number.
 
 ---
 
@@ -45,7 +45,7 @@ The Sent tab is empty, or missing entirely.
 **Causes and solutions:**
 
 1. `show_sent` is set to `false` — enable it.
-2. The carrier is GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Nova Post, Delhivery, SunYou or Quickpac — these carriers have no Sent tab at all, since there's no sender/account concept for account-less tracking. This is expected, not a bug. (Budbee is the one exception among the account-less carriers — it tracks outgoing parcels too, so its Sent tab works normally.) An Post has an account but still has no Sent tab either — `ha-an-post` simply doesn't expose an outgoing sensor.
+2. The carrier has no Sent tab at all — its integration has no outgoing-parcels sensor. This is expected, not a bug; the [Carrier types](configuration.md#carrier-types) table shows which carriers have one.
 3. The `entity_outgoing` sensor is not configured and cannot be derived automatically — verify the sensor exists in Developer Tools and add a manual override if needed.
 
 ---
@@ -78,7 +78,7 @@ Letters appear but no scan images are displayed.
 
 **Causes and solutions:**
 
-1. The control doesn't appear at all — it only shows when at least one configured carrier supports it: the account-less carriers (GLS, Dragonfly, Trunkrs, Cainiao, Hermes, Packeta, Correos, PostNord, Sameday, Swiss Post, Planzer, Austrian Post, Helthjem, Dynalogic, Budbee, Nova Post, Delhivery, SunYou, Quickpac), plus An Post (account-based, but its integration also exposes a `track_parcel` service to add a code to the account's watchlist). PostNL, DHL, DPD and Vinted Go don't support it; see [Add parcel support](overview.md#add-parcel-support) for why.
+1. The control doesn't appear at all — it only shows when at least one configured carrier's integration has a `track_parcel` service ("Add parcel from card" in the [Carrier types](configuration.md#carrier-types) table). Account-based integrations without one — PostNL, DHL NL, DPD, Vinted Go — don't support it; see [Add parcel support](overview.md#add-parcel-support) for why.
 2. `show_add_parcel: false` is set — remove it or set to `true`.
 3. Submitting a tracking number does nothing / errors — the control calls the integration's own `track_parcel` service directly. Check **Developer Tools → Actions** to confirm that service exists for your carrier's integration (e.g. `gls.track_parcel`), and check the integration's own logs for the actual failure reason (invalid tracking number, carrier API error, etc.) — the card only relays the call, it doesn't validate tracking numbers itself.
 4. For GLS/Trunkrs specifically — the parcel may land on the wrong hub if `user` (the postal code) isn't set correctly on that carrier entry, since it's passed along automatically with the service call.

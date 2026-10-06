@@ -1,5 +1,46 @@
 # Changelog
 
+## [2.0.0b15] — 2026-10-06
+
+### Added
+
+- **39 new carriers — every integration in [ha-parcel-integrations](https://github.com/ha-parcel-integrations) is now supported (68 in total):**
+  4PX, Airmee, Amazon, Apple Express, Aramex, Better Trucks, BoxNow, bpost, Canada Post, Canpar,
+  CTT, DAO, DHL (ha-dhl), Econt, ELTA Courier, Evri, FAN Courier, FedEx, GOFO Express, ICS Courier,
+  La Poste, Matkahuolto, Mondial Relay, NZ Post, OnTrac, ORLEN Paczka, Paack, Poczta Polska,
+  Poste Italiane, Posten Bring, Posti, Purolator, SEUR, Slovak Parcel Service, Slovenská Pošta,
+  SpeedX, UniUni, UPS and USPS. Each is auto-detected, gets the Sent tab when its integration has
+  outgoing parcels, and the "+ Add parcel" control when it has a `track_parcel` service — all read
+  from the integrations' own code, not assumed.
+  - **Branding is temporary for these 39:** the logo is each integration's own icon, the colour its
+    brand colour. Banner, van and step artwork follow with the new SVG scenes; until then the card
+    shows the plain status view instead of the step tracker for them, like a custom carrier.
+  - **bpost letters** (Mail Ahead) show up in the Letters tab next to PostNL's, with the sender as
+    the name and scans matched from bpost's own image entities.
+  - **`dhl_global`** is the new [ha-dhl](https://github.com/ha-parcel-integrations/ha-dhl)
+    integration (DHL Paket Germany, DHL Parcel Poland, DHL Express). The existing `dhl` type stays
+    [ha-dhl-nl](https://github.com/ha-parcel-integrations/ha-dhl-nl) and is now labelled **DHL NL**
+    in the editor. "+ Add parcel" for DHL and USPS sends the account's config entry along, so a code
+    lands on the right account when there is more than one.
+
+### Changed
+
+- **The carrier picker is alphabetical**, generated from the carrier list instead of a hand-kept one.
+- **Existing carriers updated to what their integrations do today:** PostNord, Swiss Post and
+  Packeta now have a Sent tab; InPost gets "+ Add parcel"; Hermes, PostNord and Swiss Post explain
+  that an account is optional.
+- **README and docs list every carrier from one generated table** ([Carrier types](https://jonisnet.github.io/ha-parcel-card/card/configuration/#carrier-types))
+  instead of a dozen hand-written lists that had fallen behind. Outdated notes about Trunkrs
+  statuses and missing Packeta/Correos ETAs are gone — both integrations have moved on.
+
+### Fixed
+
+- **Two integrations sharing an entity_id prefix could be mixed up** — ha-dhl-nl and ha-dhl both
+  create `sensor.dhl_*`. Detection by entity_id text now skips entities the entity registry assigns
+  to a different integration.
+- **Dutch: "out for delivery" read "Vandaag bezorgd"** (delivered today) while the parcel was still
+  on its way. It now reads "Wordt vandaag bezorgd".
+
 ## [2.0.0b14] — 2026-10-06
 
 ### Fixed
