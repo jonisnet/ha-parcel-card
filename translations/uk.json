@@ -180,5 +180,13 @@
     "show_extra_info_button": "Показувати кнопку «додаткова інформація»",
     "show_raw_data_button": "Показувати кнопку «необроблені дані»",
     "show_more_details": "Показати більше",
-    "show_raw_data": "Показати необроблені дані"
+    "show_raw_data": "Показати необроблені дані",
+    "pickup_ready_today": "Готово з сьогодні",
+    "pickup_ready_one_day": "Чекає 1 день",
+    "pickup_ready_days": "Чекає {n} днів",
+    "pickup_days_left": "Залишилось {n} днів, щоб забрати",
+    "pickup_one_day_left": "Залишився 1 день, щоб забрати",
+    "pickup_last_day": "Останній день, щоб забрати",
+    "label_ready_since": "Готово до отримання з",
+    "label_pickup_deadline": "Забрати до"
 }

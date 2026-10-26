@@ -180,5 +180,13 @@
     "show_extra_info_button": "Показвай бутона „допълнителна информация“",
     "show_raw_data_button": "Показвай бутона „необработени данни“",
     "show_more_details": "Покажи повече",
-    "show_raw_data": "Покажи необработените данни"
+    "show_raw_data": "Покажи необработените данни",
+    "pickup_ready_today": "Готова от днес",
+    "pickup_ready_one_day": "Чака от 1 ден",
+    "pickup_ready_days": "Чака от {n} дни",
+    "pickup_days_left": "Остават {n} дни за получаване",
+    "pickup_one_day_left": "Остава 1 ден за получаване",
+    "pickup_last_day": "Последен ден за получаване",
+    "label_ready_since": "Готова за получаване от",
+    "label_pickup_deadline": "Получете до"
 }

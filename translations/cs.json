@@ -180,5 +180,13 @@
     "show_extra_info_button": "Zobrazit tlačítko „další informace“",
     "show_raw_data_button": "Zobrazit tlačítko „surová data“",
     "show_more_details": "Zobrazit více",
-    "show_raw_data": "Zobrazit surová data"
+    "show_raw_data": "Zobrazit surová data",
+    "pickup_ready_today": "Připraveno od dnes",
+    "pickup_ready_one_day": "Čeká 1 den",
+    "pickup_ready_days": "Čeká {n} dní",
+    "pickup_days_left": "Zbývá {n} dní na vyzvednutí",
+    "pickup_one_day_left": "Zbývá 1 den na vyzvednutí",
+    "pickup_last_day": "Poslední den na vyzvednutí",
+    "label_ready_since": "Připraveno k vyzvednutí od",
+    "label_pickup_deadline": "Vyzvedněte do"
 }

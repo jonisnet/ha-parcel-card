@@ -180,5 +180,13 @@
     "show_extra_info_button": "Afficher le bouton « infos supplémentaires »",
     "show_raw_data_button": "Afficher le bouton « données brutes »",
     "show_more_details": "Afficher plus",
-    "show_raw_data": "Afficher les données brutes"
+    "show_raw_data": "Afficher les données brutes",
+    "pickup_ready_today": "Disponible depuis aujourd'hui",
+    "pickup_ready_one_day": "Disponible depuis 1 jour",
+    "pickup_ready_days": "Disponible depuis {n} jours",
+    "pickup_days_left": "Encore {n} jours pour le retirer",
+    "pickup_one_day_left": "Encore 1 jour pour le retirer",
+    "pickup_last_day": "Dernier jour pour le retirer",
+    "label_ready_since": "Disponible depuis",
+    "label_pickup_deadline": "À retirer avant le"
 }

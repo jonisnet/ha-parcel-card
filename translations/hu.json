@@ -180,5 +180,13 @@
     "show_extra_info_button": "„További infó” gomb megjelenítése",
     "show_raw_data_button": "„Nyers adatok” gomb megjelenítése",
     "show_more_details": "Több megjelenítése",
-    "show_raw_data": "Nyers adatok megjelenítése"
+    "show_raw_data": "Nyers adatok megjelenítése",
+    "pickup_ready_today": "Ma óta átvehető",
+    "pickup_ready_one_day": "1 napja átvehető",
+    "pickup_ready_days": "{n} napja átvehető",
+    "pickup_days_left": "Még {n} nap az átvételre",
+    "pickup_one_day_left": "Még 1 nap az átvételre",
+    "pickup_last_day": "Utolsó nap az átvételre",
+    "label_ready_since": "Átvehető ekkortól",
+    "label_pickup_deadline": "Átvételi határidő"
 }

@@ -180,5 +180,13 @@
     "show_extra_info_button": "Vis knappen \"ekstra info\"",
     "show_raw_data_button": "Vis knappen \"rådata\"",
     "show_more_details": "Vis mer",
-    "show_raw_data": "Vis rådata"
+    "show_raw_data": "Vis rådata",
+    "pickup_ready_today": "Klar siden i dag",
+    "pickup_ready_one_day": "Klar i 1 dag",
+    "pickup_ready_days": "Klar i {n} dager",
+    "pickup_days_left": "{n} dager igjen til henting",
+    "pickup_one_day_left": "1 dag igjen til henting",
+    "pickup_last_day": "Siste dag for henting",
+    "label_ready_since": "Klar for henting siden",
+    "label_pickup_deadline": "Hentes innen"
 }

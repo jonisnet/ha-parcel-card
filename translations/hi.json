@@ -180,5 +180,13 @@
     "show_extra_info_button": "\"अतिरिक्त जानकारी\" बटन दिखाएं",
     "show_raw_data_button": "\"रॉ डेटा\" बटन दिखाएं",
     "show_more_details": "और दिखाएं",
-    "show_raw_data": "रॉ डेटा दिखाएं"
+    "show_raw_data": "रॉ डेटा दिखाएं",
+    "pickup_ready_today": "आज से तैयार",
+    "pickup_ready_one_day": "1 दिन से इंतज़ार में",
+    "pickup_ready_days": "{n} दिनों से इंतज़ार में",
+    "pickup_days_left": "लेने के लिए {n} दिन बाकी",
+    "pickup_one_day_left": "लेने के लिए 1 दिन बाकी",
+    "pickup_last_day": "लेने का आखिरी दिन",
+    "label_ready_since": "पिकअप के लिए तैयार कब से",
+    "label_pickup_deadline": "इस तारीख तक लें"
 }

@@ -177,5 +177,13 @@
     "show_extra_info_button": "Toon extra info-knop",
     "show_raw_data_button": "Toon ruwe data-knop",
     "show_more_details": "Toon meer",
-    "show_raw_data": "Toon ruwe gegevens"
+    "show_raw_data": "Toon ruwe gegevens",
+    "pickup_ready_today": "Ligt sinds vandaag klaar",
+    "pickup_ready_one_day": "Ligt 1 dag klaar",
+    "pickup_ready_days": "Ligt {n} dagen klaar",
+    "pickup_days_left": "Nog {n} dagen om op te halen",
+    "pickup_one_day_left": "Nog 1 dag om op te halen",
+    "pickup_last_day": "Laatste dag om op te halen",
+    "label_ready_since": "Klaar om op te halen sinds",
+    "label_pickup_deadline": "Ophalen uiterlijk"
 }

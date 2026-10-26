@@ -180,5 +180,13 @@
     "show_extra_info_button": "Schaltfläche „Zusatzinfo“ anzeigen",
     "show_raw_data_button": "Schaltfläche „Rohdaten“ anzeigen",
     "show_more_details": "Mehr anzeigen",
-    "show_raw_data": "Rohdaten anzeigen"
+    "show_raw_data": "Rohdaten anzeigen",
+    "pickup_ready_today": "Seit heute abholbereit",
+    "pickup_ready_one_day": "Seit 1 Tag abholbereit",
+    "pickup_ready_days": "Seit {n} Tagen abholbereit",
+    "pickup_days_left": "Noch {n} Tage zum Abholen",
+    "pickup_one_day_left": "Noch 1 Tag zum Abholen",
+    "pickup_last_day": "Letzter Abholtag",
+    "label_ready_since": "Abholbereit seit",
+    "label_pickup_deadline": "Abholen bis"
 }
