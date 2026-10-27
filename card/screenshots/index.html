@@ -581,6 +581,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#delivery-scenes-all-85-carriers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Delivery scenes — all 85 carriers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#combo-banner-multiple-carriers" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -749,6 +760,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#delivery-scenes-all-85-carriers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Delivery scenes — all 85 carriers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#combo-banner-multiple-carriers" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -808,12 +830,32 @@
 
 <h1 id="screenshots">Screenshots<a class="headerlink" href="#screenshots" title="Permanent link">&para;</a></h1>
 <h2 id="dashboard-parcel-detail">Dashboard — parcel detail<a class="headerlink" href="#dashboard-parcel-detail" title="Permanent link">&para;</a></h2>
-<p>The delivery tracker and expanded parcel detail panel (barcode, status, delivery type, tracking link).
-The screenshots below show an earlier beta. The current tracker uses shared SVG scenes for
-every carrier, with four steps for home delivery and five when the parcel goes via a pickup point.</p>
+<p>The delivery tracker and expanded parcel detail panel (tracking number, delivery type, collection
+deadline). Every carrier gets the same illustrated scenes in its own colour: four steps for home
+delivery, five when the parcel goes via a pickup point. The large scene shows where the parcel is now.</p>
 <div class="grid">
-<p><img alt="Dashboard overview, dark theme" src="../../images/screenshot-dashboard.png" /></p>
-<p><img alt="Dashboard overview, light theme" src="../../images/screenshot-parcel-detail-light.png" /></p>
+<p><img alt="Parcel at a pickup point, dark theme" src="../../images/v2-detail-pickup-dark.png" /></p>
+<p><img alt="Parcel at a pickup point, light theme" src="../../images/v2-detail-pickup-light.png" /></p>
+<p><img alt="Parcel out for delivery, dark theme" src="../../images/v2-detail-delivery-dark.png" /></p>
+<p><img alt="Parcel out for delivery, light theme" src="../../images/v2-detail-delivery-light.png" /></p>
+<p><img alt="Parcel at the sorting centre, dark theme" src="../../images/v2-detail-transit-dark.png" /></p>
+<p><img alt="Parcel at the sorting centre, light theme" src="../../images/v2-detail-transit-light.png" /></p>
+</div>
+<hr />
+<h2 id="delivery-scenes-all-85-carriers">Delivery scenes — all 85 carriers<a class="headerlink" href="#delivery-scenes-all-85-carriers" title="Permanent link">&para;</a></h2>
+<p>The five scenes (Registered · Sorting centre · Out for delivery · Pickup point · Delivered) for
+every supported carrier, in its configured colour and with its logo. Logos come from
+<a href="https://github.com/elax46/custom-brand-icons">custom-brand-icons</a> when it is installed, otherwise
+from the carrier's own artwork.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Light theme</label><label for="__tabbed_1_2">Dark theme</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><img alt="All 85 carriers, light theme" src="../../images/v2-all-carriers-light.png" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="All 85 carriers, dark theme" src="../../images/v2-all-carriers-dark.png" /></p>
+</div>
+</div>
 </div>
 <hr />
 <h2 id="combo-banner-multiple-carriers">Combo banner — multiple carriers<a class="headerlink" href="#combo-banner-multiple-carriers" title="Permanent link">&para;</a></h2>
@@ -823,12 +865,11 @@ offline content measurements; square integration icons have rounded corners. Til
 the active Home Assistant card colour, including a dark background in dark mode. Dark
 wordmarks keep their original colours with a subtle light edge for readability. Existing
 single-carrier banners and custom placeholder images remain available.</p>
-<p>The screenshots below predate Studio and show the earlier combo-banner layout.</p>
 <div class="grid">
-<p><img alt="Combo banner, dark theme" src="../../images/screenshot-banners-dark.png" /></p>
-<p><img alt="Combo banner, light theme" src="../../images/screenshot-banners-light.png" /></p>
+<p><img alt="Carrier banner, dark theme" src="../../images/v2-banner-dark.png" /></p>
+<p><img alt="Carrier banner, light theme" src="../../images/v2-banner-light.png" /></p>
 </div>
-<p>Full dashboard with every carrier's own tile alongside the combo banner:</p>
+<p>Full dashboard with every carrier's own tile alongside the combo banner (earlier beta):</p>
 <div class="grid">
 <p><img alt="Multi-carrier grid, dark theme" src="../../images/screenshot-multi-carrier-grid-dark.png" /></p>
 <p><img alt="Multi-carrier grid, light theme" src="../../images/screenshot-multi-carrier-grid-light.png" /></p>

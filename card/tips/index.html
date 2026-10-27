@@ -580,6 +580,28 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#opening-the-card-on-a-tab-from-a-notification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opening the card on a tab from a notification
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zooming-into-a-letter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Zooming into a letter
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#using-the-carrier-overview-popup" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -892,6 +914,28 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#opening-the-card-on-a-tab-from-a-notification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opening the card on a tab from a notification
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zooming-into-a-letter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Zooming into a letter
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#using-the-carrier-overview-popup" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -992,10 +1036,10 @@
 <p>The editor's auto-detection also handles this case automatically.</p>
 <hr />
 <h2 id="registering-a-parcel-without-opening-the-integration">Registering a parcel without opening the integration<a class="headerlink" href="#registering-a-parcel-without-opening-the-integration" title="Permanent link">&para;</a></h2>
-<p>For every carrier with "Add parcel from card" in the <a href="../configuration/#carrier-types">Carrier types</a> table, use the "+ Add parcel" control at the bottom of the card instead of switching to the integration's own Configure dialog — it calls the same <code>track_parcel</code> service directly, so the parcel shows up in the card immediately. See <a href="../overview/#add-parcel-support">Add parcel support</a> for why account-based carriers such as PostNL, DHL NL, DPD and Vinted Go don't need it.</p>
+<p>For every carrier with "Add parcel from card" in the <a href="../configuration/#carrier-types">Carrier types</a> table, use the "Add parcel" control at the bottom of the card instead of switching to the integration's own Configure dialog — it calls the same <code>track_parcel</code> service directly, so the parcel shows up in the card immediately. See <a href="../overview/#add-parcel-support">Add parcel support</a> for why account-based carriers such as PostNL, DHL NL, DPD and Vinted Go don't need it.</p>
 <hr />
 <h2 id="naming-a-parcel">Naming a parcel<a class="headerlink" href="#naming-a-parcel" title="Permanent link">&para;</a></h2>
-<p>Open a parcel's detail panel and click "+ Add name" to give it a short label of your own — "Birthday gift" is a lot easier to spot than a bare tracking code. By default (<code>custom_name_scope: everyone</code>) the name is saved instance-wide with live updates for every Home Assistant user — adding or editing one requires an admin account, though everyone can see the names. Set <code>custom_name_scope: me</code> to save it to your own Home Assistant account instead (synced across your own devices only), <code>device</code> to keep it in this browser only, or <code>off</code> to hide the control entirely.</p>
+<p>Open a parcel's detail panel and click "Add name" to give it a short label of your own — "Birthday gift" is a lot easier to spot than a bare tracking code. By default (<code>custom_name_scope: everyone</code>) the name is saved instance-wide with live updates for every Home Assistant user — adding or editing one requires an admin account, though everyone can see the names. Set <code>custom_name_scope: me</code> to save it to your own Home Assistant account instead (synced across your own devices only), <code>device</code> to keep it in this browser only, or <code>off</code> to hide the control entirely.</p>
 <hr />
 <h2 id="changing-how-parcels-are-sorted-and-grouped">Changing how parcels are sorted and grouped<a class="headerlink" href="#changing-how-parcels-are-sorted-and-grouped" title="Permanent link">&para;</a></h2>
 <p>By default, In Transit and Sent show the soonest-arriving parcel first within each carrier's own section (Delivered shows the most recent first), and carrier sections aren't in a fixed order — whichever carrier's next parcel is soonest shows first. Set <code>group_by_carrier: false</code> for one flat list instead, where parcels from different carriers interleave directly by date rather than being grouped — e.g. a PostNL parcel, then two DHL parcels, then three more PostNL parcels, purely in delivery-time order. Set <code>sort_order: newest_first</code> or <code>oldest_first</code> to pin one fixed direction everywhere instead of the automatic soonest/most-recent split.</p>
@@ -1011,12 +1055,35 @@
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nt">show_letters</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 </code></pre></div>
 <hr />
+<h2 id="opening-the-card-on-a-tab-from-a-notification">Opening the card on a tab from a notification<a class="headerlink" href="#opening-the-card-on-a-tab-from-a-notification" title="Permanent link">&para;</a></h2>
+<p>The card normally opens on <strong>In transit</strong>. Set <code>default_tab</code> to start elsewhere:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">default_tab</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">post</span><span class="w">   </span><span class="c1"># in_transit, delivered, sent or post</span>
+</code></pre></div>
+<p>A dashboard link can choose the tab as well, by adding <code>?parcel_tab=</code> to the dashboard's
+URL. That wins over <code>default_tab</code>, which makes it handy for a notification: tapping it
+opens the card straight on the Letters tab, also when the dashboard is already open.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">notify.mobile_app_your_phone</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nt">data</span><span class="p">:</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">"You've</span><span class="nv"> </span><span class="s">got</span><span class="nv"> </span><span class="s">mail"</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="nt">message</span><span class="p">:</span><span class="w"> </span><span class="s">"A</span><span class="nv"> </span><span class="s">new</span><span class="nv"> </span><span class="s">letter</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">on</span><span class="nv"> </span><span class="s">its</span><span class="nv"> </span><span class="s">way."</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span><span class="nt">data</span><span class="p">:</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="nt">clickAction</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/dashboard-home/parcels?parcel_tab=post</span><span class="w">   </span><span class="c1"># Android</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/dashboard-home/parcels?parcel_tab=post</span><span class="w">           </span><span class="c1"># iPhone</span>
+</code></pre></div>
+<p>Replace <code>/dashboard-home/parcels</code> with the path of the dashboard view that holds the card.
+A tab that is hidden or doesn't exist (for example <code>post</code> without a letters entity) is
+ignored, and the card opens on its usual tab.</p>
+<hr />
+<h2 id="zooming-into-a-letter">Zooming into a letter<a class="headerlink" href="#zooming-into-a-letter" title="Permanent link">&para;</a></h2>
+<p>Tap a letter's scan to open it. Pinch or double-tap to zoom in (scroll or double-click on a
+desktop), and drag to move around the zoomed scan.</p>
+<hr />
 <h2 id="using-the-carrier-overview-popup">Using the carrier overview popup<a class="headerlink" href="#using-the-carrier-overview-popup" title="Permanent link">&para;</a></h2>
 <p>With two or more carriers configured, click any logo in the combo banner to see everything for that carrier — In Transit, Delivered, Sent and Letters — in one popup, without switching tabs. It's a quick way to check "has anything from GLS shown up yet?" without hunting across every tab.</p>
 <hr />
 <h2 id="showing-the-carriers-own-status-text">Showing the carrier's own status text<a class="headerlink" href="#showing-the-carriers-own-status-text" title="Permanent link">&para;</a></h2>
 <p>By default the card shows a generic translated status ("In transit", "Delivered", ...) so every carrier reads the same. Set <code>show_raw_status: true</code> to show each carrier's own status text instead (e.g. GLS's "Onderweg - geladen voor aflevering") when the integration provides one — falls back to the generic label for any parcel without one.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">show_raw_status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nt">show_raw_status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
 <hr />
 <h2 id="using-phu-carrier-icons">Using PHU carrier icons<a class="headerlink" href="#using-phu-carrier-icons" title="Permanent link">&para;</a></h2>
@@ -1024,46 +1091,46 @@
 <hr />
 <h2 id="multiple-cards-for-different-purposes">Multiple cards for different purposes<a class="headerlink" href="#multiple-cards-for-different-purposes" title="Permanent link">&para;</a></h2>
 <p>Consider using two separate cards: one focused on active deliveries and one showing history.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Active deliveries card</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">custom:ha-parcel-card</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Onderweg</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="nt">show_delivered</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="nt">show_sent</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="nt">show_letters</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="nt">carriers</span><span class="p">:</span>
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postnl</span>
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_account</span>
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
-<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="c1"># History card</span>
-<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">custom:ha-parcel-card</span>
-<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ontvangen</span>
-<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="nt">show_delivered</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="nt">show_sent</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="nt">days_back</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span>
-<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="nt">show_animation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="nt">show_placeholder</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="nt">carriers</span><span class="p">:</span>
-<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postnl</span>
-<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">    </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_account</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Active deliveries card</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">custom:ha-parcel-card</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Onderweg</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="nt">show_delivered</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="nt">show_sent</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="nt">show_letters</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="nt">carriers</span><span class="p">:</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postnl</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_account</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="c1"># History card</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">custom:ha-parcel-card</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ontvangen</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="nt">show_delivered</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="nt">show_sent</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="nt">days_back</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="nt">show_animation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="nt">show_placeholder</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="nt">carriers</span><span class="p">:</span>
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postnl</span>
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="w">    </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_account</span>
 </code></pre></div>
 <hr />
 <h2 id="colour-theming">Colour theming<a class="headerlink" href="#colour-theming" title="Permanent link">&para;</a></h2>
 <p>Use CSS variables for colours that automatically adapt to your Home Assistant theme:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nt">header_color</span><span class="p">:</span><span class="w"> </span><span class="s">"var(--primary-color)"</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nt">header_text_color</span><span class="p">:</span><span class="w"> </span><span class="s">"var(--text-primary-color)"</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nt">header_color</span><span class="p">:</span><span class="w"> </span><span class="s">"var(--primary-color)"</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nt">header_text_color</span><span class="p">:</span><span class="w"> </span><span class="s">"var(--text-primary-color)"</span>
 </code></pre></div>
 <p>Or use explicit hex values for a fixed colour scheme:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nt">header_color</span><span class="p">:</span><span class="w"> </span><span class="s">"#1a1a2e"</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nt">header_text_color</span><span class="p">:</span><span class="w"> </span><span class="s">"#e0e0e0"</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nt">header_color</span><span class="p">:</span><span class="w"> </span><span class="s">"#1a1a2e"</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nt">header_text_color</span><span class="p">:</span><span class="w"> </span><span class="s">"#e0e0e0"</span>
 </code></pre></div>
 <hr />
 <h2 id="reordering-card-sections">Reordering card sections<a class="headerlink" href="#reordering-card-sections" title="Permanent link">&para;</a></h2>
 <p>Change the visual order of the header, animation, tabs and list sections:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nt">layout_order</span><span class="p">:</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">animation</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">header</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tabs</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">list</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nt">layout_order</span><span class="p">:</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">animation</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">header</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tabs</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">list</span>
 </code></pre></div>
 
 

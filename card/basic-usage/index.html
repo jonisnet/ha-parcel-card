@@ -885,7 +885,7 @@
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">vinted_go</span>
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_account</span>
 </code></pre></div>
-<p>Like PostNL/DHL/DPD, Vinted Go is account-based (login is an e-mail address plus a verification link, no password) — every parcel tied to the account appears automatically, so there's no <code>track_parcel</code> service and no "+ Add parcel" control for it. Unlike PostNL/DHL/DPD, Vinted Go tracks both incoming <em>and</em> outgoing parcels, and there's no <code>next_delivery</code>/ETA sensor for it at all.</p>
+<p>Like PostNL/DHL/DPD, Vinted Go is account-based (login is an e-mail address plus a verification link, no password) — every parcel tied to the account appears automatically, so there's no <code>track_parcel</code> service and no "Add parcel" control for it. Unlike PostNL/DHL/DPD, Vinted Go tracks both incoming <em>and</em> outgoing parcels, and there's no <code>next_delivery</code>/ETA sensor for it at all.</p>
 <hr />
 <h2 id="tracking-code-carriers">Tracking-code carriers<a class="headerlink" href="#tracking-code-carriers" title="Permanent link">&para;</a></h2>
 <p>Most carriers need no login — you track a parcel by its tracking number (GLS, Trunkrs, Evri and Slovak Parcel Service also tie it to a postal code). A few examples:</p>
@@ -899,7 +899,7 @@
 <a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dragonfly</span>
 <a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cainiao</span>
 </code></pre></div>
-<p>Every carrier type is listed under <a href="../configuration/#carrier-types">Carrier types</a>. Since there's no account to auto-sync from, each of these carriers shows a "+ Add parcel" control on the card so you can register a tracking number directly. Disable it per-card with <code>show_add_parcel: false</code>.</p>
+<p>Every carrier type is listed under <a href="../configuration/#carrier-types">Carrier types</a>. Since there's no account to auto-sync from, each of these carriers shows a "Add parcel" control on the card so you can register a tracking number directly. Disable it per-card with <code>show_add_parcel: false</code>.</p>
 <hr />
 <h2 id="postnl-with-letters">PostNL with letters<a class="headerlink" href="#postnl-with-letters" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">custom:ha-parcel-card</span>

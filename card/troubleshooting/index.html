@@ -667,7 +667,7 @@
   <a href="#add-parcel-is-missing-or-fails" class="md-nav__link">
     <span class="md-ellipsis">
       
-        "+ Add parcel" is missing or fails
+        "Add parcel" is missing or fails
       
     </span>
   </a>
@@ -873,7 +873,7 @@
   <a href="#add-parcel-is-missing-or-fails" class="md-nav__link">
     <span class="md-ellipsis">
       
-        "+ Add parcel" is missing or fails
+        "Add parcel" is missing or fails
       
     </span>
   </a>
@@ -956,7 +956,7 @@
 <li><code>days_back</code> is too short — increase the value to show older delivered parcels.</li>
 <li>The integration has not yet received data from the carrier — wait for the next update cycle or trigger a manual refresh.</li>
 <li>The sensor exists but has no attributes — verify the integration is authenticated (or, for account-less carriers, that at least one parcel has been registered).</li>
-<li>For tracking-code carriers ("Add parcel from card" in the <a href="../configuration/#carrier-types">Carrier types</a> table) — nothing has been tracked yet. Use the "+ Add parcel" control, or the integration's own Configure dialog, to register a tracking number.</li>
+<li>For tracking-code carriers ("Add parcel from card" in the <a href="../configuration/#carrier-types">Carrier types</a> table) — nothing has been tracked yet. Use the "Add parcel" control, or the integration's own Configure dialog, to register a tracking number.</li>
 </ol>
 <hr />
 <h2 id="delivered-parcels-not-visible">Delivered parcels not visible<a class="headerlink" href="#delivered-parcels-not-visible" title="Permanent link">&para;</a></h2>
@@ -995,7 +995,7 @@
 <li>The image entity is <code>unavailable</code> — the scan has not been received yet. Check the entity state in Developer Tools.</li>
 </ol>
 <hr />
-<h2 id="add-parcel-is-missing-or-fails">"+ Add parcel" is missing or fails<a class="headerlink" href="#add-parcel-is-missing-or-fails" title="Permanent link">&para;</a></h2>
+<h2 id="add-parcel-is-missing-or-fails">"Add parcel" is missing or fails<a class="headerlink" href="#add-parcel-is-missing-or-fails" title="Permanent link">&para;</a></h2>
 <p><strong>Causes and solutions:</strong></p>
 <ol>
 <li>The control doesn't appear at all — it only shows when at least one configured carrier's integration has a <code>track_parcel</code> service ("Add parcel from card" in the <a href="../configuration/#carrier-types">Carrier types</a> table). Account-based integrations without one — PostNL, DHL NL, DPD, Vinted Go — don't support it; see <a href="../overview/#add-parcel-support">Add parcel support</a> for why.</li>

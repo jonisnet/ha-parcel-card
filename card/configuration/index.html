@@ -928,6 +928,12 @@
 <td>Show the Letters tab (PostNL only)</td>
 </tr>
 <tr>
+<td><code>default_tab</code></td>
+<td>string</td>
+<td><code>in_transit</code></td>
+<td>Tab the card opens on: <code>in_transit</code>, <code>delivered</code>, <code>sent</code> or <code>post</code>. A dashboard URL with <code>?parcel_tab=…</code> overrides it; see <a href="../tips/#opening-the-card-on-a-tab-from-a-notification">Opening the card on a tab from a notification</a></td>
+</tr>
+<tr>
 <td><code>show_animation</code></td>
 <td>boolean</td>
 <td><code>true</code></td>
@@ -967,7 +973,7 @@
 <td><code>show_add_parcel</code></td>
 <td>boolean</td>
 <td><code>true</code></td>
-<td>Show the "+ Add parcel" control at the bottom of the card (only appears when at least one configured carrier's integration has a <code>track_parcel</code> service — see <a href="#carrier-types">Carrier types</a>)</td>
+<td>Show the "Add parcel" control at the bottom of the card (only appears when at least one configured carrier's integration has a <code>track_parcel</code> service — see <a href="#carrier-types">Carrier types</a>)</td>
 </tr>
 <tr>
 <td><code>show_raw_status</code></td>
@@ -979,7 +985,7 @@
 <td><code>custom_name_scope</code></td>
 <td>string</td>
 <td><code>everyone</code></td>
-<td>Show a "+ Add name" control in each parcel's detail panel, letting you give it a short custom label (e.g. "Birthday gift") instead of just a tracking code. <code>off</code> hides the control entirely; <code>device</code> saves names in this browser only; <code>me</code> saves them to your Home Assistant account (synced across your own devices); <code>everyone</code> saves them instance-wide for every user to see. See the note below</td>
+<td>Show an "Add name" control in each parcel's detail panel, letting you give it a short custom label (e.g. "Birthday gift") instead of just a tracking code. <code>off</code> hides the control entirely; <code>device</code> saves names in this browser only; <code>me</code> saves them to your Home Assistant account (synced across your own devices); <code>everyone</code> saves them instance-wide for every user to see. See the note below</td>
 </tr>
 <tr>
 <td><code>sort_order</code></td>
@@ -1014,7 +1020,7 @@
 <ul>
 <li><code>custom_name_scope: device</code> saves names in the browser's local storage. Simple, but a name you set on your phone won't show up on a tablet or another device — each browser keeps its own labels.</li>
 <li><code>custom_name_scope: me</code> saves names to Home Assistant's own per-user storage instead (the same mechanism HA's own frontend uses for small preferences), via the <code>frontend/get_user_data</code>/<code>frontend/set_user_data</code> websocket calls. That's server-side, so it's the same for every device signed in with <em>your</em> HA account — but a different HA user on the same instance won't see it.</li>
-<li><code>custom_name_scope: everyone</code> (the default) saves names instance-wide, via Home Assistant's <code>frontend/get_system_data</code>/<code>set_system_data</code>/<code>subscribe_system_data</code> websocket calls — visible to every user of this Home Assistant instance, with live updates (no refresh needed to see a name someone else just added). Reading is open to everyone, but <strong>adding or editing a name requires an administrator account</strong> — HA enforces that server-side. Non-admin users still see existing shared names, just without the "+ Add name"/edit controls. This also needs a reasonably recent Home Assistant core (the system-data API landed in HA core ~2025.12); on an older core it degrades to showing no shared names rather than erroring.</li>
+<li><code>custom_name_scope: everyone</code> (the default) saves names instance-wide, via Home Assistant's <code>frontend/get_system_data</code>/<code>set_system_data</code>/<code>subscribe_system_data</code> websocket calls — visible to every user of this Home Assistant instance, with live updates (no refresh needed to see a name someone else just added). Reading is open to everyone, but <strong>adding or editing a name requires an administrator account</strong> — HA enforces that server-side. Non-admin users still see existing shared names, just without the "Add name"/edit controls. This also needs a reasonably recent Home Assistant core (the system-data API landed in HA core ~2025.12); on an older core it degrades to showing no shared names rather than erroring.</li>
 <li><code>custom_name_scope: off</code> hides the control entirely.</li>
 </ul>
 <p>Switching between scopes starts with a blank set of names for the new scope — the stores aren't merged or migrated automatically. <code>shared</code> is still accepted as a legacy alias for <code>me</code>, from before this option split into <code>me</code> and <code>everyone</code>.</p>
