@@ -931,7 +931,7 @@
 <td><code>show_animation</code></td>
 <td>boolean</td>
 <td><code>true</code></td>
-<td>Show the van animation when a parcel is selected</td>
+<td>Show the SVG delivery tracker and current-step illustration; during delivery, show the existing vehicle GIF or carrier chip</td>
 </tr>
 <tr>
 <td><code>show_header</code></td>
@@ -1065,13 +1065,13 @@
 <td><code>color</code></td>
 <td>string</td>
 <td><em>(carrier colour)</em></td>
-<td>Accent colour for this carrier</td>
+<td>Accent colour for this carrier, also used to derive the SVG scene palette (including custom carriers)</td>
 </tr>
 <tr>
 <td><code>logo_path</code></td>
 <td>string</td>
 <td><em>(carrier logo)</em></td>
-<td>URL to a custom logo image (use the Browse button in the editor to pick from the media library)</td>
+<td>URL to a custom logo image, also used inside SVG scenes when no mapped PHU icon is available (use the Browse button in the editor to pick from the media library)</td>
 </tr>
 <tr>
 <td><code>van_path</code></td>

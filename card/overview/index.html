@@ -925,7 +925,7 @@
 <li><strong>Four tabs</strong> — In Transit · Delivered · Sent · Letters</li>
 <li><strong>Split sections</strong> — both Sent and Letters are split into <em>Still to be delivered</em> and <em>Delivered</em></li>
 <li><strong>Click-to-expand</strong> — click any parcel for barcode, delivery type and a direct tracking link</li>
-<li><strong>4-step delivery tracker</strong> — selecting a parcel shows a progress row (Registered · Sorting centre · Out for delivery · Delivered) with a carrier-branded illustration for the current step</li>
+<li><strong>Delivery tracker for every carrier</strong> — selecting a parcel shows Registered · Sorting centre · Out for delivery · Delivered, with an extra Pickup point step for parcels delivered via an official pickup point. All 85 carriers and custom share five inline SVG scenes, coloured from the configured carrier colour</li>
 <li><strong>Historical tracking</strong> — configure how many days back delivered parcels remain visible</li>
 </ul>
 <h3 id="carrier-overview-popup">Carrier overview popup<a class="headerlink" href="#carrier-overview-popup" title="Permanent link">&para;</a></h3>
@@ -947,6 +947,12 @@
 <li><strong>Carrier colours</strong> — each carrier has its own accent colour, editable per carrier</li>
 <li><strong>PHU icons</strong> — branded carrier icons via <a href="https://github.com/elax46/custom-brand-icons">custom-brand-icons</a> when installed (coverage varies — see <a href="../../installation/#optional-phu-carrier-icons">Installation</a>)</li>
 </ul>
+<p>The delivery illustrations work without PHU, card-mod or browser_mod. Logos sit inside fixed
+panels: a released PHU icon takes priority, followed by the carrier's existing logo, then a
+plain panel in the carrier colour. App-icon fallbacks have rounded corners. PHU logo colours
+are darkened automatically when needed for at least 3:1 contrast on white. Registered and
+Delivered have no logo. The current driving hero keeps the existing vehicle GIF or carrier
+chip. Explicit step-image overrides take precedence over the shared scenes.</p>
 <h3 id="customization"><img alt="🔧" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f527.svg" title=":wrench:" /> Customization<a class="headerlink" href="#customization" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Toggle elements</strong> — show/hide header, tabs, animation and placeholder</li>

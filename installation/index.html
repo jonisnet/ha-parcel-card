@@ -954,122 +954,171 @@ v1.x line still supports both if you're not ready to upgrade yet.</p>
 <hr />
 <h2 id="optional-phu-carrier-icons">Optional: PHU carrier icons<a class="headerlink" href="#optional-phu-carrier-icons" title="Permanent link">&para;</a></h2>
 <p>Install <a href="https://github.com/elax46/custom-brand-icons">custom-brand-icons</a> via HACS to get branded <code>phu:</code> carrier icons. The card detects this automatically — no configuration needed.</p>
-<p>Coverage varies by carrier:</p>
+<p>The SVG delivery scenes work without this optional iconset. Their logo panels prefer a
+mapped PHU icon, then the carrier's existing logo (rounded for app icons), then a plain
+panel in the configured carrier colour. For carriers without their own card artwork, the
+"existing logo" is the icon that the installed integration ships in its <code>brand/</code> folder,
+served by Home Assistant 2026.3 and newer; older versions use a copy kept in this repository. A <code>logo_path</code> override replaces the image fallback.
+Registered and Delivered intentionally have no logo. If an older PHU installation lacks a
+mapped icon, the scene retains its image fallback.</p>
+<p>All 85 carrier mappings were checked on 27 October 2026 against the published
+<a href="https://github.com/elax46/custom-brand-icons/releases/tag/2026.10.3">custom-brand-icons 2026.10.3 release</a>
+and its <code>dist/custom-brand-icons.js</code>. These 35 carrier types have released icons:</p>
 <table>
 <thead>
 <tr>
 <th>Carrier</th>
-<th style="text-align: center;">PHU icon</th>
+<th>PHU icon</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>PostNL</td>
-<td style="text-align: center;">✅ real logo</td>
+<td><code>phu:postnl</code></td>
 </tr>
 <tr>
-<td>DHL</td>
-<td style="text-align: center;">✅ real logo</td>
+<td>DHL NL</td>
+<td><code>phu:dhl</code></td>
 </tr>
 <tr>
 <td>DPD</td>
-<td style="text-align: center;">✅ (basic placeholder-style artwork, not the official red DPD logo)</td>
-</tr>
-<tr>
-<td>GLS</td>
-<td style="text-align: center;">✅ (plain "GLS" text mark, not the official logo)</td>
-</tr>
-<tr>
-<td>Dragonfly</td>
-<td style="text-align: center;">✅ real logo</td>
-</tr>
-<tr>
-<td>Trunkrs</td>
-<td style="text-align: center;">❌ not available yet</td>
-</tr>
-<tr>
-<td>Cainiao</td>
-<td style="text-align: center;">❌ not available yet</td>
-</tr>
-<tr>
-<td>Hermes</td>
-<td style="text-align: center;">✅ real logo</td>
-</tr>
-<tr>
-<td>Packeta</td>
-<td style="text-align: center;">✅ real logo</td>
-</tr>
-<tr>
-<td>Correos</td>
-<td style="text-align: center;">✅ real logo</td>
+<td><code>phu:dpd</code></td>
 </tr>
 <tr>
 <td>Vinted Go</td>
-<td style="text-align: center;">❌ not available yet</td>
+<td><code>phu:vinted</code></td>
+</tr>
+<tr>
+<td>GLS</td>
+<td><code>phu:gls-group</code></td>
+</tr>
+<tr>
+<td>Dragonfly</td>
+<td><code>phu:dragonfly</code></td>
+</tr>
+<tr>
+<td>Trunkrs</td>
+<td><code>phu:trunkrs</code></td>
+</tr>
+<tr>
+<td>Cainiao</td>
+<td><code>phu:cainiao</code></td>
+</tr>
+<tr>
+<td>Hermes</td>
+<td><code>phu:hermes</code></td>
+</tr>
+<tr>
+<td>Packeta</td>
+<td><code>phu:packeta</code></td>
+</tr>
+<tr>
+<td>Correos</td>
+<td><code>phu:correos</code></td>
 </tr>
 <tr>
 <td>PostNord</td>
-<td style="text-align: center;">❌ wordmark-only brand, no standalone icon mark exists</td>
+<td><code>phu:postnord</code></td>
 </tr>
 <tr>
 <td>Sameday</td>
-<td style="text-align: center;">⏳ submitted upstream, pending merge (<a href="https://github.com/elax46/custom-brand-icons/pull/1435">#1435</a>)</td>
+<td><code>phu:sameday</code></td>
 </tr>
 <tr>
 <td>Swiss Post</td>
-<td style="text-align: center;">✅ real logo</td>
-</tr>
-<tr>
-<td>Planzer</td>
-<td style="text-align: center;">❌ wordmark-only brand, no standalone icon mark exists</td>
+<td><code>phu:swisspost</code></td>
 </tr>
 <tr>
 <td>Austrian Post</td>
-<td style="text-align: center;">✅ real logo</td>
+<td><code>phu:austrianpost</code></td>
 </tr>
 <tr>
 <td>Helthjem</td>
-<td style="text-align: center;">⏳ submitted upstream, pending merge (<a href="https://github.com/elax46/custom-brand-icons/pull/1435">#1435</a>)</td>
-</tr>
-<tr>
-<td>Dynalogic</td>
-<td style="text-align: center;">❌ wordmark-only brand, no standalone icon mark exists</td>
+<td><code>phu:helthjem</code></td>
 </tr>
 <tr>
 <td>Budbee</td>
-<td style="text-align: center;">⏳ submitted upstream, pending merge (<a href="https://github.com/elax46/custom-brand-icons/pull/1435">#1435</a>)</td>
+<td><code>phu:budbee</code></td>
 </tr>
 <tr>
 <td>Nova Post</td>
-<td style="text-align: center;">⏳ submitted upstream, pending merge (<a href="https://github.com/elax46/custom-brand-icons/pull/1435">#1435</a>)</td>
-</tr>
-<tr>
-<td>Delhivery</td>
-<td style="text-align: center;">❌ not available yet</td>
+<td><code>phu:nova_post</code></td>
 </tr>
 <tr>
 <td>SunYou</td>
-<td style="text-align: center;">✅ real logo</td>
+<td><code>phu:sunyou</code></td>
 </tr>
 <tr>
 <td>An Post</td>
-<td style="text-align: center;">✅ real logo</td>
-</tr>
-<tr>
-<td>Quickpac</td>
-<td style="text-align: center;">❌ wordmark + plain accent dot, no standalone icon mark to extract</td>
+<td><code>phu:anpost</code></td>
 </tr>
 <tr>
 <td>InPost</td>
-<td style="text-align: center;">✅ real logo</td>
+<td><code>phu:inpost</code></td>
 </tr>
 <tr>
-<td>Every carrier added in 2026-10</td>
-<td style="text-align: center;">❌ not yet — they use the integration's own icon in the banner meanwhile</td>
+<td>PPL CZ</td>
+<td><code>phu:ppl</code></td>
+</tr>
+<tr>
+<td>Ceska Posta</td>
+<td><code>phu:ceska-posta</code></td>
+</tr>
+<tr>
+<td>Amazon</td>
+<td><code>phu:amazon-logo</code></td>
+</tr>
+<tr>
+<td>CTT</td>
+<td><code>phu:ctt</code></td>
+</tr>
+<tr>
+<td>DHL</td>
+<td><code>phu:dhl</code></td>
+</tr>
+<tr>
+<td>Econt</td>
+<td><code>phu:econt</code></td>
+</tr>
+<tr>
+<td>FedEx</td>
+<td><code>phu:fedex</code></td>
+</tr>
+<tr>
+<td>La Poste</td>
+<td><code>phu:laposte</code></td>
+</tr>
+<tr>
+<td>Mondial Relay</td>
+<td><code>phu:mondialrelay</code></td>
+</tr>
+<tr>
+<td>NZ Post</td>
+<td><code>phu:nzpost</code></td>
+</tr>
+<tr>
+<td>Poste Italiane</td>
+<td><code>phu:posteitaliane</code></td>
+</tr>
+<tr>
+<td>UPS</td>
+<td><code>phu:ups-dlv</code></td>
+</tr>
+<tr>
+<td>USPS</td>
+<td><code>phu:usps</code></td>
+</tr>
+<tr>
+<td>Amazon Shipping</td>
+<td><code>phu:amazon-logo</code></td>
 </tr>
 </tbody>
 </table>
-<p>Carriers without a proper branded icon yet fall back to a generic <code>mdi:package-variant-closed</code> icon.</p>
+<p>The other 50 carriers use their existing logo in the scenes. Custom carriers use their
+configured logo, or a plain brand-colour panel without text. Outside the SVG illustrations,
+unmapped carriers keep the generic <code>mdi:package-variant-closed</code> icon. No local PR icons are
+used or required. Pale PHU logo colours are darkened automatically for at least 3:1 contrast
+on white; this follows the carrier's configured colour without per-carrier exceptions.</p>
 <hr />
 <h2 id="tested-versions">Tested versions<a class="headerlink" href="#tested-versions" title="Permanent link">&para;</a></h2>
 <table>

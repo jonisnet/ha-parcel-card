@@ -808,14 +808,22 @@
 
 <h1 id="screenshots">Screenshots<a class="headerlink" href="#screenshots" title="Permanent link">&para;</a></h1>
 <h2 id="dashboard-parcel-detail">Dashboard — parcel detail<a class="headerlink" href="#dashboard-parcel-detail" title="Permanent link">&para;</a></h2>
-<p>The 4-step delivery tracker and expanded parcel detail panel (barcode, status, delivery type, tracking link).</p>
+<p>The delivery tracker and expanded parcel detail panel (barcode, status, delivery type, tracking link).
+The screenshots below show an earlier beta. The current tracker uses shared SVG scenes for
+every carrier, with four steps for home delivery and five when the parcel goes via a pickup point.</p>
 <div class="grid">
 <p><img alt="Dashboard overview, dark theme" src="../../images/screenshot-dashboard.png" /></p>
 <p><img alt="Dashboard overview, light theme" src="../../images/screenshot-parcel-detail-light.png" /></p>
 </div>
 <hr />
 <h2 id="combo-banner-multiple-carriers">Combo banner — multiple carriers<a class="headerlink" href="#combo-banner-multiple-carriers" title="Permanent link">&para;</a></h2>
-<p>When two or more carriers are configured, the card builds a combo banner from just the carriers you've actually added, wrapping into multiple rows (capped at 4 per row) once there are more than that.</p>
+<p>When two or more carriers are configured, the Studio banner shows just those carriers
+in equal-sized tiles, with up to four columns and a centred final row. Logo sizes follow
+offline content measurements; square integration icons have rounded corners. Tiles use
+the active Home Assistant card colour, including a dark background in dark mode. Dark
+wordmarks keep their original colours with a subtle light edge for readability. Existing
+single-carrier banners and custom placeholder images remain available.</p>
+<p>The screenshots below predate Studio and show the earlier combo-banner layout.</p>
 <div class="grid">
 <p><img alt="Combo banner, dark theme" src="../../images/screenshot-banners-dark.png" /></p>
 <p><img alt="Combo banner, light theme" src="../../images/screenshot-banners-light.png" /></p>
