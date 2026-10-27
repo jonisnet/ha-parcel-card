@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.0.0b17] — 2026-10-27
+
+### Fixed
+
+- **Duplicates from several PostNL accounts could still show up twice**
+  ([jonisnet/ha-parcel-card#2](https://github.com/jonisnet/ha-parcel-card/issues/2)). The merge
+  only matched accounts of exactly the same carrier type, so an account set up as "PostNL" next
+  to one still on "PostNL (<v4.x)" kept its own copy. All PostNL variants now count as one
+  carrier, and items are matched on their barcode first.
+
 ## [2.0.0b16] — 2026-10-26
 
 ### Added
