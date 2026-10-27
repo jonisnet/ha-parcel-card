@@ -90,7 +90,7 @@ Letters appear but no scan images are displayed.
 **Causes and solutions:**
 
 1. If a carrier currently has zero parcels in every tab, the popup previously fell back to a generic icon and colour instead of the carrier's configured branding — fixed in v1.5.0b3. Update to the latest version.
-2. The icon shown is a plain generic shape or a text mark instead of a proper logo — this isn't a bug in the card. [custom-brand-icons](https://github.com/elax46/custom-brand-icons) coverage varies per carrier; some (DPD, GLS) currently only have placeholder-style artwork upstream, Sameday/Helthjem/Budbee/Nova Post have a real icon submitted but not yet merged upstream, and Trunkrs/Cainiao/Vinted Go/PostNord/Planzer/Dynalogic/Delhivery/Quickpac have no PHU icon at all yet. See [PHU carrier icons](../installation.md#optional-phu-carrier-icons).
+2. PHU coverage depends on both the carrier and your installed [custom-brand-icons](https://github.com/elax46/custom-brand-icons) version. The mapping was checked against published release 2026.10.3; see [PHU carrier icons](../installation.md#optional-phu-carrier-icons). SVG scenes fall back to the carrier's existing logo when an icon is unavailable, and still work without PHU installed. On Home Assistant 2026.3+ carriers without their own card artwork show the integration's own brand icon; the browser console then shows one 404 per carrier whose integration ships none, which is harmless. A generic `mdi:package-variant-closed` icon outside the scenes is expected for unmapped carriers.
 
 ---
 

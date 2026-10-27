@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HA Parcel Card — alle 85 vervoerders op 60 px</title>
+<style>
+*{box-sizing:border-box}body{--page:#eef2f6;--panel:#fff;--tile:#edf1f5;--text:#102033;--muted:#556879;--line:#d1dce7;margin:0;padding:28px;background:var(--page);color:var(--text);font:14px/1.4 system-ui,sans-serif}body.dark{--page:#101923;--panel:#181e27;--tile:#252b34;--text:#edf3f9;--muted:#a9bac9;--line:#3f4b59}main{max-width:1392px;margin:auto}h1{margin:5px 0 12px;font-size:30px;letter-spacing:-.8px}.eyebrow{font-size:11px;font-weight:800;letter-spacing:1.7px;color:var(--muted)}p{color:var(--muted);max-width:1050px}nav{display:flex;gap:9px;flex-wrap:wrap;margin:20px 0}nav a{color:var(--text);text-decoration:none;padding:7px 10px;border:1px solid var(--line);border-radius:7px;background:var(--panel)}nav a.active{background:#102033;color:#fff}#sheet{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.carrier{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:11px 13px}.carrier-head{display:flex;gap:7px;align-items:center;margin-bottom:9px;min-height:20px}.swatch{width:8px;height:18px;border-radius:3px;background:var(--brand);flex:none}.carrier-name{font-size:12px;font-weight:750}.number{font-size:10px;color:var(--muted)}.logo-kind{font-size:9px;margin-left:auto;color:var(--muted)}.scenes{display:flex;justify-content:space-between;gap:6px}.scene{background:var(--tile);border:1px solid var(--line);border-radius:10px;width:66px;height:66px;padding:2px;flex:none}.scene>svg{width:60px;height:60px;display:block}.future .scene{opacity:.5;filter:grayscale(70%)}.custom{border-style:dashed}.caption{font-size:10px;color:var(--muted);margin-top:6px;letter-spacing:.15px}.loading{padding:30px;color:var(--muted)}footer{color:var(--muted);font-size:12px;margin:22px 0}
+@media(max-width:1120px){#sheet{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:760px){body{padding:14px}#sheet{grid-template-columns:1fr}.carrier{overflow-x:auto}.scenes{min-width:354px}h1{font-size:24px}}
+</style><script>
+window.LitElement=class extends HTMLElement {};
+window.html=(strings,...values)=>strings.reduce((out,s,i)=>out+s+(values[i]??''),'');window.css=window.html;
+</script><script src="ha-parcel-card.js"></script></head><body><main>
+<header><span class="eyebrow">HA PARCEL CARD / V2 / FASE B</span><h1>Alle 85 vervoerders · scènes op 60 px</h1>
+<p id="description">De goedgekeurde geometrie voor iedere vervoerder. Volgorde: Aangemeld · Sorteercentrum · In bezorging · Afhaalpunt · Bezorgd. Custom staat als extra voorbeeld onderaan.</p></header>
+<nav id="controls"></nav><div id="summary" class="caption"></div><section id="sheet"><div class="loading">Scènes laden…</div></section>
+<footer>Scènes rechtstreeks uit ha-parcel-card.js · vijf gedeelde SVG-templates · PHU-release 2026.10.3 · bestaande voertuig-GIF's blijven behouden.</footer>
+</main><script type="module">
+const api=window.HAParcelCard.stepScenes,query=new URLSearchParams(location.search);
+const dark=query.has('dark'),withoutPhu=query.has('no-phu'),future=query.has('future');
+document.body.classList.toggle('dark',dark);document.body.classList.toggle('future',future);
+const release=await fetch('scripts/scene-preview-phu.json').then(r=>{if(!r.ok)throw Error(r.status);return r.json()});
+if(!withoutPhu){window.customIconsets={phu:async name=>release.icons[name]||''};await api.preload(api.types);}
+const href=(key)=>{const q=new URLSearchParams(query);q.has(key)?q.delete(key):q.set(key,'');return '?'+q.toString();};
+document.querySelector('#controls').innerHTML=[['dark','Donker thema'],['no-phu','Zonder PHU'],['future','Grijze toekomststand']].map(([key,label])=>`<a class="${query.has(key)?'active':''}" href="${href(key)}">${label}</a>`).join('')+'<a href="svg-postnl-demo.html?carrier=postnl">Detaildemo · 44 / 60 / 118 px</a>';
+const carriers=api.types.filter(type=>type!=='custom');
+const all=[...carriers,'custom'];
+const page=Number(query.get('page')||0),pageSize=30;
+const visible=page?all.slice((page-1)*pageSize,page*pageSize):all;
+let phuCount=0;
+document.querySelector('#sheet').innerHTML=visible.map(type=>{
+ const c=api.carrier(type,{withoutPhu});
+ // Use the same logo files locally, avoiding remote requests in the offline preview.
+ if(c.logo.kind==='image')c.logo={...c.logo,href:c.logo.href.replace('https://github.com/jonisnet/ha-parcel-card/blob/main/','').replace('?raw=true','')};
+ if(type==='custom'){c.palette=api.palette('#805ad5');c.label='Custom · eigen kleur';}
+ if(c.logo.kind==='phu')phuCount++;
+ const kind=c.logo.kind==='phu'?c.phu:c.logo.kind==='image'?'eigen logo':'merkvlak';
+ return `<article class="carrier ${type==='custom'?'custom':''}" data-carrier="${type}" style="--brand:${c.palette.primary}"><div class="carrier-head"><span class="number">${type==='custom'?'+':String(carriers.indexOf(type)+1).padStart(2,'0')}</span><span class="swatch"></span><span class="carrier-name">${c.label}</span><span class="logo-kind">${kind}</span></div><div class="scenes">${api.stages.map(stage=>`<div class="scene">${api.render(stage,c.palette,c.logo)}</div>`).join('')}</div><div class="caption">${type} · ${c.palette.primary}</div></article>`;
+}).join('');
+document.querySelector('#summary').textContent=`${carriers.length} vervoerders + custom · ${dark?'donker':'licht'} · ${withoutPhu?'PHU volledig afwezig':`${phuCount} met PHU op dit vel`} · ${future?'50% dekking / 70% grijs':'volledige kleur'}${page?` · deel ${page} van 3`:''}`;
+document.documentElement.dataset.ready='true';
+</script></body></html>

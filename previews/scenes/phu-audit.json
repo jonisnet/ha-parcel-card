@@ -1,0 +1,529 @@
+{
+  "release": "2026.10.3",
+  "published": "2026-10-26T16:00:01Z",
+  "releaseUrl": "https://github.com/elax46/custom-brand-icons/releases/tag/2026.10.3",
+  "source": "https://raw.githubusercontent.com/elax46/custom-brand-icons/2026.10.3/dist/custom-brand-icons.js",
+  "verified": "2026-10-27",
+  "sha256": "f65442f4f7883e565ca03858fa1cdb7358c90a424a1f6c6676db036372e0c08c",
+  "carrierCount": 85,
+  "mappedCarrierCount": 35,
+  "uniqueIconCount": 33,
+  "carriers": [
+    {
+      "type": "postnl",
+      "label": "PostNL",
+      "icon": "phu:postnl",
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "dhl",
+      "label": "DHL NL",
+      "icon": "phu:dhl",
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "dpd",
+      "label": "DPD",
+      "icon": "phu:dpd",
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "vinted_go",
+      "label": "Vinted Go",
+      "icon": "phu:vinted",
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "gls",
+      "label": "GLS",
+      "icon": "phu:gls-group",
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "dragonfly",
+      "label": "Dragonfly",
+      "icon": "phu:dragonfly",
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "trunkrs",
+      "label": "Trunkrs",
+      "icon": "phu:trunkrs",
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "cainiao",
+      "label": "Cainiao",
+      "icon": "phu:cainiao",
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "hermes",
+      "label": "Hermes",
+      "icon": "phu:hermes",
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "packeta",
+      "label": "Packeta",
+      "icon": "phu:packeta",
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "correos",
+      "label": "Correos",
+      "icon": "phu:correos",
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "postnord",
+      "label": "PostNord",
+      "icon": "phu:postnord",
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "sameday",
+      "label": "Sameday",
+      "icon": "phu:sameday",
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "swiss_post",
+      "label": "Swiss Post",
+      "icon": "phu:swisspost",
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "planzer",
+      "label": "Planzer",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "austrian_post",
+      "label": "Austrian Post",
+      "icon": "phu:austrianpost",
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "helthjem",
+      "label": "Helthjem",
+      "icon": "phu:helthjem",
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "dynalogic",
+      "label": "Dynalogic",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "budbee",
+      "label": "Budbee",
+      "icon": "phu:budbee",
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "nova_post",
+      "label": "Nova Post",
+      "icon": "phu:nova_post",
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "delhivery",
+      "label": "Delhivery",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "sunyou",
+      "label": "SunYou",
+      "icon": "phu:sunyou",
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "an_post",
+      "label": "An Post",
+      "icon": "phu:anpost",
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "quickpac",
+      "label": "Quickpac",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "inpost",
+      "label": "InPost",
+      "icon": "phu:inpost",
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "ppl_cz",
+      "label": "PPL CZ",
+      "icon": "phu:ppl",
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "shopee_xpress",
+      "label": "Shopee Xpress",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "ceska_posta",
+      "label": "Ceska Posta",
+      "icon": "phu:ceska-posta",
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "ampere",
+      "label": "Ampère",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "fourpx",
+      "label": "4PX",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "airmee",
+      "label": "Airmee",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "amazon_orders",
+      "label": "Amazon",
+      "icon": "phu:amazon-logo",
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "apple_express",
+      "label": "Apple Express",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "aramex",
+      "label": "Aramex",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "better_trucks",
+      "label": "Better Trucks",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "boxnow",
+      "label": "BoxNow",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "bpost",
+      "label": "bpost",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "canada_post",
+      "label": "Canada Post",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "canpar",
+      "label": "Canpar",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "ctt",
+      "label": "CTT",
+      "icon": "phu:ctt",
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "dao",
+      "label": "DAO",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "dhl_global",
+      "label": "DHL",
+      "icon": "phu:dhl",
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "econt",
+      "label": "Econt",
+      "icon": "phu:econt",
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "elta_courier",
+      "label": "ELTA Courier",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "evri",
+      "label": "Evri",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "fan_courier",
+      "label": "FAN Courier",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "fedex",
+      "label": "FedEx",
+      "icon": "phu:fedex",
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "gofo",
+      "label": "GOFO Express",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "ics_courier",
+      "label": "ICS Courier",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "laposte",
+      "label": "La Poste",
+      "icon": "phu:laposte",
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "matkahuolto",
+      "label": "Matkahuolto",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "mondial_relay",
+      "label": "Mondial Relay",
+      "icon": "phu:mondialrelay",
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "nz_post",
+      "label": "NZ Post",
+      "icon": "phu:nzpost",
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "ontrac",
+      "label": "OnTrac",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "orlen_paczka",
+      "label": "ORLEN Paczka",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "paack",
+      "label": "Paack",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "poczta_polska",
+      "label": "Poczta Polska",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "poste_italiane",
+      "label": "Poste Italiane",
+      "icon": "phu:posteitaliane",
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "posten_bring",
+      "label": "Posten Bring",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "posti",
+      "label": "Posti",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "purolator",
+      "label": "Purolator",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "seur",
+      "label": "SEUR",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "slovak_parcel_service",
+      "label": "Slovak Parcel Service",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "slovenska_posta",
+      "label": "Slovenská Pošta",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "speedx",
+      "label": "SpeedX",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "uniuni",
+      "label": "UniUni",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "ups",
+      "label": "UPS",
+      "icon": "phu:ups-dlv",
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "usps",
+      "label": "USPS",
+      "icon": "phu:usps",
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "acs_courier",
+      "label": "ACS Courier",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "amazon_shipping",
+      "label": "Amazon Shipping",
+      "icon": "phu:amazon-logo",
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "cargus",
+      "label": "Cargus",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "cdl_last_mile",
+      "label": "CDL Last Mile",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "colis_prive",
+      "label": "Colis Privé",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "colisweb",
+      "label": "Colisweb",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "early_bird",
+      "label": "Early Bird",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "ecoscooting",
+      "label": "Ecoscooting",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "gobolt",
+      "label": "GoBolt",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "magyar_posta",
+      "label": "Magyar Posta",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "pdn_express",
+      "label": "PDN Express",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "posta_slovenije",
+      "label": "Pošta Slovenije",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "posta_srbije",
+      "label": "Pošta Srbije",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "spee_dee_delivery",
+      "label": "Spee-Dee Delivery",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "straightship",
+      "label": "Straightship",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "tipsa",
+      "label": "TIPSA",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "ukrposhta",
+      "label": "Ukrposhta",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "custom",
+      "label": "Custom",
+      "icon": null,
+      "fallback": "brand"
+    }
+  ]
+}

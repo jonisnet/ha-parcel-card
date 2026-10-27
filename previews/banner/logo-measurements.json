@@ -1,0 +1,2810 @@
+{
+  "method": "Offline sharp; alpha>=24; excludes near-white>=246; 1px margin; max768px sample",
+  "logos": [
+    {
+      "type": "postnl",
+      "file": "images/postnl/postnl-logo.png",
+      "sha256": "1e313f658cbb6bd5215c91b28d2d86a7d33b0970f0817b4cc696219c7dd68629",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 4,
+        "y": 9,
+        "right": 764,
+        "bottom": 761,
+        "count": 116129
+      },
+      "inkBounds": {
+        "x": 4,
+        "y": 9,
+        "right": 764,
+        "bottom": 761,
+        "count": 116129
+      },
+      "normalized": [
+        0.00521,
+        0.01172,
+        0.98958,
+        0.97917,
+        1.01064,
+        0.20319,
+        0
+      ],
+      "appIcon": false
+    },
+    {
+      "type": "dhl",
+      "file": "images/dhl/DHL_logo.png",
+      "sha256": "64b53bef7998ea0be56c539d0ae0068b923befe5f41ad70c02beb18ad48a106f",
+      "sampledSize": [
+        768,
+        164
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 164,
+        "count": 125952
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 164,
+        "count": 125952
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        4.68293,
+        1,
+        0.00028
+      ],
+      "appIcon": false
+    },
+    {
+      "type": "dpd",
+      "file": "images/dpd/DPD_logo.png",
+      "sha256": "3cfe86a33cc7758b5ae9a1c57163cf0c156b13875623f9bf48e6254dfec83dbb",
+      "sampledSize": [
+        768,
+        342
+      ],
+      "alphaBounds": {
+        "x": 3,
+        "y": 4,
+        "right": 765,
+        "bottom": 339,
+        "count": 98654
+      },
+      "inkBounds": {
+        "x": 3,
+        "y": 4,
+        "right": 765,
+        "bottom": 339,
+        "count": 98654
+      },
+      "normalized": [
+        0.00391,
+        0.0117,
+        0.99219,
+        0.97953,
+        2.27463,
+        0.38647,
+        0.52391
+      ],
+      "appIcon": false
+    },
+    {
+      "type": "vinted_go",
+      "file": "images/vinted_go/vinted_go-logo.svg",
+      "sha256": "58fef7d79480a3e309859332948a4335404116df8579cc10aea8329d493cb2dd",
+      "sampledSize": [
+        768,
+        168
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 168,
+        "count": 51868
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 168,
+        "count": 51868
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        4.57143,
+        0.402,
+        0
+      ],
+      "appIcon": false
+    },
+    {
+      "type": "gls",
+      "file": "images/gls/GLS_logo.png",
+      "sha256": "eb168cd85ff30dd597fa5c6ed3907f9fe80fd79fb436421a8f909e2716d48317",
+      "sampledSize": [
+        768,
+        261
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 261,
+        "count": 115687
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 261,
+        "count": 115687
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        2.94253,
+        0.57714,
+        0.9493
+      ],
+      "appIcon": false
+    },
+    {
+      "type": "dragonfly",
+      "file": "images/dragonfly/dragonfly-logo.svg",
+      "sha256": "de16408f5aeed8e01e53465d83301a881d4c21c26dd7ef49176799b2f93b911e",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 149,
+        "y": 69,
+        "right": 622,
+        "bottom": 699,
+        "count": 125205
+      },
+      "inkBounds": {
+        "x": 149,
+        "y": 69,
+        "right": 622,
+        "bottom": 699,
+        "count": 125205
+      },
+      "normalized": [
+        0.19401,
+        0.08984,
+        0.61589,
+        0.82031,
+        0.75079,
+        0.42017,
+        0
+      ],
+      "appIcon": false
+    },
+    {
+      "type": "trunkrs",
+      "file": "images/trunkrs/TRUNKRS_logo.png",
+      "sha256": "9cceb64bb3e2742f3fc3b3fc89857b8a9cb181d491366bfb59b01d930c208065",
+      "sampledSize": [
+        768,
+        117
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 117,
+        "count": 38739
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 117,
+        "count": 38739
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        6.5641,
+        0.43112,
+        0.9231
+      ],
+      "appIcon": false
+    },
+    {
+      "type": "cainiao",
+      "file": "images/cainiao/CAINIAO_logo.png",
+      "sha256": "2e8355e48da918af128174643ca9a63e2280aa524900ff308f24cec03672d96a",
+      "sampledSize": [
+        768,
+        427
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 427,
+        "count": 87006
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 427,
+        "count": 87006
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        1.79859,
+        0.26531,
+        0
+      ],
+      "appIcon": false
+    },
+    {
+      "type": "hermes",
+      "file": "images/hermes/hermes-logo.svg",
+      "sha256": "d884f8f188e729d8eac9ab0013c69cc3ffae535e79fa9cf8cb2c4f665026f3d5",
+      "sampledSize": [
+        768,
+        120
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 120,
+        "count": 43836
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 120,
+        "count": 43836
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        6.4,
+        0.47565,
+        0.73925
+      ],
+      "appIcon": false
+    },
+    {
+      "type": "packeta",
+      "file": "images/packeta/packeta-logo.svg",
+      "sha256": "11eed8f01d97b06a30301932e597a3cac93b0daea7697f10f9a8042428464087",
+      "sampledSize": [
+        768,
+        195
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 195,
+        "count": 149432
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 195,
+        "count": 130624
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        3.93846,
+        0.87222,
+        0.8185
+      ],
+      "appIcon": false
+    },
+    {
+      "type": "correos",
+      "file": "images/correos/correos-logo.svg",
+      "sha256": "604c40b406187777cbda8f5b57a861248a09920bf4daabd9242ab01a6c6125fa",
+      "sampledSize": [
+        768,
+        727
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 727,
+        "count": 199573
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 727,
+        "count": 199573
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        1.0564,
+        0.35744,
+        1
+      ],
+      "appIcon": false
+    },
+    {
+      "type": "postnord",
+      "file": "images/postnord/postnord-logo.svg",
+      "sha256": "6dbb5f7993fdcdfa416cf138d40837d010d36abcdb929e14e27ed32b908daf8f",
+      "sampledSize": [
+        768,
+        146
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 146,
+        "count": 54247
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 146,
+        "count": 54247
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        5.26027,
+        0.4838,
+        0
+      ],
+      "appIcon": false
+    },
+    {
+      "type": "sameday",
+      "file": "images/sameday/sameday-logo.png",
+      "sha256": "4c08a9dc10dfebfbf88782db46e86778e6ee02895914c44873261352dd2f7b1b",
+      "sampledSize": [
+        768,
+        130
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 130,
+        "count": 45228
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 130,
+        "count": 42727
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        5.90769,
+        0.42795,
+        0.08301
+      ],
+      "appIcon": false
+    },
+    {
+      "type": "swiss_post",
+      "file": "images/swiss_post/swiss_post-logo.svg",
+      "sha256": "cec2528098b423c96dbc84c832769b8991e1378154b7b5e9b3e889ddbf537de7",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "appIcon": false
+    },
+    {
+      "type": "planzer",
+      "file": "images/planzer/planzer-logo.svg",
+      "sha256": "fb42ab8d1ff1bb86621ce87a20e518ffaf8ecb8d9c99f6220a6313c99a2737de",
+      "sampledSize": [
+        768,
+        119
+      ],
+      "alphaBounds": {
+        "x": 4,
+        "y": 3,
+        "right": 764,
+        "bottom": 116,
+        "count": 57878
+      },
+      "inkBounds": {
+        "x": 4,
+        "y": 3,
+        "right": 764,
+        "bottom": 116,
+        "count": 57878
+      },
+      "normalized": [
+        0.00521,
+        0.02521,
+        0.98958,
+        0.94958,
+        6.72566,
+        0.67394,
+        1
+      ],
+      "appIcon": false
+    },
+    {
+      "type": "austrian_post",
+      "file": "images/austrian_post/austrian_post-logo.svg",
+      "sha256": "8d3a3032da216539cb8a30ed2c3c9528dc1159716f483d303ed532a3c4ab1d83",
+      "sampledSize": [
+        768,
+        167
+      ],
+      "alphaBounds": {
+        "x": 4,
+        "y": 3,
+        "right": 764,
+        "bottom": 164,
+        "count": 49835
+      },
+      "inkBounds": {
+        "x": 4,
+        "y": 3,
+        "right": 764,
+        "bottom": 164,
+        "count": 49835
+      },
+      "normalized": [
+        0.00521,
+        0.01796,
+        0.98958,
+        0.96407,
+        4.7205,
+        0.40728,
+        0.62089
+      ],
+      "appIcon": false
+    },
+    {
+      "type": "helthjem",
+      "file": "images/helthjem/helthjem-logo.svg",
+      "sha256": "eb898556fe4878042e3d63b4cd96bd0d4bc5d1921341e9d23e1db82ef7020c91",
+      "sampledSize": [
+        768,
+        189
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 189,
+        "count": 40298
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 189,
+        "count": 40298
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        4.06349,
+        0.27763,
+        0.79766
+      ],
+      "appIcon": false
+    },
+    {
+      "type": "dynalogic",
+      "file": "images/dynalogic/dynalogic-logo.png",
+      "sha256": "d0e5f92cd78625a7289f8e536d1cb23e6d9e7dbd9a0630eb359a26a26be2b2a7",
+      "sampledSize": [
+        768,
+        152
+      ],
+      "alphaBounds": {
+        "x": 2,
+        "y": 0,
+        "right": 766,
+        "bottom": 152,
+        "count": 43699
+      },
+      "inkBounds": {
+        "x": 2,
+        "y": 0,
+        "right": 766,
+        "bottom": 152,
+        "count": 43699
+      },
+      "normalized": [
+        0.0026,
+        0,
+        0.99479,
+        1,
+        5.02632,
+        0.3763,
+        0.08414
+      ],
+      "appIcon": false
+    },
+    {
+      "type": "budbee",
+      "file": "images/budbee/budbee-logo.png",
+      "sha256": "35dac1c8b4eb6f1a07f90b207aa22e1df01bf71c141629bce2e8ae3377d086fb",
+      "sampledSize": [
+        768,
+        384
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 384,
+        "count": 294139
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 384,
+        "count": 271769
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        2,
+        0.92153,
+        0
+      ],
+      "appIcon": false
+    },
+    {
+      "type": "nova_post",
+      "file": "images/nova_post/nova_post-logo.png",
+      "sha256": "6a738b3b7617eec0910caca966ad1d88b1eb94d7d7563df4b45b17c8e6937903",
+      "sampledSize": [
+        768,
+        655
+      ],
+      "alphaBounds": {
+        "x": 19,
+        "y": 19,
+        "right": 749,
+        "bottom": 636,
+        "count": 106235
+      },
+      "inkBounds": {
+        "x": 19,
+        "y": 19,
+        "right": 749,
+        "bottom": 636,
+        "count": 99350
+      },
+      "normalized": [
+        0.02474,
+        0.02901,
+        0.95052,
+        0.94198,
+        1.18314,
+        0.22058,
+        0
+      ],
+      "appIcon": false
+    },
+    {
+      "type": "delhivery",
+      "file": "images/delhivery/delhivery-logo.png",
+      "sha256": "86ef577be63869e7a2c57160fb2482490e964b39fd8dd43dbb2b9d755c9e2a35",
+      "sampledSize": [
+        768,
+        162
+      ],
+      "alphaBounds": {
+        "x": 18,
+        "y": 18,
+        "right": 750,
+        "bottom": 144,
+        "count": 63696
+      },
+      "inkBounds": {
+        "x": 18,
+        "y": 21,
+        "right": 750,
+        "bottom": 141,
+        "count": 55948
+      },
+      "normalized": [
+        0.02344,
+        0.12963,
+        0.95313,
+        0.74074,
+        6.1,
+        0.63693,
+        0.74566
+      ],
+      "appIcon": false
+    },
+    {
+      "type": "sunyou",
+      "file": "images/sunyou/sunyou-logo.png",
+      "sha256": "cae3911fc6462198cf66b99fce27110495f8d625d600264add9b2eb8610e5551",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 55,
+        "y": 253,
+        "right": 708,
+        "bottom": 516,
+        "count": 88839
+      },
+      "inkBounds": {
+        "x": 57,
+        "y": 253,
+        "right": 708,
+        "bottom": 516,
+        "count": 84712
+      },
+      "normalized": [
+        0.07422,
+        0.32943,
+        0.84766,
+        0.34245,
+        2.47529,
+        0.49478,
+        0.29756
+      ],
+      "appIcon": false
+    },
+    {
+      "type": "an_post",
+      "file": "images/an_post/an_post-logo.svg",
+      "sha256": "53b7946ee17b6d3e68835e778edc7a968f60dbec4a53b4281c34c28a5e5577fc",
+      "sampledSize": [
+        768,
+        493
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 493,
+        "count": 150150
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 493,
+        "count": 150150
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        1.55781,
+        0.39657,
+        0
+      ],
+      "appIcon": false
+    },
+    {
+      "type": "quickpac",
+      "file": "images/quickpac/quickpac-logo.svg",
+      "sha256": "b97e39c1fae9251d3ad4042420f13cd175695e6502f771379c9111e712f7653e",
+      "sampledSize": [
+        768,
+        192
+      ],
+      "alphaBounds": {
+        "x": 18,
+        "y": 34,
+        "right": 754,
+        "bottom": 166,
+        "count": 26960
+      },
+      "inkBounds": {
+        "x": 18,
+        "y": 34,
+        "right": 754,
+        "bottom": 166,
+        "count": 26960
+      },
+      "normalized": [
+        0.02344,
+        0.17708,
+        0.95833,
+        0.6875,
+        5.57576,
+        0.2775,
+        0.376
+      ],
+      "appIcon": false
+    },
+    {
+      "type": "inpost",
+      "file": "images/inpost/inpost-logo.svg",
+      "sha256": "fe83a4c668d15406a9f42bf958ebddde4e606fda48e6a33436bd4437ef6d2761",
+      "sampledSize": [
+        768,
+        460
+      ],
+      "alphaBounds": {
+        "x": 104,
+        "y": 103,
+        "right": 665,
+        "bottom": 357,
+        "count": 24955
+      },
+      "inkBounds": {
+        "x": 104,
+        "y": 103,
+        "right": 665,
+        "bottom": 357,
+        "count": 24955
+      },
+      "normalized": [
+        0.13542,
+        0.22391,
+        0.73047,
+        0.55217,
+        2.20866,
+        0.17513,
+        0.7294
+      ],
+      "appIcon": false
+    },
+    {
+      "type": "ppl_cz",
+      "file": "images/ppl_cz/ppl_cz-logo.svg",
+      "sha256": "7ccef953dc8b7dffb8e346b597f64617129903ce237f4a168227b90734993e37",
+      "sampledSize": [
+        768,
+        108
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 108,
+        "count": 43977
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 108,
+        "count": 43977
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        7.11111,
+        0.5302,
+        1
+      ],
+      "appIcon": false
+    },
+    {
+      "type": "shopee_xpress",
+      "file": "images/shopee_xpress/shopee_xpress-logo.svg",
+      "sha256": "35e380e5f9e4ab3bf5210989439ca3af66abfcbe7792c1148eb3f80899267c49",
+      "sampledSize": [
+        768,
+        307
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 307,
+        "count": 107790
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 307,
+        "count": 107790
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        2.50163,
+        0.45717,
+        0
+      ],
+      "appIcon": false
+    },
+    {
+      "type": "ceska_posta",
+      "file": "images/ceska_posta/ceska_posta-logo.svg",
+      "sha256": "a9a99cd76ff02f979fea2c6437c06af4527a35e9ceb3288e3a20de55db3e17bc",
+      "sampledSize": [
+        768,
+        107
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 107,
+        "count": 33753
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 107,
+        "count": 33753
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        7.17757,
+        0.41074,
+        0.65786
+      ],
+      "appIcon": false
+    },
+    {
+      "type": "ampere",
+      "file": "images/ampere/ampere-logo.svg",
+      "sha256": "364d557a27c4082ff79ac3b642f86ebba3b30a6dbc59dde74b2539ede3f26a35",
+      "sampledSize": [
+        768,
+        167
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 766,
+        "bottom": 167,
+        "count": 57429
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 766,
+        "bottom": 167,
+        "count": 57429
+      },
+      "normalized": [
+        0,
+        0,
+        0.9974,
+        1,
+        4.58683,
+        0.44894,
+        0
+      ],
+      "appIcon": false
+    },
+    {
+      "type": "fourpx",
+      "file": "images/fourpx/fourpx-logo.png",
+      "sha256": "8e569107957154cea4950136296adcbb8c04dbae0120a0eac7d7564c5e1389f4",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0.8707
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "airmee",
+      "file": "images/airmee/airmee-logo.png",
+      "sha256": "7d4bdde0a96927d6eae721ebf4b06e6c2cdfc3f42373b5985bcf85432d45161f",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 514098
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0.87161,
+        0.86181
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "amazon_orders",
+      "file": "images/amazon_orders/amazon_orders-logo.png",
+      "sha256": "77278a950c0545e3c21b290e4399b596234bc7b544b916df116c1ddbbaa8f761",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0.61022
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "apple_express",
+      "file": "images/apple_express/apple_express-logo.png",
+      "sha256": "209cb7d42f9a67fe89cc4f524bf91a5bd951875225cdceaf14485db4c2ce46d3",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 506313
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0.85841,
+        0.02263
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "aramex",
+      "file": "images/aramex/aramex-logo.png",
+      "sha256": "19344fdd6ae376e52831e18073b6271f2aefcc842a22411c436548143d9c0e66",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 492474
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0.83495,
+        0
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "better_trucks",
+      "file": "images/better_trucks/better_trucks-logo.png",
+      "sha256": "0d704ef8efc713d40ff7d9b77dea784b3bda54b901274705e63740d18c9ca191",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 160,
+        "y": 212,
+        "right": 614,
+        "bottom": 551,
+        "count": 78983
+      },
+      "normalized": [
+        0.20833,
+        0.27604,
+        0.59115,
+        0.44141,
+        1.33923,
+        0.51319,
+        0
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "boxnow",
+      "file": "images/boxnow/boxnow-logo.png",
+      "sha256": "7c856e19fa9b8016eee240a89c5de88c249090c6277caa9e988f9d30e50283a1",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "bpost",
+      "file": "images/bpost/bpost-logo.png",
+      "sha256": "e4b4c82842c9f404a88910f7d02a05a0d799d68fa7be6044ef3521ddc294c3aa",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 100,
+        "y": 224,
+        "right": 668,
+        "bottom": 546,
+        "count": 55863
+      },
+      "normalized": [
+        0.13021,
+        0.29167,
+        0.73958,
+        0.41927,
+        1.76398,
+        0.30544,
+        0.0665
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "canada_post",
+      "file": "images/canada_post/canada_post-logo.png",
+      "sha256": "8393c7519d78060f24cbc06440cb037b58b2955c326269b5122ed0f459a338de",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 546076
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0.92583,
+        0.012
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "canpar",
+      "file": "images/canpar/canpar-logo.png",
+      "sha256": "c6cb686e6819bbd57e240cf0baea426098e6c035f413a990262502843ae4ac62",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 3,
+        "y": 3,
+        "right": 768,
+        "bottom": 768,
+        "count": 581223
+      },
+      "normalized": [
+        0.00391,
+        0.00391,
+        0.99609,
+        0.99609,
+        1,
+        0.99316,
+        0.05209
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "ctt",
+      "file": "images/ctt/ctt-logo.png",
+      "sha256": "ea349e35baa0ca45bcda8c261c245dd82eb62291d9f2da40166283d6a34870a0",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 532548
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0.90289,
+        0.00465
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "dao",
+      "file": "images/dao/dao-logo.png",
+      "sha256": "7d262521d69325f8b964650d12472240813760f7136026d124c4ced1168de093",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 585721
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0.99304,
+        0.5655
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "dhl_global",
+      "file": "images/dhl_global/dhl_global-logo.png",
+      "sha256": "345d16ddda6ae37be88d6db9c2b709ce2eff20f462fb9acb09558ba754b56a47",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0.00031
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "econt",
+      "file": "images/econt/econt-logo.png",
+      "sha256": "578e30306974cddfdb620c99769bbcaefbc1e11d8207a2cba19fd269b8ceb23f",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 137,
+        "y": 104,
+        "right": 618,
+        "bottom": 665,
+        "count": 187593
+      },
+      "normalized": [
+        0.17839,
+        0.13542,
+        0.6263,
+        0.73047,
+        0.8574,
+        0.6952,
+        0.30031
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "elta_courier",
+      "file": "images/elta_courier/elta_courier-logo.png",
+      "sha256": "04d5f7c78258ff6438ead1d8ed2fd1728129975184ab65af3057c56b316b0123",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 37,
+        "y": 159,
+        "right": 732,
+        "bottom": 609,
+        "count": 75268
+      },
+      "normalized": [
+        0.04818,
+        0.20703,
+        0.90495,
+        0.58594,
+        1.54444,
+        0.24067,
+        0.06703
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "evri",
+      "file": "images/evri/evri-logo.png",
+      "sha256": "e2b36a07ebda3382f9538efe5a5ac645e0b5222fb07c39b0553269ad93992d82",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 549385
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0.93144,
+        0.00001
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "fan_courier",
+      "file": "images/fan_courier/fan_courier-logo.png",
+      "sha256": "4f3e3660396a02d2df738c78b98616dfda340df98a171704843299f945ec7222",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 538057
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0.91223,
+        0.88758
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "fedex",
+      "file": "images/fedex/fedex-logo.png",
+      "sha256": "4e9614ccc92c0ace58901cf62e87c70d77d4e7d6f5ff69299d63c8712ff225b0",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 555631
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0.94203,
+        0.88887
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "gofo",
+      "file": "images/gofo/gofo-logo.png",
+      "sha256": "e482f15c49d921e0054635b9df6f772e3cc2d216f07aab90c45d03c7940c4bd4",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 493184
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0.83615,
+        0
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "ics_courier",
+      "file": "images/ics_courier/ics_courier-logo.png",
+      "sha256": "8bbe4102176b1e104482bc6bf2e923e9128238fcf41161698782b9c31ce01210",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 63,
+        "y": 200,
+        "right": 708,
+        "bottom": 498,
+        "count": 81842
+      },
+      "normalized": [
+        0.08203,
+        0.26042,
+        0.83984,
+        0.38802,
+        2.16443,
+        0.42579,
+        0.11352
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "laposte",
+      "file": "images/laposte/laposte-logo.png",
+      "sha256": "4022960db8bd81ad921021391ecc06f1938e4240b3b1594b9b24e9fb09b668f9",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0.08564
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "matkahuolto",
+      "file": "images/matkahuolto/matkahuolto-logo.png",
+      "sha256": "c51ed4193efd1ee3ef8a163b53c4d0e45da6b75974c0cfafef4d2105aea8a50d",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 518065
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0.87834,
+        0
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "mondial_relay",
+      "file": "images/mondial_relay/mondial_relay-logo.png",
+      "sha256": "e3ccb7cb42673257de7b5b1e98b7b9d06788bbbd052fb10f2d303ba28421fe91",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 553480
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0.93838,
+        0.57031
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "nz_post",
+      "file": "images/nz_post/nz_post-logo.png",
+      "sha256": "0afcd4758c7c4c31c1dd0d7274221cf6405a2eabde3750af05e9fdbc9ed68199",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 538167
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0.91242,
+        0.6559
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "ontrac",
+      "file": "images/ontrac/ontrac-logo.png",
+      "sha256": "6b4cbd071e6934de093fea9cfbad8515670cd0c4fd278b70590494f9eec43f43",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 36,
+        "y": 301,
+        "right": 734,
+        "bottom": 468,
+        "count": 49916
+      },
+      "normalized": [
+        0.04688,
+        0.39193,
+        0.90885,
+        0.21745,
+        4.17964,
+        0.42822,
+        0.06381
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "orlen_paczka",
+      "file": "images/orlen_paczka/orlen_paczka-logo.png",
+      "sha256": "80285edf8188f45328d69fd41383a944c32856b22e6679fa8b33d867b4f5645c",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 4,
+        "y": 7,
+        "right": 765,
+        "bottom": 762,
+        "count": 388274
+      },
+      "normalized": [
+        0.00521,
+        0.00911,
+        0.99089,
+        0.98307,
+        1.00795,
+        0.67578,
+        0
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "paack",
+      "file": "images/paack/paack-logo.png",
+      "sha256": "db4462a57cb33450d27bda9d881e934afa7b16168c5528f06e6dd2fee67da835",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 494888
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0.83904,
+        0.82599
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "poczta_polska",
+      "file": "images/poczta_polska/poczta_polska-logo.png",
+      "sha256": "fb392f8a96d56fd0ad3904877af6d5b64c2f203bfa0a37720512ac94954de558",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 543752
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0.92189,
+        0.00389
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "poste_italiane",
+      "file": "images/poste_italiane/poste_italiane-logo.png",
+      "sha256": "2b8480795e7530feb046d648a78de7342fead256c160cc6711078de22b0273c7",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0.16313
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "posten_bring",
+      "file": "images/posten_bring/posten_bring-logo.png",
+      "sha256": "e44de4b4d26bc70782d39c81ee8721293278dd61d274805c7e4565560eaaaa01",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 20,
+        "y": 147,
+        "right": 746,
+        "bottom": 622,
+        "count": 180871
+      },
+      "inkBounds": {
+        "x": 20,
+        "y": 147,
+        "right": 746,
+        "bottom": 622,
+        "count": 180871
+      },
+      "normalized": [
+        0.02604,
+        0.19141,
+        0.94531,
+        0.61849,
+        1.52842,
+        0.52449,
+        0
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "posti",
+      "file": "images/posti/posti-logo.png",
+      "sha256": "25cf43435a4f201141a55d6f9cae73032a772e63b62bdb6d02ad8d79a09830a6",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 548239
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0.9295,
+        0
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "purolator",
+      "file": "images/purolator/purolator-logo.png",
+      "sha256": "bb57c287ec59b23a56fd6a4e4d46b11059629782470a89de00d4413c4d5ba68b",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 60,
+        "y": 188,
+        "right": 697,
+        "bottom": 625,
+        "count": 114104
+      },
+      "normalized": [
+        0.07813,
+        0.24479,
+        0.82943,
+        0.56901,
+        1.45767,
+        0.4099,
+        0.12841
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "seur",
+      "file": "images/seur/seur-logo.png",
+      "sha256": "070a266c401e92107ecfa8e793d3fd9cf438966c6775b035a859c07fb5ab4f3a",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 9,
+        "y": 258,
+        "right": 753,
+        "bottom": 513,
+        "count": 156282
+      },
+      "normalized": [
+        0.01172,
+        0.33594,
+        0.96875,
+        0.33203,
+        2.91765,
+        0.82375,
+        0.07781
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "slovak_parcel_service",
+      "file": "images/slovak_parcel_service/slovak_parcel_service-logo.png",
+      "sha256": "a0f27ccc537578e0bd15a8e2883a08c96091e68000405b6bfed79e17f0a8f221",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 82,
+        "y": 299,
+        "right": 689,
+        "bottom": 486,
+        "count": 73576
+      },
+      "normalized": [
+        0.10677,
+        0.38932,
+        0.79036,
+        0.24349,
+        3.24599,
+        0.6482,
+        0.02218
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "slovenska_posta",
+      "file": "images/slovenska_posta/slovenska_posta-logo.png",
+      "sha256": "a48fb60ecc265b6e3c2b152e6e2f3f10b62f27c66171fa120d00c6ec37b5a63d",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0.16782
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "speedx",
+      "file": "images/speedx/speedx-logo.png",
+      "sha256": "ef59b894d2076cd8d135d8e81870acf3c83ec296cb59d23a4787b8c96b689052",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 296,
+        "right": 768,
+        "bottom": 768,
+        "count": 59850
+      },
+      "normalized": [
+        0,
+        0.38542,
+        1,
+        0.61458,
+        1.62712,
+        0.16511,
+        0.06004
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "uniuni",
+      "file": "images/uniuni/uniuni-logo.png",
+      "sha256": "026d44569828b9feaf114caf9e9e993420decbe9863f4df29deb998c249cff05",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 394131
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0.66822,
+        0.5819
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "ups",
+      "file": "images/ups/ups-logo.png",
+      "sha256": "2736e60eaa5d06b286703d40cde2fb8582ab880d7d93e6915d44280d9ece58e4",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 139,
+        "y": 94,
+        "right": 630,
+        "bottom": 674,
+        "count": 242481
+      },
+      "normalized": [
+        0.18099,
+        0.1224,
+        0.63932,
+        0.75521,
+        0.84655,
+        0.85147,
+        0.22266
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "usps",
+      "file": "images/usps/usps-logo.png",
+      "sha256": "5f6b9fa67f9f49c4e765840c758d4b9e7d30cb08397d2172d9705594321df4c4",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 577002
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 437019
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0.74093,
+        0.41415
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "acs_courier",
+      "file": "images/acs_courier/acs_courier-logo.png",
+      "sha256": "4c5e377e8bbf8613bb79f51eea356d669ca350f20b26df3449033445af7e989c",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 552851
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0.93732,
+        0
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "amazon_shipping",
+      "file": "images/amazon_shipping/amazon_shipping-logo.png",
+      "sha256": "c14cb67f4e56d62ac88d5311db3d7b5a98bd8f15a8c24299e0d064d4c025b9a1",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 582173
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0.98703,
+        0.86087
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "cargus",
+      "file": "images/cargus/cargus-logo.png",
+      "sha256": "e2ad01e0d950f0eb10c98b97282e95c34df4f3eeafb2a365be4369d8a1ad2d2c",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 101,
+        "y": 165,
+        "right": 668,
+        "bottom": 604,
+        "count": 111071
+      },
+      "inkBounds": {
+        "x": 101,
+        "y": 165,
+        "right": 668,
+        "bottom": 604,
+        "count": 111071
+      },
+      "normalized": [
+        0.13151,
+        0.21484,
+        0.73828,
+        0.57161,
+        1.29157,
+        0.44622,
+        0.30688
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "cdl_last_mile",
+      "file": "images/cdl_last_mile/cdl_last_mile-logo.png",
+      "sha256": "b831a46d570e0f49f2a754deefda5f73d18e68059c559ff99ad260c36b737c8b",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 486407
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0.82466,
+        0
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "colis_prive",
+      "file": "images/colis_prive/colis_prive-logo.png",
+      "sha256": "345e6cc13537afa996d40c2afb34720c4b6518658b6e2bbafacb1465b947d7b9",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 2,
+        "y": 2,
+        "right": 767,
+        "bottom": 767,
+        "count": 459188
+      },
+      "inkBounds": {
+        "x": 2,
+        "y": 2,
+        "right": 767,
+        "bottom": 767,
+        "count": 443408
+      },
+      "normalized": [
+        0.0026,
+        0.0026,
+        0.99609,
+        0.99609,
+        1,
+        0.75767,
+        0.35526
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "colisweb",
+      "file": "images/colisweb/colisweb-logo.png",
+      "sha256": "cbe04c3b1b235f514c86fc4a5bd020ef06c9321771465afcfd20da72fc96171f",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 527648
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0.89459,
+        0
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "early_bird",
+      "file": "images/early_bird/early_bird-logo.png",
+      "sha256": "4dd25d673f798e9f1ce4fe03e8ec9ae46db432fc6c93929a2ab4d1d7c9f7c3ab",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 570741
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0.96765,
+        0
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "ecoscooting",
+      "file": "images/ecoscooting/ecoscooting-logo.png",
+      "sha256": "e172cb18210edfc112d30fded31b89010a1ef98189c6c74a6525ebd8a80280f0",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 100,
+        "y": 67,
+        "right": 669,
+        "bottom": 699,
+        "count": 164298
+      },
+      "normalized": [
+        0.13021,
+        0.08724,
+        0.74089,
+        0.82292,
+        0.90032,
+        0.45688,
+        0.06988
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "gobolt",
+      "file": "images/gobolt/gobolt-logo.png",
+      "sha256": "7e6d92d9b0750b94ed4a2a4e5164b091468f99458a406525b07c2574af96a328",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0.90876
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "magyar_posta",
+      "file": "images/magyar_posta/magyar_posta-logo.png",
+      "sha256": "612ed1744ab36211820d47b8fdef30baaca2fc94130c3d0de9d9905b57fd5e86",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 557792
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0.94569,
+        0
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "pdn_express",
+      "file": "images/pdn_express/pdn_express-logo.png",
+      "sha256": "faf492acf7784610cfb606ea38ec967028983f4b1a9fcc4e96394748a9387980",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 485768
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0.82358,
+        0.00751
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "posta_slovenije",
+      "file": "images/posta_slovenije/posta_slovenije-logo.png",
+      "sha256": "dc63c5ee2caab6ff50eb9c32042ac1af1d0ee6dd187315ee23af1a72352addf0",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0.14096
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "posta_srbije",
+      "file": "images/posta_srbije/posta_srbije-logo.png",
+      "sha256": "9174be98745a6a7d5041c75a76c75d5402d8254d3be4822d86c9be0ebfef4b13",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 128,
+        "y": 280,
+        "right": 649,
+        "bottom": 489,
+        "count": 67904
+      },
+      "normalized": [
+        0.16667,
+        0.36458,
+        0.67839,
+        0.27214,
+        2.49282,
+        0.62361,
+        0
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "spee_dee_delivery",
+      "file": "images/spee_dee_delivery/spee_dee_delivery-logo.png",
+      "sha256": "c7306ea4104ce741c06a66efb4ba8297c0f5a79d4d2b4d694f854848e6ed798b",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 40,
+        "y": 40,
+        "right": 729,
+        "bottom": 729,
+        "count": 178176
+      },
+      "normalized": [
+        0.05208,
+        0.05208,
+        0.89714,
+        0.89714,
+        1,
+        0.37533,
+        0.21565
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "straightship",
+      "file": "images/straightship/straightship-logo.png",
+      "sha256": "92667dc875147626835fd504203b0aa8998ef836437e60dc7346b6fccb6f2a38",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 76,
+        "y": 301,
+        "right": 687,
+        "bottom": 459,
+        "count": 28763
+      },
+      "normalized": [
+        0.09896,
+        0.39193,
+        0.79557,
+        0.20573,
+        3.86709,
+        0.29794,
+        0.00426
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "tipsa",
+      "file": "images/tipsa/tipsa-logo.png",
+      "sha256": "d210bc7bb8a101cdb9fc871657e058806d80fa1e3db6ef7beb77b8d2cf29a5bc",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 564378
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0.95686,
+        0.92897
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "ukrposhta",
+      "file": "images/ukrposhta/ukrposhta-logo.png",
+      "sha256": "33a6738f93e46b20a69bf179acb841807bfb5d1f4d82659985858846fdf647ce",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 482180
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0.8175,
+        0
+      ],
+      "appIcon": true
+    }
+  ]
+}

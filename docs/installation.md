@@ -67,38 +67,61 @@ Roughly, they come in three kinds:
 
 Install [custom-brand-icons](https://github.com/elax46/custom-brand-icons) via HACS to get branded `phu:` carrier icons. The card detects this automatically — no configuration needed.
 
-Coverage varies by carrier:
+The SVG delivery scenes work without this optional iconset. Their logo panels prefer a
+mapped PHU icon, then the carrier's existing logo (rounded for app icons), then a plain
+panel in the configured carrier colour. For carriers without their own card artwork, the
+"existing logo" is the icon that the installed integration ships in its `brand/` folder,
+served by Home Assistant 2026.3 and newer; older versions use a copy kept in this repository. A `logo_path` override replaces the image fallback.
+Registered and Delivered intentionally have no logo. If an older PHU installation lacks a
+mapped icon, the scene retains its image fallback.
+
+All 85 carrier mappings were checked on 27 October 2026 against the published
+[custom-brand-icons 2026.10.3 release](https://github.com/elax46/custom-brand-icons/releases/tag/2026.10.3)
+and its `dist/custom-brand-icons.js`. These 35 carrier types have released icons:
 
 | Carrier | PHU icon |
-| ------- | :------: |
-| PostNL | ✅ real logo |
-| DHL | ✅ real logo |
-| DPD | ✅ (basic placeholder-style artwork, not the official red DPD logo) |
-| GLS | ✅ (plain "GLS" text mark, not the official logo) |
-| Dragonfly | ✅ real logo |
-| Trunkrs | ❌ not available yet |
-| Cainiao | ❌ not available yet |
-| Hermes | ✅ real logo |
-| Packeta | ✅ real logo |
-| Correos | ✅ real logo |
-| Vinted Go | ❌ not available yet |
-| PostNord | ❌ wordmark-only brand, no standalone icon mark exists |
-| Sameday | ⏳ submitted upstream, pending merge ([#1435](https://github.com/elax46/custom-brand-icons/pull/1435)) |
-| Swiss Post | ✅ real logo |
-| Planzer | ❌ wordmark-only brand, no standalone icon mark exists |
-| Austrian Post | ✅ real logo |
-| Helthjem | ⏳ submitted upstream, pending merge ([#1435](https://github.com/elax46/custom-brand-icons/pull/1435)) |
-| Dynalogic | ❌ wordmark-only brand, no standalone icon mark exists |
-| Budbee | ⏳ submitted upstream, pending merge ([#1435](https://github.com/elax46/custom-brand-icons/pull/1435)) |
-| Nova Post | ⏳ submitted upstream, pending merge ([#1435](https://github.com/elax46/custom-brand-icons/pull/1435)) |
-| Delhivery | ❌ not available yet |
-| SunYou | ✅ real logo |
-| An Post | ✅ real logo |
-| Quickpac | ❌ wordmark + plain accent dot, no standalone icon mark to extract |
-| InPost | ✅ real logo |
-| Every carrier added in 2026-10 | ❌ not yet — they use the integration's own icon in the banner meanwhile |
+| ------- | -------- |
+| PostNL | `phu:postnl` |
+| DHL NL | `phu:dhl` |
+| DPD | `phu:dpd` |
+| Vinted Go | `phu:vinted` |
+| GLS | `phu:gls-group` |
+| Dragonfly | `phu:dragonfly` |
+| Trunkrs | `phu:trunkrs` |
+| Cainiao | `phu:cainiao` |
+| Hermes | `phu:hermes` |
+| Packeta | `phu:packeta` |
+| Correos | `phu:correos` |
+| PostNord | `phu:postnord` |
+| Sameday | `phu:sameday` |
+| Swiss Post | `phu:swisspost` |
+| Austrian Post | `phu:austrianpost` |
+| Helthjem | `phu:helthjem` |
+| Budbee | `phu:budbee` |
+| Nova Post | `phu:nova_post` |
+| SunYou | `phu:sunyou` |
+| An Post | `phu:anpost` |
+| InPost | `phu:inpost` |
+| PPL CZ | `phu:ppl` |
+| Ceska Posta | `phu:ceska-posta` |
+| Amazon | `phu:amazon-logo` |
+| CTT | `phu:ctt` |
+| DHL | `phu:dhl` |
+| Econt | `phu:econt` |
+| FedEx | `phu:fedex` |
+| La Poste | `phu:laposte` |
+| Mondial Relay | `phu:mondialrelay` |
+| NZ Post | `phu:nzpost` |
+| Poste Italiane | `phu:posteitaliane` |
+| UPS | `phu:ups-dlv` |
+| USPS | `phu:usps` |
+| Amazon Shipping | `phu:amazon-logo` |
 
-Carriers without a proper branded icon yet fall back to a generic `mdi:package-variant-closed` icon.
+The other 50 carriers use their existing logo in the scenes. Custom carriers use their
+configured logo, or a plain brand-colour panel without text. Outside the SVG illustrations,
+unmapped carriers keep the generic `mdi:package-variant-closed` icon. No local PR icons are
+used or required. Pale PHU logo colours are darkened automatically for at least 3:1 contrast
+on white; this follows the carrier's configured colour without per-carrier exceptions.
 
 ---
 

@@ -1,5 +1,42 @@
 # Changelog
 
+## [2.0.0b19] — 2026-10-27
+
+### Changed
+
+- **Studio carrier banner** — equal-sized, centred logo tiles for multiple carriers,
+  with optical sizing from offline content measurements. Tiles follow Home Assistant's
+  card background in both light and dark themes; dark wordmarks retain their colours
+  with a subtle light edge in dark mode. Rounded app icons, carrier-colour accents and
+  the logo-less custom chip share the same grid. Ordinary updates and theme switches
+  retain logo nodes and hover/focus; existing single-carrier banners stay in use.
+- **Shared inline SVG delivery scenes for all 85 carriers and custom** — Registered,
+  Sorting centre, Out for delivery, Pickup point and Delivered now share one geometry,
+  coloured from the carrier's configured accent. All carriers get the four-step tracker,
+  with a fifth pickup-point step when applicable, even without carrier-specific artwork.
+- **Logos inside the illustrations** — use a released PHU icon when available, otherwise
+  the existing carrier logo (rounded for app icons), or a plain brand-colour panel for
+  custom carriers without a logo. PHU paths are cached; light logo colours are darkened
+  automatically to reach at least 3:1 contrast on white. Identical HA updates retain the
+  SVG/image nodes instead of rebuilding them.
+- **PHU mapping audited against released custom-brand-icons 2026.10.3** — 35 carrier
+  mappings, including Sameday, Helthjem, Budbee, Nova Post, PostNord, FedEx, UPS and USPS.
+  Missing icons in older PHU installations keep the scene's logo fallback.
+
+### Added
+
+- **Carrier logos straight from the installed integration** — carriers without their own
+  card artwork now show the `brand/icon.png` that their integration ships, served by
+  Home Assistant itself (2026.3+, `/api/brands/integration/<domain>/icon.png`). It is used in
+  the banner, the combo logos and the scene logo panels, and only once it has actually
+  loaded; otherwise the card keeps the copy in this repository. A new integration thus
+  brings its own logo, with no card-side image needed. Older Home Assistant versions are
+  unaffected.
+
+Existing PNG/JPG/GIF files remain available for older installed betas. Explicit step URLs
+still take precedence; the driving hero keeps its existing vehicle GIF or carrier chip.
+No new runtime dependency is required.
+
 ## [2.0.0b18] — 2026-10-27
 
 ### Added

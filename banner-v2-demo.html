@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HA Parcel Card — Studio</title>
+<style>
+*{box-sizing:border-box}body{margin:0;padding:28px;background:#101923;color:#ecf2f8;font:14px/1.45 system-ui,sans-serif}main{max-width:1080px;margin:auto}.eyebrow{font-size:11px;color:#ffba64;letter-spacing:1.6px;font-weight:800}h1{margin:6px 0 12px;font-size:31px;letter-spacing:-.8px}h2{font-size:18px;margin:0 0 7px}h3{font-size:12px;font-weight:600;color:#adbdcd;margin:0 0 9px}p{max-width:900px;color:#adbdcd;margin:7px 0 20px}nav{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 18px}nav a{display:block;border:1px solid #3e4e5e;background:#1b2937;color:#dee8f2;text-decoration:none;padding:8px 12px;border-radius:8px}nav a.active{background:#f2a34b;color:#102033;border-color:#f2a34b;font-weight:700}.description{color:#b6c7d7;margin:0 0 22px}#previews{display:grid;grid-template-columns:500px 375px;gap:24px;align-items:start}.ha-card{width:100%;border:1px solid var(--divider-color);border-radius:12px;overflow:hidden;background:var(--card-background-color);color:var(--primary-text-color);box-shadow:0 12px 36px #0002}.light{--card-background-color:#fff;--secondary-background-color:#edf1f5;--primary-text-color:#102033;--secondary-text-color:#617181;--divider-color:#d9e1e8}.dark{--card-background-color:#171c24;--secondary-background-color:#222832;--primary-text-color:#eaf0f6;--secondary-text-color:#9cadbe;--divider-color:#364251}.mock-header{padding:13px 16px 12px;line-height:1.3}.mock-header strong{display:block;font-size:15px}.mock-header small{font-size:11px;color:var(--secondary-text-color)}.tabs{display:flex;justify-content:space-around;border-block:1px solid var(--divider-color);height:37px;font-size:11px;color:var(--secondary-text-color)}.tabs span{padding:10px 0 7px;flex:1;text-align:center}.tabs .active{color:#e38b22;border-bottom:2px solid #ed8c00}.empty{height:58px;display:grid;place-items:center;color:var(--secondary-text-color);font-size:11px}.add{border-top:1px solid var(--divider-color);padding:10px 14px;color:#e38b22;font-size:11px;font-weight:650}.info{font-size:12px;color:#a6b8c9;padding:18px 0}#selection{min-height:20px;color:#ffbd70}@media(max-width:960px){body{padding:16px}body #previews{grid-template-columns:minmax(0,1fr)}body .sample{min-width:0;max-width:100%}.sample .ha-card{max-width:100%}}@media(max-width:420px){body{padding:10px}body h1{font-size:25px}}
+</style><script>
+window.LitElement=class extends HTMLElement {};
+window.html=(strings,...values)=>strings.reduce((out,s,i)=>out+s+(values[i]??''),'');window.css=window.html;
+</script><script src="ha-parcel-card.js"></script></head><body><main>
+<header><span class="eyebrow">HA PARCEL CARD / V2 / STUDIO</span><h1>Studio, afgestemd op je thema.</h1></header>
+<nav id="sets"></nav><p class="description" id="description"></p>
+<section id="previews"></section><div id="selection" aria-live="polite"></div>
+<div class="info" id="info"></div><p class="info">De maten en uitsneden komen uit een vooraf uitgevoerde bestandsmeting. Geen canvasmeting of gewijzigde logo's. TIPSA, Ukrposhta, bpost en FedEx gebruiken in deze demo Claude's echte ophaalcode met een lokaal gesimuleerd HA-brand-endpoint en een verzonnen token. Studio is nu de banner in de kaart. De tegels volgen de HA-kaartkleur; alleen donkere logo-randen krijgen in donker thema een subtiele contrastcontour.</p>
+</main><script type="module">
+const api=window.HAParcelCard.logoBanner,scenes=window.HAParcelCard.stepScenes;
+const query=new URLSearchParams(location.search);
+const setKey=['A','B','C','D','E'].includes(query.get('set'))?query.get('set'):'A';
+const sets={A:['postnl','dhl','dpd','gls','dragonfly','trunkrs','cainiao'],B:['postnl','dhl'],C:['postnl','dragonfly','trunkrs'],D:['postnl','dpd','gls','dragonfly','tipsa'],E:['postnl','dhl','dpd','gls','dragonfly','trunkrs','cainiao','tipsa','ukrposhta','fedex','bpost','custom']};
+const url=(key,value)=>{const q=new URLSearchParams(query);q.delete('variant');q.delete('compare');q.set(key,value);return '?'+q.toString();};
+document.querySelector('#sets').innerHTML=Object.entries(sets).map(([key,types])=>`<a class="${key===setKey?'active':''}" href="${url('set',key)}">Set ${key} · ${types.length} vervoerders</a>`).join('');
+document.querySelector('#description').textContent='De gekozen Studio-banner: gelijke tegels, gemeten logogroottes en de kaartkleur uit het actieve Home Assistant-thema.';
+const card=document.createElement('ha-parcel-card');
+const config=sets[setKey].map(type=>({type,name:type==='custom'?'Mijn vervoerder':scenes.carrier(type).label,color:type==='custom'?'#805ad5':undefined}));
+card.config={carriers:config,show_placeholder:true};
+let wsCalls=0,brandRefreshes=0;
+card.style.display='none';card._isRendered=true;card.render=()=>{brandRefreshes++;};document.body.append(card);
+card._hass={callWS:async msg=>{wsCalls++;if(query.get('brands')==='unsupported')throw Error('Simulated older HA');return {token:'banner-demo-only'};}};
+card._prepareBrandIcons();
+for(let i=0;i<100;i++){
+ await new Promise(resolve=>setTimeout(resolve,20));
+ const current=card._getNoSelectionBackground().comboLogos;
+ if(query.get('brands')==='unsupported'||config.filter(c=>['tipsa','ukrposhta','bpost','fedex'].includes(c.type)).every(c=>current.find(b=>b.carrier_type===c.type)?.carrier_logo.startsWith('/api/brands/')))break;
+}
+const localize=b=>({...b,carrier_logo:b.carrier_logo.replace('https://github.com/jonisnet/ha-parcel-card/blob/main/','').replace('?raw=true','')});
+const items=card._getNoSelectionBackground().comboLogos.map(localize);
+const samples=[{width:500,theme:'light'},{width:375,theme:'light'},{width:500,theme:'dark'},{width:375,theme:'dark'}];
+document.querySelector('#previews').innerHTML=samples.map((s,i)=>`<article class="sample" style="width:${s.width}px"><h3>Studio · ${s.width} px · ${s.theme==='light'?'licht':'donker'}</h3><div class="ha-card ${s.theme}"><div class="mock-header"><strong>Parcels</strong><small>Geen pakket geselecteerd</small></div><div class="banner-mount" id="banner-${i}"></div><div class="tabs"><span class="active">Onderweg</span><span>Bezorgd</span><span>Verzonden</span><span>Post</span></div><div class="empty">Geen pakketten in deze categorie</div><div class="add">⊕ Pakket toevoegen</div></div></article>`).join('');
+const choose=name=>{document.querySelector('#selection').textContent=`${name} geselecteerd — in de kaart opent hier het vervoerdersoverzicht.`;};
+const Card=customElements.get('ha-parcel-card');
+const sampleCards=samples.map((s,i)=>{
+ const c=document.createElement('ha-parcel-card');
+ c.config={carriers:config,show_placeholder:true,show_animation:true};
+ c._hass={...card._hass,themes:{darkMode:s.theme==='dark'}};
+ c._carrierBranding=carrier=>localize(Card.prototype._carrierBranding.call(c,carrier));
+ c._openCarrierPopup=choose;
+ c.shadowRoot.innerHTML=`<style>:host{display:block;min-width:0}${api.css}</style><div class="header-animation"></div>`;
+ document.querySelector(`#banner-${i}`).append(c);
+ c.updateAnimation([]);
+ return c;
+});
+window.bannerDemo={api,card,items,samples,sampleCards,get wsCalls(){return wsCalls;},get brandRefreshes(){return brandRefreshes;},refresh(){sampleCards.forEach(c=>c.updateAnimation([]));}};
+document.querySelector('#info').textContent=`Set ${setKey}: ${config.map(c=>c.name).join(' · ')}. HA-brand-iconen: ${items.filter(c=>c.carrier_logo.startsWith('/api/brands/')).length}.`;
+document.documentElement.dataset.ready='true';
+</script></body></html>

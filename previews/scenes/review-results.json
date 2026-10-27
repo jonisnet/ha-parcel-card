@@ -1,0 +1,90 @@
+{
+  "carrierScreenshots": [
+    "postnl",
+    "sameday",
+    "ukrposhta",
+    "spee_dee_delivery",
+    "dhl"
+  ],
+  "errors": [],
+  "layout": {
+    "desktop": 60,
+    "mobile": 44,
+    "hero": 118,
+    "logos": {
+      "invalid": 0,
+      "phu": 32,
+      "image": 32
+    }
+  },
+  "geometry": {
+    "identical": true,
+    "marginsValid": true
+  },
+  "integration": {
+    "retained": true,
+    "count": 5,
+    "hasGif": true,
+    "hasChip": true,
+    "override": "data:image/svg+xml,%3Csvg xmlns=\"http://www.w3.org/2000/svg\"/%3E",
+    "overrideUrl": "data:image/svg+xml,%3Csvg xmlns=\"http://www.w3.org/2000/svg\"/%3E",
+    "mini": "data:image/svg+xml,%3Csvg xmlns=\"http://www.w3.org/2000/svg\"/%3E#mini"
+  },
+  "mobilePageWidth": 375,
+  "asyncLogos": {
+    "success": {
+      "calls": 1,
+      "updates": 1,
+      "loaded": "phu"
+    },
+    "missing": {
+      "calls": 1,
+      "kind": "image"
+    },
+    "rejected": {
+      "calls": 1,
+      "kind": "image"
+    },
+    "customColor": "#fff00a",
+    "customBrand": true
+  },
+  "contrast": {
+    "postnl": {
+      "color": "#ed8c00",
+      "logo": "#cc7c08",
+      "ratio": 3.2537755046004984,
+      "kind": "phu"
+    },
+    "sameday": {
+      "color": "#e82020",
+      "logo": "#e82020",
+      "ratio": 4.507770125250866,
+      "kind": "phu"
+    },
+    "ukrposhta": {
+      "color": "#f8b808",
+      "logo": "#b28a15",
+      "ratio": 3.2113943262311873,
+      "kind": "image"
+    },
+    "spee_dee_delivery": {
+      "color": "#6a6a6a",
+      "logo": "#6a6a6a",
+      "ratio": 5.408789320592422,
+      "kind": "image"
+    },
+    "dhl": {
+      "color": "#ffcc00",
+      "logo": "#ab9012",
+      "ratio": 3.120531213248623,
+      "kind": "phu"
+    },
+    "custom": {
+      "color": "#ffffee",
+      "logo": "#889091",
+      "ratio": 3.2583305126251396,
+      "kind": "brand"
+    }
+  },
+  "phuRelease": "2026.10.3"
+}

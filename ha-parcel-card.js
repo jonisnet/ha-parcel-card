@@ -68,7 +68,7 @@ window.HAParcelCard.getSelectValue = window.HAParcelCard.getSelectValue || ((ev,
 
 (() => {
 const { LitElement, html, css } = window.HAParcelCard.getLit();
-const CARD_VERSION = 'v2.0.0b18';
+const CARD_VERSION = 'v2.0.0b19';
 console.info(`%c HA-PARCEL-CARD %c ${CARD_VERSION} `, 'color: white; background: #ed8c00; font-weight: bold;', 'color: #ed8c00; background: white; font-weight: bold;');
 
 const DEFAULT_CARRIER_ICON = 'mdi:package-variant-closed';
@@ -80,32 +80,26 @@ function hasPhuIcons() {
 }
 
 function getDefaultIcon(carrierType) {
-    // Keep in sync with whatever elax46/custom-brand-icons actually ships under icon-svg/ —
-    // a phu: reference to a name that isn't in the installed iconset renders blank, which is
-    // worse than the mdi: fallback, so only map a carrier here once its icon is confirmed live
-    // upstream (last full audit 2026-08-11, checked directly against the repo's git tree —
-    // sunyou.svg turned up there unprompted, contributed by someone else upstream).
-    // postnord/planzer/dynalogic/delhivery are intentionally NOT mapped — all four are
-    // wordmark-only brands with no distinct pictorial mark anywhere in their real branding
-    // (re-verified against each carrier's actual current favicon/app-icon/press assets, not
-    // just assumed), and we don't submit invented letterform icons upstream. Note Dynalogic's
-    // "DYNALOG!C" wordmark stylizes the I as "!", but that mark never appears standalone
-    // (favicon crops to a plain "D" instead) — a real stylistic detail, not an extractable icon.
-    // sameday/helthjem/nova_post/budbee (full wordmark, not the round "b" avatar — see PR
-    // description) have real icons built and submitted upstream as of 2026-08-11
-    // (elax46/custom-brand-icons#1435) but aren't mapped here yet since that PR hasn't merged —
-    // add them once it has, don't map ahead of the icon actually being live. quickpac has no
-    // real pictorial mark (wordmark + plain accent dot, not a distinct shape) — falls through to
-    // mdi: like postnord/planzer/dynalogic/delhivery below. inpost.svg confirmed live on
-    // custom-brand-icons main as of 2026-08-23 (sun/moon mark + wordmark, legible at 24px).
+    // Only use names present in a published dist, never the local PHU PR checkout.
+    // All 85 carriers audited against published dist 2026.10.3 (2026-10-27).
+    // See scripts/audit_scene_phu.mjs and previews/scenes/phu-audit.json.
+    // Unmapped carriers keep the MDI icon; their scenes use the existing logo asset.
     const phuMap = {
-        postnl: 'phu:postnl',
+        postnl: 'phu:postnl', sameday: 'phu:sameday',
         dhl: 'phu:dhl', dpd: 'phu:dpd',
         gls: 'phu:gls-group', dragonfly: 'phu:dragonfly', trunkrs: 'phu:trunkrs',
         cainiao: 'phu:cainiao', vinted_go: 'phu:vinted',
         hermes: 'phu:hermes', packeta: 'phu:packeta', correos: 'phu:correos',
         swiss_post: 'phu:swisspost', austrian_post: 'phu:austrianpost',
         sunyou: 'phu:sunyou', an_post: 'phu:anpost', inpost: 'phu:inpost',
+        postnord: 'phu:postnord', helthjem: 'phu:helthjem',
+        budbee: 'phu:budbee', nova_post: 'phu:nova_post',
+        ppl_cz: 'phu:ppl', ceska_posta: 'phu:ceska-posta',
+        amazon_orders: 'phu:amazon-logo', amazon_shipping: 'phu:amazon-logo',
+        ctt: 'phu:ctt', dhl_global: 'phu:dhl', econt: 'phu:econt',
+        fedex: 'phu:fedex', laposte: 'phu:laposte', mondial_relay: 'phu:mondialrelay',
+        nz_post: 'phu:nzpost', poste_italiane: 'phu:posteitaliane',
+        ups: 'phu:ups-dlv', usps: 'phu:usps',
     };
     if (hasPhuIcons() && phuMap[carrierType]) return phuMap[carrierType];
     return 'mdi:package-variant-closed';
@@ -3942,497 +3936,156 @@ const CARRIER_REPO_URLS = {
     ukrposhta:   'https://github.com/ha-parcel-integrations/ha-ukrposhta',
 };
 
+// Static steps are rendered inline from the shared scene templates below.
+// An explicitly added `steps` URL still takes precedence. Existing image files
+// remain in images/: older installed versions fetch them live from main.
+// Carriers with logo_is_icon use their integration app icon as a rounded fallback.
 const CARRIER_ASSETS = {
     postnl: {
         logo:   `${IMG.postnl}/postnl-logo.png?raw=true`,
         van:    `${IMG.postnl}/postnl-van.gif?raw=true`,
         banner: `${IMG.postnl}/postnl-banner.jpg?raw=true`,
-        steps: {
-            registered:      `${IMG.postnl}/postnl_step_registered.png?raw=true`,
-            registered_mini: `${IMG.postnl}/postnl_step_registered_mini.png?raw=true`,
-            sorting:         `${IMG.postnl}/postnl_step_sorting.png?raw=true`,
-            transit:         `${IMG.postnl}/postnl_step_transit.png?raw=true`,
-            delivered:       `${IMG.postnl}/postnl_step_delivered.png?raw=true`,
-            delivered_mini:  `${IMG.postnl}/postnl_step_delivered_mini.png?raw=true`
-        }
     },
     dhl: {
         logo:   `${IMG.dhl}/DHL_logo.png?raw=true`,
         van:    `${IMG.dhl}/DHL_van.gif?raw=true`,
         banner: `${IMG.dhl}/DHL_banner.png?raw=true`,
-        steps: {
-            registered:      `${IMG.dhl}/DHL_step_registered.png?raw=true`,
-            registered_mini: `${IMG.dhl}/DHL_step_registered_mini.png?raw=true`,
-            sorting:         `${IMG.dhl}/DHL_step_sorting.png?raw=true`,
-            transit:         `${IMG.dhl}/DHL_step_transit.png?raw=true`,
-            delivered:       `${IMG.dhl}/DHL_step_delivered.png?raw=true`,
-            delivered_mini:  `${IMG.dhl}/DHL_step_delivered_mini.png?raw=true`
-        }
     },
     dpd: {
         logo:   `${IMG.dpd}/DPD_logo.png?raw=true`,
         van:    `${IMG.dpd}/DPD_van.gif?raw=true`,
-        banner: `${IMG.dpd}/DPD_banner.png?raw=true`,
-        steps: {
-            registered:      `${IMG.dpd}/DPD_step_registered.png?raw=true`,
-            registered_mini: `${IMG.dpd}/DPD_step_registered_mini.png?raw=true`,
-            sorting:         `${IMG.dpd}/DPD_step_sorting.png?raw=true`,
-            transit:         `${IMG.dpd}/DPD_step_transit.png?raw=true`,
-            delivered:       `${IMG.dpd}/DPD_step_delivered.png?raw=true`,
-            delivered_mini:  `${IMG.dpd}/DPD_step_delivered_mini.png?raw=true`
-        }
+        banner: `${IMG.dpd}/DPD_banner.png?raw=true`
     },
     gls: {
         logo:   `${IMG.gls}/GLS_logo.png?raw=true`,
         van:    `${IMG.gls}/GLS_van.gif?raw=true`,
-        banner: `${IMG.gls}/GLS_banner.png?raw=true`,
-        steps: {
-            registered:      `${IMG.gls}/GLS_step_registered.png?raw=true`,
-            registered_mini: `${IMG.gls}/GLS_step_registered_mini.png?raw=true`,
-            sorting:         `${IMG.gls}/GLS_step_sorting.png?raw=true`,
-            transit:         `${IMG.gls}/GLS_step_transit.png?raw=true`,
-            delivered:       `${IMG.gls}/GLS_step_delivered.png?raw=true`,
-            delivered_mini:  `${IMG.gls}/GLS_step_delivered_mini.png?raw=true`
-        }
+        banner: `${IMG.gls}/GLS_banner.png?raw=true`
     },
-    // Dragonfly art (SVG) lives in images/dragonfly/ on the main repo, added alongside the
-    // dragonfly carrier type itself — see CARRIER_PRESETS.dragonfly.
     dragonfly: {
         logo:   `${IMG.dragonfly}/dragonfly-logo.svg?raw=true`,
         van:    `${IMG.dragonfly}/dragonfly-van.gif?raw=true`,
-        banner: `${IMG.dragonfly}/dragonfly-banner.png?raw=true`,
-        steps: {
-            registered:      `${IMG.dragonfly}/dragonfly_step_registered.png?raw=true`,
-            registered_mini: `${IMG.dragonfly}/dragonfly_step_registered_mini.png?raw=true`,
-            sorting:         `${IMG.dragonfly}/dragonfly_step_sorting.png?raw=true`,
-            transit:         `${IMG.dragonfly}/dragonfly_step_transit.png?raw=true`,
-            delivered:       `${IMG.dragonfly}/dragonfly_step_delivered.png?raw=true`,
-            delivered_mini:  `${IMG.dragonfly}/dragonfly_step_delivered_mini.png?raw=true`
-        }
+        banner: `${IMG.dragonfly}/dragonfly-banner.png?raw=true`
     },
-    // Trunkrs/Cainiao art: step icons and the animated van are generated by recolouring the
-    // shared GLS master illustration (same technique every other carrier's art already uses —
-    // one master drawing, hue-shifted per brand) to each carrier's confirmed accent colour.
-    // The logo is the real official logo artwork (trimmed/scaled, transparent background).
-    // The banner is a plain-background placeholder built from that same real logo — there's no
-    // official banner-style artwork to draw from, so this is the one piece that's still "ours".
     trunkrs: {
         logo:   `${IMG.trunkrs}/TRUNKRS_logo.png?raw=true`,
         van:    `${IMG.trunkrs}/TRUNKRS_van.gif?raw=true`,
-        banner: `${IMG.trunkrs}/TRUNKRS_banner.png?raw=true`,
-        steps: {
-            registered:      `${IMG.trunkrs}/TRUNKRS_step_registered.png?raw=true`,
-            registered_mini: `${IMG.trunkrs}/TRUNKRS_step_registered_mini.png?raw=true`,
-            sorting:         `${IMG.trunkrs}/TRUNKRS_step_sorting.png?raw=true`,
-            transit:         `${IMG.trunkrs}/TRUNKRS_step_transit.png?raw=true`,
-            delivered:       `${IMG.trunkrs}/TRUNKRS_step_delivered.png?raw=true`,
-            delivered_mini:  `${IMG.trunkrs}/TRUNKRS_step_delivered_mini.png?raw=true`
-        }
+        banner: `${IMG.trunkrs}/TRUNKRS_banner.png?raw=true`
     },
     cainiao: {
         logo:   `${IMG.cainiao}/CAINIAO_logo.png?raw=true`,
         van:    `${IMG.cainiao}/CAINIAO_van.gif?raw=true`,
-        banner: `${IMG.cainiao}/CAINIAO_banner.png?raw=true`,
-        steps: {
-            registered:      `${IMG.cainiao}/CAINIAO_step_registered.png?raw=true`,
-            registered_mini: `${IMG.cainiao}/CAINIAO_step_registered_mini.png?raw=true`,
-            sorting:         `${IMG.cainiao}/CAINIAO_step_sorting.png?raw=true`,
-            transit:         `${IMG.cainiao}/CAINIAO_step_transit.png?raw=true`,
-            delivered:       `${IMG.cainiao}/CAINIAO_step_delivered.png?raw=true`,
-            delivered_mini:  `${IMG.cainiao}/CAINIAO_step_delivered_mini.png?raw=true`
-        }
+        banner: `${IMG.cainiao}/CAINIAO_banner.png?raw=true`
     },
-    // Hermes art: step icons and the animated van are the shared GLS master illustration
-    // hue-shifted to the confirmed brand blue (#008CC3, pixel-sampled from the official logo),
-    // with that same real logo (or just its arrow mark, on the smaller badges) composited on.
-    // The logo is the real official Hermes wordmark (vector, extracted from myhermes.de).
     hermes: {
         logo:   `${IMG.hermes}/hermes-logo.svg?raw=true`,
         van:    `${IMG.hermes}/hermes-van.gif?raw=true`,
-        banner: `${IMG.hermes}/hermes-banner.png?raw=true`,
-        steps: {
-            registered:      `${IMG.hermes}/hermes_step_registered.png?raw=true`,
-            registered_mini: `${IMG.hermes}/hermes_step_registered_mini.png?raw=true`,
-            sorting:         `${IMG.hermes}/hermes_step_sorting.png?raw=true`,
-            transit:         `${IMG.hermes}/hermes_step_transit.png?raw=true`,
-            delivered:       `${IMG.hermes}/hermes_step_delivered.png?raw=true`,
-            delivered_mini:  `${IMG.hermes}/hermes_step_delivered_mini.png?raw=true`
-        }
+        banner: `${IMG.hermes}/hermes-banner.png?raw=true`
     },
-    // Packeta art: step icons and the animated van are the shared GLS master illustration
-    // hue-shifted to the confirmed brand red (#BA1B02, read off the badge background behind the
-    // logo's reversed-white lockup via getComputedStyle on tracking.packeta.com). Packeta has no
-    // standalone dark logo — only the white-on-red badge lockup — so the logo/mark art here
-    // faithfully reproduces that same red rounded badge rather than inventing a non-canonical
-    // dark variant.
     packeta: {
         logo:   `${IMG.packeta}/packeta-logo.svg?raw=true`,
         van:    `${IMG.packeta}/packeta-van.gif?raw=true`,
-        banner: `${IMG.packeta}/packeta-banner.png?raw=true`,
-        steps: {
-            registered:      `${IMG.packeta}/packeta_step_registered.png?raw=true`,
-            registered_mini: `${IMG.packeta}/packeta_step_registered_mini.png?raw=true`,
-            sorting:         `${IMG.packeta}/packeta_step_sorting.png?raw=true`,
-            transit:         `${IMG.packeta}/packeta_step_transit.png?raw=true`,
-            delivered:       `${IMG.packeta}/packeta_step_delivered.png?raw=true`,
-            delivered_mini:  `${IMG.packeta}/packeta_step_delivered_mini.png?raw=true`
-        }
+        banner: `${IMG.packeta}/packeta-banner.png?raw=true`
     },
-    // Correos art: step icons and the animated van are the shared GLS master illustration
-    // hue-shifted to the confirmed brand blue (#00457D, the fill colour in Correos' own official
-    // logo SVG). The logo is that same official mark (the crown-and-horn symbol; the 2019 rebrand
-    // dropped the "correos" wordmark entirely, so the icon alone is the current real logo).
     correos: {
         logo:   `${IMG.correos}/correos-logo.svg?raw=true`,
         van:    `${IMG.correos}/correos-van.gif?raw=true`,
-        banner: `${IMG.correos}/correos-banner.png?raw=true`,
-        steps: {
-            registered:      `${IMG.correos}/correos_step_registered.png?raw=true`,
-            registered_mini: `${IMG.correos}/correos_step_registered_mini.png?raw=true`,
-            sorting:         `${IMG.correos}/correos_step_sorting.png?raw=true`,
-            transit:         `${IMG.correos}/correos_step_transit.png?raw=true`,
-            delivered:       `${IMG.correos}/correos_step_delivered.png?raw=true`,
-            delivered_mini:  `${IMG.correos}/correos_step_delivered_mini.png?raw=true`
-        }
+        banner: `${IMG.correos}/correos-banner.png?raw=true`
     },
-    // Vinted Go art: step icons and the animated van are the shared GLS master illustration
-    // hue-shifted to the confirmed brand teal (#007782, the --primary-default CSS custom property
-    // read directly from vintedgo.com's own compiled stylesheet). The logo is Vinted Go's own real
-    // "Vinted Go" script wordmark (rasterised from vintedgo.com's /assets/logo.svg, recoloured from
-    // white to the confirmed teal).
     vinted_go: {
         logo:   `${IMG.vinted_go}/vinted_go-logo.svg?raw=true`,
         van:    `${IMG.vinted_go}/vinted_go-van.gif?raw=true`,
-        banner: `${IMG.vinted_go}/vinted_go-banner.png?raw=true`,
-        steps: {
-            registered:      `${IMG.vinted_go}/vinted_go_step_registered.png?raw=true`,
-            registered_mini: `${IMG.vinted_go}/vinted_go_step_registered_mini.png?raw=true`,
-            sorting:         `${IMG.vinted_go}/vinted_go_step_sorting.png?raw=true`,
-            transit:         `${IMG.vinted_go}/vinted_go_step_transit.png?raw=true`,
-            delivered:       `${IMG.vinted_go}/vinted_go_step_delivered.png?raw=true`,
-            delivered_mini:  `${IMG.vinted_go}/vinted_go_step_delivered_mini.png?raw=true`
-        }
+        banner: `${IMG.vinted_go}/vinted_go-banner.png?raw=true`
     },
-    // PostNord art: step icons and the animated van are the shared GLS master illustration
-    // hue-shifted to the confirmed brand teal (#0098b8, pixel-sampled from PostNord's own logo).
-    // The logo is PostNord's own wordmark — no separate pictorial mark exists for this brand.
     postnord: {
         logo:   `${IMG.postnord}/postnord-logo.svg?raw=true`,
         van:    `${IMG.postnord}/postnord-van.gif?raw=true`,
-        banner: `${IMG.postnord}/postnord-banner.png?raw=true`,
-        steps: {
-            registered:      `${IMG.postnord}/postnord_step_registered.png?raw=true`,
-            registered_mini: `${IMG.postnord}/postnord_step_registered_mini.png?raw=true`,
-            sorting:         `${IMG.postnord}/postnord_step_sorting.png?raw=true`,
-            transit:         `${IMG.postnord}/postnord_step_transit.png?raw=true`,
-            delivered:       `${IMG.postnord}/postnord_step_delivered.png?raw=true`,
-            delivered_mini:  `${IMG.postnord}/postnord_step_delivered_mini.png?raw=true`
-        }
+        banner: `${IMG.postnord}/postnord-banner.png?raw=true`
     },
-    // Sameday art: step icons and the animated van are the shared GLS master illustration
-    // hue-shifted to the confirmed brand red (#e82020, pixel-sampled from Sameday's own logo).
-    // The logo is Sameday's own shield mark + wordmark.
     sameday: {
         logo:   `${IMG.sameday}/sameday-logo.png?raw=true`,
         van:    `${IMG.sameday}/sameday-van.gif?raw=true`,
         banner: `${IMG.sameday}/sameday-banner.png?raw=true`,
-        steps: {
-            registered:      `${IMG.sameday}/sameday_step_registered.png?raw=true`,
-            registered_mini: `${IMG.sameday}/sameday_step_registered_mini.png?raw=true`,
-            sorting:         `${IMG.sameday}/sameday_step_sorting.png?raw=true`,
-            transit:         `${IMG.sameday}/sameday_step_transit.png?raw=true`,
-            delivered:       `${IMG.sameday}/sameday_step_delivered.png?raw=true`,
-            delivered_mini:  `${IMG.sameday}/sameday_step_delivered_mini.png?raw=true`
-        }
     },
-    // Swiss Post art: step icons and the animated van are the shared GLS master illustration
-    // hue-shifted to the confirmed brand yellow (#f8c800, pixel-sampled from Swiss Post's own
-    // logo). The logo is Swiss Post's own cross-and-P mark.
     swiss_post: {
         logo:   `${IMG.swiss_post}/swiss_post-logo.svg?raw=true`,
         van:    `${IMG.swiss_post}/swiss_post-van.gif?raw=true`,
-        banner: `${IMG.swiss_post}/swiss_post-banner.png?raw=true`,
-        steps: {
-            registered:      `${IMG.swiss_post}/swiss_post_step_registered.png?raw=true`,
-            registered_mini: `${IMG.swiss_post}/swiss_post_step_registered_mini.png?raw=true`,
-            sorting:         `${IMG.swiss_post}/swiss_post_step_sorting.png?raw=true`,
-            transit:         `${IMG.swiss_post}/swiss_post_step_transit.png?raw=true`,
-            delivered:       `${IMG.swiss_post}/swiss_post_step_delivered.png?raw=true`,
-            delivered_mini:  `${IMG.swiss_post}/swiss_post_step_delivered_mini.png?raw=true`
-        }
+        banner: `${IMG.swiss_post}/swiss_post-banner.png?raw=true`
     },
-    // Planzer art: step icons and the animated van are the shared GLS master illustration
-    // hue-shifted to the confirmed brand red (#a00818, pixel-sampled from Planzer's own logo).
-    // The logo is Planzer's own wordmark — no separate pictorial mark exists for this brand.
     planzer: {
         logo:   `${IMG.planzer}/planzer-logo.svg?raw=true`,
         van:    `${IMG.planzer}/planzer-van.gif?raw=true`,
-        banner: `${IMG.planzer}/planzer-banner.png?raw=true`,
-        steps: {
-            registered:      `${IMG.planzer}/planzer_step_registered.png?raw=true`,
-            registered_mini: `${IMG.planzer}/planzer_step_registered_mini.png?raw=true`,
-            sorting:         `${IMG.planzer}/planzer_step_sorting.png?raw=true`,
-            transit:         `${IMG.planzer}/planzer_step_transit.png?raw=true`,
-            delivered:       `${IMG.planzer}/planzer_step_delivered.png?raw=true`,
-            delivered_mini:  `${IMG.planzer}/planzer_step_delivered_mini.png?raw=true`
-        }
+        banner: `${IMG.planzer}/planzer-banner.png?raw=true`
     },
-    // Austrian Post art: step icons and the animated van are the shared GLS master illustration
-    // hue-shifted to the confirmed brand gold (#f8d800, pixel-sampled from Austrian Post's own
-    // logo). The logo is Austrian Post's own horn mark + "Post" wordmark. HA domain for this
-    // integration is oesterreichische_post (see CARRIER_PRESETS.austrian_post.sensor_slug) —
-    // the asset/type key stays austrian_post for readability, matching the English carrier name.
     austrian_post: {
         logo:   `${IMG.austrian_post}/austrian_post-logo.svg?raw=true`,
         van:    `${IMG.austrian_post}/austrian_post-van.gif?raw=true`,
-        banner: `${IMG.austrian_post}/austrian_post-banner.png?raw=true`,
-        steps: {
-            registered:      `${IMG.austrian_post}/austrian_post_step_registered.png?raw=true`,
-            registered_mini: `${IMG.austrian_post}/austrian_post_step_registered_mini.png?raw=true`,
-            sorting:         `${IMG.austrian_post}/austrian_post_step_sorting.png?raw=true`,
-            transit:         `${IMG.austrian_post}/austrian_post_step_transit.png?raw=true`,
-            delivered:       `${IMG.austrian_post}/austrian_post_step_delivered.png?raw=true`,
-            delivered_mini:  `${IMG.austrian_post}/austrian_post_step_delivered_mini.png?raw=true`
-        }
+        banner: `${IMG.austrian_post}/austrian_post-banner.png?raw=true`
     },
-    // Helthjem art: step icons and the animated van are the shared GLS master illustration
-    // hue-shifted to the confirmed brand orange (#ffb202, the fill colour in Helthjem's own
-    // official logo SVG). The logo is Helthjem's own isometric parcel-box mark + wordmark.
     helthjem: {
         logo:   `${IMG.helthjem}/helthjem-logo.svg?raw=true`,
         van:    `${IMG.helthjem}/helthjem-van.gif?raw=true`,
-        banner: `${IMG.helthjem}/helthjem-banner.png?raw=true`,
-        steps: {
-            registered:      `${IMG.helthjem}/helthjem_step_registered.png?raw=true`,
-            registered_mini: `${IMG.helthjem}/helthjem_step_registered_mini.png?raw=true`,
-            sorting:         `${IMG.helthjem}/helthjem_step_sorting.png?raw=true`,
-            transit:         `${IMG.helthjem}/helthjem_step_transit.png?raw=true`,
-            delivered:       `${IMG.helthjem}/helthjem_step_delivered.png?raw=true`,
-            delivered_mini:  `${IMG.helthjem}/helthjem_step_delivered_mini.png?raw=true`
-        }
+        banner: `${IMG.helthjem}/helthjem-banner.png?raw=true`
     },
-    // Dynalogic art: step icons and the animated van are the shared GLS master illustration
-    // hue-shifted to the confirmed brand orange (#f29920, pixel-sampled from Dynalogic's own
-    // logo). The logo is Dynalogic's own "DYNALOG!C" wordmark — no separate pictorial mark
-    // exists for this brand, same as PostNord/Planzer.
     dynalogic: {
         logo:   `${IMG.dynalogic}/dynalogic-logo.png?raw=true`,
         van:    `${IMG.dynalogic}/dynalogic-van.gif?raw=true`,
-        banner: `${IMG.dynalogic}/dynalogic-banner.png?raw=true`,
-        steps: {
-            registered:      `${IMG.dynalogic}/dynalogic_step_registered.png?raw=true`,
-            registered_mini: `${IMG.dynalogic}/dynalogic_step_registered_mini.png?raw=true`,
-            sorting:         `${IMG.dynalogic}/dynalogic_step_sorting.png?raw=true`,
-            transit:         `${IMG.dynalogic}/dynalogic_step_transit.png?raw=true`,
-            delivered:       `${IMG.dynalogic}/dynalogic_step_delivered.png?raw=true`,
-            delivered_mini:  `${IMG.dynalogic}/dynalogic_step_delivered_mini.png?raw=true`
-        }
+        banner: `${IMG.dynalogic}/dynalogic-banner.png?raw=true`
     },
-    // Budbee art: step icons and the animated van are the shared GLS master illustration
-    // hue-shifted to the confirmed brand mint (#41cda5, pixel-sampled from Budbee's own logo).
-    // The logo is Budbee's own wordmark-on-tile lockup (same tile-style treatment as Packeta).
-    // Budbee also has a real round "b" avatar mark, used for the step/van badges — see
-    // CARRIER_PRESETS.budbee for the one thing that differs from every other account-less
-    // carrier here: Budbee tracks outgoing parcels too (supports_outgoing: true).
     budbee: {
         logo:   `${IMG.budbee}/budbee-logo.png?raw=true`,
         van:    `${IMG.budbee}/budbee-van.gif?raw=true`,
-        banner: `${IMG.budbee}/budbee-banner.png?raw=true`,
-        steps: {
-            registered:      `${IMG.budbee}/budbee_step_registered.png?raw=true`,
-            registered_mini: `${IMG.budbee}/budbee_step_registered_mini.png?raw=true`,
-            sorting:         `${IMG.budbee}/budbee_step_sorting.png?raw=true`,
-            transit:         `${IMG.budbee}/budbee_step_transit.png?raw=true`,
-            delivered:       `${IMG.budbee}/budbee_step_delivered.png?raw=true`,
-            delivered_mini:  `${IMG.budbee}/budbee_step_delivered_mini.png?raw=true`
-        }
+        banner: `${IMG.budbee}/budbee-banner.png?raw=true`
     },
-    // Nova Post art: step icons and the animated van are the shared GLS master illustration
-    // hue-shifted to the confirmed brand red (#ed1c24, matching the official Wikimedia SVG and
-    // the repo's own bundled brand icon). The mark badge reuses Nova Post's real red diamond
-    // arrows/"H" icon, cropped from the integration's own brand asset — a genuine icon-only
-    // mark exists for this brand, unlike PostNord/Planzer/Dynalogic.
     nova_post: {
         logo:   `${IMG.nova_post}/nova_post-logo.png?raw=true`,
         van:    `${IMG.nova_post}/nova_post-van.gif?raw=true`,
-        banner: `${IMG.nova_post}/nova_post-banner.png?raw=true`,
-        steps: {
-            registered:      `${IMG.nova_post}/nova_post_step_registered.png?raw=true`,
-            registered_mini: `${IMG.nova_post}/nova_post_step_registered_mini.png?raw=true`,
-            sorting:         `${IMG.nova_post}/nova_post_step_sorting.png?raw=true`,
-            transit:         `${IMG.nova_post}/nova_post_step_transit.png?raw=true`,
-            delivered:       `${IMG.nova_post}/nova_post_step_delivered.png?raw=true`,
-            delivered_mini:  `${IMG.nova_post}/nova_post_step_delivered_mini.png?raw=true`
-        }
+        banner: `${IMG.nova_post}/nova_post-banner.png?raw=true`
     },
-    // Delhivery art: step icons and the animated van are the shared GLS master illustration
-    // hue-shifted to the confirmed brand red (#ed1b36, pixel-sampled from the integration's own
-    // bundled brand icon). Delhivery's real logo is a pure wordmark with no separate icon-only
-    // mark, so the badge uses a bold "D" letterform, same treatment as Budbee's fallback style.
-    // The banner is Delhivery's real black wordmark (with its red accent squares) on white.
     delhivery: {
         logo:   `${IMG.delhivery}/delhivery-logo.png?raw=true`,
         van:    `${IMG.delhivery}/delhivery-van.gif?raw=true`,
-        banner: `${IMG.delhivery}/delhivery-banner.png?raw=true`,
-        steps: {
-            registered:      `${IMG.delhivery}/delhivery_step_registered.png?raw=true`,
-            registered_mini: `${IMG.delhivery}/delhivery_step_registered_mini.png?raw=true`,
-            sorting:         `${IMG.delhivery}/delhivery_step_sorting.png?raw=true`,
-            transit:         `${IMG.delhivery}/delhivery_step_transit.png?raw=true`,
-            delivered:       `${IMG.delhivery}/delhivery_step_delivered.png?raw=true`,
-            delivered_mini:  `${IMG.delhivery}/delhivery_step_delivered_mini.png?raw=true`
-        }
+        banner: `${IMG.delhivery}/delhivery-banner.png?raw=true`
     },
-    // SunYou art: step icons and the animated van are the shared GLS master illustration
-    // hue-shifted to the confirmed brand green (#29a03a, pixel-sampled from SunYou's own
-    // "SUNYOU" wordmark logo — the "YOU" half and the swoosh accent). No separate icon-only
-    // mark exists for this brand, so the badge uses the swoosh motif from the real logo.
-    // The banner is SunYou's real two-tone (blue/green) wordmark logo centered on white.
     sunyou: {
         logo:   `${IMG.sunyou}/sunyou-logo.png?raw=true`,
         van:    `${IMG.sunyou}/sunyou-van.gif?raw=true`,
-        banner: `${IMG.sunyou}/sunyou-banner.png?raw=true`,
-        steps: {
-            registered:      `${IMG.sunyou}/sunyou_step_registered.png?raw=true`,
-            registered_mini: `${IMG.sunyou}/sunyou_step_registered_mini.png?raw=true`,
-            sorting:         `${IMG.sunyou}/sunyou_step_sorting.png?raw=true`,
-            transit:         `${IMG.sunyou}/sunyou_step_transit.png?raw=true`,
-            delivered:       `${IMG.sunyou}/sunyou_step_delivered.png?raw=true`,
-            delivered_mini:  `${IMG.sunyou}/sunyou_step_delivered_mini.png?raw=true`
-        }
+        banner: `${IMG.sunyou}/sunyou-banner.png?raw=true`
     },
-    // An Post art: step icons and the animated van are the shared GLS master illustration
-    // hue-shifted to the confirmed brand green (#00b065, the fill colour in An Post's own official
-    // logo SVG). The logo is that same official "an post" wordmark, including its swirl-in-the-o mark.
     an_post: {
         logo:   `${IMG.an_post}/an_post-logo.svg?raw=true`,
         van:    `${IMG.an_post}/an_post-van.gif?raw=true`,
-        banner: `${IMG.an_post}/an_post-banner.png?raw=true`,
-        steps: {
-            registered:      `${IMG.an_post}/an_post_step_registered.png?raw=true`,
-            registered_mini: `${IMG.an_post}/an_post_step_registered_mini.png?raw=true`,
-            sorting:         `${IMG.an_post}/an_post_step_sorting.png?raw=true`,
-            transit:         `${IMG.an_post}/an_post_step_transit.png?raw=true`,
-            delivered:       `${IMG.an_post}/an_post_step_delivered.png?raw=true`,
-            delivered_mini:  `${IMG.an_post}/an_post_step_delivered_mini.png?raw=true`
-        }
+        banner: `${IMG.an_post}/an_post-banner.png?raw=true`
     },
-    // Quickpac art: step icons and the animated van are the shared GLS master illustration
-    // hue-shifted to the confirmed brand green (#34a02e, pixel-sampled from Quickpac's own logo —
-    // the wordmark's dark "pac" half, #1f1f1f, is plain near-black text, not a brand accent).
-    // The logo is Quickpac's own "quickpac" wordmark with its accent dot.
     quickpac: {
         logo:   `${IMG.quickpac}/quickpac-logo.svg?raw=true`,
         van:    `${IMG.quickpac}/quickpac-van.gif?raw=true`,
-        banner: `${IMG.quickpac}/quickpac-banner.png?raw=true`,
-        steps: {
-            registered:      `${IMG.quickpac}/quickpac_step_registered.png?raw=true`,
-            registered_mini: `${IMG.quickpac}/quickpac_step_registered_mini.png?raw=true`,
-            sorting:         `${IMG.quickpac}/quickpac_step_sorting.png?raw=true`,
-            transit:         `${IMG.quickpac}/quickpac_step_transit.png?raw=true`,
-            delivered:       `${IMG.quickpac}/quickpac_step_delivered.png?raw=true`,
-            delivered_mini:  `${IMG.quickpac}/quickpac_step_delivered_mini.png?raw=true`
-        }
+        banner: `${IMG.quickpac}/quickpac-banner.png?raw=true`
     },
-    // InPost art: step icons and the animated van are the shared GLS master illustration
-    // hue-shifted to the confirmed brand yellow (#ffcc05, read from InPost's own site CSS custom
-    // properties --color-primary/--yellow). A straight hue-rotate that preserves GLS's original
-    // brand-blue value (~0.69) came out looking olive/mustard rather than InPost's bright yellow —
-    // yellow needs much higher V to read as "yellow" instead of "dark yellow" — so the value was
-    // additionally rescaled (×1.449) to bring the flat brand fill up to V=1.0 before hue-rotating.
-    // The logo/badges are InPost's own sun-and-crescent-moon mark + "InPost" wordmark.
     inpost: {
         logo:   `${IMG.inpost}/inpost-logo.svg?raw=true`,
         van:    `${IMG.inpost}/inpost-van.gif?raw=true`,
-        banner: `${IMG.inpost}/inpost-banner.png?raw=true`,
-        steps: {
-            registered:      `${IMG.inpost}/inpost_step_registered.png?raw=true`,
-            registered_mini: `${IMG.inpost}/inpost_step_registered_mini.png?raw=true`,
-            sorting:         `${IMG.inpost}/inpost_step_sorting.png?raw=true`,
-            transit:         `${IMG.inpost}/inpost_step_transit.png?raw=true`,
-            delivered:       `${IMG.inpost}/inpost_step_delivered.png?raw=true`,
-            delivered_mini:  `${IMG.inpost}/inpost_step_delivered_mini.png?raw=true`
-        }
+        banner: `${IMG.inpost}/inpost-banner.png?raw=true`
     },
-    // PPL CZ art: step icons and the animated van are the shared GLS master illustration
-    // hue-shifted to the confirmed brand blue (#004B93, pixel-sampled from PPL's own official
-    // header logo SVG — matches the --primary CSS custom property on ppl.cz too). The logo is
-    // PPL's own "speed lines + PPL" wordmark, isolated from their combined header logo (which
-    // also bundles a "a company of DHL" sub-badge — that sub-badge was cropped out, not carried
-    // over, since PPL is the carrier the sensors actually belong to).
     ppl_cz: {
         logo:   `${IMG.ppl_cz}/ppl_cz-logo.svg?raw=true`,
         van:    `${IMG.ppl_cz}/ppl_cz-van.gif?raw=true`,
-        banner: `${IMG.ppl_cz}/ppl_cz-banner.png?raw=true`,
-        steps: {
-            registered:      `${IMG.ppl_cz}/ppl_cz_step_registered.png?raw=true`,
-            registered_mini: `${IMG.ppl_cz}/ppl_cz_step_registered_mini.png?raw=true`,
-            sorting:         `${IMG.ppl_cz}/ppl_cz_step_sorting.png?raw=true`,
-            transit:         `${IMG.ppl_cz}/ppl_cz_step_transit.png?raw=true`,
-            delivered:       `${IMG.ppl_cz}/ppl_cz_step_delivered.png?raw=true`,
-            delivered_mini:  `${IMG.ppl_cz}/ppl_cz_step_delivered_mini.png?raw=true`
-        }
+        banner: `${IMG.ppl_cz}/ppl_cz-banner.png?raw=true`
     },
-    // Shopee Xpress art: step icons and the animated van are the shared GLS master illustration
-    // hue-shifted to the confirmed brand orange (#EE4D2D, pixel-sampled from SPX's own official
-    // logo SVG served from spx.co.id — the same orange as Shopee's own consumer brand, since SPX
-    // is Shopee's in-house logistics arm). The small badges use just the "SPX" letters (dropping
-    // the small "EXPRESS" subtitle, illegible at that size); the sorting badge and banner use the
-    // full "SPX EXPRESS" wordmark with its angled underline accent.
     shopee_xpress: {
         logo:   `${IMG.shopee_xpress}/shopee_xpress-logo.svg?raw=true`,
         van:    `${IMG.shopee_xpress}/shopee_xpress-van.gif?raw=true`,
-        banner: `${IMG.shopee_xpress}/shopee_xpress-banner.png?raw=true`,
-        steps: {
-            registered:      `${IMG.shopee_xpress}/shopee_xpress_step_registered.png?raw=true`,
-            registered_mini: `${IMG.shopee_xpress}/shopee_xpress_step_registered_mini.png?raw=true`,
-            sorting:         `${IMG.shopee_xpress}/shopee_xpress_step_sorting.png?raw=true`,
-            transit:         `${IMG.shopee_xpress}/shopee_xpress_step_transit.png?raw=true`,
-            delivered:       `${IMG.shopee_xpress}/shopee_xpress_step_delivered.png?raw=true`,
-            delivered_mini:  `${IMG.shopee_xpress}/shopee_xpress_step_delivered_mini.png?raw=true`
-        }
+        banner: `${IMG.shopee_xpress}/shopee_xpress-banner.png?raw=true`
     },
-    // Ceska Posta art: step icons and the animated van are the shared GLS master illustration
-    // hue-shifted to the confirmed brand yellow (#FECE22, pixel-sampled from Ceska Posta's own
-    // official logo SVG served from ceskaposta.cz — the postal-horn swirl mark, not the site's UI
-    // accent blue). The small badges use just that yellow swirl mark, white on a yellow square;
-    // the sorting badge and banner use the full two-colour "swirl + Česká pošta" wordmark.
     ceska_posta: {
         logo:   `${IMG.ceska_posta}/ceska_posta-logo.svg?raw=true`,
         van:    `${IMG.ceska_posta}/ceska_posta-van.gif?raw=true`,
-        banner: `${IMG.ceska_posta}/ceska_posta-banner.png?raw=true`,
-        steps: {
-            registered:      `${IMG.ceska_posta}/ceska_posta_step_registered.png?raw=true`,
-            registered_mini: `${IMG.ceska_posta}/ceska_posta_step_registered_mini.png?raw=true`,
-            sorting:         `${IMG.ceska_posta}/ceska_posta_step_sorting.png?raw=true`,
-            transit:         `${IMG.ceska_posta}/ceska_posta_step_transit.png?raw=true`,
-            delivered:       `${IMG.ceska_posta}/ceska_posta_step_delivered.png?raw=true`,
-            delivered_mini:  `${IMG.ceska_posta}/ceska_posta_step_delivered_mini.png?raw=true`
-        }
+        banner: `${IMG.ceska_posta}/ceska_posta-banner.png?raw=true`
     },
-    // Ampère art: step icons and the animated van are the shared GLS master illustration
-    // hue-shifted to the confirmed brand green (#00CC7A, pixel-sampled from Ampère's own logo SVG
-    // on amperebezorgt.nl — Ampère is bol.com's own electric last-mile delivery fleet in NL, hence
-    // the green/EV branding). The wordmark has no separable pictorial mark (the speed-lines are
-    // part of the slanted "A" letterform itself), so the small badges use a plain white "A"
-    // initial instead — same fallback already used for PostNord's "P" badge.
     ampere: {
         logo:   `${IMG.ampere}/ampere-logo.svg?raw=true`,
         van:    `${IMG.ampere}/ampere-van.gif?raw=true`,
-        banner: `${IMG.ampere}/ampere-banner.png?raw=true`,
-        steps: {
-            registered:      `${IMG.ampere}/ampere_step_registered.png?raw=true`,
-            registered_mini: `${IMG.ampere}/ampere_step_registered_mini.png?raw=true`,
-            sorting:         `${IMG.ampere}/ampere_step_sorting.png?raw=true`,
-            transit:         `${IMG.ampere}/ampere_step_transit.png?raw=true`,
-            delivered:       `${IMG.ampere}/ampere_step_delivered.png?raw=true`,
-            delivered_mini:  `${IMG.ampere}/ampere_step_delivered_mini.png?raw=true`
-        }
+        banner: `${IMG.ampere}/ampere-banner.png?raw=true`
     },
-    // Carriers added in the 2026-10 org audit carry only a logo for now: each integration's
-    // own brand/icon.png, copied in unchanged. Banner, van and step artwork follow with the
-    // SVG/phu scene work; until then the card falls back to the logo for the banner and to
-    // the plain status view instead of the step tracker, exactly as for a custom carrier.
     fourpx:                { logo: `${IMG.fourpx}/fourpx-logo.png?raw=true`, logo_is_icon: true },
     airmee:                { logo: `${IMG.airmee}/airmee-logo.png?raw=true`, logo_is_icon: true },
     amazon_orders:         { logo: `${IMG.amazon_orders}/amazon_orders-logo.png?raw=true`, logo_is_icon: true },
@@ -4506,13 +4159,6 @@ const STATUS_STEP_ORDER = ['registered', 'in_transit', 'out_for_delivery', 'deli
 // parcel reaches `delivered`, so the Bezorgd tab still shows it went via a
 // pickup point on the way.
 const STATUS_STEP_ORDER_PICKUP = ['registered', 'in_transit', 'out_for_delivery', 'at_pickup_point', 'delivered'];
-
-// Generic placeholder hero art for the "at pickup point" step (see
-// STATUS_STEP_ORDER_PICKUP) — shared across every carrier until each gets its
-// own branded illustration to match the other steps (deliberately out of scope
-// for the first version of this feature). `CARRIER_ASSETS[type].steps.pickup_point`
-// takes priority over this the moment a carrier-specific one is added.
-const SHARED_PICKUP_POINT_IMG = `${REPO_BASE}/shared/pickup_point_step.png?raw=true`;
 
 const CARRIER_PRESETS = {
     postnl:       { label: 'PostNL',                    icon: 'mdi:package-variant-closed', color: '#ed8c00', schema: 'canonical',     supports_letters: true,  sensor_slug: 'postnl' },
@@ -5227,8 +4873,436 @@ function inferDaysBack(hass, carriers) {
 const CANONICAL_DELIVERED_STATUSES = new Set(['delivered']);
 
 // ============================================================
+// Integration brand icons (Home Assistant 2026.3+)
+// ============================================================
+
+// Every ha-parcel-integrations integration ships custom_components/<domain>/brand/icon.png,
+// which Home Assistant serves itself at /api/brands/integration/<domain>/icon.png. A carrier
+// without real card artwork shows that icon, so a new integration brings its own logo with it.
+// The endpoint needs a short-lived token (rotates every 30 minutes, the previous one stays
+// valid); older Home Assistant versions lack the command and simply keep the fallbacks.
+const BRANDS_TOKEN_REFRESH_MS = 25 * 60 * 1000;
+const brandIconStates = new Map();   // domain -> 'ok' | 'missing' | Promise
+let brandsToken = '';
+let brandsTokenRequest = null;
+let brandsTokenTimer = null;
+let brandsUnsupported = false;
+
+function carrierDomain(type) {
+    const preset = CARRIER_PRESETS[type];
+    if (!preset || type === 'custom') return '';
+    return PLATFORM_DOMAIN[type] || preset.sensor_slug || '';
+}
+
+function brandIconUrl(domain) {
+    if (!brandsToken || !domain) return '';
+    // placeholder=no: a domain without any brand image 404s instead of returning
+    // Home Assistant's generic grey placeholder.
+    return `/api/brands/integration/${encodeURIComponent(domain)}/icon.png?placeholder=no&token=${encodeURIComponent(brandsToken)}`;
+}
+
+async function refreshBrandsToken(hass) {
+    if (brandsUnsupported || !hass?.callWS) return false;
+    if (!brandsTokenRequest) {
+        brandsTokenRequest = hass.callWS({ type: 'brands/access_token' }).then(result => {
+            const changed = !!result?.token && result.token !== brandsToken;
+            if (result?.token) brandsToken = result.token;
+            if (!brandsTokenTimer) brandsTokenTimer = setInterval(() => refreshBrandsToken(hass), BRANDS_TOKEN_REFRESH_MS);
+            return changed;
+        }).catch(() => {
+            // Before 2026.3 the command doesn't exist; keep the card's own fallbacks.
+            if (!brandsToken) brandsUnsupported = true;
+            return false;
+        }).finally(() => { brandsTokenRequest = null; });
+    }
+    return brandsTokenRequest;
+}
+
+// Resolves to true when a domain's state changed. Only a domain whose icon really loaded
+// is ever used, so a missing image never leaves an empty logo slot.
+function checkBrandIcon(domain) {
+    const state = brandIconStates.get(domain);
+    if (state === 'ok' || state === 'missing') return Promise.resolve(false);
+    if (state) return state;
+    const request = new Promise(resolve => {
+        const img = new Image();
+        img.onload = () => resolve(img.naturalWidth > 0);
+        img.onerror = () => resolve(false);
+        img.src = brandIconUrl(domain);
+    }).then(ok => {
+        brandIconStates.set(domain, ok ? 'ok' : 'missing');
+        return ok;
+    });
+    brandIconStates.set(domain, request);
+    return request;
+}
+
+async function preloadBrandIcons(hass, types) {
+    const domains = [...new Set(types.filter(type => {
+        const assets = CARRIER_ASSETS[type];
+        return !assets?.logo || assets.logo_is_icon;
+    }).map(carrierDomain).filter(Boolean))];
+    if (!domains.length) return false;
+    const tokenChanged = await refreshBrandsToken(hass);
+    if (!brandsToken) return false;
+    const results = await Promise.all(domains.map(checkBrandIcon));
+    return results.some(Boolean) || (tokenChanged && domains.some(d => brandIconStates.get(d) === 'ok'));
+}
+
+function loadedBrandIcon(type) {
+    const domain = carrierDomain(type);
+    return brandIconStates.get(domain) === 'ok' ? brandIconUrl(domain) : '';
+}
+
+// ============================================================
 // Card
 // ============================================================
+
+// GENERATED:BANNER_LOGO_METRICS:START
+// Offline bounds [x, y, width, height, aspect, ink density, low-contrast share on dark].
+// No browser canvas or pixel sampling at runtime.
+const BANNER_LOGO_METRICS = Object.freeze({
+    postnl: [0.00521,0.01172,0.98958,0.97917,1.01064,0.20319,0],
+    dhl: [0,0,1,1,4.68293,1,0.00028],
+    dpd: [0.00391,0.0117,0.99219,0.97953,2.27463,0.38647,0.52391],
+    vinted_go: [0,0,1,1,4.57143,0.402,0],
+    gls: [0,0,1,1,2.94253,0.57714,0.9493],
+    dragonfly: [0.19401,0.08984,0.61589,0.82031,0.75079,0.42017,0],
+    trunkrs: [0,0,1,1,6.5641,0.43112,0.9231],
+    cainiao: [0,0,1,1,1.79859,0.26531,0],
+    hermes: [0,0,1,1,6.4,0.47565,0.73925],
+    packeta: [0,0,1,1,3.93846,0.87222,0.8185],
+    correos: [0,0,1,1,1.0564,0.35744,1],
+    postnord: [0,0,1,1,5.26027,0.4838,0],
+    sameday: [0,0,1,1,5.90769,0.42795,0.08301],
+    swiss_post: [0,0,1,1,1,1,0],
+    planzer: [0.00521,0.02521,0.98958,0.94958,6.72566,0.67394,1],
+    austrian_post: [0.00521,0.01796,0.98958,0.96407,4.7205,0.40728,0.62089],
+    helthjem: [0,0,1,1,4.06349,0.27763,0.79766],
+    dynalogic: [0.0026,0,0.99479,1,5.02632,0.3763,0.08414],
+    budbee: [0,0,1,1,2,0.92153,0],
+    nova_post: [0.02474,0.02901,0.95052,0.94198,1.18314,0.22058,0],
+    delhivery: [0.02344,0.12963,0.95313,0.74074,6.1,0.63693,0.74566],
+    sunyou: [0.07422,0.32943,0.84766,0.34245,2.47529,0.49478,0.29756],
+    an_post: [0,0,1,1,1.55781,0.39657,0],
+    quickpac: [0.02344,0.17708,0.95833,0.6875,5.57576,0.2775,0.376],
+    inpost: [0.13542,0.22391,0.73047,0.55217,2.20866,0.17513,0.7294],
+    ppl_cz: [0,0,1,1,7.11111,0.5302,1],
+    shopee_xpress: [0,0,1,1,2.50163,0.45717,0],
+    ceska_posta: [0,0,1,1,7.17757,0.41074,0.65786],
+    ampere: [0,0,0.9974,1,4.58683,0.44894,0],
+    fourpx: [0,0,1,1,1,1,0.8707],
+    airmee: [0,0,1,1,1,0.87161,0.86181],
+    amazon_orders: [0,0,1,1,1,1,0.61022],
+    apple_express: [0,0,1,1,1,0.85841,0.02263],
+    aramex: [0,0,1,1,1,0.83495,0],
+    better_trucks: [0.20833,0.27604,0.59115,0.44141,1.33923,0.51319,0],
+    boxnow: [0,0,1,1,1,1,0],
+    bpost: [0.13021,0.29167,0.73958,0.41927,1.76398,0.30544,0.0665],
+    canada_post: [0,0,1,1,1,0.92583,0.012],
+    canpar: [0.00391,0.00391,0.99609,0.99609,1,0.99316,0.05209],
+    ctt: [0,0,1,1,1,0.90289,0.00465],
+    dao: [0,0,1,1,1,0.99304,0.5655],
+    dhl_global: [0,0,1,1,1,1,0.00031],
+    econt: [0.17839,0.13542,0.6263,0.73047,0.8574,0.6952,0.30031],
+    elta_courier: [0.04818,0.20703,0.90495,0.58594,1.54444,0.24067,0.06703],
+    evri: [0,0,1,1,1,0.93144,0.00001],
+    fan_courier: [0,0,1,1,1,0.91223,0.88758],
+    fedex: [0,0,1,1,1,0.94203,0.88887],
+    gofo: [0,0,1,1,1,0.83615,0],
+    ics_courier: [0.08203,0.26042,0.83984,0.38802,2.16443,0.42579,0.11352],
+    laposte: [0,0,1,1,1,1,0.08564],
+    matkahuolto: [0,0,1,1,1,0.87834,0],
+    mondial_relay: [0,0,1,1,1,0.93838,0.57031],
+    nz_post: [0,0,1,1,1,0.91242,0.6559],
+    ontrac: [0.04688,0.39193,0.90885,0.21745,4.17964,0.42822,0.06381],
+    orlen_paczka: [0.00521,0.00911,0.99089,0.98307,1.00795,0.67578,0],
+    paack: [0,0,1,1,1,0.83904,0.82599],
+    poczta_polska: [0,0,1,1,1,0.92189,0.00389],
+    poste_italiane: [0,0,1,1,1,1,0.16313],
+    posten_bring: [0.02604,0.19141,0.94531,0.61849,1.52842,0.52449,0],
+    posti: [0,0,1,1,1,0.9295,0],
+    purolator: [0.07813,0.24479,0.82943,0.56901,1.45767,0.4099,0.12841],
+    seur: [0.01172,0.33594,0.96875,0.33203,2.91765,0.82375,0.07781],
+    slovak_parcel_service: [0.10677,0.38932,0.79036,0.24349,3.24599,0.6482,0.02218],
+    slovenska_posta: [0,0,1,1,1,1,0.16782],
+    speedx: [0,0.38542,1,0.61458,1.62712,0.16511,0.06004],
+    uniuni: [0,0,1,1,1,0.66822,0.5819],
+    ups: [0.18099,0.1224,0.63932,0.75521,0.84655,0.85147,0.22266],
+    usps: [0,0,1,1,1,0.74093,0.41415],
+    acs_courier: [0,0,1,1,1,0.93732,0],
+    amazon_shipping: [0,0,1,1,1,0.98703,0.86087],
+    cargus: [0.13151,0.21484,0.73828,0.57161,1.29157,0.44622,0.30688],
+    cdl_last_mile: [0,0,1,1,1,0.82466,0],
+    colis_prive: [0.0026,0.0026,0.99609,0.99609,1,0.75767,0.35526],
+    colisweb: [0,0,1,1,1,0.89459,0],
+    early_bird: [0,0,1,1,1,0.96765,0],
+    ecoscooting: [0.13021,0.08724,0.74089,0.82292,0.90032,0.45688,0.06988],
+    gobolt: [0,0,1,1,1,1,0.90876],
+    magyar_posta: [0,0,1,1,1,0.94569,0],
+    pdn_express: [0,0,1,1,1,0.82358,0.00751],
+    posta_slovenije: [0,0,1,1,1,1,0.14096],
+    posta_srbije: [0.16667,0.36458,0.67839,0.27214,2.49282,0.62361,0],
+    spee_dee_delivery: [0.05208,0.05208,0.89714,0.89714,1,0.37533,0.21565],
+    straightship: [0.09896,0.39193,0.79557,0.20573,3.86709,0.29794,0.00426],
+    tipsa: [0,0,1,1,1,0.95686,0.92897],
+    ukrposhta: [0,0,1,1,1,0.8175,0],
+});
+// GENERATED:BANNER_LOGO_METRICS:END
+
+// Studio logo banner: shared by the card and the browser demo.
+const LOGO_BANNER_CSS = `
+    .logo-banner { box-sizing:border-box; width:100%; min-width:0; height:var(--banner-height); padding:12px; display:flex; align-items:center; background:var(--secondary-background-color,#edf1f5); }
+    .logo-banner * { box-sizing:border-box; }
+    .logo-banner .logo-grid { display:grid; grid-template-columns:repeat(calc(var(--banner-columns) * 2),minmax(0,1fr)); grid-auto-rows:68px; gap:8px; width:100%; }
+    .logo-banner .brand-tile { grid-column:span 2; position:relative; min-width:0; width:100%; display:flex; align-items:center; justify-content:center; padding:0; margin:0; border:1px solid var(--divider-color,#dfe5ec); border-radius:12px; background:var(--card-background-color,#fff); color:var(--primary-text-color,#102033); cursor:pointer; font:inherit; box-shadow:0 2px 5px #1020330b; }
+    .logo-banner .brand-tile:focus-visible { outline:2px solid var(--brand); outline-offset:2px; z-index:2; }
+    .logo-banner .brand-tile::before { content:''; position:absolute; bottom:6px; left:calc(50% - 11px); width:22px; height:2px; border-radius:2px; background:var(--brand); }
+    .logo-banner .brand-image { display:block; width:min(var(--logo-width),calc(100% - 20px)); aspect-ratio:var(--logo-aspect); flex:none; transition:transform .2s ease; }
+    .logo-banner .brand-image>svg { display:block; width:100%; height:100%; }
+    .logo-banner .brand-image.app-icon { width:32px; height:32px; aspect-ratio:1; border-radius:7px; overflow:hidden; background:var(--card-background-color,#fff); }
+    .logo-banner .brand-tile:hover .brand-image { transform:scale(1.06); }
+    .logo-banner .brand-fallback { width:32px; height:32px; display:grid; place-items:center; background:var(--brand); border-radius:8px; color:#102033; }
+    .logo-banner .brand-fallback>svg { width:23px; height:23px; }
+    .logo-banner .brand-fallback ha-icon { --mdc-icon-size:23px; }
+    .logo-banner.is-dark .low-light-contrast>svg { filter:drop-shadow(0 0 .65px #edf3f9) drop-shadow(0 0 .4px #edf3f9); }
+    @media(prefers-reduced-motion:reduce) { .logo-banner .brand-image { transition:none; } }
+`;
+
+function renderLogoBanner(items) {
+    if (!items.length) return '';
+    const rows = Math.ceil(items.length / 4);
+    const columns = Math.ceil(items.length / rows);
+    const height = Math.max(150, 24 + rows * 68 + (rows - 1) * 8);
+    const tiles = items.map((item, i) => {
+        const name = item.carrier_name || CARRIER_PRESETS[item.carrier_type]?.label || 'Custom';
+        const p = scenePalette(item.carrier_color);
+        const offset = Math.floor(i / columns) * columns;
+        const count = Math.min(columns, items.length - offset);
+        const column = i % columns;
+        const placement = column === 0 ? `grid-column:${columns - count + 1}/span 2;` : '';
+        // Known files and their HA integration-icon equivalents use offline bounds.
+        // Unknown user URLs retain the full image; no runtime canvas or pixel scan.
+        const builtIn = CARRIER_ASSETS[item.carrier_type]?.logo;
+        const knownImage = item.carrier_logo === builtIn || (item.carrier_logo && builtIn
+            && item.carrier_logo === builtIn.replace('https://github.com/jonisnet/ha-parcel-card/blob/main/', '').replace('?raw=true', ''));
+        const integrationIcon = CARRIER_ASSETS[item.carrier_type]?.logo_is_icon
+            && item.carrier_logo?.startsWith(`/api/brands/integration/${encodeURIComponent(carrierDomain(item.carrier_type))}/icon.png?`);
+        const m = knownImage || integrationIcon ? BANNER_LOGO_METRICS[item.carrier_type] : null;
+        const [x, y, w, h, aspect, density, darkShare = 0] = m || [0, 0, 1, 1, 1, .6, 1];
+        const sourceAspect = aspect * h / w;
+        const maxH = aspect > 2.2 ? 24 : 46;
+        // A solid logo background must not shrink its lettering too far.
+        const idealH = Math.min(maxH, Math.sqrt(540 / Math.max(.14, Math.min(.65, density)) / aspect));
+        const idealW = idealH * aspect;
+        const mark = item.carrier_logo
+            ? `<span class="brand-image${item.carrier_logo_is_icon ? ' app-icon' : darkShare >= .12 ? ' low-light-contrast' : ''}" style="--logo-width:${idealW.toFixed(2)}px;--logo-aspect:${aspect};"><svg viewBox="${x * sourceAspect} ${y} ${w * sourceAspect} ${h}" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><image href="${sceneEscape(item.carrier_logo)}" x="0" y="0" width="${sourceAspect}" height="1" preserveAspectRatio="xMidYMid meet"/></svg></span>`
+            : `<span class="brand-image brand-fallback">${customElements.get('ha-icon')
+                ? `<ha-icon icon="${sceneEscape(item.carrier_icon || DEFAULT_CARRIER_ICON)}"></ha-icon>`
+                : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="m3 7 9-4 9 4v10l-9 4-9-4ZM3 7l9 4 9-4m-9 4v10"/></svg>'}</span>`;
+        return `<button class="brand-tile" type="button" data-carrier="${sceneEscape(name)}" style="${placement}--brand:${p.primary};" title="${sceneEscape(name)}" aria-label="${sceneEscape(name)}">${mark}</button>`;
+    }).join('');
+    return `<div class="logo-banner" style="--banner-columns:${columns};--banner-height:${height}px;"><div class="logo-grid">${tiles}</div></div>`;
+}
+
+function mountLogoBanner(target, items, onSelect = null, dark = false) {
+    const markup = renderLogoBanner(items);
+    target.__bannerOnSelect = onSelect;
+    if (target.__logoBannerMarkup !== markup || !target.querySelector('.logo-banner')) {
+        target.innerHTML = markup;
+        target.__logoBannerMarkup = markup;
+        target.querySelectorAll('.brand-tile').forEach(tile => tile.addEventListener('click', () => target.__bannerOnSelect?.(tile.dataset.carrier)));
+    }
+    // Theme changes update one class, retaining images, hover and keyboard focus.
+    target.querySelector('.logo-banner')?.classList.toggle('is-dark', !!dark);
+}
+
+window.HAParcelCard.logoBanner = Object.freeze({ css: LOGO_BANNER_CSS, render: renderLogoBanner, mount: mountLogoBanner, metrics: BANNER_LOGO_METRICS });
+
+// Shared, dependency-free SVG artwork. The demo/exporter calls this exact source.
+const STEP_SCENE_STAGES = ['registered', 'sorting', 'transit', 'pickup_point', 'delivered'];
+const stepLogoPaths = new Map();
+const stepLogoRequests = new Map();
+let stepLogoProvider = null;
+
+function sceneEscape(value) {
+    return String(value ?? '').replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
+}
+
+function scenePalette(color = DEFAULT_CARRIER_COLOR) {
+    // Resolve CSS colours as well as hex (custom carriers may use rgb()/named colours).
+    let hex = String(color).trim();
+    if (/^#[\da-f]{3}$/i.test(hex)) hex = '#' + [...hex.slice(1)].map(c => c + c).join('');
+    if (!/^#[\da-f]{6}$/i.test(hex)) {
+        const ctx = document.createElement('canvas').getContext('2d');
+        ctx.fillStyle = DEFAULT_CARRIER_COLOR;
+        ctx.fillStyle = hex;
+        const resolved = ctx.fillStyle;
+        const rgb = resolved.match(/^rgba?\(\s*([\d.]+)[, ]+([\d.]+)[, ]+([\d.]+)/);
+        hex = /^#[\da-f]{6}$/i.test(resolved) ? resolved : rgb
+            ? '#' + rgb.slice(1, 4).map(v => Math.round(Number(v)).toString(16).padStart(2, '0')).join('')
+            : DEFAULT_CARRIER_COLOR;
+    }
+    const base = [1, 3, 5].map(i => parseInt(hex.slice(i, i + 2), 16));
+    const mix = (target, amount) => '#' + base.map((v, i) => Math.round(v + (target[i] - v) * amount).toString(16).padStart(2, '0')).join('');
+    const contrastOnWhite = value => {
+        const linear = [1, 3, 5].map(i => parseInt(value.slice(i, i + 2), 16) / 255)
+            .map(v => v <= .04045 ? v / 12.92 : ((v + .055) / 1.055) ** 2.4);
+        return 1.05 / (linear[0] * .2126 + linear[1] * .7152 + linear[2] * .0722 + .05);
+    };
+    let logo = hex;
+    for (let amount = .05; contrastOnWhite(logo) < 3 && amount <= 1; amount += .05) logo = mix([16, 32, 51], amount);
+    return { primary: hex.toLowerCase(), pale: mix([255, 255, 255], .82), dark: mix([16, 32, 51], .3), logo,
+        logoContrast: contrastOnWhite(logo), outline: '#102033', shell: '#f7f9fb', carton: '#d9a35c' };
+}
+
+async function preloadStepLogos(types) {
+    if (!hasPhuIcons()) return false;
+    const provider = window.customIconsets.phu;
+    if (provider !== stepLogoProvider) {
+        stepLogoPaths.clear();
+        stepLogoRequests.clear();
+        stepLogoProvider = provider;
+    }
+    const results = await Promise.all([...new Set(types)].map(async type => {
+        const icon = getDefaultIcon(type);
+        if (!icon.startsWith('phu:')) return false;
+        const name = icon.slice(4);
+        if (stepLogoPaths.has(name)) return false;
+        if (!stepLogoRequests.has(name)) {
+            stepLogoRequests.set(name, Promise.resolve().then(() => provider(name)).then(def => {
+                // Older PHU installations may not ship a newly released name. Keep the fallback.
+                const box = String(def?.viewBox || '').trim().split(/\s+/).map(Number);
+                const valid = def && typeof def.path === 'string' && def.path.trim()
+                    && box.length === 4 && box.every(Number.isFinite) && box[2] > 0 && box[3] > 0;
+                if (provider !== stepLogoProvider) return false;
+                stepLogoPaths.set(name, valid ? { path: def.path, viewBox: def.viewBox } : null);
+                return !!valid;
+            }).catch(() => {
+                if (provider === stepLogoProvider) stepLogoPaths.set(name, null);
+                return false;
+            }));
+        }
+        return stepLogoRequests.get(name);
+    }));
+    return results.some(Boolean);
+}
+
+function stepSceneLogo(type, image, rounded = false, withoutPhu = false) {
+    const icon = withoutPhu ? '' : getDefaultIcon(type);
+    const def = icon.startsWith('phu:') ? stepLogoPaths.get(icon.slice(4)) : null;
+    return def ? { ...def, kind: 'phu' } : image ? { kind: 'image', href: image, rounded } : { kind: 'brand' };
+}
+
+function renderSceneLogo(p, logo, x, y, width, height) {
+    // All coordinates describe the INNER safe area, never the enclosing panel.
+    // Nested viewports clip images and paths even when an upstream viewBox is unusual.
+    let content;
+    if (logo?.kind === 'phu') {
+        content = `<svg width="${width}" height="${height}" viewBox="${sceneEscape(logo.viewBox)}" preserveAspectRatio="xMidYMid meet" overflow="hidden"><path d="${sceneEscape(logo.path)}" fill="${p.logo}" stroke="none"/></svg>`;
+    } else if (logo?.kind === 'image') {
+        // A nested viewport plus a CSS geometry clip needs no document-global SVG IDs.
+        const clip = logo.rounded ? ' style="clip-path:inset(0 round 18%)"' : '';
+        const side = Math.min(width, height);
+        const iw = logo.rounded ? side : width;
+        content = `<rect width="${width}" height="${height}" rx="2" fill="#fff" stroke="none"/><image x="${(width - iw) / 2}" y="0" width="${iw}" height="${height}" href="${sceneEscape(logo.href)}" preserveAspectRatio="xMidYMid meet"${clip}/>`;
+    } else {
+        content = `<rect width="${width}" height="${height}" rx="2" fill="${p.primary}" stroke="none"/>`;
+    }
+    return `<svg data-scene-logo="${logo?.kind || 'brand'}" x="${x}" y="${y}" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" overflow="hidden" stroke="none">${content}</svg>`;
+}
+
+function renderStepScene(stage, p = scenePalette(), logo = null) {
+    const shadow = '<ellipse cx="80" cy="119" rx="73" ry="5" fill="#102033" opacity=".14" stroke="none"/>';
+    const brand = (x, y, w, h) => renderSceneLogo(p, logo, x, y, w, h);
+    let body;
+    switch (stage) {
+        case 'registered':
+            body = `<path d="m27 37 53-25 53 25v55l-53 25-53-25Z" fill="${p.carton}"/>
+                <path d="m27 37 53 25 53-25-53-25Z" fill="#f0ca91"/>
+                <path d="m80 62 53-25v55l-53 25Z" fill="#bf8548"/>
+                <path d="m61 21 53 25v17L97 71V54L44 29Z" fill="${p.primary}" stroke="none"/>
+                <path d="m27 37 53 25 53-25M80 62v55" fill="none"/>
+                <path d="M40 64 62 74v18L40 82Z" fill="${p.shell}" stroke="none"/>`;
+            break;
+        case 'sorting':
+            body = `<rect x="9" y="10" width="142" height="101" rx="5" fill="${p.shell}"/>
+                <path d="M9 28V15q0-5 5-5h132q5 0 5 5v13Z" fill="${p.primary}"/>
+                <rect x="19" y="38" width="77" height="42" rx="4" fill="#fff"/>
+                ${brand(41, 47, 33, 24)}
+                <path d="M110 111V44h30v67Z" fill="${p.dark}"/>
+                <path d="M117 56h16m-16 12h16m-16 12h16" stroke="${p.pale}" fill="none" stroke-width="3"/>
+                <path d="M26 106v9m69-9v9" fill="none"/>
+                <rect x="17" y="94" width="89" height="15" rx="7.5" fill="#637080"/>
+                <path d="M34 100h1m19 0h1m19 0h1m19 0h1" stroke="#f7f9fb" stroke-width="5"/>
+                <path d="M30 94V76h24v18Z" fill="${p.carton}"/><path d="M42 77v7" fill="none"/>
+                <path d="M68 94V82h22v12Z" fill="#f0ca91"/>`;
+            break;
+        case 'transit':
+            body = `<path d="M7 63H2m5 13H1" fill="none" stroke="${p.dark}"/>
+                <path d="M12 98V36q0-7 7-7h81q11 0 19 9l21 27 10 5q5 3 5 10v18Z" fill="${p.shell}"/>
+                <path d="m101 30 16 8 23 27-8 7h-31Z" fill="${p.pale}"/>
+                <path d="M12 82h119v10H12Z" fill="${p.primary}" stroke="none"/>
+                <path d="M40 37h52v45H40Z" fill="#fff" stroke-width="3"/>
+                ${brand(53, 48, 25, 21)}
+                <path d="M101 30v66m31-24v24m0-24 8-7" fill="none" stroke-width="3"/>
+                <path d="M108 40h7l18 24h-25Z" fill="#a9d4df" stroke-width="3"/>
+                <path d="M84 74h3m22 0h5" fill="none" stroke-width="3"/>
+                <path d="M143 77h11v9h-11Z" fill="#f0ca91" stroke-width="3"/>
+                <path d="M11 98h144" fill="none" stroke-width="5"/>
+                <circle cx="39" cy="101" r="12" fill="#102033"/><circle cx="124" cy="101" r="12" fill="#102033"/>
+                <circle cx="39" cy="101" r="5" fill="${p.shell}" stroke="none"/><circle cx="124" cy="101" r="5" fill="${p.shell}" stroke="none"/>`;
+            break;
+        case 'pickup_point': {
+            const doors = Array.from({ length: 9 }, (_, i) => `<rect x="${9 + i % 3 * 17}" y="${38 + Math.floor(i / 3) * 24}" width="17" height="24" fill="${p.primary}" stroke-width="1.4"/>`).join('');
+            body = `<rect x="5" y="8" width="59" height="108" rx="3" fill="${p.shell}"/>
+                <rect x="5" y="8" width="59" height="24" rx="3" fill="#fff"/>
+                ${brand(25, 13, 19, 14)}${doors}
+                <rect x="47" y="65" width="14" height="24" rx="2" fill="#102033" stroke-width="2"/>
+                <rect x="50" y="69" width="8" height="11" rx="1" fill="#a9d4df" stroke="none"/>
+                <path d="M113 80V61q0-13 15-13t19 16v16" fill="${p.primary}"/>
+                <circle cx="129" cy="37" r="11" fill="${p.shell}"/>
+                <path d="M116 33q1-15 13-15t14 15Z" fill="${p.primary}"/>
+                <path d="M111 33h30" fill="none" stroke-width="4"/>
+                <path d="M126 51h7l-4 7Z" fill="${p.shell}" stroke="none"/>
+                <rect x="62" y="82" width="93" height="34" rx="2" fill="${p.shell}"/>
+                <rect x="60" y="77" width="96" height="8" rx="2" fill="#637080"/>
+                ${brand(125, 93, 21, 15)}
+                <circle cx="81" cy="43" r="11" fill="#637080"/>
+                <path d="M70 114V70q0-13 11-13t12 13v44h-9l-3-25v25Z" fill="#637080"/>
+                <path d="M100 60h23v20h-23Z" fill="${p.carton}"/><path d="M109 61v7h5v-7" fill="${p.dark}" stroke-width="2"/>
+                <path d="M80 71q3 10 21 9" fill="none" stroke="#102033" stroke-width="9"/>
+                <path d="M80 71q3 10 21 9" fill="none" stroke="#637080" stroke-width="4"/>
+                <path d="m140 64-3 11-13 2" fill="none" stroke="#102033" stroke-width="10"/>
+                <path d="m140 64-3 11-13 2" fill="none" stroke="${p.shell}" stroke-width="5"/>`;
+            break;
+        }
+        case 'delivered':
+            body = `<path d="M31 56 80 20l49 36v57H31Z" fill="${p.shell}"/>
+                <path d="m24 58 56-42 56 42Z" fill="${p.primary}"/>
+                <path d="M48 113V78h24v35" fill="${p.dark}"/>
+                <circle cx="65" cy="96" r="2" fill="${p.shell}" stroke="none"/>
+                <path d="M95 78h18v17H95Z" fill="#a9d4df"/>
+                <path d="M89 113V96h27v17Z" fill="${p.carton}"/><path d="M102 97v6" fill="none" stroke-width="3"/>`;
+            break;
+        default: return '';
+    }
+    return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 128" role="img" aria-label="${stage}" data-step-scene="${stage}" preserveAspectRatio="xMidYMid meet"><g stroke="${p.outline}" stroke-width="3.6" stroke-linejoin="round" stroke-linecap="round">${shadow}${body}</g></svg>`;
+}
+
+// Public preview surface: no duplicate geometry, palettes or carrier data in the demo.
+window.HAParcelCard.stepScenes = Object.freeze({
+    types: Object.freeze(Object.keys(CARRIER_PRESETS)),
+    stages: Object.freeze(STEP_SCENE_STAGES), render: renderStepScene, palette: scenePalette, preload: preloadStepLogos,
+    carrier(type, { color, withoutPhu = false, logoUrl } = {}) {
+        const preset = CARRIER_PRESETS[type] || CARRIER_PRESETS.custom;
+        const assets = CARRIER_ASSETS[type] || CARRIER_ASSETS.custom;
+        return { type, label: preset.label, palette: scenePalette(color || preset.color),
+            phu: getDefaultIcon(type).startsWith('phu:') ? getDefaultIcon(type) : null,
+            logo: stepSceneLogo(type, logoUrl ?? assets.logo, !!assets.logo_is_icon, withoutPhu) };
+    },
+});
+
 
 class HaParcelCard extends HTMLElement {
     constructor() {
@@ -5253,6 +5327,7 @@ class HaParcelCard extends HTMLElement {
 
     set hass(hass) {
         this._hass = hass;
+        this._prepareBrandIcons();
         if (this.config && this._isRendered) {
             this.updateContent();
         } else if (this.config) {
@@ -5288,6 +5363,7 @@ class HaParcelCard extends HTMLElement {
         if (!Array.isArray(this.config.layout_order) || this.config.layout_order.length === 0) {
             this.config.layout_order = ['header', 'animation', 'tabs', 'list'];
         }
+        this._prepareStepSceneLogos();
         if (this._hass) this.render();
     }
 
@@ -5412,17 +5488,51 @@ class HaParcelCard extends HTMLElement {
         return Object.values(attrs).filter(item => item && typeof item === 'object');
     }
 
+    _prepareStepSceneLogos() {
+        const provider = window.customIconsets?.phu;
+        if (!provider) return;
+        const types = [...new Set((this.config?.carriers || []).map(c => c.type))].sort();
+        const key = types.join('|');
+        if (this._sceneLogoKey === key && this._sceneLogoProvider === provider) return;
+        this._sceneLogoKey = key;
+        this._sceneLogoProvider = provider;
+        preloadStepLogos(types).then(changed => {
+            if (changed && this._isRendered && this.isConnected) this.updateContent();
+        });
+    }
+
+    // Checks once per carrier set (and on every token refresh) which integrations ship a
+    // brand icon, then redraws so banner, combo logos and scene logo slots pick them up.
+    _prepareBrandIcons() {
+        if (!this._hass || !this.config || brandsUnsupported) return;
+        const types = [...new Set((this.config.carriers || []).map(c => c.type))].sort();
+        const key = `${types.join('|')}#${brandsToken}`;
+        if (this._brandIconKey === key) return;
+        this._brandIconKey = key;
+        preloadBrandIcons(this._hass, types).then(changed => {
+            if (!changed || !this._isRendered || !this.isConnected) return;
+            this._brandIconKey = `${types.join('|')}#${brandsToken}`;
+            // The combo banner skips rebuilding while it is already showing.
+            this.shadowRoot.querySelector('.header-animation')?.classList.remove('combo-placeholder');
+            this.render();
+        });
+    }
+
     _carrierBranding(carrier) {
         const preset = CARRIER_PRESETS[carrier.type] || CARRIER_PRESETS.custom;
         const assets  = CARRIER_ASSETS[carrier.type] || CARRIER_ASSETS.custom;
+        // Real card artwork first; otherwise the installed integration's own brand icon,
+        // then the copy of that icon kept in this repo for Home Assistant before 2026.3.
+        const ownLogo = assets.logo_is_icon ? '' : assets.logo;
+        const logo = carrier.logo_path || ownLogo || loadedBrandIcon(carrier.type) || assets.logo || '';
         return {
             carrier_type:   carrier.type,
             carrier_name:   carrier.name,
             carrier_icon:   (carrier.icon && carrier.icon !== DEFAULT_CARRIER_ICON) ? carrier.icon : getDefaultIcon(carrier.type),
             carrier_color:  carrier.color  || preset.color || DEFAULT_CARRIER_COLOR,
-            carrier_logo:   carrier.logo_path   || assets.logo   || '',
-            // The integration's own square app icon, standing in until real artwork exists.
-            carrier_logo_is_icon: !carrier.logo_path && !!assets.logo_is_icon,
+            carrier_logo:   logo,
+            // A square app icon (the integration's), standing in until real artwork exists.
+            carrier_logo_is_icon: !carrier.logo_path && !ownLogo && !!logo,
             carrier_van:    carrier.van_path    || assets.van    || '',
             carrier_banner: carrier.banner_path || assets.banner || '',
             carrier_steps:  assets.steps || null
@@ -6313,23 +6423,6 @@ class HaParcelCard extends HTMLElement {
         return { image: placeholderImage, showText: false };
     }
 
-    // Splits items into rows of at most maxPerRow, distributing the count across rows
-    // as evenly as possible (e.g. 5 -> [3,2], not [4,1]) rather than filling each row
-    // to the cap before starting the next.
-    _splitIntoBalancedRows(items, maxPerRow = 4) {
-        const rows = Math.max(1, Math.ceil(items.length / maxPerRow));
-        const base = Math.floor(items.length / rows);
-        const extra = items.length % rows;
-        const result = [];
-        let i = 0;
-        for (let r = 0; r < rows; r++) {
-            const count = base + (r < extra ? 1 : 0);
-            result.push(items.slice(i, i + count));
-            i += count;
-        }
-        return result;
-    }
-
     _openLetterPopup(src, name, dateLabel) {
         let popup = this.shadowRoot.querySelector('.letter-popup-overlay');
         if (!popup) {
@@ -6643,21 +6736,25 @@ class HaParcelCard extends HTMLElement {
     // delivery is to a pickup point (item.pickup === true), STATUS_STEP_ORDER (4 steps) otherwise
     // — chosen by the caller (updateAnimation), since it also needs it to compute `stepIndex`.
     _renderStatusTracker(selected, stepIndex, stepOrder) {
-        const color = selected.carrier_color || DEFAULT_CARRIER_COLOR;
+        const color = selected.carrier_color || CARRIER_PRESETS[selected.carrier_type]?.color || DEFAULT_CARRIER_COLOR;
         const hasPickupStep = stepOrder.includes('at_pickup_point');
         const stepKeys      = hasPickupStep
             ? ['registered', 'sorting', 'transit', 'pickup_point', 'delivered']
             : ['registered', 'sorting', 'transit', 'delivered'];
-        const stepMiniKeys  = hasPickupStep
-            ? ['registered_mini', 'sorting', 'transit', 'pickup_point', 'delivered_mini']
-            : ['registered_mini', 'sorting', 'transit', 'delivered_mini'];
         const stepLabelKeys = hasPickupStep
             ? ['step_label_registered', 'step_label_sorting', 'step_label_transit', 'step_label_pickup_point', 'step_label_delivered']
             : ['step_label_registered', 'step_label_sorting', 'step_label_transit', 'step_label_delivered'];
         const steps = selected.carrier_steps || {};
-        // No carrier-specific art for this step yet anywhere (see SHARED_PICKUP_POINT_IMG) — a
-        // carrier's own CARRIER_ASSETS[type].steps.pickup_point, once one exists, still wins.
-        const pickupPointImg = (key) => steps[key] || (key.startsWith('pickup_point') ? SHARED_PICKUP_POINT_IMG : undefined);
+        const palette = scenePalette(color);
+        const logo = stepSceneLogo(selected.carrier_type, selected.carrier_logo, selected.carrier_logo_is_icon);
+        const scene = (key, className, label = '', mini = false) => {
+            // Explicit overrides may provide a plain mini variant. Shared SVG
+            // scenes have no baked-in checkmarks and need no mini assets.
+            const image = (mini && steps[`${key}_mini`]) || steps[key];
+            return image
+                ? `<img class="${className}" src="${sceneEscape(image)}" alt="${sceneEscape(label)}" />`
+                : `<span class="${className} status-scene">${renderStepScene(key, palette, logo)}</span>`;
+        };
         const isFinalStep = stepIndex === stepOrder.length;
         const dots = stepOrder.map((_, i) => {
             const n = i + 1;
@@ -6665,14 +6762,11 @@ class HaParcelCard extends HTMLElement {
             // treatment too, not just the "current" ring — there's no step after it to await.
             const state = n < stepIndex || (n === stepIndex && isFinalStep) ? 'done' : n === stepIndex ? 'current' : 'upcoming';
             const colorVar = state !== 'upcoming' ? ` style="--step-color:${color};"` : '';
-            // Mini icons never carry a baked-in checkmark (registered/delivered have a plain
-            // variant) — completion is shown only via the overlay badge below, never both.
-            const icon = pickupPointImg(stepMiniKeys[i]) || pickupPointImg(stepKeys[i]);
             const label = this._t(stepLabelKeys[i]);
             const col = `
                 <div class="status-step-col">
                     <div class="status-step-icon-wrap ${state}">
-                        ${icon ? `<img class="status-step-icon" src="${icon}" alt="${label}" />` : ''}
+                        ${scene(stepKeys[i], 'status-step-icon', label, true)}
                         ${state === 'done' ? `<div class="status-step-check"${colorVar}><ha-icon icon="mdi:check"></ha-icon></div>` : ''}
                     </div>
                     <div class="status-step-label ${state !== 'upcoming' ? 'active' : ''}">${label}</div>
@@ -6700,8 +6794,7 @@ class HaParcelCard extends HTMLElement {
                 : currentStatus === 'in_transit' ? 'sorting'
                 : currentStatus === 'at_pickup_point' ? 'pickup_point'
                 : 'delivered';
-            const img = pickupPointImg(key);
-            heroImgHtml = img ? `<div class="status-hero"><img class="status-hero-img" src="${img}" alt="" /></div>` : '';
+            heroImgHtml = `<div class="status-hero">${scene(key, 'status-hero-img')}</div>`;
         }
 
         const infos = this._stepHeroInfo(selected, stepIndex);
@@ -6854,6 +6947,7 @@ class HaParcelCard extends HTMLElement {
     }
 
     updateAnimation(displayed) {
+        this._prepareStepSceneLogos();
         const animationEl = this.shadowRoot.querySelector('.header-animation');
         if (!animationEl) return;
 
@@ -6862,15 +6956,13 @@ class HaParcelCard extends HTMLElement {
             ? flat.find(s => s.key === this._selectedParcel)
             : null;
 
-        // The combo banner is built purely from static carrier config, never from live hass
-        // data, so it never actually changes between ticks. Bail out before any DOM mutation
-        // if it's already showing correctly — unconditionally rebuilding it every tick used to
-        // reset :hover state on the logos below, making the hover-zoom flicker/repeat for as
-        // long as the mouse stayed put. A full rebuild still happens via render() whenever the
-        // config itself changes (a fresh render() always clears .combo-placeholder first).
+        // Keep the logo nodes across identical HA ticks. The shared mount compares the
+        // actual branding (including refreshed HA icon URLs) and changes only the theme
+        // class when needed, so hover and focus survive ordinary updates.
         if (!selected && this.config.show_placeholder) {
             const existingCombo = this._getNoSelectionBackground();
-            if (existingCombo.comboLogos && animationEl.classList.contains('combo-placeholder') && animationEl.querySelector('.combo-logo-row')) {
+            if (existingCombo.comboLogos && animationEl.classList.contains('combo-placeholder') && animationEl.querySelector('.logo-banner')) {
+                mountLogoBanner(animationEl, existingCombo.comboLogos, name => this._openCarrierPopup(name), this._hass?.themes?.darkMode);
                 return;
             }
         }
@@ -6881,16 +6973,22 @@ class HaParcelCard extends HTMLElement {
 
         // Happy-path tracker (registered -> in_transit -> out_for_delivery [-> at_pickup_point]
         // -> delivered — the pickup-point step only for parcels actually headed to one, see
-        // STATUS_STEP_ORDER_PICKUP), only for canonical-schema carriers that have step
-        // illustrations configured. Letters and any other status (returning, problem, unknown)
+        // STATUS_STEP_ORDER_PICKUP). All carriers, including custom, share the SVG scenes.
+        // Letters and other statuses (returning, problem, unknown)
         // fall through to the plain van/chip + status-text treatment below, unchanged.
         const stepOrder = selected?.pickup ? STATUS_STEP_ORDER_PICKUP : STATUS_STEP_ORDER;
-        const stepIndex = (selected && !selected.is_letter && selected.carrier_steps)
+        const stepIndex = (selected && !selected.is_letter)
             ? stepOrder.indexOf(selected.status) + 1 : 0;
         if (this.config.show_animation && selected && stepIndex > 0) {
             animationEl.classList.add('animation-active');
             animationEl.classList.add('status-tracker-active');
-            animationEl.innerHTML = this._renderStatusTracker(selected, stepIndex, stepOrder);
+            const markup = this._renderStatusTracker(selected, stepIndex, stepOrder);
+            // Retain the SVG/image/GIF nodes across identical HA ticks. A resolved logo
+            // changes the markup once; a missing logo stays on its cached fallback.
+            if (animationEl.__parcelTrackerMarkup !== markup || !animationEl.querySelector('.status-tracker')) {
+                animationEl.innerHTML = markup;
+                animationEl.__parcelTrackerMarkup = markup;
+            }
             return;
         }
 
@@ -6936,18 +7034,7 @@ class HaParcelCard extends HTMLElement {
             const bg = this._getNoSelectionBackground();
             if (bg.comboLogos) {
                 animationEl.classList.add('combo-placeholder');
-                const rows = this._splitIntoBalancedRows(bg.comboLogos, 4);
-                animationEl.innerHTML = rows.map(row => `<div class="combo-logo-row">${row.map(c => `
-                    <div class="combo-panel" data-carrier="${c.carrier_name || ''}" style="--panel-color:${c.carrier_color || DEFAULT_CARRIER_COLOR};" title="${c.carrier_name || ''}">
-                        <div class="combo-panel-bg"></div>
-                        ${c.carrier_logo
-                            ? `<img class="combo-logo${c.carrier_logo_is_icon ? ' combo-logo-icon' : ''}" src="${c.carrier_logo}" alt="${c.carrier_name || ''}" />`
-                            : `<div class="combo-logo-chip" style="background:${c.carrier_color || DEFAULT_CARRIER_COLOR};"><ha-icon icon="${c.carrier_icon || DEFAULT_CARRIER_ICON}"></ha-icon></div>`}
-                    </div>`
-                ).join('')}</div>`).join('');
-                animationEl.querySelectorAll('.combo-panel').forEach(el =>
-                    el.addEventListener('click', () => this._openCarrierPopup(el.dataset.carrier))
-                );
+                mountLogoBanner(animationEl, bg.comboLogos, name => this._openCarrierPopup(name), this._hass?.themes?.darkMode);
                 return;
             }
             animationEl.style.backgroundImage = bg.image ? `url("${bg.image.replace(/"/g, '%22')}")` : '';
@@ -7263,6 +7350,9 @@ class HaParcelCard extends HTMLElement {
             .status-step-icon-wrap { position: relative; width: 100%; max-width: 72px; aspect-ratio: 1 / 1; border-radius: 16px; box-sizing: border-box; background: var(--secondary-background-color, #eee); border: 1px solid var(--divider-color); display: flex; align-items: center; justify-content: center; opacity: 0.5; filter: grayscale(70%); transition: opacity 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease; }
             .status-step-icon-wrap.current, .status-step-icon-wrap.done { opacity: 1; filter: none; box-shadow: 0 0 0 2.5px var(--step-color); }
             .status-step-icon { width: 100%; height: 100%; object-fit: contain; padding: 6px; box-sizing: border-box; }
+            .status-scene { display: flex; align-items: center; justify-content: center; }
+            .status-scene > svg { display: block; width: 100%; height: 100%; }
+            .status-hero-img.status-scene { width: 147.5px; height: 118px; }
             .status-step-check { position: absolute; bottom: -7px; right: -7px; width: 26px; height: 26px; border-radius: 50%; background: var(--step-color); display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 3px var(--card-background-color, #fff); }
             .status-step-check ha-icon { --mdc-icon-size: 16px; color: #fff; }
             .status-step-label { margin-top: 7px; font-size: 11.5px; line-height: 1.2; text-align: center; color: var(--secondary-text-color); }
@@ -7275,16 +7365,7 @@ class HaParcelCard extends HTMLElement {
             .status-hero-info { flex: 0 1 42%; text-align: left; display: flex; flex-direction: column; gap: 10px; }
             .status-hero-info-label { font-size: 14px; line-height: 1.35; color: var(--secondary-text-color); }
             .status-hero-info-time { font-size: 16px; line-height: 1.35; font-weight: 700; color: var(--primary-text-color); margin-top: 2px; }
-            .combo-logo-row { display: flex; width: 100%; flex: 1 1 0; min-height: 90px; }
-            .combo-logo-row:not(:last-child) { border-bottom: 1px solid var(--divider-color); }
-            .combo-panel { flex: 1 1 0; min-width: 0; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-            .combo-panel:not(:last-child)::after { content: ''; position: absolute; right: 0; top: 24%; bottom: 24%; width: 1px; background: var(--divider-color); opacity: 0.7; }
-            .combo-panel-bg { position: absolute; inset: 0; background: var(--panel-color); opacity: 0.09; }
-            .combo-logo { max-height: 46%; max-width: 62%; object-fit: contain; position: relative; z-index: 1; filter: drop-shadow(0 1px 3px rgba(0,0,0,0.15)); transition: transform 0.2s ease; }
-            .combo-logo.combo-logo-icon { max-height: 60%; border-radius: 14%; }
-            .combo-panel:hover .combo-logo { transform: scale(1.06); }
-            .combo-logo-chip { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; position: relative; z-index: 1; box-shadow: 0 1px 4px rgba(0,0,0,0.25); }
-            .combo-logo-chip ha-icon { --mdc-icon-size: 22px; }
+            ${LOGO_BANNER_CSS}
             .visual-road { position: relative; flex: 1 1 auto; min-width: 0; height: 80px; display: flex; align-items: center; box-sizing: border-box; }
             .house-bg { position: absolute; right: 0; font-size: 32px; }
             .road-line { position: absolute; left: 0; right: 40px; height: 2px; background: var(--divider-color); top: 50%; }

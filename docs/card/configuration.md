@@ -11,7 +11,7 @@ These options apply to the card as a whole.
 | `show_delivered` | boolean | `true` | Show the Delivered tab |
 | `show_sent` | boolean | `true` | Show the Sent tab |
 | `show_letters` | boolean | `true` | Show the Letters tab (PostNL only) |
-| `show_animation` | boolean | `true` | Show the van animation when a parcel is selected |
+| `show_animation` | boolean | `true` | Show the SVG delivery tracker and current-step illustration; during delivery, show the existing vehicle GIF or carrier chip |
 | `show_header` | boolean | `true` | Show the header with title and statistics |
 | `show_placeholder` | boolean | `true` | Show the background image when no parcel is selected |
 | `header_color` | string | _(theme)_ | Header background colour |
@@ -54,8 +54,8 @@ Each entry in the `carriers` list supports the following options.
 | `user` | string | `""` | Account part of the sensor name (omit for prefix-free sensors, or use a postal code for GLS/Trunkrs). The card detects the correct naming scheme automatically — see [Sensor naming](#sensor-naming) |
 | `name` | string | _(carrier label)_ | Display name for this carrier |
 | `icon` | string | _(carrier icon)_ | Icon for this carrier (`mdi:` or `phu:` prefix) |
-| `color` | string | _(carrier colour)_ | Accent colour for this carrier |
-| `logo_path` | string | _(carrier logo)_ | URL to a custom logo image (use the Browse button in the editor to pick from the media library) |
+| `color` | string | _(carrier colour)_ | Accent colour for this carrier, also used to derive the SVG scene palette (including custom carriers) |
+| `logo_path` | string | _(carrier logo)_ | URL to a custom logo image, also used inside SVG scenes when no mapped PHU icon is available (use the Browse button in the editor to pick from the media library) |
 | `van_path` | string | _(carrier van GIF)_ | URL to a custom van animation |
 | `banner_path` | string | _(carrier banner)_ | URL to a custom banner image (use the Browse button in the editor to pick from the media library) |
 | `show_tracking_link` | boolean | `true` | Show the "Open Tracking" button in the detail panel |

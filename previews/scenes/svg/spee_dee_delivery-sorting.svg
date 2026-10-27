@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 128" role="img" aria-label="sorting" data-step-scene="sorting" preserveAspectRatio="xMidYMid meet"><g stroke="#102033" stroke-width="3.6" stroke-linejoin="round" stroke-linecap="round"><ellipse cx="80" cy="119" rx="73" ry="5" fill="#102033" opacity=".14" stroke="none"/><rect x="9" y="10" width="142" height="101" rx="5" fill="#f7f9fb"/>
+                <path d="M9 28V15q0-5 5-5h132q5 0 5 5v13Z" fill="#6a6a6a"/>
+                <rect x="19" y="38" width="77" height="42" rx="4" fill="#fff"/>
+                <svg data-scene-logo="image" x="41" y="47" width="33" height="24" viewBox="0 0 33 24" overflow="hidden" stroke="none"><rect width="33" height="24" rx="2" fill="#fff" stroke="none"/><image x="4.5" y="0" width="24" height="24" href="https://github.com/jonisnet/ha-parcel-card/blob/main/images/spee_dee_delivery/spee_dee_delivery-logo.png?raw=true" preserveAspectRatio="xMidYMid meet" style="clip-path:inset(0 round 18%)"/></svg>
+                <path d="M110 111V44h30v67Z" fill="#4f545a"/>
+                <path d="M117 56h16m-16 12h16m-16 12h16" stroke="#e4e4e4" fill="none" stroke-width="3"/>
+                <path d="M26 106v9m69-9v9" fill="none"/>
+                <rect x="17" y="94" width="89" height="15" rx="7.5" fill="#637080"/>
+                <path d="M34 100h1m19 0h1m19 0h1m19 0h1" stroke="#f7f9fb" stroke-width="5"/>
+                <path d="M30 94V76h24v18Z" fill="#d9a35c"/><path d="M42 77v7" fill="none"/>
+                <path d="M68 94V82h22v12Z" fill="#f0ca91"/></g></svg>

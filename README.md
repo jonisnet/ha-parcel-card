@@ -30,7 +30,7 @@
 
 ![Dashboard screenshot](https://raw.githubusercontent.com/jonisnet/ha-parcel-card/main/images/screenshot-dashboard.png)
 
-*Parcel detail with the 4-step delivery tracker*
+*Parcel detail with the delivery tracker (screenshot from an earlier beta; current scenes use shared SVG artwork)*
 
 > Based on [jimz011/hki-elements](https://github.com/jimz011/hki-elements) — the original PostNL card from the HKI project, extended with multi-carrier support, automatic sensor templating and letterbox mail.
 
@@ -38,9 +38,9 @@
 
 ## Features
 
-- **Multi-carrier** — any of the 85 supported carriers side by side in one card, each with its own logo and brand colour (most with full banner, van animation and step artwork; the newest carriers use their integration's own icon until that artwork is done)
+- **Multi-carrier** — any of the 85 supported carriers side by side in one card, each with its own logo and brand colour. Every carrier and custom gets the same inline SVG scenes; existing banners and vehicle GIFs remain in use where available
 - **Four tabs** — In Transit · Delivered · Sent · Letters, with parcel details, barcode and a direct tracking link
-- **4-step delivery tracker** — a branded progress illustration (Registered · Sorting centre · Out for delivery · Delivered) when a parcel is selected
+- **Delivery tracker for every carrier** — Registered · Sorting centre · Out for delivery · Delivered, with an extra Pickup point step when applicable. Shared SVG scenes follow the configured carrier colour and work without custom-brand-icons; logos use PHU when available, otherwise the existing carrier image or a plain brand-colour panel
 - **Carrier overview popup** — click a logo in the multi-carrier banner to see every parcel and letter for that carrier across all tabs in one popup, with details expandable in place
 - **Add a parcel from the card** — every carrier whose integration has a `track_parcel` service gets a "+ Add parcel" control that registers a new Track & Trace number directly; see [Add parcel support](#add-parcel-support) below
 - **Custom parcel names** — give any parcel a short label of your own (e.g. "Birthday gift") right from its detail panel, instead of just a tracking code; shared instance-wide with live updates by default, or scope it to just you or just this browser — see `custom_name_scope`
@@ -191,6 +191,11 @@ The card's "+ Add parcel" control appears for every carrier whose integration ha
 4. Hard refresh your browser
 
 Optional: install [custom-brand-icons](https://github.com/elax46/custom-brand-icons) via HACS for branded PHU carrier icons — detected automatically, no configuration needed.
+
+The SVG delivery scenes also work in a plain Home Assistant installation. Their logos prefer
+PHU icons, then the carrier's existing logo (`logo_path` can override that fallback), and
+otherwise a plain panel in the carrier colour. The mapping was checked against published
+custom-brand-icons 2026.10.3; see the [coverage table](docs/installation.md#optional-phu-carrier-icons).
 
 Full installation guide: [jonisnet.github.io/ha-parcel-card/installation](https://jonisnet.github.io/ha-parcel-card/installation/).
 

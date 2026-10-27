@@ -2,7 +2,9 @@
 
 ## Dashboard — parcel detail
 
-The 4-step delivery tracker and expanded parcel detail panel (barcode, status, delivery type, tracking link).
+The delivery tracker and expanded parcel detail panel (barcode, status, delivery type, tracking link).
+The screenshots below show an earlier beta. The current tracker uses shared SVG scenes for
+every carrier, with four steps for home delivery and five when the parcel goes via a pickup point.
 
 <div class="grid" markdown>
 
@@ -16,7 +18,14 @@ The 4-step delivery tracker and expanded parcel detail panel (barcode, status, d
 
 ## Combo banner — multiple carriers
 
-When two or more carriers are configured, the card builds a combo banner from just the carriers you've actually added, wrapping into multiple rows (capped at 4 per row) once there are more than that.
+When two or more carriers are configured, the Studio banner shows just those carriers
+in equal-sized tiles, with up to four columns and a centred final row. Logo sizes follow
+offline content measurements; square integration icons have rounded corners. Tiles use
+the active Home Assistant card colour, including a dark background in dark mode. Dark
+wordmarks keep their original colours with a subtle light edge for readability. Existing
+single-carrier banners and custom placeholder images remain available.
+
+The screenshots below predate Studio and show the earlier combo-banner layout.
 
 <div class="grid" markdown>
 

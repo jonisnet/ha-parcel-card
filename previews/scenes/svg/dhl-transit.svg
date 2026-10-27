@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 128" role="img" aria-label="transit" data-step-scene="transit" preserveAspectRatio="xMidYMid meet"><g stroke="#102033" stroke-width="3.6" stroke-linejoin="round" stroke-linecap="round"><ellipse cx="80" cy="119" rx="73" ry="5" fill="#102033" opacity=".14" stroke="none"/><path d="M7 63H2m5 13H1" fill="none" stroke="#b7980f"/>
+                <path d="M12 98V36q0-7 7-7h81q11 0 19 9l21 27 10 5q5 3 5 10v18Z" fill="#f7f9fb"/>
+                <path d="m101 30 16 8 23 27-8 7h-31Z" fill="#fff6d1"/>
+                <path d="M12 82h119v10H12Z" fill="#ffcc00" stroke="none"/>
+                <path d="M40 37h52v45H40Z" fill="#fff" stroke-width="3"/>
+                <svg data-scene-logo="phu" x="53" y="48" width="25" height="21" viewBox="0 0 25 21" overflow="hidden" stroke="none"><svg width="25" height="21" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" overflow="hidden"><path d="M2 12.691h.052v.201H2Zm0 .374h.052v.2H2Zm19.947 0H22v.2h-.053Zm0-.747H22v.201h-.053Zm0 .373H22v.201h-.053ZM2 12.318h.052v.201H2Zm17.58.201.148-.2h2.219V5.654H2.052v6.664h2.927l-.148.2H2.052v.172H4.7l-.147.2H2.052v.173H4.43l-.147.2H2.052v5.083h19.9v-5.081h-2.92l.146-.2h2.769v-.173h-2.642l.148-.2h2.494v-.172Zm-1.028-2.083-1.228 1.665h-1.945l1.229-1.668Zm-13.674.865.639-.868H9.2c.936 0 1.175.74.913 1.095l-.422.573H8.269c-.27 0-.189-.111-.143-.172.089-.121.235-.326.322-.444s.089-.184-.087-.184Zm2.872 1.964H4.62L5.9 11.52h1.6c.176 0 .174.067.088.184l-.325.442c-.045.062-.127.173.143.173h2.13a2.22 2.22 0 0 1-1.786.946m3.524 0H9.438l.7-.947h1.832Zm2.655 0h-1.836l.7-.947h1.836Zm-3.637-1.164 1.228-1.668h1.835l-.7.956h.819l.705-.956h1.831l-1.228 1.668Zm8.4 1.16h-2.944c-.752 0-.956-.363-.726-.674.066-.088.2-.272.2-.272h4.169Z" fill="#ab9012" stroke="none"/></svg></svg>
+                <path d="M101 30v66m31-24v24m0-24 8-7" fill="none" stroke-width="3"/>
+                <path d="M108 40h7l18 24h-25Z" fill="#a9d4df" stroke-width="3"/>
+                <path d="M84 74h3m22 0h5" fill="none" stroke-width="3"/>
+                <path d="M143 77h11v9h-11Z" fill="#f0ca91" stroke-width="3"/>
+                <path d="M11 98h144" fill="none" stroke-width="5"/>
+                <circle cx="39" cy="101" r="12" fill="#102033"/><circle cx="124" cy="101" r="12" fill="#102033"/>
+                <circle cx="39" cy="101" r="5" fill="#f7f9fb" stroke="none"/><circle cx="124" cy="101" r="5" fill="#f7f9fb" stroke="none"/></g></svg>

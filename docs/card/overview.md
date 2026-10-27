@@ -24,7 +24,7 @@ Every supported carrier, with its integration and what it supports, is listed un
 - **Four tabs** — In Transit · Delivered · Sent · Letters
 - **Split sections** — both Sent and Letters are split into *Still to be delivered* and *Delivered*
 - **Click-to-expand** — click any parcel for barcode, delivery type and a direct tracking link
-- **4-step delivery tracker** — selecting a parcel shows a progress row (Registered · Sorting centre · Out for delivery · Delivered) with a carrier-branded illustration for the current step
+- **Delivery tracker for every carrier** — selecting a parcel shows Registered · Sorting centre · Out for delivery · Delivered, with an extra Pickup point step for parcels delivered via an official pickup point. All 85 carriers and custom share five inline SVG scenes, coloured from the configured carrier colour
 - **Historical tracking** — configure how many days back delivered parcels remain visible
 
 ### Carrier overview popup
@@ -51,6 +51,13 @@ For GLS and Trunkrs, which can have multiple hubs (one per postal code), the car
 - **Header statistics** — shows count of parcels in transit and recently delivered
 - **Carrier colours** — each carrier has its own accent colour, editable per carrier
 - **PHU icons** — branded carrier icons via [custom-brand-icons](https://github.com/elax46/custom-brand-icons) when installed (coverage varies — see [Installation](../installation.md#optional-phu-carrier-icons))
+
+The delivery illustrations work without PHU, card-mod or browser_mod. Logos sit inside fixed
+panels: a released PHU icon takes priority, followed by the carrier's existing logo, then a
+plain panel in the carrier colour. App-icon fallbacks have rounded corners. PHU logo colours
+are darkened automatically when needed for at least 3:1 contrast on white. Registered and
+Delivered have no logo. The current driving hero keeps the existing vehicle GIF or carrier
+chip. Explicit step-image overrides take precedence over the shared scenes.
 
 ### :wrench: Customization
 

@@ -1,0 +1,252 @@
+{
+  "errors": [],
+  "sets": [
+    {
+      "set": "A",
+      "failures": [],
+      "samples": [
+        {
+          "width": 500,
+          "height": 168,
+          "cellWidth": 112.5,
+          "cellHeight": 68,
+          "background": "rgb(255, 255, 255)",
+          "dark": false
+        },
+        {
+          "width": 375,
+          "height": 168,
+          "cellWidth": 81.25,
+          "cellHeight": 68,
+          "background": "rgb(255, 255, 255)",
+          "dark": false
+        },
+        {
+          "width": 500,
+          "height": 168,
+          "cellWidth": 112.5,
+          "cellHeight": 68,
+          "background": "rgb(23, 28, 36)",
+          "dark": true
+        },
+        {
+          "width": 375,
+          "height": 168,
+          "cellWidth": 81.25,
+          "cellHeight": 68,
+          "background": "rgb(23, 28, 36)",
+          "dark": true
+        }
+      ],
+      "items": 7,
+      "brandIcons": 0,
+      "wsCalls": 0,
+      "refreshes": 0
+    },
+    {
+      "set": "B",
+      "failures": [],
+      "samples": [
+        {
+          "width": 500,
+          "height": 150,
+          "cellWidth": 233,
+          "cellHeight": 68,
+          "background": "rgb(255, 255, 255)",
+          "dark": false
+        },
+        {
+          "width": 375,
+          "height": 150,
+          "cellWidth": 170.5,
+          "cellHeight": 68,
+          "background": "rgb(255, 255, 255)",
+          "dark": false
+        },
+        {
+          "width": 500,
+          "height": 150,
+          "cellWidth": 233,
+          "cellHeight": 68,
+          "background": "rgb(23, 28, 36)",
+          "dark": true
+        },
+        {
+          "width": 375,
+          "height": 150,
+          "cellWidth": 170.5,
+          "cellHeight": 68,
+          "background": "rgb(23, 28, 36)",
+          "dark": true
+        }
+      ],
+      "items": 2,
+      "brandIcons": 0,
+      "wsCalls": 0,
+      "refreshes": 0
+    },
+    {
+      "set": "C",
+      "failures": [],
+      "samples": [
+        {
+          "width": 500,
+          "height": 150,
+          "cellWidth": 152.65625,
+          "cellHeight": 68,
+          "background": "rgb(255, 255, 255)",
+          "dark": false
+        },
+        {
+          "width": 375,
+          "height": 150,
+          "cellWidth": 111,
+          "cellHeight": 68,
+          "background": "rgb(255, 255, 255)",
+          "dark": false
+        },
+        {
+          "width": 500,
+          "height": 150,
+          "cellWidth": 152.65625,
+          "cellHeight": 68,
+          "background": "rgb(23, 28, 36)",
+          "dark": true
+        },
+        {
+          "width": 375,
+          "height": 150,
+          "cellWidth": 111,
+          "cellHeight": 68,
+          "background": "rgb(23, 28, 36)",
+          "dark": true
+        }
+      ],
+      "items": 3,
+      "brandIcons": 0,
+      "wsCalls": 0,
+      "refreshes": 0
+    },
+    {
+      "set": "D",
+      "failures": [],
+      "samples": [
+        {
+          "width": 500,
+          "height": 168,
+          "cellWidth": 152.65625,
+          "cellHeight": 68,
+          "background": "rgb(255, 255, 255)",
+          "dark": false
+        },
+        {
+          "width": 375,
+          "height": 168,
+          "cellWidth": 111,
+          "cellHeight": 68,
+          "background": "rgb(255, 255, 255)",
+          "dark": false
+        },
+        {
+          "width": 500,
+          "height": 168,
+          "cellWidth": 152.65625,
+          "cellHeight": 68,
+          "background": "rgb(23, 28, 36)",
+          "dark": true
+        },
+        {
+          "width": 375,
+          "height": 168,
+          "cellWidth": 111,
+          "cellHeight": 68,
+          "background": "rgb(23, 28, 36)",
+          "dark": true
+        }
+      ],
+      "items": 5,
+      "brandIcons": 1,
+      "wsCalls": 1,
+      "refreshes": 1
+    },
+    {
+      "set": "E",
+      "failures": [],
+      "samples": [
+        {
+          "width": 500,
+          "height": 244,
+          "cellWidth": 112.5,
+          "cellHeight": 68,
+          "background": "rgb(255, 255, 255)",
+          "dark": false
+        },
+        {
+          "width": 375,
+          "height": 244,
+          "cellWidth": 81.25,
+          "cellHeight": 68,
+          "background": "rgb(255, 255, 255)",
+          "dark": false
+        },
+        {
+          "width": 500,
+          "height": 244,
+          "cellWidth": 112.5,
+          "cellHeight": 68,
+          "background": "rgb(23, 28, 36)",
+          "dark": true
+        },
+        {
+          "width": 375,
+          "height": 244,
+          "cellWidth": 81.25,
+          "cellHeight": 68,
+          "background": "rgb(23, 28, 36)",
+          "dark": true
+        }
+      ],
+      "items": 12,
+      "brandIcons": 4,
+      "wsCalls": 1,
+      "refreshes": 1
+    }
+  ],
+  "darkEdges": [
+    {
+      "name": "DPD",
+      "filter": "drop-shadow(rgb(237, 243, 249) 0px 0px 0.65px) drop-shadow(rgb(237, 243, 249) 0px 0px 0.4px)"
+    },
+    {
+      "name": "GLS",
+      "filter": "drop-shadow(rgb(237, 243, 249) 0px 0px 0.65px) drop-shadow(rgb(237, 243, 249) 0px 0px 0.4px)"
+    },
+    {
+      "name": "Trunkrs",
+      "filter": "drop-shadow(rgb(237, 243, 249) 0px 0px 0.65px) drop-shadow(rgb(237, 243, 249) 0px 0px 0.4px)"
+    }
+  ],
+  "themeSwitch": {
+    "same": true,
+    "focus": true,
+    "before": "matrix(1.06, 0, 0, 1.06, 0, 0)",
+    "after": "matrix(1.06, 0, 0, 1.06, 0, 0)",
+    "background": "rgb(23, 28, 36)",
+    "customThemeBackground": "rgb(37, 45, 56)",
+    "dark": true
+  },
+  "overrides": {
+    "combo": 7,
+    "customPlaceholder": true,
+    "singleCarrierBanner": true
+  },
+  "olderHa": {
+    "brandIcons": 0,
+    "logos": 11,
+    "refreshes": 0
+  },
+  "configuredFallbackIcon": "mdi:bicycle",
+  "originalLogosUnchanged": true,
+  "claudeFallbackUnchanged": true,
+  "onlyStudio": true
+}

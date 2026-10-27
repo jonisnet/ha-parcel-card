@@ -2,7 +2,7 @@
 
 **Track parcels from all 85 carriers of the ha-parcel-integrations family — PostNL, DHL, DPD, UPS, FedEx, USPS, GLS, bpost, La Poste, Evri and many more — in a single Home Assistant card.**
 
-Automatic sensor detection, animated banners, a 4-step delivery tracker, letterbox mail with scan images, a carrier overview popup, and a complete visual editor — no YAML required.
+Automatic sensor detection, animated banners, a delivery tracker with shared SVG scenes for every carrier (four steps, or five via a pickup point), letterbox mail with scan images, a carrier overview popup, and a complete visual editor — no YAML required.
 
 ![Dashboard screenshot](images/screenshot-dashboard.png)
 

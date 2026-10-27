@@ -1,0 +1,75 @@
+{
+  "errors": [],
+  "overviews": [
+    {
+      "query": "",
+      "filename": "overzicht-85-60px.png",
+      "carriers": 86,
+      "scenes": 430,
+      "widths": [
+        60
+      ],
+      "invalidLogo": 0,
+      "phuCarriers": 35,
+      "providerPresent": true,
+      "badImages": [],
+      "minimumContrast": 3.012781125929127
+    },
+    {
+      "query": "?no-phu",
+      "filename": "overzicht-85-60px-zonder-phu.png",
+      "carriers": 86,
+      "scenes": 430,
+      "widths": [
+        60
+      ],
+      "invalidLogo": 0,
+      "phuCarriers": 0,
+      "providerPresent": false,
+      "badImages": [],
+      "minimumContrast": 3.012781125929127
+    },
+    {
+      "query": "?dark",
+      "filename": "overzicht-85-60px-donker.png",
+      "carriers": 86,
+      "scenes": 430,
+      "widths": [
+        60
+      ],
+      "invalidLogo": 0,
+      "phuCarriers": 35,
+      "providerPresent": true,
+      "badImages": [],
+      "minimumContrast": 3.012781125929127
+    },
+    {
+      "query": "?dark&no-phu&future",
+      "filename": "overzicht-85-60px-donker-toekomst-zonder-phu.png",
+      "carriers": 86,
+      "scenes": 430,
+      "widths": [
+        60
+      ],
+      "invalidLogo": 0,
+      "phuCarriers": 0,
+      "providerPresent": false,
+      "badImages": [],
+      "minimumContrast": 3.012781125929127
+    }
+  ],
+  "allCarrierIntegration": {
+    "carriers": 86,
+    "statusChecks": 430,
+    "identicalGeometry": true,
+    "failures": []
+  },
+  "phu": {
+    "release": "2026.10.3",
+    "mappedCarriers": 35,
+    "uniqueIcons": 33,
+    "sha256": "f65442f4f7883e565ca03858fa1cdb7358c90a424a1f6c6676db036372e0c08c"
+  },
+  "oldImagesUnchanged": true,
+  "versionUnchanged": true
+}
