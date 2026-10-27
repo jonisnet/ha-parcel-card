@@ -41,7 +41,7 @@
     "label_delivery": "Bezorgwijze",
     "label_pickup_point": "Afhaalpunt",
     "label_custom_name": "Eigen naam",
-    "add_custom_name": "+ Naam toevoegen",
+    "add_custom_name": "Naam toevoegen",
     "custom_name_placeholder": "bijv. Verjaardagscadeau",
     "custom_name_edit": "Naam bewerken",
     "custom_name_save": "Opslaan",
@@ -127,7 +127,7 @@
     "postal_code_account_help": "{carrier} heeft geen account — vul de postcode in waarmee je de integratie hebt ingesteld.",
     "hub_account_help": "{carrier} werkt met een account of met postcode-hubs — kies het gevonden account, of vul bij een hub de postcode in (nodig voor \"+ Pakket toevoegen\" als je meer dan één hub hebt).",
     "show_add_parcel": "Toon \"Pakket toevoegen\" op de kaart",
-    "add_parcel_toggle": "+ Pakket toevoegen",
+    "add_parcel_toggle": "Pakket toevoegen",
     "add_parcel_carrier": "Dienst",
     "add_parcel_number": "Track & Trace nummer",
     "add_parcel_submit": "Toevoegen",
@@ -188,5 +188,7 @@
     "label_ready_since": "Klaar om op te halen sinds",
     "label_pickup_deadline": "Ophalen uiterlijk",
     "update_available": "HA Parcel Card {version} is geïnstalleerd",
-    "reload": "Herladen"
+    "reload": "Herladen",
+    "default_tab_label": "Starttabblad",
+    "default_tab_help": "Het tabblad waarop de kaart opent. Een dashboardlink met ?parcel_tab=post (of in_transit, delivered, sent) gaat hiervoor, bijvoorbeeld vanuit een melding."
 }

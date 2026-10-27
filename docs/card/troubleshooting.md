@@ -22,7 +22,7 @@ The card loads but the parcel list is empty.
 1. `days_back` is too short — increase the value to show older delivered parcels.
 2. The integration has not yet received data from the carrier — wait for the next update cycle or trigger a manual refresh.
 3. The sensor exists but has no attributes — verify the integration is authenticated (or, for account-less carriers, that at least one parcel has been registered).
-4. For tracking-code carriers ("Add parcel from card" in the [Carrier types](configuration.md#carrier-types) table) — nothing has been tracked yet. Use the "+ Add parcel" control, or the integration's own Configure dialog, to register a tracking number.
+4. For tracking-code carriers ("Add parcel from card" in the [Carrier types](configuration.md#carrier-types) table) — nothing has been tracked yet. Use the "Add parcel" control, or the integration's own Configure dialog, to register a tracking number.
 
 ---
 
@@ -74,7 +74,7 @@ Letters appear but no scan images are displayed.
 
 ---
 
-## "+ Add parcel" is missing or fails
+## "Add parcel" is missing or fails
 
 **Causes and solutions:**
 

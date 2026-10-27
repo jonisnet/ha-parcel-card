@@ -68,7 +68,7 @@ window.HAParcelCard.getSelectValue = window.HAParcelCard.getSelectValue || ((ev,
 
 (() => {
 const { LitElement, html, css } = window.HAParcelCard.getLit();
-const CARD_VERSION = 'v2.0.0b20';
+const CARD_VERSION = 'v2.0.0b21';
 console.info(`%c HA-PARCEL-CARD %c ${CARD_VERSION} `, 'color: white; background: #ed8c00; font-weight: bold;', 'color: #ed8c00; background: white; font-weight: bold;');
 
 const DEFAULT_CARRIER_ICON = 'mdi:package-variant-closed';
@@ -154,7 +154,7 @@ const TRANSLATIONS = {
         label_delivery: 'Delivery',
         label_pickup_point: 'Pickup point',
         label_custom_name: 'Custom name',
-        add_custom_name: '+ Add name',
+        add_custom_name: 'Add name',
         custom_name_placeholder: 'e.g. Birthday gift',
         custom_name_edit: 'Edit name',
         custom_name_save: 'Save',
@@ -240,7 +240,7 @@ const TRANSLATIONS = {
         postal_code_account_help: '{carrier} has no account — enter the postal code you set up the integration with.',
         hub_account_help: '{carrier} works with an account or with postal-code hubs — pick the detected account, or for a hub enter its postal code (needed for "+ Add parcel" when you have more than one hub).',
         show_add_parcel: 'Show "Add parcel" on the card',
-        add_parcel_toggle: '+ Add parcel',
+        add_parcel_toggle: 'Add parcel',
         add_parcel_carrier: 'Carrier',
         add_parcel_number: 'Tracking number',
         add_parcel_submit: 'Add',
@@ -302,6 +302,8 @@ const TRANSLATIONS = {
         label_pickup_deadline: 'Collect by',
         update_available: 'HA Parcel Card {version} is installed',
         reload: 'Reload',
+        default_tab_label: 'Start tab',
+        default_tab_help: 'The tab the card opens on. A dashboard link with ?parcel_tab=post (or in_transit, delivered, sent) overrides this, for example from a notification.',
     },
     nl: {
         tab_in_transit: 'Onderweg',
@@ -346,7 +348,7 @@ const TRANSLATIONS = {
         label_delivery: 'Bezorgwijze',
         label_pickup_point: 'Afhaalpunt',
         label_custom_name: 'Eigen naam',
-        add_custom_name: '+ Naam toevoegen',
+        add_custom_name: 'Naam toevoegen',
         custom_name_placeholder: 'bijv. Verjaardagscadeau',
         custom_name_edit: 'Naam bewerken',
         custom_name_save: 'Opslaan',
@@ -432,7 +434,7 @@ const TRANSLATIONS = {
         postal_code_account_help: '{carrier} heeft geen account — vul de postcode in waarmee je de integratie hebt ingesteld.',
         hub_account_help: '{carrier} werkt met een account of met postcode-hubs — kies het gevonden account, of vul bij een hub de postcode in (nodig voor "+ Pakket toevoegen" als je meer dan één hub hebt).',
         show_add_parcel: 'Toon "Pakket toevoegen" op de kaart',
-        add_parcel_toggle: '+ Pakket toevoegen',
+        add_parcel_toggle: 'Pakket toevoegen',
         add_parcel_carrier: 'Dienst',
         add_parcel_number: 'Track & Trace nummer',
         add_parcel_submit: 'Toevoegen',
@@ -494,6 +496,8 @@ const TRANSLATIONS = {
         label_pickup_deadline: 'Ophalen uiterlijk',
         update_available: 'HA Parcel Card {version} is geïnstalleerd',
         reload: 'Herladen',
+        default_tab_label: 'Starttabblad',
+        default_tab_help: 'Het tabblad waarop de kaart opent. Een dashboardlink met ?parcel_tab=post (of in_transit, delivered, sent) gaat hiervoor, bijvoorbeeld vanuit een melding.',
     },
     // bg: machine-drafted, not yet reviewed by a native speaker (see translations/bg.json)
     bg: {
@@ -539,7 +543,7 @@ const TRANSLATIONS = {
         label_delivery: 'Доставка',
         label_pickup_point: 'Офис за получаване',
         label_custom_name: 'Собствено име',
-        add_custom_name: '+ Добави име',
+        add_custom_name: 'Добави име',
         custom_name_placeholder: 'напр. Подарък за рожден ден',
         custom_name_edit: 'Редактирай името',
         custom_name_save: 'Запази',
@@ -625,7 +629,7 @@ const TRANSLATIONS = {
         postal_code_account_help: '{carrier} няма акаунт — въведете пощенския код, с който сте настроили интеграцията.',
         hub_account_help: '{carrier} работи с акаунт или с хъбове по пощенски код — изберете открития акаунт или за хъб въведете неговия пощенски код (нужен за „+ Добави пратка“, ако имате повече от един хъб).',
         show_add_parcel: 'Показвай "Добави пратка" на картата',
-        add_parcel_toggle: '+ Добави пратка',
+        add_parcel_toggle: 'Добави пратка',
         add_parcel_carrier: 'Превозвач',
         add_parcel_number: 'Номер за проследяване',
         add_parcel_submit: 'Добави',
@@ -687,6 +691,8 @@ const TRANSLATIONS = {
         label_pickup_deadline: 'Получете до',
         update_available: 'HA Parcel Card {version} е инсталирана',
         reload: 'Презареди',
+        default_tab_label: 'Начален раздел',
+        default_tab_help: 'Разделът, с който се отваря картата. Връзка към таблото с ?parcel_tab=post (или in_transit, delivered, sent) има предимство, например от известие.',
     },
     // cs: machine-drafted, not yet reviewed by a native speaker (see translations/cs.json)
     cs: {
@@ -732,7 +738,7 @@ const TRANSLATIONS = {
         label_delivery: 'Doručení',
         label_pickup_point: 'Výdejní místo',
         label_custom_name: 'Vlastní název',
-        add_custom_name: '+ Přidat název',
+        add_custom_name: 'Přidat název',
         custom_name_placeholder: 'např. Dárek k narozeninám',
         custom_name_edit: 'Upravit název',
         custom_name_save: 'Uložit',
@@ -818,7 +824,7 @@ const TRANSLATIONS = {
         postal_code_account_help: '{carrier} nemá účet — zadejte PSČ, se kterým jste integraci nastavili.',
         hub_account_help: '{carrier} funguje s účtem nebo s huby podle PSČ — vyberte nalezený účet, nebo u hubu zadejte jeho PSČ (potřebné pro „+ Přidat zásilku“, pokud máte více hubů).',
         show_add_parcel: 'Zobrazit "Přidat zásilku" na kartě',
-        add_parcel_toggle: '+ Přidat zásilku',
+        add_parcel_toggle: 'Přidat zásilku',
         add_parcel_carrier: 'Dopravce',
         add_parcel_number: 'Sledovací číslo',
         add_parcel_submit: 'Přidat',
@@ -880,6 +886,8 @@ const TRANSLATIONS = {
         label_pickup_deadline: 'Vyzvedněte do',
         update_available: 'HA Parcel Card {version} je nainstalována',
         reload: 'Načíst znovu',
+        default_tab_label: 'Úvodní karta',
+        default_tab_help: 'Karta, na které se karta otevře. Odkaz na nástěnku s ?parcel_tab=post (nebo in_transit, delivered, sent) má přednost, např. z oznámení.',
     },
     // da: machine-drafted, not yet reviewed by a native speaker (see translations/da.json)
     da: {
@@ -925,7 +933,7 @@ const TRANSLATIONS = {
         label_delivery: 'Levering',
         label_pickup_point: 'Afhentningssted',
         label_custom_name: 'Eget navn',
-        add_custom_name: '+ Tilføj navn',
+        add_custom_name: 'Tilføj navn',
         custom_name_placeholder: 'f.eks. Fødselsdagsgave',
         custom_name_edit: 'Rediger navn',
         custom_name_save: 'Gem',
@@ -1011,7 +1019,7 @@ const TRANSLATIONS = {
         postal_code_account_help: '{carrier} har ingen konto — indtast det postnummer, du satte integrationen op med.',
         hub_account_help: '{carrier} virker med en konto eller med postnummer-hubs — vælg den fundne konto, eller indtast hubbens postnummer (nødvendigt for "+ Tilføj pakke", når du har mere end én hub).',
         show_add_parcel: 'Vis "Tilføj pakke" på kortet',
-        add_parcel_toggle: '+ Tilføj pakke',
+        add_parcel_toggle: 'Tilføj pakke',
         add_parcel_carrier: 'Transportør',
         add_parcel_number: 'Sporingsnummer',
         add_parcel_submit: 'Tilføj',
@@ -1073,6 +1081,8 @@ const TRANSLATIONS = {
         label_pickup_deadline: 'Afhentes senest',
         update_available: 'HA Parcel Card {version} er installeret',
         reload: 'Genindlæs',
+        default_tab_label: 'Startfane',
+        default_tab_help: 'Fanen, kortet åbner på. Et dashboard-link med ?parcel_tab=post (eller in_transit, delivered, sent) har forrang, f.eks. fra en notifikation.',
     },
     // de: machine-drafted, not yet reviewed by a native speaker (see translations/de.json)
     de: {
@@ -1118,7 +1128,7 @@ const TRANSLATIONS = {
         label_delivery: 'Zustellart',
         label_pickup_point: 'Abholstation',
         label_custom_name: 'Eigener Name',
-        add_custom_name: '+ Name hinzufügen',
+        add_custom_name: 'Name hinzufügen',
         custom_name_placeholder: 'z. B. Geburtstagsgeschenk',
         custom_name_edit: 'Name bearbeiten',
         custom_name_save: 'Speichern',
@@ -1204,7 +1214,7 @@ const TRANSLATIONS = {
         postal_code_account_help: '{carrier} hat kein Konto — gib die Postleitzahl ein, mit der du die Integration eingerichtet hast.',
         hub_account_help: '{carrier} funktioniert mit einem Konto oder mit Postleitzahl-Hubs — wähle das erkannte Konto oder gib bei einem Hub dessen Postleitzahl ein (nötig für "+ Paket hinzufügen", wenn du mehr als einen Hub hast).',
         show_add_parcel: '"Paket hinzufügen" auf der Karte anzeigen',
-        add_parcel_toggle: '+ Paket hinzufügen',
+        add_parcel_toggle: 'Paket hinzufügen',
         add_parcel_carrier: 'Zustelldienst',
         add_parcel_number: 'Sendungsnummer',
         add_parcel_submit: 'Hinzufügen',
@@ -1266,6 +1276,8 @@ const TRANSLATIONS = {
         label_pickup_deadline: 'Abholen bis',
         update_available: 'HA Parcel Card {version} ist installiert',
         reload: 'Neu laden',
+        default_tab_label: 'Start-Tab',
+        default_tab_help: 'Der Tab, mit dem die Karte öffnet. Ein Dashboard-Link mit ?parcel_tab=post (oder in_transit, delivered, sent) hat Vorrang, z. B. aus einer Benachrichtigung.',
     },
     // es: machine-drafted, not yet reviewed by a native speaker (see translations/es.json)
     es: {
@@ -1311,7 +1323,7 @@ const TRANSLATIONS = {
         label_delivery: 'Modo de entrega',
         label_pickup_point: 'Punto de recogida',
         label_custom_name: 'Nombre personalizado',
-        add_custom_name: '+ Añadir nombre',
+        add_custom_name: 'Añadir nombre',
         custom_name_placeholder: 'p. ej. Regalo de cumpleaños',
         custom_name_edit: 'Editar nombre',
         custom_name_save: 'Guardar',
@@ -1397,7 +1409,7 @@ const TRANSLATIONS = {
         postal_code_account_help: '{carrier} no tiene cuenta: introduce el código postal con el que configuraste la integración.',
         hub_account_help: '{carrier} funciona con una cuenta o con hubs por código postal: elige la cuenta detectada o, para un hub, introduce su código postal (necesario para «+ Añadir paquete» si tienes más de un hub).',
         show_add_parcel: 'Mostrar "Añadir paquete" en la tarjeta',
-        add_parcel_toggle: '+ Añadir paquete',
+        add_parcel_toggle: 'Añadir paquete',
         add_parcel_carrier: 'Transportista',
         add_parcel_number: 'Número de seguimiento',
         add_parcel_submit: 'Añadir',
@@ -1459,6 +1471,8 @@ const TRANSLATIONS = {
         label_pickup_deadline: 'Recoger antes del',
         update_available: 'HA Parcel Card {version} está instalada',
         reload: 'Recargar',
+        default_tab_label: 'Pestaña inicial',
+        default_tab_help: 'La pestaña con la que se abre la tarjeta. Un enlace al panel con ?parcel_tab=post (o in_transit, delivered, sent) tiene prioridad, por ejemplo desde una notificación.',
     },
     // fi: machine-drafted, not yet reviewed by a native speaker (see translations/fi.json)
     fi: {
@@ -1504,7 +1518,7 @@ const TRANSLATIONS = {
         label_delivery: 'Toimitus',
         label_pickup_point: 'Noutopiste',
         label_custom_name: 'Oma nimi',
-        add_custom_name: '+ Lisää nimi',
+        add_custom_name: 'Lisää nimi',
         custom_name_placeholder: 'esim. Syntymäpäivälahja',
         custom_name_edit: 'Muokkaa nimeä',
         custom_name_save: 'Tallenna',
@@ -1590,7 +1604,7 @@ const TRANSLATIONS = {
         postal_code_account_help: '{carrier}: ei tiliä — anna postinumero, jolla määritit integraation.',
         hub_account_help: '{carrier} toimii tilin tai postinumerokohtaisten hubien kanssa — valitse löydetty tili tai anna hubin postinumero (tarvitaan "+ Lisää paketti" -toimintoon, jos hubeja on useampi).',
         show_add_parcel: 'Näytä "Lisää paketti" kortissa',
-        add_parcel_toggle: '+ Lisää paketti',
+        add_parcel_toggle: 'Lisää paketti',
         add_parcel_carrier: 'Kuljetusyhtiö',
         add_parcel_number: 'Seurantanumero',
         add_parcel_submit: 'Lisää',
@@ -1652,6 +1666,8 @@ const TRANSLATIONS = {
         label_pickup_deadline: 'Noudettava viimeistään',
         update_available: 'HA Parcel Card {version} on asennettu',
         reload: 'Lataa uudelleen',
+        default_tab_label: 'Aloitusvälilehti',
+        default_tab_help: 'Välilehti, jolla kortti avautuu. Kojelaudan linkki, jossa on ?parcel_tab=post (tai in_transit, delivered, sent), menee edelle, esim. ilmoituksesta.',
     },
     // fr: machine-drafted, not yet reviewed by a native speaker (see translations/fr.json)
     fr: {
@@ -1697,7 +1713,7 @@ const TRANSLATIONS = {
         label_delivery: 'Mode de livraison',
         label_pickup_point: 'Point de retrait',
         label_custom_name: 'Nom personnalisé',
-        add_custom_name: '+ Ajouter un nom',
+        add_custom_name: 'Ajouter un nom',
         custom_name_placeholder: 'p. ex. Cadeau d\'anniversaire',
         custom_name_edit: 'Modifier le nom',
         custom_name_save: 'Enregistrer',
@@ -1783,7 +1799,7 @@ const TRANSLATIONS = {
         postal_code_account_help: '{carrier} n\'a pas de compte — saisissez le code postal utilisé lors de la configuration de l\'intégration.',
         hub_account_help: '{carrier} fonctionne avec un compte ou avec des hubs par code postal — choisissez le compte détecté ou, pour un hub, saisissez son code postal (nécessaire pour « + Ajouter un colis » si vous avez plusieurs hubs).',
         show_add_parcel: 'Afficher "Ajouter un colis" sur la carte',
-        add_parcel_toggle: '+ Ajouter un colis',
+        add_parcel_toggle: 'Ajouter un colis',
         add_parcel_carrier: 'Transporteur',
         add_parcel_number: 'Numéro de suivi',
         add_parcel_submit: 'Ajouter',
@@ -1845,6 +1861,8 @@ const TRANSLATIONS = {
         label_pickup_deadline: 'À retirer avant le',
         update_available: 'HA Parcel Card {version} est installée',
         reload: 'Recharger',
+        default_tab_label: 'Onglet de départ',
+        default_tab_help: 'L\'onglet affiché à l\'ouverture de la carte. Un lien de tableau de bord avec ?parcel_tab=post (ou in_transit, delivered, sent) est prioritaire, par exemple depuis une notification.',
     },
     // hi: machine-drafted, not yet reviewed by a native speaker (see translations/hi.json)
     hi: {
@@ -1890,7 +1908,7 @@ const TRANSLATIONS = {
         label_delivery: 'डिलीवरी',
         label_pickup_point: 'पिकअप पॉइंट',
         label_custom_name: 'कस्टम नाम',
-        add_custom_name: '+ नाम जोड़ें',
+        add_custom_name: 'नाम जोड़ें',
         custom_name_placeholder: 'जैसे जन्मदिन का उपहार',
         custom_name_edit: 'नाम संपादित करें',
         custom_name_save: 'सहेजें',
@@ -1976,7 +1994,7 @@ const TRANSLATIONS = {
         postal_code_account_help: '{carrier} का कोई खाता नहीं है — वह पिन कोड दर्ज करें जिससे आपने इंटीग्रेशन सेट किया था।',
         hub_account_help: '{carrier} खाते या पिन कोड हब के साथ काम करता है — मिला हुआ खाता चुनें, या हब के लिए उसका पिन कोड दर्ज करें (एक से अधिक हब होने पर "+ पार्सल जोड़ें" के लिए ज़रूरी)।',
         show_add_parcel: 'कार्ड पर "पार्सल जोड़ें" दिखाएँ',
-        add_parcel_toggle: '+ पार्सल जोड़ें',
+        add_parcel_toggle: 'पार्सल जोड़ें',
         add_parcel_carrier: 'कैरियर',
         add_parcel_number: 'ट्रैकिंग नंबर',
         add_parcel_submit: 'जोड़ें',
@@ -2038,6 +2056,8 @@ const TRANSLATIONS = {
         label_pickup_deadline: 'इस तारीख तक लें',
         update_available: 'HA Parcel Card {version} इंस्टॉल हो गया है',
         reload: 'फिर से लोड करें',
+        default_tab_label: 'प्रारंभिक टैब',
+        default_tab_help: 'वह टैब जिस पर कार्ड खुलता है। ?parcel_tab=post (या in_transit, delivered, sent) वाला डैशबोर्ड लिंक इसे ओवरराइड करता है, जैसे किसी सूचना से।',
     },
     // hu: machine-drafted, not yet reviewed by a native speaker (see translations/hu.json)
     hu: {
@@ -2083,7 +2103,7 @@ const TRANSLATIONS = {
         label_delivery: 'Kézbesítés',
         label_pickup_point: 'Csomagpont',
         label_custom_name: 'Egyéni név',
-        add_custom_name: '+ Név hozzáadása',
+        add_custom_name: 'Név hozzáadása',
         custom_name_placeholder: 'pl. Születésnapi ajándék',
         custom_name_edit: 'Név szerkesztése',
         custom_name_save: 'Mentés',
@@ -2169,7 +2189,7 @@ const TRANSLATIONS = {
         postal_code_account_help: 'A(z) {carrier} szolgáltatónál nincs fiók — add meg az irányítószámot, amellyel az integrációt beállítottad.',
         hub_account_help: 'A(z) {carrier} fiókkal vagy irányítószám szerinti hubokkal működik — válaszd ki a talált fiókot, vagy hubnál add meg az irányítószámát (több hub esetén ez kell a „+ Csomag hozzáadása” funkcióhoz).',
         show_add_parcel: '"Csomag hozzáadása" megjelenítése a kártyán',
-        add_parcel_toggle: '+ Csomag hozzáadása',
+        add_parcel_toggle: 'Csomag hozzáadása',
         add_parcel_carrier: 'Szolgáltató',
         add_parcel_number: 'Nyomkövetési szám',
         add_parcel_submit: 'Hozzáadás',
@@ -2231,6 +2251,8 @@ const TRANSLATIONS = {
         label_pickup_deadline: 'Átvételi határidő',
         update_available: 'A HA Parcel Card {version} telepítve',
         reload: 'Újratöltés',
+        default_tab_label: 'Kezdőlap',
+        default_tab_help: 'Az a lap, amelyen a kártya megnyílik. Egy ?parcel_tab=post (vagy in_transit, delivered, sent) paraméteres irányítópult-hivatkozás felülírja, pl. egy értesítésből.',
     },
     // it: machine-drafted, not yet reviewed by a native speaker (see translations/it.json)
     it: {
@@ -2276,7 +2298,7 @@ const TRANSLATIONS = {
         label_delivery: 'Modalità di consegna',
         label_pickup_point: 'Punto di ritiro',
         label_custom_name: 'Nome personalizzato',
-        add_custom_name: '+ Aggiungi nome',
+        add_custom_name: 'Aggiungi nome',
         custom_name_placeholder: 'es. Regalo di compleanno',
         custom_name_edit: 'Modifica nome',
         custom_name_save: 'Salva',
@@ -2362,7 +2384,7 @@ const TRANSLATIONS = {
         postal_code_account_help: '{carrier} non ha account — inserisci il codice postale con cui hai configurato l\'integrazione.',
         hub_account_help: '{carrier} funziona con un account o con hub per codice postale — scegli l\'account rilevato oppure, per un hub, inserisci il suo codice postale (necessario per «+ Aggiungi pacco» se hai più di un hub).',
         show_add_parcel: 'Mostra "Aggiungi pacco" sulla scheda',
-        add_parcel_toggle: '+ Aggiungi pacco',
+        add_parcel_toggle: 'Aggiungi pacco',
         add_parcel_carrier: 'Corriere',
         add_parcel_number: 'Numero di tracciamento',
         add_parcel_submit: 'Aggiungi',
@@ -2424,6 +2446,8 @@ const TRANSLATIONS = {
         label_pickup_deadline: 'Ritirare entro il',
         update_available: 'HA Parcel Card {version} è installata',
         reload: 'Ricarica',
+        default_tab_label: 'Scheda iniziale',
+        default_tab_help: 'La scheda con cui si apre la card. Un link alla dashboard con ?parcel_tab=post (o in_transit, delivered, sent) ha la precedenza, ad esempio da una notifica.',
     },
     // nb: machine-drafted, not yet reviewed by a native speaker (see translations/nb.json)
     nb: {
@@ -2469,7 +2493,7 @@ const TRANSLATIONS = {
         label_delivery: 'Levering',
         label_pickup_point: 'Hentested',
         label_custom_name: 'Eget navn',
-        add_custom_name: '+ Legg til navn',
+        add_custom_name: 'Legg til navn',
         custom_name_placeholder: 'f.eks. Bursdagsgave',
         custom_name_edit: 'Rediger navn',
         custom_name_save: 'Lagre',
@@ -2555,7 +2579,7 @@ const TRANSLATIONS = {
         postal_code_account_help: '{carrier} har ingen konto — skriv inn postnummeret du satte opp integrasjonen med.',
         hub_account_help: '{carrier} fungerer med en konto eller med postnummer-huber — velg kontoen som ble funnet, eller skriv inn hubens postnummer (trengs for "+ Legg til pakke" når du har mer enn én hub).',
         show_add_parcel: 'Vis "Legg til pakke" på kortet',
-        add_parcel_toggle: '+ Legg til pakke',
+        add_parcel_toggle: 'Legg til pakke',
         add_parcel_carrier: 'Transportør',
         add_parcel_number: 'Sporingsnummer',
         add_parcel_submit: 'Legg til',
@@ -2617,6 +2641,8 @@ const TRANSLATIONS = {
         label_pickup_deadline: 'Hentes innen',
         update_available: 'HA Parcel Card {version} er installert',
         reload: 'Last inn på nytt',
+        default_tab_label: 'Startfane',
+        default_tab_help: 'Fanen kortet åpner på. En dashbordlenke med ?parcel_tab=post (eller in_transit, delivered, sent) går foran, f.eks. fra et varsel.',
     },
     // pl: machine-drafted, not yet reviewed by a native speaker (see translations/pl.json)
     pl: {
@@ -2662,7 +2688,7 @@ const TRANSLATIONS = {
         label_delivery: 'Sposób dostawy',
         label_pickup_point: 'Punkt odbioru',
         label_custom_name: 'Własna nazwa',
-        add_custom_name: '+ Dodaj nazwę',
+        add_custom_name: 'Dodaj nazwę',
         custom_name_placeholder: 'np. Prezent urodzinowy',
         custom_name_edit: 'Edytuj nazwę',
         custom_name_save: 'Zapisz',
@@ -2748,7 +2774,7 @@ const TRANSLATIONS = {
         postal_code_account_help: '{carrier} nie ma konta — wpisz kod pocztowy, z którym skonfigurowano integrację.',
         hub_account_help: '{carrier} działa z kontem lub z hubami według kodu pocztowego — wybierz wykryte konto albo dla huba wpisz jego kod pocztowy (potrzebny do „+ Dodaj paczkę”, gdy masz więcej niż jeden hub).',
         show_add_parcel: 'Pokaż "Dodaj paczkę" na karcie',
-        add_parcel_toggle: '+ Dodaj paczkę',
+        add_parcel_toggle: 'Dodaj paczkę',
         add_parcel_carrier: 'Przewoźnik',
         add_parcel_number: 'Numer śledzenia',
         add_parcel_submit: 'Dodaj',
@@ -2810,6 +2836,8 @@ const TRANSLATIONS = {
         label_pickup_deadline: 'Odbierz do',
         update_available: 'Zainstalowano HA Parcel Card {version}',
         reload: 'Odśwież',
+        default_tab_label: 'Karta startowa',
+        default_tab_help: 'Karta, na której otwiera się widżet. Link do panelu z ?parcel_tab=post (lub in_transit, delivered, sent) ma pierwszeństwo, np. z powiadomienia.',
     },
     // pt: machine-drafted, not yet reviewed by a native speaker (see translations/pt.json)
     pt: {
@@ -2855,7 +2883,7 @@ const TRANSLATIONS = {
         label_delivery: 'Modo de entrega',
         label_pickup_point: 'Ponto de recolha',
         label_custom_name: 'Nome personalizado',
-        add_custom_name: '+ Adicionar nome',
+        add_custom_name: 'Adicionar nome',
         custom_name_placeholder: 'por ex. Presente de aniversário',
         custom_name_edit: 'Editar nome',
         custom_name_save: 'Guardar',
@@ -2941,7 +2969,7 @@ const TRANSLATIONS = {
         postal_code_account_help: '{carrier} não tem conta — introduza o código postal com que configurou a integração.',
         hub_account_help: '{carrier} funciona com uma conta ou com hubs por código postal — escolha a conta detetada ou, para um hub, introduza o código postal (necessário para «+ Adicionar encomenda» se tiver mais de um hub).',
         show_add_parcel: 'Mostrar "Adicionar encomenda" no cartão',
-        add_parcel_toggle: '+ Adicionar encomenda',
+        add_parcel_toggle: 'Adicionar encomenda',
         add_parcel_carrier: 'Transportadora',
         add_parcel_number: 'Número de rastreamento',
         add_parcel_submit: 'Adicionar',
@@ -3003,6 +3031,8 @@ const TRANSLATIONS = {
         label_pickup_deadline: 'Levantar até',
         update_available: 'HA Parcel Card {version} está instalada',
         reload: 'Recarregar',
+        default_tab_label: 'Separador inicial',
+        default_tab_help: 'O separador com que o cartão abre. Uma ligação ao painel com ?parcel_tab=post (ou in_transit, delivered, sent) tem prioridade, por exemplo a partir de uma notificação.',
     },
     // ro: machine-drafted, not yet reviewed by a native speaker (see translations/ro.json)
     ro: {
@@ -3048,7 +3078,7 @@ const TRANSLATIONS = {
         label_delivery: 'Livrare',
         label_pickup_point: 'Punct de ridicare',
         label_custom_name: 'Nume personalizat',
-        add_custom_name: '+ Adaugă nume',
+        add_custom_name: 'Adaugă nume',
         custom_name_placeholder: 'de ex. Cadou de ziua de naștere',
         custom_name_edit: 'Editează numele',
         custom_name_save: 'Salvează',
@@ -3134,7 +3164,7 @@ const TRANSLATIONS = {
         postal_code_account_help: '{carrier} nu are cont — introdu codul poștal cu care ai configurat integrarea.',
         hub_account_help: '{carrier} funcționează cu un cont sau cu huburi pe cod poștal — alege contul detectat sau, pentru un hub, introdu codul său poștal (necesar pentru „+ Adaugă colet” când ai mai multe huburi).',
         show_add_parcel: 'Afișează "Adaugă colet" pe card',
-        add_parcel_toggle: '+ Adaugă colet',
+        add_parcel_toggle: 'Adaugă colet',
         add_parcel_carrier: 'Curier',
         add_parcel_number: 'Număr de urmărire',
         add_parcel_submit: 'Adaugă',
@@ -3196,6 +3226,8 @@ const TRANSLATIONS = {
         label_pickup_deadline: 'De ridicat până la',
         update_available: 'HA Parcel Card {version} este instalat',
         reload: 'Reîncarcă',
+        default_tab_label: 'Filă de pornire',
+        default_tab_help: 'Fila cu care se deschide cardul. Un link de panou cu ?parcel_tab=post (sau in_transit, delivered, sent) are prioritate, de exemplu dintr-o notificare.',
     },
     // sk: machine-drafted, not yet reviewed by a native speaker (see translations/sk.json)
     sk: {
@@ -3241,7 +3273,7 @@ const TRANSLATIONS = {
         label_delivery: 'Doručenie',
         label_pickup_point: 'Výdajné miesto',
         label_custom_name: 'Vlastný názov',
-        add_custom_name: '+ Pridať názov',
+        add_custom_name: 'Pridať názov',
         custom_name_placeholder: 'napr. Darček k narodeninám',
         custom_name_edit: 'Upraviť názov',
         custom_name_save: 'Uložiť',
@@ -3327,7 +3359,7 @@ const TRANSLATIONS = {
         postal_code_account_help: '{carrier} nemá účet — zadajte PSČ, s ktorým ste integráciu nastavili.',
         hub_account_help: '{carrier} funguje s účtom alebo s hubmi podľa PSČ — vyberte nájdený účet, alebo pri hube zadajte jeho PSČ (potrebné pre „+ Pridať zásielku“, ak máte viac hubov).',
         show_add_parcel: 'Zobraziť "Pridať zásielku" na karte',
-        add_parcel_toggle: '+ Pridať zásielku',
+        add_parcel_toggle: 'Pridať zásielku',
         add_parcel_carrier: 'Dopravca',
         add_parcel_number: 'Sledovacie číslo',
         add_parcel_submit: 'Pridať',
@@ -3389,6 +3421,8 @@ const TRANSLATIONS = {
         label_pickup_deadline: 'Vyzdvihnite do',
         update_available: 'HA Parcel Card {version} je nainštalovaná',
         reload: 'Načítať znova',
+        default_tab_label: 'Úvodná karta',
+        default_tab_help: 'Karta, na ktorej sa karta otvorí. Odkaz na nástenku s ?parcel_tab=post (alebo in_transit, delivered, sent) má prednosť, napr. z upozornenia.',
     },
     // sv: machine-drafted, not yet reviewed by a native speaker (see translations/sv.json)
     sv: {
@@ -3434,7 +3468,7 @@ const TRANSLATIONS = {
         label_delivery: 'Leverans',
         label_pickup_point: 'Utlämningsställe',
         label_custom_name: 'Eget namn',
-        add_custom_name: '+ Lägg till namn',
+        add_custom_name: 'Lägg till namn',
         custom_name_placeholder: 't.ex. Födelsedagspresent',
         custom_name_edit: 'Redigera namn',
         custom_name_save: 'Spara',
@@ -3520,7 +3554,7 @@ const TRANSLATIONS = {
         postal_code_account_help: '{carrier} har inget konto — ange postnumret du konfigurerade integrationen med.',
         hub_account_help: '{carrier} fungerar med ett konto eller med postnummer-hubbar — välj det hittade kontot, eller ange hubbens postnummer (behövs för "+ Lägg till paket" när du har mer än en hubb).',
         show_add_parcel: 'Visa "Lägg till paket" på kortet',
-        add_parcel_toggle: '+ Lägg till paket',
+        add_parcel_toggle: 'Lägg till paket',
         add_parcel_carrier: 'Transportör',
         add_parcel_number: 'Spårningsnummer',
         add_parcel_submit: 'Lägg till',
@@ -3582,6 +3616,8 @@ const TRANSLATIONS = {
         label_pickup_deadline: 'Hämtas senast',
         update_available: 'HA Parcel Card {version} är installerat',
         reload: 'Ladda om',
+        default_tab_label: 'Startflik',
+        default_tab_help: 'Fliken som kortet öppnas på. En länk till instrumentpanelen med ?parcel_tab=post (eller in_transit, delivered, sent) går före, t.ex. från en avisering.',
     },
     // uk: machine-drafted, not yet reviewed by a native speaker (see translations/uk.json)
     uk: {
@@ -3627,7 +3663,7 @@ const TRANSLATIONS = {
         label_delivery: 'Доставка',
         label_pickup_point: 'Пункт видачі',
         label_custom_name: 'Власна назва',
-        add_custom_name: '+ Додати назву',
+        add_custom_name: 'Додати назву',
         custom_name_placeholder: 'напр. Подарунок на день народження',
         custom_name_edit: 'Редагувати назву',
         custom_name_save: 'Зберегти',
@@ -3713,7 +3749,7 @@ const TRANSLATIONS = {
         postal_code_account_help: '{carrier} не має облікового запису — введіть поштовий індекс, з яким налаштовано інтеграцію.',
         hub_account_help: '{carrier} працює з обліковим записом або з хабами за поштовим індексом — виберіть знайдений обліковий запис або для хаба введіть його поштовий індекс (потрібно для «+ Додати посилку», якщо хабів більше одного).',
         show_add_parcel: 'Показати "Додати посилку" на картці',
-        add_parcel_toggle: '+ Додати посилку',
+        add_parcel_toggle: 'Додати посилку',
         add_parcel_carrier: 'Перевізник',
         add_parcel_number: 'Номер відстеження',
         add_parcel_submit: 'Додати',
@@ -3775,6 +3811,8 @@ const TRANSLATIONS = {
         label_pickup_deadline: 'Забрати до',
         update_available: 'HA Parcel Card {version} встановлено',
         reload: 'Перезавантажити',
+        default_tab_label: 'Початкова вкладка',
+        default_tab_help: 'Вкладка, з якою відкривається картка. Посилання на панель із ?parcel_tab=post (або in_transit, delivered, sent) має пріоритет, наприклад зі сповіщення.',
     },
 };
 // GENERATED:TRANSLATIONS:END
@@ -5412,11 +5450,32 @@ async function checkForNewerCard(hass) {
     }
 }
 
+// ── Opening on a chosen tab ──────────────────────────────────────────────────
+// `default_tab` in the config, or `?parcel_tab=post` in the dashboard URL (which
+// wins), so a notification can open the card straight on the Letters tab. The
+// English names are the documented ones; the internal tab keys work too.
+const START_TABS = {
+    in_transit: 'onderweg', delivered: 'bezorgd', sent: 'verzonden', post: 'post', letters: 'post',
+    onderweg: 'onderweg', bezorgd: 'bezorgd', verzonden: 'verzonden',
+};
+
+function reapplyStartTab() {
+    // HA navigates without reloading, so an already-open card would otherwise keep its tab.
+    if (!new URLSearchParams(window.location.search).has('parcel_tab')) return;
+    for (const card of updateState.cards) {
+        card._startTabPending = true;
+        if (card._isRendered) card.render();
+    }
+}
+window.addEventListener('location-changed', reapplyStartTab);
+window.addEventListener('popstate', reapplyStartTab);
+
 class HaParcelCard extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: 'open' });
         this._activeTab = 'onderweg';
+        this._startTabPending = true;
         this._selectedParcel = null;
         this._editingNameKey = null;
         this._isRendered = false;
@@ -5446,6 +5505,7 @@ class HaParcelCard extends HTMLElement {
     }
 
     setConfig(config) {
+        if (config?.default_tab !== this.config?.default_tab) this._startTabPending = true;
         this.config = {
             title: 'Parcels',
             days_back: 90,
@@ -6283,6 +6343,19 @@ class HaParcelCard extends HTMLElement {
         return (this.config.carriers || []).some(c => !!c.entity_letters);
     }
 
+    // The tab asked for by the URL or default_tab, or null when it is unknown or hidden.
+    _requestedStartTab() {
+        const requested = new URLSearchParams(window.location.search).get('parcel_tab') || this.config.default_tab;
+        const tab = START_TABS[String(requested || '').toLowerCase()];
+        const shown = {
+            onderweg: true,
+            bezorgd: !!this.config.show_delivered,
+            verzonden: !!this.config.show_sent,
+            post: !!this.config.show_letters && this.hasAnyLettersConfigured(),
+        };
+        return tab && shown[tab] ? tab : null;
+    }
+
     _countLettersToday(data) {
         const todayStr = new Date().toDateString();
         const allLetters = [...(data?.post?.upcoming || []), ...(data?.post?.delivered || [])];
@@ -6547,10 +6620,96 @@ class HaParcelCard extends HTMLElement {
         popup.innerHTML = `
             <div class="letter-popup-content">
                 <button class="letter-popup-close" title="Close"><ha-icon icon="mdi:close"></ha-icon></button>
-                <img src="${src}" alt="${name || ''}" />
+                <div class="letter-zoom"><img src="${src}" alt="${name || ''}" draggable="false" /></div>
                 <div class="letter-popup-caption"><strong>${name || ''}</strong>${dateLabel ? ` • ${dateLabel}` : ''}</div>
             </div>`;
+        this._bindLetterZoom(popup.querySelector('.letter-zoom'));
         popup.classList.add('open');
+    }
+
+    // Zooming into a letter scan: pinch or double-tap on a phone, the mouse wheel or a
+    // double-click on a desktop; a zoomed scan can be dragged around. The companion app
+    // does not pinch-zoom the page itself, so without this small print stays unreadable.
+    _bindLetterZoom(frame) {
+        const img = frame.querySelector('img');
+        const MAX_SCALE = 5;
+        const pointers = new Map();
+        let scale = 1, x = 0, y = 0, pinch = null, lastTap = 0, moved = false;
+
+        const apply = () => {
+            // Never pan past the scan's edges.
+            const limitX = frame.clientWidth * (scale - 1) / 2;
+            const limitY = frame.clientHeight * (scale - 1) / 2;
+            x = Math.max(-limitX, Math.min(limitX, x));
+            y = Math.max(-limitY, Math.min(limitY, y));
+            img.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
+            frame.classList.toggle('zoomed', scale > 1);
+        };
+        // Point relative to the frame's centre, which is the transform origin.
+        const at = (clientX, clientY) => {
+            const r = frame.getBoundingClientRect();
+            return [clientX - r.left - r.width / 2, clientY - r.top - r.height / 2];
+        };
+        // Zoom to `next` while keeping the point under (px, py) in place.
+        const zoomAt = (px, py, next) => {
+            next = Math.max(1, Math.min(MAX_SCALE, next));
+            x = px - (px - x) * next / scale;
+            y = py - (py - y) * next / scale;
+            scale = next;
+            if (scale === 1) x = y = 0;
+            apply();
+        };
+        const toggle = (clientX, clientY) => {
+            if (scale > 1) zoomAt(0, 0, 1);
+            else zoomAt(...at(clientX, clientY), 2.5);
+        };
+        const pinchState = () => {
+            const [a, b] = [...pointers.values()];
+            return { dist: Math.hypot(a.x - b.x, a.y - b.y), mid: at((a.x + b.x) / 2, (a.y + b.y) / 2) };
+        };
+
+        frame.addEventListener('pointerdown', e => {
+            try { frame.setPointerCapture(e.pointerId); } catch (err) { /* pointer already gone */ }
+            pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+            frame.classList.add('dragging');
+            moved = false;
+            if (pointers.size === 2) pinch = { ...pinchState(), scale };
+        });
+        frame.addEventListener('pointermove', e => {
+            const prev = pointers.get(e.pointerId);
+            if (!prev) return;
+            pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+            if (Math.abs(e.clientX - prev.x) + Math.abs(e.clientY - prev.y) > 2) moved = true;
+            if (pinch && pointers.size === 2) {
+                const now = pinchState();
+                zoomAt(now.mid[0], now.mid[1], pinch.scale * now.dist / pinch.dist);
+                x += now.mid[0] - pinch.mid[0];
+                y += now.mid[1] - pinch.mid[1];
+                pinch.mid = now.mid;
+                apply();
+            } else if (pointers.size === 1 && scale > 1) {
+                x += e.clientX - prev.x;
+                y += e.clientY - prev.y;
+                apply();
+            }
+        });
+        const release = e => {
+            if (!pointers.delete(e.pointerId)) return;
+            if (pointers.size < 2) pinch = null;
+            if (!pointers.size) frame.classList.remove('dragging');
+            // Touch has no reliable dblclick once touch-action is off; detect the double tap here.
+            if (e.type === 'pointerup' && e.pointerType !== 'mouse' && !moved && !pointers.size) {
+                if (e.timeStamp - lastTap < 300) { toggle(e.clientX, e.clientY); lastTap = 0; }
+                else lastTap = e.timeStamp;
+            }
+        };
+        frame.addEventListener('pointerup', release);
+        frame.addEventListener('pointercancel', release);
+        frame.addEventListener('dblclick', e => toggle(e.clientX, e.clientY));
+        frame.addEventListener('wheel', e => {
+            e.preventDefault();
+            zoomAt(...at(e.clientX, e.clientY), scale * (e.deltaY < 0 ? 1.25 : 0.8));
+        }, { passive: false });
     }
 
     _closeLetterPopup() {
@@ -7420,6 +7579,16 @@ class HaParcelCard extends HTMLElement {
             return;
         }
 
+        if (this._startTabPending) {
+            this._startTabPending = false;
+            const startTab = this._requestedStartTab();
+            if (startTab && startTab !== this._activeTab) {
+                this._activeTab = startTab;
+                this._selectedParcel = null;
+                this._lastListFingerprint = null;
+            }
+        }
+
         const displayed      = this.getFilteredShipments(data);
         const lettersToday   = this.hasAnyLettersConfigured() ? this._countLettersToday(data) : null;
         const statsText      = `${data.onderweg.length} ${this._t('stats_in_transit')} • ${data.bezorgd.length} ${this._t('stats_recent')}${lettersToday !== null ? ` • ${lettersToday} ${this._t('stats_letters')}` : ''}`;
@@ -7553,7 +7722,7 @@ class HaParcelCard extends HTMLElement {
             }
             .custom-name-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
             .custom-name-add-btn { background: none; border: none; color: var(--carrier-color, var(--accent)); cursor: pointer; font-size: 0.9em; font-weight: 600; padding: 2px 0; display: inline-flex; align-items: center; gap: 4px; }
-            .custom-name-add-btn ha-icon { width: 16px; height: 16px; }
+            .custom-name-add-btn ha-icon { --mdc-icon-size: 16px; width: 16px; height: 16px; display: inline-flex; }
             .custom-name-edit-btn, .custom-name-save, .custom-name-cancel { background: none; border: none; color: var(--secondary-text-color); cursor: pointer; padding: 2px; display: inline-flex; align-items: center; border-radius: 4px; }
             .custom-name-edit-btn ha-icon, .custom-name-save ha-icon, .custom-name-cancel ha-icon { width: 16px; height: 16px; }
             .custom-name-edit-btn:hover, .custom-name-save:hover, .custom-name-cancel:hover { background: var(--divider-color); }
@@ -7570,6 +7739,11 @@ class HaParcelCard extends HTMLElement {
             .letter-popup-overlay.open { display: flex; }
             .letter-popup-content { position: relative; background: var(--card-background-color, white); border-radius: 8px; padding: 16px; max-width: 90vw; max-height: 90vh; display: flex; flex-direction: column; align-items: center; gap: 10px; }
             .letter-popup-content img { max-width: 100%; max-height: 70vh; object-fit: contain; border-radius: 4px; }
+            .letter-zoom { display: flex; max-width: 100%; overflow: hidden; border-radius: 4px; touch-action: none; cursor: zoom-in; }
+            .letter-zoom.zoomed { cursor: grab; }
+            .letter-zoom.zoomed.dragging { cursor: grabbing; }
+            .letter-zoom img { display: block; max-width: calc(90vw - 32px); max-height: 70vh; transform-origin: center; transition: transform 0.15s ease-out; user-select: none; -webkit-user-select: none; }
+            .letter-zoom.dragging img { transition: none; }
             .letter-popup-caption { color: var(--primary-text-color); font-size: 0.95em; text-align: center; }
             .letter-popup-close { position: absolute; top: 8px; right: 8px; background: var(--secondary-background-color); border: none; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--primary-text-color); }
             .letter-popup-close:hover { background: var(--divider-color); }
@@ -8638,6 +8812,19 @@ class HaParcelCardEditor extends LitElement {
                     <div class="switch-row"><ha-switch .checked=${this._config.group_by_carrier !== false} data-field="group_by_carrier" @change=${this._changed}></ha-switch><span>${this._t('group_by_carrier')}</span></div>
                     <div class="switch-row"><ha-switch .checked=${this._config.show_extra_info_button !== false} data-field="show_extra_info_button" @change=${this._changed}></ha-switch><span>${this._t('show_extra_info_button')}</span></div>
                     <div class="switch-row"><ha-switch .checked=${this._config.show_raw_data_button !== false} data-field="show_raw_data_button" @change=${this._changed}></ha-switch><span>${this._t('show_raw_data_button')}</span></div>
+                    <div class="plain-field">
+                        <label>${this._t('default_tab_label')}</label>
+                        <ha-selector .hass=${this.hass}
+                            .selector=${{ select: { options: [
+                                { value: 'in_transit', label: this._t('tab_in_transit') },
+                                { value: 'delivered',  label: this._t('tab_delivered') },
+                                { value: 'sent',       label: this._t('tab_sent') },
+                                { value: 'post',       label: this._t('tab_letters') }
+                            ], mode: 'dropdown' } }}
+                            .value=${this._config.default_tab || 'in_transit'}
+                            @value-changed=${(ev) => this._changed(ev, 'default_tab')}></ha-selector>
+                        <div class="helper-text">${this._t('default_tab_help')}</div>
+                    </div>
                     <div class="plain-field">
                         <label>${this._t('custom_name_scope_label')}</label>
                         <ha-selector .hass=${this.hass}

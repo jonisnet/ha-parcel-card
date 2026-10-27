@@ -16,13 +16,13 @@ The editor's auto-detection also handles this case automatically.
 
 ## Registering a parcel without opening the integration
 
-For every carrier with "Add parcel from card" in the [Carrier types](configuration.md#carrier-types) table, use the "+ Add parcel" control at the bottom of the card instead of switching to the integration's own Configure dialog — it calls the same `track_parcel` service directly, so the parcel shows up in the card immediately. See [Add parcel support](overview.md#add-parcel-support) for why account-based carriers such as PostNL, DHL NL, DPD and Vinted Go don't need it.
+For every carrier with "Add parcel from card" in the [Carrier types](configuration.md#carrier-types) table, use the "Add parcel" control at the bottom of the card instead of switching to the integration's own Configure dialog — it calls the same `track_parcel` service directly, so the parcel shows up in the card immediately. See [Add parcel support](overview.md#add-parcel-support) for why account-based carriers such as PostNL, DHL NL, DPD and Vinted Go don't need it.
 
 ---
 
 ## Naming a parcel
 
-Open a parcel's detail panel and click "+ Add name" to give it a short label of your own — "Birthday gift" is a lot easier to spot than a bare tracking code. By default (`custom_name_scope: everyone`) the name is saved instance-wide with live updates for every Home Assistant user — adding or editing one requires an admin account, though everyone can see the names. Set `custom_name_scope: me` to save it to your own Home Assistant account instead (synced across your own devices only), `device` to keep it in this browser only, or `off` to hide the control entirely.
+Open a parcel's detail panel and click "Add name" to give it a short label of your own — "Birthday gift" is a lot easier to spot than a bare tracking code. By default (`custom_name_scope: everyone`) the name is saved instance-wide with live updates for every Home Assistant user — adding or editing one requires an admin account, though everyone can see the names. Set `custom_name_scope: me` to save it to your own Home Assistant account instead (synced across your own devices only), `device` to keep it in this browser only, or `off` to hide the control entirely.
 
 ---
 
@@ -50,6 +50,41 @@ If you don't send parcels, or don't use PostNL, you can hide the tabs you don't 
 show_sent: false
 show_letters: false
 ```
+
+---
+
+## Opening the card on a tab from a notification
+
+The card normally opens on **In transit**. Set `default_tab` to start elsewhere:
+
+```yaml
+default_tab: post   # in_transit, delivered, sent or post
+```
+
+A dashboard link can choose the tab as well, by adding `?parcel_tab=` to the dashboard's
+URL. That wins over `default_tab`, which makes it handy for a notification: tapping it
+opens the card straight on the Letters tab, also when the dashboard is already open.
+
+```yaml
+action: notify.mobile_app_your_phone
+data:
+  title: "You've got mail"
+  message: "A new letter is on its way."
+  data:
+    clickAction: /dashboard-home/parcels?parcel_tab=post   # Android
+    url: /dashboard-home/parcels?parcel_tab=post           # iPhone
+```
+
+Replace `/dashboard-home/parcels` with the path of the dashboard view that holds the card.
+A tab that is hidden or doesn't exist (for example `post` without a letters entity) is
+ignored, and the card opens on its usual tab.
+
+---
+
+## Zooming into a letter
+
+Tap a letter's scan to open it. Pinch or double-tap to zoom in (scroll or double-click on a
+desktop), and drag to move around the zoomed scan.
 
 ---
 

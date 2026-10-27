@@ -44,7 +44,7 @@
     "label_delivery": "Доставка",
     "label_pickup_point": "Пункт видачі",
     "label_custom_name": "Власна назва",
-    "add_custom_name": "+ Додати назву",
+    "add_custom_name": "Додати назву",
     "custom_name_placeholder": "напр. Подарунок на день народження",
     "custom_name_edit": "Редагувати назву",
     "custom_name_save": "Зберегти",
@@ -130,7 +130,7 @@
     "postal_code_account_help": "{carrier} не має облікового запису — введіть поштовий індекс, з яким налаштовано інтеграцію.",
     "hub_account_help": "{carrier} працює з обліковим записом або з хабами за поштовим індексом — виберіть знайдений обліковий запис або для хаба введіть його поштовий індекс (потрібно для «+ Додати посилку», якщо хабів більше одного).",
     "show_add_parcel": "Показати \"Додати посилку\" на картці",
-    "add_parcel_toggle": "+ Додати посилку",
+    "add_parcel_toggle": "Додати посилку",
     "add_parcel_carrier": "Перевізник",
     "add_parcel_number": "Номер відстеження",
     "add_parcel_submit": "Додати",
@@ -191,5 +191,7 @@
     "label_ready_since": "Готово до отримання з",
     "label_pickup_deadline": "Забрати до",
     "update_available": "HA Parcel Card {version} встановлено",
-    "reload": "Перезавантажити"
+    "reload": "Перезавантажити",
+    "default_tab_label": "Початкова вкладка",
+    "default_tab_help": "Вкладка, з якою відкривається картка. Посилання на панель із ?parcel_tab=post (або in_transit, delivered, sent) має пріоритет, наприклад зі сповіщення."
 }

@@ -44,7 +44,7 @@
     "label_delivery": "Livrare",
     "label_pickup_point": "Punct de ridicare",
     "label_custom_name": "Nume personalizat",
-    "add_custom_name": "+ Adaugă nume",
+    "add_custom_name": "Adaugă nume",
     "custom_name_placeholder": "de ex. Cadou de ziua de naștere",
     "custom_name_edit": "Editează numele",
     "custom_name_save": "Salvează",
@@ -130,7 +130,7 @@
     "postal_code_account_help": "{carrier} nu are cont — introdu codul poștal cu care ai configurat integrarea.",
     "hub_account_help": "{carrier} funcționează cu un cont sau cu huburi pe cod poștal — alege contul detectat sau, pentru un hub, introdu codul său poștal (necesar pentru „+ Adaugă colet” când ai mai multe huburi).",
     "show_add_parcel": "Afișează \"Adaugă colet\" pe card",
-    "add_parcel_toggle": "+ Adaugă colet",
+    "add_parcel_toggle": "Adaugă colet",
     "add_parcel_carrier": "Curier",
     "add_parcel_number": "Număr de urmărire",
     "add_parcel_submit": "Adaugă",
@@ -191,5 +191,7 @@
     "label_ready_since": "Gata de ridicare din",
     "label_pickup_deadline": "De ridicat până la",
     "update_available": "HA Parcel Card {version} este instalat",
-    "reload": "Reîncarcă"
+    "reload": "Reîncarcă",
+    "default_tab_label": "Filă de pornire",
+    "default_tab_help": "Fila cu care se deschide cardul. Un link de panou cu ?parcel_tab=post (sau in_transit, delivered, sent) are prioritate, de exemplu dintr-o notificare."
 }

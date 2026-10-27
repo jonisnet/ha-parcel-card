@@ -44,7 +44,7 @@
     "label_delivery": "Доставка",
     "label_pickup_point": "Офис за получаване",
     "label_custom_name": "Собствено име",
-    "add_custom_name": "+ Добави име",
+    "add_custom_name": "Добави име",
     "custom_name_placeholder": "напр. Подарък за рожден ден",
     "custom_name_edit": "Редактирай името",
     "custom_name_save": "Запази",
@@ -130,7 +130,7 @@
     "postal_code_account_help": "{carrier} няма акаунт — въведете пощенския код, с който сте настроили интеграцията.",
     "hub_account_help": "{carrier} работи с акаунт или с хъбове по пощенски код — изберете открития акаунт или за хъб въведете неговия пощенски код (нужен за „+ Добави пратка“, ако имате повече от един хъб).",
     "show_add_parcel": "Показвай \"Добави пратка\" на картата",
-    "add_parcel_toggle": "+ Добави пратка",
+    "add_parcel_toggle": "Добави пратка",
     "add_parcel_carrier": "Превозвач",
     "add_parcel_number": "Номер за проследяване",
     "add_parcel_submit": "Добави",
@@ -191,5 +191,7 @@
     "label_ready_since": "Готова за получаване от",
     "label_pickup_deadline": "Получете до",
     "update_available": "HA Parcel Card {version} е инсталирана",
-    "reload": "Презареди"
+    "reload": "Презареди",
+    "default_tab_label": "Начален раздел",
+    "default_tab_help": "Разделът, с който се отваря картата. Връзка към таблото с ?parcel_tab=post (или in_transit, delivered, sent) има предимство, например от известие."
 }

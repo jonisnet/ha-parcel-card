@@ -41,7 +41,7 @@
     "label_delivery": "Delivery",
     "label_pickup_point": "Pickup point",
     "label_custom_name": "Custom name",
-    "add_custom_name": "+ Add name",
+    "add_custom_name": "Add name",
     "custom_name_placeholder": "e.g. Birthday gift",
     "custom_name_edit": "Edit name",
     "custom_name_save": "Save",
@@ -127,7 +127,7 @@
     "postal_code_account_help": "{carrier} has no account — enter the postal code you set up the integration with.",
     "hub_account_help": "{carrier} works with an account or with postal-code hubs — pick the detected account, or for a hub enter its postal code (needed for \"+ Add parcel\" when you have more than one hub).",
     "show_add_parcel": "Show \"Add parcel\" on the card",
-    "add_parcel_toggle": "+ Add parcel",
+    "add_parcel_toggle": "Add parcel",
     "add_parcel_carrier": "Carrier",
     "add_parcel_number": "Tracking number",
     "add_parcel_submit": "Add",
@@ -188,5 +188,7 @@
     "label_ready_since": "Ready for pickup since",
     "label_pickup_deadline": "Collect by",
     "update_available": "HA Parcel Card {version} is installed",
-    "reload": "Reload"
+    "reload": "Reload",
+    "default_tab_label": "Start tab",
+    "default_tab_help": "The tab the card opens on. A dashboard link with ?parcel_tab=post (or in_transit, delivered, sent) overrides this, for example from a notification."
 }

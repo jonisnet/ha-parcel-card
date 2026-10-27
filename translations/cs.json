@@ -44,7 +44,7 @@
     "label_delivery": "Doručení",
     "label_pickup_point": "Výdejní místo",
     "label_custom_name": "Vlastní název",
-    "add_custom_name": "+ Přidat název",
+    "add_custom_name": "Přidat název",
     "custom_name_placeholder": "např. Dárek k narozeninám",
     "custom_name_edit": "Upravit název",
     "custom_name_save": "Uložit",
@@ -130,7 +130,7 @@
     "postal_code_account_help": "{carrier} nemá účet — zadejte PSČ, se kterým jste integraci nastavili.",
     "hub_account_help": "{carrier} funguje s účtem nebo s huby podle PSČ — vyberte nalezený účet, nebo u hubu zadejte jeho PSČ (potřebné pro „+ Přidat zásilku“, pokud máte více hubů).",
     "show_add_parcel": "Zobrazit \"Přidat zásilku\" na kartě",
-    "add_parcel_toggle": "+ Přidat zásilku",
+    "add_parcel_toggle": "Přidat zásilku",
     "add_parcel_carrier": "Dopravce",
     "add_parcel_number": "Sledovací číslo",
     "add_parcel_submit": "Přidat",
@@ -191,5 +191,7 @@
     "label_ready_since": "Připraveno k vyzvednutí od",
     "label_pickup_deadline": "Vyzvedněte do",
     "update_available": "HA Parcel Card {version} je nainstalována",
-    "reload": "Načíst znovu"
+    "reload": "Načíst znovu",
+    "default_tab_label": "Úvodní karta",
+    "default_tab_help": "Karta, na které se karta otevře. Odkaz na nástěnku s ?parcel_tab=post (nebo in_transit, delivered, sent) má přednost, např. z oznámení."
 }

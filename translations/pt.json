@@ -44,7 +44,7 @@
     "label_delivery": "Modo de entrega",
     "label_pickup_point": "Ponto de recolha",
     "label_custom_name": "Nome personalizado",
-    "add_custom_name": "+ Adicionar nome",
+    "add_custom_name": "Adicionar nome",
     "custom_name_placeholder": "por ex. Presente de aniversário",
     "custom_name_edit": "Editar nome",
     "custom_name_save": "Guardar",
@@ -130,7 +130,7 @@
     "postal_code_account_help": "{carrier} não tem conta — introduza o código postal com que configurou a integração.",
     "hub_account_help": "{carrier} funciona com uma conta ou com hubs por código postal — escolha a conta detetada ou, para um hub, introduza o código postal (necessário para «+ Adicionar encomenda» se tiver mais de um hub).",
     "show_add_parcel": "Mostrar \"Adicionar encomenda\" no cartão",
-    "add_parcel_toggle": "+ Adicionar encomenda",
+    "add_parcel_toggle": "Adicionar encomenda",
     "add_parcel_carrier": "Transportadora",
     "add_parcel_number": "Número de rastreamento",
     "add_parcel_submit": "Adicionar",
@@ -191,5 +191,7 @@
     "label_ready_since": "Pronto para levantamento desde",
     "label_pickup_deadline": "Levantar até",
     "update_available": "HA Parcel Card {version} está instalada",
-    "reload": "Recarregar"
+    "reload": "Recarregar",
+    "default_tab_label": "Separador inicial",
+    "default_tab_help": "O separador com que o cartão abre. Uma ligação ao painel com ?parcel_tab=post (ou in_transit, delivered, sent) tem prioridade, por exemplo a partir de uma notificação."
 }

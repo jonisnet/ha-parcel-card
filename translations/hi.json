@@ -44,7 +44,7 @@
     "label_delivery": "डिलीवरी",
     "label_pickup_point": "पिकअप पॉइंट",
     "label_custom_name": "कस्टम नाम",
-    "add_custom_name": "+ नाम जोड़ें",
+    "add_custom_name": "नाम जोड़ें",
     "custom_name_placeholder": "जैसे जन्मदिन का उपहार",
     "custom_name_edit": "नाम संपादित करें",
     "custom_name_save": "सहेजें",
@@ -130,7 +130,7 @@
     "postal_code_account_help": "{carrier} का कोई खाता नहीं है — वह पिन कोड दर्ज करें जिससे आपने इंटीग्रेशन सेट किया था।",
     "hub_account_help": "{carrier} खाते या पिन कोड हब के साथ काम करता है — मिला हुआ खाता चुनें, या हब के लिए उसका पिन कोड दर्ज करें (एक से अधिक हब होने पर \"+ पार्सल जोड़ें\" के लिए ज़रूरी)।",
     "show_add_parcel": "कार्ड पर \"पार्सल जोड़ें\" दिखाएँ",
-    "add_parcel_toggle": "+ पार्सल जोड़ें",
+    "add_parcel_toggle": "पार्सल जोड़ें",
     "add_parcel_carrier": "कैरियर",
     "add_parcel_number": "ट्रैकिंग नंबर",
     "add_parcel_submit": "जोड़ें",
@@ -191,5 +191,7 @@
     "label_ready_since": "पिकअप के लिए तैयार कब से",
     "label_pickup_deadline": "इस तारीख तक लें",
     "update_available": "HA Parcel Card {version} इंस्टॉल हो गया है",
-    "reload": "फिर से लोड करें"
+    "reload": "फिर से लोड करें",
+    "default_tab_label": "प्रारंभिक टैब",
+    "default_tab_help": "वह टैब जिस पर कार्ड खुलता है। ?parcel_tab=post (या in_transit, delivered, sent) वाला डैशबोर्ड लिंक इसे ओवरराइड करता है, जैसे किसी सूचना से।"
 }

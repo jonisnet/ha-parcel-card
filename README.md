@@ -16,7 +16,7 @@
 >
 > Found a bug? Open an issue here, not on `hki-parcels-card`.
 
-[![Version](https://img.shields.io/badge/version-v2.0.0b18-blue?style=flat-square)](https://github.com/jonisnet/ha-parcel-card/releases/latest)
+[![Version](https://img.shields.io/github/v/release/jonisnet/ha-parcel-card?include_prereleases&style=flat-square&label=version)](https://github.com/jonisnet/ha-parcel-card/releases)
 [![HACS](https://img.shields.io/badge/HACS-Custom-orange?style=flat-square)](https://hacs.xyz)
 [![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](https://github.com/jonisnet/ha-parcel-card/blob/main/LICENSE)
 [![HA](https://img.shields.io/badge/Home%20Assistant-2026.7%2B-41bdf5?style=flat-square)](https://www.home-assistant.io)
@@ -24,13 +24,20 @@
 [![Sponsor](https://img.shields.io/badge/sponsor-ea4aaa?style=flat-square&logo=githubsponsors&logoColor=white)](https://github.com/sponsors/jonisnet)
 [![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-FFDD00?style=flat-square&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/jonisnet)
 
-**Track parcels from all 85 carriers of the [ha-parcel-integrations](https://github.com/ha-parcel-integrations) family — PostNL, DHL, DPD, UPS, FedEx, USPS, GLS, bpost, La Poste, Evri and many more — in a single Home Assistant card** — with animated banners, letter scan images, automatic sensor detection, a "+ Add parcel" control for account-less carriers, and a full visual editor.
+**Track parcels from all 85 carriers of the [ha-parcel-integrations](https://github.com/ha-parcel-integrations) family — PostNL, DHL, DPD, UPS, FedEx, USPS, GLS, bpost, La Poste, Evri and many more — in a single Home Assistant card** — with illustrated delivery scenes in every carrier's own colour, letter scans you can zoom into, automatic sensor detection, an "Add parcel" control for account-less carriers, and a full visual editor.
 
 📖 **Full documentation, configuration reference and screenshots:** **[jonisnet.github.io/ha-parcel-card](https://jonisnet.github.io/ha-parcel-card/)**
 
-![Dashboard screenshot](https://raw.githubusercontent.com/jonisnet/ha-parcel-card/main/images/screenshot-dashboard.png)
-
-*Parcel detail with the delivery tracker (screenshot from an earlier beta; current scenes use shared SVG artwork)*
+<table>
+<tr>
+<td><img src="https://raw.githubusercontent.com/jonisnet/ha-parcel-card/main/images/v2-detail-pickup-dark.png" alt="Parcel waiting at a PostNL pickup point, dark theme"></td>
+<td><img src="https://raw.githubusercontent.com/jonisnet/ha-parcel-card/main/images/v2-detail-delivery-light.png" alt="DHL parcel out for delivery, light theme"></td>
+</tr>
+<tr>
+<td align="center"><em>Waiting at a pickup point, with the collection deadline</em></td>
+<td align="center"><em>Out for delivery, with the expected time slot</em></td>
+</tr>
+</table>
 
 > Based on [jimz011/hki-elements](https://github.com/jimz011/hki-elements) — the original PostNL card from the HKI project, extended with multi-carrier support, automatic sensor templating and letterbox mail.
 
@@ -38,16 +45,18 @@
 
 ## Features
 
-- **Multi-carrier** — any of the 85 supported carriers side by side in one card, each with its own logo and brand colour. Every carrier and custom gets the same inline SVG scenes; existing banners and vehicle GIFs remain in use where available
-- **Four tabs** — In Transit · Delivered · Sent · Letters, with parcel details, barcode and a direct tracking link
-- **Delivery tracker for every carrier** — Registered · Sorting centre · Out for delivery · Delivered, with an extra Pickup point step when applicable. Shared SVG scenes follow the configured carrier colour and work without custom-brand-icons; logos use PHU when available, otherwise the existing carrier image or a plain brand-colour panel
+- **Multi-carrier** — any of the 85 supported carriers side by side in one card, each with its own logo and brand colour
+- **Illustrated delivery tracker for every carrier** — Registered · Sorting centre · Out for delivery · Delivered, with an extra Pickup point step when applicable. One set of scenes, drawn in each carrier's own colour and carrying its logo; works on a bare Home Assistant, and uses [custom-brand-icons](https://github.com/elax46/custom-brand-icons) logos when you have them
+- **Logos straight from your integrations** — carriers without their own card artwork show the icon their integration ships (Home Assistant 2026.3+), so a newly added carrier brings its logo along
+- **Four tabs** — In Transit · Delivered · Sent · Letters, with parcel details, barcode and a direct tracking link. Pick the tab the card opens on with `default_tab`, or link straight to one with `?parcel_tab=post` — handy from a notification
 - **Carrier overview popup** — click a logo in the multi-carrier banner to see every parcel and letter for that carrier across all tabs in one popup, with details expandable in place
-- **Add a parcel from the card** — every carrier whose integration has a `track_parcel` service gets a "+ Add parcel" control that registers a new Track & Trace number directly; see [Add parcel support](#add-parcel-support) below
+- **Add a parcel from the card** — every carrier whose integration has a `track_parcel` service gets an "Add parcel" control that registers a new Track & Trace number directly; see [Add parcel support](#add-parcel-support) below
 - **Custom parcel names** — give any parcel a short label of your own (e.g. "Birthday gift") right from its detail panel, instead of just a tracking code; shared instance-wide with live updates by default, or scope it to just you or just this browser — see `custom_name_scope`
 - **Flexible sorting & grouping** — soonest-arriving parcel on top by default, or pin newest/oldest-first everywhere; group parcels by carrier or show one flat, interleaved list — see `sort_order`/`group_by_carrier`
-- **Letterbox mail** — PostNL letters get their own tab with scan images, matched automatically and resilient to ha-postnl updates
+- **Letterbox mail** — PostNL letters get their own tab with scan images you can pinch or double-tap to zoom into, matched automatically and resilient to ha-postnl updates
 - **Full visual editor** — no YAML required, with auto sensor detection, a media browser for custom images, a colour picker and live preview
-- **Automatic combo banner** — with two or more carriers configured, the card builds a combo banner from just the carriers you've actually added
+- **Carrier banner** — with two or more carriers configured, the card shows just your carriers as equal tiles that follow your light or dark theme; tap one to see all its parcels
+- **Updates itself** — after a HACS update an open dashboard reloads once by itself; no more clearing the browser cache
 
 ![Editor screenshot](https://raw.githubusercontent.com/jonisnet/ha-parcel-card/main/images/screenshot-editor-carriers.png)
 
@@ -55,8 +64,8 @@
 
 <table>
 <tr>
-<td><img src="https://raw.githubusercontent.com/jonisnet/ha-parcel-card/main/images/screenshot-banners-dark.png" alt="Combo banner, dark theme"></td>
-<td><img src="https://raw.githubusercontent.com/jonisnet/ha-parcel-card/main/images/screenshot-banners-light.png" alt="Combo banner, light theme"></td>
+<td><img src="https://raw.githubusercontent.com/jonisnet/ha-parcel-card/main/images/v2-banner-dark.png" alt="Carrier banner, dark theme"></td>
+<td><img src="https://raw.githubusercontent.com/jonisnet/ha-parcel-card/main/images/v2-banner-light.png" alt="Carrier banner, light theme"></td>
 </tr>
 <tr>
 <td align="center"><em>Dark theme</em></td>
@@ -64,7 +73,11 @@
 </tr>
 </table>
 
-More screenshots and examples: [jonisnet.github.io/ha-parcel-card/card/screenshots](https://jonisnet.github.io/ha-parcel-card/card/screenshots/)
+Every carrier gets the same five scenes, in its own colour and with its own logo:
+
+<img src="https://raw.githubusercontent.com/jonisnet/ha-parcel-card/main/images/v2-carriers-light.png" alt="Delivery scenes for PostNL, DHL, UPS, FedEx, La Poste and GLS">
+
+All 85 carriers side by side, plus more screenshots and examples: [jonisnet.github.io/ha-parcel-card/card/screenshots](https://jonisnet.github.io/ha-parcel-card/card/screenshots/)
 
 ---
 
@@ -170,7 +183,7 @@ Full version compatibility notes, PostNL variant details and sensor naming: [jon
 
 ### Add parcel support
 
-The card's "+ Add parcel" control appears for every carrier whose integration has a `track_parcel` service (the **Add parcel from card** column above) — mostly carriers that track by tracking number, plus account-based ones that also accept a code, such as An Post, bpost and DHL. Account-based integrations without such a service (PostNL, DHL NL, DPD, Vinted Go, ...) don't need one: every parcel sent to or from your account appears automatically.
+The card's "Add parcel" control appears for every carrier whose integration has a `track_parcel` service (the **Add parcel from card** column above) — mostly carriers that track by tracking number, plus account-based ones that also accept a code, such as An Post, bpost and DHL. Account-based integrations without such a service (PostNL, DHL NL, DPD, Vinted Go, ...) don't need one: every parcel sent to or from your account appears automatically.
 
 ---
 

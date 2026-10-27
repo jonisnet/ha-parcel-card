@@ -44,7 +44,7 @@
     "label_delivery": "Modalità di consegna",
     "label_pickup_point": "Punto di ritiro",
     "label_custom_name": "Nome personalizzato",
-    "add_custom_name": "+ Aggiungi nome",
+    "add_custom_name": "Aggiungi nome",
     "custom_name_placeholder": "es. Regalo di compleanno",
     "custom_name_edit": "Modifica nome",
     "custom_name_save": "Salva",
@@ -130,7 +130,7 @@
     "postal_code_account_help": "{carrier} non ha account — inserisci il codice postale con cui hai configurato l'integrazione.",
     "hub_account_help": "{carrier} funziona con un account o con hub per codice postale — scegli l'account rilevato oppure, per un hub, inserisci il suo codice postale (necessario per «+ Aggiungi pacco» se hai più di un hub).",
     "show_add_parcel": "Mostra \"Aggiungi pacco\" sulla scheda",
-    "add_parcel_toggle": "+ Aggiungi pacco",
+    "add_parcel_toggle": "Aggiungi pacco",
     "add_parcel_carrier": "Corriere",
     "add_parcel_number": "Numero di tracciamento",
     "add_parcel_submit": "Aggiungi",
@@ -191,5 +191,7 @@
     "label_ready_since": "Pronto per il ritiro dal",
     "label_pickup_deadline": "Ritirare entro il",
     "update_available": "HA Parcel Card {version} è installata",
-    "reload": "Ricarica"
+    "reload": "Ricarica",
+    "default_tab_label": "Scheda iniziale",
+    "default_tab_help": "La scheda con cui si apre la card. Un link alla dashboard con ?parcel_tab=post (o in_transit, delivered, sent) ha la precedenza, ad esempio da una notifica."
 }

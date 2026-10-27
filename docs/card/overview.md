@@ -33,7 +33,7 @@ Click a carrier's logo in the multi-carrier combo banner to open a popup listing
 
 ### Add parcel support
 
-For every carrier whose integration has a `track_parcel` service — the tracking-code carriers, plus account-based ones that also accept a code, such as An Post, bpost and DHL — the card shows a "+ Add parcel" control that calls the integration's own `track_parcel` service directly — the parcel is genuinely registered with the integration, not just added to the card's own view. Toggle it off with `show_add_parcel: false` if you'd rather add parcels through the integration itself.
+For every carrier whose integration has a `track_parcel` service — the tracking-code carriers, plus account-based ones that also accept a code, such as An Post, bpost and DHL — the card shows a "Add parcel" control that calls the integration's own `track_parcel` service directly — the parcel is genuinely registered with the integration, not just added to the card's own view. Toggle it off with `show_add_parcel: false` if you'd rather add parcels through the integration itself.
 
 Which carriers have it is listed under [Carrier types](configuration.md#carrier-types). Account-based integrations without such a service (PostNL, DHL NL, DPD, Vinted Go, ...) don't need it: every parcel on the account appears automatically.
 

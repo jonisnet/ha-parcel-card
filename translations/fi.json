@@ -44,7 +44,7 @@
     "label_delivery": "Toimitus",
     "label_pickup_point": "Noutopiste",
     "label_custom_name": "Oma nimi",
-    "add_custom_name": "+ Lisää nimi",
+    "add_custom_name": "Lisää nimi",
     "custom_name_placeholder": "esim. Syntymäpäivälahja",
     "custom_name_edit": "Muokkaa nimeä",
     "custom_name_save": "Tallenna",
@@ -130,7 +130,7 @@
     "postal_code_account_help": "{carrier}: ei tiliä — anna postinumero, jolla määritit integraation.",
     "hub_account_help": "{carrier} toimii tilin tai postinumerokohtaisten hubien kanssa — valitse löydetty tili tai anna hubin postinumero (tarvitaan \"+ Lisää paketti\" -toimintoon, jos hubeja on useampi).",
     "show_add_parcel": "Näytä \"Lisää paketti\" kortissa",
-    "add_parcel_toggle": "+ Lisää paketti",
+    "add_parcel_toggle": "Lisää paketti",
     "add_parcel_carrier": "Kuljetusyhtiö",
     "add_parcel_number": "Seurantanumero",
     "add_parcel_submit": "Lisää",
@@ -191,5 +191,7 @@
     "label_ready_since": "Valmis noudettavaksi alkaen",
     "label_pickup_deadline": "Noudettava viimeistään",
     "update_available": "HA Parcel Card {version} on asennettu",
-    "reload": "Lataa uudelleen"
+    "reload": "Lataa uudelleen",
+    "default_tab_label": "Aloitusvälilehti",
+    "default_tab_help": "Välilehti, jolla kortti avautuu. Kojelaudan linkki, jossa on ?parcel_tab=post (tai in_transit, delivered, sent), menee edelle, esim. ilmoituksesta."
 }

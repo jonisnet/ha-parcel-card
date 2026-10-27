@@ -44,7 +44,7 @@
     "label_delivery": "Levering",
     "label_pickup_point": "Hentested",
     "label_custom_name": "Eget navn",
-    "add_custom_name": "+ Legg til navn",
+    "add_custom_name": "Legg til navn",
     "custom_name_placeholder": "f.eks. Bursdagsgave",
     "custom_name_edit": "Rediger navn",
     "custom_name_save": "Lagre",
@@ -130,7 +130,7 @@
     "postal_code_account_help": "{carrier} har ingen konto — skriv inn postnummeret du satte opp integrasjonen med.",
     "hub_account_help": "{carrier} fungerer med en konto eller med postnummer-huber — velg kontoen som ble funnet, eller skriv inn hubens postnummer (trengs for \"+ Legg til pakke\" når du har mer enn én hub).",
     "show_add_parcel": "Vis \"Legg til pakke\" på kortet",
-    "add_parcel_toggle": "+ Legg til pakke",
+    "add_parcel_toggle": "Legg til pakke",
     "add_parcel_carrier": "Transportør",
     "add_parcel_number": "Sporingsnummer",
     "add_parcel_submit": "Legg til",
@@ -191,5 +191,7 @@
     "label_ready_since": "Klar for henting siden",
     "label_pickup_deadline": "Hentes innen",
     "update_available": "HA Parcel Card {version} er installert",
-    "reload": "Last inn på nytt"
+    "reload": "Last inn på nytt",
+    "default_tab_label": "Startfane",
+    "default_tab_help": "Fanen kortet åpner på. En dashbordlenke med ?parcel_tab=post (eller in_transit, delivered, sent) går foran, f.eks. fra et varsel."
 }

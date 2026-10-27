@@ -30,7 +30,7 @@ Automatic sensor detection, animated banners, a delivery tracker with shared SVG
 
     ---
 
-    Every carrier whose integration has a `track_parcel` service gets a "+ Add parcel" control that registers a tracking number directly.
+    Every carrier whose integration has a `track_parcel` service gets a "Add parcel" control that registers a tracking number directly.
 
 -   :frame_with_picture:{ .lg .middle } **Media browser**
 
@@ -82,7 +82,7 @@ Automatic sensor detection, animated banners, a delivery tracker with shared SVG
         GLS tracks parcels by tracking number and postal code rather than a login — `user` maps to the hub's postal code.
 
     !!! note "Vinted Go is account-based"
-        Vinted Go logs in with an e-mail address and a verification link (no password, no tracking-code entry) — like PostNL/DHL/DPD it has no `track_parcel` service, so it doesn't get the card's "+ Add parcel" control. Unlike every account-less carrier below, it tracks both incoming *and* outgoing parcels.
+        Vinted Go logs in with an e-mail address and a verification link (no password, no tracking-code entry) — like PostNL/DHL/DPD it has no `track_parcel` service, so it doesn't get the card's "Add parcel" control. Unlike every account-less carrier below, it tracks both incoming *and* outgoing parcels.
 
 === "Dragonfly / Trunkrs / Cainiao / Hermes / Packeta / Correos"
 
@@ -99,7 +99,7 @@ Automatic sensor detection, animated banners, a delivery tracker with shared SVG
       - type: correos
     ```
 
-    These six (plus GLS) are a sample of the account-less carriers — register a parcel with the "+ Add parcel" control on the card itself instead of logging into an account. See the "Every carrier" tab for the complete list, and [Add parcel support](card/overview.md#add-parcel-support) for how it works.
+    These six (plus GLS) are a sample of the account-less carriers — register a parcel with the "Add parcel" control on the card itself instead of logging into an account. See the "Every carrier" tab for the complete list, and [Add parcel support](card/overview.md#add-parcel-support) for how it works.
 
 === "Every carrier"
 
@@ -148,7 +148,7 @@ Or skip the YAML entirely — add the card via the dashboard UI and it auto-dete
 
 All carriers below are part of the [ha-parcel-integrations](https://github.com/ha-parcel-integrations) family — Home Assistant integrations that publish a shared canonical parcel format, which is what lets one card support all of them with the same logic.
 
-The full list — every carrier, its integration, its card `type`, and whether it has a Sent tab, letters and the "+ Add parcel" control — is under **[Carrier types](card/configuration.md#carrier-types)**.
+The full list — every carrier, its integration, its card `type`, and whether it has a Sent tab, letters and the "Add parcel" control — is under **[Carrier types](card/configuration.md#carrier-types)**.
 
 ---
 

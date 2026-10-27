@@ -1,5 +1,24 @@
 # Changelog
 
+## [2.0.0b21] — 2026-10-28
+
+### Added
+
+- **Open the card on a chosen tab** — new `default_tab` option (in the editor as "Start
+  tab"): `in_transit`, `delivered`, `sent` or `post`. A dashboard link with
+  `?parcel_tab=post` overrides it, so a notification can open the card straight on the
+  Letters tab, also when the dashboard is already open. Unknown or hidden tabs are ignored.
+- **Zoom into letter scans** — pinch or double-tap on a phone, scroll or double-click on a
+  desktop, and drag to move around a zoomed scan. The companion app does not zoom the page
+  itself, so small print on a scan was unreadable before.
+
+### Fixed
+
+- **Double plus signs** — "Add name" and "Add parcel" showed both a plus icon and a "+"
+  in their text, in every language. The text no longer starts with "+". The plus icon
+  next to "Add name" was also drawn at 24 px inside a 16 px slot, so it sat too large
+  and too low; it now matches the text.
+
 ## [2.0.0b20] — 2026-10-27
 
 ### Added

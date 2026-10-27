@@ -44,7 +44,7 @@
     "label_delivery": "Mode de livraison",
     "label_pickup_point": "Point de retrait",
     "label_custom_name": "Nom personnalisé",
-    "add_custom_name": "+ Ajouter un nom",
+    "add_custom_name": "Ajouter un nom",
     "custom_name_placeholder": "p. ex. Cadeau d'anniversaire",
     "custom_name_edit": "Modifier le nom",
     "custom_name_save": "Enregistrer",
@@ -130,7 +130,7 @@
     "postal_code_account_help": "{carrier} n'a pas de compte — saisissez le code postal utilisé lors de la configuration de l'intégration.",
     "hub_account_help": "{carrier} fonctionne avec un compte ou avec des hubs par code postal — choisissez le compte détecté ou, pour un hub, saisissez son code postal (nécessaire pour « + Ajouter un colis » si vous avez plusieurs hubs).",
     "show_add_parcel": "Afficher \"Ajouter un colis\" sur la carte",
-    "add_parcel_toggle": "+ Ajouter un colis",
+    "add_parcel_toggle": "Ajouter un colis",
     "add_parcel_carrier": "Transporteur",
     "add_parcel_number": "Numéro de suivi",
     "add_parcel_submit": "Ajouter",
@@ -191,5 +191,7 @@
     "label_ready_since": "Disponible depuis",
     "label_pickup_deadline": "À retirer avant le",
     "update_available": "HA Parcel Card {version} est installée",
-    "reload": "Recharger"
+    "reload": "Recharger",
+    "default_tab_label": "Onglet de départ",
+    "default_tab_help": "L'onglet affiché à l'ouverture de la carte. Un lien de tableau de bord avec ?parcel_tab=post (ou in_transit, delivered, sent) est prioritaire, par exemple depuis une notification."
 }

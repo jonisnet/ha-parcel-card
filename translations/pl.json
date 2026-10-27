@@ -44,7 +44,7 @@
     "label_delivery": "Sposób dostawy",
     "label_pickup_point": "Punkt odbioru",
     "label_custom_name": "Własna nazwa",
-    "add_custom_name": "+ Dodaj nazwę",
+    "add_custom_name": "Dodaj nazwę",
     "custom_name_placeholder": "np. Prezent urodzinowy",
     "custom_name_edit": "Edytuj nazwę",
     "custom_name_save": "Zapisz",
@@ -130,7 +130,7 @@
     "postal_code_account_help": "{carrier} nie ma konta — wpisz kod pocztowy, z którym skonfigurowano integrację.",
     "hub_account_help": "{carrier} działa z kontem lub z hubami według kodu pocztowego — wybierz wykryte konto albo dla huba wpisz jego kod pocztowy (potrzebny do „+ Dodaj paczkę”, gdy masz więcej niż jeden hub).",
     "show_add_parcel": "Pokaż \"Dodaj paczkę\" na karcie",
-    "add_parcel_toggle": "+ Dodaj paczkę",
+    "add_parcel_toggle": "Dodaj paczkę",
     "add_parcel_carrier": "Przewoźnik",
     "add_parcel_number": "Numer śledzenia",
     "add_parcel_submit": "Dodaj",
@@ -191,5 +191,7 @@
     "label_ready_since": "Gotowa do odbioru od",
     "label_pickup_deadline": "Odbierz do",
     "update_available": "Zainstalowano HA Parcel Card {version}",
-    "reload": "Odśwież"
+    "reload": "Odśwież",
+    "default_tab_label": "Karta startowa",
+    "default_tab_help": "Karta, na której otwiera się widżet. Link do panelu z ?parcel_tab=post (lub in_transit, delivered, sent) ma pierwszeństwo, np. z powiadomienia."
 }

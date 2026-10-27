@@ -44,7 +44,7 @@
     "label_delivery": "Kézbesítés",
     "label_pickup_point": "Csomagpont",
     "label_custom_name": "Egyéni név",
-    "add_custom_name": "+ Név hozzáadása",
+    "add_custom_name": "Név hozzáadása",
     "custom_name_placeholder": "pl. Születésnapi ajándék",
     "custom_name_edit": "Név szerkesztése",
     "custom_name_save": "Mentés",
@@ -130,7 +130,7 @@
     "postal_code_account_help": "A(z) {carrier} szolgáltatónál nincs fiók — add meg az irányítószámot, amellyel az integrációt beállítottad.",
     "hub_account_help": "A(z) {carrier} fiókkal vagy irányítószám szerinti hubokkal működik — válaszd ki a talált fiókot, vagy hubnál add meg az irányítószámát (több hub esetén ez kell a „+ Csomag hozzáadása” funkcióhoz).",
     "show_add_parcel": "\"Csomag hozzáadása\" megjelenítése a kártyán",
-    "add_parcel_toggle": "+ Csomag hozzáadása",
+    "add_parcel_toggle": "Csomag hozzáadása",
     "add_parcel_carrier": "Szolgáltató",
     "add_parcel_number": "Nyomkövetési szám",
     "add_parcel_submit": "Hozzáadás",
@@ -191,5 +191,7 @@
     "label_ready_since": "Átvehető ekkortól",
     "label_pickup_deadline": "Átvételi határidő",
     "update_available": "A HA Parcel Card {version} telepítve",
-    "reload": "Újratöltés"
+    "reload": "Újratöltés",
+    "default_tab_label": "Kezdőlap",
+    "default_tab_help": "Az a lap, amelyen a kártya megnyílik. Egy ?parcel_tab=post (vagy in_transit, delivered, sent) paraméteres irányítópult-hivatkozás felülírja, pl. egy értesítésből."
 }

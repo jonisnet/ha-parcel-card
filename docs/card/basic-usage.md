@@ -47,7 +47,7 @@ carriers:
     user: my_account
 ```
 
-Like PostNL/DHL/DPD, Vinted Go is account-based (login is an e-mail address plus a verification link, no password) — every parcel tied to the account appears automatically, so there's no `track_parcel` service and no "+ Add parcel" control for it. Unlike PostNL/DHL/DPD, Vinted Go tracks both incoming *and* outgoing parcels, and there's no `next_delivery`/ETA sensor for it at all.
+Like PostNL/DHL/DPD, Vinted Go is account-based (login is an e-mail address plus a verification link, no password) — every parcel tied to the account appears automatically, so there's no `track_parcel` service and no "Add parcel" control for it. Unlike PostNL/DHL/DPD, Vinted Go tracks both incoming *and* outgoing parcels, and there's no `next_delivery`/ETA sensor for it at all.
 
 ---
 
@@ -67,7 +67,7 @@ carriers:
   - type: cainiao
 ```
 
-Every carrier type is listed under [Carrier types](configuration.md#carrier-types). Since there's no account to auto-sync from, each of these carriers shows a "+ Add parcel" control on the card so you can register a tracking number directly. Disable it per-card with `show_add_parcel: false`.
+Every carrier type is listed under [Carrier types](configuration.md#carrier-types). Since there's no account to auto-sync from, each of these carriers shows a "Add parcel" control on the card so you can register a tracking number directly. Disable it per-card with `show_add_parcel: false`.
 
 ---
 

@@ -44,7 +44,7 @@
     "label_delivery": "Leverans",
     "label_pickup_point": "Utlämningsställe",
     "label_custom_name": "Eget namn",
-    "add_custom_name": "+ Lägg till namn",
+    "add_custom_name": "Lägg till namn",
     "custom_name_placeholder": "t.ex. Födelsedagspresent",
     "custom_name_edit": "Redigera namn",
     "custom_name_save": "Spara",
@@ -130,7 +130,7 @@
     "postal_code_account_help": "{carrier} har inget konto — ange postnumret du konfigurerade integrationen med.",
     "hub_account_help": "{carrier} fungerar med ett konto eller med postnummer-hubbar — välj det hittade kontot, eller ange hubbens postnummer (behövs för \"+ Lägg till paket\" när du har mer än en hubb).",
     "show_add_parcel": "Visa \"Lägg till paket\" på kortet",
-    "add_parcel_toggle": "+ Lägg till paket",
+    "add_parcel_toggle": "Lägg till paket",
     "add_parcel_carrier": "Transportör",
     "add_parcel_number": "Spårningsnummer",
     "add_parcel_submit": "Lägg till",
@@ -191,5 +191,7 @@
     "label_ready_since": "Klart för upphämtning sedan",
     "label_pickup_deadline": "Hämtas senast",
     "update_available": "HA Parcel Card {version} är installerat",
-    "reload": "Ladda om"
+    "reload": "Ladda om",
+    "default_tab_label": "Startflik",
+    "default_tab_help": "Fliken som kortet öppnas på. En länk till instrumentpanelen med ?parcel_tab=post (eller in_transit, delivered, sent) går före, t.ex. från en avisering."
 }

@@ -44,7 +44,7 @@
     "label_delivery": "Zustellart",
     "label_pickup_point": "Abholstation",
     "label_custom_name": "Eigener Name",
-    "add_custom_name": "+ Name hinzufügen",
+    "add_custom_name": "Name hinzufügen",
     "custom_name_placeholder": "z. B. Geburtstagsgeschenk",
     "custom_name_edit": "Name bearbeiten",
     "custom_name_save": "Speichern",
@@ -130,7 +130,7 @@
     "postal_code_account_help": "{carrier} hat kein Konto — gib die Postleitzahl ein, mit der du die Integration eingerichtet hast.",
     "hub_account_help": "{carrier} funktioniert mit einem Konto oder mit Postleitzahl-Hubs — wähle das erkannte Konto oder gib bei einem Hub dessen Postleitzahl ein (nötig für \"+ Paket hinzufügen\", wenn du mehr als einen Hub hast).",
     "show_add_parcel": "\"Paket hinzufügen\" auf der Karte anzeigen",
-    "add_parcel_toggle": "+ Paket hinzufügen",
+    "add_parcel_toggle": "Paket hinzufügen",
     "add_parcel_carrier": "Zustelldienst",
     "add_parcel_number": "Sendungsnummer",
     "add_parcel_submit": "Hinzufügen",
@@ -191,5 +191,7 @@
     "label_ready_since": "Abholbereit seit",
     "label_pickup_deadline": "Abholen bis",
     "update_available": "HA Parcel Card {version} ist installiert",
-    "reload": "Neu laden"
+    "reload": "Neu laden",
+    "default_tab_label": "Start-Tab",
+    "default_tab_help": "Der Tab, mit dem die Karte öffnet. Ein Dashboard-Link mit ?parcel_tab=post (oder in_transit, delivered, sent) hat Vorrang, z. B. aus einer Benachrichtigung."
 }

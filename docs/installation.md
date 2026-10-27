@@ -47,12 +47,12 @@ Install the integration for each carrier you use **before** adding the card. All
 
 ### Every other carrier
 
-The other 84 carriers — DHL, DPD, UPS, FedEx, USPS, GLS, bpost, La Poste, Evri and the rest — are listed with a link to their integration under **[Carrier types](card/configuration.md#carrier-types)**, together with what each one supports (Sent tab, letters, "+ Add parcel").
+The other 84 carriers — DHL, DPD, UPS, FedEx, USPS, GLS, bpost, La Poste, Evri and the rest — are listed with a link to their integration under **[Carrier types](card/configuration.md#carrier-types)**, together with what each one supports (Sent tab, letters, "Add parcel").
 
 Roughly, they come in three kinds:
 
-- **Account login** (PostNL, DHL NL, DPD, Vinted Go, Amazon, SEUR, ...) — every parcel sent to or from your account appears automatically. If the integration has no `track_parcel` service, the card has no "+ Add parcel" control for it; it isn't needed.
-- **Tracking code only** (UPS, FedEx, USPS, Cainiao, ...) — you register parcels one by one, from the card's "+ Add parcel" control or the integration's own Configure dialog. A few tie a parcel to a postal code (GLS, Trunkrs, Evri, Slovak Parcel Service); the card's `user` field is then that postal code.
+- **Account login** (PostNL, DHL NL, DPD, Vinted Go, Amazon, SEUR, ...) — every parcel sent to or from your account appears automatically. If the integration has no `track_parcel` service, the card has no "Add parcel" control for it; it isn't needed.
+- **Tracking code only** (UPS, FedEx, USPS, Cainiao, ...) — you register parcels one by one, from the card's "Add parcel" control or the integration's own Configure dialog. A few tie a parcel to a postal code (GLS, Trunkrs, Evri, Slovak Parcel Service); the card's `user` field is then that postal code.
 - **Both** (bpost, DHL, An Post, Canada Post, Hermes, PostNord, Posti, Swiss Post, ...) — log in for automatic parcels, and/or add codes by hand.
 
 !!! info "Dragonfly's original integration"
