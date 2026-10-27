@@ -189,5 +189,7 @@
     "pickup_one_day_left": "1 dag igjen til henting",
     "pickup_last_day": "Siste dag for henting",
     "label_ready_since": "Klar for henting siden",
-    "label_pickup_deadline": "Hentes innen"
+    "label_pickup_deadline": "Hentes innen",
+    "update_available": "HA Parcel Card {version} er installert",
+    "reload": "Last inn på nytt"
 }

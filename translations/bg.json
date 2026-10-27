@@ -189,5 +189,7 @@
     "pickup_one_day_left": "Остава 1 ден за получаване",
     "pickup_last_day": "Последен ден за получаване",
     "label_ready_since": "Готова за получаване от",
-    "label_pickup_deadline": "Получете до"
+    "label_pickup_deadline": "Получете до",
+    "update_available": "HA Parcel Card {version} е инсталирана",
+    "reload": "Презареди"
 }

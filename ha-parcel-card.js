@@ -68,7 +68,7 @@ window.HAParcelCard.getSelectValue = window.HAParcelCard.getSelectValue || ((ev,
 
 (() => {
 const { LitElement, html, css } = window.HAParcelCard.getLit();
-const CARD_VERSION = 'v2.0.0b19';
+const CARD_VERSION = 'v2.0.0b20';
 console.info(`%c HA-PARCEL-CARD %c ${CARD_VERSION} `, 'color: white; background: #ed8c00; font-weight: bold;', 'color: #ed8c00; background: white; font-weight: bold;');
 
 const DEFAULT_CARRIER_ICON = 'mdi:package-variant-closed';
@@ -300,6 +300,8 @@ const TRANSLATIONS = {
         pickup_last_day: 'Last day to collect',
         label_ready_since: 'Ready for pickup since',
         label_pickup_deadline: 'Collect by',
+        update_available: 'HA Parcel Card {version} is installed',
+        reload: 'Reload',
     },
     nl: {
         tab_in_transit: 'Onderweg',
@@ -490,6 +492,8 @@ const TRANSLATIONS = {
         pickup_last_day: 'Laatste dag om op te halen',
         label_ready_since: 'Klaar om op te halen sinds',
         label_pickup_deadline: 'Ophalen uiterlijk',
+        update_available: 'HA Parcel Card {version} is geïnstalleerd',
+        reload: 'Herladen',
     },
     // bg: machine-drafted, not yet reviewed by a native speaker (see translations/bg.json)
     bg: {
@@ -681,6 +685,8 @@ const TRANSLATIONS = {
         pickup_last_day: 'Последен ден за получаване',
         label_ready_since: 'Готова за получаване от',
         label_pickup_deadline: 'Получете до',
+        update_available: 'HA Parcel Card {version} е инсталирана',
+        reload: 'Презареди',
     },
     // cs: machine-drafted, not yet reviewed by a native speaker (see translations/cs.json)
     cs: {
@@ -872,6 +878,8 @@ const TRANSLATIONS = {
         pickup_last_day: 'Poslední den na vyzvednutí',
         label_ready_since: 'Připraveno k vyzvednutí od',
         label_pickup_deadline: 'Vyzvedněte do',
+        update_available: 'HA Parcel Card {version} je nainstalována',
+        reload: 'Načíst znovu',
     },
     // da: machine-drafted, not yet reviewed by a native speaker (see translations/da.json)
     da: {
@@ -1063,6 +1071,8 @@ const TRANSLATIONS = {
         pickup_last_day: 'Sidste dag for afhentning',
         label_ready_since: 'Klar til afhentning siden',
         label_pickup_deadline: 'Afhentes senest',
+        update_available: 'HA Parcel Card {version} er installeret',
+        reload: 'Genindlæs',
     },
     // de: machine-drafted, not yet reviewed by a native speaker (see translations/de.json)
     de: {
@@ -1254,6 +1264,8 @@ const TRANSLATIONS = {
         pickup_last_day: 'Letzter Abholtag',
         label_ready_since: 'Abholbereit seit',
         label_pickup_deadline: 'Abholen bis',
+        update_available: 'HA Parcel Card {version} ist installiert',
+        reload: 'Neu laden',
     },
     // es: machine-drafted, not yet reviewed by a native speaker (see translations/es.json)
     es: {
@@ -1445,6 +1457,8 @@ const TRANSLATIONS = {
         pickup_last_day: 'Último día para recogerlo',
         label_ready_since: 'Listo para recoger desde',
         label_pickup_deadline: 'Recoger antes del',
+        update_available: 'HA Parcel Card {version} está instalada',
+        reload: 'Recargar',
     },
     // fi: machine-drafted, not yet reviewed by a native speaker (see translations/fi.json)
     fi: {
@@ -1636,6 +1650,8 @@ const TRANSLATIONS = {
         pickup_last_day: 'Viimeinen noutopäivä',
         label_ready_since: 'Valmis noudettavaksi alkaen',
         label_pickup_deadline: 'Noudettava viimeistään',
+        update_available: 'HA Parcel Card {version} on asennettu',
+        reload: 'Lataa uudelleen',
     },
     // fr: machine-drafted, not yet reviewed by a native speaker (see translations/fr.json)
     fr: {
@@ -1827,6 +1843,8 @@ const TRANSLATIONS = {
         pickup_last_day: 'Dernier jour pour le retirer',
         label_ready_since: 'Disponible depuis',
         label_pickup_deadline: 'À retirer avant le',
+        update_available: 'HA Parcel Card {version} est installée',
+        reload: 'Recharger',
     },
     // hi: machine-drafted, not yet reviewed by a native speaker (see translations/hi.json)
     hi: {
@@ -2018,6 +2036,8 @@ const TRANSLATIONS = {
         pickup_last_day: 'लेने का आखिरी दिन',
         label_ready_since: 'पिकअप के लिए तैयार कब से',
         label_pickup_deadline: 'इस तारीख तक लें',
+        update_available: 'HA Parcel Card {version} इंस्टॉल हो गया है',
+        reload: 'फिर से लोड करें',
     },
     // hu: machine-drafted, not yet reviewed by a native speaker (see translations/hu.json)
     hu: {
@@ -2209,6 +2229,8 @@ const TRANSLATIONS = {
         pickup_last_day: 'Utolsó nap az átvételre',
         label_ready_since: 'Átvehető ekkortól',
         label_pickup_deadline: 'Átvételi határidő',
+        update_available: 'A HA Parcel Card {version} telepítve',
+        reload: 'Újratöltés',
     },
     // it: machine-drafted, not yet reviewed by a native speaker (see translations/it.json)
     it: {
@@ -2400,6 +2422,8 @@ const TRANSLATIONS = {
         pickup_last_day: 'Ultimo giorno per il ritiro',
         label_ready_since: 'Pronto per il ritiro dal',
         label_pickup_deadline: 'Ritirare entro il',
+        update_available: 'HA Parcel Card {version} è installata',
+        reload: 'Ricarica',
     },
     // nb: machine-drafted, not yet reviewed by a native speaker (see translations/nb.json)
     nb: {
@@ -2591,6 +2615,8 @@ const TRANSLATIONS = {
         pickup_last_day: 'Siste dag for henting',
         label_ready_since: 'Klar for henting siden',
         label_pickup_deadline: 'Hentes innen',
+        update_available: 'HA Parcel Card {version} er installert',
+        reload: 'Last inn på nytt',
     },
     // pl: machine-drafted, not yet reviewed by a native speaker (see translations/pl.json)
     pl: {
@@ -2782,6 +2808,8 @@ const TRANSLATIONS = {
         pickup_last_day: 'Ostatni dzień na odbiór',
         label_ready_since: 'Gotowa do odbioru od',
         label_pickup_deadline: 'Odbierz do',
+        update_available: 'Zainstalowano HA Parcel Card {version}',
+        reload: 'Odśwież',
     },
     // pt: machine-drafted, not yet reviewed by a native speaker (see translations/pt.json)
     pt: {
@@ -2973,6 +3001,8 @@ const TRANSLATIONS = {
         pickup_last_day: 'Último dia para levantar',
         label_ready_since: 'Pronto para levantamento desde',
         label_pickup_deadline: 'Levantar até',
+        update_available: 'HA Parcel Card {version} está instalada',
+        reload: 'Recarregar',
     },
     // ro: machine-drafted, not yet reviewed by a native speaker (see translations/ro.json)
     ro: {
@@ -3164,6 +3194,8 @@ const TRANSLATIONS = {
         pickup_last_day: 'Ultima zi pentru ridicare',
         label_ready_since: 'Gata de ridicare din',
         label_pickup_deadline: 'De ridicat până la',
+        update_available: 'HA Parcel Card {version} este instalat',
+        reload: 'Reîncarcă',
     },
     // sk: machine-drafted, not yet reviewed by a native speaker (see translations/sk.json)
     sk: {
@@ -3355,6 +3387,8 @@ const TRANSLATIONS = {
         pickup_last_day: 'Posledný deň na vyzdvihnutie',
         label_ready_since: 'Pripravené na vyzdvihnutie od',
         label_pickup_deadline: 'Vyzdvihnite do',
+        update_available: 'HA Parcel Card {version} je nainštalovaná',
+        reload: 'Načítať znova',
     },
     // sv: machine-drafted, not yet reviewed by a native speaker (see translations/sv.json)
     sv: {
@@ -3546,6 +3580,8 @@ const TRANSLATIONS = {
         pickup_last_day: 'Sista dagen att hämta',
         label_ready_since: 'Klart för upphämtning sedan',
         label_pickup_deadline: 'Hämtas senast',
+        update_available: 'HA Parcel Card {version} är installerat',
+        reload: 'Ladda om',
     },
     // uk: machine-drafted, not yet reviewed by a native speaker (see translations/uk.json)
     uk: {
@@ -3737,6 +3773,8 @@ const TRANSLATIONS = {
         pickup_last_day: 'Останній день, щоб забрати',
         label_ready_since: 'Готово до отримання з',
         label_pickup_deadline: 'Забрати до',
+        update_available: 'HA Parcel Card {version} встановлено',
+        reload: 'Перезавантажити',
     },
 };
 // GENERATED:TRANSLATIONS:END
@@ -4671,7 +4709,7 @@ function buildTemplatedEntities(user, carrierType, slugFirst = false, hass = nul
     const u = slugifyUserSlug(user);
     const userFirstBase = u ? `${u}_${slug}` : slug;
     const slugFirstBase = u ? `${slug}_${u}` : slug;
-    // slugFirst: sensor.<slug>_<user>_* (e.g. sensor.dpd_keesb_binnenkomende_pakketten)
+    // slugFirst: sensor.<slug>_<user>_* (e.g. sensor.dpd_jansen_binnenkomende_pakketten)
     // userFirst: sensor.<user>_<slug>_* or sensor.<slug>_* when no prefix
     if (slugFirst && u) {
         const sf = preset.slug_first_suffixes;
@@ -5304,6 +5342,76 @@ window.HAParcelCard.stepScenes = Object.freeze({
 });
 
 
+// ── Picking up a new version by itself ──────────────────────────────────────
+// HACS serves /hacsfiles/ with long cache headers and relies on the new
+// ?hacstag=… it writes into the dashboard resource on every update. That only
+// reaches a page that is loaded from scratch. A dashboard that is already open —
+// the companion app, a wall tablet — keeps running the old card, also across a
+// Home Assistant restart, until someone clears the cache by hand. So the card
+// checks for itself: it asks which resource the dashboard loads now, reads
+// CARD_VERSION from that file and, when it differs, reloads the page once.
+const UPDATE_CHECK_INTERVAL = 15 * 60 * 1000;
+const RELOAD_GUARD_KEY = 'ha-parcel-card-reloaded-for';
+const CARD_RESOURCE = /\/ha-parcel-card\.js(\?|$)/;
+const updateState = { lastCheck: 0, running: false, pending: null, cards: new Set() };
+
+document.addEventListener('visibilitychange', () => {
+    // Coming back to the app or tab is exactly when an update may be waiting.
+    if (document.visibilityState === 'visible') updateState.lastCheck = 0;
+});
+
+function readSession(key) {
+    try { return window.sessionStorage.getItem(key); } catch (e) { return null; }
+}
+
+function writeSession(key, value) {
+    try { window.sessionStorage.setItem(key, value); return true; } catch (e) { return false; }
+}
+
+function servedCardVersion(text) {
+    return /const CARD_VERSION = '([^']+)'/.exec(String(text).slice(0, 8000))?.[1] || null;
+}
+
+async function checkForNewerCard(hass) {
+    const now = Date.now();
+    if (updateState.running || updateState.pending) return;
+    if (now - updateState.lastCheck < UPDATE_CHECK_INTERVAL) return;
+    if (document.visibilityState === 'hidden') return;
+    updateState.lastCheck = now;
+    updateState.running = true;
+    try {
+        let url = null;
+        try {
+            const resources = await hass.callWS({ type: 'lovelace/resources' });
+            url = (resources || []).find(r => CARD_RESOURCE.test(String(r?.url || '')))?.url || null;
+        } catch (e) {
+            // YAML-mode dashboards and older cores: fall back to what was loaded.
+        }
+        url ||= performance.getEntriesByType('resource')
+            .map(entry => entry.name)
+            .find(name => CARD_RESOURCE.test(name));
+        if (!url) return;
+        // no-cache revalidates against the server and refreshes the browser's own
+        // copy too, so the reload below really gets the new file.
+        const response = await fetch(url, { cache: 'no-cache' });
+        if (!response.ok) return;
+        const served = servedCardVersion(await response.text());
+        if (!served || served === CARD_VERSION) return;
+        const editing = new URLSearchParams(window.location.search).has('edit');
+        if (!editing && readSession(RELOAD_GUARD_KEY) !== served && writeSession(RELOAD_GUARD_KEY, served)) {
+            window.location.reload();
+            return;
+        }
+        // Reloading is not possible or did not help: say so instead of looping.
+        updateState.pending = served;
+        for (const card of updateState.cards) if (card._isRendered) card.render();
+    } catch (e) {
+        // A failed check is not worth bothering anyone about; try again later.
+    } finally {
+        updateState.running = false;
+    }
+}
+
 class HaParcelCard extends HTMLElement {
     constructor() {
         super();
@@ -5328,6 +5436,8 @@ class HaParcelCard extends HTMLElement {
     set hass(hass) {
         this._hass = hass;
         this._prepareBrandIcons();
+        updateState.cards.add(this);
+        if (hass) checkForNewerCard(hass);
         if (this.config && this._isRendered) {
             this.updateContent();
         } else if (this.config) {
@@ -5814,6 +5924,7 @@ class HaParcelCard extends HTMLElement {
     }
 
     disconnectedCallback() {
+        updateState.cards.delete(this);
         if (this.__everyoneUnsub) {
             try { this.__everyoneUnsub(); } catch (e) { /* already gone */ }
             this.__everyoneUnsub = null;
@@ -7324,6 +7435,8 @@ class HaParcelCard extends HTMLElement {
                 --bg-color: var(--card-background-color, white);
             }
             ha-card { background: var(--bg-color); color: var(--primary-text-color); overflow: hidden; border-radius: 12px; }
+            .update-notice { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 16px; font-size: 13px; background: color-mix(in srgb, var(--primary-color, #03a9f4) 12%, transparent); color: var(--primary-text-color); }
+            .update-notice button { border: none; border-radius: 6px; padding: 4px 12px; font: inherit; font-weight: 600; cursor: pointer; background: var(--primary-color, #03a9f4); color: var(--text-primary-color, #fff); }
             .header { background: var(--header-bg); padding: 16px; color: var(--header-text); display: flex; align-items: center; gap: 12px; }
             .header-logo { height: 36px; max-width: 110px; border-radius: 6px; background: white; padding: 4px; box-sizing: border-box; object-fit: contain; flex-shrink: 0; }
             .header-info { display: flex; flex-direction: column; flex: 1; }
@@ -7518,8 +7631,13 @@ class HaParcelCard extends HTMLElement {
         };
 
         const layoutOrder = this.config.layout_order || ['header', 'animation', 'tabs', 'list'];
-        this.shadowRoot.innerHTML = cssBlock + `<ha-card>${layoutOrder.map(b => blocks[b] || '').join('')}<div class="add-parcel-container">${this._renderAddParcelForm()}</div></ha-card>`;
+        const updateNotice = updateState.pending
+            ? `<div class="update-notice"><span>${this._t('update_available').replace('{version}', updateState.pending)}</span><button type="button">${this._t('reload')}</button></div>`
+            : '';
+        this.shadowRoot.innerHTML = cssBlock + `<ha-card>${updateNotice}${layoutOrder.map(b => blocks[b] || '').join('')}<div class="add-parcel-container">${this._renderAddParcelForm()}</div></ha-card>`;
         this._isRendered = true;
+        this.shadowRoot.querySelector('.update-notice button')
+            ?.addEventListener('click', () => window.location.reload());
 
         this.shadowRoot.querySelectorAll('.tab').forEach(el =>
             el.addEventListener('click', this.handleTabClick.bind(this))

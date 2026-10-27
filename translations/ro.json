@@ -189,5 +189,7 @@
     "pickup_one_day_left": "Mai este 1 zi pentru ridicare",
     "pickup_last_day": "Ultima zi pentru ridicare",
     "label_ready_since": "Gata de ridicare din",
-    "label_pickup_deadline": "De ridicat până la"
+    "label_pickup_deadline": "De ridicat până la",
+    "update_available": "HA Parcel Card {version} este instalat",
+    "reload": "Reîncarcă"
 }

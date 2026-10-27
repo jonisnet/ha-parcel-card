@@ -189,5 +189,7 @@
     "pickup_one_day_left": "Még 1 nap az átvételre",
     "pickup_last_day": "Utolsó nap az átvételre",
     "label_ready_since": "Átvehető ekkortól",
-    "label_pickup_deadline": "Átvételi határidő"
+    "label_pickup_deadline": "Átvételi határidő",
+    "update_available": "A HA Parcel Card {version} telepítve",
+    "reload": "Újratöltés"
 }

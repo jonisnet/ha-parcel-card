@@ -189,5 +189,7 @@
     "pickup_one_day_left": "Zbývá 1 den na vyzvednutí",
     "pickup_last_day": "Poslední den na vyzvednutí",
     "label_ready_since": "Připraveno k vyzvednutí od",
-    "label_pickup_deadline": "Vyzvedněte do"
+    "label_pickup_deadline": "Vyzvedněte do",
+    "update_available": "HA Parcel Card {version} je nainstalována",
+    "reload": "Načíst znovu"
 }

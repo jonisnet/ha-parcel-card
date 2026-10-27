@@ -189,5 +189,7 @@
     "pickup_one_day_left": "Ancora 1 giorno per ritirarlo",
     "pickup_last_day": "Ultimo giorno per il ritiro",
     "label_ready_since": "Pronto per il ritiro dal",
-    "label_pickup_deadline": "Ritirare entro il"
+    "label_pickup_deadline": "Ritirare entro il",
+    "update_available": "HA Parcel Card {version} è installata",
+    "reload": "Ricarica"
 }

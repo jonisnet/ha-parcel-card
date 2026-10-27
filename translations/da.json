@@ -189,5 +189,7 @@
     "pickup_one_day_left": "1 dag tilbage til afhentning",
     "pickup_last_day": "Sidste dag for afhentning",
     "label_ready_since": "Klar til afhentning siden",
-    "label_pickup_deadline": "Afhentes senest"
+    "label_pickup_deadline": "Afhentes senest",
+    "update_available": "HA Parcel Card {version} er installeret",
+    "reload": "Genindlæs"
 }

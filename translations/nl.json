@@ -186,5 +186,7 @@
     "pickup_one_day_left": "Nog 1 dag om op te halen",
     "pickup_last_day": "Laatste dag om op te halen",
     "label_ready_since": "Klaar om op te halen sinds",
-    "label_pickup_deadline": "Ophalen uiterlijk"
+    "label_pickup_deadline": "Ophalen uiterlijk",
+    "update_available": "HA Parcel Card {version} is geïnstalleerd",
+    "reload": "Herladen"
 }

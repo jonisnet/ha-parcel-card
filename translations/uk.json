@@ -189,5 +189,7 @@
     "pickup_one_day_left": "Залишився 1 день, щоб забрати",
     "pickup_last_day": "Останній день, щоб забрати",
     "label_ready_since": "Готово до отримання з",
-    "label_pickup_deadline": "Забрати до"
+    "label_pickup_deadline": "Забрати до",
+    "update_available": "HA Parcel Card {version} встановлено",
+    "reload": "Перезавантажити"
 }

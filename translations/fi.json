@@ -189,5 +189,7 @@
     "pickup_one_day_left": "1 päivä aikaa noutaa",
     "pickup_last_day": "Viimeinen noutopäivä",
     "label_ready_since": "Valmis noudettavaksi alkaen",
-    "label_pickup_deadline": "Noudettava viimeistään"
+    "label_pickup_deadline": "Noudettava viimeistään",
+    "update_available": "HA Parcel Card {version} on asennettu",
+    "reload": "Lataa uudelleen"
 }

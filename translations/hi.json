@@ -189,5 +189,7 @@
     "pickup_one_day_left": "लेने के लिए 1 दिन बाकी",
     "pickup_last_day": "लेने का आखिरी दिन",
     "label_ready_since": "पिकअप के लिए तैयार कब से",
-    "label_pickup_deadline": "इस तारीख तक लें"
+    "label_pickup_deadline": "इस तारीख तक लें",
+    "update_available": "HA Parcel Card {version} इंस्टॉल हो गया है",
+    "reload": "फिर से लोड करें"
 }

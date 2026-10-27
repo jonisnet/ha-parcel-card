@@ -1,5 +1,21 @@
 # Changelog
 
+## [2.0.0b20] — 2026-10-27
+
+### Added
+
+- **The card picks up its own updates** — no more clearing the browser cache after a
+  HACS update. An open dashboard (companion app, wall tablet) kept running the old card
+  until a hard refresh. The card now asks which file the dashboard loads, reads its
+  version and reloads the page once when it changed — on load, when you return to the
+  tab, and every 15 minutes. It never reloads while you edit a dashboard, and never more
+  than once per version; in those cases a small "Reload" notice appears instead. This
+  works from this version on: updating *to* b20 still needs one last manual refresh.
+
+### Changed
+
+- A code comment no longer uses a real account name as its example sensor.
+
 ## [2.0.0b19] — 2026-10-27
 
 ### Changed

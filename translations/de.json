@@ -189,5 +189,7 @@
     "pickup_one_day_left": "Noch 1 Tag zum Abholen",
     "pickup_last_day": "Letzter Abholtag",
     "label_ready_since": "Abholbereit seit",
-    "label_pickup_deadline": "Abholen bis"
+    "label_pickup_deadline": "Abholen bis",
+    "update_available": "HA Parcel Card {version} ist installiert",
+    "reload": "Neu laden"
 }

@@ -189,5 +189,7 @@
     "pickup_one_day_left": "1 dag kvar att hämta",
     "pickup_last_day": "Sista dagen att hämta",
     "label_ready_since": "Klart för upphämtning sedan",
-    "label_pickup_deadline": "Hämtas senast"
+    "label_pickup_deadline": "Hämtas senast",
+    "update_available": "HA Parcel Card {version} är installerat",
+    "reload": "Ladda om"
 }
