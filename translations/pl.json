@@ -128,6 +128,7 @@
     "no_account_help": "{carrier} nie ma konta ani kodu pocztowego — zostaw to pole puste; czujniki nazywają się sensor.{slug}_*.",
     "optional_account_help": "{carrier} działa z kontem lub bez — wybierz wykryte konto albo zostaw to pole puste, jeśli śledzisz tylko po numerze (czujniki sensor.{slug}_*).",
     "postal_code_account_help": "{carrier} nie ma konta — wpisz kod pocztowy, z którym skonfigurowano integrację.",
+    "hub_account_help": "{carrier} działa z kontem lub z hubami według kodu pocztowego — wybierz wykryte konto albo dla huba wpisz jego kod pocztowy (potrzebny do „+ Dodaj paczkę”, gdy masz więcej niż jeden hub).",
     "show_add_parcel": "Pokaż \"Dodaj paczkę\" na karcie",
     "add_parcel_toggle": "+ Dodaj paczkę",
     "add_parcel_carrier": "Przewoźnik",

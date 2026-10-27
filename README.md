@@ -16,7 +16,7 @@
 >
 > Found a bug? Open an issue here, not on `hki-parcels-card`.
 
-[![Version](https://img.shields.io/badge/version-v2.0.0b17-blue?style=flat-square)](https://github.com/jonisnet/ha-parcel-card/releases/latest)
+[![Version](https://img.shields.io/badge/version-v2.0.0b18-blue?style=flat-square)](https://github.com/jonisnet/ha-parcel-card/releases/latest)
 [![HACS](https://img.shields.io/badge/HACS-Custom-orange?style=flat-square)](https://hacs.xyz)
 [![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](https://github.com/jonisnet/ha-parcel-card/blob/main/LICENSE)
 [![HA](https://img.shields.io/badge/Home%20Assistant-2026.7%2B-41bdf5?style=flat-square)](https://www.home-assistant.io)
@@ -24,7 +24,7 @@
 [![Sponsor](https://img.shields.io/badge/sponsor-ea4aaa?style=flat-square&logo=githubsponsors&logoColor=white)](https://github.com/sponsors/jonisnet)
 [![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-FFDD00?style=flat-square&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/jonisnet)
 
-**Track parcels from all 68 carriers of the [ha-parcel-integrations](https://github.com/ha-parcel-integrations) family — PostNL, DHL, DPD, UPS, FedEx, USPS, GLS, bpost, La Poste, Evri and many more — in a single Home Assistant card** — with animated banners, letter scan images, automatic sensor detection, a "+ Add parcel" control for account-less carriers, and a full visual editor.
+**Track parcels from all 85 carriers of the [ha-parcel-integrations](https://github.com/ha-parcel-integrations) family — PostNL, DHL, DPD, UPS, FedEx, USPS, GLS, bpost, La Poste, Evri and many more — in a single Home Assistant card** — with animated banners, letter scan images, automatic sensor detection, a "+ Add parcel" control for account-less carriers, and a full visual editor.
 
 📖 **Full documentation, configuration reference and screenshots:** **[jonisnet.github.io/ha-parcel-card](https://jonisnet.github.io/ha-parcel-card/)**
 
@@ -38,7 +38,7 @@
 
 ## Features
 
-- **Multi-carrier** — any of the 68 supported carriers side by side in one card, each with its own logo and brand colour (most with full banner, van animation and step artwork; the newest carriers use their integration's own icon until that artwork is done)
+- **Multi-carrier** — any of the 85 supported carriers side by side in one card, each with its own logo and brand colour (most with full banner, van animation and step artwork; the newest carriers use their integration's own icon until that artwork is done)
 - **Four tabs** — In Transit · Delivered · Sent · Letters, with parcel details, barcode and a direct tracking link
 - **4-step delivery tracker** — a branded progress illustration (Registered · Sorting centre · Out for delivery · Delivered) when a parcel is selected
 - **Carrier overview popup** — click a logo in the multi-carrier banner to see every parcel and letter for that carrier across all tabs in one popup, with details expandable in place
@@ -79,8 +79,10 @@ via `type: custom`, no code changes needed here. See **[the integration contract
 | Carrier | Integration | Add parcel from card | Sent tab | Letters |
 | ------- | ----------- | :------------------: | :------: | :-----: |
 | **4PX** | [ha-parcel-integrations/ha-4px](https://github.com/ha-parcel-integrations/ha-4px) | ✅ | — | — |
+| **ACS Courier** | [ha-parcel-integrations/ha-acs-courier](https://github.com/ha-parcel-integrations/ha-acs-courier) | ✅ | — | — |
 | **Airmee** | [ha-parcel-integrations/ha-airmee](https://github.com/ha-parcel-integrations/ha-airmee) | ✅ | — | — |
 | **Amazon** | [ha-parcel-integrations/ha-amazon](https://github.com/ha-parcel-integrations/ha-amazon) | — | — | — |
+| **Amazon Shipping** | [ha-parcel-integrations/ha-amazon-shipping](https://github.com/ha-parcel-integrations/ha-amazon-shipping) | ✅ | — | — |
 | **Ampère** | [ha-parcel-integrations/ha-ampere](https://github.com/ha-parcel-integrations/ha-ampere) | — | — | — |
 | **An Post** | [ha-parcel-integrations/ha-an-post](https://github.com/ha-parcel-integrations/ha-an-post) | ✅ | — | — |
 | **Apple Express** | [ha-parcel-integrations/ha-apple-express](https://github.com/ha-parcel-integrations/ha-apple-express) | ✅ | — | — |
@@ -93,7 +95,11 @@ via `type: custom`, no code changes needed here. See **[the integration contract
 | **Cainiao** | [ha-parcel-integrations/ha-cainiao](https://github.com/ha-parcel-integrations/ha-cainiao) | ✅ | — | — |
 | **Canada Post** | [ha-parcel-integrations/ha-canada-post](https://github.com/ha-parcel-integrations/ha-canada-post) | ✅ | — | — |
 | **Canpar** | [ha-parcel-integrations/ha-canpar](https://github.com/ha-parcel-integrations/ha-canpar) | ✅ | — | — |
+| **Cargus** | [ha-parcel-integrations/ha-cargus](https://github.com/ha-parcel-integrations/ha-cargus) | ✅ | ✅ | — |
+| **CDL Last Mile** | [ha-parcel-integrations/ha-cdl-last-mile](https://github.com/ha-parcel-integrations/ha-cdl-last-mile) | ✅ | — | — |
 | **Ceska Posta** | [ha-parcel-integrations/ha-ceska-posta](https://github.com/ha-parcel-integrations/ha-ceska-posta) | ✅ | — | — |
+| **Colis Privé** | [ha-parcel-integrations/ha-colis-prive](https://github.com/ha-parcel-integrations/ha-colis-prive) | ✅ | — | — |
+| **Colisweb** | [ha-parcel-integrations/ha-colisweb](https://github.com/ha-parcel-integrations/ha-colisweb) | ✅ | — | — |
 | **Correos** | [ha-parcel-integrations/ha-correos](https://github.com/ha-parcel-integrations/ha-correos) | ✅ | — | — |
 | **CTT** | [ha-parcel-integrations/ha-ctt](https://github.com/ha-parcel-integrations/ha-ctt) | ✅ | — | — |
 | **DAO** | [ha-parcel-integrations/ha-dao](https://github.com/ha-parcel-integrations/ha-dao) | — | ✅ | — |
@@ -103,26 +109,31 @@ via `type: custom`, no code changes needed here. See **[the integration contract
 | **DPD** | [ha-parcel-integrations/ha-dpd](https://github.com/ha-parcel-integrations/ha-dpd) | — | ✅ | — |
 | **Dragonfly** | [ha-parcel-integrations/ha-dragonfly](https://github.com/ha-parcel-integrations/ha-dragonfly) | ✅ | — | — |
 | **Dynalogic** | [ha-parcel-integrations/ha-dynalogic](https://github.com/ha-parcel-integrations/ha-dynalogic) | ✅ | — | — |
+| **Early Bird** | [ha-parcel-integrations/ha-early-bird](https://github.com/ha-parcel-integrations/ha-early-bird) | ✅ | — | — |
 | **Econt** | [ha-parcel-integrations/ha-econt](https://github.com/ha-parcel-integrations/ha-econt) | ✅ | — | — |
+| **Ecoscooting** | [ha-parcel-integrations/ha-ecoscooting](https://github.com/ha-parcel-integrations/ha-ecoscooting) | ✅ | — | — |
 | **ELTA Courier** | [ha-parcel-integrations/ha-elta-courier](https://github.com/ha-parcel-integrations/ha-elta-courier) | ✅ | — | — |
 | **Evri** | [ha-parcel-integrations/ha-evri](https://github.com/ha-parcel-integrations/ha-evri) | ✅ | ✅ | — |
 | **FAN Courier** | [ha-parcel-integrations/ha-fan-courier](https://github.com/ha-parcel-integrations/ha-fan-courier) | ✅ | — | — |
 | **FedEx** | [ha-parcel-integrations/ha-fedex](https://github.com/ha-parcel-integrations/ha-fedex) | ✅ | — | — |
 | **GLS** | [ha-parcel-integrations/ha-gls](https://github.com/ha-parcel-integrations/ha-gls) | ✅ | — | — |
+| **GoBolt** | [ha-parcel-integrations/ha-gobolt](https://github.com/ha-parcel-integrations/ha-gobolt) | ✅ | — | — |
 | **GOFO Express** | [ha-parcel-integrations/ha-gofo](https://github.com/ha-parcel-integrations/ha-gofo) | ✅ | — | — |
 | **Helthjem** | [ha-parcel-integrations/ha-helthjem](https://github.com/ha-parcel-integrations/ha-helthjem) | ✅ | — | — |
 | **Hermes** | [ha-parcel-integrations/ha-hermes](https://github.com/ha-parcel-integrations/ha-hermes) | ✅ | — | — |
 | **ICS Courier** | [ha-parcel-integrations/ha-ics-courier](https://github.com/ha-parcel-integrations/ha-ics-courier) | ✅ | — | — |
 | **InPost** | [ha-parcel-integrations/ha-inpost](https://github.com/ha-parcel-integrations/ha-inpost) | ✅ | — | — |
 | **La Poste** | [ha-parcel-integrations/ha-laposte](https://github.com/ha-parcel-integrations/ha-laposte) | ✅ | — | — |
+| **Magyar Posta** | [ha-parcel-integrations/ha-magyar-posta](https://github.com/ha-parcel-integrations/ha-magyar-posta) | ✅ | — | — |
 | **Matkahuolto** | [ha-parcel-integrations/ha-matkahuolto](https://github.com/ha-parcel-integrations/ha-matkahuolto) | ✅ | — | — |
-| **Mondial Relay** | [ha-parcel-integrations/ha-mondial-relay](https://github.com/ha-parcel-integrations/ha-mondial-relay) | — | ✅ | — |
+| **Mondial Relay** | [ha-parcel-integrations/ha-mondial-relay](https://github.com/ha-parcel-integrations/ha-mondial-relay) | ✅ | ✅ | — |
 | **Nova Post** | [ha-parcel-integrations/ha-nova-post](https://github.com/ha-parcel-integrations/ha-nova-post) | ✅ | — | — |
 | **NZ Post** | [ha-parcel-integrations/ha-nz-post](https://github.com/ha-parcel-integrations/ha-nz-post) | ✅ | — | — |
 | **OnTrac** | [ha-parcel-integrations/ha-ontrac](https://github.com/ha-parcel-integrations/ha-ontrac) | ✅ | — | — |
 | **ORLEN Paczka** | [ha-parcel-integrations/ha-orlen-paczka](https://github.com/ha-parcel-integrations/ha-orlen-paczka) | ✅ | — | — |
 | **Paack** | [ha-parcel-integrations/ha-paack](https://github.com/ha-parcel-integrations/ha-paack) | ✅ | — | — |
 | **Packeta** | [ha-parcel-integrations/ha-packeta](https://github.com/ha-parcel-integrations/ha-packeta) | ✅ | ✅ | — |
+| **PDN Express** | [ha-parcel-integrations/ha-pdn-express](https://github.com/ha-parcel-integrations/ha-pdn-express) | ✅ | — | — |
 | **Planzer** | [ha-parcel-integrations/ha-planzer](https://github.com/ha-parcel-integrations/ha-planzer) | ✅ | — | — |
 | **Poczta Polska** | [ha-parcel-integrations/ha-poczta-polska](https://github.com/ha-parcel-integrations/ha-poczta-polska) | ✅ | — | — |
 | **Poste Italiane** | [ha-parcel-integrations/ha-poste-italiane](https://github.com/ha-parcel-integrations/ha-poste-italiane) | ✅ | — | — |
@@ -130,6 +141,8 @@ via `type: custom`, no code changes needed here. See **[the integration contract
 | **Posti** | [ha-parcel-integrations/ha-posti](https://github.com/ha-parcel-integrations/ha-posti) | ✅ | — | — |
 | **PostNL** | [ha-parcel-integrations/ha-postnl](https://github.com/ha-parcel-integrations/ha-postnl) | — | ✅ | ✅ |
 | **PostNord** | [ha-parcel-integrations/ha-postnord](https://github.com/ha-parcel-integrations/ha-postnord) | ✅ | ✅ | — |
+| **Pošta Slovenije** | [ha-parcel-integrations/ha-posta-slovenije](https://github.com/ha-parcel-integrations/ha-posta-slovenije) | ✅ | ✅ | — |
+| **Pošta Srbije** | [ha-parcel-integrations/ha-posta-srbije](https://github.com/ha-parcel-integrations/ha-posta-srbije) | ✅ | — | — |
 | **PPL CZ** | [ha-parcel-integrations/ha-ppl-cz](https://github.com/ha-parcel-integrations/ha-ppl-cz) | — | ✅ | — |
 | **Purolator** | [ha-parcel-integrations/ha-purolator](https://github.com/ha-parcel-integrations/ha-purolator) | ✅ | ✅ | — |
 | **Quickpac** | [ha-parcel-integrations/ha-quickpac](https://github.com/ha-parcel-integrations/ha-quickpac) | ✅ | — | — |
@@ -138,13 +151,17 @@ via `type: custom`, no code changes needed here. See **[the integration contract
 | **Shopee Xpress** | [ha-parcel-integrations/ha-shopee-xpress](https://github.com/ha-parcel-integrations/ha-shopee-xpress) | ✅ | — | — |
 | **Slovak Parcel Service** | [ha-parcel-integrations/ha-slovak-parcel-service](https://github.com/ha-parcel-integrations/ha-slovak-parcel-service) | ✅ | — | — |
 | **Slovenská Pošta** | [ha-parcel-integrations/ha-slovenska-posta](https://github.com/ha-parcel-integrations/ha-slovenska-posta) | ✅ | — | — |
+| **Spee-Dee Delivery** | [ha-parcel-integrations/ha-spee-dee-delivery](https://github.com/ha-parcel-integrations/ha-spee-dee-delivery) | ✅ | — | — |
 | **SpeedX** | [ha-parcel-integrations/ha-speedx](https://github.com/ha-parcel-integrations/ha-speedx) | ✅ | — | — |
+| **Straightship** | [ha-parcel-integrations/ha-straightship](https://github.com/ha-parcel-integrations/ha-straightship) | ✅ | — | — |
 | **SunYou** | [ha-parcel-integrations/ha-sunyou](https://github.com/ha-parcel-integrations/ha-sunyou) | ✅ | — | — |
 | **Swiss Post** | [ha-parcel-integrations/ha-swiss-post](https://github.com/ha-parcel-integrations/ha-swiss-post) | ✅ | ✅ | — |
+| **TIPSA** | [ha-parcel-integrations/ha-tipsa](https://github.com/ha-parcel-integrations/ha-tipsa) | ✅ | — | — |
 | **Trunkrs** | [ha-parcel-integrations/ha-trunkrs](https://github.com/ha-parcel-integrations/ha-trunkrs) | ✅ | — | — |
+| **Ukrposhta** | [ha-parcel-integrations/ha-ukrposhta](https://github.com/ha-parcel-integrations/ha-ukrposhta) | ✅ | — | — |
 | **UniUni** | [ha-parcel-integrations/ha-uniuni](https://github.com/ha-parcel-integrations/ha-uniuni) | ✅ | — | — |
 | **UPS** | [ha-parcel-integrations/ha-ups](https://github.com/ha-parcel-integrations/ha-ups) | ✅ | — | — |
-| **USPS** | [ha-parcel-integrations/ha-usps](https://github.com/ha-parcel-integrations/ha-usps) | ✅ | — | — |
+| **USPS** | [ha-parcel-integrations/ha-usps](https://github.com/ha-parcel-integrations/ha-usps) | ✅ | — | ✅ |
 | **Vinted Go** | [ha-parcel-integrations/ha-vinted-go](https://github.com/ha-parcel-integrations/ha-vinted-go) | — | ✅ | — |
 
 PostNL needs ≥ 4.0.0. Dragonfly is also maintained standalone by its creator at [HummelsTech/ha-dragonfly](https://github.com/HummelsTech/ha-dragonfly); either works with this card. `DHL NL` and `DHL` are two different integrations, see [Carrier types](https://jonisnet.github.io/ha-parcel-card/card/configuration/#carrier-types).
@@ -241,7 +258,7 @@ This card is free and maintained in my spare time. If it's useful to you, a smal
 ## Credits
 
 - [jimz011/hki-elements](https://github.com/jimz011/hki-elements) — original PostNL card and visual design
-- [ha-parcel-integrations](https://github.com/ha-parcel-integrations) — the 68 carrier integrations this card supports, all sharing one canonical parcel format
+- [ha-parcel-integrations](https://github.com/ha-parcel-integrations) — the 85 carrier integrations this card supports, all sharing one canonical parcel format
 - [Alwin Hummels (@HummelsTech)](https://github.com/HummelsTech) — created the Dragonfly integration ([HummelsTech/ha-dragonfly](https://github.com/HummelsTech/ha-dragonfly)), also mirrored into ha-parcel-integrations above
 
 ---

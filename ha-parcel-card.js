@@ -68,7 +68,7 @@ window.HAParcelCard.getSelectValue = window.HAParcelCard.getSelectValue || ((ev,
 
 (() => {
 const { LitElement, html, css } = window.HAParcelCard.getLit();
-const CARD_VERSION = 'v2.0.0b17';
+const CARD_VERSION = 'v2.0.0b18';
 console.info(`%c HA-PARCEL-CARD %c ${CARD_VERSION} `, 'color: white; background: #ed8c00; font-weight: bold;', 'color: #ed8c00; background: white; font-weight: bold;');
 
 const DEFAULT_CARRIER_ICON = 'mdi:package-variant-closed';
@@ -244,6 +244,7 @@ const TRANSLATIONS = {
         no_account_help: '{carrier} has no account or postal code — leave this field empty; the sensors are named sensor.{slug}_*.',
         optional_account_help: '{carrier} works with or without an account — pick the detected account, or leave this field empty if you only track by code (sensors named sensor.{slug}_*).',
         postal_code_account_help: '{carrier} has no account — enter the postal code you set up the integration with.',
+        hub_account_help: '{carrier} works with an account or with postal-code hubs — pick the detected account, or for a hub enter its postal code (needed for "+ Add parcel" when you have more than one hub).',
         show_add_parcel: 'Show "Add parcel" on the card',
         add_parcel_toggle: '+ Add parcel',
         add_parcel_carrier: 'Carrier',
@@ -433,6 +434,7 @@ const TRANSLATIONS = {
         no_account_help: '{carrier} heeft geen account of postcode — laat dit veld leeg; de sensoren heten sensor.{slug}_*.',
         optional_account_help: '{carrier} werkt met of zonder account — kies het gevonden account, of laat dit veld leeg als je alleen op code volgt (sensoren heten sensor.{slug}_*).',
         postal_code_account_help: '{carrier} heeft geen account — vul de postcode in waarmee je de integratie hebt ingesteld.',
+        hub_account_help: '{carrier} werkt met een account of met postcode-hubs — kies het gevonden account, of vul bij een hub de postcode in (nodig voor "+ Pakket toevoegen" als je meer dan één hub hebt).',
         show_add_parcel: 'Toon "Pakket toevoegen" op de kaart',
         add_parcel_toggle: '+ Pakket toevoegen',
         add_parcel_carrier: 'Dienst',
@@ -623,6 +625,7 @@ const TRANSLATIONS = {
         no_account_help: '{carrier} няма акаунт или пощенски код — оставете това поле празно; сензорите се казват sensor.{slug}_*.',
         optional_account_help: '{carrier} работи с или без акаунт — изберете открития акаунт или оставете полето празно, ако проследявате само по код (сензори sensor.{slug}_*).',
         postal_code_account_help: '{carrier} няма акаунт — въведете пощенския код, с който сте настроили интеграцията.',
+        hub_account_help: '{carrier} работи с акаунт или с хъбове по пощенски код — изберете открития акаунт или за хъб въведете неговия пощенски код (нужен за „+ Добави пратка“, ако имате повече от един хъб).',
         show_add_parcel: 'Показвай "Добави пратка" на картата',
         add_parcel_toggle: '+ Добави пратка',
         add_parcel_carrier: 'Превозвач',
@@ -813,6 +816,7 @@ const TRANSLATIONS = {
         no_account_help: '{carrier} nemá účet ani PSČ — nechte toto pole prázdné; senzory se jmenují sensor.{slug}_*.',
         optional_account_help: '{carrier} funguje s účtem i bez něj — vyberte nalezený účet, nebo nechte pole prázdné, pokud sledujete jen podle kódu (senzory sensor.{slug}_*).',
         postal_code_account_help: '{carrier} nemá účet — zadejte PSČ, se kterým jste integraci nastavili.',
+        hub_account_help: '{carrier} funguje s účtem nebo s huby podle PSČ — vyberte nalezený účet, nebo u hubu zadejte jeho PSČ (potřebné pro „+ Přidat zásilku“, pokud máte více hubů).',
         show_add_parcel: 'Zobrazit "Přidat zásilku" na kartě',
         add_parcel_toggle: '+ Přidat zásilku',
         add_parcel_carrier: 'Dopravce',
@@ -1003,6 +1007,7 @@ const TRANSLATIONS = {
         no_account_help: '{carrier} har ingen konto eller postnummer — lad feltet være tomt; sensorerne hedder sensor.{slug}_*.',
         optional_account_help: '{carrier} virker med eller uden konto — vælg den fundne konto, eller lad feltet være tomt, hvis du kun sporer via kode (sensorer hedder sensor.{slug}_*).',
         postal_code_account_help: '{carrier} har ingen konto — indtast det postnummer, du satte integrationen op med.',
+        hub_account_help: '{carrier} virker med en konto eller med postnummer-hubs — vælg den fundne konto, eller indtast hubbens postnummer (nødvendigt for "+ Tilføj pakke", når du har mere end én hub).',
         show_add_parcel: 'Vis "Tilføj pakke" på kortet',
         add_parcel_toggle: '+ Tilføj pakke',
         add_parcel_carrier: 'Transportør',
@@ -1193,6 +1198,7 @@ const TRANSLATIONS = {
         no_account_help: '{carrier} hat kein Konto und keine Postleitzahl — lass dieses Feld leer; die Sensoren heißen sensor.{slug}_*.',
         optional_account_help: '{carrier} funktioniert mit oder ohne Konto — wähle das erkannte Konto oder lass dieses Feld leer, wenn du nur per Sendungsnummer verfolgst (Sensoren heißen sensor.{slug}_*).',
         postal_code_account_help: '{carrier} hat kein Konto — gib die Postleitzahl ein, mit der du die Integration eingerichtet hast.',
+        hub_account_help: '{carrier} funktioniert mit einem Konto oder mit Postleitzahl-Hubs — wähle das erkannte Konto oder gib bei einem Hub dessen Postleitzahl ein (nötig für "+ Paket hinzufügen", wenn du mehr als einen Hub hast).',
         show_add_parcel: '"Paket hinzufügen" auf der Karte anzeigen',
         add_parcel_toggle: '+ Paket hinzufügen',
         add_parcel_carrier: 'Zustelldienst',
@@ -1383,6 +1389,7 @@ const TRANSLATIONS = {
         no_account_help: '{carrier} no tiene cuenta ni código postal: deja este campo vacío; los sensores se llaman sensor.{slug}_*.',
         optional_account_help: '{carrier} funciona con o sin cuenta: elige la cuenta detectada o deja este campo vacío si solo haces seguimiento por código (sensores llamados sensor.{slug}_*).',
         postal_code_account_help: '{carrier} no tiene cuenta: introduce el código postal con el que configuraste la integración.',
+        hub_account_help: '{carrier} funciona con una cuenta o con hubs por código postal: elige la cuenta detectada o, para un hub, introduce su código postal (necesario para «+ Añadir paquete» si tienes más de un hub).',
         show_add_parcel: 'Mostrar "Añadir paquete" en la tarjeta',
         add_parcel_toggle: '+ Añadir paquete',
         add_parcel_carrier: 'Transportista',
@@ -1573,6 +1580,7 @@ const TRANSLATIONS = {
         no_account_help: '{carrier}: ei tiliä eikä postinumeroa — jätä tämä kenttä tyhjäksi; anturien nimet ovat sensor.{slug}_*.',
         optional_account_help: '{carrier} toimii tilin kanssa tai ilman — valitse löydetty tili tai jätä kenttä tyhjäksi, jos seuraat vain seurantakoodilla (anturit sensor.{slug}_*).',
         postal_code_account_help: '{carrier}: ei tiliä — anna postinumero, jolla määritit integraation.',
+        hub_account_help: '{carrier} toimii tilin tai postinumerokohtaisten hubien kanssa — valitse löydetty tili tai anna hubin postinumero (tarvitaan "+ Lisää paketti" -toimintoon, jos hubeja on useampi).',
         show_add_parcel: 'Näytä "Lisää paketti" kortissa',
         add_parcel_toggle: '+ Lisää paketti',
         add_parcel_carrier: 'Kuljetusyhtiö',
@@ -1763,6 +1771,7 @@ const TRANSLATIONS = {
         no_account_help: '{carrier} n\'a ni compte ni code postal — laissez ce champ vide ; les capteurs s\'appellent sensor.{slug}_*.',
         optional_account_help: '{carrier} fonctionne avec ou sans compte — choisissez le compte détecté, ou laissez ce champ vide si vous suivez uniquement par numéro (capteurs nommés sensor.{slug}_*).',
         postal_code_account_help: '{carrier} n\'a pas de compte — saisissez le code postal utilisé lors de la configuration de l\'intégration.',
+        hub_account_help: '{carrier} fonctionne avec un compte ou avec des hubs par code postal — choisissez le compte détecté ou, pour un hub, saisissez son code postal (nécessaire pour « + Ajouter un colis » si vous avez plusieurs hubs).',
         show_add_parcel: 'Afficher "Ajouter un colis" sur la carte',
         add_parcel_toggle: '+ Ajouter un colis',
         add_parcel_carrier: 'Transporteur',
@@ -1953,6 +1962,7 @@ const TRANSLATIONS = {
         no_account_help: '{carrier} का कोई खाता या पिन कोड नहीं है — यह फ़ील्ड खाली छोड़ें; सेंसर के नाम sensor.{slug}_* हैं।',
         optional_account_help: '{carrier} खाते के साथ या बिना काम करता है — मिला हुआ खाता चुनें, या केवल कोड से ट्रैक करने पर यह फ़ील्ड खाली छोड़ें (सेंसर sensor.{slug}_*)।',
         postal_code_account_help: '{carrier} का कोई खाता नहीं है — वह पिन कोड दर्ज करें जिससे आपने इंटीग्रेशन सेट किया था।',
+        hub_account_help: '{carrier} खाते या पिन कोड हब के साथ काम करता है — मिला हुआ खाता चुनें, या हब के लिए उसका पिन कोड दर्ज करें (एक से अधिक हब होने पर "+ पार्सल जोड़ें" के लिए ज़रूरी)।',
         show_add_parcel: 'कार्ड पर "पार्सल जोड़ें" दिखाएँ',
         add_parcel_toggle: '+ पार्सल जोड़ें',
         add_parcel_carrier: 'कैरियर',
@@ -2143,6 +2153,7 @@ const TRANSLATIONS = {
         no_account_help: 'A(z) {carrier} szolgáltatónál nincs fiók vagy irányítószám — hagyd üresen ezt a mezőt; a szenzorok neve sensor.{slug}_*.',
         optional_account_help: 'A(z) {carrier} fiókkal és anélkül is működik — válaszd a megtalált fiókot, vagy hagyd üresen a mezőt, ha csak kód alapján követsz (szenzorok: sensor.{slug}_*).',
         postal_code_account_help: 'A(z) {carrier} szolgáltatónál nincs fiók — add meg az irányítószámot, amellyel az integrációt beállítottad.',
+        hub_account_help: 'A(z) {carrier} fiókkal vagy irányítószám szerinti hubokkal működik — válaszd ki a talált fiókot, vagy hubnál add meg az irányítószámát (több hub esetén ez kell a „+ Csomag hozzáadása” funkcióhoz).',
         show_add_parcel: '"Csomag hozzáadása" megjelenítése a kártyán',
         add_parcel_toggle: '+ Csomag hozzáadása',
         add_parcel_carrier: 'Szolgáltató',
@@ -2333,6 +2344,7 @@ const TRANSLATIONS = {
         no_account_help: '{carrier} non ha account né codice postale — lascia vuoto questo campo; i sensori si chiamano sensor.{slug}_*.',
         optional_account_help: '{carrier} funziona con o senza account — scegli l\'account rilevato, oppure lascia vuoto questo campo se tracci solo tramite codice (sensori chiamati sensor.{slug}_*).',
         postal_code_account_help: '{carrier} non ha account — inserisci il codice postale con cui hai configurato l\'integrazione.',
+        hub_account_help: '{carrier} funziona con un account o con hub per codice postale — scegli l\'account rilevato oppure, per un hub, inserisci il suo codice postale (necessario per «+ Aggiungi pacco» se hai più di un hub).',
         show_add_parcel: 'Mostra "Aggiungi pacco" sulla scheda',
         add_parcel_toggle: '+ Aggiungi pacco',
         add_parcel_carrier: 'Corriere',
@@ -2523,6 +2535,7 @@ const TRANSLATIONS = {
         no_account_help: '{carrier} har ingen konto eller postnummer — la feltet stå tomt; sensorene heter sensor.{slug}_*.',
         optional_account_help: '{carrier} fungerer med eller uten konto — velg den oppdagede kontoen, eller la feltet stå tomt hvis du bare sporer med kode (sensorer heter sensor.{slug}_*).',
         postal_code_account_help: '{carrier} har ingen konto — skriv inn postnummeret du satte opp integrasjonen med.',
+        hub_account_help: '{carrier} fungerer med en konto eller med postnummer-huber — velg kontoen som ble funnet, eller skriv inn hubens postnummer (trengs for "+ Legg til pakke" når du har mer enn én hub).',
         show_add_parcel: 'Vis "Legg til pakke" på kortet',
         add_parcel_toggle: '+ Legg til pakke',
         add_parcel_carrier: 'Transportør',
@@ -2713,6 +2726,7 @@ const TRANSLATIONS = {
         no_account_help: '{carrier} nie ma konta ani kodu pocztowego — zostaw to pole puste; czujniki nazywają się sensor.{slug}_*.',
         optional_account_help: '{carrier} działa z kontem lub bez — wybierz wykryte konto albo zostaw to pole puste, jeśli śledzisz tylko po numerze (czujniki sensor.{slug}_*).',
         postal_code_account_help: '{carrier} nie ma konta — wpisz kod pocztowy, z którym skonfigurowano integrację.',
+        hub_account_help: '{carrier} działa z kontem lub z hubami według kodu pocztowego — wybierz wykryte konto albo dla huba wpisz jego kod pocztowy (potrzebny do „+ Dodaj paczkę”, gdy masz więcej niż jeden hub).',
         show_add_parcel: 'Pokaż "Dodaj paczkę" na karcie',
         add_parcel_toggle: '+ Dodaj paczkę',
         add_parcel_carrier: 'Przewoźnik',
@@ -2903,6 +2917,7 @@ const TRANSLATIONS = {
         no_account_help: '{carrier} não tem conta nem código postal — deixe este campo vazio; os sensores chamam-se sensor.{slug}_*.',
         optional_account_help: '{carrier} funciona com ou sem conta — escolha a conta detetada, ou deixe este campo vazio se só seguir por código (sensores chamados sensor.{slug}_*).',
         postal_code_account_help: '{carrier} não tem conta — introduza o código postal com que configurou a integração.',
+        hub_account_help: '{carrier} funciona com uma conta ou com hubs por código postal — escolha a conta detetada ou, para um hub, introduza o código postal (necessário para «+ Adicionar encomenda» se tiver mais de um hub).',
         show_add_parcel: 'Mostrar "Adicionar encomenda" no cartão',
         add_parcel_toggle: '+ Adicionar encomenda',
         add_parcel_carrier: 'Transportadora',
@@ -3093,6 +3108,7 @@ const TRANSLATIONS = {
         no_account_help: '{carrier} nu are cont sau cod poștal — lasă acest câmp gol; senzorii se numesc sensor.{slug}_*.',
         optional_account_help: '{carrier} funcționează cu sau fără cont — alege contul detectat sau lasă câmpul gol dacă urmărești doar după cod (senzori numiți sensor.{slug}_*).',
         postal_code_account_help: '{carrier} nu are cont — introdu codul poștal cu care ai configurat integrarea.',
+        hub_account_help: '{carrier} funcționează cu un cont sau cu huburi pe cod poștal — alege contul detectat sau, pentru un hub, introdu codul său poștal (necesar pentru „+ Adaugă colet” când ai mai multe huburi).',
         show_add_parcel: 'Afișează "Adaugă colet" pe card',
         add_parcel_toggle: '+ Adaugă colet',
         add_parcel_carrier: 'Curier',
@@ -3283,6 +3299,7 @@ const TRANSLATIONS = {
         no_account_help: '{carrier} nemá účet ani PSČ — nechajte toto pole prázdne; senzory sa volajú sensor.{slug}_*.',
         optional_account_help: '{carrier} funguje s účtom aj bez neho — vyberte nájdený účet, alebo nechajte pole prázdne, ak sledujete len podľa kódu (senzory sensor.{slug}_*).',
         postal_code_account_help: '{carrier} nemá účet — zadajte PSČ, s ktorým ste integráciu nastavili.',
+        hub_account_help: '{carrier} funguje s účtom alebo s hubmi podľa PSČ — vyberte nájdený účet, alebo pri hube zadajte jeho PSČ (potrebné pre „+ Pridať zásielku“, ak máte viac hubov).',
         show_add_parcel: 'Zobraziť "Pridať zásielku" na karte',
         add_parcel_toggle: '+ Pridať zásielku',
         add_parcel_carrier: 'Dopravca',
@@ -3473,6 +3490,7 @@ const TRANSLATIONS = {
         no_account_help: '{carrier} har inget konto eller postnummer — lämna fältet tomt; sensorerna heter sensor.{slug}_*.',
         optional_account_help: '{carrier} fungerar med eller utan konto — välj det hittade kontot, eller lämna fältet tomt om du bara spårar via kod (sensorer heter sensor.{slug}_*).',
         postal_code_account_help: '{carrier} har inget konto — ange postnumret du konfigurerade integrationen med.',
+        hub_account_help: '{carrier} fungerar med ett konto eller med postnummer-hubbar — välj det hittade kontot, eller ange hubbens postnummer (behövs för "+ Lägg till paket" när du har mer än en hubb).',
         show_add_parcel: 'Visa "Lägg till paket" på kortet',
         add_parcel_toggle: '+ Lägg till paket',
         add_parcel_carrier: 'Transportör',
@@ -3663,6 +3681,7 @@ const TRANSLATIONS = {
         no_account_help: '{carrier} не має облікового запису чи поштового індексу — залиште це поле порожнім; сенсори називаються sensor.{slug}_*.',
         optional_account_help: '{carrier} працює з обліковим записом або без нього — виберіть знайдений обліковий запис або залиште поле порожнім, якщо відстежуєте лише за кодом (сенсори sensor.{slug}_*).',
         postal_code_account_help: '{carrier} не має облікового запису — введіть поштовий індекс, з яким налаштовано інтеграцію.',
+        hub_account_help: '{carrier} працює з обліковим записом або з хабами за поштовим індексом — виберіть знайдений обліковий запис або для хаба введіть його поштовий індекс (потрібно для «+ Додати посилку», якщо хабів більше одного).',
         show_add_parcel: 'Показати "Додати посилку" на картці',
         add_parcel_toggle: '+ Додати посилку',
         add_parcel_carrier: 'Перевізник',
@@ -3810,6 +3829,23 @@ const IMG = {
     uniuni:      `${REPO_BASE}/uniuni`,
     ups:         `${REPO_BASE}/ups`,
     usps:        `${REPO_BASE}/usps`,
+    acs_courier:  `${REPO_BASE}/acs_courier`,
+    amazon_shipping:  `${REPO_BASE}/amazon_shipping`,
+    cargus:      `${REPO_BASE}/cargus`,
+    cdl_last_mile:  `${REPO_BASE}/cdl_last_mile`,
+    colis_prive:  `${REPO_BASE}/colis_prive`,
+    colisweb:    `${REPO_BASE}/colisweb`,
+    early_bird:  `${REPO_BASE}/early_bird`,
+    ecoscooting:  `${REPO_BASE}/ecoscooting`,
+    gobolt:      `${REPO_BASE}/gobolt`,
+    magyar_posta:  `${REPO_BASE}/magyar_posta`,
+    pdn_express:  `${REPO_BASE}/pdn_express`,
+    posta_slovenije:  `${REPO_BASE}/posta_slovenije`,
+    posta_srbije:  `${REPO_BASE}/posta_srbije`,
+    spee_dee_delivery:  `${REPO_BASE}/spee_dee_delivery`,
+    straightship:  `${REPO_BASE}/straightship`,
+    tipsa:       `${REPO_BASE}/tipsa`,
+    ukrposhta:   `${REPO_BASE}/ukrposhta`,
 };
 
 // Points at the ha-parcel-integrations org, not the individual maintainers' personal repos
@@ -3887,6 +3923,23 @@ const CARRIER_REPO_URLS = {
     uniuni:      'https://github.com/ha-parcel-integrations/ha-uniuni',
     ups:         'https://github.com/ha-parcel-integrations/ha-ups',
     usps:        'https://github.com/ha-parcel-integrations/ha-usps',
+    acs_courier:  'https://github.com/ha-parcel-integrations/ha-acs-courier',
+    amazon_shipping:  'https://github.com/ha-parcel-integrations/ha-amazon-shipping',
+    cargus:      'https://github.com/ha-parcel-integrations/ha-cargus',
+    cdl_last_mile:  'https://github.com/ha-parcel-integrations/ha-cdl-last-mile',
+    colis_prive:  'https://github.com/ha-parcel-integrations/ha-colis-prive',
+    colisweb:    'https://github.com/ha-parcel-integrations/ha-colisweb',
+    early_bird:  'https://github.com/ha-parcel-integrations/ha-early-bird',
+    ecoscooting:  'https://github.com/ha-parcel-integrations/ha-ecoscooting',
+    gobolt:      'https://github.com/ha-parcel-integrations/ha-gobolt',
+    magyar_posta:  'https://github.com/ha-parcel-integrations/ha-magyar-posta',
+    pdn_express:  'https://github.com/ha-parcel-integrations/ha-pdn-express',
+    posta_slovenije:  'https://github.com/ha-parcel-integrations/ha-posta-slovenije',
+    posta_srbije:  'https://github.com/ha-parcel-integrations/ha-posta-srbije',
+    spee_dee_delivery:  'https://github.com/ha-parcel-integrations/ha-spee-dee-delivery',
+    straightship:  'https://github.com/ha-parcel-integrations/ha-straightship',
+    tipsa:       'https://github.com/ha-parcel-integrations/ha-tipsa',
+    ukrposhta:   'https://github.com/ha-parcel-integrations/ha-ukrposhta',
 };
 
 const CARRIER_ASSETS = {
@@ -4419,6 +4472,23 @@ const CARRIER_ASSETS = {
     uniuni:                { logo: `${IMG.uniuni}/uniuni-logo.png?raw=true`, logo_is_icon: true },
     ups:                   { logo: `${IMG.ups}/ups-logo.png?raw=true`, logo_is_icon: true },
     usps:                  { logo: `${IMG.usps}/usps-logo.png?raw=true`, logo_is_icon: true },
+    acs_courier:           { logo: `${IMG.acs_courier}/acs_courier-logo.png?raw=true`, logo_is_icon: true },
+    amazon_shipping:       { logo: `${IMG.amazon_shipping}/amazon_shipping-logo.png?raw=true`, logo_is_icon: true },
+    cargus:                { logo: `${IMG.cargus}/cargus-logo.png?raw=true`, logo_is_icon: true },
+    cdl_last_mile:         { logo: `${IMG.cdl_last_mile}/cdl_last_mile-logo.png?raw=true`, logo_is_icon: true },
+    colis_prive:           { logo: `${IMG.colis_prive}/colis_prive-logo.png?raw=true`, logo_is_icon: true },
+    colisweb:              { logo: `${IMG.colisweb}/colisweb-logo.png?raw=true`, logo_is_icon: true },
+    early_bird:            { logo: `${IMG.early_bird}/early_bird-logo.png?raw=true`, logo_is_icon: true },
+    ecoscooting:           { logo: `${IMG.ecoscooting}/ecoscooting-logo.png?raw=true`, logo_is_icon: true },
+    gobolt:                { logo: `${IMG.gobolt}/gobolt-logo.png?raw=true`, logo_is_icon: true },
+    magyar_posta:          { logo: `${IMG.magyar_posta}/magyar_posta-logo.png?raw=true`, logo_is_icon: true },
+    pdn_express:           { logo: `${IMG.pdn_express}/pdn_express-logo.png?raw=true`, logo_is_icon: true },
+    posta_slovenije:       { logo: `${IMG.posta_slovenije}/posta_slovenije-logo.png?raw=true`, logo_is_icon: true },
+    posta_srbije:          { logo: `${IMG.posta_srbije}/posta_srbije-logo.png?raw=true`, logo_is_icon: true },
+    spee_dee_delivery:     { logo: `${IMG.spee_dee_delivery}/spee_dee_delivery-logo.png?raw=true`, logo_is_icon: true },
+    straightship:          { logo: `${IMG.straightship}/straightship-logo.png?raw=true`, logo_is_icon: true },
+    tipsa:                 { logo: `${IMG.tipsa}/tipsa-logo.png?raw=true`, logo_is_icon: true },
+    ukrposhta:             { logo: `${IMG.ukrposhta}/ukrposhta-logo.png?raw=true`, logo_is_icon: true },
     custom: { logo: null, van: null, banner: null }
 };
 
@@ -4473,7 +4543,8 @@ const CARRIER_PRESETS = {
     // `field` is the service's tracking-number parameter name (it differs per integration);
     // `supports_postal_code` means the service also accepts an optional `postal_code` to pick
     // the right hub when more than one is configured — the card passes the carrier's own
-    // `user` value (which for these carriers IS the postal code, see gls/trunkrs_account_help).
+    // `user` value (which for these carriers IS the postal code, see gls/trunkrs_account_help;
+    // bpost and Mondial Relay also have account hubs, whose e-mail is never sent).
     gls:          { label: 'GLS',                        icon: 'mdi:package-variant-closed', color: '#061ab1', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'gls',
                     track_parcel_service: { domain: 'gls', field: 'tracking_code', supports_postal_code: true } },
     // Brand colour confirmed by pixel-sampling the official Dragonfly wordmark (teal, #00a78f).
@@ -4625,7 +4696,7 @@ const CARRIER_PRESETS = {
     boxnow:       { label: 'BoxNow',                     icon: 'mdi:package-variant-closed', color: '#40d028', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'boxnow',
                     track_parcel_service: { domain: 'boxnow', field: 'tracking_code', supports_postal_code: false } },
     bpost:        { label: 'bpost',                      icon: 'mdi:package-variant-closed', color: '#c81818', schema: 'canonical',     supports_letters: true, supports_outgoing: true, sensor_slug: 'bpost',
-                    track_parcel_service: { domain: 'bpost', field: 'tracking_code', supports_postal_code: false } },
+                    track_parcel_service: { domain: 'bpost', field: 'tracking_code', supports_postal_code: true } },
     canada_post:  { label: 'Canada Post',                icon: 'mdi:package-variant-closed', color: '#c82018', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'canada_post',
                     track_parcel_service: { domain: 'canada_post', field: 'tracking_code', supports_postal_code: false } },
     canpar:       { label: 'Canpar',                     icon: 'mdi:package-variant-closed', color: '#0050a0', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'canpar',
@@ -4640,7 +4711,7 @@ const CARRIER_PRESETS = {
     elta_courier: { label: 'ELTA Courier',               icon: 'mdi:package-variant-closed', color: '#a80820', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'elta_courier',
                     track_parcel_service: { domain: 'elta_courier', field: 'tracking_code', supports_postal_code: false } },
     evri:         { label: 'Evri',                       icon: 'mdi:package-variant-closed', color: '#0078c0', schema: 'canonical',     supports_letters: false, supports_outgoing: true, sensor_slug: 'evri',
-                    track_parcel_service: { domain: 'evri', field: 'tracking_code', supports_postal_code: false } },
+                    track_parcel_service: { domain: 'evri', field: 'tracking_code', supports_postal_code: true } },
     fan_courier:  { label: 'FAN Courier',                icon: 'mdi:package-variant-closed', color: '#102040', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'fan_courier',
                     track_parcel_service: { domain: 'fan_courier', field: 'tracking_code', supports_postal_code: false } },
     fedex:        { label: 'FedEx',                      icon: 'mdi:package-variant-closed', color: '#4d148c', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'fedex',
@@ -4653,7 +4724,8 @@ const CARRIER_PRESETS = {
                     track_parcel_service: { domain: 'laposte', field: 'tracking_code', supports_postal_code: false } },
     matkahuolto:  { label: 'Matkahuolto',                icon: 'mdi:package-variant-closed', color: '#f04878', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'matkahuolto',
                     track_parcel_service: { domain: 'matkahuolto', field: 'tracking_code', supports_postal_code: false } },
-    mondial_relay:{ label: 'Mondial Relay',              icon: 'mdi:package-variant-closed', color: '#d00058', schema: 'canonical',     supports_letters: false, supports_outgoing: true, sensor_slug: 'mondial_relay' },
+    mondial_relay:{ label: 'Mondial Relay',              icon: 'mdi:package-variant-closed', color: '#d00058', schema: 'canonical',     supports_letters: false, supports_outgoing: true, sensor_slug: 'mondial_relay',
+                    track_parcel_service: { domain: 'mondial_relay', field: 'tracking_code', supports_postal_code: true } },
     nz_post:      { label: 'NZ Post',                    icon: 'mdi:package-variant-closed', color: '#e4002b', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'nz_post',
                     track_parcel_service: { domain: 'nz_post', field: 'tracking_code', supports_postal_code: false } },
     ontrac:       { label: 'OnTrac',                     icon: 'mdi:package-variant-closed', color: '#c81820', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'ontrac',
@@ -4661,7 +4733,7 @@ const CARRIER_PRESETS = {
     orlen_paczka: { label: 'ORLEN Paczka',               icon: 'mdi:package-variant-closed', color: '#d81800', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'orlen_paczka',
                     track_parcel_service: { domain: 'orlen_paczka', field: 'tracking_code', supports_postal_code: false } },
     paack:        { label: 'Paack',                      icon: 'mdi:package-variant-closed', color: '#082840', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'paack',
-                    track_parcel_service: { domain: 'paack', field: 'tracking_code', supports_postal_code: false } },
+                    track_parcel_service: { domain: 'paack', field: 'tracking_code', supports_postal_code: true } },
     poczta_polska:{ label: 'Poczta Polska',              icon: 'mdi:package-variant-closed', color: '#c83020', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'poczta_polska',
                     track_parcel_service: { domain: 'poczta_polska', field: 'tracking_code', supports_postal_code: false } },
     poste_italiane:{ label: 'Poste Italiane',             icon: 'mdi:package-variant-closed', color: '#f0e000', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'poste_italiane',
@@ -4673,7 +4745,7 @@ const CARRIER_PRESETS = {
                     track_parcel_service: { domain: 'purolator', field: 'tracking_code', supports_postal_code: false } },
     seur:         { label: 'SEUR',                       icon: 'mdi:package-variant-closed', color: '#0058a0', schema: 'canonical',     supports_letters: false, supports_outgoing: true, sensor_slug: 'seur' },
     slovak_parcel_service:{ label: 'Slovak Parcel Service',      icon: 'mdi:package-variant-closed', color: '#e07828', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'slovak_parcel_service',
-                    track_parcel_service: { domain: 'slovak_parcel_service', field: 'tracking_code', supports_postal_code: false } },
+                    track_parcel_service: { domain: 'slovak_parcel_service', field: 'tracking_code', supports_postal_code: true } },
     slovenska_posta:{ label: 'Slovenská Pošta',            icon: 'mdi:package-variant-closed', color: '#f8b800', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'slovenska_posta',
                     track_parcel_service: { domain: 'slovenska_posta', field: 'tracking_code', supports_postal_code: false } },
     speedx:       { label: 'SpeedX',                     icon: 'mdi:package-variant-closed', color: '#10a0f8', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'speedx',
@@ -4682,8 +4754,44 @@ const CARRIER_PRESETS = {
                     track_parcel_service: { domain: 'uniuni', field: 'tracking_code', supports_postal_code: false } },
     ups:          { label: 'UPS',                        icon: 'mdi:package-variant-closed', color: '#ffb500', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'ups',
                     track_parcel_service: { domain: 'ups', field: 'tracking_code', supports_postal_code: false } },
-    usps:         { label: 'USPS',                       icon: 'mdi:package-variant-closed', color: '#004b87', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'usps',
+    usps:         { label: 'USPS',                       icon: 'mdi:package-variant-closed', color: '#004b87', schema: 'canonical',     supports_letters: true, supports_outgoing: false, sensor_slug: 'usps',
                     track_parcel_service: { domain: 'usps', field: 'tracking_code', supports_postal_code: false, optional_config_entry_field: 'entry_id' } },
+    // Colis Privé's track_parcel takes a country next to the postal code once there is more than
+    // one hub; the card has only the one `user` field, so it doesn't pick a hub for it.
+    acs_courier:  { label: 'ACS Courier',                icon: 'mdi:package-variant-closed', color: '#d80010', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'acs_courier',
+                    track_parcel_service: { domain: 'acs_courier', field: 'tracking_code', supports_postal_code: false } },
+    amazon_shipping: { label: 'Amazon Shipping',            icon: 'mdi:package-variant-closed', color: '#1a8cff', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'amazon_shipping',
+                    track_parcel_service: { domain: 'amazon_shipping', field: 'tracking_code', supports_postal_code: false } },
+    cargus:       { label: 'Cargus',                     icon: 'mdi:package-variant-closed', color: '#f08020', schema: 'canonical',     supports_letters: false, supports_outgoing: true, sensor_slug: 'cargus',
+                    track_parcel_service: { domain: 'cargus', field: 'tracking_code', supports_postal_code: false } },
+    cdl_last_mile: { label: 'CDL Last Mile',              icon: 'mdi:package-variant-closed', color: '#3870b0', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'cdl_last_mile_solutions',
+                    track_parcel_service: { domain: 'cdl_last_mile', field: 'tracking_code', supports_postal_code: false } },
+    colis_prive:  { label: 'Colis Privé',                icon: 'mdi:package-variant-closed', color: '#a878f8', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'colis_prive',
+                    track_parcel_service: { domain: 'colis_prive', field: 'tracking_code', supports_postal_code: false } },
+    colisweb:     { label: 'Colisweb',                   icon: 'mdi:package-variant-closed', color: '#48c0d8', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'colisweb',
+                    track_parcel_service: { domain: 'colisweb', field: 'tracking_code', supports_postal_code: false } },
+    early_bird:   { label: 'Early Bird',                 icon: 'mdi:package-variant-closed', color: '#d87848', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'early_bird',
+                    track_parcel_service: { domain: 'early_bird', field: 'tracking_code', supports_postal_code: false } },
+    ecoscooting:  { label: 'Ecoscooting',                icon: 'mdi:package-variant-closed', color: '#0090d0', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'ecoscooting',
+                    track_parcel_service: { domain: 'ecoscooting', field: 'tracking_code', supports_postal_code: false } },
+    gobolt:       { label: 'GoBolt',                     icon: 'mdi:package-variant-closed', color: '#f0b050', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'gobolt',
+                    track_parcel_service: { domain: 'gobolt', field: 'tracking_code', supports_postal_code: false } },
+    magyar_posta: { label: 'Magyar Posta',               icon: 'mdi:package-variant-closed', color: '#38a828', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'magyar_posta',
+                    track_parcel_service: { domain: 'magyar_posta', field: 'tracking_code', supports_postal_code: false } },
+    pdn_express:  { label: 'PDN Express',                icon: 'mdi:package-variant-closed', color: '#0060e0', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'pdn_express',
+                    track_parcel_service: { domain: 'pdn_express', field: 'tracking_code', supports_postal_code: false } },
+    posta_slovenije: { label: 'Pošta Slovenije',            icon: 'mdi:package-variant-closed', color: '#f8d040', schema: 'canonical',     supports_letters: false, supports_outgoing: true, sensor_slug: 'posta_slovenije',
+                    track_parcel_service: { domain: 'posta_slovenije', field: 'tracking_code', supports_postal_code: false } },
+    posta_srbije: { label: 'Pošta Srbije',               icon: 'mdi:package-variant-closed', color: '#f8b818', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'posta_srbije',
+                    track_parcel_service: { domain: 'posta_srbije', field: 'tracking_code', supports_postal_code: false } },
+    spee_dee_delivery: { label: 'Spee-Dee Delivery',          icon: 'mdi:package-variant-closed', color: '#6a6a6a', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'spee_dee_delivery',
+                    track_parcel_service: { domain: 'spee_dee_delivery', field: 'tracking_code', supports_postal_code: false } },
+    straightship: { label: 'Straightship',               icon: 'mdi:package-variant-closed', color: '#50b060', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'straightship',
+                    track_parcel_service: { domain: 'straightship', field: 'tracking_code', supports_postal_code: false } },
+    tipsa:        { label: 'TIPSA',                      icon: 'mdi:package-variant-closed', color: '#ff5a1e', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'tipsa',
+                    track_parcel_service: { domain: 'tipsa', field: 'tracking_code', supports_postal_code: true } },
+    ukrposhta:    { label: 'Ukrposhta',                  icon: 'mdi:package-variant-closed', color: '#f8b808', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'ukrposhta',
+                    track_parcel_service: { domain: 'ukrposhta', field: 'tracking_code', supports_postal_code: false } },
     custom:       { label: 'Custom',                     icon: 'mdi:package-variant-closed', color: '#ed8c00', schema: 'canonical',     supports_letters: false, sensor_slug: null     }
 };
 
@@ -4770,6 +4878,7 @@ const PLATFORM_DOMAIN = {
     amazon_orders: 'amazon_orders',
     gofo: 'gofo',
     laposte: 'laposte',
+    cdl_last_mile: 'cdl_last_mile',
 };
 
 // Groups a carrier's sensor entities by device, keyed off Home Assistant's own
@@ -5029,7 +5138,7 @@ const GENERIC_ACCOUNT_HELP = {
     aramex: 'no_account_help',
     better_trucks: 'no_account_help',
     boxnow: 'no_account_help',
-    bpost: 'optional_account_help',
+    bpost: 'hub_account_help',
     canada_post: 'optional_account_help',
     canpar: 'no_account_help',
     ctt: 'no_account_help',
@@ -5046,7 +5155,7 @@ const GENERIC_ACCOUNT_HELP = {
     nz_post: 'no_account_help',
     ontrac: 'no_account_help',
     orlen_paczka: 'no_account_help',
-    paack: 'no_account_help',
+    paack: 'postal_code_account_help',
     poczta_polska: 'no_account_help',
     poste_italiane: 'no_account_help',
     posti: 'optional_account_help',
@@ -5057,6 +5166,24 @@ const GENERIC_ACCOUNT_HELP = {
     uniuni: 'no_account_help',
     ups: 'no_account_help',
     usps: 'no_account_help',
+    acs_courier: 'no_account_help',
+    amazon_shipping: 'no_account_help',
+    cargus: 'optional_account_help',
+    cdl_last_mile: 'no_account_help',
+    colis_prive: 'postal_code_account_help',
+    colisweb: 'no_account_help',
+    early_bird: 'no_account_help',
+    ecoscooting: 'no_account_help',
+    gobolt: 'no_account_help',
+    magyar_posta: 'no_account_help',
+    pdn_express: 'no_account_help',
+    posta_slovenije: 'optional_account_help',
+    posta_srbije: 'no_account_help',
+    spee_dee_delivery: 'no_account_help',
+    straightship: 'no_account_help',
+    tipsa: 'postal_code_account_help',
+    ukrposhta: 'no_account_help',
+    mondial_relay: 'hub_account_help',
     hermes: 'optional_account_help',
     postnord: 'optional_account_help',
     swiss_post: 'optional_account_help',
@@ -5349,6 +5476,7 @@ class HaParcelCard extends HTMLElement {
             // how long it has been lying there (jonisnet/hki-parcels-card#19). No integration
             // reports the collection deadline itself; an optional `pickup_deadline` is used if one does.
             ready_since: statusEnum === 'at_pickup_point' ? this._readySince(item) : null,
+            pickup_deadline: statusEnum === 'at_pickup_point' ? this._pickupDeadline(item) : null,
             ...this._carrierBranding(carrier)
         };
     }
@@ -5371,6 +5499,22 @@ class HaParcelCard extends HTMLElement {
             || history[history.length - 1]?.timestamp
             || item.raw?.sendungsdetails?.sendungsverlauf?.datumAktuellerStatus
             || null;
+    }
+
+    // Collection deadline: the contract's optional pickup_deadline, else the field a carrier keeps
+    // in raw — Česká pošta enrichment.storedTo, Matkahuolto storedUntil, Budbee latestPickupDate,
+    // a Mondial Relay account's delivery.deadline. A bare date means the end of that day.
+    _pickupDeadline(item) {
+        const raw = item.raw || {};
+        const value = item.pickup_deadline
+            || raw.enrichment?.storedTo
+            || raw.storedUntil
+            || raw.latestPickupDate
+            || raw.delivery?.deadline
+            || null;
+        if (typeof value !== 'string') return null;
+        const deadline = /^\d{4}-\d{2}-\d{2}$/.test(value) ? `${value}T23:59:59` : value;
+        return isNaN(new Date(deadline)) ? null : deadline;
     }
 
     _normalizeLegacy(item, carrier) {
@@ -6417,7 +6561,7 @@ class HaParcelCard extends HTMLElement {
         if (!svc) return;
 
         const data = { [svc.field]: value };
-        if (svc.supports_postal_code && carrier.user) data.postal_code = carrier.user;
+        if (svc.supports_postal_code && carrier.user && !carrier.user.includes('@')) data.postal_code = carrier.user;
         if (svc.requires_config_entry_id) {
             const entryId = this._resolveConfigEntryId(carrier);
             if (!entryId) {

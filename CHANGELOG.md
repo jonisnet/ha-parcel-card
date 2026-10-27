@@ -1,5 +1,27 @@
 # Changelog
 
+## [2.0.0b18] — 2026-10-27
+
+### Added
+
+- **17 new carriers** from the ha-parcel-integrations family: ACS Courier, Amazon Shipping,
+  Cargus, CDL Last Mile, Colis Privé, Colisweb, Early Bird, Ecoscooting, GoBolt, Magyar Posta,
+  PDN Express, Pošta Slovenije, Pošta Srbije, Spee-Dee Delivery, Straightship, TIPSA and
+  Ukrposhta. All of them have "+ Add parcel"; Cargus and Pošta Slovenije also get a Sent tab.
+  Their logo is the integration's own icon for now.
+- **"+ Add parcel" for Mondial Relay**, which now has a `track_parcel` service.
+- **USPS letters** from Informed Delivery, with their scans, in the Letters tab.
+- **Collection deadlines** for Česká pošta, Matkahuolto, Budbee and Mondial Relay accounts: a
+  parcel waiting at a pickup point now shows "2 days left to collect" from the deadline these
+  carriers already report.
+
+### Fixed
+
+- **"+ Add parcel" failed with more than one bpost, Evri, Paack, Slovak Parcel Service or
+  Mondial Relay hub.** These integrations need the hub's postal code once there are several;
+  the card now sends the postal code entered for that carrier, as it already did for GLS and
+  Trunkrs. An account e-mail address is never sent as a postal code.
+
 ## [2.0.0b17] — 2026-10-27
 
 ### Fixed

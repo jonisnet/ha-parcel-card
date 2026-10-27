@@ -128,6 +128,7 @@
     "no_account_help": "{carrier} har ingen konto eller postnummer — la feltet stå tomt; sensorene heter sensor.{slug}_*.",
     "optional_account_help": "{carrier} fungerer med eller uten konto — velg den oppdagede kontoen, eller la feltet stå tomt hvis du bare sporer med kode (sensorer heter sensor.{slug}_*).",
     "postal_code_account_help": "{carrier} har ingen konto — skriv inn postnummeret du satte opp integrasjonen med.",
+    "hub_account_help": "{carrier} fungerer med en konto eller med postnummer-huber — velg kontoen som ble funnet, eller skriv inn hubens postnummer (trengs for \"+ Legg til pakke\" når du har mer enn én hub).",
     "show_add_parcel": "Vis \"Legg til pakke\" på kortet",
     "add_parcel_toggle": "+ Legg til pakke",
     "add_parcel_carrier": "Transportør",

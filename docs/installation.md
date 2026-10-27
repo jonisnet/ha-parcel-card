@@ -47,7 +47,7 @@ Install the integration for each carrier you use **before** adding the card. All
 
 ### Every other carrier
 
-The other 67 carriers — DHL, DPD, UPS, FedEx, USPS, GLS, bpost, La Poste, Evri and the rest — are listed with a link to their integration under **[Carrier types](card/configuration.md#carrier-types)**, together with what each one supports (Sent tab, letters, "+ Add parcel").
+The other 84 carriers — DHL, DPD, UPS, FedEx, USPS, GLS, bpost, La Poste, Evri and the rest — are listed with a link to their integration under **[Carrier types](card/configuration.md#carrier-types)**, together with what each one supports (Sent tab, letters, "+ Add parcel").
 
 Roughly, they come in three kinds:
 

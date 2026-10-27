@@ -125,6 +125,7 @@
     "no_account_help": "{carrier} has no account or postal code — leave this field empty; the sensors are named sensor.{slug}_*.",
     "optional_account_help": "{carrier} works with or without an account — pick the detected account, or leave this field empty if you only track by code (sensors named sensor.{slug}_*).",
     "postal_code_account_help": "{carrier} has no account — enter the postal code you set up the integration with.",
+    "hub_account_help": "{carrier} works with an account or with postal-code hubs — pick the detected account, or for a hub enter its postal code (needed for \"+ Add parcel\" when you have more than one hub).",
     "show_add_parcel": "Show \"Add parcel\" on the card",
     "add_parcel_toggle": "+ Add parcel",
     "add_parcel_carrier": "Carrier",

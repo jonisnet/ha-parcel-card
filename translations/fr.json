@@ -128,6 +128,7 @@
     "no_account_help": "{carrier} n'a ni compte ni code postal — laissez ce champ vide ; les capteurs s'appellent sensor.{slug}_*.",
     "optional_account_help": "{carrier} fonctionne avec ou sans compte — choisissez le compte détecté, ou laissez ce champ vide si vous suivez uniquement par numéro (capteurs nommés sensor.{slug}_*).",
     "postal_code_account_help": "{carrier} n'a pas de compte — saisissez le code postal utilisé lors de la configuration de l'intégration.",
+    "hub_account_help": "{carrier} fonctionne avec un compte ou avec des hubs par code postal — choisissez le compte détecté ou, pour un hub, saisissez son code postal (nécessaire pour « + Ajouter un colis » si vous avez plusieurs hubs).",
     "show_add_parcel": "Afficher \"Ajouter un colis\" sur la carte",
     "add_parcel_toggle": "+ Ajouter un colis",
     "add_parcel_carrier": "Transporteur",

@@ -97,7 +97,9 @@ else has a sane fallback, but the more you provide, the more the card can show.
 
   // Optional, only meaningful with status at_pickup_point: the last moment the parcel can
   // be collected before it goes back to the sender. The card then shows "2 days left to
-  // collect" instead of how long it has been waiting (taken from `history`).
+  // collect" instead of how long it has been waiting (taken from `history`). Without it, the
+  // card reads the deadline some carriers keep in `raw` (Česká pošta, Matkahuolto, Budbee,
+  // Mondial Relay accounts) — sending it here is the portable way.
   "pickup_deadline": "2026-10-30T23:59:00+01:00",
 
   // Optional. Shown in the detail panel when the user enables show_raw_status,

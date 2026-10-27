@@ -125,6 +125,7 @@
     "no_account_help": "{carrier} heeft geen account of postcode — laat dit veld leeg; de sensoren heten sensor.{slug}_*.",
     "optional_account_help": "{carrier} werkt met of zonder account — kies het gevonden account, of laat dit veld leeg als je alleen op code volgt (sensoren heten sensor.{slug}_*).",
     "postal_code_account_help": "{carrier} heeft geen account — vul de postcode in waarmee je de integratie hebt ingesteld.",
+    "hub_account_help": "{carrier} werkt met een account of met postcode-hubs — kies het gevonden account, of vul bij een hub de postcode in (nodig voor \"+ Pakket toevoegen\" als je meer dan één hub hebt).",
     "show_add_parcel": "Toon \"Pakket toevoegen\" op de kaart",
     "add_parcel_toggle": "+ Pakket toevoegen",
     "add_parcel_carrier": "Dienst",

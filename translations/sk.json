@@ -128,6 +128,7 @@
     "no_account_help": "{carrier} nemá účet ani PSČ — nechajte toto pole prázdne; senzory sa volajú sensor.{slug}_*.",
     "optional_account_help": "{carrier} funguje s účtom aj bez neho — vyberte nájdený účet, alebo nechajte pole prázdne, ak sledujete len podľa kódu (senzory sensor.{slug}_*).",
     "postal_code_account_help": "{carrier} nemá účet — zadajte PSČ, s ktorým ste integráciu nastavili.",
+    "hub_account_help": "{carrier} funguje s účtom alebo s hubmi podľa PSČ — vyberte nájdený účet, alebo pri hube zadajte jeho PSČ (potrebné pre „+ Pridať zásielku“, ak máte viac hubov).",
     "show_add_parcel": "Zobraziť \"Pridať zásielku\" na karte",
     "add_parcel_toggle": "+ Pridať zásielku",
     "add_parcel_carrier": "Dopravca",

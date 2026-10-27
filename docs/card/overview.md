@@ -1,6 +1,6 @@
 # HA Parcel Card
 
-A multi-carrier parcel tracking card for Home Assistant. Track parcels from all 68 carriers of the [ha-parcel-integrations](https://github.com/ha-parcel-integrations) family — PostNL, DHL, DPD, UPS, FedEx, USPS, GLS, bpost, La Poste, Evri and many more — in a single unified view, with support for letterbox mail images.
+A multi-carrier parcel tracking card for Home Assistant. Track parcels from all 85 carriers of the [ha-parcel-integrations](https://github.com/ha-parcel-integrations) family — PostNL, DHL, DPD, UPS, FedEx, USPS, GLS, bpost, La Poste, Evri and many more — in a single unified view, with support for letterbox mail images.
 
 !!! note
     This card was created for the visual editor in Home Assistant. It is possible that the documentation is not complete for all features.
@@ -19,7 +19,7 @@ Every supported carrier, with its integration and what it supports, is listed un
 
 ### :package: Parcel tracking
 
-- **Multi-carrier** — any of the 68 supported carriers side by side; add the same carrier multiple times for multiple accounts or hubs
+- **Multi-carrier** — any of the 85 supported carriers side by side; add the same carrier multiple times for multiple accounts or hubs
 - **Automatic sensor names** — enter only the account name; the card builds all sensor entity IDs automatically, for both known naming schemes
 - **Four tabs** — In Transit · Delivered · Sent · Letters
 - **Split sections** — both Sent and Letters are split into *Still to be delivered* and *Delivered*
@@ -41,7 +41,7 @@ For GLS and Trunkrs, which can have multiple hubs (one per postal code), the car
 
 ### :email: Letterbox mail
 
-- **PostNL and bpost letters** — dedicated tab with scan images matched automatically from `image.*` entities
+- **PostNL, bpost and USPS letters** — dedicated tab with scan images matched automatically from `image.*` entities
 - **Works across ha-postnl versions** — matching is based on the `mailitem-xxx` ID, not the entity name, so it survives integration updates
 
 ### :art: Visual interface

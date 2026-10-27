@@ -128,6 +128,7 @@
     "no_account_help": "{carrier} no tiene cuenta ni código postal: deja este campo vacío; los sensores se llaman sensor.{slug}_*.",
     "optional_account_help": "{carrier} funciona con o sin cuenta: elige la cuenta detectada o deja este campo vacío si solo haces seguimiento por código (sensores llamados sensor.{slug}_*).",
     "postal_code_account_help": "{carrier} no tiene cuenta: introduce el código postal con el que configuraste la integración.",
+    "hub_account_help": "{carrier} funciona con una cuenta o con hubs por código postal: elige la cuenta detectada o, para un hub, introduce su código postal (necesario para «+ Añadir paquete» si tienes más de un hub).",
     "show_add_parcel": "Mostrar \"Añadir paquete\" en la tarjeta",
     "add_parcel_toggle": "+ Añadir paquete",
     "add_parcel_carrier": "Transportista",
