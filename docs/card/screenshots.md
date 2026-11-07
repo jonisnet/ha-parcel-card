@@ -24,7 +24,7 @@ delivery, five when the parcel goes via a pickup point. The large scene shows wh
 
 ---
 
-## Delivery scenes — all 85 carriers
+## Delivery scenes — all 90 carriers
 
 The five scenes (Registered · Sorting centre · Out for delivery · Pickup point · Delivered) for
 every supported carrier, in its configured colour and with its logo. Logos come from
@@ -33,11 +33,11 @@ from the carrier's own artwork.
 
 === "Light theme"
 
-    ![All 85 carriers, light theme](../images/v2-all-carriers-light.png)
+    ![All 90 carriers, light theme](../images/v2-all-carriers-light.png)
 
 === "Dark theme"
 
-    ![All 85 carriers, dark theme](../images/v2-all-carriers-dark.png)
+    ![All 90 carriers, dark theme](../images/v2-all-carriers-dark.png)
 
 ---
 

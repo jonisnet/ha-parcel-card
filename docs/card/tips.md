@@ -106,7 +106,7 @@ show_raw_status: true
 
 ## Using PHU carrier icons
 
-If you have [custom-brand-icons](https://github.com/elax46/custom-brand-icons) installed via HACS, the card automatically uses branded carrier icons where available. No configuration is needed. SVG scene logos are loaded once and cached; if PHU is absent or the installed version lacks an icon, the scene uses the existing carrier logo instead. A custom carrier without a logo gets a plain panel in its configured colour. See [Installation](../installation.md#optional-phu-carrier-icons) for the released mappings.
+If you have [custom-brand-icons](https://github.com/elax46/custom-brand-icons) installed (from the Marketplace or HACS), the card automatically uses branded carrier icons where available. No configuration is needed. SVG scene logos are loaded once and cached; if PHU is absent or the installed version lacks an icon, the scene uses the existing carrier logo instead. A custom carrier without a logo gets a plain panel in its configured colour. See [Installation](../installation.md#optional-phu-carrier-icons) for the released mappings.
 
 ---
 

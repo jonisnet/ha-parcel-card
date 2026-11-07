@@ -68,7 +68,7 @@ window.HAParcelCard.getSelectValue = window.HAParcelCard.getSelectValue || ((ev,
 
 (() => {
 const { LitElement, html, css } = window.HAParcelCard.getLit();
-const CARD_VERSION = 'v2.0.0';
+const CARD_VERSION = 'v2.0.1';
 console.info(`%c HA-PARCEL-CARD %c ${CARD_VERSION} `, 'color: white; background: #ed8c00; font-weight: bold;', 'color: #ed8c00; background: white; font-weight: bold;');
 
 const DEFAULT_CARRIER_ICON = 'mdi:package-variant-closed';
@@ -81,7 +81,7 @@ function hasPhuIcons() {
 
 function getDefaultIcon(carrierType) {
     // Only use names present in a published dist, never the local PHU PR checkout.
-    // All 85 carriers audited against published dist 2026.10.3 (2026-10-27).
+    // All 90 carriers audited against published dists 2026.10.3 and 2026.11.1 (2026-11-07).
     // See scripts/audit_scene_phu.mjs and previews/scenes/phu-audit.json.
     // Unmapped carriers keep the MDI icon; their scenes use the existing logo asset.
     const phuMap = {
@@ -100,6 +100,8 @@ function getDefaultIcon(carrierType) {
         fedex: 'phu:fedex', laposte: 'phu:laposte', mondial_relay: 'phu:mondialrelay',
         nz_post: 'phu:nzpost', poste_italiane: 'phu:posteitaliane',
         ups: 'phu:ups-dlv', usps: 'phu:usps',
+        planzer: 'phu:planzer', dynalogic: 'phu:dynalogic', delhivery: 'phu:delhivery',
+        quickpac: 'phu:quickpac', poczta_polska: 'phu:pocztapolska', omniva: 'phu:omniva',
     };
     if (hasPhuIcons() && phuMap[carrierType]) return phuMap[carrierType];
     return 'mdi:package-variant-closed';
@@ -3916,6 +3918,11 @@ const IMG = {
     straightship:  `${REPO_BASE}/straightship`,
     tipsa:       `${REPO_BASE}/tipsa`,
     ukrposhta:   `${REPO_BASE}/ukrposhta`,
+    emile:       `${REPO_BASE}/emile`,
+    geniki_taxydromiki: `${REPO_BASE}/geniki_taxydromiki`,
+    hrvatska_posta: `${REPO_BASE}/hrvatska_posta`,
+    nationex:    `${REPO_BASE}/nationex`,
+    omniva:      `${REPO_BASE}/omniva`,
 };
 
 // Points at the ha-parcel-integrations org, not the individual maintainers' personal repos
@@ -4010,6 +4017,11 @@ const CARRIER_REPO_URLS = {
     straightship:  'https://github.com/ha-parcel-integrations/ha-straightship',
     tipsa:       'https://github.com/ha-parcel-integrations/ha-tipsa',
     ukrposhta:   'https://github.com/ha-parcel-integrations/ha-ukrposhta',
+    emile:       'https://github.com/ha-parcel-integrations/ha-emile',
+    geniki_taxydromiki: 'https://github.com/ha-parcel-integrations/ha-geniki-taxydromiki',
+    hrvatska_posta: 'https://github.com/ha-parcel-integrations/ha-hrvatska-posta',
+    nationex:    'https://github.com/ha-parcel-integrations/ha-nationex',
+    omniva:      'https://github.com/ha-parcel-integrations/ha-omniva',
 };
 
 // Static steps are rendered inline from the shared scene templates below.
@@ -4218,6 +4230,11 @@ const CARRIER_ASSETS = {
     straightship:          { logo: `${IMG.straightship}/straightship-logo.png?raw=true`, logo_is_icon: true },
     tipsa:                 { logo: `${IMG.tipsa}/tipsa-logo.png?raw=true`, logo_is_icon: true },
     ukrposhta:             { logo: `${IMG.ukrposhta}/ukrposhta-logo.png?raw=true`, logo_is_icon: true },
+    emile:                 { logo: `${IMG.emile}/emile-logo.png?raw=true`, logo_is_icon: true },
+    geniki_taxydromiki:    { logo: `${IMG.geniki_taxydromiki}/geniki_taxydromiki-logo.png?raw=true`, logo_is_icon: true },
+    hrvatska_posta:        { logo: `${IMG.hrvatska_posta}/hrvatska_posta-logo.png?raw=true`, logo_is_icon: true },
+    nationex:              { logo: `${IMG.nationex}/nationex-logo.png?raw=true`, logo_is_icon: true },
+    omniva:                { logo: `${IMG.omniva}/omniva-logo.png?raw=true`, logo_is_icon: true },
     custom: { logo: null, van: null, banner: null }
 };
 
@@ -4514,6 +4531,16 @@ const CARRIER_PRESETS = {
                     track_parcel_service: { domain: 'tipsa', field: 'tracking_code', supports_postal_code: true } },
     ukrposhta:    { label: 'Ukrposhta',                  icon: 'mdi:package-variant-closed', color: '#f8b808', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'ukrposhta',
                     track_parcel_service: { domain: 'ukrposhta', field: 'tracking_code', supports_postal_code: false } },
+    emile:        { label: 'eMile',                      icon: 'mdi:package-variant-closed', color: '#d22b2b', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'emile',
+                    track_parcel_service: { domain: 'emile', field: 'tracking_code', supports_postal_code: false } },
+    geniki_taxydromiki: { label: 'Geniki Taxydromiki',         icon: 'mdi:package-variant-closed', color: '#0057a0', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'geniki_taxydromiki',
+                    track_parcel_service: { domain: 'geniki_taxydromiki', field: 'tracking_code', supports_postal_code: false } },
+    hrvatska_posta: { label: 'Hrvatska pošta',             icon: 'mdi:package-variant-closed', color: '#f5d000', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'hrvatska_posta',
+                    track_parcel_service: { domain: 'hrvatska_posta', field: 'tracking_code', supports_postal_code: false } },
+    nationex:     { label: 'Nationex',                   icon: 'mdi:package-variant-closed', color: '#00663a', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'nationex',
+                    track_parcel_service: { domain: 'nationex', field: 'tracking_code', supports_postal_code: false } },
+    omniva:       { label: 'Omniva',                     icon: 'mdi:package-variant-closed', color: '#f26300', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'omniva',
+                    track_parcel_service: { domain: 'omniva', field: 'tracking_code', supports_postal_code: false } },
     custom:       { label: 'Custom',                     icon: 'mdi:package-variant-closed', color: '#ed8c00', schema: 'canonical',     supports_letters: false, sensor_slug: null     }
 };
 
@@ -4905,6 +4932,11 @@ const GENERIC_ACCOUNT_HELP = {
     straightship: 'no_account_help',
     tipsa: 'postal_code_account_help',
     ukrposhta: 'no_account_help',
+    emile: 'no_account_help',
+    geniki_taxydromiki: 'no_account_help',
+    hrvatska_posta: 'no_account_help',
+    nationex: 'no_account_help',
+    omniva: 'no_account_help',
     mondial_relay: 'hub_account_help',
     hermes: 'optional_account_help',
     postnord: 'optional_account_help',
@@ -5123,6 +5155,11 @@ const BANNER_LOGO_METRICS = Object.freeze({
     straightship: [0.09896,0.39193,0.79557,0.20573,3.86709,0.29794,0.00426],
     tipsa: [0,0,1,1,1,0.95686,0.92897],
     ukrposhta: [0,0,1,1,1,0.8175,0],
+    emile: [0.17708,0.14193,0.64714,0.72005,0.89873,0.58173,0.07031],
+    geniki_taxydromiki: [0.11849,0.10286,0.75651,0.78906,0.95875,0.31052,0.11059],
+    hrvatska_posta: [0,0,1,1,1,1,0.12522],
+    nationex: [0,0,1,1,1,1,0.79475],
+    omniva: [0,0,1,1,1,0.82804,0],
 });
 // GENERATED:BANNER_LOGO_METRICS:END
 
@@ -5381,9 +5418,9 @@ window.HAParcelCard.stepScenes = Object.freeze({
 
 
 // ── Picking up a new version by itself ──────────────────────────────────────
-// HACS serves /hacsfiles/ with long cache headers and relies on the new
-// ?hacstag=… it writes into the dashboard resource on every update. That only
-// reaches a page that is loaded from scratch. A dashboard that is already open —
+// The Marketplace (/local/community/…?v=…) and HACS before it (/hacsfiles/…?hacstag=…)
+// serve the card with long cache headers and rely on a new version query in the
+// dashboard resource on every update. That only reaches a page that is loaded from scratch. A dashboard that is already open —
 // the companion app, a wall tablet — keeps running the old card, also across a
 // Home Assistant restart, until someone clears the cache by hand. So the card
 // checks for itself: it asks which resource the dashboard loads now, reads

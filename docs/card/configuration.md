@@ -114,22 +114,27 @@ Normally the card generates sensor entity IDs automatically from `type` and `use
 | `econt` | Econt | [ha-parcel-integrations/ha-econt](https://github.com/ha-parcel-integrations/ha-econt) | — | — | ✅ |
 | `ecoscooting` | Ecoscooting | [ha-parcel-integrations/ha-ecoscooting](https://github.com/ha-parcel-integrations/ha-ecoscooting) | — | — | ✅ |
 | `elta_courier` | ELTA Courier | [ha-parcel-integrations/ha-elta-courier](https://github.com/ha-parcel-integrations/ha-elta-courier) | — | — | ✅ |
+| `emile` | eMile | [ha-parcel-integrations/ha-emile](https://github.com/ha-parcel-integrations/ha-emile) | — | — | ✅ |
 | `evri` | Evri | [ha-parcel-integrations/ha-evri](https://github.com/ha-parcel-integrations/ha-evri) | — | ✅ | ✅ |
 | `fan_courier` | FAN Courier | [ha-parcel-integrations/ha-fan-courier](https://github.com/ha-parcel-integrations/ha-fan-courier) | — | — | ✅ |
 | `fedex` | FedEx | [ha-parcel-integrations/ha-fedex](https://github.com/ha-parcel-integrations/ha-fedex) | — | — | ✅ |
+| `geniki_taxydromiki` | Geniki Taxydromiki | [ha-parcel-integrations/ha-geniki-taxydromiki](https://github.com/ha-parcel-integrations/ha-geniki-taxydromiki) | — | — | ✅ |
 | `gls` | GLS | [ha-parcel-integrations/ha-gls](https://github.com/ha-parcel-integrations/ha-gls) | — | — | ✅ |
 | `gobolt` | GoBolt | [ha-parcel-integrations/ha-gobolt](https://github.com/ha-parcel-integrations/ha-gobolt) | — | — | ✅ |
 | `gofo` | GOFO Express | [ha-parcel-integrations/ha-gofo](https://github.com/ha-parcel-integrations/ha-gofo) | — | — | ✅ |
 | `helthjem` | Helthjem | [ha-parcel-integrations/ha-helthjem](https://github.com/ha-parcel-integrations/ha-helthjem) | — | — | ✅ |
 | `hermes` | Hermes | [ha-parcel-integrations/ha-hermes](https://github.com/ha-parcel-integrations/ha-hermes) | — | — | ✅ |
+| `hrvatska_posta` | Hrvatska pošta | [ha-parcel-integrations/ha-hrvatska-posta](https://github.com/ha-parcel-integrations/ha-hrvatska-posta) | — | — | ✅ |
 | `ics_courier` | ICS Courier | [ha-parcel-integrations/ha-ics-courier](https://github.com/ha-parcel-integrations/ha-ics-courier) | — | — | ✅ |
 | `inpost` | InPost | [ha-parcel-integrations/ha-inpost](https://github.com/ha-parcel-integrations/ha-inpost) | — | — | ✅ |
 | `laposte` | La Poste | [ha-parcel-integrations/ha-laposte](https://github.com/ha-parcel-integrations/ha-laposte) | — | — | ✅ |
 | `magyar_posta` | Magyar Posta | [ha-parcel-integrations/ha-magyar-posta](https://github.com/ha-parcel-integrations/ha-magyar-posta) | — | — | ✅ |
 | `matkahuolto` | Matkahuolto | [ha-parcel-integrations/ha-matkahuolto](https://github.com/ha-parcel-integrations/ha-matkahuolto) | — | — | ✅ |
 | `mondial_relay` | Mondial Relay | [ha-parcel-integrations/ha-mondial-relay](https://github.com/ha-parcel-integrations/ha-mondial-relay) | — | ✅ | ✅ |
+| `nationex` | Nationex | [ha-parcel-integrations/ha-nationex](https://github.com/ha-parcel-integrations/ha-nationex) | — | — | ✅ |
 | `nova_post` | Nova Post | [ha-parcel-integrations/ha-nova-post](https://github.com/ha-parcel-integrations/ha-nova-post) | — | — | ✅ |
 | `nz_post` | NZ Post | [ha-parcel-integrations/ha-nz-post](https://github.com/ha-parcel-integrations/ha-nz-post) | — | — | ✅ |
+| `omniva` | Omniva | [ha-parcel-integrations/ha-omniva](https://github.com/ha-parcel-integrations/ha-omniva) | — | — | ✅ |
 | `ontrac` | OnTrac | [ha-parcel-integrations/ha-ontrac](https://github.com/ha-parcel-integrations/ha-ontrac) | — | — | ✅ |
 | `orlen_paczka` | ORLEN Paczka | [ha-parcel-integrations/ha-orlen-paczka](https://github.com/ha-parcel-integrations/ha-orlen-paczka) | — | — | ✅ |
 | `paack` | Paack | [ha-parcel-integrations/ha-paack](https://github.com/ha-parcel-integrations/ha-paack) | — | — | ✅ |

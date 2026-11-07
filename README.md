@@ -4,20 +4,20 @@
 > [`hki-parcels-card`](https://github.com/jonisnet/hki-parcels-card) (v1.7.x) — renamed because
 > "HKI" is [jimz011](https://github.com/jimz011)'s own trade name, and v2 belongs to the broader
 > [ha-parcel-integrations](https://github.com/ha-parcel-integrations) family. It uses its own card
-> type, `custom:ha-parcel-card`, so both cards can be installed side by side. Install it as a
-> **HACS custom repository** or manually — see [Installation](#installation).
+> type, `custom:ha-parcel-card`, so both cards can be installed side by side. Install it from the
+> **Marketplace** (HACS on older Home Assistant) or manually — see [Installation](#installation).
 >
 > Found a bug? Open an issue here, not on `hki-parcels-card`.
 
 [![Version](https://img.shields.io/github/v/release/jonisnet/ha-parcel-card?style=flat-square&label=version)](https://github.com/jonisnet/ha-parcel-card/releases)
-[![HACS](https://img.shields.io/badge/HACS-Custom-orange?style=flat-square)](https://hacs.xyz)
+[![Marketplace](https://img.shields.io/badge/Marketplace-custom_repository-orange?style=flat-square)](https://www.home-assistant.io/integrations/marketplace/)
 [![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](https://github.com/jonisnet/ha-parcel-card/blob/main/LICENSE)
 [![HA](https://img.shields.io/badge/Home%20Assistant-2026.7%2B-41bdf5?style=flat-square)](https://www.home-assistant.io)
 [![Downloads](https://img.shields.io/github/downloads/jonisnet/ha-parcel-card/total?style=flat-square&label=downloads)](https://github.com/jonisnet/ha-parcel-card/releases)
 [![Sponsor](https://img.shields.io/badge/sponsor-ea4aaa?style=flat-square&logo=githubsponsors&logoColor=white)](https://github.com/sponsors/jonisnet)
 [![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-FFDD00?style=flat-square&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/jonisnet)
 
-**Track parcels from all 85 carriers of the [ha-parcel-integrations](https://github.com/ha-parcel-integrations) family — PostNL, DHL, DPD, UPS, FedEx, USPS, GLS, bpost, La Poste, Evri and many more — in a single Home Assistant card** — with illustrated delivery scenes in every carrier's own colour, letter scans you can zoom into, automatic sensor detection, an "Add parcel" control for account-less carriers, and a full visual editor.
+**Track parcels from all 90 carriers of the [ha-parcel-integrations](https://github.com/ha-parcel-integrations) family — PostNL, DHL, DPD, UPS, FedEx, USPS, GLS, bpost, La Poste, Evri and many more — in a single Home Assistant card** — with illustrated delivery scenes in every carrier's own colour, letter scans you can zoom into, automatic sensor detection, an "Add parcel" control for account-less carriers, and a full visual editor.
 
 📖 **Full documentation, configuration reference and screenshots:** **[jonisnet.github.io/ha-parcel-card](https://jonisnet.github.io/ha-parcel-card/)**
 
@@ -38,7 +38,7 @@
 
 ## Features
 
-- **Multi-carrier** — any of the 85 supported carriers side by side in one card, each with its own logo and brand colour
+- **Multi-carrier** — any of the 90 supported carriers side by side in one card, each with its own logo and brand colour
 - **Illustrated delivery tracker for every carrier** — Registered · Sorting centre · Out for delivery · Delivered, with an extra Pickup point step when applicable. One set of scenes, drawn in each carrier's own colour and carrying its logo; works on a bare Home Assistant, and uses [custom-brand-icons](https://github.com/elax46/custom-brand-icons) logos when you have them
 - **Logos straight from your integrations** — carriers without their own card artwork show the icon their integration ships (Home Assistant 2026.3+), so a newly added carrier brings its logo along
 - **Four tabs** — In Transit · Delivered · Sent · Letters, with parcel details, barcode and a direct tracking link. Pick the tab the card opens on with `default_tab`, or link straight to one with `?parcel_tab=post` — handy from a notification
@@ -49,7 +49,7 @@
 - **Letterbox mail** — PostNL letters get their own tab with scan images you can pinch or double-tap to zoom into, matched automatically and resilient to ha-postnl updates
 - **Full visual editor** — no YAML required, with auto sensor detection, a media browser for custom images, a colour picker and live preview
 - **Carrier banner** — with two or more carriers configured, the card shows just your carriers as equal tiles that follow your light or dark theme; tap one to see all its parcels
-- **Updates itself** — after a HACS update an open dashboard reloads once by itself; no more clearing the browser cache
+- **Updates itself** — after an update an already-open dashboard reloads once by itself; no more clearing the browser cache
 
 ![Editor screenshot](https://raw.githubusercontent.com/jonisnet/ha-parcel-card/main/images/screenshot-editor-carriers.png)
 
@@ -70,7 +70,7 @@ Every carrier gets the same five scenes, in its own colour and with its own logo
 
 <img src="https://raw.githubusercontent.com/jonisnet/ha-parcel-card/main/images/v2-carriers-light.png" alt="Delivery scenes for PostNL, DHL, UPS, FedEx, La Poste and GLS">
 
-All 85 carriers side by side, plus more screenshots and examples: [jonisnet.github.io/ha-parcel-card/card/screenshots](https://jonisnet.github.io/ha-parcel-card/card/screenshots/)
+All 90 carriers side by side, plus more screenshots and examples: [jonisnet.github.io/ha-parcel-card/card/screenshots](https://jonisnet.github.io/ha-parcel-card/card/screenshots/)
 
 ---
 
@@ -119,22 +119,27 @@ via `type: custom`, no code changes needed here. See **[the integration contract
 | **Econt** | [ha-parcel-integrations/ha-econt](https://github.com/ha-parcel-integrations/ha-econt) | ✅ | — | — |
 | **Ecoscooting** | [ha-parcel-integrations/ha-ecoscooting](https://github.com/ha-parcel-integrations/ha-ecoscooting) | ✅ | — | — |
 | **ELTA Courier** | [ha-parcel-integrations/ha-elta-courier](https://github.com/ha-parcel-integrations/ha-elta-courier) | ✅ | — | — |
+| **eMile** | [ha-parcel-integrations/ha-emile](https://github.com/ha-parcel-integrations/ha-emile) | ✅ | — | — |
 | **Evri** | [ha-parcel-integrations/ha-evri](https://github.com/ha-parcel-integrations/ha-evri) | ✅ | ✅ | — |
 | **FAN Courier** | [ha-parcel-integrations/ha-fan-courier](https://github.com/ha-parcel-integrations/ha-fan-courier) | ✅ | — | — |
 | **FedEx** | [ha-parcel-integrations/ha-fedex](https://github.com/ha-parcel-integrations/ha-fedex) | ✅ | — | — |
+| **Geniki Taxydromiki** | [ha-parcel-integrations/ha-geniki-taxydromiki](https://github.com/ha-parcel-integrations/ha-geniki-taxydromiki) | ✅ | — | — |
 | **GLS** | [ha-parcel-integrations/ha-gls](https://github.com/ha-parcel-integrations/ha-gls) | ✅ | — | — |
 | **GoBolt** | [ha-parcel-integrations/ha-gobolt](https://github.com/ha-parcel-integrations/ha-gobolt) | ✅ | — | — |
 | **GOFO Express** | [ha-parcel-integrations/ha-gofo](https://github.com/ha-parcel-integrations/ha-gofo) | ✅ | — | — |
 | **Helthjem** | [ha-parcel-integrations/ha-helthjem](https://github.com/ha-parcel-integrations/ha-helthjem) | ✅ | — | — |
 | **Hermes** | [ha-parcel-integrations/ha-hermes](https://github.com/ha-parcel-integrations/ha-hermes) | ✅ | — | — |
+| **Hrvatska pošta** | [ha-parcel-integrations/ha-hrvatska-posta](https://github.com/ha-parcel-integrations/ha-hrvatska-posta) | ✅ | — | — |
 | **ICS Courier** | [ha-parcel-integrations/ha-ics-courier](https://github.com/ha-parcel-integrations/ha-ics-courier) | ✅ | — | — |
 | **InPost** | [ha-parcel-integrations/ha-inpost](https://github.com/ha-parcel-integrations/ha-inpost) | ✅ | — | — |
 | **La Poste** | [ha-parcel-integrations/ha-laposte](https://github.com/ha-parcel-integrations/ha-laposte) | ✅ | — | — |
 | **Magyar Posta** | [ha-parcel-integrations/ha-magyar-posta](https://github.com/ha-parcel-integrations/ha-magyar-posta) | ✅ | — | — |
 | **Matkahuolto** | [ha-parcel-integrations/ha-matkahuolto](https://github.com/ha-parcel-integrations/ha-matkahuolto) | ✅ | — | — |
 | **Mondial Relay** | [ha-parcel-integrations/ha-mondial-relay](https://github.com/ha-parcel-integrations/ha-mondial-relay) | ✅ | ✅ | — |
+| **Nationex** | [ha-parcel-integrations/ha-nationex](https://github.com/ha-parcel-integrations/ha-nationex) | ✅ | — | — |
 | **Nova Post** | [ha-parcel-integrations/ha-nova-post](https://github.com/ha-parcel-integrations/ha-nova-post) | ✅ | — | — |
 | **NZ Post** | [ha-parcel-integrations/ha-nz-post](https://github.com/ha-parcel-integrations/ha-nz-post) | ✅ | — | — |
+| **Omniva** | [ha-parcel-integrations/ha-omniva](https://github.com/ha-parcel-integrations/ha-omniva) | ✅ | — | — |
 | **OnTrac** | [ha-parcel-integrations/ha-ontrac](https://github.com/ha-parcel-integrations/ha-ontrac) | ✅ | — | — |
 | **ORLEN Paczka** | [ha-parcel-integrations/ha-orlen-paczka](https://github.com/ha-parcel-integrations/ha-orlen-paczka) | ✅ | — | — |
 | **Paack** | [ha-parcel-integrations/ha-paack](https://github.com/ha-parcel-integrations/ha-paack) | ✅ | — | — |
@@ -182,12 +187,26 @@ The card's "Add parcel" control appears for every carrier whose integration has 
 
 ## Installation
 
-### Via HACS (recommended)
+### Via the Marketplace (recommended)
+
+Home Assistant 2026.11 and newer have HACS built in as the **Marketplace**.
+
+[![Open in the Marketplace](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=jonisnet&repository=ha-parcel-card&category=plugin)
+
+1. Click the button above, or go to **Settings → Marketplace → Add from link** and enter `https://github.com/jonisnet/ha-parcel-card` (this needs the Marketplace's GitHub connection)
+2. Install **HA Parcel Card**
+3. Reload your browser — no restart needed
+
+Want beta versions too? Turn on the repository's **Pre-release** switch (an entity that is disabled by default).
+
+### Via HACS (Home Assistant before 2026.11)
 
 1. Go to **HACS → Dashboard → ⋮ → Custom repositories**
 2. Add `https://github.com/jonisnet/ha-parcel-card` with category **Dashboard**
 3. Search for **HA Parcel Card** and click Install
-4. Restart Home Assistant (or do a hard refresh: Ctrl+Shift+R)
+4. Reload your browser (Ctrl+Shift+R)
+
+On updating to Home Assistant 2026.11, an installation from HACS moves to the Marketplace by itself.
 
 ### Manual
 
@@ -196,12 +215,12 @@ The card's "Add parcel" control appears for every carrier whose integration has 
 3. Go to **Settings → Dashboards → Resources** and add `/local/ha-parcel-card.js` (type: JavaScript module)
 4. Hard refresh your browser
 
-Optional: install [custom-brand-icons](https://github.com/elax46/custom-brand-icons) via HACS for branded PHU carrier icons — detected automatically, no configuration needed.
+Optional: install [custom-brand-icons](https://github.com/elax46/custom-brand-icons) from the Marketplace for branded PHU carrier icons — detected automatically, no configuration needed.
 
 The SVG delivery scenes also work in a plain Home Assistant installation. Their logos prefer
 PHU icons, then the carrier's existing logo (`logo_path` can override that fallback), and
 otherwise a plain panel in the carrier colour. The mapping was checked against published
-custom-brand-icons 2026.10.3; see the [coverage table](docs/installation.md#optional-phu-carrier-icons).
+custom-brand-icons 2026.10.3 and 2026.11.1; see the [coverage table](docs/installation.md#optional-phu-carrier-icons).
 
 Full installation guide: [jonisnet.github.io/ha-parcel-card/installation](https://jonisnet.github.io/ha-parcel-card/installation/).
 
@@ -269,7 +288,7 @@ This card is free and maintained in my spare time. If it's useful to you, a smal
 ## Credits
 
 - [jimz011/hki-elements](https://github.com/jimz011/hki-elements) — original PostNL card and visual design
-- [ha-parcel-integrations](https://github.com/ha-parcel-integrations) — the 85 carrier integrations this card supports, all sharing one canonical parcel format
+- [ha-parcel-integrations](https://github.com/ha-parcel-integrations) — the 90 carrier integrations this card supports, all sharing one canonical parcel format
 - [Alwin Hummels (@HummelsTech)](https://github.com/HummelsTech) — created the Dragonfly integration ([HummelsTech/ha-dragonfly](https://github.com/HummelsTech/ha-dragonfly)), also mirrored into ha-parcel-integrations above
 
 ---

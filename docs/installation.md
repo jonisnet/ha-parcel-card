@@ -1,11 +1,35 @@
 # Installation
 
-## Via HACS (recommended)
+## Via the Marketplace (recommended)
+
+Home Assistant 2026.11 and newer have HACS built in as the **Marketplace**, under **Settings → Marketplace**.
+
+[![Open in the Marketplace](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=jonisnet&repository=ha-parcel-card&category=plugin)
+
+1. Click the button above, or go to **Settings → Marketplace → Add from link** and enter `https://github.com/jonisnet/ha-parcel-card`. Adding a repository from a link needs the Marketplace's GitHub connection.
+2. Install **HA Parcel Card**. The Marketplace adds the dashboard resource itself (served from `/local/community/ha-parcel-card/`).
+3. Reload your browser. No restart is needed.
+
+!!! tip "Beta versions"
+    The Marketplace offers only regular releases by default. To get betas as well, turn on the
+    repository's **Pre-release** switch. It is an entity that is disabled by default: go to
+    **Settings → Entities**, clear the "Disabled" filter and search for "HA Parcel Card".
+
+!!! note "Dashboards in YAML mode"
+    In YAML resource mode the Marketplace cannot add the resource itself; its install dialog shows
+    the line to add to your configuration.
+
+---
+
+## Via HACS (Home Assistant before 2026.11)
 
 1. In Home Assistant go to **HACS → Dashboard → ⋮ → Custom repositories**
 2. Add `https://github.com/jonisnet/ha-parcel-card` as category **Dashboard**
 3. Search for **HA Parcel Card** and install
-4. Restart Home Assistant or do a hard refresh (Ctrl+Shift+R)
+4. Reload your browser (Ctrl+Shift+R)
+
+When you update to Home Assistant 2026.11, the installation moves to the Marketplace by itself,
+including the dashboard resource. The old `/hacsfiles/` address keeps working.
 
 ---
 
@@ -47,7 +71,7 @@ Install the integration for each carrier you use **before** adding the card. All
 
 ### Every other carrier
 
-The other 84 carriers — DHL, DPD, UPS, FedEx, USPS, GLS, bpost, La Poste, Evri and the rest — are listed with a link to their integration under **[Carrier types](card/configuration.md#carrier-types)**, together with what each one supports (Sent tab, letters, "Add parcel").
+The other 89 carriers — DHL, DPD, UPS, FedEx, USPS, GLS, bpost, La Poste, Evri and the rest — are listed with a link to their integration under **[Carrier types](card/configuration.md#carrier-types)**, together with what each one supports (Sent tab, letters, "Add parcel").
 
 Roughly, they come in three kinds:
 
@@ -65,7 +89,7 @@ Roughly, they come in three kinds:
 
 ## Optional: PHU carrier icons
 
-Install [custom-brand-icons](https://github.com/elax46/custom-brand-icons) via HACS to get branded `phu:` carrier icons. The card detects this automatically — no configuration needed.
+Install [custom-brand-icons](https://github.com/elax46/custom-brand-icons) from the Marketplace (or HACS) to get branded `phu:` carrier icons. The card detects this automatically — no configuration needed.
 
 The SVG delivery scenes work without this optional iconset. Their logo panels prefer a
 mapped PHU icon, then the carrier's existing logo (rounded for app icons), then a plain
@@ -75,9 +99,9 @@ served by Home Assistant 2026.3 and newer; older versions use a copy kept in thi
 Registered and Delivered intentionally have no logo. If an older PHU installation lacks a
 mapped icon, the scene retains its image fallback.
 
-All 85 carrier mappings were checked on 27 October 2026 against the published
+All 90 carrier mappings were checked on 7 November 2026 against the published
 [custom-brand-icons 2026.10.3 release](https://github.com/elax46/custom-brand-icons/releases/tag/2026.10.3)
-and its `dist/custom-brand-icons.js`. These 35 carrier types have released icons:
+and its `dist/custom-brand-icons.js`, and again against release 2026.11.1. These 41 carrier types have released icons:
 
 | Carrier | PHU icon |
 | ------- | -------- |
@@ -116,8 +140,14 @@ and its `dist/custom-brand-icons.js`. These 35 carrier types have released icons
 | UPS | `phu:ups-dlv` |
 | USPS | `phu:usps` |
 | Amazon Shipping | `phu:amazon-logo` |
+| Planzer | `phu:planzer` |
+| Dynalogic | `phu:dynalogic` |
+| Delhivery | `phu:delhivery` |
+| Quickpac | `phu:quickpac` |
+| Poczta Polska | `phu:pocztapolska` |
+| Omniva | `phu:omniva` |
 
-The other 50 carriers use their existing logo in the scenes. Custom carriers use their
+The other 49 carriers use their existing logo in the scenes. Custom carriers use their
 configured logo, or a plain brand-colour panel without text. Outside the SVG illustrations,
 unmapped carriers keep the generic `mdi:package-variant-closed` icon. No local PR icons are
 used or required. Pale PHU logo colours are darkened automatically for at least 3:1 contrast

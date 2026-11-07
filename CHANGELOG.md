@@ -1,5 +1,22 @@
 # Changelog
 
+## [2.0.1] — 2026-11-07
+
+### Added
+
+- **Five new carriers** from the ha-parcel-integrations family: **eMile**, **Geniki
+  Taxydromiki**, **Hrvatska pošta**, **Nationex** and **Omniva** — each with its own name,
+  colour, logo and "Add parcel" support. The card now supports 90 carriers.
+- **More carrier icons in the scenes** — Planzer, Dynalogic, Delhivery, Quickpac, Poczta Polska
+  and Omniva now use their released [custom-brand-icons](https://github.com/elax46/custom-brand-icons)
+  logo when it is installed (41 carriers in total, checked against releases 2026.10.3 and 2026.11.1).
+
+### Changed
+
+- **Installation via the Marketplace** — the README and docs now describe installing from the
+  Marketplace that replaces HACS in Home Assistant 2026.11, with a one-click button, and how to
+  get beta versions through the Pre-release switch. HACS instructions remain for older versions.
+
 ## [2.0.0] — 2026-11-07
 
 First stable release of HA Parcel Card v2, with exactly the code of 2.0.0b21 after a week

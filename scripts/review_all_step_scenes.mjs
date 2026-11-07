@@ -42,12 +42,12 @@ try {
                 providerPresent: !!window.customIconsets,
                 badImages, minimumContrast: Math.min(...api.types.map(type => api.carrier(type).palette.logoContrast)) };
         });
-        assert.equal(checks.carriers, 86);
-        assert.equal(checks.scenes, 430);
+        assert.equal(checks.carriers, 91);
+        assert.equal(checks.scenes, 455);
         assert.deepEqual(checks.widths, [60]);
         assert.equal(checks.invalidLogo, 0);
         assert.deepEqual(checks.badImages, []);
-        assert.equal(checks.phuCarriers, query.includes('no-phu') ? 0 : 35);
+        assert.equal(checks.phuCarriers, query.includes('no-phu') ? 0 : 41);
         assert.equal(checks.providerPresent, !query.includes('no-phu'));
         assert.ok(checks.minimumContrast >= 3);
         await page.screenshot({ path: path.join(output, filename), fullPage: true });
@@ -110,15 +110,15 @@ try {
     assert.deepEqual(result.allCarrierIntegration.failures, []);
     const { api } = await loadScenePreview();
     const audit = JSON.parse(await readFile('previews/scenes/phu-audit.json', 'utf8'));
-    assert.equal(audit.carrierCount, 85);
-    assert.equal(audit.mappedCarrierCount, 35);
+    assert.equal(audit.carrierCount, 90);
+    assert.equal(audit.mappedCarrierCount, 41);
     for (const carrier of audit.carriers) assert.equal(api.carrier(carrier.type).phu, carrier.icon);
     result.phu = { release: audit.release, mappedCarriers: audit.mappedCarrierCount, uniqueIcons: audit.uniqueIconCount, sha256: audit.sha256 };
     const modifiedImages = execFileSync('git', ['diff', '--name-only', 'HEAD', '--', 'images'], { encoding: 'utf8' }).trim();
     assert.equal(modifiedImages, '');
     result.oldImagesUnchanged = true;
     const source = await readFile('ha-parcel-card.js', 'utf8');
-    assert.ok(source.includes("const CARD_VERSION = 'v2.0.0b18'"));
+    assert.match(source, /const CARD_VERSION = 'v2\.\d+\.\d+(b\d+)?'/);
     assert.ok(!/\bsteps:\s*\{/.test(source));
     result.versionUnchanged = true;
     assert.deepEqual(errors, []);

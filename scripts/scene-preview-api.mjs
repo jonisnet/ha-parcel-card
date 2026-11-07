@@ -5,7 +5,9 @@ export async function loadScenePreview({ phu = true } = {}) {
     const fixture = JSON.parse(await readFile(new URL('./scene-preview-phu.json', import.meta.url), 'utf8'));
     class Element { attachShadow() { this.shadowRoot = {}; } }
     const context = vm.createContext({
-        window: { LitElement: Element, html: () => '', css: () => '' },
+        // The card registers page listeners for its self-update and start-tab handling.
+        window: { LitElement: Element, html: () => '', css: () => '', addEventListener() {} },
+        document: { addEventListener() {}, visibilityState: 'visible' },
         HTMLElement: Element,
         customElements: { get: name => elements.get(name), define: (name, value) => elements.set(name, value) },
         console: { info() {} },

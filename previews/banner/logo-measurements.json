@@ -2805,6 +2805,171 @@
         0
       ],
       "appIcon": true
+    },
+    {
+      "type": "emile",
+      "file": "images/emile/emile-logo.png",
+      "sha256": "8edcff3838466b8a412306fc2edd1f3a763652f45e38baf11305fbf55fad8f9c",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 136,
+        "y": 109,
+        "right": 633,
+        "bottom": 662,
+        "count": 159883
+      },
+      "normalized": [
+        0.17708,
+        0.14193,
+        0.64714,
+        0.72005,
+        0.89873,
+        0.58173,
+        0.07031
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "geniki_taxydromiki",
+      "file": "images/geniki_taxydromiki/geniki_taxydromiki-logo.png",
+      "sha256": "dddd5eefc8c5cebace115388814c06d616eebe94c253782099532578f6845c32",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 91,
+        "y": 79,
+        "right": 672,
+        "bottom": 685,
+        "count": 109328
+      },
+      "normalized": [
+        0.11849,
+        0.10286,
+        0.75651,
+        0.78906,
+        0.95875,
+        0.31052,
+        0.11059
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "hrvatska_posta",
+      "file": "images/hrvatska_posta/hrvatska_posta-logo.png",
+      "sha256": "b980ba9d49d03dc7e6884893839b6b422f90980b90a66430058244ec59da2e03",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0.12522
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "nationex",
+      "file": "images/nationex/nationex-logo.png",
+      "sha256": "7243b1ae8963aa941d4652e3846e06ea533a1e654421c630ffa7f0de2b626bcf",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0.79475
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "omniva",
+      "file": "images/omniva/omniva-logo.png",
+      "sha256": "a4d8f39a69a9ba072b94b99d93f484a08782532a7a220897997337b1dcd76e70",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 488398
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0.82804,
+        0
+      ],
+      "appIcon": true
     }
   ]
 }
