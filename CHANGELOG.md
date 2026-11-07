@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.0.0] — 2026-11-07
+
+First stable release of HA Parcel Card v2, with exactly the code of 2.0.0b21 after a week
+without reported problems. Compared with hki-parcels-card v1.x, v2 brings among others: all 85
+carriers of the ha-parcel-integrations family, illustrated delivery scenes in every carrier's
+colour, the Studio carrier banner, logos straight from the installed integrations, an open
+dashboard that reloads itself after an update, a chosen start tab (also from a URL) and
+zoomable letter scans. See the 2.0.0b entries below for the full history.
+
 ## [2.0.0b21] — 2026-10-28
 
 ### Added

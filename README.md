@@ -1,22 +1,15 @@
-# HA Parcel Card (v2, beta)
+# HA Parcel Card
 
-> ⚠️ **Beta, not yet a stable release.** This is the v2 successor to
-> [`hki-parcels-card`](https://github.com/jonisnet/hki-parcels-card) (the stable v1.7.x card) —
-> renamed because "HKI" is [jimz011](https://github.com/jimz011)'s own trade name, and v2 is
-> moving toward the broader [ha-parcel-integrations](https://github.com/ha-parcel-integrations)
-> family instead. Not (yet) submitted to HACS' default store, but installable as a **HACS custom
-> repository** now that pre-releases exist — see [Installation](https://jonisnet.github.io/ha-parcel-card/installation/),
-> or install manually:
->
-> 1. Download `ha-parcel-card.js` from the [latest release](https://github.com/jonisnet/ha-parcel-card/releases/latest)
-> 2. Place it at `/config/www/ha-parcel-card.js`
-> 3. Go to **Settings → Dashboards → Resources** and add it as a **JavaScript module** resource
-> 4. Use `type: custom:ha-parcel-card` in your dashboard — this is a different card type than
->    `custom:hki-parcels-card`, so both can be installed side by side without conflict
+> **HA Parcel Card v2** is the successor to
+> [`hki-parcels-card`](https://github.com/jonisnet/hki-parcels-card) (v1.7.x) — renamed because
+> "HKI" is [jimz011](https://github.com/jimz011)'s own trade name, and v2 belongs to the broader
+> [ha-parcel-integrations](https://github.com/ha-parcel-integrations) family. It uses its own card
+> type, `custom:ha-parcel-card`, so both cards can be installed side by side. Install it as a
+> **HACS custom repository** or manually — see [Installation](#installation).
 >
 > Found a bug? Open an issue here, not on `hki-parcels-card`.
 
-[![Version](https://img.shields.io/github/v/release/jonisnet/ha-parcel-card?include_prereleases&style=flat-square&label=version)](https://github.com/jonisnet/ha-parcel-card/releases)
+[![Version](https://img.shields.io/github/v/release/jonisnet/ha-parcel-card?style=flat-square&label=version)](https://github.com/jonisnet/ha-parcel-card/releases)
 [![HACS](https://img.shields.io/badge/HACS-Custom-orange?style=flat-square)](https://hacs.xyz)
 [![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](https://github.com/jonisnet/ha-parcel-card/blob/main/LICENSE)
 [![HA](https://img.shields.io/badge/Home%20Assistant-2026.7%2B-41bdf5?style=flat-square)](https://www.home-assistant.io)
