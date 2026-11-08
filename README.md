@@ -7,6 +7,9 @@
 > type, `custom:ha-parcel-card`, so both cards can be installed side by side. Install it from the
 > **Marketplace** (HACS on older Home Assistant) or manually — see [Installation](#installation).
 >
+> **Coming from `hki-parcels-card`?** It no longer gets updates. Moving takes a few minutes — see
+> [Moving from HKI Parcels Card](https://jonisnet.github.io/ha-parcel-card/migrating/).
+>
 > Found a bug? Open an issue here, not on `hki-parcels-card`.
 
 [![Version](https://img.shields.io/github/v/release/jonisnet/ha-parcel-card?style=flat-square&label=version&cacheSeconds=86400)](https://github.com/jonisnet/ha-parcel-card/releases)
@@ -223,6 +226,14 @@ otherwise a plain panel in the carrier colour. The mapping was checked against p
 custom-brand-icons 2026.10.3 and 2026.11.1; see the [coverage table](docs/installation.md#optional-phu-carrier-icons).
 
 Full installation guide: [jonisnet.github.io/ha-parcel-card/installation](https://jonisnet.github.io/ha-parcel-card/installation/).
+
+### Moving from HKI Parcels Card
+
+Both cards can be installed side by side. Change the card type to `custom:ha-parcel-card` and a
+carrier `type: postnl_v4` to `type: postnl`; all other options keep their name, and custom parcel
+names move over automatically. If you still use PostNL <v4.x or PostNL (ArjenBos), update to
+[ha-postnl](https://github.com/ha-parcel-integrations/ha-postnl) 4.0.0 or newer first. Step by
+step: [Moving from HKI Parcels Card](https://jonisnet.github.io/ha-parcel-card/migrating/).
 
 ---
 

@@ -80,6 +80,7 @@ copyright: Based on jimz011/hki-elements. Maintained by jonisnet.
 nav:
   - Home: index.md
   - Installation: installation.md
+  - Moving from HKI Parcels Card: migrating.md
   - HA Parcel Card:
       - Overview: card/overview.md
       - Basic Usage: card/basic-usage.md
