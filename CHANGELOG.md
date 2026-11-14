@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.0.3] — 2026-11-15
+
+### Fixed
+
+- **Custom names in the banner** — the line above the tabs (and the "delivered" message)
+  still said "Parcel from …" for a parcel with a custom name. It now shows the same title as
+  the list, including the dimmed sender from 2.0.2.
+
 ## [2.0.2] — 2026-11-14
 
 ### Added

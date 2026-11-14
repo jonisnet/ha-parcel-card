@@ -68,7 +68,7 @@ window.HAParcelCard.getSelectValue = window.HAParcelCard.getSelectValue || ((ev,
 
 (() => {
 const { LitElement, html, css } = window.HAParcelCard.getLit();
-const CARD_VERSION = 'v2.0.2';
+const CARD_VERSION = 'v2.0.3';
 console.info(`%c HA-PARCEL-CARD %c ${CARD_VERSION} `, 'color: white; background: #ed8c00; font-weight: bold;', 'color: #ed8c00; background: white; font-weight: bold;');
 
 const DEFAULT_CARRIER_ICON = 'mdi:package-variant-closed';
@@ -7161,7 +7161,7 @@ class HaParcelCard extends HTMLElement {
                 <div class="status-steps">${dots}</div>
                 ${heroHtml}
             </div>
-            <div class="animation-info"><strong>${selected.name}</strong> • ${selected.status_message || ''} • ${selected.carrier_name || ''}</div>`;
+            <div class="animation-info"><strong>${this._parcelTitleHtml(selected)}</strong> • ${selected.status_message || ''} • ${selected.carrier_name || ''}</div>`;
     }
 
     // Time/date detail(s) shown beside the hero image for the current step, each as a label line
@@ -7346,7 +7346,7 @@ class HaParcelCard extends HTMLElement {
                         <ha-icon icon="${isLetter ? 'mdi:email-check' : 'mdi:package-check'}"></ha-icon>
                     </div>
                     <div class="delivery-complete-text">
-                        <strong>${selected.name}</strong>
+                        <strong>${this._parcelTitleHtml(selected)}</strong>
                         <span>${isLetter ? this._t('letterbox_received') : this._t('parcel_delivered_msg')} • ${selected.carrier_name || ''}</span>
                     </div>
                 </div>`;
@@ -7368,7 +7368,7 @@ class HaParcelCard extends HTMLElement {
                         </div>`
                     }
                 </div>
-                <div class="animation-info"><strong>${selected.name}</strong> • ${statusText} • ${selected.carrier_name || ''}</div>`;
+                <div class="animation-info"><strong>${this._parcelTitleHtml(selected)}</strong> • ${statusText} • ${selected.carrier_name || ''}</div>`;
         } else {
             animationEl.classList.remove('animation-active');
             if (!this.config.show_placeholder) {
@@ -7512,6 +7512,18 @@ class HaParcelCard extends HTMLElement {
         </div>`;
     }
 
+    // The parcel's title in the list and in the banner above it. A custom name replaces
+    // "Parcel from <sender>", so the sender follows it in dimmed text to keep the shop
+    // recognisable at a glance (jonisnet/ha-parcel-card#3). Both run as one piece of text, so on
+    // a narrow card the sender wraps to the next line instead of being cut off.
+    _parcelTitleHtml(item) {
+        if (!item.custom_name) return item.name || this._t('unknown');
+        const sender = typeof item.sender === 'string' ? item.sender.trim() : '';
+        return this._escapeHtml(item.custom_name)
+            + (sender && this.config.show_sender_with_custom_name !== false
+                ? ` <span class="ph-sender">·&nbsp;${this._escapeHtml(sender)}</span>` : '');
+    }
+
     _renderParcelItem(item, showCarrierIcon = false) {
         const isDelivered = item.delivered;
         const isLetter    = !!item.is_letter;
@@ -7544,14 +7556,8 @@ class HaParcelCard extends HTMLElement {
               + (item.pickup_deadline ? `<div class="detail-row"><strong>${this._t('label_pickup_deadline')}:</strong> ${this.formatDate(item.pickup_deadline)}</div>` : '')
             : '';
 
-        // A custom name replaces "Parcel from <sender>", so the sender follows it in dimmed text
-        // to keep the shop recognisable at a glance (jonisnet/ha-parcel-card#3). Both run as one
-        // piece of text, so on a narrow card the sender wraps to the next line instead of being cut off.
         const sender = typeof item.sender === 'string' ? item.sender.trim() : '';
-        const titleHtml = item.custom_name
-            ? `<span class="ph-title">${this._escapeHtml(item.custom_name)}${sender && this.config.show_sender_with_custom_name !== false
-                  ? ` <span class="ph-sender">·&nbsp;${this._escapeHtml(sender)}</span>` : ''}</span>`
-            : `<span class="ph-title">${item.name || this._t('unknown')}</span>`;
+        const titleHtml = `<span class="ph-title">${this._parcelTitleHtml(item)}</span>`;
 
         return `
         <div class="parcel ${isSelected ? 'selected' : ''}" data-key="${item.key}" style="--carrier-color:${item.carrier_color || DEFAULT_CARRIER_COLOR};">
