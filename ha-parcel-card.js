@@ -68,7 +68,7 @@ window.HAParcelCard.getSelectValue = window.HAParcelCard.getSelectValue || ((ev,
 
 (() => {
 const { LitElement, html, css } = window.HAParcelCard.getLit();
-const CARD_VERSION = 'v2.0.1';
+const CARD_VERSION = 'v2.0.2';
 console.info(`%c HA-PARCEL-CARD %c ${CARD_VERSION} `, 'color: white; background: #ed8c00; font-weight: bold;', 'color: #ed8c00; background: white; font-weight: bold;');
 
 const DEFAULT_CARRIER_ICON = 'mdi:package-variant-closed';
@@ -153,6 +153,7 @@ const TRANSLATIONS = {
         label_tracking: 'Tracking',
         label_status: 'Status',
         label_receiver: 'Receiver',
+        label_sender: 'Sender',
         label_delivery: 'Delivery',
         label_pickup_point: 'Pickup point',
         label_custom_name: 'Custom name',
@@ -203,6 +204,7 @@ const TRANSLATIONS = {
         custom_name_scope_me: 'For me only',
         custom_name_scope_everyone: 'For everyone',
         custom_name_scope_help: '"This browser/device only" never leaves this browser. "For me only" is saved to your Home Assistant account and follows you across your own devices. "For everyone" is saved instance-wide for every user to see — adding or editing a name under this option requires an administrator account; everyone can still see the names.',
+        show_sender_with_custom_name: 'Show the sender next to a custom parcel name',
         sort_order_label: 'Parcel order',
         sort_order_auto: 'Automatic (soonest first, most recent delivery first)',
         sort_order_newest_first: 'Newest/furthest first everywhere',
@@ -347,6 +349,7 @@ const TRANSLATIONS = {
         label_tracking: 'Track & Trace',
         label_status: 'Status',
         label_receiver: 'Ontvanger',
+        label_sender: 'Afzender',
         label_delivery: 'Bezorgwijze',
         label_pickup_point: 'Afhaalpunt',
         label_custom_name: 'Eigen naam',
@@ -397,6 +400,7 @@ const TRANSLATIONS = {
         custom_name_scope_me: 'Alleen voor mij',
         custom_name_scope_everyone: 'Voor iedereen',
         custom_name_scope_help: '"Alleen deze browser/dit apparaat" verlaat deze browser nooit. "Alleen voor mij" wordt opgeslagen bij je Home Assistant-account en volgt je op al je eigen apparaten. "Voor iedereen" wordt instance-breed opgeslagen, zichtbaar voor elke gebruiker — een naam toevoegen of wijzigen bij deze optie vereist een beheerdersaccount; iedereen kan de namen wel gewoon zien.',
+        show_sender_with_custom_name: 'Toon de afzender naast een eigen pakketnaam',
         sort_order_label: 'Volgorde pakketten',
         sort_order_auto: 'Automatisch (eerstvolgend bovenaan, meest recent bezorgd bovenaan)',
         sort_order_newest_first: 'Overal nieuwste/verst weg bovenaan',
@@ -542,6 +546,7 @@ const TRANSLATIONS = {
         label_tracking: 'Проследяване',
         label_status: 'Статус',
         label_receiver: 'Получател',
+        label_sender: 'Подател',
         label_delivery: 'Доставка',
         label_pickup_point: 'Офис за получаване',
         label_custom_name: 'Собствено име',
@@ -592,6 +597,7 @@ const TRANSLATIONS = {
         custom_name_scope_me: 'Само за мен',
         custom_name_scope_everyone: 'За всички',
         custom_name_scope_help: '„Само този браузър/устройство“ никога не напуска този браузър. „Само за мен“ се запазва в акаунта ви в Home Assistant и ви следва на всички ваши устройства. „За всички“ се запазва за цялата инсталация, видимо за всеки потребител — добавянето или редактирането на име с тази опция изисква администраторски акаунт; имената могат да се виждат от всеки.',
+        show_sender_with_custom_name: 'Показвай подателя до собственото име на пратката',
         sort_order_label: 'Ред на пратките',
         sort_order_auto: 'Автоматично (най-скорошната първа, най-скорошната доставка първа)',
         sort_order_newest_first: 'Навсякъде най-новата/най-отдалечената първа',
@@ -737,6 +743,7 @@ const TRANSLATIONS = {
         label_tracking: 'Sledování',
         label_status: 'Stav',
         label_receiver: 'Příjemce',
+        label_sender: 'Odesílatel',
         label_delivery: 'Doručení',
         label_pickup_point: 'Výdejní místo',
         label_custom_name: 'Vlastní název',
@@ -787,6 +794,7 @@ const TRANSLATIONS = {
         custom_name_scope_me: 'Pouze pro mě',
         custom_name_scope_everyone: 'Pro všechny',
         custom_name_scope_help: '"Pouze tento prohlížeč/zařízení" nikdy neopustí tento prohlížeč. "Pouze pro mě" se ukládá do vašeho účtu Home Assistant a sleduje vás na všech vašich zařízeních. "Pro všechny" se ukládá v rámci celé instance a je viditelné pro každého uživatele — přidání nebo úprava názvu u této možnosti vyžaduje účet správce; názvy může vidět kdokoli.',
+        show_sender_with_custom_name: 'Zobrazit odesílatele vedle vlastního názvu zásilky',
         sort_order_label: 'Pořadí zásilek',
         sort_order_auto: 'Automaticky (nejbližší jako první, nejnovější doručení jako první)',
         sort_order_newest_first: 'Všude nejnovější/nejvzdálenější jako první',
@@ -932,6 +940,7 @@ const TRANSLATIONS = {
         label_tracking: 'Sporing',
         label_status: 'Status',
         label_receiver: 'Modtager',
+        label_sender: 'Afsender',
         label_delivery: 'Levering',
         label_pickup_point: 'Afhentningssted',
         label_custom_name: 'Eget navn',
@@ -982,6 +991,7 @@ const TRANSLATIONS = {
         custom_name_scope_me: 'Kun til mig',
         custom_name_scope_everyone: 'Til alle',
         custom_name_scope_help: '"Kun denne browser/enhed" forlader aldrig denne browser. "Kun til mig" gemmes på din Home Assistant-konto og følger dig på alle dine egne enheder. "Til alle" gemmes for hele instansen, synligt for alle brugere — at tilføje eller redigere et navn med denne indstilling kræver en administratorkonto; navnene kan ses af enhver.',
+        show_sender_with_custom_name: 'Vis afsenderen ved siden af et eget pakkenavn',
         sort_order_label: 'Pakkerækkefølge',
         sort_order_auto: 'Automatisk (nærmeste først, seneste levering først)',
         sort_order_newest_first: 'Nyeste/længst væk først overalt',
@@ -1127,6 +1137,7 @@ const TRANSLATIONS = {
         label_tracking: 'Sendungsverfolgung',
         label_status: 'Status',
         label_receiver: 'Empfänger',
+        label_sender: 'Absender',
         label_delivery: 'Zustellart',
         label_pickup_point: 'Abholstation',
         label_custom_name: 'Eigener Name',
@@ -1177,6 +1188,7 @@ const TRANSLATIONS = {
         custom_name_scope_me: 'Nur für mich',
         custom_name_scope_everyone: 'Für alle',
         custom_name_scope_help: '„Nur dieser Browser/dieses Gerät“ verlässt diesen Browser nie. „Nur für mich“ wird in deinem Home-Assistant-Konto gespeichert und folgt dir auf all deinen eigenen Geräten. „Für alle“ wird instanzweit gespeichert und ist für jeden Benutzer sichtbar — einen Namen bei dieser Option hinzuzufügen oder zu ändern erfordert ein Administratorkonto; sehen können ihn trotzdem alle.',
+        show_sender_with_custom_name: 'Absender neben einem eigenen Paketnamen anzeigen',
         sort_order_label: 'Paketreihenfolge',
         sort_order_auto: 'Automatisch (nächstes zuerst, zuletzt zugestellt zuerst)',
         sort_order_newest_first: 'Überall neuestes/am weitesten entferntes zuerst',
@@ -1322,6 +1334,7 @@ const TRANSLATIONS = {
         label_tracking: 'Seguimiento',
         label_status: 'Estado',
         label_receiver: 'Destinatario',
+        label_sender: 'Remitente',
         label_delivery: 'Modo de entrega',
         label_pickup_point: 'Punto de recogida',
         label_custom_name: 'Nombre personalizado',
@@ -1372,6 +1385,7 @@ const TRANSLATIONS = {
         custom_name_scope_me: 'Solo para mí',
         custom_name_scope_everyone: 'Para todos',
         custom_name_scope_help: '"Solo este navegador/dispositivo" nunca sale de este navegador. "Solo para mí" se guarda en tu cuenta de Home Assistant y te sigue en todos tus propios dispositivos. "Para todos" se guarda a nivel de instancia, visible para todos los usuarios — añadir o editar un nombre con esta opción requiere una cuenta de administrador; todos pueden verlos igualmente.',
+        show_sender_with_custom_name: 'Mostrar el remitente junto a un nombre de paquete propio',
         sort_order_label: 'Orden de los paquetes',
         sort_order_auto: 'Automático (el más próximo primero, el entregado más reciente primero)',
         sort_order_newest_first: 'Más reciente/lejano primero en todas partes',
@@ -1517,6 +1531,7 @@ const TRANSLATIONS = {
         label_tracking: 'Seuranta',
         label_status: 'Tila',
         label_receiver: 'Vastaanottaja',
+        label_sender: 'Lähettäjä',
         label_delivery: 'Toimitus',
         label_pickup_point: 'Noutopiste',
         label_custom_name: 'Oma nimi',
@@ -1567,6 +1582,7 @@ const TRANSLATIONS = {
         custom_name_scope_me: 'Vain minulle',
         custom_name_scope_everyone: 'Kaikille',
         custom_name_scope_help: '"Vain tämä selain/laite" ei koskaan poistu tästä selaimesta. "Vain minulle" tallennetaan Home Assistant -tiliisi ja seuraa sinua kaikilla omilla laitteillasi. "Kaikille" tallennetaan koko instanssin laajuisesti, näkyvissä kaikille käyttäjille — nimen lisääminen tai muokkaaminen tällä vaihtoehdolla vaatii ylläpitäjätilin; nimet näkyvät kaikille.',
+        show_sender_with_custom_name: 'Näytä lähettäjä oman pakettinimen vieressä',
         sort_order_label: 'Pakettien järjestys',
         sort_order_auto: 'Automaattinen (lähin ensin, tuorein toimitus ensin)',
         sort_order_newest_first: 'Uusin/kauimmainen ensin kaikkialla',
@@ -1712,6 +1728,7 @@ const TRANSLATIONS = {
         label_tracking: 'Suivi',
         label_status: 'Statut',
         label_receiver: 'Destinataire',
+        label_sender: 'Expéditeur',
         label_delivery: 'Mode de livraison',
         label_pickup_point: 'Point de retrait',
         label_custom_name: 'Nom personnalisé',
@@ -1762,6 +1779,7 @@ const TRANSLATIONS = {
         custom_name_scope_me: 'Pour moi seulement',
         custom_name_scope_everyone: 'Pour tout le monde',
         custom_name_scope_help: '« Ce navigateur/appareil uniquement » ne quitte jamais ce navigateur. « Pour moi seulement » est enregistré sur votre compte Home Assistant et vous suit sur tous vos propres appareils. « Pour tout le monde » est enregistré à l\'échelle de l\'instance, visible par tous les utilisateurs — ajouter ou modifier un nom avec cette option nécessite un compte administrateur ; tout le monde peut néanmoins les voir.',
+        show_sender_with_custom_name: 'Afficher l\'expéditeur à côté d\'un nom de colis personnalisé',
         sort_order_label: 'Ordre des colis',
         sort_order_auto: 'Automatique (le plus proche d\'abord, le plus récemment livré d\'abord)',
         sort_order_newest_first: 'Le plus récent/éloigné en premier partout',
@@ -1907,6 +1925,7 @@ const TRANSLATIONS = {
         label_tracking: 'ट्रैकिंग',
         label_status: 'स्थिति',
         label_receiver: 'प्राप्तकर्ता',
+        label_sender: 'प्रेषक',
         label_delivery: 'डिलीवरी',
         label_pickup_point: 'पिकअप पॉइंट',
         label_custom_name: 'कस्टम नाम',
@@ -1957,6 +1976,7 @@ const TRANSLATIONS = {
         custom_name_scope_me: 'केवल मेरे लिए',
         custom_name_scope_everyone: 'सभी के लिए',
         custom_name_scope_help: '"केवल यह ब्राउज़र/डिवाइस" कभी भी इस ब्राउज़र से बाहर नहीं जाता। "केवल मेरे लिए" आपके Home Assistant खाते में सहेजा जाता है और आपके सभी डिवाइसों पर उपलब्ध रहता है। "सभी के लिए" पूरे इंस्टेंस में सहेजा जाता है, हर उपयोगकर्ता के लिए दिखाई देता है — इस विकल्प के साथ नाम जोड़ने या संपादित करने के लिए व्यवस्थापक खाता आवश्यक है; नाम कोई भी देख सकता है।',
+        show_sender_with_custom_name: 'कस्टम पार्सल नाम के साथ प्रेषक दिखाएँ',
         sort_order_label: 'पार्सल क्रम',
         sort_order_auto: 'स्वचालित (सबसे जल्दी वाला पहले, सबसे हाल की डिलीवरी पहले)',
         sort_order_newest_first: 'हर जगह सबसे नया/सबसे दूर वाला पहले',
@@ -2102,6 +2122,7 @@ const TRANSLATIONS = {
         label_tracking: 'Nyomkövetés',
         label_status: 'Állapot',
         label_receiver: 'Címzett',
+        label_sender: 'Feladó',
         label_delivery: 'Kézbesítés',
         label_pickup_point: 'Csomagpont',
         label_custom_name: 'Egyéni név',
@@ -2152,6 +2173,7 @@ const TRANSLATIONS = {
         custom_name_scope_me: 'Csak nekem',
         custom_name_scope_everyone: 'Mindenkinek',
         custom_name_scope_help: 'A „Csak ezen a böngészőn/eszközön” soha nem hagyja el ezt a böngészőt. A „Csak nekem” a Home Assistant fiókjában mentődik, és minden saját eszközén elérhető. A „Mindenkinek” az egész rendszerre mentődik, minden felhasználó számára látható — ennél az opciónál névhozzáadáshoz vagy -szerkesztéshez rendszergazdai fiók szükséges; a neveket bárki láthatja.',
+        show_sender_with_custom_name: 'A feladó megjelenítése a saját csomagnév mellett',
         sort_order_label: 'Csomagok sorrendje',
         sort_order_auto: 'Automatikus (legközelebbi elöl, legutóbbi kézbesítés elöl)',
         sort_order_newest_first: 'Mindenhol a legújabb/legtávolabbi elöl',
@@ -2297,6 +2319,7 @@ const TRANSLATIONS = {
         label_tracking: 'Tracciamento',
         label_status: 'Stato',
         label_receiver: 'Destinatario',
+        label_sender: 'Mittente',
         label_delivery: 'Modalità di consegna',
         label_pickup_point: 'Punto di ritiro',
         label_custom_name: 'Nome personalizzato',
@@ -2347,6 +2370,7 @@ const TRANSLATIONS = {
         custom_name_scope_me: 'Solo per me',
         custom_name_scope_everyone: 'Per tutti',
         custom_name_scope_help: '"Solo questo browser/dispositivo" non esce mai da questo browser. "Solo per me" viene salvato nel tuo account Home Assistant e ti segue su tutti i tuoi dispositivi. "Per tutti" viene salvato a livello di istanza, visibile a tutti gli utenti — aggiungere o modificare un nome con questa opzione richiede un account amministratore; tutti possono comunque vederli.',
+        show_sender_with_custom_name: 'Mostra il mittente accanto a un nome pacco personalizzato',
         sort_order_label: 'Ordine dei pacchi',
         sort_order_auto: 'Automatico (il prossimo per primo, il consegnato più di recente per primo)',
         sort_order_newest_first: 'Ovunque il più recente/lontano per primo',
@@ -2492,6 +2516,7 @@ const TRANSLATIONS = {
         label_tracking: 'Sporing',
         label_status: 'Status',
         label_receiver: 'Mottaker',
+        label_sender: 'Avsender',
         label_delivery: 'Levering',
         label_pickup_point: 'Hentested',
         label_custom_name: 'Eget navn',
@@ -2542,6 +2567,7 @@ const TRANSLATIONS = {
         custom_name_scope_me: 'Kun for meg',
         custom_name_scope_everyone: 'For alle',
         custom_name_scope_help: '"Kun denne nettleseren/enheten" forlater aldri denne nettleseren. "Kun for meg" lagres på Home Assistant-kontoen din og følger deg på alle dine egne enheter. "For alle" lagres for hele instansen, synlig for alle brukere — å legge til eller redigere et navn med dette valget krever en administratorkonto; navnene kan ses av alle.',
+        show_sender_with_custom_name: 'Vis avsenderen ved siden av et eget pakkenavn',
         sort_order_label: 'Pakkerekkefølge',
         sort_order_auto: 'Automatisk (nærmeste først, siste levering først)',
         sort_order_newest_first: 'Nyeste/lengst unna først overalt',
@@ -2687,6 +2713,7 @@ const TRANSLATIONS = {
         label_tracking: 'Śledzenie',
         label_status: 'Status',
         label_receiver: 'Odbiorca',
+        label_sender: 'Nadawca',
         label_delivery: 'Sposób dostawy',
         label_pickup_point: 'Punkt odbioru',
         label_custom_name: 'Własna nazwa',
@@ -2737,6 +2764,7 @@ const TRANSLATIONS = {
         custom_name_scope_me: 'Tylko dla mnie',
         custom_name_scope_everyone: 'Dla wszystkich',
         custom_name_scope_help: '"Tylko ta przeglądarka/urządzenie" nigdy nie opuszcza tej przeglądarki. "Tylko dla mnie" jest zapisywane na Twoim koncie Home Assistant i towarzyszy Ci na wszystkich Twoich urządzeniach. "Dla wszystkich" jest zapisywane na poziomie instancji, widoczne dla każdego użytkownika — dodanie lub edycja nazwy przy tej opcji wymaga konta administratora; mimo to wszyscy mogą je zobaczyć.',
+        show_sender_with_custom_name: 'Pokaż nadawcę obok własnej nazwy paczki',
         sort_order_label: 'Kolejność paczek',
         sort_order_auto: 'Automatycznie (najbliższa najpierw, ostatnio dostarczona najpierw)',
         sort_order_newest_first: 'Wszędzie najnowsza/najdalsza najpierw',
@@ -2882,6 +2910,7 @@ const TRANSLATIONS = {
         label_tracking: 'Rastreamento',
         label_status: 'Estado',
         label_receiver: 'Destinatário',
+        label_sender: 'Remetente',
         label_delivery: 'Modo de entrega',
         label_pickup_point: 'Ponto de recolha',
         label_custom_name: 'Nome personalizado',
@@ -2932,6 +2961,7 @@ const TRANSLATIONS = {
         custom_name_scope_me: 'Só para mim',
         custom_name_scope_everyone: 'Para todos',
         custom_name_scope_help: '"Só este navegador/dispositivo" nunca sai deste navegador. "Só para mim" é guardado na tua conta Home Assistant e acompanha-te em todos os teus dispositivos. "Para todos" é guardado ao nível da instância, visível para todos os utilizadores — adicionar ou editar um nome com esta opção requer uma conta de administrador; todos podem à mesma vê-los.',
+        show_sender_with_custom_name: 'Mostrar o remetente junto a um nome de encomenda personalizado',
         sort_order_label: 'Ordem das encomendas',
         sort_order_auto: 'Automático (a mais próxima primeiro, a entregue mais recentemente primeiro)',
         sort_order_newest_first: 'Mais recente/distante primeiro em todo o lado',
@@ -3077,6 +3107,7 @@ const TRANSLATIONS = {
         label_tracking: 'Urmărire',
         label_status: 'Stare',
         label_receiver: 'Destinatar',
+        label_sender: 'Expeditor',
         label_delivery: 'Livrare',
         label_pickup_point: 'Punct de ridicare',
         label_custom_name: 'Nume personalizat',
@@ -3127,6 +3158,7 @@ const TRANSLATIONS = {
         custom_name_scope_me: 'Doar pentru mine',
         custom_name_scope_everyone: 'Pentru toată lumea',
         custom_name_scope_help: '"Doar acest browser/dispozitiv" nu părăsește niciodată acest browser. "Doar pentru mine" este salvat în contul tău Home Assistant și te urmărește pe toate dispozitivele tale. "Pentru toată lumea" este salvat la nivel de instanță, vizibil pentru toți utilizatorii — adăugarea sau editarea unui nume cu această opțiune necesită un cont de administrator; numele pot fi văzute de oricine.',
+        show_sender_with_custom_name: 'Afișează expeditorul lângă un nume propriu de colet',
         sort_order_label: 'Ordinea coletelor',
         sort_order_auto: 'Automat (cel mai apropiat primul, cea mai recentă livrare prima)',
         sort_order_newest_first: 'Cel mai nou/îndepărtat primul peste tot',
@@ -3272,6 +3304,7 @@ const TRANSLATIONS = {
         label_tracking: 'Sledovanie',
         label_status: 'Stav',
         label_receiver: 'Príjemca',
+        label_sender: 'Odosielateľ',
         label_delivery: 'Doručenie',
         label_pickup_point: 'Výdajné miesto',
         label_custom_name: 'Vlastný názov',
@@ -3322,6 +3355,7 @@ const TRANSLATIONS = {
         custom_name_scope_me: 'Len pre mňa',
         custom_name_scope_everyone: 'Pre všetkých',
         custom_name_scope_help: '"Len tento prehliadač/zariadenie" nikdy neopustí tento prehliadač. "Len pre mňa" sa ukladá do vášho účtu Home Assistant a sleduje vás na všetkých vašich zariadeniach. "Pre všetkých" sa ukladá v rámci celej inštancie a je viditeľné pre každého používateľa — pridanie alebo úprava názvu pri tejto možnosti vyžaduje účet správcu; názvy môže vidieť ktokoľvek.',
+        show_sender_with_custom_name: 'Zobraziť odosielateľa vedľa vlastného názvu zásielky',
         sort_order_label: 'Poradie zásielok',
         sort_order_auto: 'Automaticky (najbližšia ako prvá, najnovšie doručenie ako prvé)',
         sort_order_newest_first: 'Všade najnovšia/najvzdialenejšia ako prvá',
@@ -3467,6 +3501,7 @@ const TRANSLATIONS = {
         label_tracking: 'Spårning',
         label_status: 'Status',
         label_receiver: 'Mottagare',
+        label_sender: 'Avsändare',
         label_delivery: 'Leverans',
         label_pickup_point: 'Utlämningsställe',
         label_custom_name: 'Eget namn',
@@ -3517,6 +3552,7 @@ const TRANSLATIONS = {
         custom_name_scope_me: 'Endast för mig',
         custom_name_scope_everyone: 'För alla',
         custom_name_scope_help: '"Endast denna webbläsare/enhet" lämnar aldrig denna webbläsare. "Endast för mig" sparas i ditt Home Assistant-konto och följer dig på alla dina enheter. "För alla" sparas för hela instansen, synligt för alla användare — att lägga till eller redigera ett namn med detta alternativ kräver ett administratörskonto; namnen kan ses av vem som helst.',
+        show_sender_with_custom_name: 'Visa avsändaren bredvid ett eget paketnamn',
         sort_order_label: 'Paketordning',
         sort_order_auto: 'Automatiskt (närmast först, senaste leverans först)',
         sort_order_newest_first: 'Nyaste/längst bort först överallt',
@@ -3662,6 +3698,7 @@ const TRANSLATIONS = {
         label_tracking: 'Відстеження',
         label_status: 'Статус',
         label_receiver: 'Отримувач',
+        label_sender: 'Відправник',
         label_delivery: 'Доставка',
         label_pickup_point: 'Пункт видачі',
         label_custom_name: 'Власна назва',
@@ -3712,6 +3749,7 @@ const TRANSLATIONS = {
         custom_name_scope_me: 'Лише для мене',
         custom_name_scope_everyone: 'Для всіх',
         custom_name_scope_help: '«Лише цей браузер/пристрій» ніколи не залишає цей браузер. «Лише для мене» зберігається у вашому обліковому записі Home Assistant і супроводжує вас на всіх ваших пристроях. «Для всіх» зберігається для всього екземпляра, видимо для кожного користувача — додавання або редагування назви за цією опцією вимагає облікового запису адміністратора; назви може бачити будь-хто.',
+        show_sender_with_custom_name: 'Показувати відправника поруч із власною назвою посилки',
         sort_order_label: 'Порядок посилок',
         sort_order_auto: 'Автоматично (найближча спочатку, найновіша доставка спочатку)',
         sort_order_newest_first: 'Скрізь найновіша/найвіддаленіша спочатку',
@@ -7506,11 +7544,20 @@ class HaParcelCard extends HTMLElement {
               + (item.pickup_deadline ? `<div class="detail-row"><strong>${this._t('label_pickup_deadline')}:</strong> ${this.formatDate(item.pickup_deadline)}</div>` : '')
             : '';
 
+        // A custom name replaces "Parcel from <sender>", so the sender follows it in dimmed text
+        // to keep the shop recognisable at a glance (jonisnet/ha-parcel-card#3). Both run as one
+        // piece of text, so on a narrow card the sender wraps to the next line instead of being cut off.
+        const sender = typeof item.sender === 'string' ? item.sender.trim() : '';
+        const titleHtml = item.custom_name
+            ? `<span class="ph-title">${this._escapeHtml(item.custom_name)}${sender && this.config.show_sender_with_custom_name !== false
+                  ? ` <span class="ph-sender">·&nbsp;${this._escapeHtml(sender)}</span>` : ''}</span>`
+            : `<span class="ph-title">${item.name || this._t('unknown')}</span>`;
+
         return `
         <div class="parcel ${isSelected ? 'selected' : ''}" data-key="${item.key}" style="--carrier-color:${item.carrier_color || DEFAULT_CARRIER_COLOR};">
             <div class="parcel-header" data-key="${item.key}">
                 <div class="ph-left">
-                    <span class="ph-name">${carrierIconHtml}${item.custom_name ? this._escapeHtml(item.custom_name) : (item.name || this._t('unknown'))}</span>
+                    <span class="ph-name">${carrierIconHtml}${titleHtml}</span>
                     <span class="ph-status">
                         <ha-icon class="ph-status-icon" icon="${statusIcon}" style="width:16px;height:16px;"></ha-icon>
                         ${statusMsg}
@@ -7531,6 +7578,7 @@ class HaParcelCard extends HTMLElement {
                         ${!isLetter && item.key ? `<div class="detail-row"><strong>${this._t('label_tracking')}:</strong> ${item.key}</div>` : ''}
                         ${!isLetter && item.key && this._customNameScope() !== 'off' ? this._renderCustomNameRow(item) : ''}
                         ${item.raw_status ? `<div class="detail-row"><strong>${this._t('label_status')}:</strong> ${item.raw_status}</div>` : ''}
+                        ${!isLetter && sender ? `<div class="detail-row"><strong>${this._t('label_sender')}:</strong> ${this._escapeHtml(sender)}</div>` : ''}
                         ${!isLetter && item.receiver ? `<div class="detail-row"><strong>${this._t('label_receiver')}:</strong> ${item.receiver}</div>` : ''}
                         ${deliveryDetail}
                         ${pickupWaitDetail}
@@ -7706,7 +7754,10 @@ class HaParcelCard extends HTMLElement {
             .parcel-header { padding: 16px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: background 0.2s; user-select: none; }
             .parcel-header:hover { background: var(--secondary-background-color); }
             .ph-left { display: flex; flex-direction: column; flex: 1; }
-            .ph-name { font-weight: 600; font-size: 1em; margin-bottom: 4px; display: flex; align-items: center; }
+            .ph-left { min-width: 0; }
+            .ph-name { font-weight: 600; font-size: 1em; margin-bottom: 4px; display: flex; align-items: center; min-width: 0; }
+            .ph-title { min-width: 0; overflow-wrap: anywhere; }
+            .ph-sender { font-weight: 400; color: var(--secondary-text-color); }
             .ph-carrier-icon { width: 24px; height: 24px; margin-right: 8px; flex-shrink: 0; }
             .ph-status { font-size: 0.85em; color: var(--secondary-text-color); display: flex; align-items: center; gap: 10px; }
             .ph-status-icon { color: var(--carrier-color, var(--accent)); flex-shrink: 0; display: flex; align-items: center; }
@@ -7928,7 +7979,7 @@ class HaParcelCardEditor extends LitElement {
         if (!field || !this._config) return;
         let value = this._val(ev);
         if (new Set(['days_back']).has(field)) value = parseInt(value, 10);
-        if (new Set(['show_delivered','show_sent','show_letters','show_animation','show_header','show_placeholder','show_tracking_link','show_add_parcel','show_raw_status','group_by_carrier','show_extra_info_button','show_raw_data_button']).has(field))
+        if (new Set(['show_delivered','show_sent','show_letters','show_animation','show_header','show_placeholder','show_tracking_link','show_add_parcel','show_raw_status','group_by_carrier','show_extra_info_button','show_raw_data_button','show_sender_with_custom_name']).has(field))
             value = !!(ev.target?.checked ?? value);
         this._config = { ...this._config, [field]: value };
         this._emit();
@@ -8875,6 +8926,8 @@ class HaParcelCardEditor extends LitElement {
                             @value-changed=${(ev) => this._changed(ev, 'custom_name_scope')}></ha-selector>
                         <div class="helper-text">${this._t('custom_name_scope_help')}</div>
                     </div>
+                    ${(this._config.custom_name_scope || 'everyone') !== 'off' ? html`
+                    <div class="switch-row"><ha-switch .checked=${this._config.show_sender_with_custom_name !== false} data-field="show_sender_with_custom_name" @change=${this._changed}></ha-switch><span>${this._t('show_sender_with_custom_name')}</span></div>` : ''}
                     <div class="plain-field">
                         <label>${this._t('sort_order_label')}</label>
                         <ha-selector .hass=${this.hass}

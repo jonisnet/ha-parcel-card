@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.0.2] — 2026-11-14
+
+### Added
+
+- **Sender next to a custom name** — a custom parcel name replaces the "Parcel from …" title,
+  so the sender now follows it in dimmed text (`Birthday gift · Example Store`) to keep the
+  shop recognisable at a glance. On a narrow card the sender wraps to the next line instead of
+  being cut off. Parcels without a sender keep just the custom name. Turn it off with the new
+  `show_sender_with_custom_name` option (in the editor next to "Custom parcel names")
+  ([#3](https://github.com/jonisnet/ha-parcel-card/issues/3)).
+- **Sender row in the detail panel** — every parcel with a sender now lists it there too,
+  above the receiver.
+
 ## [2.0.1] — 2026-11-07
 
 ### Added
