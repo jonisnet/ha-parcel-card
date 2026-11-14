@@ -1015,6 +1015,12 @@
 <td>Show an "Add name" control in each parcel's detail panel, letting you give it a short custom label (e.g. "Birthday gift") instead of just a tracking code. <code>off</code> hides the control entirely; <code>device</code> saves names in this browser only; <code>me</code> saves them to your Home Assistant account (synced across your own devices); <code>everyone</code> saves them instance-wide for every user to see. See the note below</td>
 </tr>
 <tr>
+<td><code>show_sender_with_custom_name</code></td>
+<td>boolean</td>
+<td><code>true</code></td>
+<td>When a parcel has a custom name, show its sender after it in dimmed text (<code>Birthday gift · Example Store</code>), since the custom name replaces the "Parcel from …" title. Parcels without a sender keep just the custom name</td>
+</tr>
+<tr>
 <td><code>sort_order</code></td>
 <td>string</td>
 <td><code>auto</code></td>
