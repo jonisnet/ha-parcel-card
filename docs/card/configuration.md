@@ -104,6 +104,7 @@ Normally the card generates sensor entity IDs automatically from `type` and `use
 | `colisweb` | Colisweb | [ha-parcel-integrations/ha-colisweb](https://github.com/ha-parcel-integrations/ha-colisweb) | — | — | ✅ |
 | `correos` | Correos | [ha-parcel-integrations/ha-correos](https://github.com/ha-parcel-integrations/ha-correos) | — | — | ✅ |
 | `ctt` | CTT | [ha-parcel-integrations/ha-ctt](https://github.com/ha-parcel-integrations/ha-ctt) | — | — | ✅ |
+| `danske_fragtmaend` | Danske Fragtmænd | [ha-parcel-integrations/ha-danske-fragtmaend](https://github.com/ha-parcel-integrations/ha-danske-fragtmaend) | — | — | ✅ |
 | `dao` | DAO | [ha-parcel-integrations/ha-dao](https://github.com/ha-parcel-integrations/ha-dao) | — | ✅ | — |
 | `delhivery` | Delhivery | [ha-parcel-integrations/ha-delhivery](https://github.com/ha-parcel-integrations/ha-delhivery) | — | — | ✅ |
 | `dhl_global` | DHL | [ha-parcel-integrations/ha-dhl](https://github.com/ha-parcel-integrations/ha-dhl) | — | ✅ | ✅ |
@@ -131,6 +132,7 @@ Normally the card generates sensor entity IDs automatically from `type` and `use
 | `laposte` | La Poste | [ha-parcel-integrations/ha-laposte](https://github.com/ha-parcel-integrations/ha-laposte) | — | — | ✅ |
 | `magyar_posta` | Magyar Posta | [ha-parcel-integrations/ha-magyar-posta](https://github.com/ha-parcel-integrations/ha-magyar-posta) | — | — | ✅ |
 | `matkahuolto` | Matkahuolto | [ha-parcel-integrations/ha-matkahuolto](https://github.com/ha-parcel-integrations/ha-matkahuolto) | — | — | ✅ |
+| `meest` | Meest | [ha-parcel-integrations/ha-meest](https://github.com/ha-parcel-integrations/ha-meest) | — | ✅ | ✅ |
 | `mondial_relay` | Mondial Relay | [ha-parcel-integrations/ha-mondial-relay](https://github.com/ha-parcel-integrations/ha-mondial-relay) | — | ✅ | ✅ |
 | `nationex` | Nationex | [ha-parcel-integrations/ha-nationex](https://github.com/ha-parcel-integrations/ha-nationex) | — | — | ✅ |
 | `nova_post` | Nova Post | [ha-parcel-integrations/ha-nova-post](https://github.com/ha-parcel-integrations/ha-nova-post) | — | — | ✅ |
@@ -170,6 +172,7 @@ Normally the card generates sensor entity IDs automatically from `type` and `use
 | `ups` | UPS | [ha-parcel-integrations/ha-ups](https://github.com/ha-parcel-integrations/ha-ups) | — | — | ✅ |
 | `usps` | USPS | [ha-parcel-integrations/ha-usps](https://github.com/ha-parcel-integrations/ha-usps) | ✅ | — | ✅ |
 | `vinted_go` | Vinted Go | [ha-parcel-integrations/ha-vinted-go](https://github.com/ha-parcel-integrations/ha-vinted-go) | — | ✅ | — |
+| `xlcourier` | XLCourier | [ha-parcel-integrations/ha-xlcourier](https://github.com/ha-parcel-integrations/ha-xlcourier) | — | — | ✅ |
 | `custom` | Custom | any integration following [the contract](../contract.md) | — | ✅ | — |
 
 !!! note "PostNL (<v4.x) and PostNL (ArjenBos) removed"

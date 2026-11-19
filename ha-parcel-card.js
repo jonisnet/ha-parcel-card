@@ -68,7 +68,7 @@ window.HAParcelCard.getSelectValue = window.HAParcelCard.getSelectValue || ((ev,
 
 (() => {
 const { LitElement, html, css } = window.HAParcelCard.getLit();
-const CARD_VERSION = 'v2.0.3';
+const CARD_VERSION = 'v2.0.4';
 console.info(`%c HA-PARCEL-CARD %c ${CARD_VERSION} `, 'color: white; background: #ed8c00; font-weight: bold;', 'color: #ed8c00; background: white; font-weight: bold;');
 
 const DEFAULT_CARRIER_ICON = 'mdi:package-variant-closed';
@@ -3961,6 +3961,9 @@ const IMG = {
     hrvatska_posta: `${REPO_BASE}/hrvatska_posta`,
     nationex:    `${REPO_BASE}/nationex`,
     omniva:      `${REPO_BASE}/omniva`,
+    danske_fragtmaend: `${REPO_BASE}/danske_fragtmaend`,
+    meest:       `${REPO_BASE}/meest`,
+    xlcourier:   `${REPO_BASE}/xlcourier`,
 };
 
 // Points at the ha-parcel-integrations org, not the individual maintainers' personal repos
@@ -4060,6 +4063,9 @@ const CARRIER_REPO_URLS = {
     hrvatska_posta: 'https://github.com/ha-parcel-integrations/ha-hrvatska-posta',
     nationex:    'https://github.com/ha-parcel-integrations/ha-nationex',
     omniva:      'https://github.com/ha-parcel-integrations/ha-omniva',
+    danske_fragtmaend: 'https://github.com/ha-parcel-integrations/ha-danske-fragtmaend',
+    meest:       'https://github.com/ha-parcel-integrations/ha-meest',
+    xlcourier:   'https://github.com/ha-parcel-integrations/ha-xlcourier',
 };
 
 // Static steps are rendered inline from the shared scene templates below.
@@ -4273,6 +4279,9 @@ const CARRIER_ASSETS = {
     hrvatska_posta:        { logo: `${IMG.hrvatska_posta}/hrvatska_posta-logo.png?raw=true`, logo_is_icon: true },
     nationex:              { logo: `${IMG.nationex}/nationex-logo.png?raw=true`, logo_is_icon: true },
     omniva:                { logo: `${IMG.omniva}/omniva-logo.png?raw=true`, logo_is_icon: true },
+    danske_fragtmaend:     { logo: `${IMG.danske_fragtmaend}/danske_fragtmaend-logo.png?raw=true`, logo_is_icon: true },
+    meest:                 { logo: `${IMG.meest}/meest-logo.png?raw=true`, logo_is_icon: true },
+    xlcourier:             { logo: `${IMG.xlcourier}/xlcourier-logo.png?raw=true`, logo_is_icon: true },
     custom: { logo: null, van: null, banner: null }
 };
 
@@ -4579,6 +4588,12 @@ const CARRIER_PRESETS = {
                     track_parcel_service: { domain: 'nationex', field: 'tracking_code', supports_postal_code: false } },
     omniva:       { label: 'Omniva',                     icon: 'mdi:package-variant-closed', color: '#f26300', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'omniva',
                     track_parcel_service: { domain: 'omniva', field: 'tracking_code', supports_postal_code: false } },
+    danske_fragtmaend: { label: 'Danske Fragtmænd',          icon: 'mdi:package-variant-closed', color: '#0098d8', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'danske_fragtmaend',
+                    track_parcel_service: { domain: 'danske_fragtmaend', field: 'tracking_code', supports_postal_code: false } },
+    meest:        { label: 'Meest',                     icon: 'mdi:package-variant-closed', color: '#0050a4', schema: 'canonical',     supports_letters: false, supports_outgoing: true,  sensor_slug: 'meest',
+                    track_parcel_service: { domain: 'meest', field: 'tracking_code', supports_postal_code: false } },
+    xlcourier:    { label: 'XLCourier',                 icon: 'mdi:package-variant-closed', color: '#0448d4', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'xlcourier',
+                    track_parcel_service: { domain: 'xlcourier', field: 'tracking_code', supports_postal_code: false } },
     custom:       { label: 'Custom',                     icon: 'mdi:package-variant-closed', color: '#ed8c00', schema: 'canonical',     supports_letters: false, sensor_slug: null     }
 };
 
@@ -4975,6 +4990,9 @@ const GENERIC_ACCOUNT_HELP = {
     hrvatska_posta: 'no_account_help',
     nationex: 'no_account_help',
     omniva: 'no_account_help',
+    danske_fragtmaend: 'no_account_help',
+    meest: 'optional_account_help',
+    xlcourier: 'no_account_help',
     mondial_relay: 'hub_account_help',
     hermes: 'optional_account_help',
     postnord: 'optional_account_help',
@@ -5198,6 +5216,9 @@ const BANNER_LOGO_METRICS = Object.freeze({
     hrvatska_posta: [0,0,1,1,1,1,0.12522],
     nationex: [0,0,1,1,1,1,0.79475],
     omniva: [0,0,1,1,1,0.82804,0],
+    danske_fragtmaend: [0,0,1,1,1,0.99156,0.00431],
+    meest: [0,0,1,1,1,0.79825,0.78152],
+    xlcourier: [0,0,1,1,1,0.96316,0.92248],
 });
 // GENERATED:BANNER_LOGO_METRICS:END
 

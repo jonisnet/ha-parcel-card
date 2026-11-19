@@ -42,8 +42,8 @@ try {
                 providerPresent: !!window.customIconsets,
                 badImages, minimumContrast: Math.min(...api.types.map(type => api.carrier(type).palette.logoContrast)) };
         });
-        assert.equal(checks.carriers, 91);
-        assert.equal(checks.scenes, 455);
+        assert.equal(checks.carriers, 94);
+        assert.equal(checks.scenes, 470);
         assert.deepEqual(checks.widths, [60]);
         assert.equal(checks.invalidLogo, 0);
         assert.deepEqual(checks.badImages, []);
@@ -110,7 +110,7 @@ try {
     assert.deepEqual(result.allCarrierIntegration.failures, []);
     const { api } = await loadScenePreview();
     const audit = JSON.parse(await readFile('previews/scenes/phu-audit.json', 'utf8'));
-    assert.equal(audit.carrierCount, 90);
+    assert.equal(audit.carrierCount, 93);
     assert.equal(audit.mappedCarrierCount, 41);
     for (const carrier of audit.carriers) assert.equal(api.carrier(carrier.type).phu, carrier.icon);
     result.phu = { release: audit.release, mappedCarriers: audit.mappedCarrierCount, uniqueIcons: audit.uniqueIconCount, sha256: audit.sha256 };

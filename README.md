@@ -41,7 +41,7 @@
 
 ## Features
 
-- **Multi-carrier** — any of the 90 supported carriers side by side in one card, each with its own logo and brand colour
+- **Multi-carrier** — any of the 93 supported carriers side by side in one card, each with its own logo and brand colour
 - **Illustrated delivery tracker for every carrier** — Registered · Sorting centre · Out for delivery · Delivered, with an extra Pickup point step when applicable. One set of scenes, drawn in each carrier's own colour and carrying its logo; works on a bare Home Assistant, and uses [custom-brand-icons](https://github.com/elax46/custom-brand-icons) logos when you have them
 - **Logos straight from your integrations** — carriers without their own card artwork show the icon their integration ships (Home Assistant 2026.3+), so a newly added carrier brings its logo along
 - **Four tabs** — In Transit · Delivered · Sent · Letters, with parcel details, barcode and a direct tracking link. Pick the tab the card opens on with `default_tab`, or link straight to one with `?parcel_tab=post` — handy from a notification
@@ -111,6 +111,7 @@ via `type: custom`, no code changes needed here. See **[the integration contract
 | **Colisweb** | [ha-parcel-integrations/ha-colisweb](https://github.com/ha-parcel-integrations/ha-colisweb) | ✅ | — | — |
 | **Correos** | [ha-parcel-integrations/ha-correos](https://github.com/ha-parcel-integrations/ha-correos) | ✅ | — | — |
 | **CTT** | [ha-parcel-integrations/ha-ctt](https://github.com/ha-parcel-integrations/ha-ctt) | ✅ | — | — |
+| **Danske Fragtmænd** | [ha-parcel-integrations/ha-danske-fragtmaend](https://github.com/ha-parcel-integrations/ha-danske-fragtmaend) | ✅ | — | — |
 | **DAO** | [ha-parcel-integrations/ha-dao](https://github.com/ha-parcel-integrations/ha-dao) | — | ✅ | — |
 | **Delhivery** | [ha-parcel-integrations/ha-delhivery](https://github.com/ha-parcel-integrations/ha-delhivery) | ✅ | — | — |
 | **DHL** | [ha-parcel-integrations/ha-dhl](https://github.com/ha-parcel-integrations/ha-dhl) | ✅ | ✅ | — |
@@ -138,6 +139,7 @@ via `type: custom`, no code changes needed here. See **[the integration contract
 | **La Poste** | [ha-parcel-integrations/ha-laposte](https://github.com/ha-parcel-integrations/ha-laposte) | ✅ | — | — |
 | **Magyar Posta** | [ha-parcel-integrations/ha-magyar-posta](https://github.com/ha-parcel-integrations/ha-magyar-posta) | ✅ | — | — |
 | **Matkahuolto** | [ha-parcel-integrations/ha-matkahuolto](https://github.com/ha-parcel-integrations/ha-matkahuolto) | ✅ | — | — |
+| **Meest** | [ha-parcel-integrations/ha-meest](https://github.com/ha-parcel-integrations/ha-meest) | ✅ | ✅ | — |
 | **Mondial Relay** | [ha-parcel-integrations/ha-mondial-relay](https://github.com/ha-parcel-integrations/ha-mondial-relay) | ✅ | ✅ | — |
 | **Nationex** | [ha-parcel-integrations/ha-nationex](https://github.com/ha-parcel-integrations/ha-nationex) | ✅ | — | — |
 | **Nova Post** | [ha-parcel-integrations/ha-nova-post](https://github.com/ha-parcel-integrations/ha-nova-post) | ✅ | — | — |
@@ -177,6 +179,7 @@ via `type: custom`, no code changes needed here. See **[the integration contract
 | **UPS** | [ha-parcel-integrations/ha-ups](https://github.com/ha-parcel-integrations/ha-ups) | ✅ | — | — |
 | **USPS** | [ha-parcel-integrations/ha-usps](https://github.com/ha-parcel-integrations/ha-usps) | ✅ | — | ✅ |
 | **Vinted Go** | [ha-parcel-integrations/ha-vinted-go](https://github.com/ha-parcel-integrations/ha-vinted-go) | — | ✅ | — |
+| **XLCourier** | [ha-parcel-integrations/ha-xlcourier](https://github.com/ha-parcel-integrations/ha-xlcourier) | ✅ | — | — |
 
 PostNL needs ≥ 4.0.0. Dragonfly is also maintained standalone by its creator at [HummelsTech/ha-dragonfly](https://github.com/HummelsTech/ha-dragonfly); either works with this card. `DHL NL` and `DHL` are two different integrations, see [Carrier types](https://jonisnet.github.io/ha-parcel-card/card/configuration/#carrier-types).
 

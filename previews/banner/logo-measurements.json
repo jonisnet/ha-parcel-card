@@ -2970,6 +2970,105 @@
         0
       ],
       "appIcon": true
+    },
+    {
+      "type": "danske_fragtmaend",
+      "file": "images/danske_fragtmaend/danske_fragtmaend-logo.png",
+      "sha256": "6fe7b41e75c680df5f6f8fc125aca1fdebe4c037222e33f5666ef1d8dc6da28f",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 584848
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0.99156,
+        0.00431
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "meest",
+      "file": "images/meest/meest-logo.png",
+      "sha256": "ccf51c6991b16c7d1ae07aea639a0e3deb228615b066cfaf4dc752b85b013c58",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 470828
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0.79825,
+        0.78152
+      ],
+      "appIcon": true
+    },
+    {
+      "type": "xlcourier",
+      "file": "images/xlcourier/xlcourier-logo.png",
+      "sha256": "aaad2f5b5b8b485832d43b7f1c6157e9b0a6d48fed5cf5c6517b682b8c3a31b4",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 568094
+      },
+      "normalized": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0.96316,
+        0.92248
+      ],
+      "appIcon": true
     }
   ]
 }

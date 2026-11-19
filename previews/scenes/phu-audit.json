@@ -5,7 +5,7 @@
   "source": "https://raw.githubusercontent.com/elax46/custom-brand-icons/2026.10.3/dist/custom-brand-icons.js",
   "verified": "2026-10-27",
   "sha256": "f65442f4f7883e565ca03858fa1cdb7358c90a424a1f6c6676db036372e0c08c",
-  "carrierCount": 90,
+  "carrierCount": 93,
   "mappedCarrierCount": 41,
   "uniqueIconCount": 39,
   "carriers": [
@@ -547,6 +547,24 @@
       "type": "omniva",
       "label": "Omniva",
       "icon": "phu:omniva",
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "danske_fragtmaend",
+      "label": "Danske Fragtmænd",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "meest",
+      "label": "Meest",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "xlcourier",
+      "label": "XLCourier",
+      "icon": null,
       "fallback": "carrier-logo"
     },
     {

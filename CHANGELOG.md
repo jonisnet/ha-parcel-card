@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.0.4] — 2026-11-19
+
+### Added
+
+- **Three new carriers** from the ha-parcel-integrations family: **Danske Fragtmænd**,
+  **Meest** and **XLCourier**. Each has its own name, colour and logo, and supports
+  "Add parcel". Meest also shows outgoing parcels
+  ([#4](https://github.com/jonisnet/ha-parcel-card/issues/4)). The card now supports 93
+  carriers.
+
 ## [2.0.3] — 2026-11-15
 
 ### Fixed
