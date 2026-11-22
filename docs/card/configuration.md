@@ -141,6 +141,7 @@ Normally the card generates sensor entity IDs automatically from `type` and `use
 | `omniva` | Omniva | [ha-parcel-integrations/ha-omniva](https://github.com/ha-parcel-integrations/ha-omniva) | — | — | ✅ |
 | `ontrac` | OnTrac | [ha-parcel-integrations/ha-ontrac](https://github.com/ha-parcel-integrations/ha-ontrac) | — | — | ✅ |
 | `orlen_paczka` | ORLEN Paczka | [ha-parcel-integrations/ha-orlen-paczka](https://github.com/ha-parcel-integrations/ha-orlen-paczka) | — | — | ✅ |
+| `overseas_express` | Overseas Express | [ha-parcel-integrations/ha-overseas-express](https://github.com/ha-parcel-integrations/ha-overseas-express) | — | — | ✅ |
 | `paack` | Paack | [ha-parcel-integrations/ha-paack](https://github.com/ha-parcel-integrations/ha-paack) | — | — | ✅ |
 | `packeta` | Packeta | [ha-parcel-integrations/ha-packeta](https://github.com/ha-parcel-integrations/ha-packeta) | — | ✅ | ✅ |
 | `pdn_express` | PDN Express | [ha-parcel-integrations/ha-pdn-express](https://github.com/ha-parcel-integrations/ha-pdn-express) | — | — | ✅ |

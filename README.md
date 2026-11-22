@@ -41,7 +41,7 @@
 
 ## Features
 
-- **Multi-carrier** — any of the 93 supported carriers side by side in one card, each with its own logo and brand colour
+- **Multi-carrier** — any of the 94 supported carriers side by side in one card, each with its own logo and brand colour
 - **Illustrated delivery tracker for every carrier** — Registered · Sorting centre · Out for delivery · Delivered, with an extra Pickup point step when applicable. One set of scenes, drawn in each carrier's own colour and carrying its logo; works on a bare Home Assistant, and uses [custom-brand-icons](https://github.com/elax46/custom-brand-icons) logos when you have them
 - **Logos straight from your integrations** — carriers without their own card artwork show the icon their integration ships (Home Assistant 2026.3+), so a newly added carrier brings its logo along
 - **Four tabs** — In Transit · Delivered · Sent · Letters, with parcel details, barcode and a direct tracking link. Pick the tab the card opens on with `default_tab`, or link straight to one with `?parcel_tab=post` — handy from a notification
@@ -146,6 +146,7 @@ via `type: custom`, no code changes needed here. See **[the integration contract
 | **NZ Post** | [ha-parcel-integrations/ha-nz-post](https://github.com/ha-parcel-integrations/ha-nz-post) | ✅ | — | — |
 | **Omniva** | [ha-parcel-integrations/ha-omniva](https://github.com/ha-parcel-integrations/ha-omniva) | ✅ | — | — |
 | **OnTrac** | [ha-parcel-integrations/ha-ontrac](https://github.com/ha-parcel-integrations/ha-ontrac) | ✅ | — | — |
+| **Overseas Express** | [ha-parcel-integrations/ha-overseas-express](https://github.com/ha-parcel-integrations/ha-overseas-express) | ✅ | — | — |
 | **ORLEN Paczka** | [ha-parcel-integrations/ha-orlen-paczka](https://github.com/ha-parcel-integrations/ha-orlen-paczka) | ✅ | — | — |
 | **Paack** | [ha-parcel-integrations/ha-paack](https://github.com/ha-parcel-integrations/ha-paack) | ✅ | — | — |
 | **Packeta** | [ha-parcel-integrations/ha-packeta](https://github.com/ha-parcel-integrations/ha-packeta) | ✅ | ✅ | — |

@@ -68,7 +68,7 @@ window.HAParcelCard.getSelectValue = window.HAParcelCard.getSelectValue || ((ev,
 
 (() => {
 const { LitElement, html, css } = window.HAParcelCard.getLit();
-const CARD_VERSION = 'v2.0.5';
+const CARD_VERSION = 'v2.0.6';
 console.info(`%c HA-PARCEL-CARD %c ${CARD_VERSION} `, 'color: white; background: #ed8c00; font-weight: bold;', 'color: #ed8c00; background: white; font-weight: bold;');
 
 const DEFAULT_CARRIER_ICON = 'mdi:package-variant-closed';
@@ -4040,6 +4040,7 @@ const IMG = {
     danske_fragtmaend: `${REPO_BASE}/danske_fragtmaend`,
     meest:       `${REPO_BASE}/meest`,
     xlcourier:   `${REPO_BASE}/xlcourier`,
+    overseas_express: `${REPO_BASE}/overseas_express`,
 };
 
 // Points at the ha-parcel-integrations org, not the individual maintainers' personal repos
@@ -4142,6 +4143,7 @@ const CARRIER_REPO_URLS = {
     danske_fragtmaend: 'https://github.com/ha-parcel-integrations/ha-danske-fragtmaend',
     meest:       'https://github.com/ha-parcel-integrations/ha-meest',
     xlcourier:   'https://github.com/ha-parcel-integrations/ha-xlcourier',
+    overseas_express: 'https://github.com/ha-parcel-integrations/ha-overseas-express',
 };
 
 // Static steps are rendered inline from the shared scene templates below.
@@ -4358,6 +4360,7 @@ const CARRIER_ASSETS = {
     danske_fragtmaend:     { logo: `${IMG.danske_fragtmaend}/danske_fragtmaend-logo.png?raw=true`, logo_is_icon: true },
     meest:                 { logo: `${IMG.meest}/meest-logo.png?raw=true`, logo_is_icon: true },
     xlcourier:             { logo: `${IMG.xlcourier}/xlcourier-logo.png?raw=true`, logo_is_icon: true },
+    overseas_express:      { logo: `${IMG.overseas_express}/overseas_express-logo.png?raw=true`, logo_is_icon: true },
     custom: { logo: null, van: null, banner: null }
 };
 
@@ -4670,6 +4673,10 @@ const CARRIER_PRESETS = {
                     track_parcel_service: { domain: 'meest', field: 'tracking_code', supports_postal_code: false } },
     xlcourier:    { label: 'XLCourier',                 icon: 'mdi:package-variant-closed', color: '#0448d4', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'xlcourier',
                     track_parcel_service: { domain: 'xlcourier', field: 'tracking_code', supports_postal_code: false } },
+    // Croatian courier. Tracking-code based like xlcourier; brand colour pixel-sampled from the
+    // integration's own brand icon (#f58220). Incoming only — no outgoing sensors, no letters.
+    overseas_express: { label: 'Overseas Express',     icon: 'mdi:package-variant-closed', color: '#f58220', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'overseas_express',
+                    track_parcel_service: { domain: 'overseas_express', field: 'tracking_code', supports_postal_code: false } },
     custom:       { label: 'Custom',                     icon: 'mdi:package-variant-closed', color: '#ed8c00', schema: 'canonical',     supports_letters: false, sensor_slug: null     }
 };
 
@@ -5069,6 +5076,7 @@ const GENERIC_ACCOUNT_HELP = {
     danske_fragtmaend: 'no_account_help',
     meest: 'optional_account_help',
     xlcourier: 'no_account_help',
+    overseas_express: 'no_account_help',
     mondial_relay: 'hub_account_help',
     hermes: 'optional_account_help',
     postnord: 'optional_account_help',
@@ -5295,6 +5303,7 @@ const BANNER_LOGO_METRICS = Object.freeze({
     danske_fragtmaend: [0,0,1,1,1,0.99156,0.00431],
     meest: [0,0,1,1,1,0.79825,0.78152],
     xlcourier: [0,0,1,1,1,0.96316,0.92248],
+    overseas_express: [0.06901,0.23307,0.86328,0.53125,1.625,0.64432,0],
 });
 // GENERATED:BANNER_LOGO_METRICS:END
 

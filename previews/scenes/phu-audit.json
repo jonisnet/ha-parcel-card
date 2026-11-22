@@ -5,7 +5,7 @@
   "source": "https://raw.githubusercontent.com/elax46/custom-brand-icons/2026.10.3/dist/custom-brand-icons.js",
   "verified": "2026-10-27",
   "sha256": "f65442f4f7883e565ca03858fa1cdb7358c90a424a1f6c6676db036372e0c08c",
-  "carrierCount": 93,
+  "carrierCount": 94,
   "mappedCarrierCount": 41,
   "uniqueIconCount": 39,
   "carriers": [
@@ -564,6 +564,12 @@
     {
       "type": "xlcourier",
       "label": "XLCourier",
+      "icon": null,
+      "fallback": "carrier-logo"
+    },
+    {
+      "type": "overseas_express",
+      "label": "Overseas Express",
       "icon": null,
       "fallback": "carrier-logo"
     },

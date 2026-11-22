@@ -71,7 +71,7 @@ Install the integration for each carrier you use **before** adding the card. All
 
 ### Every other carrier
 
-The other 92 carriers — DHL, DPD, UPS, FedEx, USPS, GLS, bpost, La Poste, Evri and the rest — are listed with a link to their integration under **[Carrier types](card/configuration.md#carrier-types)**, together with what each one supports (Sent tab, letters, "Add parcel").
+The other 93 carriers — DHL, DPD, UPS, FedEx, USPS, GLS, bpost, La Poste, Evri and the rest — are listed with a link to their integration under **[Carrier types](card/configuration.md#carrier-types)**, together with what each one supports (Sent tab, letters, "Add parcel").
 
 Roughly, they come in three kinds:
 
@@ -99,9 +99,9 @@ served by Home Assistant 2026.3 and newer; older versions use a copy kept in thi
 Registered and Delivered intentionally have no logo. If an older PHU installation lacks a
 mapped icon, the scene retains its image fallback.
 
-All 93 carrier mappings were checked on 19 November 2026 against the published
+All 94 carrier mappings were checked on 22 November 2026 against the published
 [custom-brand-icons 2026.10.3 release](https://github.com/elax46/custom-brand-icons/releases/tag/2026.10.3)
-and its `dist/custom-brand-icons.js` (on 7 November also against release 2026.11.1). Release 2026.11.3 has no icons yet for Danske Fragtmænd, Meest and XLCourier. These 41 carrier types have released icons:
+and its `dist/custom-brand-icons.js` (on 7 November also against release 2026.11.1). Release 2026.11.3 has no icons yet for Danske Fragtmænd, Meest, XLCourier and Overseas Express. These 41 carrier types have released icons:
 
 | Carrier | PHU icon |
 | ------- | -------- |
@@ -147,7 +147,7 @@ and its `dist/custom-brand-icons.js` (on 7 November also against release 2026.11
 | Poczta Polska | `phu:pocztapolska` |
 | Omniva | `phu:omniva` |
 
-The other 52 carriers use their existing logo in the scenes. Custom carriers use their
+The other 53 carriers use their existing logo in the scenes. Custom carriers use their
 configured logo, or a plain brand-colour panel without text. Outside the SVG illustrations,
 unmapped carriers keep the generic `mdi:package-variant-closed` icon. No local PR icons are
 used or required. Pale PHU logo colours are darkened automatically for at least 3:1 contrast

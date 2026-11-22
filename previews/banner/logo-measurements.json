@@ -3069,6 +3069,39 @@
         0.92248
       ],
       "appIcon": true
+    },
+    {
+      "type": "overseas_express",
+      "file": "images/overseas_express/overseas_express-logo.png",
+      "sha256": "2491ec4e07a21a99778772d142f26b34a51a846548f7d4d8804a0b5ff6b10d4a",
+      "sampledSize": [
+        768,
+        768
+      ],
+      "alphaBounds": {
+        "x": 0,
+        "y": 0,
+        "right": 768,
+        "bottom": 768,
+        "count": 589824
+      },
+      "inkBounds": {
+        "x": 53,
+        "y": 179,
+        "right": 716,
+        "bottom": 587,
+        "count": 174291
+      },
+      "normalized": [
+        0.06901,
+        0.23307,
+        0.86328,
+        0.53125,
+        1.625,
+        0.64432,
+        0
+      ],
+      "appIcon": true
     }
   ]
 }

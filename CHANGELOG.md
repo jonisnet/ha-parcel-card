@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.0.6] — 2026-11-22
+
+### Added
+
+- **Overseas Express** — new carrier from the ha-parcel-integrations family, with its own name,
+  colour and logo. Supports "Add parcel" and "Remove from Home Assistant". The card now
+  supports 94 carriers.
+
 ## [2.0.5] — 2026-11-22
 
 ### Added
