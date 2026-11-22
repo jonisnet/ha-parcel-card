@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.0.5] — 2026-11-22
+
+### Added
+
+- **Remove a parcel** — each parcel's detail panel now has a small "Remove" control, for
+  example for a cancelled order that stays on "unknown" forever. It offers two choices:
+  **Remove from Home Assistant** stops tracking the code in the carrier's integration (its
+  `untrack_parcel` action) and **Only from this card** just hides the parcel. Account-based
+  carriers (PostNL, DPD, …) only get the second choice. Turn it off with the new
+  `show_remove_button` option
+  ([#5](https://github.com/jonisnet/ha-parcel-card/issues/5)).
+
 ## [2.0.4] — 2026-11-19
 
 ### Added

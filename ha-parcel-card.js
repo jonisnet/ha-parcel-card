@@ -68,7 +68,7 @@ window.HAParcelCard.getSelectValue = window.HAParcelCard.getSelectValue || ((ev,
 
 (() => {
 const { LitElement, html, css } = window.HAParcelCard.getLit();
-const CARD_VERSION = 'v2.0.4';
+const CARD_VERSION = 'v2.0.5';
 console.info(`%c HA-PARCEL-CARD %c ${CARD_VERSION} `, 'color: white; background: #ed8c00; font-weight: bold;', 'color: #ed8c00; background: white; font-weight: bold;');
 
 const DEFAULT_CARRIER_ICON = 'mdi:package-variant-closed';
@@ -296,6 +296,10 @@ const TRANSLATIONS = {
         show_raw_data_button: 'Show "raw data" button',
         show_more_details: 'Show more',
         show_raw_data: 'Show raw data',
+        remove_parcel: 'Remove',
+        remove_from_ha: 'Remove from Home Assistant',
+        remove_from_card: 'Only from this card',
+        show_remove_button: 'Show remove button per parcel',
         pickup_ready_today: 'Ready since today',
         pickup_ready_one_day: 'Waiting for 1 day',
         pickup_ready_days: 'Waiting for {n} days',
@@ -492,6 +496,10 @@ const TRANSLATIONS = {
         show_raw_data_button: 'Toon ruwe data-knop',
         show_more_details: 'Toon meer',
         show_raw_data: 'Toon ruwe gegevens',
+        remove_parcel: 'Verwijderen',
+        remove_from_ha: 'Uit Home Assistant verwijderen',
+        remove_from_card: 'Alleen uit de kaart',
+        show_remove_button: 'Verwijderknop per pakket tonen',
         pickup_ready_today: 'Ligt sinds vandaag klaar',
         pickup_ready_one_day: 'Ligt 1 dag klaar',
         pickup_ready_days: 'Ligt {n} dagen klaar',
@@ -689,6 +697,10 @@ const TRANSLATIONS = {
         show_raw_data_button: 'Показвай бутона „необработени данни“',
         show_more_details: 'Покажи повече',
         show_raw_data: 'Покажи необработените данни',
+        remove_parcel: 'Премахни',
+        remove_from_ha: 'Премахни от Home Assistant',
+        remove_from_card: 'Само от картата',
+        show_remove_button: 'Показвай бутон за премахване на всяка пратка',
         pickup_ready_today: 'Готова от днес',
         pickup_ready_one_day: 'Чака от 1 ден',
         pickup_ready_days: 'Чака от {n} дни',
@@ -886,6 +898,10 @@ const TRANSLATIONS = {
         show_raw_data_button: 'Zobrazit tlačítko „surová data“',
         show_more_details: 'Zobrazit více',
         show_raw_data: 'Zobrazit surová data',
+        remove_parcel: 'Odebrat',
+        remove_from_ha: 'Odebrat z Home Assistantu',
+        remove_from_card: 'Jen z karty',
+        show_remove_button: 'Zobrazit u každé zásilky tlačítko pro odebrání',
         pickup_ready_today: 'Připraveno od dnes',
         pickup_ready_one_day: 'Čeká 1 den',
         pickup_ready_days: 'Čeká {n} dní',
@@ -1083,6 +1099,10 @@ const TRANSLATIONS = {
         show_raw_data_button: 'Vis knappen "rådata"',
         show_more_details: 'Vis mere',
         show_raw_data: 'Vis rådata',
+        remove_parcel: 'Fjern',
+        remove_from_ha: 'Fjern fra Home Assistant',
+        remove_from_card: 'Kun fra kortet',
+        show_remove_button: 'Vis fjern-knap for hver pakke',
         pickup_ready_today: 'Klar siden i dag',
         pickup_ready_one_day: 'Klar i 1 dag',
         pickup_ready_days: 'Klar i {n} dage',
@@ -1280,6 +1300,10 @@ const TRANSLATIONS = {
         show_raw_data_button: 'Schaltfläche „Rohdaten“ anzeigen',
         show_more_details: 'Mehr anzeigen',
         show_raw_data: 'Rohdaten anzeigen',
+        remove_parcel: 'Entfernen',
+        remove_from_ha: 'Aus Home Assistant entfernen',
+        remove_from_card: 'Nur aus der Karte',
+        show_remove_button: 'Entfernen-Schaltfläche pro Paket anzeigen',
         pickup_ready_today: 'Seit heute abholbereit',
         pickup_ready_one_day: 'Seit 1 Tag abholbereit',
         pickup_ready_days: 'Seit {n} Tagen abholbereit',
@@ -1477,6 +1501,10 @@ const TRANSLATIONS = {
         show_raw_data_button: 'Mostrar botón "datos sin procesar"',
         show_more_details: 'Mostrar más',
         show_raw_data: 'Mostrar datos sin procesar',
+        remove_parcel: 'Quitar',
+        remove_from_ha: 'Quitar de Home Assistant',
+        remove_from_card: 'Solo de la tarjeta',
+        show_remove_button: 'Mostrar botón para quitar en cada paquete',
         pickup_ready_today: 'Listo desde hoy',
         pickup_ready_one_day: 'Listo desde hace 1 día',
         pickup_ready_days: 'Listo desde hace {n} días',
@@ -1674,6 +1702,10 @@ const TRANSLATIONS = {
         show_raw_data_button: 'Näytä "raakadata"-painike',
         show_more_details: 'Näytä lisää',
         show_raw_data: 'Näytä raakadata',
+        remove_parcel: 'Poista',
+        remove_from_ha: 'Poista Home Assistantista',
+        remove_from_card: 'Vain kortilta',
+        show_remove_button: 'Näytä poistopainike jokaisessa paketissa',
         pickup_ready_today: 'Valmiina tänään alkaen',
         pickup_ready_one_day: 'Odottanut 1 päivän',
         pickup_ready_days: 'Odottanut {n} päivää',
@@ -1871,6 +1903,10 @@ const TRANSLATIONS = {
         show_raw_data_button: 'Afficher le bouton « données brutes »',
         show_more_details: 'Afficher plus',
         show_raw_data: 'Afficher les données brutes',
+        remove_parcel: 'Retirer',
+        remove_from_ha: 'Retirer de Home Assistant',
+        remove_from_card: 'Seulement de la carte',
+        show_remove_button: 'Afficher un bouton de retrait par colis',
         pickup_ready_today: 'Disponible depuis aujourd\'hui',
         pickup_ready_one_day: 'Disponible depuis 1 jour',
         pickup_ready_days: 'Disponible depuis {n} jours',
@@ -2068,6 +2104,10 @@ const TRANSLATIONS = {
         show_raw_data_button: '"रॉ डेटा" बटन दिखाएं',
         show_more_details: 'और दिखाएं',
         show_raw_data: 'रॉ डेटा दिखाएं',
+        remove_parcel: 'हटाएँ',
+        remove_from_ha: 'Home Assistant से हटाएँ',
+        remove_from_card: 'सिर्फ़ कार्ड से',
+        show_remove_button: 'हर पार्सल पर हटाने का बटन दिखाएँ',
         pickup_ready_today: 'आज से तैयार',
         pickup_ready_one_day: '1 दिन से इंतज़ार में',
         pickup_ready_days: '{n} दिनों से इंतज़ार में',
@@ -2265,6 +2305,10 @@ const TRANSLATIONS = {
         show_raw_data_button: '„Nyers adatok” gomb megjelenítése',
         show_more_details: 'Több megjelenítése',
         show_raw_data: 'Nyers adatok megjelenítése',
+        remove_parcel: 'Eltávolítás',
+        remove_from_ha: 'Eltávolítás a Home Assistantból',
+        remove_from_card: 'Csak a kártyáról',
+        show_remove_button: 'Eltávolítás gomb megjelenítése csomagonként',
         pickup_ready_today: 'Ma óta átvehető',
         pickup_ready_one_day: '1 napja átvehető',
         pickup_ready_days: '{n} napja átvehető',
@@ -2462,6 +2506,10 @@ const TRANSLATIONS = {
         show_raw_data_button: 'Mostra il pulsante "dati grezzi"',
         show_more_details: 'Mostra di più',
         show_raw_data: 'Mostra dati grezzi',
+        remove_parcel: 'Rimuovi',
+        remove_from_ha: 'Rimuovi da Home Assistant',
+        remove_from_card: 'Solo dalla scheda',
+        show_remove_button: 'Mostra il pulsante di rimozione per ogni pacco',
         pickup_ready_today: 'Pronto da oggi',
         pickup_ready_one_day: 'Pronto da 1 giorno',
         pickup_ready_days: 'Pronto da {n} giorni',
@@ -2659,6 +2707,10 @@ const TRANSLATIONS = {
         show_raw_data_button: 'Vis knappen "rådata"',
         show_more_details: 'Vis mer',
         show_raw_data: 'Vis rådata',
+        remove_parcel: 'Fjern',
+        remove_from_ha: 'Fjern fra Home Assistant',
+        remove_from_card: 'Bare fra kortet',
+        show_remove_button: 'Vis fjern-knapp for hver pakke',
         pickup_ready_today: 'Klar siden i dag',
         pickup_ready_one_day: 'Klar i 1 dag',
         pickup_ready_days: 'Klar i {n} dager',
@@ -2856,6 +2908,10 @@ const TRANSLATIONS = {
         show_raw_data_button: 'Pokaż przycisk „surowe dane”',
         show_more_details: 'Pokaż więcej',
         show_raw_data: 'Pokaż surowe dane',
+        remove_parcel: 'Usuń',
+        remove_from_ha: 'Usuń z Home Assistanta',
+        remove_from_card: 'Tylko z karty',
+        show_remove_button: 'Pokaż przycisk usuwania przy każdej przesyłce',
         pickup_ready_today: 'Gotowa od dziś',
         pickup_ready_one_day: 'Czeka od 1 dnia',
         pickup_ready_days: 'Czeka od {n} dni',
@@ -3053,6 +3109,10 @@ const TRANSLATIONS = {
         show_raw_data_button: 'Mostrar botão "dados brutos"',
         show_more_details: 'Mostrar mais',
         show_raw_data: 'Mostrar dados brutos',
+        remove_parcel: 'Remover',
+        remove_from_ha: 'Remover do Home Assistant',
+        remove_from_card: 'Só do cartão',
+        show_remove_button: 'Mostrar botão de remover em cada encomenda',
         pickup_ready_today: 'Disponível desde hoje',
         pickup_ready_one_day: 'Disponível há 1 dia',
         pickup_ready_days: 'Disponível há {n} dias',
@@ -3250,6 +3310,10 @@ const TRANSLATIONS = {
         show_raw_data_button: 'Afișează butonul „date brute”',
         show_more_details: 'Arată mai mult',
         show_raw_data: 'Arată datele brute',
+        remove_parcel: 'Elimină',
+        remove_from_ha: 'Elimină din Home Assistant',
+        remove_from_card: 'Doar de pe card',
+        show_remove_button: 'Afișează butonul de eliminare pentru fiecare colet',
         pickup_ready_today: 'Gata de azi',
         pickup_ready_one_day: 'Gata de 1 zi',
         pickup_ready_days: 'Gata de {n} zile',
@@ -3447,6 +3511,10 @@ const TRANSLATIONS = {
         show_raw_data_button: 'Zobraziť tlačidlo „nespracované údaje“',
         show_more_details: 'Zobraziť viac',
         show_raw_data: 'Zobraziť nespracované údaje',
+        remove_parcel: 'Odstrániť',
+        remove_from_ha: 'Odstrániť z Home Assistantu',
+        remove_from_card: 'Len z karty',
+        show_remove_button: 'Zobraziť pri každej zásielke tlačidlo na odstránenie',
         pickup_ready_today: 'Pripravené od dnes',
         pickup_ready_one_day: 'Čaká 1 deň',
         pickup_ready_days: 'Čaká {n} dní',
@@ -3644,6 +3712,10 @@ const TRANSLATIONS = {
         show_raw_data_button: 'Visa knappen "rådata"',
         show_more_details: 'Visa mer',
         show_raw_data: 'Visa rådata',
+        remove_parcel: 'Ta bort',
+        remove_from_ha: 'Ta bort från Home Assistant',
+        remove_from_card: 'Bara från kortet',
+        show_remove_button: 'Visa ta bort-knapp för varje paket',
         pickup_ready_today: 'Klart sedan i dag',
         pickup_ready_one_day: 'Klart i 1 dag',
         pickup_ready_days: 'Klart i {n} dagar',
@@ -3841,6 +3913,10 @@ const TRANSLATIONS = {
         show_raw_data_button: 'Показувати кнопку «необроблені дані»',
         show_more_details: 'Показати більше',
         show_raw_data: 'Показати необроблені дані',
+        remove_parcel: 'Видалити',
+        remove_from_ha: 'Видалити з Home Assistant',
+        remove_from_card: 'Лише з картки',
+        show_remove_button: 'Показувати кнопку видалення для кожної посилки',
         pickup_ready_today: 'Готово з сьогодні',
         pickup_ready_one_day: 'Чекає 1 день',
         pickup_ready_days: 'Чекає {n} днів',
@@ -5617,6 +5693,7 @@ class HaParcelCard extends HTMLElement {
             sort_order: 'auto',
             show_extra_info_button: true,
             show_raw_data_button: true,
+            show_remove_button: true,
             group_by_carrier: true,
             header_color: '',
             header_text_color: '',
@@ -5720,6 +5797,7 @@ class HaParcelCard extends HTMLElement {
             sort_order: 'auto',
             show_extra_info_button: true,
             show_raw_data_button: true,
+            show_remove_button: true,
             group_by_carrier: true,
             layout_order: ['header', 'animation', 'tabs', 'list']
         };
@@ -5793,6 +5871,7 @@ class HaParcelCard extends HTMLElement {
         const logo = carrier.logo_path || ownLogo || loadedBrandIcon(carrier.type) || assets.logo || '';
         return {
             carrier_type:   carrier.type,
+            carrier_index:  (this.config?.carriers || []).indexOf(carrier),
             carrier_name:   carrier.name,
             carrier_icon:   (carrier.icon && carrier.icon !== DEFAULT_CARRIER_ICON) ? carrier.icon : getDefaultIcon(carrier.type),
             carrier_color:  carrier.color  || preset.color || DEFAULT_CARRIER_COLOR,
@@ -6327,6 +6406,13 @@ class HaParcelCard extends HTMLElement {
             bezorgd = bezorgd.filter(i => !postKeys.has(i.key));
         }
 
+        // Parcels the user removed from the card (jonisnet/ha-parcel-card#5).
+        const keep = i => !this._isParcelRemoved(i);
+        onderweg = onderweg.filter(keep);
+        bezorgd = bezorgd.filter(keep);
+        verzondenUpcoming = verzondenUpcoming.filter(keep);
+        verzondenDelivered = verzondenDelivered.filter(keep);
+
         return {
             onderweg, bezorgd,
             verzonden: { upcoming: verzondenUpcoming, delivered: verzondenDelivered },
@@ -6616,6 +6702,9 @@ class HaParcelCard extends HTMLElement {
     // stash in the DOM.
     _bindRawDataButtons(root) {
         if (!root) return;
+        root.querySelectorAll('.remove-parcel-btn').forEach(el =>
+            el.addEventListener('click', e => this._handleRemoveParcelClick(e))
+        );
         root.querySelectorAll('.raw-data-btn').forEach(el =>
             el.addEventListener('click', e => {
                 e.stopPropagation();
@@ -7470,8 +7559,114 @@ class HaParcelCard extends HTMLElement {
         const rawBtn = (item.raw && this.config.show_raw_data_button !== false)
             ? `<button class="ha-btn ha-btn-secondary raw-data-btn" data-key="${item.key}">${this._t('show_raw_data')}</button>`
             : '';
-        if (!trackLink && !rawBtn) return '';
-        return `<div class="details-actions-side">${trackLink}${rawBtn}</div>`;
+        const removeBtn = this._renderRemoveParcelButton(item);
+        if (!trackLink && !rawBtn && !removeBtn) return '';
+        return `<div class="details-actions-side">${trackLink}${rawBtn}${removeBtn}</div>`;
+    }
+
+    // ------------------------------------------------------------------
+    // Removing a parcel (jonisnet/ha-parcel-card#5) — e.g. a cancelled order whose code stays
+    // on "unknown" forever. A small, low-key control per parcel; the first click only arms it,
+    // the second (within a few seconds) removes. Where the carrier's integration has an
+    // untrack_parcel action the code is also dropped there, so the integration stops polling
+    // it. Account-based carriers (PostNL, DHL, …) have no such action: their parcels come from
+    // the account itself, so the card just stops showing them. Either way the parcel is marked
+    // removed in the same store as custom names (custom_name_scope), falling back to this
+    // browser when that store can't be written (e.g. a non-admin under 'everyone').
+    // ------------------------------------------------------------------
+
+    _renderRemoveParcelButton(item) {
+        if (!item.key || item.is_letter || this.config.show_remove_button === false) return '';
+        const key = this._escapeHtml(item.key);
+        if (this._removeArmedKey !== this._removedParcelId(item)) {
+            return `<button class="remove-parcel-btn" data-key="${key}" data-remove="open">
+                <ha-icon icon="mdi:trash-can-outline"></ha-icon><span>${this._t('remove_parcel')}</span>
+            </button>`;
+        }
+        // "From Home Assistant" only where the integration can actually drop the code; the
+        // account-based carriers get just the card option.
+        const canUntrack = !!this._untrackServiceFor(item);
+        return `<div class="remove-parcel-menu">
+            ${canUntrack ? `<button class="remove-parcel-btn armed" data-key="${key}" data-remove="ha"><ha-icon icon="mdi:trash-can-outline"></ha-icon><span>${this._t('remove_from_ha')}</span></button>` : ''}
+            <button class="remove-parcel-btn armed" data-key="${key}" data-remove="card"><ha-icon icon="mdi:eye-off-outline"></ha-icon><span>${this._t('remove_from_card')}</span></button>
+            <button class="remove-parcel-btn" data-key="${key}" data-remove="cancel"><ha-icon icon="mdi:close"></ha-icon><span>${this._t('custom_name_cancel')}</span></button>
+        </div>`;
+    }
+
+    _untrackServiceFor(item) {
+        const carrier = (this.config.carriers || [])[item.carrier_index];
+        const svc = carrier && (CARRIER_PRESETS[carrier.type] || CARRIER_PRESETS.custom).track_parcel_service;
+        if (!svc || !this._hass?.services?.[svc.domain]?.untrack_parcel) return null;
+        return { carrier, svc };
+    }
+
+    _removedParcelId(item) {
+        return `removed|${item.carrier_type || ''}:${item.key || ''}`;
+    }
+
+    _localRemovedStorageKey() { return 'ha-parcel-card-removed-parcels'; }
+
+    _loadLocalRemoved() {
+        if (this.__localRemoved) return this.__localRemoved;
+        try { this.__localRemoved = JSON.parse(localStorage.getItem(this._localRemovedStorageKey()) || '{}') || {}; }
+        catch (e) { this.__localRemoved = {}; }
+        return this.__localRemoved;
+    }
+
+    _isParcelRemoved(item) {
+        if (!item || !item.key || item.is_letter) return false;
+        const id = this._removedParcelId(item);
+        return !!(this._loadCustomNames()[id] || this._loadLocalRemoved()[id]);
+    }
+
+    _markParcelRemoved(item) {
+        const id = this._removedParcelId(item);
+        const stamp = new Date().toISOString();
+        const scope = this._customNameScope();
+        // Same writer as custom names: the id already contains the "removed|" prefix, so it
+        // never collides with a real "<carrier>:<code>" name entry.
+        if (scope !== 'everyone' || this._isAdmin()) {
+            this._setCustomName(`removed|${item.carrier_type || ''}`, item.key, stamp);
+        }
+        if (scope === 'everyone' && !this._isAdmin()) {
+            const local = { ...this._loadLocalRemoved(), [id]: stamp };
+            this.__localRemoved = local;
+            try { localStorage.setItem(this._localRemovedStorageKey(), JSON.stringify(local)); } catch (e) { /* session only */ }
+        }
+    }
+
+    async _handleRemoveParcelClick(e) {
+        e.stopPropagation();
+        const item = this._findParcelByKey(e.currentTarget.dataset.key);
+        if (!item) return;
+        const action = e.currentTarget.dataset.remove;
+        const rerender = () => {
+            this._lastListFingerprint = null;
+            this.updateContent();
+            this._refreshCarrierPopupIfOpen();
+        };
+        if (action === 'open' || action === 'cancel') {
+            this._removeArmedKey = action === 'open' ? this._removedParcelId(item) : null;
+            rerender();
+            return;
+        }
+        this._removeArmedKey = null;
+
+        const target = action === 'ha' ? this._untrackServiceFor(item) : null;
+        if (target) {
+            const { carrier, svc } = target;
+            const data = { [svc.field]: item.key };
+            const entryId = (svc.requires_config_entry_id || svc.optional_config_entry_field) ? this._resolveConfigEntryId(carrier) : null;
+            if (entryId) data[svc.requires_config_entry_id ? 'config_entry_id' : svc.optional_config_entry_field] = entryId;
+            // Best effort: a code the integration no longer knows (or a failing call) should
+            // still disappear from the card — that is what the user asked for.
+            try { await this._hass.callService(svc.domain, 'untrack_parcel', data); } catch (err) { /* hide anyway */ }
+        }
+        this._markParcelRemoved(item);
+        if (this._selectedParcel === item.key) this._selectedParcel = null;
+        this._lastListFingerprint = null;
+        this.updateContent();
+        this._refreshCarrierPopupIfOpen();
     }
 
     // Opens the full, pretty-printed `item.raw` dump as a popup rather than inline text — the
@@ -7831,6 +8026,11 @@ class HaParcelCard extends HTMLElement {
             .details-panel-body { display: flex; gap: 12px; align-items: flex-start; }
             .details-info { flex: 1; min-width: 0; }
             .details-actions-side { display: flex; flex-direction: column; gap: 8px; flex-shrink: 0; margin-top: 2px; }
+            .remove-parcel-btn { align-self: flex-end; display: inline-flex; align-items: center; gap: 4px; background: none; border: none; padding: 2px 4px; border-radius: 4px; color: var(--secondary-text-color); opacity: 0.75; font: inherit; font-size: 0.8em; cursor: pointer; transition: color 0.15s, opacity 0.15s, background 0.15s; }
+            .remove-parcel-btn ha-icon { --mdc-icon-size: 16px; width: 16px; height: 16px; display: inline-flex; }
+            .remove-parcel-btn:hover { opacity: 1; color: var(--error-color, #db4437); }
+            .remove-parcel-menu { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; }
+            .remove-parcel-btn.armed { opacity: 1; color: var(--error-color, #db4437); font-weight: 600; background: rgba(219, 68, 55, 0.1); }
             @media (max-width: 479px) {
                 .details-panel-body { flex-direction: column; }
                 .details-actions-side { margin-top: 10px; }
@@ -7980,6 +8180,7 @@ class HaParcelCardEditor extends LitElement {
             sort_order: 'auto',
             show_extra_info_button: true,
             show_raw_data_button: true,
+            show_remove_button: true,
             group_by_carrier: true,
             header_color: '',
             header_text_color: '',
@@ -8006,7 +8207,7 @@ class HaParcelCardEditor extends LitElement {
         if (!field || !this._config) return;
         let value = this._val(ev);
         if (new Set(['days_back']).has(field)) value = parseInt(value, 10);
-        if (new Set(['show_delivered','show_sent','show_letters','show_animation','show_header','show_placeholder','show_tracking_link','show_add_parcel','show_raw_status','group_by_carrier','show_extra_info_button','show_raw_data_button','show_sender_with_custom_name']).has(field))
+        if (new Set(['show_delivered','show_sent','show_letters','show_animation','show_header','show_placeholder','show_tracking_link','show_add_parcel','show_raw_status','group_by_carrier','show_extra_info_button','show_raw_data_button','show_remove_button','show_sender_with_custom_name']).has(field))
             value = !!(ev.target?.checked ?? value);
         this._config = { ...this._config, [field]: value };
         this._emit();
@@ -8927,6 +9128,7 @@ class HaParcelCardEditor extends LitElement {
                     <div class="switch-row"><ha-switch .checked=${this._config.group_by_carrier !== false} data-field="group_by_carrier" @change=${this._changed}></ha-switch><span>${this._t('group_by_carrier')}</span></div>
                     <div class="switch-row"><ha-switch .checked=${this._config.show_extra_info_button !== false} data-field="show_extra_info_button" @change=${this._changed}></ha-switch><span>${this._t('show_extra_info_button')}</span></div>
                     <div class="switch-row"><ha-switch .checked=${this._config.show_raw_data_button !== false} data-field="show_raw_data_button" @change=${this._changed}></ha-switch><span>${this._t('show_raw_data_button')}</span></div>
+                    <div class="switch-row"><ha-switch .checked=${this._config.show_remove_button !== false} data-field="show_remove_button" @change=${this._changed}></ha-switch><span>${this._t('show_remove_button')}</span></div>
                     <div class="plain-field">
                         <label>${this._t('default_tab_label')}</label>
                         <ha-selector .hass=${this.hass}

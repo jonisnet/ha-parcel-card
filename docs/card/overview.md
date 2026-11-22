@@ -31,6 +31,10 @@ Every supported carrier, with its integration and what it supports, is listed un
 
 Click a carrier's logo in the multi-carrier combo banner to open a popup listing every item for that carrier — parcels and letters — across all four tabs, grouped by section. Clicking an item expands its details (tracking number, status, delivery type, tracking link) in place, using the same accordion behaviour as the main list, so the popup stays open while you browse.
 
+### Remove a parcel
+
+Every parcel's detail panel has a small **Remove** control — handy for a cancelled order that stays on "unknown" forever. **Remove from Home Assistant** calls the integration's own `untrack_parcel` action, so the integration stops tracking the code; it is only offered when the integration has that action. **Only from this card** hides the parcel in the card and works for every carrier, including account-based ones. Toggle it off with `show_remove_button: false`.
+
 ### Add parcel support
 
 For every carrier whose integration has a `track_parcel` service — the tracking-code carriers, plus account-based ones that also accept a code, such as An Post, bpost and DHL — the card shows a "Add parcel" control that calls the integration's own `track_parcel` service directly — the parcel is genuinely registered with the integration, not just added to the card's own view. Toggle it off with `show_add_parcel: false` if you'd rather add parcels through the integration itself.
