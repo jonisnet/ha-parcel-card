@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
     
     
       
@@ -502,6 +502,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#remove-a-parcel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remove a parcel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#add-parcel-support" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -860,6 +871,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#remove-a-parcel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remove a parcel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#add-parcel-support" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -957,6 +979,8 @@
 </ul>
 <h3 id="carrier-overview-popup">Carrier overview popup<a class="headerlink" href="#carrier-overview-popup" title="Permanent link">&para;</a></h3>
 <p>Click a carrier's logo in the multi-carrier combo banner to open a popup listing every item for that carrier — parcels and letters — across all four tabs, grouped by section. Clicking an item expands its details (tracking number, status, delivery type, tracking link) in place, using the same accordion behaviour as the main list, so the popup stays open while you browse.</p>
+<h3 id="remove-a-parcel">Remove a parcel<a class="headerlink" href="#remove-a-parcel" title="Permanent link">&para;</a></h3>
+<p>Every parcel's detail panel has a small <strong>Remove</strong> control — handy for a cancelled order that stays on "unknown" forever. <strong>Remove from Home Assistant</strong> calls the integration's own <code>untrack_parcel</code> action, so the integration stops tracking the code; it is only offered when the integration has that action. <strong>Only from this card</strong> hides the parcel in the card and works for every carrier, including account-based ones. Toggle it off with <code>show_remove_button: false</code>.</p>
 <h3 id="add-parcel-support">Add parcel support<a class="headerlink" href="#add-parcel-support" title="Permanent link">&para;</a></h3>
 <p>For every carrier whose integration has a <code>track_parcel</code> service — the tracking-code carriers, plus account-based ones that also accept a code, such as An Post, bpost and DHL — the card shows a "Add parcel" control that calls the integration's own <code>track_parcel</code> service directly — the parcel is genuinely registered with the integration, not just added to the card's own view. Toggle it off with <code>show_add_parcel: false</code> if you'd rather add parcels through the integration itself.</p>
 <p>Which carriers have it is listed under <a href="../configuration/#carrier-types">Carrier types</a>. Account-based integrations without such a service (PostNL, DHL NL, DPD, Vinted Go, ...) don't need it: every parcel on the account appears automatically.</p>

@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
     
     
       
@@ -1019,6 +1019,12 @@
 <td>boolean</td>
 <td><code>true</code></td>
 <td>When a parcel has a custom name, show its sender after it in dimmed text (<code>Birthday gift · Example Store</code>), since the custom name replaces the "Parcel from …" title. Parcels without a sender keep just the custom name</td>
+</tr>
+<tr>
+<td><code>show_remove_button</code></td>
+<td>boolean</td>
+<td><code>true</code></td>
+<td>Show a small "Remove" control in each parcel's detail panel. It offers <strong>Remove from Home Assistant</strong> (calls the carrier integration's <code>untrack_parcel</code> action, only offered when that integration has one) and <strong>Only from this card</strong> (hides the parcel in the card; the only choice for account-based carriers like PostNL or DPD). Removed parcels are remembered in the same place as custom names (<code>custom_name_scope</code>); for a non-admin user under <code>everyone</code> they are remembered in that browser only</td>
 </tr>
 <tr>
 <td><code>sort_order</code></td>
