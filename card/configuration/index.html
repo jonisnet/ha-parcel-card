@@ -1021,6 +1021,12 @@
 <td>When a parcel has a custom name, show its sender after it in dimmed text (<code>Birthday gift · Example Store</code>), since the custom name replaces the "Parcel from …" title. Parcels without a sender keep just the custom name</td>
 </tr>
 <tr>
+<td><code>show_contents</code></td>
+<td>boolean</td>
+<td><code>true</code></td>
+<td>Show what is in the parcel (the integration's <code>contents</code> field: a shop's item titles, or text set with the integration's <code>update_contents</code> action) as a small line under the parcel's title. Hidden when it only repeats the custom name</td>
+</tr>
+<tr>
 <td><code>show_remove_button</code></td>
 <td>boolean</td>
 <td><code>true</code></td>
@@ -1396,7 +1402,7 @@
 <td><a href="https://github.com/ha-parcel-integrations/ha-dao">ha-parcel-integrations/ha-dao</a></td>
 <td style="text-align: center;">—</td>
 <td style="text-align: center;">✅</td>
-<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
 </tr>
 <tr>
 <td><code>delhivery</code></td>
@@ -1428,7 +1434,7 @@
 <td><a href="https://github.com/ha-parcel-integrations/ha-dpd">ha-parcel-integrations/ha-dpd</a></td>
 <td style="text-align: center;">—</td>
 <td style="text-align: center;">✅</td>
-<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
 </tr>
 <tr>
 <td><code>dragonfly</code></td>
