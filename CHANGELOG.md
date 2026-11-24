@@ -1,5 +1,29 @@
 # Changelog
 
+## [2.0.7] — 2026-11-24
+
+### Added
+
+- **What is in the parcel** — the integrations now send a `contents` field per parcel (for
+  example Amazon's and Vinted Go's item titles). The card shows it as a small line under the
+  parcel's title. Turn it off with the new `show_contents` option.
+- **Custom names reach the integration** — where the carrier's integration has the new
+  `update_contents` action (PostNL, DHL, DHL NL, DPD, GLS, UPS, Amazon and more), a custom name
+  is also saved there as the parcel's contents, so it shows up in the integration's calendar,
+  next-delivery sensor and automations. Clearing the name clears it there too.
+- **DPD and DAO: "Add parcel"** — both integrations now have a `track_parcel` action. For DPD it
+  adds the number to your myDPD account; DAO can also follow codes without an account.
+
+### Changed
+
+- **Expected delivery follows the new parcel contract** — integrations now send a single
+  delivery time as a window to the end of that day, and a date without a time as the whole
+  day. The card shows these as "Today from 10:00" and "Tomorrow" instead of "between 10:00 and
+  23:59" or "between 00:00 and 23:59", and a range of whole days as "Expected between 27 Nov and
+  29 Nov". A delivery date without a time shows without "00:00".
+- "Add parcel" only lists carriers whose installed integration actually has a `track_parcel`
+  action, so an older integration version no longer shows a control that fails.
+
 ## [2.0.6] — 2026-11-22
 
 ### Added

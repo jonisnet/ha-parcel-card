@@ -47,7 +47,7 @@
 - **Four tabs** — In Transit · Delivered · Sent · Letters, with parcel details, barcode and a direct tracking link. Pick the tab the card opens on with `default_tab`, or link straight to one with `?parcel_tab=post` — handy from a notification
 - **Carrier overview popup** — click a logo in the multi-carrier banner to see every parcel and letter for that carrier across all tabs in one popup, with details expandable in place
 - **Add a parcel from the card** — every carrier whose integration has a `track_parcel` service gets an "Add parcel" control that registers a new Track & Trace number directly; see [Add parcel support](#add-parcel-support) below
-- **Custom parcel names** — give any parcel a short label of your own (e.g. "Birthday gift") right from its detail panel, instead of just a tracking code; shared instance-wide with live updates by default, or scope it to just you or just this browser — see `custom_name_scope`
+- **Custom parcel names** — give any parcel a short label of your own (e.g. "Birthday gift") right from its detail panel, instead of just a tracking code (where the integration has an `update_contents` action, the label is saved there as the parcel's contents too); shared instance-wide with live updates by default, or scope it to just you or just this browser — see `custom_name_scope`
 - **Flexible sorting & grouping** — soonest-arriving parcel on top by default, or pin newest/oldest-first everywhere; group parcels by carrier or show one flat, interleaved list — see `sort_order`/`group_by_carrier`
 - **Letterbox mail** — PostNL letters get their own tab with scan images you can pinch or double-tap to zoom into, matched automatically and resilient to ha-postnl updates
 - **Full visual editor** — no YAML required, with auto sensor detection, a media browser for custom images, a colour picker and live preview
@@ -112,11 +112,11 @@ via `type: custom`, no code changes needed here. See **[the integration contract
 | **Correos** | [ha-parcel-integrations/ha-correos](https://github.com/ha-parcel-integrations/ha-correos) | ✅ | — | — |
 | **CTT** | [ha-parcel-integrations/ha-ctt](https://github.com/ha-parcel-integrations/ha-ctt) | ✅ | — | — |
 | **Danske Fragtmænd** | [ha-parcel-integrations/ha-danske-fragtmaend](https://github.com/ha-parcel-integrations/ha-danske-fragtmaend) | ✅ | — | — |
-| **DAO** | [ha-parcel-integrations/ha-dao](https://github.com/ha-parcel-integrations/ha-dao) | — | ✅ | — |
+| **DAO** | [ha-parcel-integrations/ha-dao](https://github.com/ha-parcel-integrations/ha-dao) | ✅ | ✅ | — |
 | **Delhivery** | [ha-parcel-integrations/ha-delhivery](https://github.com/ha-parcel-integrations/ha-delhivery) | ✅ | — | — |
 | **DHL** | [ha-parcel-integrations/ha-dhl](https://github.com/ha-parcel-integrations/ha-dhl) | ✅ | ✅ | — |
 | **DHL NL** | [ha-parcel-integrations/ha-dhl-nl](https://github.com/ha-parcel-integrations/ha-dhl-nl) | — | ✅ | — |
-| **DPD** | [ha-parcel-integrations/ha-dpd](https://github.com/ha-parcel-integrations/ha-dpd) | — | ✅ | — |
+| **DPD** | [ha-parcel-integrations/ha-dpd](https://github.com/ha-parcel-integrations/ha-dpd) | ✅ | ✅ | — |
 | **Dragonfly** | [ha-parcel-integrations/ha-dragonfly](https://github.com/ha-parcel-integrations/ha-dragonfly) | ✅ | — | — |
 | **Dynalogic** | [ha-parcel-integrations/ha-dynalogic](https://github.com/ha-parcel-integrations/ha-dynalogic) | ✅ | — | — |
 | **Early Bird** | [ha-parcel-integrations/ha-early-bird](https://github.com/ha-parcel-integrations/ha-early-bird) | ✅ | — | — |
@@ -188,7 +188,7 @@ Full version compatibility notes, PostNL variant details and sensor naming: [jon
 
 ### Add parcel support
 
-The card's "Add parcel" control appears for every carrier whose integration has a `track_parcel` service (the **Add parcel from card** column above) — mostly carriers that track by tracking number, plus account-based ones that also accept a code, such as An Post, bpost and DHL. Account-based integrations without such a service (PostNL, DHL NL, DPD, Vinted Go, ...) don't need one: every parcel sent to or from your account appears automatically.
+The card's "Add parcel" control appears for every carrier whose integration has a `track_parcel` service (the **Add parcel from card** column above) — mostly carriers that track by tracking number, plus account-based ones that also accept a code, such as An Post, bpost, DHL and DPD (adds the number to your myDPD account). Account-based integrations without such a service (PostNL, DHL NL, Vinted Go, ...) don't need one: every parcel sent to or from your account appears automatically.
 
 ---
 

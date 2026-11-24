@@ -68,7 +68,7 @@ window.HAParcelCard.getSelectValue = window.HAParcelCard.getSelectValue || ((ev,
 
 (() => {
 const { LitElement, html, css } = window.HAParcelCard.getLit();
-const CARD_VERSION = 'v2.0.6';
+const CARD_VERSION = 'v2.0.7';
 console.info(`%c HA-PARCEL-CARD %c ${CARD_VERSION} `, 'color: white; background: #ed8c00; font-weight: bold;', 'color: #ed8c00; background: white; font-weight: bold;');
 
 const DEFAULT_CARRIER_ICON = 'mdi:package-variant-closed';
@@ -300,6 +300,9 @@ const TRANSLATIONS = {
         remove_from_ha: 'Remove from Home Assistant',
         remove_from_card: 'Only from this card',
         show_remove_button: 'Show remove button per parcel',
+        from_time: 'from {time}',
+        expected_between_days: 'Expected between {from} and {to}',
+        show_contents: 'Show what is in the parcel',
         pickup_ready_today: 'Ready since today',
         pickup_ready_one_day: 'Waiting for 1 day',
         pickup_ready_days: 'Waiting for {n} days',
@@ -500,6 +503,9 @@ const TRANSLATIONS = {
         remove_from_ha: 'Uit Home Assistant verwijderen',
         remove_from_card: 'Alleen uit de kaart',
         show_remove_button: 'Verwijderknop per pakket tonen',
+        from_time: 'vanaf {time}',
+        expected_between_days: 'Verwacht tussen {from} en {to}',
+        show_contents: 'Toon wat er in het pakket zit',
         pickup_ready_today: 'Ligt sinds vandaag klaar',
         pickup_ready_one_day: 'Ligt 1 dag klaar',
         pickup_ready_days: 'Ligt {n} dagen klaar',
@@ -701,6 +707,9 @@ const TRANSLATIONS = {
         remove_from_ha: 'Премахни от Home Assistant',
         remove_from_card: 'Само от картата',
         show_remove_button: 'Показвай бутон за премахване на всяка пратка',
+        from_time: 'от {time}',
+        expected_between_days: 'Очаквана между {from} и {to}',
+        show_contents: 'Показвай какво има в пратката',
         pickup_ready_today: 'Готова от днес',
         pickup_ready_one_day: 'Чака от 1 ден',
         pickup_ready_days: 'Чака от {n} дни',
@@ -902,6 +911,9 @@ const TRANSLATIONS = {
         remove_from_ha: 'Odebrat z Home Assistantu',
         remove_from_card: 'Jen z karty',
         show_remove_button: 'Zobrazit u každé zásilky tlačítko pro odebrání',
+        from_time: 'od {time}',
+        expected_between_days: 'Očekáváno mezi {from} a {to}',
+        show_contents: 'Zobrazit, co je v zásilce',
         pickup_ready_today: 'Připraveno od dnes',
         pickup_ready_one_day: 'Čeká 1 den',
         pickup_ready_days: 'Čeká {n} dní',
@@ -1103,6 +1115,9 @@ const TRANSLATIONS = {
         remove_from_ha: 'Fjern fra Home Assistant',
         remove_from_card: 'Kun fra kortet',
         show_remove_button: 'Vis fjern-knap for hver pakke',
+        from_time: 'fra {time}',
+        expected_between_days: 'Forventet mellem {from} og {to}',
+        show_contents: 'Vis hvad pakken indeholder',
         pickup_ready_today: 'Klar siden i dag',
         pickup_ready_one_day: 'Klar i 1 dag',
         pickup_ready_days: 'Klar i {n} dage',
@@ -1304,6 +1319,9 @@ const TRANSLATIONS = {
         remove_from_ha: 'Aus Home Assistant entfernen',
         remove_from_card: 'Nur aus der Karte',
         show_remove_button: 'Entfernen-Schaltfläche pro Paket anzeigen',
+        from_time: 'ab {time}',
+        expected_between_days: 'Erwartet zwischen {from} und {to}',
+        show_contents: 'Paketinhalt anzeigen',
         pickup_ready_today: 'Seit heute abholbereit',
         pickup_ready_one_day: 'Seit 1 Tag abholbereit',
         pickup_ready_days: 'Seit {n} Tagen abholbereit',
@@ -1505,6 +1523,9 @@ const TRANSLATIONS = {
         remove_from_ha: 'Quitar de Home Assistant',
         remove_from_card: 'Solo de la tarjeta',
         show_remove_button: 'Mostrar botón para quitar en cada paquete',
+        from_time: 'desde las {time}',
+        expected_between_days: 'Previsto entre el {from} y el {to}',
+        show_contents: 'Mostrar el contenido del paquete',
         pickup_ready_today: 'Listo desde hoy',
         pickup_ready_one_day: 'Listo desde hace 1 día',
         pickup_ready_days: 'Listo desde hace {n} días',
@@ -1706,6 +1727,9 @@ const TRANSLATIONS = {
         remove_from_ha: 'Poista Home Assistantista',
         remove_from_card: 'Vain kortilta',
         show_remove_button: 'Näytä poistopainike jokaisessa paketissa',
+        from_time: 'klo {time} alkaen',
+        expected_between_days: 'Odotetaan {from}–{to}',
+        show_contents: 'Näytä paketin sisältö',
         pickup_ready_today: 'Valmiina tänään alkaen',
         pickup_ready_one_day: 'Odottanut 1 päivän',
         pickup_ready_days: 'Odottanut {n} päivää',
@@ -1907,6 +1931,9 @@ const TRANSLATIONS = {
         remove_from_ha: 'Retirer de Home Assistant',
         remove_from_card: 'Seulement de la carte',
         show_remove_button: 'Afficher un bouton de retrait par colis',
+        from_time: 'à partir de {time}',
+        expected_between_days: 'Prévu entre le {from} et le {to}',
+        show_contents: 'Afficher le contenu du colis',
         pickup_ready_today: 'Disponible depuis aujourd\'hui',
         pickup_ready_one_day: 'Disponible depuis 1 jour',
         pickup_ready_days: 'Disponible depuis {n} jours',
@@ -2108,6 +2135,9 @@ const TRANSLATIONS = {
         remove_from_ha: 'Home Assistant से हटाएँ',
         remove_from_card: 'सिर्फ़ कार्ड से',
         show_remove_button: 'हर पार्सल पर हटाने का बटन दिखाएँ',
+        from_time: '{time} से',
+        expected_between_days: 'अपेक्षित {from} और {to} के बीच',
+        show_contents: 'पार्सल में क्या है, दिखाएँ',
         pickup_ready_today: 'आज से तैयार',
         pickup_ready_one_day: '1 दिन से इंतज़ार में',
         pickup_ready_days: '{n} दिनों से इंतज़ार में',
@@ -2309,6 +2339,9 @@ const TRANSLATIONS = {
         remove_from_ha: 'Eltávolítás a Home Assistantból',
         remove_from_card: 'Csak a kártyáról',
         show_remove_button: 'Eltávolítás gomb megjelenítése csomagonként',
+        from_time: '{time} órától',
+        expected_between_days: 'Várható {from} és {to} között',
+        show_contents: 'A csomag tartalmának megjelenítése',
         pickup_ready_today: 'Ma óta átvehető',
         pickup_ready_one_day: '1 napja átvehető',
         pickup_ready_days: '{n} napja átvehető',
@@ -2510,6 +2543,9 @@ const TRANSLATIONS = {
         remove_from_ha: 'Rimuovi da Home Assistant',
         remove_from_card: 'Solo dalla scheda',
         show_remove_button: 'Mostra il pulsante di rimozione per ogni pacco',
+        from_time: 'dalle {time}',
+        expected_between_days: 'Previsto tra il {from} e il {to}',
+        show_contents: 'Mostra il contenuto del pacco',
         pickup_ready_today: 'Pronto da oggi',
         pickup_ready_one_day: 'Pronto da 1 giorno',
         pickup_ready_days: 'Pronto da {n} giorni',
@@ -2711,6 +2747,9 @@ const TRANSLATIONS = {
         remove_from_ha: 'Fjern fra Home Assistant',
         remove_from_card: 'Bare fra kortet',
         show_remove_button: 'Vis fjern-knapp for hver pakke',
+        from_time: 'fra {time}',
+        expected_between_days: 'Forventet mellom {from} og {to}',
+        show_contents: 'Vis hva pakken inneholder',
         pickup_ready_today: 'Klar siden i dag',
         pickup_ready_one_day: 'Klar i 1 dag',
         pickup_ready_days: 'Klar i {n} dager',
@@ -2912,6 +2951,9 @@ const TRANSLATIONS = {
         remove_from_ha: 'Usuń z Home Assistanta',
         remove_from_card: 'Tylko z karty',
         show_remove_button: 'Pokaż przycisk usuwania przy każdej przesyłce',
+        from_time: 'od {time}',
+        expected_between_days: 'Spodziewana między {from} a {to}',
+        show_contents: 'Pokaż zawartość przesyłki',
         pickup_ready_today: 'Gotowa od dziś',
         pickup_ready_one_day: 'Czeka od 1 dnia',
         pickup_ready_days: 'Czeka od {n} dni',
@@ -3113,6 +3155,9 @@ const TRANSLATIONS = {
         remove_from_ha: 'Remover do Home Assistant',
         remove_from_card: 'Só do cartão',
         show_remove_button: 'Mostrar botão de remover em cada encomenda',
+        from_time: 'a partir das {time}',
+        expected_between_days: 'Previsto entre {from} e {to}',
+        show_contents: 'Mostrar o conteúdo da encomenda',
         pickup_ready_today: 'Disponível desde hoje',
         pickup_ready_one_day: 'Disponível há 1 dia',
         pickup_ready_days: 'Disponível há {n} dias',
@@ -3314,6 +3359,9 @@ const TRANSLATIONS = {
         remove_from_ha: 'Elimină din Home Assistant',
         remove_from_card: 'Doar de pe card',
         show_remove_button: 'Afișează butonul de eliminare pentru fiecare colet',
+        from_time: 'de la {time}',
+        expected_between_days: 'Estimat între {from} și {to}',
+        show_contents: 'Afișează conținutul coletului',
         pickup_ready_today: 'Gata de azi',
         pickup_ready_one_day: 'Gata de 1 zi',
         pickup_ready_days: 'Gata de {n} zile',
@@ -3515,6 +3563,9 @@ const TRANSLATIONS = {
         remove_from_ha: 'Odstrániť z Home Assistantu',
         remove_from_card: 'Len z karty',
         show_remove_button: 'Zobraziť pri každej zásielke tlačidlo na odstránenie',
+        from_time: 'od {time}',
+        expected_between_days: 'Očakávané medzi {from} a {to}',
+        show_contents: 'Zobraziť obsah zásielky',
         pickup_ready_today: 'Pripravené od dnes',
         pickup_ready_one_day: 'Čaká 1 deň',
         pickup_ready_days: 'Čaká {n} dní',
@@ -3716,6 +3767,9 @@ const TRANSLATIONS = {
         remove_from_ha: 'Ta bort från Home Assistant',
         remove_from_card: 'Bara från kortet',
         show_remove_button: 'Visa ta bort-knapp för varje paket',
+        from_time: 'från {time}',
+        expected_between_days: 'Väntas mellan {from} och {to}',
+        show_contents: 'Visa vad paketet innehåller',
         pickup_ready_today: 'Klart sedan i dag',
         pickup_ready_one_day: 'Klart i 1 dag',
         pickup_ready_days: 'Klart i {n} dagar',
@@ -3917,6 +3971,9 @@ const TRANSLATIONS = {
         remove_from_ha: 'Видалити з Home Assistant',
         remove_from_card: 'Лише з картки',
         show_remove_button: 'Показувати кнопку видалення для кожної посилки',
+        from_time: 'з {time}',
+        expected_between_days: 'Очікується між {from} і {to}',
+        show_contents: 'Показувати вміст посилки',
         pickup_ready_today: 'Готово з сьогодні',
         pickup_ready_one_day: 'Чекає 1 день',
         pickup_ready_days: 'Чекає {n} днів',
@@ -4381,7 +4438,9 @@ const STATUS_STEP_ORDER_PICKUP = ['registered', 'in_transit', 'out_for_delivery'
 
 const CARRIER_PRESETS = {
     postnl:       { label: 'PostNL',                    icon: 'mdi:package-variant-closed', color: '#ed8c00', schema: 'canonical',     supports_letters: true,  sensor_slug: 'postnl' },
-    dhl:          { label: 'DHL NL',                      icon: 'mdi:package-variant-closed', color: '#ffcc00', schema: 'canonical',     supports_letters: false, sensor_slug: 'dhl'    },
+    // The card type predates ha-dhl-nl's own domain (dhl_nl); integration_domain points the
+    // update_contents call there.
+    dhl:          { label: 'DHL NL',                      icon: 'mdi:package-variant-closed', color: '#ffcc00', schema: 'canonical',     supports_letters: false, sensor_slug: 'dhl', integration_domain: 'dhl_nl' },
     dpd:          { label: 'DPD',                        icon: 'mdi:package-variant-closed', color: '#dc0032', schema: 'canonical',     supports_letters: false, sensor_slug: 'dpd',
                     // outgoing_delivered intentionally has no override here (unlike the
                     // other slots): peternijssen/ha-dpd added its own
@@ -4390,7 +4449,10 @@ const CARRIER_PRESETS = {
                     // fallback like every other carrier without a specific override — do
                     // not hardcode it back to `null` ("unsupported"), that was only ever
                     // true historically.
-                    slug_first_suffixes: { incoming: 'binnenkomende_pakketten', delivered: 'bezorgde_pakketten', outgoing: 'uitgaande_pakketten', letters: null } },
+                    slug_first_suffixes: { incoming: 'binnenkomende_pakketten', delivered: 'bezorgde_pakketten', outgoing: 'uitgaande_pakketten', letters: null },
+                    // Since ha-dpd 2.x (2026-11-18) dpd.track_parcel adds a parcel number to the
+                    // myDPD account; there is no untrack_parcel, so "Remove" only offers the card.
+                    track_parcel_service: { domain: 'dpd', field: 'tracking_code', supports_postal_code: false, optional_config_entry_field: 'config_entry_id' } },
     // Account-based like postnl/dhl/dpd above (e-mail + verification-link login, no password,
     // no tracking-code entry) — so there's no track_parcel_service and no "+ Add parcel" control
     // for this carrier. Brand colour #007782 is the --primary-default CSS custom property read
@@ -4568,7 +4630,9 @@ const CARRIER_PRESETS = {
                     track_parcel_service: { domain: 'canpar', field: 'tracking_code', supports_postal_code: false } },
     ctt:          { label: 'CTT',                        icon: 'mdi:package-variant-closed', color: '#e00010', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'ctt',
                     track_parcel_service: { domain: 'ctt', field: 'tracking_code', supports_postal_code: false } },
-    dao:          { label: 'DAO',                        icon: 'mdi:package-variant-closed', color: '#a80008', schema: 'canonical',     supports_letters: false, supports_outgoing: true, sensor_slug: 'dao' },
+    // ha-dao can also follow codes without an account (dao.track_parcel / untrack_parcel).
+    dao:          { label: 'DAO',                        icon: 'mdi:package-variant-closed', color: '#a80008', schema: 'canonical',     supports_letters: false, supports_outgoing: true, sensor_slug: 'dao',
+                    track_parcel_service: { domain: 'dao', field: 'tracking_code', supports_postal_code: false } },
     dhl_global:   { label: 'DHL',                        icon: 'mdi:package-variant-closed', color: '#ffcc00', schema: 'canonical',     supports_letters: false, supports_outgoing: true, sensor_slug: 'dhl',
                     track_parcel_service: { domain: 'dhl', field: 'tracking_code', supports_postal_code: false, optional_config_entry_field: 'config_entry_id' } },
     econt:        { label: 'Econt',                      icon: 'mdi:package-variant-closed', color: '#204080', schema: 'canonical',     supports_letters: false, supports_outgoing: false, sensor_slug: 'econt',
@@ -5703,6 +5767,7 @@ class HaParcelCard extends HTMLElement {
             show_extra_info_button: true,
             show_raw_data_button: true,
             show_remove_button: true,
+            show_contents: true,
             group_by_carrier: true,
             header_color: '',
             header_text_color: '',
@@ -5807,6 +5872,7 @@ class HaParcelCard extends HTMLElement {
             show_extra_info_button: true,
             show_raw_data_button: true,
             show_remove_button: true,
+            show_contents: true,
             group_by_carrier: true,
             layout_order: ['header', 'animation', 'tabs', 'list']
         };
@@ -5816,6 +5882,8 @@ class HaParcelCard extends HTMLElement {
 
     formatDate(dateStr) {
         if (!dateStr) return "";
+        const wall = this._wallClock(dateStr);
+        if (wall && wall.time === '00:00:00') return this._formatDateOnly(this._localDay(wall.day));
         return new Date(dateStr).toLocaleDateString(this._hass?.language || 'en', {
             day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit'
         });
@@ -6752,7 +6820,11 @@ class HaParcelCard extends HTMLElement {
         const row = e.currentTarget.closest('.custom-name-row');
         if (!row) return;
         const input = row.querySelector('.custom-name-input');
-        this._setCustomName(row.dataset.carrierType, row.dataset.key, input?.value || '');
+        const value = (input?.value || '').trim();
+        const item = this._findParcelByKey(row.dataset.key);
+        const changed = (item?.custom_name || '') !== value;
+        this._setCustomName(row.dataset.carrierType, row.dataset.key, value);
+        if (changed) this._pushContents(item, value);
         this._editingNameKey = null;
         this._lastListFingerprint = null;
         this.updateContent();
@@ -7016,7 +7088,8 @@ class HaParcelCard extends HTMLElement {
     _getTrackableCarriers() {
         return (this.config.carriers || [])
             .map((carrier, index) => ({ carrier, index, preset: CARRIER_PRESETS[carrier.type] || CARRIER_PRESETS.custom }))
-            .filter(({ preset }) => !!preset.track_parcel_service);
+            .filter(({ preset }) => !!preset.track_parcel_service
+                && (!this._hass?.services || !!this._hass.services[preset.track_parcel_service.domain]?.track_parcel));
     }
 
     _renderAddParcelForm() {
@@ -7161,7 +7234,7 @@ class HaParcelCard extends HTMLElement {
         const items = Array.isArray(displayed)
             ? displayed
             : [...(displayed.upcoming || []), ...(displayed.delivered || [])];
-        return items.map(i => `${i.key}|${i.delivered}|${i.status_message || ''}`).join(',');
+        return items.map(i => `${i.key}|${i.delivered}|${i.status_message || ''}|${i.contents || ''}|${i.planned_from || ''}|${i.planned_to || ''}`).join(',');
     }
 
     updateContent() {
@@ -7309,7 +7382,7 @@ class HaParcelCard extends HTMLElement {
         }
         if (stepIndex !== 4) {
             const parts = this._expectedDeliveryParts(selected);
-            if (parts) infos.push({ label: this._t('step_info_expected_delivery'), time: `${parts.dayPart} ${parts.timePart}` });
+            if (parts) infos.push({ label: this._t('step_info_expected_delivery'), time: `${parts.dayPart} ${parts.timePart}`.trim() });
         }
         return infos;
     }
@@ -7320,12 +7393,45 @@ class HaParcelCard extends HTMLElement {
     // they read consistently. Returns null when there's no planned_from to work with.
     _expectedDeliveryParts(item) {
         if (!item.planned_from) return null;
+        // The parcel contract (ha-parcel-integrations PARCEL_CONTRACT.md, Nov 2026) stretches a
+        // single moment to 23:59:59 the same day and a bare date to 00:00:00–23:59:59, both on
+        // the carrier's own wall clock — read that from the string itself, not the browser zone.
+        const from = this._wallClock(item.planned_from);
+        const to = item.planned_to ? this._wallClock(item.planned_to) : null;
+        const startsAtMidnight = from?.time === '00:00:00';
+        const endsAtMidnight = to?.time === '23:59:59';
+        if (startsAtMidnight && (!to || endsAtMidnight)) {
+            if (!to || to.day === from.day) {
+                const day = this._localDay(from.day);
+                return { dayPart: this._relativeDayLabel(day) || `${this._t('expected_on')} ${this._formatDateOnly(day)}`, timePart: '' };
+            }
+            const text = this._t('expected_between_days')
+                .replace('{from}', this._formatDateOnly(this._localDay(from.day)))
+                .replace('{to}', this._formatDateOnly(this._localDay(to.day)));
+            return { dayPart: text, timePart: '' };
+        }
         const dayLabel = this._relativeDayLabel(item.planned_from);
         const fromTime = this._formatTime(item.planned_from);
-        const toTime = item.planned_to ? this._formatTime(item.planned_to) : null;
         const dayPart = dayLabel || `${this._t('expected_on')} ${this._formatDateOnly(item.planned_from)}`;
+        if (endsAtMidnight && to.day === from?.day) {
+            return { dayPart, timePart: this._t('from_time').replace('{time}', fromTime) };
+        }
+        const toTime = item.planned_to ? this._formatTime(item.planned_to) : null;
         const timePart = toTime ? `${this._t('between_time')} ${fromTime} ${this._t('step_info_transit_and')} ${toTime}` : fromTime;
         return { dayPart, timePart };
+    }
+
+    // { day: 'YYYY-MM-DD', time: 'HH:MM:SS' } as written in an ISO string (its own offset), or null.
+    _wallClock(str) {
+        const m = /^(\d{4}-\d{2}-\d{2})(?:[T ](\d{2}:\d{2})(?::(\d{2}))?)?/.exec(String(str || ''));
+        if (!m) return null;
+        return { day: m[1], time: m[2] ? `${m[2]}:${m[3] || '00'}` : '00:00:00' };
+    }
+
+    // A 'YYYY-MM-DD' day as a local Date at noon, so formatting never slips to a neighbouring day.
+    _localDay(day) {
+        const [y, mo, d] = day.split('-').map(Number);
+        return new Date(y, mo - 1, d, 12);
     }
 
     // Resolves hass.locale.time_format ("12" / "24" / "language" / "system") into a 12h-vs-24h
@@ -7380,7 +7486,7 @@ class HaParcelCard extends HTMLElement {
         }
         if (!item.delivered) {
             const parts = this._expectedDeliveryParts(item);
-            if (parts) return `${parts.dayPart} ${parts.timePart}`;
+            if (parts) return `${parts.dayPart} ${parts.timePart}`.trim();
         }
         return this.formatDate(item.delivery_date || item.planned_date || item.planned_to);
     }
@@ -7749,6 +7855,45 @@ class HaParcelCard extends HTMLElement {
                 ? ` <span class="ph-sender">·&nbsp;${this._escapeHtml(sender)}</span>` : '');
     }
 
+    // What is in the parcel (`contents` in the parcel contract: the shop's item titles, or the
+    // text set with <domain>.update_contents). Hidden when it only repeats the custom name.
+    _contentsLineHtml(item) {
+        if (this.config.show_contents === false || item.is_letter) return '';
+        const contents = typeof item.contents === 'string' ? item.contents.trim() : '';
+        if (!contents) return '';
+        if (item.custom_name && item.custom_name.trim().toLowerCase() === contents.toLowerCase()) return '';
+        return `<span class="ph-contents" title="${this._escapeHtml(contents)}"><ha-icon icon="mdi:package-variant"></ha-icon><span>${this._escapeHtml(contents)}</span></span>`;
+    }
+
+    // The integration's update_contents action for this parcel, when it has one — the field for
+    // the code is tracking_code almost everywhere, barcode for ha-postnl and ha-dhl-nl.
+    _contentsServiceFor(item) {
+        const carrier = (this.config.carriers || [])[item.carrier_index];
+        if (!carrier || item.is_letter) return null;
+        const preset = CARRIER_PRESETS[carrier.type] || CARRIER_PRESETS.custom;
+        const domain = preset.integration_domain || preset.track_parcel_service?.domain || carrier.type;
+        const svc = this._hass?.services?.[domain]?.update_contents;
+        if (!svc) return null;
+        const fields = svc.fields || {};
+        const codeField = 'tracking_code' in fields ? 'tracking_code'
+            : ('barcode' in fields || ['postnl', 'dhl_nl'].includes(domain)) ? 'barcode' : 'tracking_code';
+        return { domain, codeField };
+    }
+
+    // A custom name is also stored as the parcel's contents in the integration, so it shows up
+    // in its calendar, next-delivery sensor and automations too. Clearing the name clears it
+    // there. Best effort: the card's own name is saved either way.
+    _pushContents(item, text) {
+        const target = item && this._contentsServiceFor(item);
+        const code = item && (item.barcode || item.key);
+        if (!target || !code || !this._hass?.callService) return;
+        const data = { [target.codeField]: code };
+        if (text) data.contents = text;
+        Promise.resolve()
+            .then(() => this._hass.callService(target.domain, 'update_contents', data))
+            .catch(() => { /* the card keeps its own name */ });
+    }
+
     _renderParcelItem(item, showCarrierIcon = false) {
         const isDelivered = item.delivered;
         const isLetter    = !!item.is_letter;
@@ -7789,6 +7934,7 @@ class HaParcelCard extends HTMLElement {
             <div class="parcel-header" data-key="${item.key}">
                 <div class="ph-left">
                     <span class="ph-name">${carrierIconHtml}${titleHtml}</span>
+                    ${this._contentsLineHtml(item)}
                     <span class="ph-status">
                         <ha-icon class="ph-status-icon" icon="${statusIcon}" style="width:16px;height:16px;"></ha-icon>
                         ${statusMsg}
@@ -7989,6 +8135,9 @@ class HaParcelCard extends HTMLElement {
             .ph-name { font-weight: 600; font-size: 1em; margin-bottom: 4px; display: flex; align-items: center; min-width: 0; }
             .ph-title { min-width: 0; overflow-wrap: anywhere; }
             .ph-sender { font-weight: 400; color: var(--secondary-text-color); }
+            .ph-contents { font-size: 0.85em; color: var(--secondary-text-color); display: flex; align-items: center; gap: 10px; margin-bottom: 4px; min-width: 0; }
+            .ph-contents ha-icon { --mdc-icon-size: 16px; width: 16px; height: 16px; flex-shrink: 0; display: inline-flex; }
+            .ph-contents span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
             .ph-carrier-icon { width: 24px; height: 24px; margin-right: 8px; flex-shrink: 0; }
             .ph-status { font-size: 0.85em; color: var(--secondary-text-color); display: flex; align-items: center; gap: 10px; }
             .ph-status-icon { color: var(--carrier-color, var(--accent)); flex-shrink: 0; display: flex; align-items: center; }
@@ -8190,6 +8339,7 @@ class HaParcelCardEditor extends LitElement {
             show_extra_info_button: true,
             show_raw_data_button: true,
             show_remove_button: true,
+            show_contents: true,
             group_by_carrier: true,
             header_color: '',
             header_text_color: '',
@@ -8216,7 +8366,7 @@ class HaParcelCardEditor extends LitElement {
         if (!field || !this._config) return;
         let value = this._val(ev);
         if (new Set(['days_back']).has(field)) value = parseInt(value, 10);
-        if (new Set(['show_delivered','show_sent','show_letters','show_animation','show_header','show_placeholder','show_tracking_link','show_add_parcel','show_raw_status','group_by_carrier','show_extra_info_button','show_raw_data_button','show_remove_button','show_sender_with_custom_name']).has(field))
+        if (new Set(['show_delivered','show_sent','show_letters','show_animation','show_header','show_placeholder','show_tracking_link','show_add_parcel','show_raw_status','group_by_carrier','show_extra_info_button','show_raw_data_button','show_remove_button','show_contents','show_sender_with_custom_name']).has(field))
             value = !!(ev.target?.checked ?? value);
         this._config = { ...this._config, [field]: value };
         this._emit();
@@ -9138,6 +9288,7 @@ class HaParcelCardEditor extends LitElement {
                     <div class="switch-row"><ha-switch .checked=${this._config.show_extra_info_button !== false} data-field="show_extra_info_button" @change=${this._changed}></ha-switch><span>${this._t('show_extra_info_button')}</span></div>
                     <div class="switch-row"><ha-switch .checked=${this._config.show_raw_data_button !== false} data-field="show_raw_data_button" @change=${this._changed}></ha-switch><span>${this._t('show_raw_data_button')}</span></div>
                     <div class="switch-row"><ha-switch .checked=${this._config.show_remove_button !== false} data-field="show_remove_button" @change=${this._changed}></ha-switch><span>${this._t('show_remove_button')}</span></div>
+                    <div class="switch-row"><ha-switch .checked=${this._config.show_contents !== false} data-field="show_contents" @change=${this._changed}></ha-switch><span>${this._t('show_contents')}</span></div>
                     <div class="plain-field">
                         <label>${this._t('default_tab_label')}</label>
                         <ha-selector .hass=${this.hass}

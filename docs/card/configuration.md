@@ -22,6 +22,7 @@ These options apply to the card as a whole.
 | `show_raw_status` | boolean | `false` | Show the carrier's own raw status text (e.g. GLS's "Onderweg - geladen voor aflevering") as the main status message instead of the card's generic translated label ("In transit"). Falls back to the generic label when a parcel has no raw status |
 | `custom_name_scope` | string | `everyone` | Show an "Add name" control in each parcel's detail panel, letting you give it a short custom label (e.g. "Birthday gift") instead of just a tracking code. `off` hides the control entirely; `device` saves names in this browser only; `me` saves them to your Home Assistant account (synced across your own devices); `everyone` saves them instance-wide for every user to see. See the note below |
 | `show_sender_with_custom_name` | boolean | `true` | When a parcel has a custom name, show its sender after it in dimmed text (`Birthday gift · Example Store`), since the custom name replaces the "Parcel from …" title. Parcels without a sender keep just the custom name |
+| `show_contents` | boolean | `true` | Show what is in the parcel (the integration's `contents` field: a shop's item titles, or text set with the integration's `update_contents` action) as a small line under the parcel's title. Hidden when it only repeats the custom name |
 | `show_remove_button` | boolean | `true` | Show a small "Remove" control in each parcel's detail panel. It offers **Remove from Home Assistant** (calls the carrier integration's `untrack_parcel` action, only offered when that integration has one) and **Only from this card** (hides the parcel in the card; the only choice for account-based carriers like PostNL or DPD). Removed parcels are remembered in the same place as custom names (`custom_name_scope`); for a non-admin user under `everyone` they are remembered in that browser only |
 | `sort_order` | string | `auto` | `auto` (recommended) shows the soonest-arriving parcel first in In Transit and Sent, and the most recently delivered parcel first in Delivered. `newest_first`/`oldest_first` pin one direction everywhere instead. See the note below |
 | `group_by_carrier` | boolean | `true` | Group parcels into per-carrier sections. Set to `false` for one flat list sorted purely by `sort_order`, interleaving carriers directly instead of showing all of one carrier's parcels before the next |
@@ -106,11 +107,11 @@ Normally the card generates sensor entity IDs automatically from `type` and `use
 | `correos` | Correos | [ha-parcel-integrations/ha-correos](https://github.com/ha-parcel-integrations/ha-correos) | — | — | ✅ |
 | `ctt` | CTT | [ha-parcel-integrations/ha-ctt](https://github.com/ha-parcel-integrations/ha-ctt) | — | — | ✅ |
 | `danske_fragtmaend` | Danske Fragtmænd | [ha-parcel-integrations/ha-danske-fragtmaend](https://github.com/ha-parcel-integrations/ha-danske-fragtmaend) | — | — | ✅ |
-| `dao` | DAO | [ha-parcel-integrations/ha-dao](https://github.com/ha-parcel-integrations/ha-dao) | — | ✅ | — |
+| `dao` | DAO | [ha-parcel-integrations/ha-dao](https://github.com/ha-parcel-integrations/ha-dao) | — | ✅ | ✅ |
 | `delhivery` | Delhivery | [ha-parcel-integrations/ha-delhivery](https://github.com/ha-parcel-integrations/ha-delhivery) | — | — | ✅ |
 | `dhl_global` | DHL | [ha-parcel-integrations/ha-dhl](https://github.com/ha-parcel-integrations/ha-dhl) | — | ✅ | ✅ |
 | `dhl` | DHL NL | [ha-parcel-integrations/ha-dhl-nl](https://github.com/ha-parcel-integrations/ha-dhl-nl) | — | ✅ | — |
-| `dpd` | DPD | [ha-parcel-integrations/ha-dpd](https://github.com/ha-parcel-integrations/ha-dpd) | — | ✅ | — |
+| `dpd` | DPD | [ha-parcel-integrations/ha-dpd](https://github.com/ha-parcel-integrations/ha-dpd) | — | ✅ | ✅ |
 | `dragonfly` | Dragonfly | [ha-parcel-integrations/ha-dragonfly](https://github.com/ha-parcel-integrations/ha-dragonfly) | — | — | ✅ |
 | `dynalogic` | Dynalogic | [ha-parcel-integrations/ha-dynalogic](https://github.com/ha-parcel-integrations/ha-dynalogic) | — | — | ✅ |
 | `early_bird` | Early Bird | [ha-parcel-integrations/ha-early-bird](https://github.com/ha-parcel-integrations/ha-early-bird) | — | — | ✅ |

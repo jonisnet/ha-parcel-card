@@ -25,6 +25,8 @@ Every supported carrier, with its integration and what it supports, is listed un
 - **Split sections** — both Sent and Letters are split into *Still to be delivered* and *Delivered*
 - **Click-to-expand** — click any parcel for barcode, delivery type and a direct tracking link
 - **Delivery tracker for every carrier** — selecting a parcel shows Registered · Sorting centre · Out for delivery · Delivered, with an extra Pickup point step for parcels delivered via an official pickup point. All 94 carriers and custom share five inline SVG scenes, coloured from the configured carrier colour
+- **What is in the parcel** — when the integration knows the contents (a shop's item titles, or text you set), it shows as a small line under the parcel's title; toggle with `show_contents`
+- **Expected delivery** — a time window ("Today between 14:00 and 16:00"), a start time ("Today from 10:00"), a whole day ("Tomorrow") or a range of days ("Expected between 27 Nov and 29 Nov"), following the parcel contract of the integrations
 - **Historical tracking** — configure how many days back delivered parcels remain visible
 
 ### Carrier overview popup
@@ -37,9 +39,9 @@ Every parcel's detail panel has a small **Remove** control — handy for a cance
 
 ### Add parcel support
 
-For every carrier whose integration has a `track_parcel` service — the tracking-code carriers, plus account-based ones that also accept a code, such as An Post, bpost and DHL — the card shows a "Add parcel" control that calls the integration's own `track_parcel` service directly — the parcel is genuinely registered with the integration, not just added to the card's own view. Toggle it off with `show_add_parcel: false` if you'd rather add parcels through the integration itself.
+For every carrier whose integration has a `track_parcel` service — the tracking-code carriers, plus account-based ones that also accept a code, such as An Post, bpost, DHL and DPD — the card shows a "Add parcel" control that calls the integration's own `track_parcel` service directly — the parcel is genuinely registered with the integration, not just added to the card's own view. Toggle it off with `show_add_parcel: false` if you'd rather add parcels through the integration itself.
 
-Which carriers have it is listed under [Carrier types](configuration.md#carrier-types). Account-based integrations without such a service (PostNL, DHL NL, DPD, Vinted Go, ...) don't need it: every parcel on the account appears automatically.
+Which carriers have it is listed under [Carrier types](configuration.md#carrier-types). Account-based integrations without such a service (PostNL, DHL NL, Vinted Go, ...) don't need it: every parcel on the account appears automatically.
 
 For GLS and Trunkrs, which can have multiple hubs (one per postal code), the carrier's configured `user` value is passed along automatically so the parcel lands on the right hub.
 
